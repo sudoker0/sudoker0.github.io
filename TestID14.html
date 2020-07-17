@@ -1,11 +1,17 @@
-<!DOCTYPE html>
+
 <html>
 	<form>
-		
-		<p3>To continue, please login</p3><br>
-		<label for="fname">Username:</label><br><input type="text" id="fname" name="name"><br>
-		<label for="lname">Password:</label><br><input type="password" id="lname" name="pass"><br>
-		<input type="submit" value="Login">
-		<form action="/login.php" method="post" target="_blank">
+		<form action="login.php" method="post">
+			<div class="container">
+				<label for="uname"><b>Username</b></label>
+				<input type="text" placeholder="Enter Username" name="uname" required>
+				<label for="psw"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="psw" required>
+				<button type="submit">Login</button>
+				<label>
+					<input type="checkbox" checked="checked" name="remember"> Remember me
+				</label>
+			</div>
+		<div class="container" style="background-color:#f1f1f1">
 	</form>
 </html>
