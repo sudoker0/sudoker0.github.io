@@ -2,11 +2,49 @@
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 500;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/raleway/v17/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvoorCFPrEHJA.woff2) format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+  src: url(website\font\Raleway-Medium.ttf);
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  src: url(website\font\Raleway-Light.ttf);
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  src: url(website\font\Raleway-SemiBold.ttf);
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  src: url(website\font\Raleway-SemiBold.ttf);
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  src: url(website\font\Raleway-ExtraLight.ttf);
 }
 h1 {
 	font-family: Raleway;
-	font-weight: 100;
+	font-weight: 500;
+}
+p {
+	font-family: Raleway;
+	font-weight: 600;
+}
+h2 {
+	font-family: Raleway;
+	font-weight: 600;
+}
+h3 {
+	font-family: Raleway;
+	font-weight: 600;
+}
+h4 {
+	font-family: Raleway;
+	font-weight: 600;
 }
