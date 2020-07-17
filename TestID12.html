@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<center>
+			<h2>To continue, please login</h2>
+			<h3>Username</h3>
+			<input type="text" id="username"><br>
+			<h3>Password</h3>
+			<input type="password" id="password"><br><br>
+			<button onclick="login()">Login</button>
+			<p id="a"></p>
+			<p id="b"></p>
+			<p id="c"></p>
+		</center>
+		<script>
+			function login() {
+				var A = document.getElementById("username").value;
+				var B = document.getElementById("password").value;
+				if (A == "admin") {
+					if (B == "12345678") {
+						document.getElementById("a").innerHTML = A;
+						document.getElementById("b").innerHTML = B;
+						document.getElementById("c").innerHTML = "Correct";
+					} else {
+					document.getElementById("c").innerHTML = "Wrong";
+					}
+				} else {
+				document.getElementById("c").innerHTML = "Wrong";
+				}
+			}
+		</script>
+	</body>
+</html>
