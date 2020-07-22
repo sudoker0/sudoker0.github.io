@@ -8,13 +8,15 @@
         <meta http-equiv="Pragma" content="no-cache" />
         <meta http-equiv="Expires" content="Mon, 22 Jul 2002 11:12:01 GMT" />
 	<head>
+		<link rel="icon" href="website\image\favicon.ico">
 		<title>Basic Website Redirector [quanmcpc.github.io]</title> 
 	</head>
 	<body>
 	<center>
-		<div id="countdown"></div><br><br>
+		<div id="countdown">6 seconds before redirect you into the default home.</div><br><br>
 		<a href="home.html">Click here to connect to the default home immediately</a><br><br>
 		<a href="lite\home.html">Click here to connect to the basic home (for slow connection)</a><br><br>
+		<p>Created by: xxxxxxxxx</p>
 	</center>
 	</body>
 		<script>
@@ -25,7 +27,7 @@
 				document.getElementById("countdown").innerHTML = "Now redirecting to default home...";
 				window.location.replace("home.html");
 			} else {
-				document.getElementById("countdown").innerHTML = timeleft + " seconds before auto redirect you into the default home.";
+				document.getElementById("countdown").innerHTML = timeleft + " seconds before redirect you into the default home.";
 			}
 				timeleft -= 1;
 			}, 1000);
