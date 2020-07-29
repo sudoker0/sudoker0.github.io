@@ -2,31 +2,31 @@
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 500;
-  src: url(website\font\Raleway-Medium.ttf);
+  src: url(website/font/Raleway-Medium.ttf);
 }
 @font-face {
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 600;
-  src: url(website\font\Raleway-Light.ttf);
+  src: url(website/font/Raleway-Medium.ttf);
 }
 @font-face {
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 600;
-  src: url(website\font\Raleway-SemiBold.ttf);
+  src: url(website/font/Raleway-Medium.ttf);
 }
 @font-face {
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 600;
-  src: url(website\font\Raleway-SemiBold.ttf);
+  src: url(website/font/Raleway-Medium.ttf);
 }
 @font-face {
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 600;
-  src: url(website\font\Raleway-ExtraLight.ttf);
+  src: url(website/font/Raleway-Medium.ttf);
 }
 h1 {
 	font-family: Raleway;

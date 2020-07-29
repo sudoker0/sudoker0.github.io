@@ -23,9 +23,11 @@
 			var timeleft = 5;
 			var downloadTimer = setInterval(function(){
 			if(timeleft <= 0){
+				var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
+				var webSite = "home.html?id=" + dateTime
 				clearInterval(downloadTimer);
 				document.getElementById("countdown").innerHTML = "Now redirecting to default home...";
-				window.location.replace("home.html");
+				window.location.replace(webSite);
 			} else {
 				document.getElementById("countdown").innerHTML = timeleft + " seconds before redirect you into the default home.";
 			}

@@ -14,12 +14,40 @@
 	</head>
 	<body style="background-color:black;">
 		<center>
-			<h3><a href="home_dark.html">Home</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="how_dark.html">How did I make the website?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="credit_dark.html">Credit</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="spne_dark.html">Sneak Peak and Event</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="other_project_dark.html">Other Project</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:white">[</b><a href="home.html">Light Mode</a><a style="color:white">/</a><u style="color:white">Dark Mode</u><b style="color:white">]</b></h3>
+			<h3 id="accbar"></h3>
+			<script>
+				var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
+				//Home
+				var link1 = "Home";
+				var alink1 = "home_dark.html?id=" + dateTime;
+				var html_link1 = link1.link(alink1);
+				//How did I make the website
+				var link2 = "How did I make the website?";
+				var alink2 = "how_dark.html?id=" + dateTime;
+				var html_link2 = link2.link(alink2);
+				//Credit
+				var link3 = "Credit";
+				var alink3 = "credit_dark.html?id=" + dateTime;
+				var html_link3 = link3.link(alink3);
+				//Sneak Peak and Event
+				var link4 = "Sneak Peak and Event";
+				var alink4 = "spne_dark.html?id=" + dateTime;
+				var html_link4 = link4.link(alink4);
+				//Other Project
+				var link5 = "Other Project";
+				var alink5 = "other_project_dark.html?id=" + dateTime;
+				var html_link5 = link5.link(alink5);
+				//Home Dark
+				var link6 = "[Disable Dark Mode]";
+				var alink6 = "home.html?id=" + dateTime;
+				var html_link6 = link6.link(alink6);
+				//Access Bar
+				document.getElementById("accbar").innerHTML = html_link1 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link2 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link3 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link4 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link5 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link6
+			</script>
 		</center>
 		<center>
 			<h1 style="color:red";><b>Quan_MCPC Website</b></h1>
 			<h2 style="color:green";>Thank you for visiting my website</h2>
-			<h5 style="color:red"><b>Note: For some reason the cache cleaner only work when refresh the page manually. So after the website loaded please renember to press Ctrl+F5 or even better, manually clear the cache. </b></h5>
 			<p style="color:orange";>Here is some of my favourite map that I created:</p>
 			<p><u><b><a href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-1/"  target="_blank">The Longest Useless Machine in Minecraft (version 1.1)</a></b></u></p>
 			<p><u><b><a href="https://www.planetminecraft.com/project/8-bit-decoder-in-minecraft/"  target="_blank">8-Bit Decoder in Minecraft</a></b></u></p>
@@ -38,7 +66,7 @@
 			<img width="683" height="352" src="website\image\9.png">
 			<p style="color:white">(Note: This is a <b><i style="color:red";>VERY BASIC</i></b> website)</p>
 			<p style="color:white">Created on: 7/16/20, this website will live <b style="color:red";>forever</b></p>
-			<p><b style="color:white">Info: [Total size: 7,744,203 bytes, Default: 7,737,419 bytes, Lite: 6,784 bytes], Current languages used: HTML (HyperText Markup Language) and CSS (Cascading Style Sheets)</b></p>
+			<p><b style="color:white">Info: [Total size: 7,772,988 bytes bytes, Default: 7,757,865 bytes, Lite: 15,123 bytes], Current languages used: HTML (HyperText Markup Language) and CSS (Cascading Style Sheets)</b></p>
 		</center>
 	</body>
 </html>
