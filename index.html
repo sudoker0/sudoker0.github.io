@@ -1,12 +1,5 @@
 <!DOCTYPE html>
 <html>
-        <script>
-        localStorage.clear();
-        sessionStorage.clear();
-        </script>
-        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-        <meta http-equiv="Pragma" content="no-cache" />
-        <meta http-equiv="Expires" content="Mon, 22 Jul 2002 11:12:01 GMT" />
 	<head>
 		<link rel="icon" href="website\image\favicon.ico">
 		<title>Basic Website Redirector [quanmcpc.github.io]</title> 
@@ -14,8 +7,21 @@
 	<body>
 	<center>
 		<div id="countdown">6 seconds before redirect you into the default home.</div><br><br>
-		<a href="home.html">Load default home immediately</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="lite\home.html">Load basic home (for slow connection)</a><br><br>
-		
+		<h3 id="access"></h3>
+		<script>
+			var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
+			//Load default home immediately
+			var link1 = "Load default home immediately";
+			var alink1 = "home.html?id=" + dateTime;
+			var html_link1 = link1.link(alink1);
+			//How did I make the website
+			var link2 = "Load basic home (for slow connection)";
+			var alink2 = "lite/home.html?id=" + dateTime;
+			var html_link2 = link2.link(alink2);
+			//Access Bar
+			document.getElementById("access").innerHTML = html_link1 + '\xa0\xa0\xa0\xa0\xa0\xa0\xa0' + '|' + '\xa0\xa0\xa0\xa0\xa0\xa0\xa0' + html_link2;
+		</script>
+		<br>
 		<p>Created by: xxxxxxxxx</p>
 	</center>
 	</body>
