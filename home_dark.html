@@ -10,6 +10,132 @@
 			max-height: 100%;
 			height: auto;
 		}
+		#img1 {
+  			position: fixed;
+  			display: none;
+ 			width: 100%;
+ 			height: 100%;
+  			top: 0;
+  			left: 0;
+  			right: 0;
+  			bottom: 0;
+  			background-color: rgba(0,0,0,0.5);
+  			z-index: 2;
+  			cursor: pointer;
+		}
+		#img2 {
+  			position: fixed;
+  			display: none;
+ 			width: 100%;
+ 			height: 100%;
+  			top: 0;
+  			left: 0;
+  			right: 0;
+  			bottom: 0;
+  			background-color: rgba(0,0,0,0.5);
+  			z-index: 2;
+  			cursor: pointer;
+		}
+		#img3 {
+  			position: fixed;
+  			display: none;
+ 			width: 100%;
+ 			height: 100%;
+  			top: 0;
+  			left: 0;
+  			right: 0;
+  			bottom: 0;
+  			background-color: rgba(0,0,0,0.5);
+  			z-index: 2;
+  			cursor: pointer;
+		}
+		#img4 {
+  			position: fixed;
+  			display: none;
+ 			width: 100%;
+ 			height: 100%;
+  			top: 0;
+  			left: 0;
+  			right: 0;
+  			bottom: 0;
+  			background-color: rgba(0,0,0,0.5);
+  			z-index: 2;
+  			cursor: pointer;
+		}
+		#img5 {
+  			position: fixed;
+  			display: none;
+ 			width: 100%;
+ 			height: 100%;
+  			top: 0;
+  			left: 0;
+  			right: 0;
+  			bottom: 0;
+  			background-color: rgba(0,0,0,0.5);
+  			z-index: 2;
+  			cursor: pointer;
+		}
+		#img6 {
+  			position: fixed;
+  			display: none;
+ 			width: 100%;
+ 			height: 100%;
+  			top: 0;
+  			left: 0;
+  			right: 0;
+  			bottom: 0;
+  			background-color: rgba(0,0,0,0.5);
+  			z-index: 2;
+  			cursor: pointer;
+		}
+		#img7 {
+  			position: fixed;
+  			display: none;
+ 			width: 100%;
+ 			height: 100%;
+  			top: 0;
+  			left: 0;
+  			right: 0;
+  			bottom: 0;
+  			background-color: rgba(0,0,0,0.5);
+  			z-index: 2;
+  			cursor: pointer;
+		}
+		#img8 {
+  			position: fixed;
+  			display: none;
+ 			width: 100%;
+ 			height: 100%;
+  			top: 0;
+  			left: 0;
+  			right: 0;
+  			bottom: 0;
+  			background-color: rgba(0,0,0,0.5);
+  			z-index: 2;
+  			cursor: pointer;
+		}
+		#img9 {
+  			position: fixed;
+  			display: none;
+ 			width: 100%;
+ 			height: 100%;
+  			top: 0;
+  			left: 0;
+  			right: 0;
+  			bottom: 0;
+  			background-color: rgba(0,0,0,0.5);
+  			z-index: 2;
+  			cursor: pointer;
+		}
+		#image {
+  			position: absolute;
+			width: 1023px;
+			height: 525px;
+  			top: 50%;
+  			left: 50%;
+  			transform: translate(-50%,-50%);
+  			-ms-transform: translate(-50%,-50%);
+		}
 	</style>
 	</head>
 	<body style="background-color:black;">
@@ -55,18 +181,101 @@
 			<p><u><b><a href="https://www.planetminecraft.com/project/security-vault-2-0/"  target="_blank">Security Vault 2.0</a></b></u></p>
 			<p><u><b><a href="https://www.planetminecraft.com/project/compact-calculator-1-15-2/"  target="_blank">Compact Calculator (1.15.2)</a></b></u></p>
 			<p style="color:orange";>Here is some screenshots of my map:</p>
-			<img width="455" height="234" src="website\image\1.png">
-			<img width="455" height="234" src="website\image\2.png">
-			<img width="455" height="234" src="website\image\3.png">
-			<img width="455" height="234" src="website\image\4.png">
-			<img width="455" height="234" src="website\image\5.png">
-			<img width="455" height="234" src="website\image\6.png">
-			<img width="455" height="234" src="website\image\7.png">
-			<img width="455" height="234" src="website\image\8.png">
-			<img width="455" height="234" src="website\image\9.png">
+			<img onclick="image1()" width="455" height="234" src="website\image\1.png">
+			<img onclick="image2()" width="455" height="234" src="website\image\2.png">
+			<img onclick="image3()" width="455" height="234" src="website\image\3.png">
+			<img onclick="image4()" width="455" height="234" src="website\image\4.png">
+			<img onclick="image5()" width="455" height="234" src="website\image\5.png">
+			<img onclick="image6()" width="455" height="234" src="website\image\6.png">
+			<img onclick="image7()" width="455" height="234" src="website\image\7.png">
+			<img onclick="image8()" width="455" height="234" src="website\image\8.png">
+			<img onclick="image9()" width="455" height="234" src="website\image\9.png">
+			<script>
+				function image1() {
+					document.getElementById("img1").style.display = "block";
+				}
+				function image2() {
+					document.getElementById("img2").style.display = "block";
+				}
+				function image3() {
+					document.getElementById("img3").style.display = "block";
+				}
+				function image4() {
+					document.getElementById("img4").style.display = "block";
+				}
+				function image5() {
+					document.getElementById("img5").style.display = "block";
+				}
+				function image6() {
+					document.getElementById("img6").style.display = "block";
+				}
+				function image7() {
+					document.getElementById("img7").style.display = "block";
+				}
+				function image8() {
+					document.getElementById("img8").style.display = "block";
+				}
+				function image9() {
+					document.getElementById("img9").style.display = "block";
+				}
+				function oimage1() {
+					document.getElementById("img1").style.display = "none";
+				}
+				function oimage2() {
+					document.getElementById("img2").style.display = "none";
+				}
+				function oimage3() {
+					document.getElementById("img3").style.display = "none";
+				}
+				function oimage4() {
+					document.getElementById("img4").style.display = "none";
+				}
+				function oimage5() {
+					document.getElementById("img5").style.display = "none";
+				}
+				function oimage6() {
+					document.getElementById("img6").style.display = "none";
+				}
+				function oimage7() {
+					document.getElementById("img7").style.display = "none";
+				}
+				function oimage8() {
+					document.getElementById("img8").style.display = "none";
+				}
+				function oimage9() {
+					document.getElementById("img9").style.display = "none";
+				}
+			</script>
+			<div id="img1" onclick="oimage1()">
+				<div id="image"><img width="1023" height="525" src="website/image/1.png"></div>
+			</div>
+			<div id="img2" onclick="oimage2()">
+				<div id="image"><img width="1023" height="525" src="website/image/2.png"></div>
+			</div>
+			<div id="img3" onclick="oimage3()">
+				<div id="image"><img width="1023" height="525" src="website/image/3.png"></div>
+			</div>
+			<div id="img4" onclick="oimage4()">
+				<div id="image"><img width="1023" height="525" src="website/image/4.png"></div>
+			</div>
+			<div id="img5" onclick="oimage5()">
+				<div id="image"><img width="1023" height="525" src="website/image/5.png"></div>
+			</div>
+			<div id="img6" onclick="oimage6()">
+				<div id="image"><img width="1023" height="525" src="website/image/6.png"></div>
+			</div>
+			<div id="img7" onclick="oimage7()">
+				<div id="image"><img width="1023" height="525" src="website/image/7.png"></div>
+			</div>
+			<div id="img8" onclick="oimage8()">
+				<div id="image"><img width="1023" height="525" src="website/image/8.png"></div>
+			</div>
+			<div id="img9" onclick="oimage9()">
+				<div id="image"><img width="1023" height="525" src="website/image/9.png"></div>
+			</div>
 			<p style="color:white">(Note: This is a <b><i style="color:red";>VERY BASIC</i></b> website)</p>
 			<p style="color:white">Created on: 7/16/20, this website will live <b style="color:red";>forever</b></p>
-			<p><b style="color:white">Info: [Total size: 7,768,380 bytes, Default: 7,754,859 bytes, Lite: 13,521 bytes], Current languages used: HTML (HyperText Markup Language) and CSS (Cascading Style Sheets)</b></p>
+			<p><b style="color:white">Info: [Total size: 7,884,941 bytes, Default: 7,871,339 bytes, Lite: 13,521 bytes], Current languages used: HTML (HyperText Markup Language) and CSS (Cascading Style Sheets)</b></p>
 		</center>
 	</body>
 </html>
