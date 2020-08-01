@@ -1,0 +1,111 @@
+<html>
+<head>
+	<script>
+		window.setURLNumber = 0;
+		window.setColorNumber = 0;
+	</script>
+	<style>
+		#txtFormatUrl { width: 22%; }
+		#inputColorCode { width: 19%; }
+		#namefile { width: 16%; }
+		.editor
+        {
+			border:solid 1px #ccc;
+			padding: 20px;
+			min-height:400px;
+        }
+
+        .sample-toolbar
+        {
+			border:solid 1px #ddd;
+			background:#f4f4f4;
+			padding: 5px;
+			border-radius:3px;
+        }
+
+        .sample-toolbar > span
+        {
+			cursor:pointer;
+		}
+
+        .sample-toolbar > span:hover
+        {
+			text-decoration:underline;
+		}
+	</style>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="sample-toolbar">
+		<a href="javascript:void(0)" onclick="format('bold')"><span class="fa fa-bold fa-fw"></span></a>
+        <a href="javascript:void(0)" onclick="format('italic')"><span class="fa fa-italic fa-fw"></span></a>
+		<a href="javascript:void(0)" onclick="format('underline')"><span class="fa fa-underline fa-fw"></span></a>
+		<a href="javascript:void(0)" onclick="clearAll()"><span class="fa fa-trash fa-fw"></span></a>
+		<a href="javascript:void(0)" onclick="format('insertunorderedlist')"><span class="fa fa-list fa-fw"></span></a>
+		<a href="javascript:void(0)" onclick="setUrl()"><span class="fa fa-link fa-fw"></span></a>
+		<span><input id="txtFormatUrl" placeholder="URL [https://www.google.com or folder/test.html]" class="form-control"></span>
+		<a href="javascript:void(0)" onclick="setColor()"><span class="fa fa-brush fa-fw"></span></a>
+		<span><input id="inputColorCode" placeholder="Color Data [red, #FF0000 or rgb(25,10,0)]"></input></span>
+		<a href="javascript:void(0)" onclick="downloadfile()"><span class="fa fa-save fa-fw"></span></a>
+		<input type="text" id="namefile" name="namefile" placeholder="Filename and Extension [test.html]"></input>
+    </div>
+
+<div class="editor" id="sampleeditor" contenteditable="true"></div>
+<p>Things to notice:</p>
+<p>1. To create an hyperlink text, first highlight the text you want, next enter the url that you want into the url box (if you want the hyperlink text to access an website, you MUST type "http://" or "https://" then the full url of website. If you want the hyperlink text to access an local file, you can type the filename (web.html) or the path then the filename (test/web.html))</p>
+<p>2. If you don't want to add another word or sentence into a list, press the enter 1 time to create an blank line then press enter 1 more time to end the list.</p>
+
+	<script>
+        function downloadfile(){
+            var fileName =  document.getElementById("namefile").value; // You can use the .txt extension if you want
+            downloadInnerHtml(fileName, 'sampleeditor','text/html');
+        };
+        function downloadInnerHtml(filename, elId, mimeType) {
+            var elHtml = document.getElementById(elId).innerHTML;
+            var link = document.createElement('a');
+            mimeType = mimeType || 'text/plain';
+
+            link.setAttribute('download', filename);
+            link.setAttribute('href', 'data:' + mimeType  +  ';charset=utf-8,' + encodeURIComponent(elHtml));
+            link.click(); 
+        }
+
+
+		window.addEventListener('load', function(){
+			document.getElementById('sampleeditor').setAttribute('contenteditable', 'true');
+			document.getElementById('sampleeditor2').setAttribute('contenteditable', 'true');
+        });
+
+		function format(command, value) {
+			document.execCommand(command, true, value);
+		}
+		function clearAll() {
+			document.execCommand("selectAll", false);
+			document.execCommand("delete", false);
+		}
+
+		function setUrl() {
+			window.url = document.getElementById('txtFormatUrl').value;
+			window.sText = document.getSelection();
+			if (setColorNumber == 1) {
+				document.execCommand('insertHTML', false, '<a href="' + window.url + '" target="_blank" style="color:' + window.colorCode + '";>' + window.sText + '</a>');
+			} else {
+				document.execCommand('insertHTML', false, '<a href="' + window.url + '" target="_blank">' + window.sText + '</a>');
+				window.setURLNumber = 1;
+			}
+
+		}
+		function setColor() {
+			window.colorCode = document.getElementById('inputColorCode').value;
+			window.sText = document.getSelection();
+			if (setURLNumber == 1) {
+				document.execCommand('insertHTML', false, '<a href="' + window.url + '" target="_blank" style="color:' + window.colorCode + '";>' + window.sText + '</a>');
+			} else {
+				document.execCommand('insertHTML', false, '<a style="color:' + window.colorCode + '";>' + window.sText + '</a>');
+				window.setColorNumber  = 1;
+			}
+		}
+	</script>
+</body>
+</html>
