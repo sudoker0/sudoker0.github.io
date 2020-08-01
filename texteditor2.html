@@ -46,7 +46,7 @@
 		<a href="javascript:void(0)" onclick="setUrl()"><span class="fa fa-link fa-fw"></span></a>
 		<span><input id="txtFormatUrl" placeholder="URL [https://www.google.com or folder/test.html]" class="form-control"></span>
 		<a href="javascript:void(0)" onclick="setColor()"><span class="fa fa-brush fa-fw"></span></a>
-		<span><input id="inputColorCode" placeholder="Color Data [red, #FF0000 or rgb(25,10,0)]"></input></span>
+		<span><input id="inputColorCode" placeholder="Color Data [red or #FF0000]"></input></span>
 		<a href="javascript:void(0)" onclick="downloadfile()"><span class="fa fa-save fa-fw"></span></a>
 		<input type="text" id="namefile" name="namefile" placeholder="Filename and Extension [test.html]"></input>
     </div>
@@ -90,6 +90,7 @@
 			window.sText = document.getSelection();
 			if (setColorNumber == 1) {
 				document.execCommand('insertHTML', false, '<a href="' + window.url + '" target="_blank" style="color:' + window.colorCode + '";>' + window.sText + '</a>');
+				window.setURLNumber = 1;
 			} else {
 				document.execCommand('insertHTML', false, '<a href="' + window.url + '" target="_blank">' + window.sText + '</a>');
 				window.setURLNumber = 1;
@@ -101,9 +102,10 @@
 			window.sText = document.getSelection();
 			if (setURLNumber == 1) {
 				document.execCommand('insertHTML', false, '<a href="' + window.url + '" target="_blank" style="color:' + window.colorCode + '";>' + window.sText + '</a>');
+				window.setColorNumber = 1;
 			} else {
 				document.execCommand('insertHTML', false, '<a style="color:' + window.colorCode + '";>' + window.sText + '</a>');
-				window.setColorNumber  = 1;
+				window.setColorNumber = 1;
 			}
 		}
 	</script>
