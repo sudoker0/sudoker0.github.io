@@ -57,6 +57,7 @@
 <p>Things to note:</p>
 <p>1. To create an hyperlink text, first highlight the text you want, next enter the url that you want into the url box (if you want the hyperlink text to access an website, you MUST type "http://" or "https://" then the full url of website. If you want the hyperlink text to access an local file, you can type the filename (web.html) or the path then the filename (test/web.html))</p>
 <p>2. If you don't want to add another word or sentence into a list, press the enter 1 time to create an blank line then press enter 1 more time to end the list.</p>
+<p>3. Don't try to combine hyperlink text with color, really</p>
 <h4>Orginial Source: <a href="https://www.thatsoftwaredude.com/content/8912/create-a-basic-text-editor-in-javascript">https://www.thatsoftwaredude.com/content/8912/create-a-basic-text-editor-in-javascript</a></h4>
 <h5>Edited, fixed by: Quan_MCPC</h5>
 <h5 style="color:red">NOTE: I am NOT the person that write this. I just added new features and fixed some bug in the og code.</h5>
@@ -72,7 +73,7 @@
         function downloadInnerHtml(filename, elId, mimeType) {
             var elHtml = document.getElementById(elId).innerHTML;
             var link = document.createElement('a');
-            mimeType = mimeType || 'text/plain';
+            mimeType = mimeType || 'text/html';
 
             link.setAttribute('download', filename);
             link.setAttribute('href', 'data:' + mimeType  +  ';charset=utf-8,' + encodeURIComponent(elHtml));
