@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Guess the Number Game</title>
+        <script>
+           var rnumber = Math.floor(10000 + Math.random() * 90000);
+           var counter = 0;
+           var start = 0;
+           var n1 = 0;
+        </script> 
+    </head>
+    <body>
+        <center>
+        <h1>Guess The Number Game</h1>
+        <textarea id="result" rows="25" cols="125" readonly style="resize: none;" placeholder="Console_Output"></textarea><br>
+        <label for="input">Input: </label>
+        <input type="text" id="input" name="input"></input>
+        <button onclick="now()">Start</button>
+        <button onclick="submit()">Insert</button>
+        <button onclick="no()">End</button>
+        <label>Timer: </label><label id="minutes">00</label>:<label id="seconds">00</label>
+        <p>Copyright (C) 2020 Quan_MCPC</p>
+        <p>Source Code: insert_source_code</p>
+    </center>
+        <script>
+           var textarea = document.getElementById('result');
+           setInterval(function(){ textarea.scrollTop = textarea.scrollHeight; }, 50);
+           document.getElementById("result").value += 'Initializing...\r';
+           document.getElementById("result").value += 'Welcome to my Guess The Number Game!\r';
+           document.getElementById("result").value += 'To beat the game, you must guess the correct number from 10000 to 99999\r';
+           document.getElementById("result").value += 'To start the game, press Start\r'
+            var minutesLabel = document.getElementById("minutes");
+            var secondsLabel = document.getElementById("seconds");
+            var totalSeconds = 0;
+            var timerVar = setInterval(setTime, 1000);
+            function setTime() {
+                if (start == 1) {
+                    ++totalSeconds;
+                    secondsLabel.innerHTML = pad(totalSeconds % 60);
+                    minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+                }
+            }
+            function pad(val) {
+                if (start == 1) {
+                    var valString = val + "";
+                    if (valString.length < 2) {
+                        return "0" + valString;
+                    } else {
+                        return valString;
+                    }
+                }
+            }
+            function now() {
+                document.getElementById("result").value += 'The game has started!';
+                start = 1;
+                if (n1 == 0) {
+                    totalSeconds = 0;
+                    n1 = 1;
+                }
+
+            }
+            function no() {
+                document.getElementById("result").value += 'The game has ended! A new number has been generated!';
+                start = 0;
+                totalSeconds = 0;
+                rnumber = Math.floor(10000 + Math.random() * 90000);
+            }
+            function submit() {
+                if (start == 1) {
+                    var input_user = document.getElementById("input").value;
+                    if (input_user < rnumber) {
+                        document.getElementById("result").value += 'Your number was: ' + input_user + '\r';
+                        document.getElementById("result").value += 'The number that you enter is lower then the number the game generated.\r';
+                        counter = counter + 1;
+                    }
+                    if (input_user > rnumber) {
+                        document.getElementById("result").value += 'Your number was: ' + input_user + '\r';
+                        document.getElementById("result").value += 'The number that you enter is higher then the number the game generated.\r';
+                        counter = counter + 1;
+                    }
+                    if (input_user == rnumber) {
+                        var m = document.getElementById("minutes").innerHTML;
+                        var s = document.getElementById("seconds").innerHTML;
+                        document.getElementById("result").value += 'Your number was: ' + input_user + '\r';
+                        document.getElementById("result").value += 'You guessed the number!!!\r';
+                        document.getElementById("result").value += 'The number was: ' + rnumber + ' and the number that you enter is: ' + input_user + '\r';
+                        document.getElementById("result").value += 'It takes you: ' + counter + ' tries to beat the game' + '\r';
+                        document.getElementById("result").value += 'The time it takes you to beat the game is: ' + m + ' minutes and ' + s +  ' seconds\r';
+                        document.getElementById("result").value += 'The game has ended!\r';
+                        document.getElementById("result").value += '===================END===================\r';
+                        start = 0;
+                        n1 = 0;
+                    }
+                } else {
+                    document.getElementById("result").value += 'Please press Start to start the game.\r';
+                }
+            }
+        </script>
+    </body>
+</html>
