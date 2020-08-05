@@ -3,7 +3,6 @@
     <head>
         <title>Guess the Number Game</title>
         <script>
-           var rnumber = Math.floor(10000 + Math.random() * 90000);
            var counter = 0;
            var start = 0;
            var n1 = 0;
@@ -11,17 +10,18 @@
     </head>
     <body>
         <center>
-        <h1>Guess The Number Game</h1>
-        <textarea id="result" rows="25" cols="125" readonly style="resize: none;" placeholder="Console_Output"></textarea><br>
-        <label for="input">Input: </label>
-        <input type="text" id="input" name="input"></input>
-        <button onclick="now()">Start</button>
-        <button onclick="submit()">Insert</button>
-        <button onclick="no()">End</button>
-        <label>Timer: </label><label id="minutes">00</label>:<label id="seconds">00</label>
-    </center>
-    <p>Copyright (C) 2020 Quan_MCPC. This game and the source code are free to download, copy, modify and publish. Just renember to include my copyright.</p>
-    <a href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/numberguessgame.html">https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/numberguessgame.html</a>
+            <h1>Guess The Number Game</h1>
+            <textarea id="result" rows="25" cols="125" readonly style="resize: none;" placeholder="Console_Output"></textarea><br>
+            <label for="input">Input: </label>
+            <input type="text" id="input" name="input"></input>
+            <button onclick="now()">Start</button>
+            <button onclick="submit()">Insert</button>
+            <button onclick="no()">End</button>
+            <label>Timer: </label><label id="minutes">00</label>:<label id="seconds">00</label>
+            <button onclick="exit()">Exit</button>
+        </center>
+        <p>Copyright (C) 2020 Quan_MCPC. This game and the source code are free to download, copy, modify and publish. Just renember to include my copyright.</p>
+        <h4>Source Code: <a href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/numberguessgame.html">https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/numberguessgame.html</a></h4>
         <script>
            var textarea = document.getElementById('result');
            setInterval(function(){ textarea.scrollTop = textarea.scrollHeight; }, 50);
@@ -33,6 +33,7 @@
             var secondsLabel = document.getElementById("seconds");
             var totalSeconds = 0;
             var timerVar = setInterval(setTime, 1000);
+            function exit() { window.location.replace("index.html"); }
             function setTime() {
                 if (start == 1) {
                     ++totalSeconds;
@@ -51,32 +52,31 @@
                 }
             }
             function now() {
-                document.getElementById("result").value += 'The game has started!';
+                document.getElementById("result").value += 'The game has started! A new number has been generated!\r';
+                rnumber = Math.floor(10000 + Math.random() * 90000);
                 start = 1;
                 if (n1 == 0) {
                     totalSeconds = 0;
                     n1 = 1;
                 }
-
             }
             function no() {
-                document.getElementById("result").value += 'The game has ended! A new number has been generated!';
+                document.getElementById("result").value += 'The game has ended! A new number has been generated!\r';
                 start = 0;
                 totalSeconds = 0;
                 rnumber = Math.floor(10000 + Math.random() * 90000);
             }
             function submit() {
+                counter = counter + 1;
                 if (start == 1) {
                     var input_user = document.getElementById("input").value;
                     if (input_user < rnumber) {
                         document.getElementById("result").value += 'Your number was: ' + input_user + '\r';
                         document.getElementById("result").value += 'The number that you enter is lower then the number the game generated.\r';
-                        counter = counter + 1;
                     }
                     if (input_user > rnumber) {
                         document.getElementById("result").value += 'Your number was: ' + input_user + '\r';
                         document.getElementById("result").value += 'The number that you enter is higher then the number the game generated.\r';
-                        counter = counter + 1;
                     }
                     if (input_user == rnumber) {
                         var m = document.getElementById("minutes").innerHTML;
@@ -84,8 +84,7 @@
                         document.getElementById("result").value += 'Your number was: ' + input_user + '\r';
                         document.getElementById("result").value += 'You guessed the number!!!\r';
                         document.getElementById("result").value += 'The number was: ' + rnumber + ' and the number that you enter is: ' + input_user + '\r';
-                        document.getElementById("result").value += 'It takes you: ' + counter + ' tries to beat the game' + '\r';
-                        document.getElementById("result").value += 'The time it takes you to beat the game is: ' + m + ' minutes and ' + s +  ' seconds\r';
+                        document.getElementById("result").value += 'It takes you: ' + m + ' minutes and ' + s + ' seconds and ' + counter + ' tries to beat the game' + '\r';
                         document.getElementById("result").value += 'The game has ended!\r';
                         document.getElementById("result").value += '===================END===================\r';
                         start = 0;
@@ -98,3 +97,4 @@
         </script>
     </body>
 </html>
+<!--The 100th lines!!!-->
