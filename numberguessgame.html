@@ -44,14 +44,11 @@
             function pad(val) {
                 if (start == 1) {
                     var valString = val + "";
-                    if (valString.length < 2) {
-                        return "0" + valString;
-                    } else {
-                        return valString;
-                    }
+                    if (valString.length < 2) { return "0" + valString; } else { return valString; }
                 }
             }
             function now() {
+                document.getElementById("input").value = '';
                 counter = 0;
                 document.getElementById("result").value += 'The game has started! A new number has been generated!\r';
                 rnumber = Math.floor(10000 + Math.random() * 90000);
@@ -62,6 +59,7 @@
                 }
             }
             function no() {
+                document.getElementById("input").value = '';
                 document.getElementById("result").value += 'The game has ended! A new number has been generated!\r';
                 start = 0;
                 totalSeconds = 0;
@@ -74,12 +72,15 @@
                     if (input_user < rnumber) {
                         document.getElementById("result").value += 'Your number was: ' + input_user + '\r';
                         document.getElementById("result").value += 'The number that you enter is lower then the number the game generated.\r';
+                        document.getElementById("input").value = '';
                     }
                     if (input_user > rnumber) {
                         document.getElementById("result").value += 'Your number was: ' + input_user + '\r';
                         document.getElementById("result").value += 'The number that you enter is higher then the number the game generated.\r';
+                        document.getElementById("input").value = '';
                     }
                     if (input_user == rnumber) {
+                        document.getElementById("input").value = '';
                         var m = document.getElementById("minutes").innerHTML;
                         var s = document.getElementById("seconds").innerHTML;
                         document.getElementById("result").value += 'Your number was: ' + input_user + '\r';
@@ -91,10 +92,9 @@
                         start = 0;
                         n1 = 0;
                     }
-                } else {
-                    document.getElementById("result").value += 'Please press Start to start the game.\r';
-                }
+                } else { document.getElementById("result").value += 'Please press Start to start the game.\r'; }
             }
         </script>
     </body>
 </html>
+<!--100th Line-->
