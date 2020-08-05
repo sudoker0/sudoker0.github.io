@@ -10,7 +10,8 @@
             document.getElementById("banid").innerHTML = localStorage.getItem("_dwjfj");
             var banip = makeid(35);
             function makeid(length) {
-                if (localStorage.getItem("_bkwre") == "1") {
+                var ab = localStorage.getItem("_bkwre");
+                if (ab == "a") {
                     var result           = '';
                     var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
                     var charactersLength = characters.length;
@@ -21,7 +22,7 @@
                 }
             }
             localStorage.setItem("_dwjfj", banip);
-            localStorage.setItem("_bkwre", "1");
+            localStorage.setItem("_bkwre", "a");
         </script>
     </body>
 </html>
