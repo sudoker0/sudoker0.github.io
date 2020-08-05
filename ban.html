@@ -8,10 +8,9 @@
         <h4 id="banid"></h4>
         <script>
             document.getElementById("banid").innerHTML = localStorage.getItem("_dwjfj");
-            var banip = makeid(35);
+            ab = localStorage.getItem("_bkwre");
+            if (ab == "a") { var banip = makeid(35); }
             function makeid(length) {
-                var ab = localStorage.getItem("_bkwre");
-                if (ab == "a") {
                     var result           = '';
                     var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
                     var charactersLength = characters.length;
@@ -19,7 +18,6 @@
                         result += characters.charAt(Math.floor(Math.random() * charactersLength));
                     }
                     return result;
-                }
             }
             localStorage.setItem("_dwjfj", banip);
             localStorage.setItem("_bkwre", "a");
