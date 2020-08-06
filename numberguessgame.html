@@ -13,7 +13,7 @@
             <h1>Guess The Number Game</h1>
             <textarea id="result" rows="25" cols="75" readonly style="resize: none; overflow-y: hidden;" placeholder="Console_Output"></textarea><br>
             <label for="input">Input: </label>
-            <input type="text" id="input" name="input" required></input>
+            <input type="text" id="input" name="input"></input>
             <button onclick="now()">Start</button>
             <button onclick="submit()">Insert</button>
             <button onclick="no()">End</button>
@@ -69,9 +69,6 @@
                 counter = counter + 1;
                 if (start == 1) {
                     var input_user = document.getElementById("input").value;
-                    if (input_user == "") {
-                        document.getElementById("result").value += 'Do not leave the';   
-                    }
                     if (input_user < rnumber) {
                         document.getElementById("result").value += 'Your number was: ' + input_user + '\r';
                         document.getElementById("result").value += 'The number that you enter is lower then the number the game generated.\r';
