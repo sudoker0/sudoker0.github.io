@@ -15,9 +15,11 @@
             <textarea id="result" rows="25" cols="75" readonly style="resize: none; overflow-y: hidden;" placeholder="Console_Output"></textarea><br>
             <label for="input">Input: </label>
             <input type="text" id="input" name="input"></input>
-            <button onclick="now()">Start</button>
             <button onclick="submit()">Insert</button>
+            <button onclick="now()">Start</button>
             <button onclick="no()">End</button>
+            <input type="text" id="inputFileNameToSaveAs></input>
+            <button onclick="saveTextAsFile()">Save Log</button>
             <label>Timer: </label><label id="minutes">00</label>:<label id="seconds">00</label>
             <button onclick="exit()">Exit</button>
         </center>
@@ -35,6 +37,29 @@
             var totalSeconds = 0;
             var timerVar = setInterval(setTime, 1000);
             function exit() { window.location.replace("index.html"); }
+            function saveTextAsFile()
+            {
+                var textToSave = document.getElementById("result").value;
+                var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+                var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+                var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAs").value;
+
+                var downloadLink = document.createElement("a");
+                downloadLink.download = fileNameToSaveAs;
+                downloadLink.innerHTML = "Download File";
+                downloadLink.href = textToSaveAsURL;
+                downloadLink.onclick = destroyClickedElement;
+                downloadLink.style.display = "none";
+                document.body.appendChild(downloadLink);
+
+                downloadLink.click();
+            }
+
+            function destroyClickedElement(event)
+            {
+                document.body.removeChild(event.target);
+            }
+
             function setTime() {
                 if (start == 1) {
                     ++totalSeconds;
