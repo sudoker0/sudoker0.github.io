@@ -48,22 +48,22 @@
                 }
             }
             function now() {
-                document.getElementById("input").value = '';
-                counter = 0;
-                document.getElementById("result").value += 'The game has started! A new number has been generated!\r';
-                rnumber = Math.floor(10000 + Math.random() * 90000);
-                start = 1;
                 if (n1 == 0) {
                     totalSeconds = 0;
+                    document.getElementById("input").value = '';
+                    counter = 0;
+                    document.getElementById("result").value += 'The game has started! A new number has been generated!\r';
+                    rnumber = Math.floor(10000 + Math.random() * 90000);
+                    start = 1;
                     n1 = 1;
                 }
             }
             function no() {
                 document.getElementById("input").value = '';
-                document.getElementById("result").value += 'The game has ended by a user! A new number has been generated!\r';
+                document.getElementById("result").value += 'The game has been ended by a user!\r';
                 start = 0;
                 totalSeconds = 0;
-                rnumber = Math.floor(10000 + Math.random() * 90000);
+                n1 = 0;
             }
             function submit() {
                 counter = counter + 1;
