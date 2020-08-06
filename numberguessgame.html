@@ -28,10 +28,10 @@
         <script>
            var textarea = document.getElementById('result');
            setInterval(function(){ textarea.scrollTop = textarea.scrollHeight; }, 50);
-           document.getElementById("result").value += 'Initializing...\r';
-           document.getElementById("result").value += 'Welcome to my Guess The Number Game!\r';
-           document.getElementById("result").value += 'To beat the game, you must guess the correct number from 10000 to 99999\r';
-           document.getElementById("result").value += 'To start the game, press Start\r'
+           document.getElementById("result").value += 'Initializing...\n';
+           document.getElementById("result").value += 'Welcome to my Guess The Number Game!\n';
+           document.getElementById("result").value += 'To beat the game, you must guess the correct number from 10000 to 99999\n';
+           document.getElementById("result").value += 'To start the game, press Start\n'
             var minutesLabel = document.getElementById("minutes");
             var secondsLabel = document.getElementById("seconds");
             var totalSeconds = 0;
@@ -78,7 +78,7 @@
                     totalSeconds = 0;
                     document.getElementById("input").value = '';
                     counter = 0;
-                    document.getElementById("result").value += 'The game has started! A new number has been generated!\r';
+                    document.getElementById("result").value += 'The game has started! A new number has been generated!\n';
                     rnumber = Math.floor(10000 + Math.random() * 90000);
                     start = 1;
                     n1 = 1;
@@ -86,7 +86,7 @@
             }
             function no() {
                 document.getElementById("input").value = '';
-                document.getElementById("result").value += 'The game has been ended by a user!\r';
+                document.getElementById("result").value += 'The game has been ended by a user!\n';
                 start = 0;
                 totalSeconds = 0;
                 n1 = 0;
@@ -96,29 +96,29 @@
                 if (start == 1) {
                     var input_user = document.getElementById("input").value;
                     if (input_user < rnumber) {
-                        document.getElementById("result").value += 'Your number was: ' + input_user + '\r';
-                        document.getElementById("result").value += 'The number that you enter is lower then the number the game generated.\r';
+                        document.getElementById("result").value += 'Your number was: ' + input_user + '\n';
+                        document.getElementById("result").value += 'The number that you enter is lower then the number the game generated.\n';
                         document.getElementById("input").value = '';
                     }
                     if (input_user > rnumber) {
-                        document.getElementById("result").value += 'Your number was: ' + input_user + '\r';
-                        document.getElementById("result").value += 'The number that you enter is higher then the number the game generated.\r';
+                        document.getElementById("result").value += 'Your number was: ' + input_user + '\n';
+                        document.getElementById("result").value += 'The number that you enter is higher then the number the game generated.\n';
                         document.getElementById("input").value = '';
                     }
                     if (input_user == rnumber) {
                         document.getElementById("input").value = '';
                         var m = document.getElementById("minutes").innerHTML;
                         var s = document.getElementById("seconds").innerHTML;
-                        document.getElementById("result").value += 'Your number was: ' + input_user + '\r';
-                        document.getElementById("result").value += 'You guessed the number!!!\r';
-                        document.getElementById("result").value += 'The number was: ' + rnumber + ' and the number that you enter is: ' + input_user + '\r';
-                        document.getElementById("result").value += 'It takes you: ' + m + ' minutes and ' + s + ' seconds and ' + counter + ' tries to beat the game' + '\r';
-                        document.getElementById("result").value += 'The game has ended!\r';
-                        document.getElementById("result").value += '===================END===================\r';
+                        document.getElementById("result").value += 'Your number was: ' + input_user + '\n';
+                        document.getElementById("result").value += 'You guessed the number!!!\n';
+                        document.getElementById("result").value += 'The number was: ' + rnumber + ' and the number that you enter is: ' + input_user + '\n';
+                        document.getElementById("result").value += 'It takes you: ' + m + ' minutes and ' + s + ' seconds and ' + counter + ' tries to beat the game' + '\n';
+                        document.getElementById("result").value += 'The game has ended!\n';
+                        document.getElementById("result").value += '===================END===================\n';
                         start = 0;
                         n1 = 0;
                     }
-                } else { document.getElementById("result").value += 'Please press Start to start the game.\r'; }
+                } else { document.getElementById("result").value += 'Please press Start to start the game.\n'; }
             }
         </script>
     </body>
