@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h3>Message Encryption and Decryption v2.0</h3>
+        <!--Encryption Part-->
+        <hr style="color:rgb(56, 56, 56); border-width: 2px; border-style: solid;">
+        <h3>Encryption Part</h3>
+        <!--Input-->
+        <p>Plain Text</p>
+        <textarea onkeyup="validate_textarea1()" name="textarea" cols="100" rows="15" id="plain_text" style="resize: none;"></textarea>
+        <!--Key-->
+        <p>Key: <input name="input" onkeyup="validate_input1()" id="encrypt_keys"></p>
+        <!--Output-->
+        <p>Output Text (Encrypted Text)</p>
+        <textarea cols="100" rows="15" id="encrypt_text" readonly style="resize: none;"></textarea>
+        <br>
+        <br>
+        <button onclick="encrypt()">Encrypt Message</button>
+        <br>
+        <br>
+        <input id="inputFileNameToSaveAs">
+        <button onclick="saveOutputToFile()">Save Encrypted Text to File</button>
+        <br>
+        <!--Decryption Part-->
+        <hr style="color:rgb(56, 56, 56); border-width: 2px; border-style: solid;">
+        <h3>Decryption Part</h3>
+        <!--Input-->
+        <p>Encrypted Text</p>
+        <textarea name="textarea" onkeyup="validate_textarea()" cols="100" rows="15" id="encrypted_text" style="resize: none;"></textarea>
+        <!--Key-->
+        <p>Key: <input name="input" onkeyup="validate_input()" id="decrypt_keys"></p>
+        <!--Output-->
+        <p>Output Text (Decrypted Text)</p>
+        <textarea cols="100" rows="15" id="decrypt_text" readonly style="resize: none;"></textarea>
+        <br>
+        <br>
+        <button onclick="decrypt()">Decrypt Message</button>
+        <br>
+        <br>
+        <input type="file" id="fileToLoad">
+        <button onclick="loadFile()">Load TXT</button>
+    </body>
+    <script>
+        //Auto remove number and only allow letter in textarea
+        function validate_textarea1() {
+            var textarea_element = document.getElementById("plain_text");
+            textarea_element.value = textarea_element.value.replace(/[^a-z]+/, '');
+        }
+        function validate_input1() {
+            var input_element = document.getElementById("encrypt_keys");
+            input_element.value = input_element.value.replace(/[^a-z]+/, '');
+        }
+        //Auto remove number and only allow letter in input field
+        //Encrypt
+        function encrypt() {
+            //Reset Output
+            document.getElementById("encrypt_text").innerHTML = "";
+            //Convert html input into input variable
+            var input = document.getElementById("plain_text").value;
+            //Convert input variable into array
+            const array_input = [...input];
+            //Encrypt plain text with A1Z26 method (A=1, B=2, C=3, etc.)
+            for (var i1 = 0; i1 < input.length; i1++) 
+            {
+                if (array_input[i1] == "a") { array_input[i1] = 1; }
+                if (array_input[i1] == "b") { array_input[i1] = 2; }
+                if (array_input[i1] == "c") { array_input[i1] = 3; }
+                if (array_input[i1] == "d") { array_input[i1] = 4; }
+                if (array_input[i1] == "e") { array_input[i1] = 5; }
+                if (array_input[i1] == "f") { array_input[i1] = 6; }
+                if (array_input[i1] == "g") { array_input[i1] = 7; }
+                if (array_input[i1] == "h") { array_input[i1] = 8; }
+                if (array_input[i1] == "i") { array_input[i1] = 9; }
+                if (array_input[i1] == "j") { array_input[i1] = 10; }
+                if (array_input[i1] == "k") { array_input[i1] = 11; }
+                if (array_input[i1] == "l") { array_input[i1] = 12; }
+                if (array_input[i1] == "m") { array_input[i1] = 13; }
+                if (array_input[i1] == "n") { array_input[i1] = 14; }
+                if (array_input[i1] == "o") { array_input[i1] = 15; }
+                if (array_input[i1] == "p") { array_input[i1] = 16; }
+                if (array_input[i1] == "q") { array_input[i1] = 17; }
+                if (array_input[i1] == "r") { array_input[i1] = 18; }
+                if (array_input[i1] == "s") { array_input[i1] = 19; }
+                if (array_input[i1] == "t") { array_input[i1] = 20; }
+                if (array_input[i1] == "u") { array_input[i1] = 21; }
+                if (array_input[i1] == "v") { array_input[i1] = 22; }
+                if (array_input[i1] == "w") { array_input[i1] = 23; }
+                if (array_input[i1] == "x") { array_input[i1] = 24; }
+                if (array_input[i1] == "y") { array_input[i1] = 25; }
+                if (array_input[i1] == "z") { array_input[i1] = 26; }
+            }
+            //Convert html key into key variable
+            var key = document.getElementById("encrypt_keys").value;
+            //Check if the key is longer then the paragraph. If it doesn't then It will pass, other wise, it will report an error
+            var key_length = key.length;
+            var input_length = input.length;
+            if (key_length > input_length) {
+                //True
+                alert("Error 001: Key is longer then input!");
+                return false;
+            } else {
+                //False
+                //Convert key varible into array
+                const array_key = [...key];
+                //Encrypt key with A1Z26 method
+                for (var i2 = 0; i2 < key.length; i2++) {
+                    if (array_key[i2] == "a") { array_key[i2] = 1; }
+                    if (array_key[i2] == "b") { array_key[i2] = 2; }
+                    if (array_key[i2] == "c") { array_key[i2] = 3; }
+                    if (array_key[i2] == "d") { array_key[i2] = 4; }
+                    if (array_key[i2] == "e") { array_key[i2] = 5; }
+                    if (array_key[i2] == "f") { array_key[i2] = 6; }
+                    if (array_key[i2] == "g") { array_key[i2] = 7; }
+                    if (array_key[i2] == "h") { array_key[i2] = 8; }
+                    if (array_key[i2] == "i") { array_key[i2] = 9; }
+                    if (array_key[i2] == "j") { array_key[i2] = 10; }
+                    if (array_key[i2] == "k") { array_key[i2] = 11; }
+                    if (array_key[i2] == "l") { array_key[i2] = 12; }
+                    if (array_key[i2] == "m") { array_key[i2] = 13; }
+                    if (array_key[i2] == "n") { array_key[i2] = 14; }
+                    if (array_key[i2] == "o") { array_key[i2] = 15; }
+                    if (array_key[i2] == "p") { array_key[i2] = 16; }
+                    if (array_key[i2] == "q") { array_key[i2] = 17; }
+                    if (array_key[i2] == "r") { array_key[i2] = 18; }
+                    if (array_key[i2] == "s") { array_key[i2] = 19; }
+                    if (array_key[i2] == "t") { array_key[i2] = 20; }
+                    if (array_key[i2] == "u") { array_key[i2] = 21; }
+                    if (array_key[i2] == "v") { array_key[i2] = 22; }
+                    if (array_key[i2] == "w") { array_key[i2] = 23; }
+                    if (array_key[i2] == "x") { array_key[i2] = 24; }
+                    if (array_key[i2] == "y") { array_key[i2] = 25; }
+                    if (array_key[i2] == "z") { array_key[i2] = 26; }
+                    console.log("Verify: " + array_key[i2]);
+                }
+                //Repeat the key until it match the length of the input
+                var repeat = Math.ceil(input.length / key.length);
+                const a = Array.from({ length: repeat }).fill(array_key).flat()
+                //Unused //const a = Array.apply(null, Array(repeat)).map(_ => array_key) // ['abc', 'abc', 'abc']
+                console.log('A: '+ a);
+                console.log("array_key: " + array_key);
+                //The actual calculation (FINALLY!)
+                for (var i3 = 0; i3 < input.length; i3++) {
+                    if (array_input[i3] + a[i3] - 1 < 27) {
+                        //document.getElementById("encrypt_text").innerHTML += array_input[i3] + a[i3] - 1;
+                        //Convert the number back to letter
+                        if (array_input[i3] + a[i3] - 1 == 1) {document.getElementById("encrypt_text").innerHTML += "a";}
+                        if (array_input[i3] + a[i3] - 1 == 2) {document.getElementById("encrypt_text").innerHTML += "b";}
+                        if (array_input[i3] + a[i3] - 1 == 3) {document.getElementById("encrypt_text").innerHTML += "c";}
+                        if (array_input[i3] + a[i3] - 1 == 4) {document.getElementById("encrypt_text").innerHTML += "d";}
+                        if (array_input[i3] + a[i3] - 1 == 5) {document.getElementById("encrypt_text").innerHTML += "e";}
+                        if (array_input[i3] + a[i3] - 1 == 6) {document.getElementById("encrypt_text").innerHTML += "f";}
+                        if (array_input[i3] + a[i3] - 1 == 7) {document.getElementById("encrypt_text").innerHTML += "g";}
+                        if (array_input[i3] + a[i3] - 1 == 8) {document.getElementById("encrypt_text").innerHTML += "h";}
+                        if (array_input[i3] + a[i3] - 1 == 9) {document.getElementById("encrypt_text").innerHTML += "i";}
+                        if (array_input[i3] + a[i3] - 1 == 10) {document.getElementById("encrypt_text").innerHTML += "j";}
+                        if (array_input[i3] + a[i3] - 1 == 11) {document.getElementById("encrypt_text").innerHTML += "k";}
+                        if (array_input[i3] + a[i3] - 1 == 12) {document.getElementById("encrypt_text").innerHTML += "l";}
+                        if (array_input[i3] + a[i3] - 1 == 13) {document.getElementById("encrypt_text").innerHTML += "m";}
+                        if (array_input[i3] + a[i3] - 1 == 14) {document.getElementById("encrypt_text").innerHTML += "n";}
+                        if (array_input[i3] + a[i3] - 1 == 15) {document.getElementById("encrypt_text").innerHTML += "o";}
+                        if (array_input[i3] + a[i3] - 1 == 16) {document.getElementById("encrypt_text").innerHTML += "p";}
+                        if (array_input[i3] + a[i3] - 1 == 17) {document.getElementById("encrypt_text").innerHTML += "q";}
+                        if (array_input[i3] + a[i3] - 1 == 18) {document.getElementById("encrypt_text").innerHTML += "r";}
+                        if (array_input[i3] + a[i3] - 1 == 19) {document.getElementById("encrypt_text").innerHTML += "s";}
+                        if (array_input[i3] + a[i3] - 1 == 20) {document.getElementById("encrypt_text").innerHTML += "t";}
+                        if (array_input[i3] + a[i3] - 1 == 21) {document.getElementById("encrypt_text").innerHTML += "u";}
+                        if (array_input[i3] + a[i3] - 1 == 22) {document.getElementById("encrypt_text").innerHTML += "v";}
+                        if (array_input[i3] + a[i3] - 1 == 23) {document.getElementById("encrypt_text").innerHTML += "w";}
+                        if (array_input[i3] + a[i3] - 1 == 24) {document.getElementById("encrypt_text").innerHTML += "x";}
+                        if (array_input[i3] + a[i3] - 1 == 25) {document.getElementById("encrypt_text").innerHTML += "y";}
+                        if (array_input[i3] + a[i3] - 1 == 26) {document.getElementById("encrypt_text").innerHTML += "z";}
+                    } else {
+                        //document.getElementById("encrypt_text").innerHTML += array_input[i3] + a[i3] - 27;
+                        //Convert the number back to letter
+                        if (array_input[i3] + a[i3] - 27 == 1) {document.getElementById("encrypt_text").innerHTML += "a";}
+                        if (array_input[i3] + a[i3] - 27 == 2) {document.getElementById("encrypt_text").innerHTML += "b";}
+                        if (array_input[i3] + a[i3] - 27 == 3) {document.getElementById("encrypt_text").innerHTML += "c";}
+                        if (array_input[i3] + a[i3] - 27 == 4) {document.getElementById("encrypt_text").innerHTML += "d";}
+                        if (array_input[i3] + a[i3] - 27 == 5) {document.getElementById("encrypt_text").innerHTML += "e";}
+                        if (array_input[i3] + a[i3] - 27 == 6) {document.getElementById("encrypt_text").innerHTML += "f";}
+                        if (array_input[i3] + a[i3] - 27 == 7) {document.getElementById("encrypt_text").innerHTML += "g";}
+                        if (array_input[i3] + a[i3] - 27 == 8) {document.getElementById("encrypt_text").innerHTML += "h";}
+                        if (array_input[i3] + a[i3] - 27 == 9) {document.getElementById("encrypt_text").innerHTML += "i";}
+                        if (array_input[i3] + a[i3] - 27 == 10) {document.getElementById("encrypt_text").innerHTML += "j";}
+                        if (array_input[i3] + a[i3] - 27 == 11) {document.getElementById("encrypt_text").innerHTML += "k";}
+                        if (array_input[i3] + a[i3] - 27 == 12) {document.getElementById("encrypt_text").innerHTML += "l";}
+                        if (array_input[i3] + a[i3] - 27 == 13) {document.getElementById("encrypt_text").innerHTML += "m";}
+                        if (array_input[i3] + a[i3] - 27 == 14) {document.getElementById("encrypt_text").innerHTML += "n";}
+                        if (array_input[i3] + a[i3] - 27 == 15) {document.getElementById("encrypt_text").innerHTML += "o";}
+                        if (array_input[i3] + a[i3] - 27 == 16) {document.getElementById("encrypt_text").innerHTML += "p";}
+                        if (array_input[i3] + a[i3] - 27 == 17) {document.getElementById("encrypt_text").innerHTML += "q";}
+                        if (array_input[i3] + a[i3] - 27 == 18) {document.getElementById("encrypt_text").innerHTML += "r";}
+                        if (array_input[i3] + a[i3] - 27 == 19) {document.getElementById("encrypt_text").innerHTML += "s";}
+                        if (array_input[i3] + a[i3] - 27 == 20) {document.getElementById("encrypt_text").innerHTML += "t";}
+                        if (array_input[i3] + a[i3] - 27 == 21) {document.getElementById("encrypt_text").innerHTML += "u";}
+                        if (array_input[i3] + a[i3] - 27 == 22) {document.getElementById("encrypt_text").innerHTML += "v";}
+                        if (array_input[i3] + a[i3] - 27 == 23) {document.getElementById("encrypt_text").innerHTML += "w";}
+                        if (array_input[i3] + a[i3] - 27 == 24) {document.getElementById("encrypt_text").innerHTML += "x";}
+                        if (array_input[i3] + a[i3] - 27 == 25) {document.getElementById("encrypt_text").innerHTML += "y";}
+                        if (array_input[i3] + a[i3] - 27 == 26) {document.getElementById("encrypt_text").innerHTML += "z";}
+                    }
+                }
+            }
+        }
+        //Decrypt
+        function decrypt() {
+            //Reset Output
+            document.getElementById("decrypt_text").innerHTML = "";
+            //Convert html input into input variable
+            var input2 = document.getElementById("encrypted_text").value;
+            //Convert input variable into array
+            const array_input2 = [...input2];
+            //Encrypt plain text with A1Z26 method (A=1, B=2, C=3, etc.)
+            
+        }
+    </script>
+</html>
