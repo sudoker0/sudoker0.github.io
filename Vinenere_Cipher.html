@@ -213,8 +213,87 @@
             var input2 = document.getElementById("encrypted_text").value;
             //Convert input variable into array
             const array_input2 = [...input2];
-            //Encrypt plain text with A1Z26 method (A=1, B=2, C=3, etc.)
-            
+            //Convert text into number with A1Z26 method (A=1, B=2, C=3, etc.)
+            for (var i1_1 = 0; i1_1 < input.length; i1_1++) 
+            {
+                if (array_input2[i1_1] == "a") { array_input2[i1_1] = 1; }
+                if (array_input2[i1_1] == "b") { array_input2[i1_1] = 2; }
+                if (array_input2[i1_1] == "c") { array_input2[i1_1] = 3; }
+                if (array_input2[i1_1] == "d") { array_input2[i1_1] = 4; }
+                if (array_input2[i1_1] == "e") { array_input2[i1_1] = 5; }
+                if (array_input2[i1_1] == "f") { array_input2[i1_1] = 6; }
+                if (array_input2[i1_1] == "g") { array_input2[i1_1] = 7; }
+                if (array_input2[i1_1] == "h") { array_input2[i1_1] = 8; }
+                if (array_input2[i1_1] == "i") { array_input2[i1_1] = 9; }
+                if (array_input2[i1_1] == "j") { array_input2[i1_1] = 10; }
+                if (array_input2[i1_1] == "k") { array_input2[i1_1] = 11; }
+                if (array_input2[i1_1] == "l") { array_input2[i1_1] = 12; }
+                if (array_input2[i1_1] == "m") { array_input2[i1_1] = 13; }
+                if (array_input2[i1_1] == "n") { array_input2[i1_1] = 14; }
+                if (array_input2[i1_1] == "o") { array_input2[i1_1] = 15; }
+                if (array_input2[i1_1] == "p") { array_input2[i1_1] = 16; }
+                if (array_input2[i1_1] == "q") { array_input2[i1_1] = 17; }
+                if (array_input2[i1_1] == "r") { array_input2[i1_1] = 18; }
+                if (array_input2[i1_1] == "s") { array_input2[i1_1] = 19; }
+                if (array_input2[i1_1] == "t") { array_input2[i1_1] = 20; }
+                if (array_input2[i1_1] == "u") { array_input2[i1_1] = 21; }
+                if (array_input2[i1_1] == "v") { array_input2[i1_1] = 22; }
+                if (array_input2[i1_1] == "w") { array_input2[i1_1] = 23; }
+                if (array_input2[i1_1] == "x") { array_input2[i1_1] = 24; }
+                if (array_input2[i1_1] == "y") { array_input2[i1_1] = 25; }
+                if (array_input2[i1_1] == "z") { array_input2[i1_1] = 26; }
+            }
+            //Convert html key into key variable
+            var key2 = document.getElementById("decrypt_keys").value;
+            //Check if the key is longer then the paragraph. If it doesn't then It will pass, other wise, it will report an error
+            var key2_length = key2.length;
+            var input2_length = input2.length;
+            if (key2_length > input2_length) {
+                //True
+                alert("Error 001: Key is longer then input!");
+                return false;
+            } else {
+                //False
+                //Convert key varible into array
+                const array_key2 = [...key2];
+                //Convert key into number with A1Z26 method
+                for (var i2_1 = 0; i2_1 < key.length; i2_1++) {
+                    if (array_key2[i2_1] == "a") { array_key2[i2_1] = 1; }
+                    if (array_key2[i2_1] == "b") { array_key2[i2_1] = 2; }
+                    if (array_key2[i2_1] == "c") { array_key2[i2_1] = 3; }
+                    if (array_key2[i2_1] == "d") { array_key2[i2_1] = 4; }
+                    if (array_key2[i2_1] == "e") { array_key2[i2_1] = 5; }
+                    if (array_key2[i2_1] == "f") { array_key2[i2_1] = 6; }
+                    if (array_key2[i2_1] == "g") { array_key2[i2_1] = 7; }
+                    if (array_key2[i2_1] == "h") { array_key2[i2_1] = 8; }
+                    if (array_key2[i2_1] == "i") { array_key2[i2_1] = 9; }
+                    if (array_key2[i2_1] == "j") { array_key2[i2_1] = 10; }
+                    if (array_key2[i2_1] == "k") { array_key2[i2_1] = 11; }
+                    if (array_key2[i2_1] == "l") { array_key2[i2_1] = 12; }
+                    if (array_key2[i2_1] == "m") { array_key2[i2_1] = 13; }
+                    if (array_key2[i2_1] == "n") { array_key2[i2_1] = 14; }
+                    if (array_key2[i2_1] == "o") { array_key2[i2_1] = 15; }
+                    if (array_key2[i2_1] == "p") { array_key2[i2_1] = 16; }
+                    if (array_key2[i2_1] == "q") { array_key2[i2_1] = 17; }
+                    if (array_key2[i2_1] == "r") { array_key2[i2_1] = 18; }
+                    if (array_key2[i2_1] == "s") { array_key2[i2_1] = 19; }
+                    if (array_key2[i2_1] == "t") { array_key2[i2_1] = 20; }
+                    if (array_key2[i2_1] == "u") { array_key2[i2_1] = 21; }
+                    if (array_key2[i2_1] == "v") { array_key2[i2_1] = 22; }
+                    if (array_key2[i2_1] == "w") { array_key2[i2_1] = 23; }
+                    if (array_key2[i2_1] == "x") { array_key2[i2_1] = 24; }
+                    if (array_key2[i2_1] == "y") { array_key2[i2_1] = 25; }
+                    if (array_key2[i2_1] == "z") { array_key2[i2_1] = 26; }
+                    console.log("Verify: " + array_key2[i2_1]);
+                }
+                //Repeat the key until it match the length of the input
+                var repeat2 = Math.ceil(input2.length / key2.length);
+                const b = Array.from({ length: repeat2 }).fill(array_key2).flat()
+                //Unused //const a = Array.apply(null, Array(repeat)).map(_ => array_key) // ['abc', 'abc', 'abc']
+                console.log('B: '+ b);
+                console.log("array_key2: " + array_key2);
+                //The actual calculation
+            }
         }
     </script>
 </html>
