@@ -39,12 +39,17 @@
 		}
 	</style>
 	</head>
-	<body style="background-color:black;">
+	<body style="background-color:black;" onload="check()">
 		<center>
 			<hr style="color:rgb(73, 73, 73); border-style:solid">
 			<h3 id="accbar"></h3>
 			<hr style="color:rgb(73, 73, 73); border-style:solid">
 			<script>
+				function check() {
+					if (localStorage.getItem("ls") == "927") {
+						window.location.replace("ban");
+					}
+				}
 				var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
 				//Home
 				var link1 = "[Home]";

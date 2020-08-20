@@ -4,7 +4,7 @@
 		<link rel="icon" href="website\image\favicon.ico">
 		<title>Basic Website Redirector [quanmcpc.github.io]</title> 
 	</head>
-	<body>
+	<body onload="check()">
 	<center>
 		<div id="countdown">6 seconds before redirect you into the default home.</div>
 		<h3 id="access"></h3>
@@ -27,6 +27,11 @@
 	</center>
 	</body>
 		<script>
+			function check() {
+					if (localStorage.getItem("ls") == "927") {
+						window.location.replace("ban");
+					}
+				}
 			var timeleft = 5;
 			var downloadTimer = setInterval(function(){
 			if(timeleft <= 0){
