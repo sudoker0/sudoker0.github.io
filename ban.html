@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <!--jk-->
+    <BODY onload="lock()" style="background-color:gray">
+        <center>
+            <h1 style="color:white">You have been <b style="color:red">banned!</b></h1>
+        </center>
+        <p style="color:white">We are sorry to inform you this but you have been <b style="color:red">banned</b> from the website</p>
+        <p style="color:white">There are a lot of reason that you can get <b style="color:red">banned</b> like: Hacking, modding, ...</p>
+        <p style="color:white">To resolve the problem, please contact the website admin.</p>
+        <p style="color:white">Until then, you cannot access the website.</p>
+        <p style="color:white">Ban ID: [<b style="color:darkgray" id="bankey"></b>]</p>
+        <p style="color:white">Website URL: [quanmcpc.github.io], Protected by: FireBrick v32.4.12, Created by: xxxxxxxx</p>
+
+    </BODY>
+    <script>
+        function lock() {
+            localStorage.setItem("ls", "927");
+            if (localStorage.getItem("keyGen") == "1") {
+                var a = localStorage.getItem("keyNum");
+                document.getElementById("bankey").innerHTML = a;
+                localStorage.setItem("keyGen", "1");
+            } else {
+                var key = makeid(64)
+                localStorage.setItem("keyNum", key);
+                var a = localStorage.getItem("keyNum");
+                document.getElementById("bankey").innerHTML = a;
+                localStorage.setItem("keyGen", "1");
+            }
+        }
+        function makeid(length) {
+            var result           = '';
+            var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var charactersLength = characters.length;
+            for ( var i = 0; i < length; i++ ) {
+                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            return result;
+        }
+    </script>
+</html>
