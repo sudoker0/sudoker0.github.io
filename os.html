@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WTOS (Web-Terminal Operating System)</title>
+        <link rel="shortcut icon" type="image/x-icon" href="website/image/wtos.ico" />
+    </head>
+    <body style="background-color: rgb(34, 34, 34);" onload="intro()">
+        <center>
+            <textarea id="output" rows="30" cols="100" readonly style="resize: none; overflow-y: hidden;"></textarea>
+            <br><br>
+            <div><textarea id="command" rows="1" cols="70" style="resize: none; overflow-y: hidden;" placeholder="Commands..." onkeyup="check(event, this)"></textarea></div><br><br><button onclick="enter()">Enter command</button>
+        </center>
+        <script>
+            var textarea = document.getElementById('output');
+           setInterval(function(){ textarea.scrollTop = textarea.scrollHeight; }, 50);
+            function check(e, textarea) { 
+                document.getElementById("command").value = document.getElementById("command").value.replace('\n', '');
+                var code123 = (e.keyCode ? e.keyCode : e.which);
+                if(code123 == 13) { //Enter keycode
+                    enter();
+                }
+            }
+            function intro() {
+                n =  new Date();
+                y = n.getFullYear();
+                m = n.getMonth() + 1;
+                d = n.getDate();
+                document.getElementById("output").innerHTML += "Welcome to WTOS v1.0 (Web-Terminal Operating System)\r\n";
+                document.getElementById("output").innerHTML += "This is a VERY BASIC Operating System that can only execute a certain command like a linux terminal.\r\n";
+                document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC\r\n";
+                document.getElementById("output").innerHTML += "To get started, type [help] with no bracket\r\n";
+                document.getElementById("output").innerHTML += "Current date: " + d + "/" + m + "/" + y + " (This is in DD/MM/YYYY format)\r\n";
+                document.getElementById("output").innerHTML += "\r\n";
+            }
+            function enter() {
+                var str = document.getElementById("command").value;
+                var a = str.split(" ");
+                console.log(a[0]);
+                var a_length = a.length;
+                document.getElementById("output").innerHTML += "> " + document.getElementById("command").value + "\r\n";
+                if (a[0] == "help") {
+                    if (!a[1] == '') {
+                        if (!isNaN(a[1])) {
+                            if (a[1] == "1") {
+                                document.getElementById("output").innerHTML += "----------Offical Help Page----------\r\n";
+                                document.getElementById("output").innerHTML += "You are viewing page: 1\r\n";
+                                document.getElementById("output").innerHTML += "<>: Forced, []: Optional\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "hello: Say Hello\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: hello <name: string>\r\n";
+                                document.getElementById("output").innerHTML += "Example: hello User 1234\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "goodbye/bye: Say Goodbye\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: goodbye/bye <name: string>\r\n";
+                                document.getElementById("output").innerHTML += "Example: goodbye test, bye User 1234\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "calc/calculate: Make calculation\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: calc/calculate <first number: number> <operation: + (Plus), - (Minus), * (Multiply), / (Divide), % (Modulo), ** (To the power of)> <second number: number>\r\n";
+                                document.getElementById("output").innerHTML += "Example: calc 53 + 21, calculate 52 ** 2\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "clear/cls: Clear the console output\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: clear/cls\r\n";
+                                document.getElementById("output").innerHTML += "Example: clear/cls\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "date: Show the current date\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: date\r\n";
+                                document.getElementById("output").innerHTML += "Example: date\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "time: Show the current time\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: time\r\n";
+                                document.getElementById("output").innerHTML += "Example: time\r\n";                                    
+                            }
+                            if (a[1] == "2") {
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "crash: Crash the console (Client side)\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: crash\r\n";
+                                document.getElementById("output").innerHTML += "Example: crash\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "whoami: Print the current level of the user\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: whoami\r\n";
+                                document.getElementById("output").innerHTML += "Example: whoami\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "print: Print the text the user enter\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: print <sentence: string>\r\n";
+                                document.getElementById("output").innerHTML += "Example: print Hello World!\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "random: Print random number, string";
+                                document.getElementById("output").innerHTML += "Syntax: random <mode: -uc (Uppercase)/-lc (Lowercase)/-nc (Number)/-ul (Uppercase and Lowercase)/-un (Uppercase and Number)/-ln (Lowercase and Number)/-uln (Uppercase, Lowercase and Number)> <length of string: number>\r\n";
+                                document.getElementById("output").innerHTML += "Example: random -uc 5\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "help: Show the help page\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: help [page number: number]\r\n";
+                                document.getElementById("output").innerHTML += "Example: help 1\r\n";
+                            }
+                        } else {
+                            document.getElementById("output").innerHTML += "Invalid page number!";
+                        }
+                    } else {
+                        document.getElementById("output").innerHTML += "----------Offical Help Page----------\r\n";
+                        document.getElementById("output").innerHTML += "You are viewing page: 1\r\n";
+                        document.getElementById("output").innerHTML += "<>: Forced, []: Optional\r\n";
+                        document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                        document.getElementById("output").innerHTML += "hello: Say Hello\r\n";
+                        document.getElementById("output").innerHTML += "Syntax: hello <name: string>\r\n";
+                        document.getElementById("output").innerHTML += "Example: hello User 1234\r\n";
+                        document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                        document.getElementById("output").innerHTML += "goodbye/bye: Say Goodbye\r\n";
+                        document.getElementById("output").innerHTML += "Syntax: goodbye/bye <name: string>\r\n";
+                        document.getElementById("output").innerHTML += "Example: goodbye test, bye User 1234\r\n";
+                        document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                        document.getElementById("output").innerHTML += "calc/calculate: Make calculation\r\n";
+                        document.getElementById("output").innerHTML += "Syntax: calc/calculate <first number: number> <operation: + (Plus), - (Minus), * (Multiply), / (Divide), % (Modulo), ** (To the power of)> <second number: number>\r\n";
+                        document.getElementById("output").innerHTML += "Example: calc 53 + 21, calculate 52 ** 2\r\n";
+                        document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                        document.getElementById("output").innerHTML += "clear/cls: Clear the console output\r\n";
+                        document.getElementById("output").innerHTML += "Syntax: clear/cls\r\n";
+                        document.getElementById("output").innerHTML += "Example: clear/cls\r\n";
+                        document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                        document.getElementById("output").innerHTML += "date: Show the current date\r\n";
+                        document.getElementById("output").innerHTML += "Syntax: date\r\n";
+                        document.getElementById("output").innerHTML += "Example: date\r\n";
+                        document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                        document.getElementById("output").innerHTML += "time: Show the current time\r\n";
+                        document.getElementById("output").innerHTML += "Syntax: time\r\n";
+                        document.getElementById("output").innerHTML += "Example: time\r\n";
+                    }
+                }
+                else if (a[0] == "hello") { // Command "hello"
+                    document.getElementById("output").innerHTML += "Hello, ";
+                    for (i_1 = 1; i_1 < a_length; i_1++) { 
+                        document.getElementById("output").innerHTML += a[i_1] + ' ';
+                    }
+                    document.getElementById("output").innerHTML += ". Have a nice day!!!\r\n";
+                } else if (a[0] == "goodbye" || a[0] == "bye") { //Command "goodbye"
+                    document.getElementById("output").innerHTML += "Goodbye, ";
+                    for (i_1 = 1; i_1 < a_length; i_1++) { 
+                        document.getElementById("output").innerHTML += a[i_1] + ' ';
+                    }    
+                    document.getElementById("output").innerHTML += ". Hope you have a nice day!\r\n";
+                } else if (a[0] == "calc" || a[0] == "calculate") { //Command "calc"
+                    var number_1 = a[1];
+                    var operation = a[2];
+                    var number_2 = a[3];
+                    if (!a[4] == '') {
+                        document.getElementById("output").innerHTML += "Invalid syntax! An invalid charatater has been added at the end!\r\n";
+                        return false;
+                    } else if (isNaN(number_1)) {
+                        document.getElementById("output").innerHTML += "Invalid syntax! Expected the first part of your math equation to be a number\r\n";
+                        return false;
+                    } else if (operation == "+" || operation == "-" || operation == "*" || operation == "/" || operation == "%" || operation == "**") {
+                        if (isNaN(number_2)) {
+                            document.getElementById("output").innerHTML += "Invalid syntax! Expected the third part of your math equation to be a number\r\n";
+                            return false;
+                        } else {
+                            if (operation == "+") {
+                                var result = +number_1 + +number_2;
+                            }
+                            if (operation == "-") {
+                                var result = number_1 - number_2;
+                            }
+                            if (operation == "*") {
+                                var result = number_1 * number_2;
+                            }
+                            if (operation == "/") {
+                                var result = number_1 / number_2;
+                            }
+                            if (operation == "%") {
+                                var result = number_1 % number_2;
+                            }
+                            if (operation == "**") {
+                                var result = number_1 ** number_2;
+                            }
+                            document.getElementById("output").innerHTML += "Your result for: " + number_1 + ' ' + operation + ' ' + number_2 + ' is: ' + result + '\r\n';
+                        }
+                    } else {
+                        document.getElementById("output").innerHTML += "Invalid syntax! Expected the second part of your math equation to be a math operators\r\n";
+                        return false;
+                    }
+                } else if (a[0] == "print") { //Command: "print"
+                    for (i_1 = 1; i_1 < a_length; i_1++) { 
+                        document.getElementById("output").innerHTML += a[i_1] + ' ';
+                    }
+                    document.getElementById("output").innerHTML += '\r\n';
+                } else if (a[0] == "clear" || a[0] == "cls") { //Command "clear"
+                    document.getElementById("output").innerHTML = '';
+                } else if (a[0] == "date") { //Command "date"
+                    d = new Date();
+                    var year = d.getFullYear();
+                    var month = d.getMonth() + 1;
+                    var day = d.getDate();
+                    document.getElementById("output").innerHTML += "Current date: " + day + "/" + month + "/" + year + " (This is in DD/MM/YYYY format)\r\n";
+                } else if (a[0] == "time") { //Command "time"
+                    t = new Date()
+                    var hours = t.getHours();
+                    var minutes = t.getMinutes();
+                    var seconds = t.getSeconds();
+                    document.getElementById("output").innerHTML += "Current time: " + hours + "/" + minutes + "/" + seconds + " (This is in HH/MM/SS format)\r\n";
+                } else if (a[0] == "crash") { //Command "crash"
+                    if (a[1] == "yes") {
+                        document.getElementById("output").innerHTML += "Welp, I'm out of here!\r\n";
+                        setTimeout(function() {while (3 > 2) { console.log("CRASH!!!");}}, 1000);
+                    } else {
+                        document.getElementById("output").innerHTML += "Just to make sure that the user didn't accidentally type [crash] with out knowing what this command does.\r\n";
+                        document.getElementById("output").innerHTML += "This is a the command to crash the page (Client side only).\r\n";
+                        document.getElementById("output").innerHTML += "To continue with the crash, type [crash yes] to confirm, althrough I DO NOT RECOMMEND YOU TO DO THIS!\r\n";
+                    }
+                } else if (a[0] == "whoami") { //Command "whoami"
+                    if (!a[1] == '') {
+                        document.getElementById("output").innerHTML += "Invalid syntax!\r\n";
+                        
+                    } else {
+                        document.getElementById("output").innerHTML += "browser/user\r\n";
+                    }
+                } else if (a[0] == "cd") {
+                    document.getElementById("output").innerHTML += "Sorry, nothing to change directory.\r\n";
+                } else if (a[0] == "ls" || a[0] == "dir") {
+                    document.getElementById("output").innerHTML += "Sorry, nothing to list directory.\r\n";
+                } else if (a[0] == "random") { //Command: "random"
+                    if (!a[3] == '') {
+                        document.getElementById("output").innerHTML += "Unknow mode! Here is the syntax: \r\n";
+                        document.getElementById("output").innerHTML += "random <mode: -uc (Uppercase)/-lc (Lowercase)/-nc (Number)/-ul (Uppercase and Lowercase)/-un (Uppercase and Number)/-ln (Lowercase and Number)/-uln (Uppercase, Lowercase and Number)> <length of string: number>\r\n";
+                        document.getElementById("output").innerHTML += "Example: random -uc 7\r\n";
+                    } else {
+                        if (a[1] == "-uc") { //Uppercase Charater
+                            if (!isNaN(a[2])) {
+                                document.getElementById("output").innerHTML += "Here is your random charater: " + uc(a[2]) + ". Mode: Uppercase Only\r\n"
+                                function uc(length) {
+                                var result           = '';
+                                var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                                var charactersLength = characters.length;
+                                for ( var i = 0; i < length; i++ ) {
+                                    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                                }
+                                    return result;
+                                }
+                            } else { document.getElementById("output").innerHTML += "Invalid syntax! Expected a number." }
+                        } else if (a[1] == "-lc") { //Lowercase Charater
+                            if (!isNaN(a[2])) {
+                                document.getElementById("output").innerHTML += "Here is your random charater: " + lc(a[2]) + ". Mode: Lowercase Only\r\n"
+                                function lc(length) {
+                                var result           = '';
+                                var characters       = 'abcdefghijklmnopqrstuvwxyz';
+                                var charactersLength = characters.length;
+                                for ( var i = 0; i < length; i++ ) {
+                                    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                                }
+                                    return result;
+                                }
+                            } else { document.getElementById("output").innerHTML += "Invalid syntax! Expected a number." }
+                        } else if (a[1] == "-nc") { //Number Charater
+                            if (!isNaN(a[2])) {
+                                document.getElementById("output").innerHTML += "Here is your random charater: " + nc(a[2]) + ". Mode: Number Only\r\n"
+                                function nc(length) {
+                                var result           = '';
+                                var characters       = '0123456789';
+                                var charactersLength = characters.length;
+                                for ( var i = 0; i < length; i++ ) {
+                                    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                                }
+                                    return result;
+                                }
+                            } else { document.getElementById("output").innerHTML += "Invalid syntax! Expected a number." }
+                        } else if (a[1] == "-ul") { //Uppercase and Lowercase
+                            if (!isNaN(a[2])) {
+                                document.getElementById("output").innerHTML += "Here is your random charater: " + ul(a[2]) + ". Mode: Uppercase and Lowercase\r\n"
+                                function ul(length) {
+                                var result           = '';
+                                var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+                                var charactersLength = characters.length;
+                                for ( var i = 0; i < length; i++ ) {
+                                    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                                }
+                                    return result;
+                                }
+                            } else { document.getElementById("output").innerHTML += "Invalid syntax! Expected a number." }
+                        } else if (a[1] == "-un") { //Uppercase and Number
+                            if (!isNaN(a[2])) {
+                                document.getElementById("output").innerHTML += "Here is your random charater: " + un(a[2]) + ". Mode: Uppercase and Number\r\n"
+                                function un(length) {
+                                var result           = '';
+                                var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+                                var charactersLength = characters.length;
+                                for ( var i = 0; i < length; i++ ) {
+                                    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                                }
+                                    return result;
+                                }
+                            } else { document.getElementById("output").innerHTML += "Invalid syntax! Expected a number." }
+                        } else if (a[1] == "-ln") { //Lowercase and Number
+                            if (!isNaN(a[2])) {
+                                document.getElementById("output").innerHTML += "Here is your random charater: " + ln(a[2]) + ". Mode: Lowercase and Number\r\n"
+                                function ln(length) {
+                                var result           = '';
+                                var characters       = 'abcdefghijklmnopqrstuvwxyz0123456789';
+                                var charactersLength = characters.length;
+                                for ( var i = 0; i < length; i++ ) {
+                                    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                                }
+                                    return result;
+                                }
+                            } else { document.getElementById("output").innerHTML += "Invalid syntax! Expected a number." }
+                        } else if (a[1] == "-uln") { //Uppercase, Lowercase and Number
+                            if (!isNaN(a[2])) {
+                                document.getElementById("output").innerHTML += "Here is your random charater: " + uln(a[2]) + ". Mode: Uppercase, Lowercase and Number\r\n"
+                                function uln(length) {
+                                var result           = '';
+                                var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                                var charactersLength = characters.length;
+                                for ( var i = 0; i < length; i++ ) {
+                                    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                                }
+                                    return result;
+                                }
+                            } else { document.getElementById("output").innerHTML += "Invalid syntax! Expected a number." }
+                        } else {
+                            document.getElementById("output").innerHTML += "Unknow mode or syntax error! Here is the syntax: \r\n";
+                            document.getElementById("output").innerHTML += "random <mode: -uc (Uppercase)/-lc (Lowercase)/-nc (Number)/-ul (Uppercase and Lowercase)/-un (Uppercase and Number)/-ln (Lowercase and Number)/-uln (Uppercase, Lowercase and Number)> <length of string: number>\r\n";
+                            document.getElementById("output").innerHTML += "Example: random -uc 7\r\n";
+                        }
+                    }
+                } else {
+                    //Error 1: Not a correct command
+                    document.getElementById("output").innerHTML += "Invalid or unknow command!\r\n";
+                }
+            };
+        </script>
+    </body>
+</html>
