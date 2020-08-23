@@ -67,7 +67,7 @@
                                 document.getElementById("output").innerHTML += "Example: goodbye test, bye User 1234\r\n";
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
                                 document.getElementById("output").innerHTML += "calc/calculate: Make calculation\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: Type [calc/calculate -help] to get the full help of this command\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: Type {calc/calculate -help} to get the full help of this command\r\n";
                                 document.getElementById("output").innerHTML += "Example: calc 53 + 21, calculate 52 ** 2\r\n";
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
                                 document.getElementById("output").innerHTML += "clear/cls: Clear the console output\r\n";
@@ -102,7 +102,7 @@
                                 document.getElementById("output").innerHTML += "Example: print Hello World!\r\n";
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
                                 document.getElementById("output").innerHTML += "random: Print random number, string\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: Type [random -help] to get the full help of this command\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: Type {random -help} to get the full help of this command\r\n";
                                 document.getElementById("output").innerHTML += "Example: random -uc 5\r\n";
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
                                 document.getElementById("output").innerHTML += "time: Show the current time\r\n";
@@ -123,6 +123,26 @@
                                 document.getElementById("output").innerHTML += "log_command: Show the last 20 command entered by the user\r\n";
                                 document.getElementById("output").innerHTML += "Syntax: log_command\r\n";
                                 document.getElementById("output").innerHTML += "Example: log_command\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "about: Show the console info\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: about\r\n";
+                                document.getElementById("output").innerHTML += "Example: about\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "ver: Show the version of console\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: ver\r\n";
+                                document.getElementById("output").innerHTML += "Example: ver\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "timer: Like it said, it's a timer.\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: timer <number of seconds to countdown: number>\r\n";
+                                document.getElementById("output").innerHTML += "Example: timer 120\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "stopwatch: Like it said, it's a stopwatch\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: Type {stopwatch -help} to get the full help of this command\r\n";
+                                document.getElementById("output").innerHTML += "Example: stopwatch -n\r\n"
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "save_console_output: Save the console output into a file\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: save_console_output [filename.extension: string]\r\n";
+                                document.getElementById("output").innerHTML += "Example: save_console_output test.txt\r\n";
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
                                 return false;
                             } else {
@@ -145,7 +165,7 @@
                         document.getElementById("output").innerHTML += "Example: goodbye test, bye User 1234\r\n";
                         document.getElementById("output").innerHTML += "-------------------------------------\r\n";
                         document.getElementById("output").innerHTML += "calc/calculate: Make calculation\r\n";
-                        document.getElementById("output").innerHTML += "Syntax: Type [calc/calculate -help] to get the full help of this command\r\n";
+                        document.getElementById("output").innerHTML += "Syntax: Type {calc/calculate -help} to get the full help of this command\r\n";
                         document.getElementById("output").innerHTML += "Example: calc 53 + 21, calculate 52 ** 2\r\n";
                         document.getElementById("output").innerHTML += "-------------------------------------\r\n";
                         document.getElementById("output").innerHTML += "clear/cls: Clear the console output\r\n";
@@ -184,7 +204,7 @@
                     var operation = a[2];
                     var number_2 = a[3];
                     if (!a[4] == '') {
-                        document.getElementById("output").innerHTML += "Invalid syntax! An invalid charatater has been added at the end!\r\n";
+                        document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                         return false;
                     } else if (isNaN(number_1)) {
                         document.getElementById("output").innerHTML += "Invalid syntax! Expected the first part of your math equation to be a number\r\n";
@@ -259,7 +279,7 @@
                     document.getElementById("output").innerHTML += "Sorry, nothing to list directory.\r\n";
                 } else if (a[0] == "random") { //Command: "random"
                     if (!a[3] == '') {
-                        document.getElementById("output").innerHTML += "Invalid syntax! An invalid charatater has been added at the end! Here is the syntax: \r\n";
+                        document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end! Here is the syntax: \r\n";
                         document.getElementById("output").innerHTML += "random <mode: -uc (Uppercase)/-lc (Lowercase)/-nc (Number)/-ul (Uppercase and Lowercase)/-un (Uppercase and Number)/-ln (Lowercase and Number)/-uln (Uppercase, Lowercase and Number)> <length of string: number>\r\n";
                         document.getElementById("output").innerHTML += "Example: random -uc 7\r\n";
                     } else {
@@ -365,7 +385,7 @@
                     }
                 } else if (a[0] == "intro") { //Command "intro"
                     if (!a[1] == '') {
-                        document.getElementById("output").innerHTML += "Invalid syntax! An invalid charatater has been added at the end!";
+                        document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!";
                     } else {
                         document.getElementById("output").innerHTML += "Welcome to WTOS v1.0 (Web-Terminal Operating System)\r\n";
                         document.getElementById("output").innerHTML += "This is a VERY BASIC Operating System that can only execute a certain command like a linux terminal.\r\n";
@@ -376,15 +396,160 @@
                     }
                 } else if (a[0] == "log_command") { //Command: log_command
                     if (!a[1] == '') {
-                        document.getElementById("output").innerHTML += "Invalid syntax! An invalid charatater has been added at the end!";
+                        document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                     } else {
                         document.getElementById("output").innerHTML += "Here is the last 20 command entered\r\n";
                         for (v = 0; v < 20; v++) {
                             document.getElementById("output").innerHTML += +v + +1 + ". " + z[v] + "\r\n";
                         }
                     }
-                    
-                } else {
+                } else if (a[0] == "about") { //Command: about
+                    if (!a[1] == '') {
+                        document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
+                    } else {
+                        navigator.sayswho= (function(){
+                        var ua= navigator.userAgent, tem, 
+                        M= ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+                        if(/trident/i.test(M[1])){
+                            tem=  /\brv[ :]+(\d+)/g.exec(ua) || [];
+                            return 'IE '+(tem[1] || '');
+                        }
+                        if(M[1]=== 'Chrome'){
+                            tem= ua.match(/\b(OPR|Edge)\/(\d+)/);
+                            if(tem!= null) return tem.slice(1).join(' ').replace('OPR', 'Opera');
+                        }
+                        M= M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+                        if((tem= ua.match(/version\/(\d+)/i))!= null) M.splice(1, 1, tem[1]);
+                        return M.join(' ');
+                    })();
+                        document.getElementById("output").innerHTML += "------------------------------\r\n";
+                        document.getElementById("output").innerHTML += "About WTOS\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.0.5\r\n";
+                        document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.0.5.82320_Revision1\r\n";
+                        document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
+                        document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
+                        document.getElementById("output").innerHTML += "------------------------------\r\n";
+                    }
+                } else if (a[0] == "ver") { //Command: ver
+                    if (!a[1] == '') {
+                        document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
+                    } else {
+                        document.getElementById("output").innerHTML += "Version: 1.0.5\r\n";
+                    }
+                } else if (a[0] == "timer") { //Command: timer
+                    if (!isNaN(a[1])) {
+                        if (!a[2] == '') {
+                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
+                        } else {
+                            var fa = setInterval(function () {
+                                if (!a[1] == 0) {
+                                    document.getElementById("output").innerHTML += "Time left: " + a[1] + "\r\n";
+                                    a[1]--;
+                                } else {
+                                    document.getElementById("output").innerHTML += "The timer has run out!\r\n";
+                                    clearInterval(fa);
+                                }
+                            }, 1000);
+                        }
+                    } else {
+                        document.getElementById("output").innerHTML += "Invalid syntax! Expected an number!\r\n";
+                    }
+                } else if (a[0] == "stopwatch") { //Command: stopwatch
+                    stop_signal = 0;
+                    console.log(stop_signal);
+                    if (a[1] == "-n") { //Normal: 1
+                        if (!a[2] == '') {
+                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
+                        } else {
+                            var mnt = 0;
+                            mn = setInterval(function () {
+                                document.getElementById("output").innerHTML = '';
+                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Normal. Type stopwatch -stop to stop the stopwatch\r\n"
+                                document.getElementById("output").innerHTML += mnt + "\r\n";
+                                mnt++;
+                            }, 1000);
+                        }
+                    } else
+                    if (a[1] == "-d") { //Decisecond: 1.1
+                        if (!a[2] == '') {
+                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
+                        } else {
+                            var mdt = 0;
+                            md = setInterval(function () {
+                                document.getElementById("output").innerHTML = '';
+                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Decisecond (1/10 of a second). Type stopwatch -stop to stop the stopwatch\r\n"
+                                document.getElementById("output").innerHTML += mdt / 10 + "\r\n";
+                                mdt++;
+                            }, 100);
+                        }
+                    } else
+                    if (a[1] == "-c") { //Centisecond: 1.11
+                        if (!a[2] == '') {
+                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
+                        } else {
+                            var mct = 0;
+                            mc = setInterval(function () {
+                                document.getElementById("output").innerHTML = '';
+                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Centisecond(1/100 of a second). Type stopwatch -stop to stop the stopwatch\r\n"
+                                document.getElementById("output").innerHTML += mct / 100 + "\r\n";
+                                mct++;
+                            }, 10);
+                        }
+                    } else
+                    if (a[1] == "-m") { //Milisecond: 1.111
+                        if (!a[2] == '') {
+                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
+                        } else {
+                            var mmt = 0;
+                            mm = setInterval(function () {
+                                document.getElementById("output").innerHTML = '';
+                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Milisecond. Type stopwatch -stop to stop the stopwatch\r\n"
+                                document.getElementById("output").innerHTML += mmt / 1000 + "\r\n";
+                                mmt++;
+                            }, 1);
+                        }
+                    } else 
+                    if (a[1] == "-help") {
+                        if (!a[2] == '') {
+                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
+                        } else {
+                            document.getElementById("output").innerHTML += "Syntax: stopwatch <mode: -n (Normal), -d (Decisecond [1/10 of a second]), -c (Centisecond [1/100 of a second]), -m (Milisecond), -stop (Stop the stopwatch)>\r\n";
+                            document.getElementById("output").innerHTML += "Example: stopwatch -n\r\n";
+                            document.getElementById("output").innerHTML += "Warning: Option -m is only for strong connection and for strong computer. Also the stopwatch will in most cases count the time wrong in this mode.\r\n";
+                        }
+                    } else 
+                    if (a[1] == "-stop") {
+                        clearInterval(mn);
+                        clearInterval(md);
+                        clearInterval(mc);
+                        clearInterval(mm);
+                        stop_signal = 1;
+                        console.log(stop_signal);
+                    } else {
+                        document.getElementById("output").innerHTML += "Invalid Syntax! Expected a mode, type timer -help to get help with the command\r\n";
+                    }
+                } else if (a[0] == "save_console_output") {
+	                if (!a[2] == '') {
+		                document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
+	                } else {
+    			        var textToSave = document.getElementById("output").value;
+	    		        var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+	    		        var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+	    	            var fileNameToSaveAs = a[1];
+	    		        var downloadLink = document.createElement("a");
+	    		        downloadLink.download = fileNameToSaveAs;
+	    	            downloadLink.innerHTML = "Download File";
+	    	            downloadLink.href = textToSaveAsURL;
+			            downloadLink.onclick = destroyClickedElement;
+    		            downloadLink.style.display = "none";
+	    		        document.body.appendChild(downloadLink);
+	    		        downloadLink.click();
+		                function destroyClickedElement(event) {
+    			            document.body.removeChild(event.target);
+		                }
+	                }
+                } else  {
                     //Error 1: Not a correct command
                     document.getElementById("output").innerHTML += "Invalid or unknow command!\r\n";
                 }
