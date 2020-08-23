@@ -176,6 +176,7 @@
                     if (a[1] == "-help") {
                         document.getElementById("output").innerHTML += "Syntax: calc/calculate <first number: number> <operation: + (Plus), - (Minus), * (Multiply), / (Divide), % (Modulo), ** (To the power of)> <second number: number>\r\n";
                         document.getElementById("output").innerHTML += "Example: calc 53 + 21, calculate 52 ** 2\r\n";
+                        return false;
                     }
                     var number_1 = a[1];
                     var operation = a[2];
