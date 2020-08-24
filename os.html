@@ -11,6 +11,10 @@
             <div><textarea id="command" rows="1" cols="70" style="resize: none; overflow-y: hidden;" placeholder="Commands..." onkeyup="check(event, this)"></textarea></div><br><br><button onclick="enter()">Enter command</button>
         </center>
         <script>
+            var mn = -1;
+            var md = -1;
+            var mc = -1;
+            var mm = -1;
             var log_c = 0;
             var z = [""];
             var textarea = document.getElementById('output');
@@ -456,6 +460,7 @@
                         document.getElementById("output").innerHTML += "Invalid syntax! Expected an number!\r\n";
                     }
                 } else if (a[0] == "stopwatch") { //Command: stopwatch
+                    start = 0;
                     stop_signal = 0;
                     console.log(stop_signal);
                     if (a[1] == "-n") { //Normal: 1
@@ -464,10 +469,10 @@
                         } else {
                             var mnt = 0;
                             mn = setInterval(function () {
-                                document.getElementById("output").innerHTML = '';
-                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Normal. Type stopwatch -stop to stop the stopwatch\r\n"
-                                document.getElementById("output").innerHTML += mnt + "\r\n";
-                                mnt++;
+                                    document.getElementById("output").innerHTML = '';
+                                    document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Normal. Type stopwatch -stop to stop the stopwatch\r\n"
+                                    document.getElementById("output").innerHTML += mnt + "\r\n";
+                                    mnt++;
                             }, 1000);
                         }
                     } else
@@ -477,10 +482,10 @@
                         } else {
                             var mdt = 0;
                             md = setInterval(function () {
-                                document.getElementById("output").innerHTML = '';
-                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Decisecond (1/10 of a second). Type stopwatch -stop to stop the stopwatch\r\n"
-                                document.getElementById("output").innerHTML += mdt / 10 + "\r\n";
-                                mdt++;
+                                    document.getElementById("output").innerHTML = '';
+                                    document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Decisecond (1/10 of a second). Type stopwatch -stop to stop the stopwatch\r\n"
+                                    document.getElementById("output").innerHTML += mdt / 10 + "\r\n";
+                                    mdt++;
                             }, 100);
                         }
                     } else
@@ -490,10 +495,10 @@
                         } else {
                             var mct = 0;
                             mc = setInterval(function () {
-                                document.getElementById("output").innerHTML = '';
-                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Centisecond(1/100 of a second). Type stopwatch -stop to stop the stopwatch\r\n"
-                                document.getElementById("output").innerHTML += mct / 100 + "\r\n";
-                                mct++;
+                                    document.getElementById("output").innerHTML = '';
+                                    document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Centisecond(1/100 of a second). Type stopwatch -stop to stop the stopwatch\r\n"
+                                    document.getElementById("output").innerHTML += mct / 100 + "\r\n";
+                                    mct++;
                             }, 10);
                         }
                     } else
@@ -503,10 +508,10 @@
                         } else {
                             var mmt = 0;
                             mm = setInterval(function () {
-                                document.getElementById("output").innerHTML = '';
-                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Milisecond. Type stopwatch -stop to stop the stopwatch\r\n"
-                                document.getElementById("output").innerHTML += mmt / 1000 + "\r\n";
-                                mmt++;
+                                    document.getElementById("output").innerHTML = '';
+                                    document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Milisecond. Type stopwatch -stop to stop the stopwatch\r\n"
+                                    document.getElementById("output").innerHTML += mmt / 1000 + "\r\n";
+                                    mmt++;
                             }, 1);
                         }
                     } else 
@@ -520,15 +525,18 @@
                         }
                     } else 
                     if (a[1] == "-stop") {
-                        clearInterval(mn);
-                        clearInterval(md);
-                        clearInterval(mc);
-                        clearInterval(mm);
+                        clearInterval(mn); mn = -1;
+                        clearInterval(md); md = -1;
+                        clearInterval(mc); mc = -1;
+                        clearInterval(mm); mm = -1;
+                        start = 0;
                         stop_signal = 1;
                         console.log(stop_signal);
                     } else {
                         document.getElementById("output").innerHTML += "Invalid Syntax! Expected a mode, type timer -help to get help with the command\r\n";
                     }
+                } else if (a[0] == "stop") {
+                    start = 0;
                 } else if (a[0] == "save_console_output") {
 	                if (!a[2] == '') {
 		                document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
