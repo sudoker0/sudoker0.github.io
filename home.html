@@ -17,6 +17,11 @@
 				background-color:rgba(20, 20, 20, 0.850);
 				border: 3px solid black;
   				opacity: 1;
+				margin: auto;
+				text-align: center;
+				position: sticky;
+				position: -webkit-sticky;
+				top: 0;
 			}
 			div.container {
 				margin: 20px;
@@ -71,10 +76,10 @@
 		</style>
 	</head>
 	<body onload="check()">
-		<center>
 			<div class="accb">
 				<h3 id="accbar"></h3>
 			</div>
+		<center>
 			<script>
 				function check() {
 					if (localStorage.getItem("ls") == "927") {
