@@ -1,6 +1,38 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<style>
+			a:link, a:visited {
+				color: rgb(255, 255, 255);
+				text-decoration: none;
+				display: inline-block;
+			}
+			a:hover, a:active {
+				color: rgb(158, 158, 158);
+			}
+			div.accb {
+				background-color:rgba(20, 20, 20, 0.850);
+				border: 3px solid black;
+  				opacity: 1;
+			}
+			div.container {
+				margin: 20px;
+				background-color:rgba(20, 20, 20, 0.850);
+  				border: 3px solid black;
+  				opacity: 1;
+			}
+			body {
+				background-image: url(website/image/background.png);
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-attachment: fixed;
+				background: linear-gradient( rgba(138, 138, 138, 0.7), rgba(138, 138, 138, 0.7)), url(website/image/background.png), no-repeat, cover, fixed;
+				-ms-overflow-style: none;  /* IE and Edge */
+  				scrollbar-width: none;  /* Firefox */
+			}
+			body::-webkit-scrollbar {
+    			display: none;
+			}		
 		</style>
 		<link rel="icon" href="website\image\favicon.ico">
 		<title>Quan_MCPC Website</title>
@@ -8,9 +40,9 @@
 	</head>
 	<body onload="check()">
 		<center>
-			<hr style="color:rgb(73, 73, 73); border-style:solid">
-			<h3 id="accbar"></h3>
-			<hr style="color:rgb(73, 73, 73); border-style:solid">
+			<div class="accb">
+				<h3 id="accbar"></h3>
+			</div>
 			<script>
 				function check() {
 					if (localStorage.getItem("ls") == "927") {
@@ -19,43 +51,40 @@
 				}
 				var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
 				//Home
-				var link1 = "[Home]";
+				var link1 = "Home";
 				var alink1 = "home?id=" + dateTime;
 				var html_link1 = link1.link(alink1);
 				//How did I make the website
-				var link2 = "[How did I make the website?]";
+				var link2 = "How did I make the website?";
 				var alink2 = "how?id=" + dateTime;
 				var html_link2 = link2.link(alink2);
 				//Credit
-				var link3 = "[Credit]";
+				var link3 = "Credit";
 				var alink3 = "credit?id=" + dateTime;
 				var html_link3 = link3.link(alink3);
 				//Sneak Peak and Event
-				var link4 = "[Sneak Peak and Event]";
+				var link4 = "Sneak Peak and Event";
 				var alink4 = "spne?id=" + dateTime;
 				var html_link4 = link4.link(alink4);
 				//Other Project
-				var link5 = "[Other Project]";
+				var link5 = "Other Project";
 				var alink5 = "other_project?id=" + dateTime;
 				var html_link5 = link5.link(alink5);
-				//Home Dark
-				var link6 = "[Enable Dark Mode]";
-				var alink6 = "credit_dark?id=" + dateTime;
-				var html_link6 = link6.link(alink6);
 				//Access Bar
-				document.getElementById("accbar").innerHTML = html_link1 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link2 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link3 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link4 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link5 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link6;
+				document.getElementById("accbar").innerHTML = html_link1 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link2 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link3 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link4 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link5;
 			</script>
 		</center>
-		<center>
-			<h2 style="color:green";>Credit</h2>
-			<h3 style="color:green";>Tool:</h3>
-			<h3 style="color:orange";> Notepad++ (to write html file) <a href="https://notepad-plus-plus.org/">[Download here]</a></h3>
-			<h3 style="color:orange";>Google Chrome (to test html file) <a href="http://chrome.com/">[Download here]</a></h3>
-			<h3 style="color:orange";>GitHub Desktop (to upload file) <a href="https://desktop.github.com/">[Download here]</a></h3>
-			<h3 style="color:green";>Website Hosting Service that I use:</h3>
-			<h3 style="color:red";>GitHub (github.com)</h3>
-			<hr style="color:rgb(73, 73, 73); border-style:solid">
-		</center>
-		<h4>Copyright (C) 2020 Quan_MCPC</h4>
+		<div class="container">
+			<center>
+				<h2 style="color:green";>Credit</h2>
+				<h3 style="color:green";>Tool:</h3>
+				<h3 style="color:orange";> Notepad++ (to write html file) <a href="https://notepad-plus-plus.org/">[Download here]</a></h3>
+				<h3 style="color:orange";>Google Chrome (to test html file) <a href="http://chrome.com/">[Download here]</a></h3>
+				<h3 style="color:orange";>GitHub Desktop (to upload file) <a href="https://desktop.github.com/">[Download here]</a></h3>
+				<h3 style="color:green";>Website Hosting Service that I use:</h3>
+				<h3 style="color:red";>GitHub (github.com)</h3>
+				<h4 style="color:white">Copyright (C) 2020 Quan_MCPC</h4>
+			</center>
+		</div>
 	</body>
 </html>
