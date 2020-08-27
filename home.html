@@ -212,7 +212,7 @@
 					function date_check() {
 						var date1 = new Date("07/17/2020");
 						var date2 = new Date();
-						var Difference_In_Time = date2.getTime() - date1.getTime(); 
+						var Difference_In_Time = Math.round(date2.getTime() - date1.getTime()); 
 						// To calculate the no. of days between two dates 
 						var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
 						document.getElementById("days_from").innerHTML = Difference_In_Days;
