@@ -55,7 +55,6 @@
 	</head>
 	<body onload="check()">
 		<div class="accb">
-			<img src="website/image/logo.png" style="width: auto; height: auto;" id="logo">
 			<h3 id="accbar"></h3>
 		</div>
 		<center>
@@ -66,6 +65,10 @@
 					}
 				}
 				var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
+				//Test
+				var link0 = "<img src="website/image/logo.png" style="width: auto; height: auto;" id="logo">";
+				var alink0 = "index";
+				var html_link0 = link0.link(alink0);
 				//Home
 				var link1 = "Home";
 				var alink1 = "home?id=" + dateTime;
@@ -87,7 +90,7 @@
 				var alink5 = "other_project?id=" + dateTime;
 				var html_link5 = link5.link(alink5);
 				//Access Bar
-				document.getElementById("accbar").innerHTML = html_link1 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link2 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link3 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link4 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link5;
+				document.getElementById("accbar").innerHTML = html_link0 + html_link1 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link2 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link3 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link4 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link5;
 			</script>
 		</center>
 		<div class="container">
