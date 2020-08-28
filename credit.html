@@ -68,10 +68,10 @@
 				//Test
 				var imgay = new Image();
 				imgay.src = 'website/image/logo.png';
+				imgay.id = 'logo';
+				img.onclick = function() { window.location.href = 'http://putyourlocationhere/'; };
 				document.body.appendChild(imgay);
 				var link0 = imgay;
-				var alink0 = "index";
-				var html_link0 = link0.link(alink0);
 				//Home
 				var link1 = "Home";
 				var alink1 = "home?id=" + dateTime;
