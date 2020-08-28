@@ -66,7 +66,10 @@
 				}
 				var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
 				//Test
-				var link0 = "<img src="website/image/logo.png" style="width: auto; height: auto;" id="logo">";
+				var imgay = new Image();
+				imgay.src = 'website/image/logo.png';
+				document.body.appendChild(img);
+				var link0 = imgay;
 				var alink0 = "index";
 				var html_link0 = link0.link(alink0);
 				//Home
