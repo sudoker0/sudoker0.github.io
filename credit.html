@@ -41,13 +41,6 @@
 			body::-webkit-scrollbar {
     				display: none;
 			}
-			#logo {
-				position: fixed;
-				left: 10px;
-				max-width: 100%;
-				max-height: 100%;
-				height: auto;
-			}
 		</style>
 		<link rel="icon" href="website\image\favicon.ico">
 		<title>Quan_MCPC Website</title>
@@ -65,14 +58,6 @@
 					}
 				}
 				var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
-				//Test
-				var imgay = new Image();
-				imgay.src = 'website/image/logo.png';
-				imgay.id = 'logo';
-				imgay.onclick = function() { window.location.href = 'http://putyourlocationhere/'; };
-				document.body.appendChild(imgay);
-				var link0 = imgay;
-				var html_link0 = link1;
 				//Home
 				var link1 = "Home";
 				var alink1 = "home?id=" + dateTime;
@@ -94,7 +79,7 @@
 				var alink5 = "other_project?id=" + dateTime;
 				var html_link5 = link5.link(alink5);
 				//Access Bar
-				document.getElementById("accbar").innerHTML = html_link0 + html_link1 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link2 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link3 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link4 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link5;
+				document.getElementById("accbar").innerHTML = html_link1 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link2 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link3 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link4 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link5;
 			</script>
 		</center>
 		<div class="container">
