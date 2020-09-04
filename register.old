@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register</title>
+
+    </head>
+    <body>
+        <div class="overlay"><img src="200.gif"></div>
+        <div class="overlay2">Captcha check leave too long. Please re-check the box</div>
+        <div class="accept">
+            <h4>Register</h4>
+            <p>By registering, you will have access to:</p>
+            <div class="access_to">
+                <ul>
+                    <li>Custom message when you access website</li>
+                    <!--<li></li>-->
+                </ul>
+            </div>
+
+            <p>Please note that NO SENSITIVE INFORMATION IS REQUIRED to register. Our system will automatially generate a 25 letters key.</p>
+            <p>So please write the key into a safe place and if you lose the key then you cannot access your account.</p>
+            <p>Also the key is encrypted so you don't have to worry about your information get leaked.</p>
+            <p>To continue, please check the box: I am not a robot</p>
+            <div class="robot">
+                <div class="aa"><a id="b" href="javascript:yes()" class="button">X</a><p id="c"><b>I am not a robot</b></p></div>
+            </div>
+
+            <button onclick="pass()">I am not a robot, please let me pass!</button>
+        </div>
+        <script>
+            var a = 0;
+            function yes() {
+                if (a == 0) {
+                    var str2 = new String("I am not a robot");
+                    document.getElementById("c").innerHTML = str2.bold();
+                    let myE = document.querySelector(".overlay");
+                    let myE2 = document.querySelector(".overlay2");
+                    myE.style.opacity = 1;
+                    myE2.style.opacity = 0;
+                    setTimeout(function() {
+                        myE.style.opacity = 0;
+                        document.getElementById("b").innerHTML = "V";
+                        a = 1;
+                        setTimeout(function() {
+                            document.getElementById("b").innerHTML = "X";
+                            a = 0;
+                            let myE2 = document.querySelector(".overlay2");
+                            myE2.style.opacity = 1;
+                        }, 300000)
+                    }, 3000)
+                }
+            }
+            function pass() {
+                if (a == 1) {
+                    console.log("Pass!");
+                } else {
+                    alert("Please pass the Captcha test!");
+                    return false;
+                }
+            }
+        </script>
+    </body>
+</html>

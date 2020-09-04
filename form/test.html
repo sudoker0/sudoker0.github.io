@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="test"></p>
+    </body>
+    <script>
+        var x = 0;
+        if (x = 0) {
+            test();
+            function test() {
+                document.getElementById("test").innerHTML = "When X = 0";
+            }
+        } else {
+            document.getElementById("test").innerHTML = "When X = 1";
+        }
+        console.log("Success!");
+    </script>
+</html>
