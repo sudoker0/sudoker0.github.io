@@ -398,7 +398,7 @@
                         document.getElementById("output").innerHTML += "Current date: " + d + "/" + m + "/" + y + " (This is in DD/MM/YYYY format)\r\n";
                         document.getElementById("output").innerHTML += "\r\n"; 
                     }
-                } else if (a[0] == "log_command") { //Command: log_command
+                } else if (a[0] == "log_command" || a[0] == "lc") { //Command: log_command
                     if (!a[1] == '') {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                     } else {
