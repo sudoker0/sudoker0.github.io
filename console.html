@@ -6,6 +6,16 @@
         <style>
             input[type="text"] {
                 width: 600px;
+                background-color: black;
+                color: white;
+                border: white 3px solid;
+                outline: none;
+            }
+            #output {
+                background-color: black;
+                color: white;
+                border: white 3px solid;
+                outline: none;
             }
         </style>
     </head>
@@ -562,7 +572,59 @@
     			            document.body.removeChild(event.target);
 		                }
 	                }
-                } else  {
+                } else if (a[0] == "color") {
+                    if (a[1] == "background") {
+                        if (a[2] == "-hex") {
+                            if (a[3].value.match("/^[0-9a-fA-F#]+$/")) {
+
+                            } else {
+
+                            }
+                        } else if (a[2] == "-name") {
+                            if (a[3].value.match("/^[a-zA-Z]+$")) {
+
+                            } else {
+
+                            }
+                        } else {
+                            document.getElementById("output").innerHTML += "Invalid syntax! Expected a color name (red) or a hex color code (#ffffff), type color -help to get help with the command\r\n";
+                        }
+                    } else if (a[1] == "output") {
+                        if (a[2] == "-hex") {
+                            if (a[3].value.match("/^[0-9a-fA-F#]+$/")) {
+
+                            } else {
+
+                            }
+                        } else if (a[2] == "-name") {
+                            if (a[3].value.match("/^[a-zA-Z]+$")) {
+
+                            } else {
+                                
+                            }
+                        } else {
+                            document.getElementById("output").innerHTML += "Invalid syntax! Expected a color name (red) or a hex color code (#ffffff), type color -help to get help with the command\r\n";
+                        }
+                    } else if (a[1] == "input") {
+                        if (a[2] == "-hex") {
+                            if (a[3].value.match("/^[0-9a-fA-F#]+$/")) {
+
+                            } else {
+
+                            }
+                        } else if (a[2] == "-name") {
+                            if (a[3].value.match("/^[a-zA-Z]+$")) {
+
+                            } else {
+                                
+                            }
+                        } else {
+                            document.getElementById("output").innerHTML += "Invalid syntax! Expected a color name (red) or a hex color code (#ffffff), type color -help to get help with the command\r\n";
+                        }
+                    } else {
+                        document.getElementById("output").innerHTML += "Invalid syntax! Expected a mode, type color -help to get help with the command\r\n";
+                    }
+                } else {
                     //Error 1: Not a correct command
                     document.getElementById("output").innerHTML += "'" + document.getElementById("command").value + "'" +" is not a valid command.\r\n";
                     document.getElementById("output").innerHTML += "Please refer the help page by typing: 'help' for valid command.\r\n";
