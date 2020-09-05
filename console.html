@@ -3,12 +3,17 @@
     <head>
         <title>WTOS (Web-Terminal Operating System)</title>
         <link rel="shortcut icon" type="image/x-icon" href="website/image/wtos.ico" />
+        <style>
+            input[type="text"] {
+                width: 600px;
+            }
+        </style>
     </head>
     <body style="background-color: rgb(34, 34, 34);" onload="intro()">
         <center>
             <textarea id="output" rows="30" cols="100" readonly style="resize: none; overflow-y: hidden;"></textarea>
             <br><br>
-            <div><textarea id="command" rows="1" cols="70" style="resize: none; overflow-y: hidden;" placeholder="Commands..." onkeyup="check(event, this)"></textarea></div><br><br><button onclick="enter()">Enter command</button>
+            <div><input id="command" type="text"></div><br><br><button onclick="enter()">Enter command</button>
         </center>
         <script>
             var mn = -1;
@@ -19,13 +24,6 @@
             var z = [""];
             var textarea = document.getElementById('output');
             setInterval(function(){ textarea.scrollTop = textarea.scrollHeight; }, 50);
-            function check(e, textarea) { 
-                document.getElementById("command").value = document.getElementById("command").value.replace('\n', '');
-                var code123 = (e.keyCode ? e.keyCode : e.which);
-                if(code123 == 13) { //Enter keycode
-                    enter();
-                }
-            }
             function intro() {
                 n =  new Date();
                 y = n.getFullYear();
@@ -38,11 +36,18 @@
                 document.getElementById("output").innerHTML += "Current date: " + d + "/" + m + "/" + y + " (This is in DD/MM/YYYY format)\r\n";
                 document.getElementById("output").innerHTML += "\r\n";
             }
+            document.getElementById('command').onkeypress = function(e){    
+                if (!e) e = window.event;
+                if (e.keyCode == '13'){
+                    enter();
+                    document.getElementById("command").value = '';
+                }
+            }
             function enter() {
                 if (log_c < 20) {
                     
                     z[log_c] = document.getElementById("command").value;
-                    console.log("z[" + log_c + "] = " + z[log_c]);
+                    //console.log("z[" + log_c + "] = " + z[log_c]);
                     log_c++;
                 } else {
                     console.log(z);
@@ -51,7 +56,7 @@
                 }
                 var str = document.getElementById("command").value;
                 var a = str.split(" ");
-                console.log(a[0]);
+                //console.log(a[0]);
                 var a_length = a.length;
                 document.getElementById("output").innerHTML += "> " + document.getElementById("command").value + "\r\n";
                 if (a[0] == "help") { //Command "help"
@@ -144,9 +149,9 @@
                                 document.getElementById("output").innerHTML += "Syntax: Type {stopwatch -help} to get the full help of this command\r\n";
                                 document.getElementById("output").innerHTML += "Example: stopwatch -n\r\n"
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "save_console_output: Save the console output into a file\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: save_console_output [filename.extension: string]\r\n";
-                                document.getElementById("output").innerHTML += "Example: save_console_output test.txt\r\n";
+                                document.getElementById("output").innerHTML += "save_console_output/sco: Save the console output into a file\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: save_console_output/sco [filename.extension: string]\r\n";
+                                document.getElementById("output").innerHTML += "Example: save_console_output/sco test.txt\r\n";
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
                                 return false;
                             } else {
@@ -537,7 +542,7 @@
                     }
                 } else if (a[0] == "stop") {
                     start = 0;
-                } else if (a[0] == "save_console_output") {
+                } else if (a[0] == "save_console_output" || a[0] == "sco") {
 	                if (!a[2] == '') {
 		                document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
 	                } else {
