@@ -13,7 +13,7 @@
         <center>
             <textarea id="output" rows="30" cols="100" readonly style="resize: none; overflow-y: hidden;"></textarea>
             <br><br>
-            <div><input id="command" type="text"></div><br><br><button onclick="enter()">Enter command</button>
+            <div><input id="command" type="text" placeholder="Command..."></div><br><br><button onclick="enter()">Enter command</button>
         </center>
         <script>
             var mn = -1;
@@ -433,9 +433,9 @@
                     })();
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
-                        document.getElementById("output").innerHTML += "Version: 1.0.5\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.0.6\r\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.0.5.82320_Revision1\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.0.6.9520_Revision1\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -444,7 +444,7 @@
                     if (!a[1] == '') {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                     } else {
-                        document.getElementById("output").innerHTML += "Version: 1.0.5\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.0.6\r\n";
                     }
                 } else if (a[0] == "timer") { //Command: timer
                     if (!isNaN(a[1])) {
@@ -564,7 +564,8 @@
 	                }
                 } else  {
                     //Error 1: Not a correct command
-                    document.getElementById("output").innerHTML += "Invalid or unknow command!\r\n";
+                    document.getElementById("output").innerHTML += "'" + document.getElementById("command").value + "'" +" is not a valid command.\r\n";
+                    document.getElementById("output").innerHTML += "Please refer the help page by typing: 'help' for valid command.\r\n";
                 }
             };
         </script>
