@@ -33,7 +33,13 @@
                 background-color: rgba(0, 255, 136, 0.5);
                 color: #fff;
             }
-            
+            body::-webkit-scrollbar {
+    			display: none;
+			}
+            body {
+                -ms-overflow-style: none;  /* IE and Edge */
+  				scrollbar-width: none;  /* Firefox */
+            }
         </style>
     </head>
     <body style="background-color: rgb(34, 34, 34);" onload="intro()" id="background" onresize="reset()">
@@ -68,7 +74,7 @@
             }
             function on_keyboard() {
                 console.log(window.innerWidth + ' ' + window.innerHeight);
-                if (window.innerHeight > 200 || window.innerWidth > 500) {
+                if (window.innerHeight > 200) {
                     let keyboard_2 = document.querySelector("#keyboard");
                     keyboard_2.style.display = "block";
                 } else {
@@ -602,7 +608,7 @@
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
                         document.getElementById("output").innerHTML += "Version: 1.0.7\r\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.0.7.9620_Revision2\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.0.7.9620_Revision3\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
