@@ -172,7 +172,7 @@
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
                                 document.getElementById("output").innerHTML += "color: Change the color of the background, input text, input background, output text and output background\r\n";
                                 document.getElementById("output").innerHTML += "Syntax: Type {color -help} to get the full help of this command\r\n";
-                                document.getElementById("output").innerHTML += "Example: color background -hex #ffffff, color input-background -name red\r\n\r\n";
+                                document.getElementById("output").innerHTML += "Example: color background -hex #ffffff, color input-background -name red\r\n";
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
                             } else {
                                 document.getElementById("output").innerHTML += "Invalid page number!\r\n"
@@ -453,9 +453,9 @@
                     })();
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
-                        document.getElementById("output").innerHTML += "Version: 1.0.6\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.0.7\r\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.0.6.9520_Revision1\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.0.7.9620_Revision2\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -464,7 +464,7 @@
                     if (!a[1] == '') {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                     } else {
-                        document.getElementById("output").innerHTML += "Version: 1.0.6\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.0.7\r\n";
                     }
                 } else if (a[0] == "timer") { //Command: timer
                     if (!isNaN(a[1])) {
@@ -589,7 +589,7 @@
                                 if (a[3].charAt(0) == "#") {
                                     if (a[3].length == 7) {
                                         let color_input_hex = document.querySelector("#background");
-                                        color_input_hex.style.color = a[3];
+                                        color_input_hex.style.backgroundcolor = a[3];
                                     } else {
                                         document.getElementById("output").innerHTML += "Invalid syntax! The color code does not match the allow length\r\n";
                                     }
@@ -615,7 +615,7 @@
                                 if (a[3].charAt(0) == "#") {
                                     if (a[3].length == 7) {
                                         let color_input_hex = document.querySelector("#output");
-                                        color_input_hex.style.color = a[3];
+                                        color_input_hex.style.backgroundColor = a[3];
                                     } else {
                                         document.getElementById("output").innerHTML += "Invalid syntax! The color code does not match the allow length\r\n";
                                     }
@@ -641,7 +641,7 @@
                                 if (a[3].charAt(0) == "#") {
                                     if (a[3].length == 7) {
                                         let color_input_hex = document.querySelector("#command");
-                                        color_input_hex.style.color = a[3];
+                                        color_input_hex.style.backgroundcolor = a[3];
                                     } else {
                                         document.getElementById("output").innerHTML += "Invalid syntax! The color code does not match the allow length\r\n";
                                     }
