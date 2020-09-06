@@ -208,7 +208,6 @@
             }
             function enter() {
                 if (log_c < 20) {
-                    
                     z[log_c] = document.getElementById("command").value;
                     //console.log("z[" + log_c + "] = " + z[log_c]);
                     log_c++;
@@ -222,6 +221,7 @@
                 //console.log(a[0]);
                 var a_length = a.length;
                 document.getElementById("output").innerHTML += "> " + document.getElementById("command").value + "\r\n";
+                a[0] = a[0].toLowerCase();
                 if (a[0] == "help") { //Command "help"
                     if (!a[1] == '') {
                         if (!isNaN(a[1])) {
@@ -608,7 +608,7 @@
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
                         document.getElementById("output").innerHTML += "Version: 1.0.7\r\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.0.7.9620_Revision3\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.0.7.9620_Revision4\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
