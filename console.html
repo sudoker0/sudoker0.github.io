@@ -17,15 +17,162 @@
                 border: white 3px solid;
                 outline: none;
             }
+            #keyboard {
+                display: none;
+                background-color: rgba(255, 255, 255, 0.5);
+                width: 500px;
+                height: 200px;
+                border: 3px solid white;
+                position: absolute;
+                z-index: 9;
+            }
+            #keyboard_bar {
+                padding: 10px;
+                cursor: move;
+                z-index: 10;
+                background-color: rgba(0, 255, 136, 0.5);
+                color: #fff;
+            }
+            
         </style>
     </head>
-    <body style="background-color: rgb(34, 34, 34);" onload="intro()" id="background">
+    <body style="background-color: rgb(34, 34, 34);" onload="intro()" id="background" onresize="reset()">
         <center>
+            <div id="keyboard">
+                <div id="keyboard_bar" style="text-align: center;"><button style="position: absolute; left: 10px" onclick="exit_keyboard()">Close</button>Keyboard</div>
+                <button onclick="keyboard_key('!')">!</button><button onclick="keyboard_key('@')">@</button><button onclick="keyboard_key('#')">#</button><button onclick="keyboard_key('$')">$</button><button onclick="keyboard_key('%')">%</button><button onclick="keyboard_key('^')">^</button><button onclick="keyboard_key('&')">&</button><button onclick="keyboard_key('*')">*</button><button onclick="keyboard_key('(')">(</button><button onclick="keyboard_key(')')">)</button><button onclick="keyboard_key('-')">-</button><button onclick="keyboard_key('+')">+</button><button onclick="keyboard_key('_')">_</button><button onclick="keyboard_key('=')">=</button>
+                <br>
+                <button onclick="keyboard_key('1')">1</button><button onclick="keyboard_key('2')">2</button><button onclick="keyboard_key('3')">3</button><button onclick="keyboard_key('4')">4</button><button onclick="keyboard_key('5')">5</button><button onclick="keyboard_key('6')">6</button><button onclick="keyboard_key('7')">7</button><button onclick="keyboard_key('8')">8</button><button onclick="keyboard_key('9')">9</button><button onclick="keyboard_key('0')">0</button><button onclick="keyboard_backspace()">Backspace</button>
+                <br>
+                <button onclick="keyboard_copy_selected()">Copy Selected Text</button><button onclick="keyboard_key('Q')">Q</button><button onclick="keyboard_key('W')">W</button><button onclick="keyboard_key('E')">E</button><button onclick="keyboard_key('R')">R</button><button onclick="keyboard_key('T')">T</button><button onclick="keyboard_key('Y')">Y</button><button onclick="keyboard_key('U')">U</button><button onclick="keyboard_key('I')">I</button><button onclick="keyboard_key('O')">O</button><button onclick="keyboard_key('P')">P</button><button onclick="keyboard_key('[')">[</button><button onclick="keyboard_key(']')">]</button><button onclick="keyboard_key('{')">{</button><button onclick="keyboard_key('}')">}</button><button onclick="keyboard_key('|')">|</button>
+                <br>
+                <button onclick="keyboard_enable_cl()" id="caps_lock">Caps Lock [X]</button><button onclick="keyboard_key('A')">A</button><button onclick="keyboard_key('S')">S</button><button onclick="keyboard_key('D')">D</button><button onclick="keyboard_key('F')">F</button><button onclick="keyboard_key('G')">G</button><button onclick="keyboard_key('H')">H</button><button onclick="keyboard_key('J')">J</button><button onclick="keyboard_key('K')">K</button><button onclick="keyboard_key('L')">L</button><button onclick="keyboard_key(';')">;</button><button onclick="keyboard_key(':')">:</button><button>Enter</button>
+                <br>
+                <button onclick="keyboard_enable_shift()" id="shift">Shift [X]</button><button onclick="keyboard_key('Z')">Z</button><button onclick="keyboard_key('X')">X</button><button onclick="keyboard_key('C')">C</button><button onclick="keyboard_key('V')">V</button><button onclick="keyboard_key('B')">B</button><button onclick="keyboard_key('N')">N</button><button onclick="keyboard_key('M')">M</button><button onclick="keyboard_key(',')">,</button><button onclick="keyboard_key('.')">.</button><button onclick="keyboard_key('/')">/</button><button onclick="keyboard_key('?')">?</button><button onclick="keyboard_key('<')">&lt;</button><button onclick="keyboard_key('>')">&gt;</button><button onclick="keyboard_enable_shift()" id="shift1">Shift [X]</button>
+                <br>
+                <button onclick="keyboard_select_all()">Select All</button><button onclick="keyboard_key(' ')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Space&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button><button onclick="keyboard_delete_all()">Delete All</button>
+            </div>
             <textarea id="output" rows="30" cols="100" readonly style="resize: none; overflow-y: hidden;"></textarea>
             <br><br>
-            <div><input id="command" type="text" placeholder="Command..."></div><br><br><button onclick="enter()">Enter command</button>
+            <div><input id="command" type="text" placeholder="Command..."></div><br><br><button onclick="enter()">Enter command</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="on_keyboard()">On-Screen Keyboard</button>
         </center>
         <script>
+            function reset() {
+                let keyboard_3 = document.querySelector("#keyboard");
+                keyboard_3.style.top = 1 + "px";
+                keyboard_3.style.left = 1 + "px";
+            }
+            function exit_keyboard() {
+                let keyboard_1 = document.querySelector("#keyboard");
+                keyboard_1.style.display = "none";
+            }
+            function on_keyboard() {
+                console.log(window.innerWidth + ' ' + window.innerHeight);
+                if (window.innerHeight > 200 || window.innerWidth > 500) {
+                    let keyboard_2 = document.querySelector("#keyboard");
+                    keyboard_2.style.display = "block";
+                } else {
+                    alert("Unable to enable On-Screen Keyboard because the screen size is too small to fit the keyboard.\r\nPlease resize the window.");
+                } 
+            }
+            function keyboard_copy_selected() {
+                var copy_sel = document.getSelection();
+                if (!document.execCommand('copy')) {
+                    alert("Sorry! Browser not support");
+                    return false;
+                } else {
+                    document.execCommand('copy');
+                }
+            }
+            function keyboard_delete_all() {
+                document.getElementById("command").value = '';
+            }
+            function keyboard_enable_cl() {
+                if (!window.enable_cl) {
+                    window.enable_cl = true;
+                    document.getElementById("caps_lock").innerHTML = "Caps Lock [V]";
+                } else {
+                    window.enable_cl = false;
+                    document.getElementById("caps_lock").innerHTML = "Caps Lock [X]";
+                }   
+            }
+            function keyboard_select_all() {
+                document.getElementById("command").focus();
+                document.getElementById("command").select();
+                window.enable_select_all = true;
+            }
+            function keyboard_enable_shift() {
+                window.enable_shift = true;
+                document.getElementById("shift").innerHTML =  "Shift [V]";
+                document.getElementById("shift1").innerHTML = "Shift [V]";
+            }
+            function keyboard_key(key) {
+                if (window.enable_shift) {
+                    document.getElementById("command").value += key;
+                    window.enable_shift = false;
+                    document.getElementById("shift").innerHTML = "Shift [X]";
+                    document.getElementById("shift1").innerHTML = "Shift [X]";
+                    return false;
+                }
+                if (window.enable_cl) {
+                    document.getElementById("command").value += key;
+                } else {
+                    document.getElementById("command").value += key.toLowerCase();
+                }
+                
+            }
+            function keyboard_backspace() {        
+                var command_old = document.getElementById("command").value;
+                var command_new = command_old.substring(0, command_old.length - 1);
+                document.getElementById("command").value = command_new;
+            }
+            dragElement(document.getElementById("keyboard"));
+            function dragElement(elmnt) {
+                var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+                if (document.getElementById(elmnt.id + "_bar")) {
+                    // if present, the header is where you move the DIV from:
+                    document.getElementById(elmnt.id + "_bar").onmousedown = dragMouseDown;
+                } else {
+                    // otherwise, move the DIV from anywhere inside the DIV:
+                    elmnt.onmousedown = dragMouseDown;
+                }
+                function dragMouseDown(e) {
+                    e = e || window.event;
+                    e.preventDefault();
+                    // get the mouse cursor position at startup:
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    document.onmouseup = closeDragElement;
+                    // call a function whenever the cursor moves:
+                    document.onmousemove = elementDrag;
+                }
+                function elementDrag(e) {
+                    e = e || window.event;
+                    e.preventDefault();
+                    // calculate the new cursor position:
+                    pos1 = pos3 - e.clientX;
+                    pos2 = pos4 - e.clientY;
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    // set the element's new position:
+                    //console.log(pos1 + ' ' + pos2 + ' ' + pos3 + ' ' + pos4);
+                    test_1 = (elmnt.offsetTop - pos2);
+                    test_2 = (elmnt.offsetLeft - pos1);
+                    if (test_2 <= 0 || test_1 <= 0 || window.innerWidth - 507 < test_2 || window.innerHeight - 207 < test_1) {
+
+                    } else {
+                        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+                    }
+                    
+                    //console.log(elmnt.style.top + ' ' + elmnt.style.left);
+                }
+                function closeDragElement() {
+                    // stop moving when mouse button is released:
+                    document.onmouseup = null;
+                    document.onmousemove = null;
+                }
+            }
             var mn = -1;
             var md = -1;
             var mc = -1;
