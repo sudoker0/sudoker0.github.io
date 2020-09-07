@@ -75,7 +75,7 @@
                 keyboard_1.style.display = "none";
             }
             function on_keyboard() {
-                console.log(window.innerWidth + ' ' + window.innerHeight);
+                //console.log(window.innerWidth + ' ' + window.innerHeight);
                 if (window.innerHeight > 200) {
                     let keyboard_2 = document.querySelector("#keyboard");
                     keyboard_2.style.display = "block";
@@ -214,7 +214,7 @@
                     //console.log("z[" + log_c + "] = " + z[log_c]);
                     log_c++;
                 } else {
-                    console.log(z);
+                    //console.log(z);
                     z.shift();
                     z.push(document.getElementById("command").value);
                 }
@@ -608,9 +608,9 @@
                     })();
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
-                        document.getElementById("output").innerHTML += "Version: 1.0.7\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.0.8\r\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.0.8.9720_Revision1\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.0.8.9720_Revision2\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -645,7 +645,7 @@
                 } else if (a[0] == "stopwatch") { //Command: stopwatch
                     start = 0;
                     stop_signal = 0;
-                    console.log(stop_signal);
+                    //console.log(stop_signal);
                     if (a[1] == "-n") { //Normal: 1
                         if (!a[2] == '') {
                             document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
@@ -722,7 +722,7 @@
                         clearInterval(mm); mm = -1;
                         start = 0;
                         stop_signal = 1;
-                        console.log(stop_signal);
+                        //console.log(stop_signal);
                     } else {
                         document.getElementById("output").innerHTML += "Invalid Syntax! Expected a mode, type timer -help to get help with the command\r\n";
                     }
@@ -863,7 +863,6 @@
                                     } else {
                                         document.getElementById("output").innerHTML += "Invalid syntax! The color code does not match the allow length\r\n";
                                     }
-                                    
                                 } else {
                                     document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid hex color code\r\n";
                                 }
