@@ -626,8 +626,11 @@
                         if (!a[2] == '') {
                             document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                         } else {
+                            var timer_a = document.getElementById("output").value;
                             var fa = setInterval(function () {
                                 if (!a[1] == 0) {
+                                    document.getElementById("output").innerHTML = '';
+                                    document.getElementById("output").innerHTML = timer_a;
                                     document.getElementById("output").innerHTML += "Time left: " + a[1] + "\r\n";
                                     a[1]--;
                                 } else {
@@ -647,9 +650,11 @@
                         if (!a[2] == '') {
                             document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                         } else {
+                            var stopwatch_a = document.getElementById("output").value;
                             var mnt = 0;
                             mn = setInterval(function () {
                                     document.getElementById("output").innerHTML = '';
+                                    document.getElementById("output").innerHTML = stopwatch_a;
                                     document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Normal. Type stopwatch -stop to stop the stopwatch\r\n"
                                     document.getElementById("output").innerHTML += mnt + "\r\n";
                                     mnt++;
@@ -661,8 +666,10 @@
                             document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                         } else {
                             var mdt = 0;
+                            var stopwatch_a = document.getElementById("output").value;
                             md = setInterval(function () {
                                     document.getElementById("output").innerHTML = '';
+                                    document.getElementById("output").innerHTML = stopwatch_a;
                                     document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Decisecond (1/10 of a second). Type stopwatch -stop to stop the stopwatch\r\n"
                                     document.getElementById("output").innerHTML += mdt / 10 + "\r\n";
                                     mdt++;
@@ -674,8 +681,10 @@
                             document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                         } else {
                             var mct = 0;
+                            var stopwatch_a = document.getElementById("output").value;
                             mc = setInterval(function () {
                                     document.getElementById("output").innerHTML = '';
+                                    document.getElementById("output").innerHTML = stopwatch_a;
                                     document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Centisecond(1/100 of a second). Type stopwatch -stop to stop the stopwatch\r\n"
                                     document.getElementById("output").innerHTML += mct / 100 + "\r\n";
                                     mct++;
@@ -687,8 +696,10 @@
                             document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                         } else {
                             var mmt = 0;
+                            var stopwatch_a = document.getElementById("output").value;
                             mm = setInterval(function () {
                                     document.getElementById("output").innerHTML = '';
+                                    document.getElementById("output").innerHTML = stopwatch_a;
                                     document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Milisecond. Type stopwatch -stop to stop the stopwatch\r\n"
                                     document.getElementById("output").innerHTML += mmt / 1000 + "\r\n";
                                     mmt++;
