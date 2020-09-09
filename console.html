@@ -137,7 +137,7 @@
         <!--Editor Part-->
         <div id="editor">
             <div id="editor_bar" style="text-align: center;"><button style="position: absolute; left: 10px" onclick="exit_edit()">Close</button>Edit Document In Terminal [Edit]</div>
-            <div id="editor_overlay" style="position: absolute; display: none; width: 100%; height: 93%; background-color: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
+            <div id="editor_overlay" style="position: absolute; display: none; width: 100%; height: 93%; background-color: rgba(0, 0, 0, 0.3); z-index: 1;"></div>
             <div id="editor_menu">
                 <div id="edit_file_dropdown" class="edit_dropdown">
                     <a href="#" class="edit_button" id="file_edit">File</a>
@@ -201,32 +201,26 @@
                 <!--</div>-->
             </div>
 
-            <div id="editor_find" style="z-index: 3; display: none; position: absolute; width: 250px; height: 125px; color: white; border: 6px double white">
-                <p style="text-align: center;">Find</p>
+            <div id="editor_find" style="padding: 5px 5px; z-index: 3; display: none; position: absolute; width: 360px; height: 25px; color: white; border: 6px double white">
                 <!--<p style="text-align: center;">Save file as:</p>-->
                 <label for="editor_find_name" style="text-align: center">Find: </label>
-                <input placeholder="Find word" id="editor_find_name" style="outline: none; border: 2px solid gray">
-                <br>
+                <input placeholder="Find word" id="editor_find_name" style="outline: none; border: 2px solid gray; width: 80px;">
                 <button onclick="editor_find1()">Find</button><button onclick="editor_cancel_find()">Cancel</button>
                 <input type="checkbox" id="editor_wrap_around"><label for="editor_wrap_around">Wrap Around</label>
             </div>
 
-            <div id="editor_replace" style="z-index: 3; display: none; position: absolute; width: 285px; height: 150px; color: white; border: 6px double white">
-                <p style="text-align: center;">Replace</p>
+            <div id="editor_replace" style="padding: 5px 5px; z-index: 3; display: none; position: absolute; width: 685px; height: 25px; color: white; border: 6px double white">
                 <label for="editor_find_replace_name" style="text-align: center">Find:&nbsp;</label>
-                <input placeholder="Find word" id="editor_find_replace_name" style="outline: none; border: 2px solid gray">
-                <br>
+                <input placeholder="Find word" id="editor_find_replace_name" style="outline: none; border: 2px solid gray; width: 80px;">
                 <label for="editor_replace_find_name" style="text-align: center">Replace:&nbsp;</label>
-                <input placeholder="Replace with" id="editor_replace_find_name" style="outline: none; border: 2px solid gray">
-                <br>
+                <input placeholder="Replace with" id="editor_replace_find_name" style="outline: none; border: 2px solid gray; width: 80px;">
                 <button onclick="editor_find2()">Find</button><button onclick="editor_replace1()">Replace</button><button onclick="editor_replace2()">Replace all</button><button onclick="editor_cancel_replace()">Cancel</button>
-                <br>
                 <input type="checkbox" id="editor_wrap_around1"><label for="editor_wrap_around1">Wrap Around</label>
             </div>
 	    
 		<div id="editor_about" style="z-index: 3; display: none; position: absolute; width: 400px; height: 275px; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: gray; border: 6px double white">
 			<p style="text-align: center">About EDIT (Edit Document In Terminal)</p>
-			<p style="text-align: center">Version: 1.0</p>
+			<p style="text-align: center">Version: 1.1</p>
 			<p style="text-align: center">Release Date: Wednesday, 9th 2020</p>
 			<p style="text-align: center">First release: Wednesday, 9th, 2020</p>
 			<p style="text-align: center">Copyright (C) 2020 Quan_MCPC</p>
@@ -1246,9 +1240,9 @@
                     })();
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
-                        document.getElementById("output").innerHTML += "Version: 1.1.0r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.1.0\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.1.0.9920_Revision2\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.1.0.9920_Revision3\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
