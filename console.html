@@ -599,6 +599,7 @@
                 fileReader.readAsText(fileToLoad, "UTF-8");
                 let cancel = document.querySelector("#editor_open"); 
                 cancel.style.display = "none";
+		   document.querySelector("#editor_overlay").style.display = "none";
                 //document.getElementById("editor_filename").innerHTML = "File: " + document.getElementById("editor_open_name").value.replace(/fakepath/, '');
                 var fullPath = document.getElementById('editor_open_name').value;
                 if (fullPath) {
@@ -638,6 +639,7 @@
                 let cancel1 = document.querySelector("#editor_save"); 
                 cancel1.style.display = "none";
                 document.getElementById("editor_filename").innerHTML = "File: " + document.getElementById("editor_save_name").value;
+			document.querySelector("#editor_overlay").style.display = "none";
             }
             function destroyClickedElement(event) {
                 document.body.removeChild(event.target);
