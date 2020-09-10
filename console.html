@@ -16,6 +16,11 @@
                 color: white;
                 border: white 3px solid;
                 outline: none;
+                -ms-overflow-style: none;  /* IE and Edge */
+  				scrollbar-width: none;  /* Firefox */
+            }
+            #output::-webkit-scrollbar {
+                display: none;
             }
             #keyboard {
                 display: none;
@@ -58,13 +63,6 @@
             }
             #editor_menu > div {
                 display:inline-block;
-            }
-            body::-webkit-scrollbar {
-    			display: none;
-			}
-            body {
-                -ms-overflow-style: none;  /* IE and Edge */
-  				scrollbar-width: none;  /* Firefox */
             }
             .edit_button {
                 background-color: rgb(70, 70, 70);
@@ -110,6 +108,13 @@
                 display: block;
                 text-align: left;
                 text-decoration: none;
+            }
+            #editor_input::-webkit-scrollbar {
+                display: none;
+            }
+            #editor_input {
+                -ms-overflow-style: none;  /* IE and Edge */
+  				scrollbar-width: none;  /* Firefox */
             }
             #edit_file_dropdown:hover #edit_file_menu { display: block; }
             #edit_edit_dropdown:hover #edit_edit_menu { display: block; }
@@ -157,6 +162,7 @@
                         <a onclick="editor_selectall_text()" href="#" class="edit_button_1"><b>Select All</b></a>
                         <a onclick="editor_undo_text()" href="#" class="edit_button_1"><b>Undo</b></a>
                         <a onclick="editor_redo_text()" href="#" class="edit_button_1"><b>Redo</b></a>
+                        <a onclick="editor_td_text()" href="#" class="edit_button_1"><b>Time/Date</b></a>
                     </div>
                 </div>
                 <div id="edit_search_dropdown" class="edit_dropdown">
@@ -164,6 +170,7 @@
                     <div id="edit_search_menu" class="test123">
                         <a onclick="editor_find()" href="#" class="edit_button_1"><b>Find</b></a>
                         <a onclick="editor_replace()" href="#" class="edit_button_1"><b>Replace</b></a>
+                        <a onclick="editor_gotoline()" href="#" class="edit_button_1"><b>Go to line</b></a>
                     </div>
                 </div>
                 <div id="edit_about_dropdown" class="edit_dropdown">
@@ -173,8 +180,8 @@
                     </div>
                 </div>
             </div>
-            <div style="background-color: black; line-height: 23px; vertical-align: middle; text-align: center; color: white; width: 738px; height: 23px; border: 6px double rgb(156, 156, 156)" id="editor_filename">UNTITLE 1</div>
-            <textarea id="editor_input" style="width: 735px; height: 80%; bottom: 0px; position: absolute; z-index: -1; resize: none; outline: none; overflow-y: hidden; background-color: black; color: white; border: 6px double rgb(197, 197, 197);"></textarea>
+            <div style="background-color: black; line-height: 23px; vertical-align: middle; text-align: center; color: white; width: 738px; height: 23px; border: 6px double rgb(156, 156, 156)" id="editor_filename">UNTITLED 1</div>
+            <textarea id="editor_input" style="width: 735px; height: 80%; bottom: 0px; position: absolute; z-index: -1; resize: none; outline: none; background-color: black; color: white; border: 6px double rgb(197, 197, 197);"></textarea>
             <div id="editor_save" style="z-index: 3; display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 150px; color: white; border: 6px double white">
                 <p style="text-align: center;">Download Document</p>
                 <!--<p style="text-align: center;">Save file as:</p>-->
@@ -201,7 +208,7 @@
                 <!--</div>-->
             </div>
 
-            <div id="editor_find" style="padding: 5px 5px; z-index: 3; display: none; position: absolute; width: 360px; height: 25px; color: white; border: 6px double white">
+            <div id="editor_find" style="bottom: 0; right: 0; padding: 5px 5px; z-index: 3; display: none; position: absolute; width: 360px; height: 25px; color: white; border: 6px double white">
                 <!--<p style="text-align: center;">Save file as:</p>-->
                 <label for="editor_find_name" style="text-align: center">Find: </label>
                 <input placeholder="Find word" id="editor_find_name" style="outline: none; border: 2px solid gray; width: 80px;">
@@ -209,13 +216,19 @@
                 <input type="checkbox" id="editor_wrap_around"><label for="editor_wrap_around">Wrap Around</label>
             </div>
 
-            <div id="editor_replace" style="padding: 5px 5px; z-index: 3; display: none; position: absolute; width: 685px; height: 25px; color: white; border: 6px double white">
+            <div id="editor_replace" style="bottom: 0; right: 0; padding: 5px 5px; z-index: 3; display: none; position: absolute; width: 685px; height: 25px; color: white; border: 6px double white">
                 <label for="editor_find_replace_name" style="text-align: center">Find:&nbsp;</label>
                 <input placeholder="Find word" id="editor_find_replace_name" style="outline: none; border: 2px solid gray; width: 80px;">
                 <label for="editor_replace_find_name" style="text-align: center">Replace:&nbsp;</label>
                 <input placeholder="Replace with" id="editor_replace_find_name" style="outline: none; border: 2px solid gray; width: 80px;">
                 <button onclick="editor_find2()">Find</button><button onclick="editor_replace1()">Replace</button><button onclick="editor_replace2()">Replace all</button><button onclick="editor_cancel_replace()">Cancel</button>
                 <input type="checkbox" id="editor_wrap_around1"><label for="editor_wrap_around1">Wrap Around</label>
+            </div>
+
+            <div id="editor_gotoline" style="bottom: 0; right: 0; padding: 5px 5px; z-index: 3; display: none; position: absolute; width: 310px; height: 25px; color: white; border: 6px double white">
+                <label for="editor_goto_input" style="text-align: center">Line number:&nbsp;</label>
+                <input type="number" placeholder="Number" id="editor_goto_input" style="outline: none; border: 2px solid gray; width: 80px;">
+                <button onclick="editor_goto()">Go to</button><button onclick="editor_cancel_gotoline()">Cancel</button>
             </div>
 	    
 		<div id="editor_about" style="z-index: 3; display: none; position: absolute; width: 400px; height: 275px; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: gray; border: 6px double white">
@@ -258,38 +271,57 @@
             //Editor Script
             var start_1 = 0;
             window.count_1 = 0;
-		var start_2 = 0;
-		window.count_2 = 0;
-		var v3 = 1;
+            var start_2 = 0;
+            window.count_2 = 0;
+            var v3 = 1;
             var open_window = false;
             var save_window = false;
-		function editor_about() {
-			let open = document.querySelector("#editor_about");
-                open.style.display = "block";
-                document.querySelector("#editor_overlay").style.display = "block";
-		}
-		function editor_about_close() {
-			let close = document.querySelector("#editor_about");
+            function editor_td_text() {
+                var td = new Date();
+                document.getElementById("editor_input").value += td;
+            }
+            function editor_cancel_gotoline() {
+                let close = document.querySelector("#editor_gotoline");
                 close.style.display = "none";
                 document.querySelector("#editor_overlay").style.display = "none";
-		}
-		function editor_new() {
-		    var check = document.getElementById("editor_input").value;
-		    if (check == '') {
-			document.getElementById("editor_input").value = '';
-			v3++;
-			document.getElementById("editor_filename").innerHTML = "UNTITLE " + v3;
-		    } else {
-			var confirm1 = confirm("There is some text in the editor. If you already downloaded the document, press Ok to create new document, if not, press Cancel, download the document then press Ok to create new document");
-			if (confirm1) {
-				document.getElementById("editor_input").value = '';
-				v3++;
-				document.getElementById("editor_filename").innerHTML = "UNTITLE " + v3;
-			} else {
-				throw new Error("This is not an error");
-			}
-		}
-		}
+            }
+            function editor_goto() {
+                var a = document.getElementById("editor_input");
+                var b = document.getElementById("editor_goto_input").value;
+                selectTextareaLine3(a, b);
+            }
+            function editor_gotoline() {
+                let open = document.querySelector("#editor_gotoline");
+                open.style.display = "block";
+                document.querySelector("#editor_overlay").style.display = "block";
+            }
+            function editor_about() {
+                let open = document.querySelector("#editor_about");
+                open.style.display = "block";
+                document.querySelector("#editor_overlay").style.display = "block";
+            }
+            function editor_about_close() {
+                let close = document.querySelector("#editor_about");
+                close.style.display = "none";
+                document.querySelector("#editor_overlay").style.display = "none";
+            }
+            function editor_new() {
+                var check = document.getElementById("editor_input").value;
+                if (check == '') {
+                    document.getElementById("editor_input").value = '';
+                    v3++;
+                    document.getElementById("editor_filename").innerHTML = "UNTITLED " + v3;
+                } else {
+                    var confirm1 = confirm("There is some text in the editor. If you already downloaded the document, press Ok to create new document, if not, press Cancel, download the document then press Ok to create new document");
+                    if (confirm1) {
+                        document.getElementById("editor_input").value = '';
+                        v3++;
+                        document.getElementById("editor_filename").innerHTML = "UNTITLED " + v3;
+                    } else {
+                        throw new Error("This is not an error");
+                    }
+                }
+            }
             function editor_replace() {
                 let open = document.querySelector("#editor_replace");
                 open.style.display = "block";
@@ -373,13 +405,53 @@
                 var tarea = document.getElementById('editor_input');
                 selectTextareaLine1(tarea, sel.value);
             }
-	    function editor_find3() {
+	        function editor_find3() {
                 console.log("open");
                 var sel = document.getElementById('editor_find_replace_name');
                 var tarea = document.getElementById('editor_input');
                 selectTextareaLine2(tarea, sel.value);
             }
-		function selectTextareaLine2(tarea, word_1) {
+            function selectTextareaLine3(tarea,lineNum) {
+                lineNum--; // array starts at 0
+                if (lineNum > -1) {
+                    var lines = tarea.value.split("\n");
+                    // calculate start/end
+                    var startPos = 0, endPos = tarea.value.length;
+                    for(var x = 0; x < lines.length; x++) {
+                        if(x == lineNum) {
+                            break;
+                        }
+                        startPos += (lines[x].length+1);
+                    }
+
+                    var endPos = lines[lineNum].length+startPos;
+                    // do selection
+                    // Chrome / Firefox
+                    if(typeof(tarea.selectionStart) != "undefined") {
+                        tarea.focus();
+                        tarea.selectionStart = startPos;
+                        tarea.selectionEnd = endPos;
+                        return true;
+                    }
+
+                    // IE
+                    if (document.selection && document.selection.createRange) {
+                        tarea.focus();
+                        tarea.select();
+                        var range = document.selection.createRange();
+                        range.collapse(true);
+                        range.moveEnd("character", endPos);
+                        range.moveStart("character", startPos);
+                        range.select();
+                        return true;
+                    }
+                    return false;
+                } else {
+                    alert("A line number can't be a negative number");
+                    return false;
+                }
+            }
+		    function selectTextareaLine2(tarea, word_1) {
                 console.log(tarea.value.indexOf(word_1, window.start_1));
                 if (tarea.value.indexOf(word_1, window.start_1) > -1) {
                     const words_1 = tarea.value.split(" ");
