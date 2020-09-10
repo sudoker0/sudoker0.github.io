@@ -218,9 +218,9 @@
 
             <div id="editor_replace" style="bottom: 0; right: 0; padding: 5px 5px; z-index: 3; display: none; position: absolute; width: 685px; height: 25px; color: white; border: 6px double white">
                 <label for="editor_find_replace_name" style="text-align: center">Find:&nbsp;</label>
-                <input placeholder="Find word" id="editor_find_replace_name" style="outline: none; border: 2px solid gray; width: 80px;">
+                <input onkeydown="editor_replace_find_replace()" placeholder="Find word" id="editor_find_replace_name" style="outline: none; border: 2px solid gray; width: 80px;">
                 <label for="editor_replace_find_name" style="text-align: center">Replace:&nbsp;</label>
-                <input placeholder="Replace with" id="editor_replace_find_name" style="outline: none; border: 2px solid gray; width: 80px;">
+                <input onkeydown="editor_replace_find_replace()" placeholder="Replace with" id="editor_replace_find_name" style="outline: none; border: 2px solid gray; width: 80px;">
                 <button onclick="editor_find2()">Find</button><button onclick="editor_replace1()">Replace</button><button onclick="editor_replace2()">Replace all</button><button onclick="editor_cancel_replace()">Cancel</button>
                 <input type="checkbox" id="editor_wrap_around1"><label for="editor_wrap_around1">Wrap Around</label>
             </div>
@@ -233,8 +233,8 @@
 	    
 		<div id="editor_about" style="z-index: 3; display: none; position: absolute; width: 400px; height: 275px; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: gray; border: 6px double white">
 			<p style="text-align: center">About EDIT (Edit Document In Terminal)</p>
-			<p style="text-align: center">Version: 1.1</p>
-			<p style="text-align: center">Release Date: Wednesday, 9th 2020</p>
+			<p style="text-align: center">Version: 1.2</p>
+			<p style="text-align: center">Release Date: Wednesday, 10th 2020</p>
 			<p style="text-align: center">First release: Wednesday, 9th, 2020</p>
 			<p style="text-align: center">Copyright (C) 2020 Quan_MCPC</p>
 			<p style="text-align: center">Source code are free to copy, modify and publish. Just remember to include my Copyright</b></p>
@@ -273,9 +273,13 @@
             window.count_1 = 0;
             var start_2 = 0;
             window.count_2 = 0;
+            var start_3 = 0;
             var v3 = 1;
             var open_window = false;
             var save_window = false;
+            function editor_replace_find_replace() {
+                window.start_1 = 0; window.start_2 = 0; window.start_3 = 0; window.count_1 = 0; window.count_2 = 0;
+            }
             function editor_td_text() {
                 var td = new Date();
                 document.getElementById("editor_input").value += td;
@@ -331,25 +335,36 @@
                 let close = document.querySelector("#editor_replace");
                 close.style.display = "none";
                 document.querySelector("#editor_overlay").style.display = "none";
+                window.start_1 = 0; window.start_2 = 0; window.start_3 = 0; window.count_1 = 0; window.count_2 = 0;
             }
             function editor_replace2() {
-                var a = confirm("Are you sure that you want to replace ALL OCCURRENCES?");
-                if (a) {
-                    const search = document.getElementById("editor_find_replace_name").value;
-                    const replace_with = document.getElementById("editor_replace_find_name").value;
-                    const input = document.getElementById("editor_input").value;
-                    const output = input.split(search).join(replace_with);
-                    console.log(search + ' ' + replace_with + ' ' + input + ' ' + output);
-                    document.getElementById("editor_input").value = output;
+                if (document.getElementById("editor_find_replace_name").value.replace(/\s/g, '').length) {
+                    var a = confirm("Are you sure that you want to replace ALL OCCURRENCES?");
+                    if (a) {
+                        const search = document.getElementById("editor_find_replace_name").value;
+                        const replace_with = document.getElementById("editor_replace_find_name").value;
+                        const input = document.getElementById("editor_input").value;
+                        const output = input.split(search).join(replace_with);
+                        console.log(search + ' ' + replace_with + ' ' + input + ' ' + output);
+                        document.getElementById("editor_input").value = output;
+                    } else {
+                        throw new Error("This is not an error")
+                    }
                 } else {
-                    throw new Error("This is not an error")
+                    alert("Do not leave the search box empty!");
+                    throw new Error("This is not an error");
                 }
             }
             function editor_replace1() {
-                editor_find3();
-                var el = document.getElementById("editor_input");
-                var el_1 = document.getElementById("editor_replace_find_name").value;
-                replaceSelectedText(el, el_1);
+                if (document.getElementById("editor_find_replace_name").value.replace(/\s/g, '').length) {
+                    editor_find3();
+                    var el = document.getElementById("editor_input");
+                    var el_1 = document.getElementById("editor_replace_find_name").value;
+                    replaceSelectedText(el, el_1);
+                } else {
+                    alert("Do not leave the search box empty!");
+                    throw new Error("This is not an error");
+                }
             }
             function getInputSelection(el) {
                 var start = 0, end = 0, normalizedValue, range,
@@ -394,19 +409,29 @@
                 el.value = val.slice(0, sel.start) + text + val.slice(sel.end);
             }
             function editor_find1() {
-                console.log("open");
-                var sel = document.getElementById('editor_find_name');
-                var tarea = document.getElementById('editor_input');
-                selectTextareaLine(tarea, sel.value);
+                if (document.getElementById("editor_find_name").value.replace(/\s/g, '').length) {
+                    console.log("open");
+                    var sel = document.getElementById('editor_find_name');
+                    var tarea = document.getElementById('editor_input');
+                    selectTextareaLine(tarea, sel.value);
+                } else {
+                    alert("Do not leave the search box empty!");
+                    throw new Error("This is not an error");
+                }
             }
             function editor_find2() {
-                console.log("open");
-                var sel = document.getElementById('editor_find_replace_name');
-                var tarea = document.getElementById('editor_input');
-                selectTextareaLine1(tarea, sel.value);
+                if (document.getElementById("editor_find_replace_name").value.replace(/\s/g, '').length) {
+                    console.log("open");
+                    var sel = document.getElementById('editor_find_replace_name');
+                    var tarea = document.getElementById('editor_input');
+                    selectTextareaLine1(tarea, sel.value);
+                } else {
+                    alert("Do not leave the search box empty!");
+                    throw new Error("This is not an error");
+                }
             }
 	        function editor_find3() {
-                console.log("open");
+                console.log(window.start_3);
                 var sel = document.getElementById('editor_find_replace_name');
                 var tarea = document.getElementById('editor_input');
                 selectTextareaLine2(tarea, sel.value);
@@ -452,12 +477,12 @@
                 }
             }
 		    function selectTextareaLine2(tarea, word_1) {
-                console.log(tarea.value.indexOf(word_1, window.start_1));
-                if (tarea.value.indexOf(word_1, window.start_1) > -1) {
+                console.log(tarea.value.indexOf(word_1, window.start_3));
+                if (tarea.value.indexOf(word_1, window.start_3) > -1) {
                     const words_1 = tarea.value.split(" ");
-                    console.log(window.start_1);
+                    console.log(window.start_3);
                     // calculate start/end
-                    const startPos_1 = tarea.value.indexOf(word_1, window.start_1),
+                    const startPos_1 = tarea.value.indexOf(word_1, window.start_3),
                         endPos_1 = startPos_1 + word_1.length
                     console.log(startPos_1 + ' ' + endPos_1);
                     if (typeof(tarea.selectionStart) != "undefined") {
@@ -465,8 +490,16 @@
                         tarea.selectionStart = startPos_1;
                         tarea.selectionEnd = endPos_1;
                         count_1++;
-                        window.start_1 = tarea.value.indexOf(word_1, window.start_1) + 1;
+                        window.start_3 = tarea.value.indexOf(word_1, window.start_3) + 1;
                         console.log(tarea.value.indexOf(word_1) + 1)
+                        var textLines = tarea.value.substr(0, tarea.selectionStart).split("\n");
+                        var currentLineNumber = textLines.length;
+                        if (currentLineNumber >= 29) {
+                            var calc = (currentLineNumber - 29) * 15 + 30;
+                            tarea.scrollTop = calc;
+                        } else {
+                            tarea.scrollTop = 0;
+                        }
                         return true;
                     }
                 } else {
@@ -501,7 +534,15 @@
                         tarea.selectionEnd = endPos_1;
                         count_1++;
                         window.start_1 = tarea.value.indexOf(word_1, window.start_1) + 1;
-                        console.log(tarea.value.indexOf(word_1) + 1)
+                        console.log(tarea.value.indexOf(word_1) + 1);
+                        var textLines = tarea.value.substr(0, tarea.selectionStart).split("\n");
+                        var currentLineNumber = textLines.length;
+                        if (currentLineNumber >= 29) {
+                            var calc = (currentLineNumber - 29) * 15 + 30;
+                            tarea.scrollTop = calc;
+                        } else {
+                            tarea.scrollTop = 0;
+                        }
                         return true;
                     }
                 } else {
@@ -542,6 +583,14 @@
                         count_2++;
                         window.start_2 = tarea.value.indexOf(word_2, window.start_2) + 1;
                         console.log(tarea.value.indexOf(word_2) + 1)
+                        var textLines = tarea.value.substr(0, tarea.selectionStart).split("\n");
+                        var currentLineNumber = textLines.length;
+                        if (currentLineNumber >= 29) {
+                            var calc = (currentLineNumber - 29) * 15 + 30;
+                            tarea.scrollTop = calc;
+                        } else {
+                            tarea.scrollTop = 0;
+                        }
                         return true;
                     }
                 } else {
@@ -577,6 +626,7 @@
                 let close = document.querySelector("#editor_find");
                 close.style.display = "none";
                 document.querySelector("#editor_overlay").style.display = "none";
+                window.start_1 = 0; window.start_2 = 0; window.start_3 = 0; window.count_1 = 0; window.count_2 = 0;
             }
             function editor_cut_text() {
                 var cut_sel = document.getSelection();
@@ -665,7 +715,7 @@
                 fileReader.readAsText(fileToLoad, "UTF-8");
                 let cancel = document.querySelector("#editor_open"); 
                 cancel.style.display = "none";
-		   document.querySelector("#editor_overlay").style.display = "none";
+		        document.querySelector("#editor_overlay").style.display = "none";
                 //document.getElementById("editor_filename").innerHTML = "File: " + document.getElementById("editor_open_name").value.replace(/fakepath/, '');
                 var fullPath = document.getElementById('editor_open_name').value;
                 if (fullPath) {
@@ -705,7 +755,7 @@
                 let cancel1 = document.querySelector("#editor_save"); 
                 cancel1.style.display = "none";
                 document.getElementById("editor_filename").innerHTML = "File: " + document.getElementById("editor_save_name").value;
-			document.querySelector("#editor_overlay").style.display = "none";
+			    document.querySelector("#editor_overlay").style.display = "none";
             }
             function destroyClickedElement(event) {
                 document.body.removeChild(event.target);
