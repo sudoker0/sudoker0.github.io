@@ -6,6 +6,7 @@
         <title>WTOS (Web-Terminal Operating System)</title>
         <link rel="shortcut icon" type="image/x-icon" href="website/image/wtos.ico" />
         <style>
+            
             input[type="text"] {
                 width: 600px;
                 background-color: black;
@@ -48,6 +49,7 @@
                 border: 3px solid white;
                 position: absolute;
                 z-index: 9;
+                font-size: 16px;
             }
             #editor_bar {
                 padding: 10px;
@@ -1668,8 +1670,8 @@
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                         return false;
                     } else {
-                            let edit = document.querySelector("#editor");
-                            edit.style.display = "block";
+                        let edit = document.querySelector("#editor");
+                        edit.style.display = "block";
                     }
                 } else {
                     //Error 1: Not a correct command
