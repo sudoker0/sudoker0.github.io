@@ -259,7 +259,7 @@
                 <br>
                 <button onclick="keyboard_key('Q')">Q</button><button onclick="keyboard_key('W')">W</button><button onclick="keyboard_key('E')">E</button><button onclick="keyboard_key('R')">R</button><button onclick="keyboard_key('T')">T</button><button onclick="keyboard_key('Y')">Y</button><button onclick="keyboard_key('U')">U</button><button onclick="keyboard_key('I')">I</button><button onclick="keyboard_key('O')">O</button><button onclick="keyboard_key('P')">P</button><button onclick="keyboard_key('[')">[</button><button onclick="keyboard_key(']')">]</button><button onclick="keyboard_key('{')">{</button><button onclick="keyboard_key('}')">}</button><button onclick="keyboard_key('|')">|</button>
                 <br>
-                <button onclick="keyboard_enable_cl()" id="caps_lock">Caps Lock [X]</button><button onclick="keyboard_key('A')">A</button><button onclick="keyboard_key('S')">S</button><button onclick="keyboard_key('D')">D</button><button onclick="keyboard_key('F')">F</button><button onclick="keyboard_key('G')">G</button><button onclick="keyboard_key('H')">H</button><button onclick="keyboard_key('J')">J</button><button onclick="keyboard_key('K')">K</button><button onclick="keyboard_key('L')">L</button><button onclick="keyboard_key(';')">;</button><button onclick="keyboard_key(':')">:</button><button onclick="enter()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enter</button>
+                <button onclick="keyboard_enable_cl()" id="caps_lock">Caps Lock [X]</button><button onclick="keyboard_key('A')">A</button><button onclick="keyboard_key('S')">S</button><button onclick="keyboard_key('D')">D</button><button onclick="keyboard_key('F')">F</button><button onclick="keyboard_key('G')">G</button><button onclick="keyboard_key('H')">H</button><button onclick="keyboard_key('J')">J</button><button onclick="keyboard_key('K')">K</button><button onclick="keyboard_key('L')">L</button><button onclick="keyboard_key(';')">;</button><button onclick="keyboard_key(':')">:</button><button onclick="enter_2()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enter</button>
                 <br>
                 <button onclick="keyboard_enable_shift()" id="shift">Shift [X]</button><button onclick="keyboard_key('Z')">Z</button><button onclick="keyboard_key('X')">X</button><button onclick="keyboard_key('C')">C</button><button onclick="keyboard_key('V')">V</button><button onclick="keyboard_key('B')">B</button><button onclick="keyboard_key('N')">N</button><button onclick="keyboard_key('M')">M</button><button onclick="keyboard_key(',')">,</button><button onclick="keyboard_key('.')">.</button><button onclick="keyboard_key('/')">/</button><button onclick="keyboard_key('?')">?</button><button onclick="keyboard_key('<')">&lt;</button><button onclick="keyboard_key('>')">&gt;</button><button onclick="keyboard_enable_shift()" id="shift1">Shift [X]</button>
                 <br>
@@ -640,8 +640,6 @@
                 }
                 return false;
             }
-
-
             function editor_find() {
                 let open = document.querySelector("#editor_find");
                 open.style.display = "block";
@@ -705,9 +703,9 @@
             function editor_exit() {
                 /*let close = document.querySelector("#editor");
                 close.style.display = "none";*/
-			if (confirm("WARNING: Unlike the close button up the top that only close the window but still keep the progress. Reset and Close will reset your progress [including the console log] and close the window. Please download any document that you're currently writing!\r\n Are you sure you want to continue?")) {
-				window.location.reload(true);
-			}
+			    if (confirm("WARNING: Unlike the close button up the top that only close the window but still keep the progress. Reset and Close will reset your progress [including the console log] and close the window. Please download any document that you're currently writing!\r\n Are you sure you want to continue?")) {
+			    	window.location.reload(true);
+			    }
             }
             function editor_open() {
                 let open = document.querySelector("#editor_open");
@@ -982,6 +980,10 @@
                     enter();
                     document.getElementById("command").value = '';
                 }
+            }
+            function enter_2() {
+                enter();
+                document.getElementById("command").value = '';
             }
             function enter() {
                 if (log_c < 20) {
@@ -1665,7 +1667,7 @@
                     } else {
                         document.getElementById("output").innerHTML += "Invalid syntax! Expected a mode, type color -help to get help with the command\r\n";
                     }
-                } else if (a[0] == "edit") {
+                } else if (a[0] == "edit") { //Command: edit
                     if (!a[1] == "") {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                         return false;
