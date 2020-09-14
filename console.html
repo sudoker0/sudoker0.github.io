@@ -6,7 +6,6 @@
         <title>WTOS (Web-Terminal Operating System)</title>
         <link rel="shortcut icon" type="image/x-icon" href="website/image/wtos.ico" />
         <style>
-            
             input[type="text"] {
                 width: 600px;
                 background-color: black;
@@ -125,21 +124,21 @@
             #edit_search_dropdown:hover #edit_search_menu { display: block; }
             #edit_about_dropdown:hover #edit_about_menu { display: block; }
             .edit_button_1 { cursor: context-menu; }
-		button {
-			background-color: #707070;
-			border: none;
-			color: white;
-			padding: 2px 10px;
-			text-align: center;
-			text-decoration: none;
-			display: inline-block;
-			font-size: 14px;
-			margin: 0px 1px;
-			cursor: pointer;
-		}
-		#keyboard button {
-			margin: 0px 0px;
-		}
+            button {
+                background-color: #707070;
+                border: none;
+                color: white;
+                padding: 2px 10px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 14px;
+                margin: 0px 1px;
+                cursor: pointer;
+            }
+            #keyboard button {
+                margin: 0px 0px;
+            }
         </style>
     </head>
     <body style="background-color: rgb(34, 34, 34);" onload="intro()" id="background" onresize="reset()">
@@ -191,28 +190,26 @@
                 <p style="text-align: center;">Download Document</p>
                 <!--<p style="text-align: center;">Save file as:</p>-->
                 <!--<div style="padding: 3px 3px; position: absolute; left: 50%; top: 50%; border: 4px double white; background-color: black; color: white; transform: translate(-50%, -50%); outline: none">-->
-			<center>
+                <center>
                     <label for="editor_save_name" style="text-align: center">Download file as: </label>
                     <input placeholder="Filename" id="editor_save_name" style="outline: none">
                     <br><br>
-			<button onclick="editor_save1()">Download file</button><button onclick="editor_cancel_save()">Cancel</button>
-			</center>
+                    <button onclick="editor_save1()">Download file</button><button onclick="editor_cancel_save()">Cancel</button>
+                </center>
                 <!--</div>-->
             </div>
-
             <div id="editor_open" style="z-index: 3; display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 150px; color: white; border: 6px double white">
                 <p style="text-align: center;">Open Document</p>
                 <!--<p style="text-align: center;">Save file as:</p>-->
                 <!--<div style="padding: 3px 3px; position: absolute; left: 50%; top: 50%; border: 4px double white; background-color: black; color: white; transform: translate(-50%, -50%); outline: none">-->
-			<center>
+                <center>
                     <label for="editor_open_name" style="text-align: center">Load file: </label>
                     <input id="editor_open_name" type="file">
                     <br><br>
-			<button onclick="editor_load1()">Load file</button><button onclick="editor_cancel_load()">Cancel</button>
-			</center>
+                    <button onclick="editor_load1()">Load file</button><button onclick="editor_cancel_load()">Cancel</button>
+                </center>
                 <!--</div>-->
             </div>
-
             <div id="editor_find" style="bottom: 0; right: 0; padding: 5px 5px; z-index: 3; display: none; position: absolute; width: 360px; height: 25px; color: white; border: 6px double white">
                 <!--<p style="text-align: center;">Save file as:</p>-->
                 <label for="editor_find_name" style="text-align: center">Find: </label>
@@ -220,7 +217,6 @@
                 <button onclick="editor_find1()">Find</button><button onclick="editor_cancel_find()">Cancel</button>
                 <input type="checkbox" id="editor_wrap_around"><label for="editor_wrap_around">Wrap Around</label>
             </div>
-
             <div id="editor_replace" style="bottom: 0; right: 0; padding: 5px 5px; z-index: 3; display: none; position: absolute; width: 685px; height: 25px; color: white; border: 6px double white">
                 <label for="editor_find_replace_name" style="text-align: center">Find:&nbsp;</label>
                 <input onkeydown="editor_replace_find_replace()" placeholder="Find word" id="editor_find_replace_name" style="outline: none; border: 2px solid gray; width: 80px;">
@@ -229,24 +225,22 @@
                 <button onclick="editor_find2()">Find</button><button onclick="editor_replace1()">Replace</button><button onclick="editor_replace2()">Replace all</button><button onclick="editor_cancel_replace()">Cancel</button>
                 <input type="checkbox" id="editor_wrap_around1"><label for="editor_wrap_around1">Wrap Around</label>
             </div>
-
             <div id="editor_gotoline" style="bottom: 0; right: 0; padding: 5px 5px; z-index: 3; display: none; position: absolute; width: 310px; height: 25px; color: white; border: 6px double white">
                 <label for="editor_goto_input" style="text-align: center">Line number:&nbsp;</label>
                 <input type="number" placeholder="Number" id="editor_goto_input" style="outline: none; border: 2px solid gray; width: 80px;">
                 <button onclick="editor_goto()">Go to</button><button onclick="editor_cancel_gotoline()">Cancel</button>
             </div>
-	    
-		<div id="editor_about" style="z-index: 3; display: none; position: absolute; width: 400px; height: 275px; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: gray; border: 6px double white">
-			<p style="text-align: center">About EDIT (Edit Document In Terminal)</p>
-			<p style="text-align: center">Version: 1.3</p>
-			<p style="text-align: center">Release Date: Friday, 11th 2020</p>
-			<p style="text-align: center">First release: Wednesday, 9th, 2020</p>
-			<p style="text-align: center">Copyright (C) 2020 Quan_MCPC</p>
-			<p style="text-align: center">Source code are free to copy, modify and publish. Just remember to include my Copyright</b></p>
-			<center>
-			<button onclick="editor_about_close()">OK</button>
-			</center>
-		</div>
+            <div id="editor_about" style="z-index: 3; display: none; position: absolute; width: 400px; height: 275px; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: gray; border: 6px double white">
+                <p style="text-align: center">About EDIT (Edit Document In Terminal)</p>
+                <p style="text-align: center">Version: 1.3</p>
+                <p style="text-align: center">Release Date: Friday, 11th 2020</p>
+                <p style="text-align: center">First release: Wednesday, 9th, 2020</p>
+                <p style="text-align: center">Copyright (C) 2020 Quan_MCPC</p>
+                <p style="text-align: center">Source code are free to copy, modify and publish. Just remember to include my Copyright</b></p>
+                <center>
+                    <button onclick="editor_about_close()">OK</button>
+                </center>
+            </div>
         </div>
         <!--Editor Part-->
         <center>
@@ -354,7 +348,7 @@
                         const replace_with = document.getElementById("editor_replace_find_name").value;
                         const input = document.getElementById("editor_input").value;
                         const output = input.split(search).join(replace_with);
-                        console.log(search + ' ' + replace_with + ' ' + input + ' ' + output);
+                        //console.log(search + ' ' + replace_with + ' ' + input + ' ' + output);
                         document.getElementById("editor_input").value = output;
                     } else {
                         throw new Error("This is not an error")
@@ -407,8 +401,7 @@
                             }
                         }
                     }
-                }
-                return {
+                } return {
                     start: start,
                     end: end
                 };
@@ -419,7 +412,7 @@
             }
             function editor_find1() {
                 if (document.getElementById("editor_find_name").value == "") {
-                    console.log("open");
+                    //console.log("open");
                     var sel = document.getElementById('editor_find_name');
                     var tarea = document.getElementById('editor_input');
                     selectTextareaLine(tarea, sel.value);
@@ -430,7 +423,7 @@
             }
             function editor_find2() {
                 if (document.getElementById("editor_find_name").value == "") {
-                    console.log("open");
+                    //console.log("open");
                     var sel = document.getElementById('editor_find_replace_name');
                     var tarea = document.getElementById('editor_input');
                     selectTextareaLine1(tarea, sel.value);
@@ -440,7 +433,7 @@
                 }
             }
 	        function editor_find3() {
-                console.log(window.start_3);
+                //console.log(window.start_3);
                 var sel = document.getElementById('editor_find_replace_name');
                 var tarea = document.getElementById('editor_input');
                 selectTextareaLine2(tarea, sel.value);
@@ -457,7 +450,6 @@
                         }
                         startPos += (lines[x].length+1);
                     }
-
                     var endPos = lines[lineNum].length+startPos;
                     // do selection
                     // Chrome / Firefox
@@ -475,7 +467,6 @@
                         }
                         return true;
                     }
-
                     // IE
                     if (document.selection && document.selection.createRange) {
                         tarea.focus();
@@ -502,21 +493,20 @@
                 }
             }
 		    function selectTextareaLine2(tarea, word_1) {
-                console.log(tarea.value.indexOf(word_1, window.start_3));
+                //console.log(tarea.value.indexOf(word_1, window.start_3));
                 if (tarea.value.indexOf(word_1, window.start_3) > -1) {
                     const words_1 = tarea.value.split(" ");
-                    console.log(window.start_3);
+                    //console.log(window.start_3);
                     // calculate start/end
-                    const startPos_1 = tarea.value.indexOf(word_1, window.start_3),
-                        endPos_1 = startPos_1 + word_1.length
-                    console.log(startPos_1 + ' ' + endPos_1);
+                    const startPos_1 = tarea.value.indexOf(word_1, window.start_3), endPos_1 = startPos_1 + word_1.length
+                    //console.log(startPos_1 + ' ' + endPos_1);
                     if (typeof(tarea.selectionStart) != "undefined") {
                         tarea.focus();
                         tarea.selectionStart = startPos_1;
                         tarea.selectionEnd = endPos_1;
                         count_1++;
                         window.start_3 = tarea.value.indexOf(word_1, window.start_3) + 1;
-                        console.log(tarea.value.indexOf(word_1) + 1)
+                        //console.log(tarea.value.indexOf(word_1) + 1)
                         var textLines = tarea.value.substr(0, tarea.selectionStart).split("\n");
                         var currentLineNumber = textLines.length;
                         if (currentLineNumber >= 29) {
@@ -528,8 +518,8 @@
                         return true;
                     }
                 } else {
-                        alert("End of line reached!");
-                        throw new Error("Do not panic! This is not a error");
+                    alert("End of line reached!");
+                    throw new Error("Do not panic! This is not a error");
                 }
                 // IE
                 if (document.selection && document.selection.createRange) {
@@ -545,21 +535,20 @@
                 return false;
             }
             function selectTextareaLine(tarea, word_1) {
-                console.log(tarea.value.indexOf(word_1, window.start_1));
+                //console.log(tarea.value.indexOf(word_1, window.start_1));
                 if (tarea.value.indexOf(word_1, window.start_1) > -1) {
                     const words_1 = tarea.value.split(" ");
-                    console.log(window.start_1);
+                    //console.log(window.start_1);
                     // calculate start/end
-                    const startPos_1 = tarea.value.indexOf(word_1, window.start_1),
-                        endPos_1 = startPos_1 + word_1.length
-                    console.log(startPos_1 + ' ' + endPos_1);
+                    const startPos_1 = tarea.value.indexOf(word_1, window.start_1), endPos_1 = startPos_1 + word_1.length
+                    //console.log(startPos_1 + ' ' + endPos_1);
                     if (typeof(tarea.selectionStart) != "undefined") {
                         tarea.focus();
                         tarea.selectionStart = startPos_1;
                         tarea.selectionEnd = endPos_1;
                         count_1++;
                         window.start_1 = tarea.value.indexOf(word_1, window.start_1) + 1;
-                        console.log(tarea.value.indexOf(word_1) + 1);
+                        //console.log(tarea.value.indexOf(word_1) + 1);
                         var textLines = tarea.value.substr(0, tarea.selectionStart).split("\n");
                         var currentLineNumber = textLines.length;
                         if (currentLineNumber >= 29) {
@@ -593,21 +582,20 @@
                 return false;
             }
             function selectTextareaLine1(tarea, word_2) {
-                console.log(tarea.value.indexOf(word_2, window.start_2));
+                //console.log(tarea.value.indexOf(word_2, window.start_2));
                 if (tarea.value.indexOf(word_2, window.start_2) > -1) {
                     const words_2 = tarea.value.split(" ");
-                    console.log(window.start_2);
+                    //console.log(window.start_2);
                     // calculate start/end
-                    const startPos_2 = tarea.value.indexOf(word_2, window.start_2),
-                        endPos_2 = startPos_2 + word_2.length
-                    console.log(startPos_2 + ' ' + endPos_2);
+                    const startPos_2 = tarea.value.indexOf(word_2, window.start_2), endPos_2 = startPos_2 + word_2.length
+                    //console.log(startPos_2 + ' ' + endPos_2);
                     if (typeof(tarea.selectionStart) != "undefined") {
                         tarea.focus();
                         tarea.selectionStart = startPos_2;
                         tarea.selectionEnd = endPos_2;
                         count_2++;
                         window.start_2 = tarea.value.indexOf(word_2, window.start_2) + 1;
-                        console.log(tarea.value.indexOf(word_2) + 1)
+                        //console.log(tarea.value.indexOf(word_2) + 1)
                         var textLines = tarea.value.substr(0, tarea.selectionStart).split("\n");
                         var currentLineNumber = textLines.length;
                         if (currentLineNumber >= 29) {
@@ -624,7 +612,6 @@
                     } else {
                         alert("End of line reached!");
                         throw new Error("Do not panic! This is not a error");
-                        
                     }
                 }
                 // IE
@@ -730,8 +717,7 @@
             function editor_load1() {
                 var fileToLoad = document.getElementById("editor_open_name").files[0];
                 var fileReader = new FileReader();
-                fileReader.onload = function(fileLoadedEvent) 
-                {
+                fileReader.onload = function(fileLoadedEvent) {
                     var textFromFileLoaded = fileLoadedEvent.target.result;
                     document.getElementById("editor_input").value = textFromFileLoaded;
                 };
@@ -847,7 +833,6 @@
                 } else {
                     document.getElementById("command").value += key.toLowerCase();
                 }
-                
             }
             function keyboard_backspace() {        
                 var command_old = document.getElementById("command").value;
@@ -887,12 +872,11 @@
                     test_1 = (elmnt.offsetTop - pos2);
                     test_2 = (elmnt.offsetLeft - pos1);
                     if (test_2 <= 0 || test_1 <= 0 || window.innerWidth - 607 < test_2 || window.innerHeight - 207 < test_1) {
-
+                        //Empty
                     } else {
                         elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
                         elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
                     }
-                    
                     //console.log(elmnt.style.top + ' ' + elmnt.style.left);
                 }
                 function closeDragElement() {
@@ -941,7 +925,6 @@
                         elmnt1.style.top = (elmnt1.offsetTop - pos2_1) + "px";
                         elmnt1.style.left = (elmnt1.offsetLeft - pos1_1) + "px";
                     }
-                    
                     //console.log(elmnt.style.top + ' ' + elmnt.style.left);
                 }
                 function closeDragElement1() {
@@ -1106,10 +1089,11 @@
                                 document.getElementById("output").innerHTML += "Syntax: Type {color -help} to get the full help of this command\r\n";
                                 document.getElementById("output").innerHTML += "Example: color background -hex #ffffff, color input-background -name red\r\n";
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-				        document.getElementById("output").innerHTML += "edit: Create, Load and Download Document in your own browser\r\n";
-					  document.getElementById("output").innerHTML += "Syntax: edit\r\n";
-					  document.getElementById("output").innerHTML += "Example: edit\r\n";
-					  document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "edit: Create, Load and Download Document in your own browser\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: edit\r\n";
+                                document.getElementById("output").innerHTML += "Example: edit\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                return false;
                             } else {
                                 document.getElementById("output").innerHTML += "Invalid page number!\r\n"
                             }
@@ -1234,7 +1218,6 @@
                 } else if (a[0] == "whoami") { //Command "whoami"
                     if (!a[1] == '') {
                         document.getElementById("output").innerHTML += "Invalid syntax!\r\n";
-                        
                     } else {
                         document.getElementById("output").innerHTML += "browser/user\r\n";
                     }
@@ -1386,7 +1369,7 @@
                         M= M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
                         if((tem= ua.match(/version\/(\d+)/i))!= null) M.splice(1, 1, tem[1]);
                         return M.join(' ');
-                    })();
+                        })();
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
                         document.getElementById("output").innerHTML += "Version: 1.1.1\n";
@@ -1434,11 +1417,11 @@
                             var stopwatch_a = document.getElementById("output").value;
                             var mnt = 0;
                             mn = setInterval(function () {
-                                    document.getElementById("output").innerHTML = '';
-                                    document.getElementById("output").innerHTML = stopwatch_a;
-                                    document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Normal. Type stopwatch -stop to stop the stopwatch\r\n"
-                                    document.getElementById("output").innerHTML += mnt + "\r\n";
-                                    mnt++;
+                                document.getElementById("output").innerHTML = '';
+                                document.getElementById("output").innerHTML = stopwatch_a;
+                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Normal. Type stopwatch -stop to stop the stopwatch\r\n"
+                                document.getElementById("output").innerHTML += mnt + "\r\n";
+                                mnt++;
                             }, 1000);
                         }
                     } else
@@ -1449,11 +1432,11 @@
                             var mdt = 0;
                             var stopwatch_a = document.getElementById("output").value;
                             md = setInterval(function () {
-                                    document.getElementById("output").innerHTML = '';
-                                    document.getElementById("output").innerHTML = stopwatch_a;
-                                    document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Decisecond (1/10 of a second). Type stopwatch -stop to stop the stopwatch\r\n"
-                                    document.getElementById("output").innerHTML += mdt / 10 + "\r\n";
-                                    mdt++;
+                                document.getElementById("output").innerHTML = '';
+                                document.getElementById("output").innerHTML = stopwatch_a;
+                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Decisecond (1/10 of a second). Type stopwatch -stop to stop the stopwatch\r\n"
+                                document.getElementById("output").innerHTML += mdt / 10 + "\r\n";
+                                mdt++;
                             }, 100);
                         }
                     } else
@@ -1464,11 +1447,11 @@
                             var mct = 0;
                             var stopwatch_a = document.getElementById("output").value;
                             mc = setInterval(function () {
-                                    document.getElementById("output").innerHTML = '';
-                                    document.getElementById("output").innerHTML = stopwatch_a;
-                                    document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Centisecond(1/100 of a second). Type stopwatch -stop to stop the stopwatch\r\n"
-                                    document.getElementById("output").innerHTML += mct / 100 + "\r\n";
-                                    mct++;
+                                document.getElementById("output").innerHTML = '';
+                                document.getElementById("output").innerHTML = stopwatch_a;
+                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Centisecond(1/100 of a second). Type stopwatch -stop to stop the stopwatch\r\n"
+                                document.getElementById("output").innerHTML += mct / 100 + "\r\n";
+                                mct++;
                             }, 10);
                         }
                     } else
@@ -1479,11 +1462,11 @@
                             var mmt = 0;
                             var stopwatch_a = document.getElementById("output").value;
                             mm = setInterval(function () {
-                                    document.getElementById("output").innerHTML = '';
-                                    document.getElementById("output").innerHTML = stopwatch_a;
-                                    document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Milisecond. Type stopwatch -stop to stop the stopwatch\r\n"
-                                    document.getElementById("output").innerHTML += mmt / 1000 + "\r\n";
-                                    mmt++;
+                                document.getElementById("output").innerHTML = '';
+                                document.getElementById("output").innerHTML = stopwatch_a;
+                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Milisecond. Type stopwatch -stop to stop the stopwatch\r\n"
+                                document.getElementById("output").innerHTML += mmt / 1000 + "\r\n";
+                                mmt++;
                             }, 1);
                         }
                     } else 
