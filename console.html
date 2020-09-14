@@ -1205,7 +1205,7 @@
                     var hours = t.getHours();
                     var minutes = t.getMinutes();
                     var seconds = t.getSeconds();
-                    document.getElementById("output").innerHTML += "Current time: " + hours + "/" + minutes + "/" + seconds + " (This is in HH/MM/SS format)\r\n";
+                    document.getElementById("output").innerHTML += "Current time: " + hours + "-" + minutes + "-" + seconds + " (This is in HH/MM/SS format)\r\n";
                 } else if (a[0] == "crash") { //Command "crash"
                     if (a[1] == "yes") {
                         document.getElementById("output").innerHTML += "Welp, I'm out of here!\r\n";
