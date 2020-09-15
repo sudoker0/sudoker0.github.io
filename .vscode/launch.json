@@ -1,0 +1,25 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Console",
+            "request": "launch",
+            "type": "chrome",
+            "url": "http://127.0.0.1:5500/console.html",
+            "webRoot": "${workspaceFolder}",
+            "runtimeExecutable": "C:/Users/tuana/AppData/Local/CocCoc/Browser/Application/browser.exe"
+        },
+
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Home",
+            "url": "http://127.0.0.1:5500/home.html",
+            "webRoot": "${workspaceFolder}",
+            "runtimeExecutable": "C:/Users/tuana/AppData/Local/CocCoc/Browser/Application/browser.exe"
+        }
+    ]
+}
