@@ -1093,6 +1093,10 @@
                                 document.getElementById("output").innerHTML += "Syntax: edit\r\n";
                                 document.getElementById("output").innerHTML += "Example: edit\r\n";
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "mode: Change the setting of the console output\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: Type {mode help} to get the full help of this command\r\n";
+                                document.getElementById("output").innerHTML += "Example: mode cols 120, mode show\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
                                 return false;
                             } else {
                                 document.getElementById("output").innerHTML += "Invalid page number!\r\n"
@@ -1372,9 +1376,9 @@
                         })();
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
-                        document.getElementById("output").innerHTML += "Version: 1.1.1\n";
+                        document.getElementById("output").innerHTML += "Version: 1.1.2\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.1.1.91320_Revision1\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.1.2.91520_Revision1\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -1383,7 +1387,7 @@
                     if (!a[1] == '') {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                     } else {
-                        document.getElementById("output").innerHTML += "Version: 1.1.1\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.1.2\r\n";
                     }
                 } else if (a[0] == "timer") { //Command: timer
                     if (!isNaN(a[1])) {
@@ -1657,6 +1661,46 @@
                     } else {
                         let edit = document.querySelector("#editor");
                         edit.style.display = "block";
+                    }
+                } else if (a[0] == "mode") { //Command: edit
+                    if (a[1] == "cols") { //Mode: cols
+                        if (!isNaN(a[2])) {
+                            if (a[3] == null) {
+                                document.getElementById("output").setAttribute("cols", a[2]);
+                                document.getElementById("output").innerHTML += "[Console: Cols: " + document.getElementById("output").getAttribute("cols") + ", Rows: " + document.getElementById("output").getAttribute("rows") + "]" + "\r\n";
+                            } else {
+                                document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
+                            }
+                        } else {
+                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid number has been insert.\r\n";
+                        }
+                    } else if (a[1] == "rows") {  //Mode: rows
+                        if (!isNaN(a[2])) {
+                            if (a[3] == null) {
+                                document.getElementById("output").setAttribute("rows", a[2]);
+                                document.getElementById("output").innerHTML += "[Console: Cols: " + document.getElementById("output").getAttribute("cols") + ", Rows: " + document.getElementById("output").getAttribute("rows") + "]" + "\r\n";
+                            } else {
+                                document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
+                            }
+                        } else {
+                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid number has been insert.\r\n";
+                        }
+                    } else if (a[1] == "show") { //Mode: show
+                        if (a[2] == null) {
+                            document.getElementById("output").innerHTML += "[Console: Cols: " + document.getElementById("output").getAttribute("cols") + ", Rows: " + document.getElementById("output").getAttribute("rows") + "]" + "\r\n";
+                        } else {
+                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
+                        }
+                    } else if (a[1] == "help") { //Mode: help
+                        if (a[2] == null) {
+                            document.getElementById("output").innerHTML += "Syntax: mode <mode: cols/rows> <number_of_cols_or_rows: number> OR\r\n";
+                            document.getElementById("output").innerHTML += "mode <mode: show/help>\r\n";
+                            document.getElementById("output").innerHTML += "Example: mode cols 120, mode show\r\n";
+                        } else {
+                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
+                        }
+                    } else {
+                        document.getElementById("output").innerHTML += "Invalid syntax! Expected a mode, type mode help to get help with the command\r\n";        
                     }
                 } else {
                     //Error 1: Not a correct command
