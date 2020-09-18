@@ -58,7 +58,7 @@
 					}
 				}
 				function ckeck1() {
-					if (sessionStorage.getItem("access_granted") == null) {
+					if (!sessionStorage.getItem("access_granted") == 1) {
 						window.location.replace("https://quanmcpc.github.io");
 					}
 				}	
