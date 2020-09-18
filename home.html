@@ -127,7 +127,7 @@
 			}*/
 		</style>
 	</head>
-	<body onload="check()" onload="date_check()" onload="check1()">
+	<body onload="check()">
 			<div class="accb">
 				<!---<img src="website/image/logo.png" style="width: auto; height: auto" id="logo">-->
 				<h3 id="accbar"></h3>
@@ -139,6 +139,7 @@
 						window.location.replace("ban");
 					}
 					date_check();
+					check1();
 				}	
 				function check1() {
 					if (!sessionStorage.getItem("access_granted") == 1) {

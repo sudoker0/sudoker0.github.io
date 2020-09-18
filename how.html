@@ -46,7 +46,7 @@
 	<title>Quan_MCPC Website</title>
         <link rel="stylesheet" type="text/css" href="main.css"> 
  	</head>
-	 <body onload="check()" onload="check1()">
+	 <body onload="check()">
 		<div class="accb">
 			<h3 id="accbar"></h3>
 		</div>
@@ -56,6 +56,7 @@
 					if (localStorage.getItem("ls") == "927") {
 						window.location.replace("ban");
 					}
+					check1();
 				}
 				function check1() {
 					if (!sessionStorage.getItem("access_granted") == 1) {
