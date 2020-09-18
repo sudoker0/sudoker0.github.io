@@ -127,7 +127,7 @@
 			}*/
 		</style>
 	</head>
-	<body onload="check()" onload="date_check()">
+	<body onload="check()" onload="date_check()" onload="check1()">
 			<div class="accb">
 				<!---<img src="website/image/logo.png" style="width: auto; height: auto" id="logo">-->
 				<h3 id="accbar"></h3>
@@ -139,7 +139,12 @@
 						window.location.replace("ban");
 					}
 					date_check();
-				}				
+				}	
+				function ckeck1() {
+					if (sessionStorage.getItem("access_granted") == null) {
+						window.location.replace("https://quanmcpc.github.io");
+					}
+				}			
 				var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
 				//Home
 				var link1 = "Home";

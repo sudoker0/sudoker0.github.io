@@ -63,7 +63,8 @@
                             clearInterval(id);
                             i = 0;
                             var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
-				            var webSite = "home?id=" + dateTime
+                            var webSite = "home?id=" + dateTime
+                            sessionStorage.setItem("access_granted", 1);
 				            window.location.replace(webSite);
                         } else {
                             width++;
