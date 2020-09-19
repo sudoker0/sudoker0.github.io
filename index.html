@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0"/>
 	<head>
         <style>
         #myProgress {
@@ -7,7 +10,6 @@
             background-color: grey;
             margin: 0 auto;
         }
-
         #myBar {
             width: 1%;
             height: 20px;
@@ -52,7 +54,7 @@
             var i = 0;
             function move() {
                 if (localStorage.getItem("ls") == "927") {
-						window.location.replace("ban");
+					window.location.replace("ban");
 				}
                 if (i == 0) {
                     i = 1;
