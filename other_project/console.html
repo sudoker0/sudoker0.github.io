@@ -1371,26 +1371,26 @@
                     if (!a[1] == '') {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                     } else {
-                        navigator.sayswho= (function(){
-                        var ua= navigator.userAgent, tem, 
-                        M= ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
-                        if(/trident/i.test(M[1])){
-                            tem=  /\brv[ :]+(\d+)/g.exec(ua) || [];
-                            return 'IE '+(tem[1] || '');
-                        }
-                        if(M[1]=== 'Chrome'){
-                            tem= ua.match(/\b(OPR|Edge)\/(\d+)/);
-                            if(tem!= null) return tem.slice(1).join(' ').replace('OPR', 'Opera');
-                        }
-                        M= M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
-                        if((tem= ua.match(/version\/(\d+)/i))!= null) M.splice(1, 1, tem[1]);
-                        return M.join(' ');
+                        navigator.sayswho = (function(){
+                            var ua= navigator.userAgent, tem, 
+                            M= ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+                            if(/trident/i.test(M[1])){
+                                tem=  /\brv[ :]+(\d+)/g.exec(ua) || [];
+                                return 'IE '+(tem[1] || '');
+                            }
+                            if(M[1]=== 'Chrome'){
+                                tem= ua.match(/\b(OPR|Edge)\/(\d+)/);
+                                if(tem!= null) return tem.slice(1).join(' ').replace('OPR', 'Opera');
+                            }
+                            M= M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+                            if((tem= ua.match(/version\/(\d+)/i))!= null) M.splice(1, 1, tem[1]);
+                            return M.join(' ');
                         })();
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
                         document.getElementById("output").innerHTML += "Version: 1.1.3\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.1.3.92120_Revision1\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.1.3.92120_Revision2\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -1399,7 +1399,7 @@
                     if (!a[1] == '') {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                     } else {
-                        document.getElementById("output").innerHTML += "Version: 1.1.2\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.1.3\r\n";
                     }
                 } else if (a[0] == "timer") { //Command: timer
                     if (!isNaN(a[1])) {
