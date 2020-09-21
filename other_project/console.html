@@ -1097,6 +1097,10 @@
                                 document.getElementById("output").innerHTML += "Syntax: Type {mode help} to get the full help of this command\r\n";
                                 document.getElementById("output").innerHTML += "Example: mode cols 120, mode show\r\n";
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "sound: Simple but customizable sound player\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: sound <vol: num> <freq: num> <duration[ms]: num> <type: sine, sawtooth, square, triangle>\r\n";
+                                document.getElementById("output").innerHTML += "Example: sound 10 500 1000 sawtooth\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
                                 return false;
                             } else {
                                 document.getElementById("output").innerHTML += "Invalid page number!\r\n"
@@ -1376,9 +1380,9 @@
                         })();
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
-                        document.getElementById("output").innerHTML += "Version: 1.1.2\n";
+                        document.getElementById("output").innerHTML += "Version: 1.1.3\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.1.2.91520_Revision1\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.1.3.92120_Revision1\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -1702,6 +1706,39 @@
                     } else {
                         document.getElementById("output").innerHTML += "Invalid syntax! Expected a mode, type mode help to get help with the command\r\n";        
                     }
+                } else if (a[0] == "sound") {
+                    console.log(typeof(a[1]), typeof(a[2]), typeof(a[3]))
+                    console.log(a[1], a[2], a[3]);
+                    if (a[1] == null || a[2] == null || a[3] == null || a[4] == null) {
+
+                    } else {
+                        if (!isNaN(a[1]) && !isNaN(a[2]) && !isNaN(a[3])) {
+                            if (a[4] == "sine" || a[4] == "sawtooth" || a[4] == "triangle" || a[4] == "square" || !a[4] == null) {
+                                //console.log(typeof(a[1]), typeof(a[2]), typeof(a[3]), typeof(a[4]))
+                                //console.log(a[1], a[2], a[3], a[4]);
+                                document.getElementById("output").innerHTML += "Now playing: One-Simple-One-Bit-Beep (OSOBB) (Volume: "+ a[1] + ", Frequency: " + a[2] + ", Duration: " + a[3] + "ms" + ", Type: " + a[4] + ")\r\n";
+                                beep(Number(a[1]), Number(a[2]), Number(a[3]), a[4]);
+                                function beep(vol, freq, duration, type){
+                                    a = new AudioContext();
+                                    v=a.createOscillator()
+                                    u=a.createGain()
+                                    v.connect(u)
+                                    v.frequency.value=freq
+                                    v.type=type;
+                                    u.connect(a.destination)
+                                    u.gain.value=vol*0.01
+                                    v.start(a.currentTime)
+                                    v.stop(a.currentTime+duration*0.001)
+                                }
+                            } else {
+                                document.getElementById("output").innerHTML += "Invalid Syntax! Expected number for Volume, Frequency, Duration part and Type of Sound.\r\n";
+                            }
+                            
+                        } else {
+                            document.getElementById("output").innerHTML += "Invalid Syntax! Expected number for Volume, Frequency, Duration part and Type of Sound.\r\n";
+                        }
+                    }
+                    
                 } else {
                     //Error 1: Not a correct command
                     document.getElementById("output").innerHTML += "'" + document.getElementById("command").value + "'" +" is not a valid command.\r\n";
