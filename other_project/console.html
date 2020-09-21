@@ -274,6 +274,7 @@
             window.count_2 = 0;
             var start_3 = 0;
             var v3 = 1;
+            window.console_output = true;
             var open_window = false;
             var save_window = false;
             function editor_search_with_google() {
@@ -982,7 +983,9 @@
                 var a = str.split(" ");
                 //console.log(a[0]);
                 var a_length = a.length;
-                document.getElementById("output").innerHTML += "> " + document.getElementById("command").value + "\r\n";
+                if (window.console_output) {
+                    document.getElementById("output").innerHTML += "> " + document.getElementById("command").value + "\r\n";
+                }
                 a[0] = a[0].toLowerCase();
                 if (a[0] == "help") { //Command "help"
                     if (!a[1] == '') {
@@ -1196,6 +1199,11 @@
                         return false;
                     }
                 } else if (a[0] == "print") { //Command: "print"
+                    if (a[1] == "console:output:off") {
+                        window.console_output = false;
+                    } else if (a[1] == "console:output:on") {
+                        window.console_output = true;
+                    }
                     for (i_1 = 1; i_1 < a_length; i_1++) { 
                         document.getElementById("output").innerHTML += a[i_1] + ' ';
                     }
@@ -1706,7 +1714,7 @@
                     } else {
                         document.getElementById("output").innerHTML += "Invalid syntax! Expected a mode, type mode help to get help with the command\r\n";        
                     }
-                } else if (a[0] == "sound") {
+                } else if (a[0] == "sound") { //Command: sound
                     console.log(typeof(a[1]), typeof(a[2]), typeof(a[3]))
                     console.log(a[1], a[2], a[3]);
                     if (a[1] == null || a[2] == null || a[3] == null || a[4] == null) {
