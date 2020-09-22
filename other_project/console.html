@@ -1049,7 +1049,7 @@
                 y = n.getFullYear();
                 m = n.getMonth() + 1;
                 d = n.getDate();
-                document.getElementById("output").innerHTML += "Welcome to WTOS v1.1 (Web-Terminal Operating System)\r\n";
+                document.getElementById("output").innerHTML += "Welcome to WTOS v1.2 (Web-Terminal Operating System)\r\n";
                 document.getElementById("output").innerHTML += "This is a VERY BASIC Operating System that can only execute a certain command like a linux terminal.\r\n";
                 document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC\r\n";
                 document.getElementById("output").innerHTML += "To get started, type [help] with no bracket\r\n";
@@ -1094,7 +1094,7 @@
                         if (!isNaN(a[1])) {
                             if (a[1] == "1") { //Page 1
                                 document.getElementById("output").innerHTML += "----------Offical Help Page----------\r\n";
-                                document.getElementById("output").innerHTML += "You are viewing page: 1/4\r\n";
+                                document.getElementById("output").innerHTML += "You are viewing page: 1/5\r\n";
                                 document.getElementById("output").innerHTML += "<>: Forced, []: Optional\r\n";
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
                                 document.getElementById("output").innerHTML += "hello: Say Hello\r\n";
@@ -1125,7 +1125,7 @@
                             }
                             if (a[1] == "2") { //Page 2
                                 document.getElementById("output").innerHTML += "----------Offical Help Page----------\r\n";
-                                document.getElementById("output").innerHTML += "You are viewing page: 2/4\r\n";
+                                document.getElementById("output").innerHTML += "You are viewing page: 2/5\r\n";
                                 document.getElementById("output").innerHTML += "<>: Forced, []: Optional\r\n";
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
                                 document.getElementById("output").innerHTML += "crash: Crash the console (Client side)\r\n";
@@ -1156,7 +1156,7 @@
                             }
                             if (a[1] == "3") {
                                 document.getElementById("output").innerHTML += "----------Offical Help Page----------\r\n";
-                                document.getElementById("output").innerHTML += "You are viewing page: 3/4\r\n";
+                                document.getElementById("output").innerHTML += "You are viewing page: 3/5\r\n";
                                 document.getElementById("output").innerHTML += "<>: Forced, []: Optional\r\n";
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
                                 document.getElementById("output").innerHTML += "log_command/lc: Show the last 20 command entered by the user\r\n";
@@ -1187,7 +1187,7 @@
                             }
                             if (a[1] == "4") {
                                 document.getElementById("output").innerHTML += "----------Offical Help Page----------\r\n";
-                                document.getElementById("output").innerHTML += "You are viewing page: 4/4\r\n";
+                                document.getElementById("output").innerHTML += "You are viewing page: 4/5\r\n";
                                 document.getElementById("output").innerHTML += "<>: Forced, []: Optional\r\n";
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
                                 document.getElementById("output").innerHTML += "color: Change the color of the background, input text and background, output text and background\r\n";
@@ -1215,6 +1215,19 @@
                                 document.getElementById("output").innerHTML += "Example: title Test 123\r\n";
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
                                 return false;
+                            } else if (a[1] == 5) {
+                                document.getElementById("output").innerHTML += "----------Offical Help Page----------\r\n";
+                                document.getElementById("output").innerHTML += "You are viewing page: 5/5\r\n";
+                                document.getElementById("output").innerHTML += "<>: Forced, []: Optional\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "export: Export your console setting, last 20 entered command, console output, etc.\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: Type {export help} to get the full help of this command\r\n";
+                                document.getElementById("output").innerHTML += "Example: export settings, export ltec\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "import: Import your console settings, etc.\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: Type {import help} to get the full help of this command\r\n";
+                                document.getElementById("output").innerHTML += "Example: import settings\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
                             } else {
                                 document.getElementById("output").innerHTML += "Invalid page number!\r\n"
                             }
@@ -1223,7 +1236,7 @@
                         }
                     } else { //Default
                         document.getElementById("output").innerHTML += "----------Offical Help Page----------\r\n";
-                        document.getElementById("output").innerHTML += "You are viewing page: 1/4\r\n";
+                        document.getElementById("output").innerHTML += "You are viewing page: 1/5\r\n";
                         document.getElementById("output").innerHTML += "<>: Forced, []: Optional\r\n";
                         document.getElementById("output").innerHTML += "-------------------------------------\r\n";
                         document.getElementById("output").innerHTML += "hello: Say Hello\r\n";
@@ -1461,7 +1474,7 @@
                     if (!a[1] == '') {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!";
                     } else {
-                        document.getElementById("output").innerHTML += "Welcome to WTOS v1.1 (Web-Terminal Operating System)\r\n";
+                        document.getElementById("output").innerHTML += "Welcome to WTOS v1.2 (Web-Terminal Operating System)\r\n";
                         document.getElementById("output").innerHTML += "This is a VERY BASIC Operating System that can only execute a certain command like a linux terminal.\r\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC\r\n";
                         document.getElementById("output").innerHTML += "To get started, type [help] with no bracket\r\n";
@@ -1500,7 +1513,7 @@
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
                         document.getElementById("output").innerHTML += "Version: 1.2.0\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.2.0.92220_Revision1\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.2.0.92220_Revision2\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -2109,6 +2122,10 @@
                         } else {
                             document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                         }
+                    } else if(a[1] == "help") {
+                        document.getElementById("output").innerHTML += "Import your console settings\r\n";
+                        document.getElementById("output").innerHTML += "Syntax: import <settings>\r\n";
+                        document.getElementById("output").innerHTML += "Example: import settings\r\n";
                     } else {
                         document.getElementById("output").innerHTML += "Invalid syntax! Expected a mode, type export help for help about the command\r\n";
                     }
