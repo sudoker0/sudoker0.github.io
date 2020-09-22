@@ -2118,35 +2118,6 @@
                     document.getElementById("output").innerHTML += "Please refer the help page by typing: 'help' for valid command.\r\n";
                 }
             };
-            /*fetch("./test.json").then(response => { return response.json(); }).then(data => a(data));
-            function a(a) {
-                console.log(a.name)
-                var test = {
-                    "one": "123",
-                    "two": "456"
-                }
-                var test1 = JSON.stringify(test)
-                console.log(test, test1);
-                var textToSave = test1;
-                var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
-                var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
-                var fileNameToSaveAs = "test.json";
-                var downloadLink = document.createElement("a");
-                downloadLink.download = fileNameToSaveAs;
-                downloadLink.innerHTML = "Download File";
-                downloadLink.href = textToSaveAsURL;
-                downloadLink.onclick = destroyClickedElement;
-                downloadLink.style.display = "none";
-                document.body.appendChild(downloadLink);
-                downloadLink.click();
-                function destroyClickedElement(event)
-                {
-                    document.body.removeChild(event.target);
-                }
-            }*/
         </script>
-        <!--<script type="module">
-            
-        </script>-->
     </body>
 </html>
