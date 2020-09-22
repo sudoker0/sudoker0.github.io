@@ -3,7 +3,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>WTOS (Web-Terminal Operating System)</title>
+        <title id="title">WTOS (Web-Terminal Operating System)</title>
+        <!--
+            You might wonder: What is this big blob of data? Is this a virus?
+            1. This big blob is the console icon encoded into base64 text
+            This to make sure the console is only contain in one single file
+            2. No, this is not a virus
+        -->
         <link rel="shortcut icon" type="image/x-icon" href=
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAQAAABpN
             6lAAAALbklEQVR42u2de5RV1X3HP+fegXnynBkew0NBIICwyhK1xgIlaEkarc8Yj
@@ -1176,6 +1182,10 @@
                                 document.getElementById("output").innerHTML += "Syntax: welcome <mode: help/open/remove/> (Full introduction: welcome help)\r\n";
                                 document.getElementById("output").innerHTML += "Example: welcome help, welcome open\r\n";
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "title: Change the title of the console (Reset after a refresh)\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: title <name: string>\r\n";
+                                document.getElementById("output").innerHTML += "Example: title Test 123\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
                                 return false;
                             } else {
                                 document.getElementById("output").innerHTML += "Invalid page number!\r\n"
@@ -1460,9 +1470,9 @@
                         })();
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
-                        document.getElementById("output").innerHTML += "Version: 1.1.3\n";
+                        document.getElementById("output").innerHTML += "Version: 1.1.4\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.1.3.92120_Revision3\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.1.4.92220_Revision1\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -1471,7 +1481,7 @@
                     if (!a[1] == '') {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                     } else {
-                        document.getElementById("output").innerHTML += "Version: 1.1.3\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.1.4\r\n";
                     }
                 } else if (a[0] == "timer") { //Command: timer
                     if (!isNaN(a[1])) {
@@ -1869,46 +1879,21 @@
                         localStorage.removeItem("welcome_content_set");
                         document.getElementById("output").innerHTML += "Your message has been deleted successfully!\r\n";
                     } else {
-                        document.getElementById("output").innerHTML += "A open window should pop-up, please input the txt file that you want to set as the welcome text everytime when you log in\r\n";
-                        if (localStorage.getItem("welcome_content_set") == 1) {
-                            document.getElementById("output").innerHTML += "Warning: System has detected an exisited message in your browser. By continuing, the old one will be overwriten by the new one!\r\n";
-                        }
-                        openFile(setFile);
-                        function clickElem(elem) {
-                            // Thx user1601638 on Stack Overflow (6/6/2018 - https://stackoverflow.com/questions/13405129/javascript-create-and-save-file )
-                            var eventMouse = document.createEvent("MouseEvents")
-                            eventMouse.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
-                            elem.dispatchEvent(eventMouse)
-                        }
-                        function openFile(func) {
-                            readFile = function(e) {
-                                var file = e.target.files[0];
-                                if (!file) {
-                                    return;
-                                }
-                                var reader = new FileReader();
-                                reader.onload = function(e) {
-                                    var contents = e.target.result;
-                                    fileInput.func(contents)
-                                    document.body.removeChild(fileInput)
-                                }
-                                reader.readAsText(file)
-                            }
-                            fileInput = document.createElement("input")
-                            fileInput.type='file'
-                            fileInput.style.display='none'
-                            fileInput.onchange=readFile
-                            fileInput.func=func
-                            document.body.appendChild(fileInput)
-                            clickElem(fileInput)
-                        }
-                        function setFile(contents) {
-                            localStorage.setItem("welcome_content", contents);
-                            localStorage.setItem("welcome_content_set", 1);
-                            document.getElementById("output").innerHTML += "The message has been set successfully! The message should pop-up everytime your log in\r\n";
+                        document.getElementById("output").innerHTML += localStorage.getItem("welcome_content");
+                        document.getElementById("output").innerHTML += "\r\n";
+                    }
+                } else if (a[0] == "title") {
+                    if (a[0] == "underfined" || a[0] == null) {
+                        //Do nothing
+                    } else {
+                        document.title = ' ';
+                        for (i_2 = 1; i_2 < a_length; i_2++) { 
+                            console.log(document.title)
+                            //document.getElementsByTagName("title")[0].innerHTML += a[i_2] + ' ';
+                            document.title += a[i_2] + '\xa0';
                         }
                     }
-                } else {
+                } else{
                     //Error 1: Not a correct command
                     document.getElementById("output").innerHTML += "'" + document.getElementById("command").value + "'" +" is not a valid command.\r\n";
                     document.getElementById("output").innerHTML += "Please refer the help page by typing: 'help' for valid command.\r\n";
