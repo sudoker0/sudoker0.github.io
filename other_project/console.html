@@ -1513,7 +1513,7 @@
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
                         document.getElementById("output").innerHTML += "Version: 1.2.1\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.2.1.92320_Revision1\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.2.1.92320_Revision2\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -2054,10 +2054,27 @@
                         } else {
                             document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                         }
+                    } else if (a[1] == "settings-jsontext") {
+                        if (a[2] == null) {
+                            var settings = {
+                                "color_input_text": document.querySelector("#command").style.color,
+                                "color_output_text": document.querySelector("#output").style.color,
+                                "color_input_background": document.querySelector("#command").style.backgroundColor,
+                                "color_output_background": document.querySelector("#output").style.backgroundColor,
+                                "color_background": document.querySelector("#background").style.backgroundColor,
+                                "mode_cols": document.getElementById("output").getAttribute("cols"),
+                                "mode_rows": document.getElementById("output").getAttribute("rows")
+                            }
+                            var test1 = JSON.stringify(settings)
+                            document.getElementById("output").innerHTML += "Here is your JSON text: " + test1 + "\r\n";
+                            document.getElementById("output").innerHTML += "The JSON part started at '{' and at '}'\r\n";
+                        } else {
+                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
+                        }
                     } else if (a[1] == "help") {
                         if (a[2] == null) {
                             document.getElementById("output").innerHTML += "Export your console settings as JSON for backup, last 20 entered command and console output as txt\r\n";
-                            document.getElementById("output").innerHTML += "Syntax: export <settings/console_output/co/last_20_entered_command/ltec>\r\n";
+                            document.getElementById("output").innerHTML += "Syntax: export <settings/settings-jsontext/console_output/co/last_20_entered_command/ltec>\r\n";
                             document.getElementById("output").innerHTML += "Example: export settings, export console_output\r\n";
                         } else {
                             document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
@@ -2109,31 +2126,87 @@
                                     true //For check if there is a backup
                                 ]
                                 console.log(window.backup);
-                                var settings = JSON.parse(input);
-                                let color_input_hex = document.querySelector("#background");
-                                color_input_hex.style.backgroundColor = settings.color_background;
-                                let color_input_hex2 = document.querySelector("#command");
-                                color_input_hex2.style.backgroundColor = settings.color_input_background;
-                                let color_input_hex4 = document.querySelector("#command");
-                                color_input_hex4.style.color = settings.color_input_text;
-                                let color_input_hex1 = document.querySelector("#output");
-                                color_input_hex1.style.backgroundColor = settings.color_output_background;
-                                let color_input_hex3 = document.querySelector("#output");
-                                color_input_hex3.style.color = settings.color_output_text;
-                                document.getElementById("output").setAttribute("cols", settings.mode_cols);
-                                document.getElementById("output").setAttribute("rows", settings.mode_rows);
-                                localStorage.setItem("color:input_text", settings.color_input_text);
-                                localStorage.setItem("color:output_text", settings.color_output_text);
-                                localStorage.setItem("color:input_background", settings.color_input_background);
-                                localStorage.setItem("color:output_background", settings.color_output_background);
-                                localStorage.setItem("color:background", settings.color_background);
-                                localStorage.setItem("mode:rows", settings.mode_rows);
-                                localStorage.setItem("mode:cols", settings.mode_cols);
+                                if (IsJsonString(input)) {
+                                    var settings = JSON.parse(input);
+                                    let color_input_hex = document.querySelector("#background");
+                                    color_input_hex.style.backgroundColor = settings.color_background;
+                                    let color_input_hex2 = document.querySelector("#command");
+                                    color_input_hex2.style.backgroundColor = settings.color_input_background;
+                                    let color_input_hex4 = document.querySelector("#command");
+                                    color_input_hex4.style.color = settings.color_input_text;
+                                    let color_input_hex1 = document.querySelector("#output");
+                                    color_input_hex1.style.backgroundColor = settings.color_output_background;
+                                    let color_input_hex3 = document.querySelector("#output");
+                                    color_input_hex3.style.color = settings.color_output_text;
+                                    document.getElementById("output").setAttribute("cols", settings.mode_cols);
+                                    document.getElementById("output").setAttribute("rows", settings.mode_rows);
+                                    localStorage.setItem("color:input_text", settings.color_input_text);
+                                    localStorage.setItem("color:output_text", settings.color_output_text);
+                                    localStorage.setItem("color:input_background", settings.color_input_background);
+                                    localStorage.setItem("color:output_background", settings.color_output_background);
+                                    localStorage.setItem("color:background", settings.color_background);
+                                    localStorage.setItem("mode:rows", settings.mode_rows);
+                                    localStorage.setItem("mode:cols", settings.mode_cols);
+                                    document.getElementById("output").innerHTML += "Settings has been applied successfully\r\n";
+                                } else {
+                                    document.getElementById("output").innerHTML += "Error while importing file: Invalid JSON file, please check your JSON file or import a different file\r\n";
+                                }                                
+                            }
+                            function IsJsonString(input) {
+                                try {
+                                    JSON.parse(input);
+                                } catch (e) {
+                                    return false;
+                                }
+                                return true;
                             }
                             document.getElementById("output").innerHTML += "To undo your settings, type import undo (Warning: You can not undo 2 times)\r\n"
                         } else {
                             document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                         }
+                    } else if (a[1] == "settings-jsontext") {
+                        function IsJsonString(input) {
+                            try {
+                                JSON.parse(input);
+                            } catch (e) {
+                                return false;
+                            }
+                            return true;
+                        }
+                        if (a[2] == null) {
+                            document.getElementById("output").innerHTML += "Please provide a JSON text.\r\n";
+                        } else {
+                            if (a[3] == null) {
+                                if (IsJsonString(a[2])) {
+                                    var settings = JSON.parse(a[2]);
+                                    let color_input_hex = document.querySelector("#background");
+                                    color_input_hex.style.backgroundColor = settings.color_background;
+                                    let color_input_hex2 = document.querySelector("#command");
+                                    color_input_hex2.style.backgroundColor = settings.color_input_background;
+                                    let color_input_hex4 = document.querySelector("#command");
+                                    color_input_hex4.style.color = settings.color_input_text;
+                                    let color_input_hex1 = document.querySelector("#output");
+                                    color_input_hex1.style.backgroundColor = settings.color_output_background;
+                                    let color_input_hex3 = document.querySelector("#output");
+                                    color_input_hex3.style.color = settings.color_output_text;
+                                    document.getElementById("output").setAttribute("cols", settings.mode_cols);
+                                    document.getElementById("output").setAttribute("rows", settings.mode_rows);
+                                    localStorage.setItem("color:input_text", settings.color_input_text);
+                                    localStorage.setItem("color:output_text", settings.color_output_text);
+                                    localStorage.setItem("color:input_background", settings.color_input_background);
+                                    localStorage.setItem("color:output_background", settings.color_output_background);
+                                    localStorage.setItem("color:background", settings.color_background);
+                                    localStorage.setItem("mode:rows", settings.mode_rows);
+                                    localStorage.setItem("mode:cols", settings.mode_cols);
+                                    document.getElementById("output").innerHTML += "Settings has been applied successfully\r\n";
+                                } else {
+                                    document.getElementById("output").innerHTML += "Please provide a valid JSON text.\r\n";
+                                }
+                            } else {
+                                document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
+                            }
+                        }
+                        
                     } else if (a[1] == "undo") {
                         if (window.backup[7]) {
                             let color_input_hex = document.querySelector("#background");
