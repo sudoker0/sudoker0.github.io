@@ -1511,9 +1511,9 @@
                         })();
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
-                        document.getElementById("output").innerHTML += "Version: 1.2.0\n";
+                        document.getElementById("output").innerHTML += "Version: 1.2.1\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.2.0.92220_Revision2\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.2.1.92320_Revision1\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -1522,7 +1522,7 @@
                     if (!a[1] == '') {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                     } else {
-                        document.getElementById("output").innerHTML += "Version: 1.2.0\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.2.1\r\n";
                     }
                 } else if (a[0] == "timer") { //Command: timer
                     if (!isNaN(a[1])) {
@@ -2065,7 +2065,7 @@
                     } else {
                         document.getElementById("output").innerHTML += "Invalid syntax! Expected a mode, type export help for help about the command\r\n";
                     }
-                } else if (a[0] == "import") {
+                } else if (a[0] == "import") { //Command: import
                     if (a[1] == "settings") {
                         if (a[2] == null) {
                             openFile(parseData);
@@ -2098,6 +2098,17 @@
                                 clickElem(fileInput)
                             }
                             function parseData(input) {
+                                window.backup = [
+                                    document.querySelector("#background").style.backgroundColor, 
+                                    document.querySelector("#command").style.backgroundColor, 
+                                    document.querySelector("#command").style.color, 
+                                    document.querySelector("#output").style.backgroundColor, 
+                                    document.querySelector("#output").style.color, 
+                                    document.getElementById("output").getAttribute("cols"),
+                                    document.getElementById("output").getAttribute("rows"),
+                                    true //For check if there is a backup
+                                ]
+                                console.log(window.backup);
                                 var settings = JSON.parse(input);
                                 let color_input_hex = document.querySelector("#background");
                                 color_input_hex.style.backgroundColor = settings.color_background;
@@ -2119,17 +2130,36 @@
                                 localStorage.setItem("mode:rows", settings.mode_rows);
                                 localStorage.setItem("mode:cols", settings.mode_cols);
                             }
+                            document.getElementById("output").innerHTML += "To undo your settings, type import undo (Warning: You can not undo 2 times)\r\n"
                         } else {
                             document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                         }
-                    } else if(a[1] == "help") {
+                    } else if (a[1] == "undo") {
+                        if (window.backup[7]) {
+                            let color_input_hex = document.querySelector("#background");
+                            color_input_hex.style.backgroundColor = window.backup[0];
+                            let color_input_hex2 = document.querySelector("#command");
+                            color_input_hex2.style.backgroundColor = window.backup[1];
+                            let color_input_hex4 = document.querySelector("#command");
+                            color_input_hex4.style.color = window.backup[2];
+                            let color_input_hex1 = document.querySelector("#output");
+                            color_input_hex1.style.backgroundColor = window.backup[3];
+                            let color_input_hex3 = document.querySelector("#output");
+                            color_input_hex3.style.color = window.backup[4];
+                            document.getElementById("output").setAttribute("cols", window.backup[5]);
+                            document.getElementById("output").setAttribute("rows", window.backup[6]);
+                            window.backup[7] = false;
+                        } else {
+                            document.getElementById("output").innerHTML += "Unable to undo because you already undo for there is no import action to undo\r\n";
+                        }    
+                    } else if (a[1] == "help") {
                         document.getElementById("output").innerHTML += "Import your console settings\r\n";
-                        document.getElementById("output").innerHTML += "Syntax: import <settings>\r\n";
+                        document.getElementById("output").innerHTML += "Syntax: import <settings/undo>\r\n";
                         document.getElementById("output").innerHTML += "Example: import settings\r\n";
                     } else {
                         document.getElementById("output").innerHTML += "Invalid syntax! Expected a mode, type export help for help about the command\r\n";
                     }
-                } else{
+                } else {
                     //Error 1: Not a correct command
                     document.getElementById("output").innerHTML += "'" + document.getElementById("command").value + "'" +" is not a valid command.\r\n";
                     document.getElementById("output").innerHTML += "Please refer the help page by typing: 'help' for valid command.\r\n";
