@@ -1017,6 +1017,14 @@
             var z = [""];
             var textarea = document.getElementById('output');
             setInterval(function(){ textarea.scrollTop = textarea.scrollHeight; }, 50);
+            function getParameterByName(name, url) {
+                if (!url) url = window.location.href;
+                name = name.replace(/[\[\]]/g, '\\$&');
+                var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, ' '));
+            }
             function intro() {
                 console.log("Ok")
                 if (localStorage.hasOwnProperty("color:background")) {
@@ -1049,15 +1057,22 @@
                 y = n.getFullYear();
                 m = n.getMonth() + 1;
                 d = n.getDate();
-                document.getElementById("output").innerHTML += "Welcome to WTOS v1.2 (Web-Terminal Operating System)\r\n";
-                document.getElementById("output").innerHTML += "This is a VERY BASIC Operating System that can only execute a certain command like a linux terminal.\r\n";
-                document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC\r\n";
-                document.getElementById("output").innerHTML += "To get started, type [help] with no bracket\r\n";
-                document.getElementById("output").innerHTML += "Current date: " + d + "/" + m + "/" + y + " (This is in DD/MM/YYYY format)\r\n";
-                document.getElementById("output").innerHTML += "\r\n";
+                console.log(getParameterByName("nowelcome"));
+                if (getParameterByName("nowelcome") == null || getParameterByName("nowelcome") == "" || getParameterByName("nowelcome") == "0" || getParameterByName("nowelcome") >= "2") {
+                    document.getElementById("output").innerHTML += "Welcome to WTOS v1.2 (Web-Terminal Operating System)\r\n";
+                    document.getElementById("output").innerHTML += "This is a VERY BASIC Operating System that can only execute a certain command like a linux terminal.\r\n";
+                    document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC\r\n";
+                    document.getElementById("output").innerHTML += "To get started, type [help] with no bracket\r\n";
+                    document.getElementById("output").innerHTML += "Current date: " + d + "/" + m + "/" + y + " (This is in DD/MM/YYYY format)\r\n";
+                    document.getElementById("output").innerHTML += "\r\n";
+                } else {}
                 if (localStorage.getItem("welcome_content_set") == 1) {
                     document.getElementById("output").innerHTML += localStorage.getItem("welcome_content");
                     document.getElementById("output").innerHTML += "\r\n";
+                }
+                if (getParameterByName("command") == null) {} else {
+                    document.getElementById("command").value = getParameterByName("command");
+                    enter_2()
                 }
             }
             document.getElementById('command').onkeypress = function(e){    
