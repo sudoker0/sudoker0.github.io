@@ -1243,6 +1243,10 @@
                                 document.getElementById("output").innerHTML += "Syntax: Type {import help} to get the full help of this command\r\n";
                                 document.getElementById("output").innerHTML += "Example: import settings\r\n";
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "readme: View important information that you need to know\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: readme\r\n";
+                                document.getElementById("output").innerHTML += "Example: readme\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
                             } else {
                                 document.getElementById("output").innerHTML += "Invalid page number!\r\n"
                             }
@@ -1526,9 +1530,9 @@
                         })();
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
-                        document.getElementById("output").innerHTML += "Version: 1.2.1\n";
+                        document.getElementById("output").innerHTML += "Version: 1.2.2\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.2.1.92320_Revision3\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.2.2.92520_Revision1\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -1537,7 +1541,7 @@
                     if (!a[1] == '') {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                     } else {
-                        document.getElementById("output").innerHTML += "Version: 1.2.1\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.2.2\r\n";
                     }
                 } else if (a[0] == "timer") { //Command: timer
                     if (!isNaN(a[1])) {
@@ -2247,6 +2251,31 @@
                     } else {
                         document.getElementById("output").innerHTML += "Invalid syntax! Expected a mode, type export help for help about the command\r\n";
                     }
+                } else if (a[0] == "readme") {
+                    var ab = window.open("", "ab", "width=800,height=600");
+                    ab.document.write('<hr><h1 style="text-align: center;">README Document (Please Read)</h1>');
+                    ab.document.write('<h3 style="text-align: center;">Want to find this document? Go to line 2254 in the console file</h3>');
+                    ab.document.write('<p>This document will tell you about all you need to know about.</p>');
+                    ab.document.write('<p>1. WHAT CAN I DO WITH THE "CONSOLE"?</p>');
+                    ab.document.write('<p>You can copy, edit and publish your own version of the console. Just remember to include the copyright information</p>');
+                    ab.document.write('<p>Now listen here: I do not want to involve to things that are related to copyright stuff because I make this for fun. I do not care if you just copy the source code, put it into your localhost server and be like: Oh look, I make this my self. So you can do anything with this [Almost anything], just try to use this in your localhost server only and keep my copyright [You can add your own information if you want]</p>');
+                    ab.document.write('<p>Of course, I will still be upset if you copy like the WHOLE code, put it into your server, GitHub,..., remove my information, put your OWN information in and be like: Yeah guys I make this, that dude over there [me] is copying me. My stuff is for free, open-source but to an limit. So please do not be the bad guys.</p>');
+                    ab.document.write('<p>And I might have to report you if you continue being the "bad guys"</p>');
+                    ab.document.write('<p>2. IMPORTANT NOTE</p>');
+                    ab.document.write('<p>This part is going to be technical stuff about the "console" and you definitely have to read this</p>');
+                    ab.document.write('<p>If you want to test the code, there are a lot of ways to get the source but the easiest way is to press Ctrl+U in the console then copy the giant block of code from top to bottom, imported it into html and then STOP right there</p>');
+                    ab.document.write('<p>You might think all you have to do is run it directly and that is it, right? Technically you can and it will work to some extend but there are a few command that will give out error about: CORS policy or require http or https protocol. I do not know why Chrome do that but that is why it will only work to some extend. If you want to get the full experience, use a localhost server, run it in the localhost and it will work like a charm</p>');
+                    ab.document.write('<p>To make sure that you will get the latest version, I have put the full build number at the comment part of the file in GitHub so that you can compare it. If it does not match, try Ctrl+F5 to force refresh or use do that everytime when you access the console</p>');
+                    ab.document.write('<p>Speaking about the build number, some of you might not know about what they actually mean, so I will explain it to you: </p>');
+                    ab.document.write('<p>This is an example of the build number: 1.2.3.82320_Revision3. What does it mean?</p>');
+                    ab.document.write('<p>The first part: The "Never gonna change you" part: The number 1 in: =>1.2.... This part will never gonna change so do not expect it to go to 2</p>');
+                    ab.document.write('<p>The second part: The Big update part: The number 2 in: 1.2<=.... This part will go up 1 digit if there is a big update like: Big change, big feature</p>');
+                    ab.document.write('<p>The third part: The update part: The number 3 in: ...2.3<=.... This part will go up 1 digit if there is any update or any change.</p>');
+                    ab.document.write('<p>The fourth part: The date part: The number 82320 in: ...3.82320<=.... This part tell you about the date that an update or change is apply. Number 8 is the month, number 23 is the day, number 20 refer to the year [which is 2020] [23/08/2020]</p>');
+                    ab.document.write('<p>The final part: The revision part: The text _Revision3 in: ...82320_Revision3<=. Let say that I release a new update or change in the same day that I just release a update or change before, what to do? I know, I will increase the Revision number to let you know that: I just make an update or change this the same day, and the number will tell you how many time I update or change stuff in the same day.</p>');
+                    ab.document.write('<p>3. FINAL NOTE</p>');
+                    ab.document.write('<p>You can use my "console" for free with some limitation, The Build number does have a meaning and do not made me upset. That is it, enjoy!</p>');
+                    ab.document.write('<p>Copyright (C) Quan_MCPC 2020</p>');
                 } else {
                     //Error 1: Not a correct command
                     document.getElementById("output").innerHTML += "'" + document.getElementById("command").value + "'" +" is not a valid command.\r\n";
