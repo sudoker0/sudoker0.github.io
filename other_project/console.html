@@ -81,11 +81,9 @@
                 width: 600px;
                 background-color: black;
                 color: white;
-                border: white 3px solid;
                 outline: none;
             }
             #output {
-                border: white 3px solid;
                 outline: none;
                 -ms-overflow-style: none;  /* IE and Edge */
   				scrollbar-width: none;  /* Firefox */
@@ -331,9 +329,9 @@
                 <button onclick="keyboard_copy_selected()">Copy Selected Text</button>
             </div>
             <!--Keyboard Part-->
-            <textarea id="output" rows="30" cols="100" readonly style="resize: none; overflow-y: hidden; background-color: black; color: white;"></textarea>
+            <textarea placeholder="Console Output..." id="output" rows="30" cols="100" readonly style="resize: none; overflow-y: hidden; background-color: black; color: white; border-color: white; border-width: 3px; border-style: solid;"></textarea>
             <br><br>
-            <div><input id="command" type="text" placeholder="Command..." style="background-color: black; color: white;"></div><br><br><button onclick="enter()">Enter command</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="on_keyboard()">On-Screen Keyboard</button>
+            <div><input id="command" type="text" placeholder="Command..." style="background-color: black; color: white; border-color: white; border-width: 3px; border-style: solid;"></div><br><br><button onclick="enter()">Enter command</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="on_keyboard()">On-Screen Keyboard</button>
             <!--This message is usually hidden unless JavaScript is not installed-->
             <noscript><p style="color: white">Look like JavaScript is disabled or not installed in your browser! Please install or enable JavaScript</p></noscript>
         </center>
@@ -1047,6 +1045,14 @@
                     let color_input_hex3 = document.querySelector("#output");
                     color_input_hex3.style.color = localStorage.getItem("color:output_text");
                 }
+                if (localStorage.hasOwnProperty("color:input_border")) {
+                    let color_input_hex3 = document.querySelector("#command");
+                    color_input_hex3.style.borderColor = localStorage.getItem("color:input_border");
+                }
+                if (localStorage.hasOwnProperty("color:output_border")) {
+                    let color_input_hex3 = document.querySelector("#output");
+                    color_input_hex3.style.borderColor = localStorage.getItem("color:output_border");
+                }
                 if (localStorage.hasOwnProperty("mode:cols")) {
                     document.getElementById("output").setAttribute("cols", localStorage.getItem("mode:cols"));
                 }
@@ -1533,7 +1539,7 @@
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
                         document.getElementById("output").innerHTML += "Version: 1.2.2\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.2.2.92520_Revision5\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.2.2.92520_Revision6\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -1813,9 +1819,65 @@
                         } else {
                             document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid mode (-hex or -name), type color -help to get help with the command\r\n";
                         }
+                    } else if (a[1] == "input-border") {
+                        if (a[2] == "-hex") { //Mode: Hex (#ffffff)
+                            if (a[3].match(/^[0-9a-fA-F#]+$/)) {//Check
+                                if (a[3].charAt(0) == "#") {
+                                    if (a[3].length == 7) {
+                                        let color_input_hex = document.querySelector("#command");
+                                        color_input_hex.style.borderColor = a[3];
+                                        localStorage.setItem("color:input_border", a[3]);
+                                    } else {
+                                        document.getElementById("output").innerHTML += "Invalid syntax! The color code does not match the allow length\r\n";
+                                    }
+                                } else {
+                                    document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid hex color code\r\n";
+                                }
+                            } else {
+                                document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid hex color code\r\n";
+                            }
+                        } else if (a[2] == "-name") { //Mode: Name (red)
+                            if (a[3].match(/^[a-zA-Z]+$/)) {//Check
+                                let color_background_name = document.querySelector("#command");
+                                color_background_name.style.borderColor = a[3];
+                                localStorage.setItem("color:input_border", a[3]);
+                            } else {
+                                document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid color name\r\n";
+                            }
+                        } else {
+                            document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid mode (-hex or -name), type color -help to get help with the command\r\n";
+                        }
+                    } else if (a[1] == "output-border") {
+                        if (a[2] == "-hex") { //Mode: Hex (#ffffff)
+                            if (a[3].match(/^[0-9a-fA-F#]+$/)) {//Check
+                                if (a[3].charAt(0) == "#") {
+                                    if (a[3].length == 7) {
+                                        let color_input_hex = document.querySelector("#output");
+                                        color_input_hex.style.borderColor = a[3];
+                                        localStorage.setItem("color:output_border", a[3]);
+                                    } else {
+                                        document.getElementById("output").innerHTML += "Invalid syntax! The color code does not match the allow length\r\n";
+                                    }
+                                } else {
+                                    document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid hex color code\r\n";
+                                }
+                            } else {
+                                document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid hex color code\r\n";
+                            }
+                        } else if (a[2] == "-name") { //Mode: Name (red)
+                            if (a[3].match(/^[a-zA-Z]+$/)) {//Check
+                                let color_background_name = document.querySelector("#output");
+                                color_background_name.style.borderColor = a[3];
+                                localStorage.setItem("color:output_border", a[3]);
+                            } else {
+                                document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid color name\r\n";
+                            }
+                        } else {
+                            document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid mode (-hex or -name), type color -help to get help with the command\r\n";
+                        }
                     } else if (a[1] == "-help") {
                         document.getElementById("output").innerHTML += "Syntax: color <type: background/output-background/output-text/input-background/input-text> -hex <color-code: # + hex_data> OR\r\n";
-                        document.getElementById("output").innerHTML += "color <type: background/output-background/output-text/input-background/input-text> -name <color-name: text> OR\r\n";
+                        document.getElementById("output").innerHTML += "color <type: background/output-background/output-text/input-background/input-text/input-border/output-border> -name <color-name: text> OR\r\n";
                         document.getElementById("output").innerHTML += "color -reset\r\n";
                         document.getElementById("output").innerHTML += "Example: color background -hex #ffffff, color input-background -name red\r\n";
                     } else if (a[1] == "-reset") {
@@ -1824,6 +1886,8 @@
                         localStorage.removeItem("color:input_background");
                         localStorage.removeItem("color:output_background");
                         localStorage.removeItem("color:background");
+                        localStorage.removeItem("color:input_border");
+                        localStorage.removeItem("color:output_border");
                         let color_input_hex = document.querySelector("#background");
                         color_input_hex.style.backgroundColor = "rgb(34, 34, 34)";
                         let color_input_hex1 = document.querySelector("#output");
@@ -1834,6 +1898,10 @@
                         color_input_hex3.style.color = "white";
                         let color_input_hex4 = document.querySelector("#command");
                         color_input_hex4.style.color = "white";
+                        let color_input_hex5 = document.querySelector("#output");
+                        color_input_hex5.style.borderColor = "white";
+                        let color_input_hex6 = document.querySelector("#command");
+                        color_input_hex6.style.borderColor = "white";
                     } else {
                         document.getElementById("output").innerHTML += "Invalid syntax! Expected a mode, type color -help to get help with the command\r\n";
                     }
@@ -2051,6 +2119,8 @@
                                 "color_input_background": document.querySelector("#command").style.backgroundColor,
                                 "color_output_background": document.querySelector("#output").style.backgroundColor,
                                 "color_background": document.querySelector("#background").style.backgroundColor,
+                                "color_input_border": document.querySelector("#command").style.borderColor,
+                                "color_output_border": document.querySelector("#output").style.borderColor,
                                 "mode_cols": document.getElementById("output").getAttribute("cols"),
                                 "mode_rows": document.getElementById("output").getAttribute("rows")
                             }
@@ -2082,6 +2152,8 @@
                                 "color_input_background": document.querySelector("#command").style.backgroundColor,
                                 "color_output_background": document.querySelector("#output").style.backgroundColor,
                                 "color_background": document.querySelector("#background").style.backgroundColor,
+                                "color_input_border": document.querySelector("#command").style.borderColor,
+                                "color_output_border": document.querySelector("#output").style.borderColor,
                                 "mode_cols": document.getElementById("output").getAttribute("cols"),
                                 "mode_rows": document.getElementById("output").getAttribute("rows")
                             }
@@ -2142,7 +2214,9 @@
                                     document.querySelector("#command").style.backgroundColor, 
                                     document.querySelector("#command").style.color, 
                                     document.querySelector("#output").style.backgroundColor, 
-                                    document.querySelector("#output").style.color, 
+                                    document.querySelector("#output").style.color,
+                                    document.querySelector("#command").style.borderColor,
+                                    document.querySelector("#output").style.borderColor,
                                     document.getElementById("output").getAttribute("cols"),
                                     document.getElementById("output").getAttribute("rows"),
                                     true //For check if there is a backup
@@ -2160,6 +2234,10 @@
                                     color_input_hex1.style.backgroundColor = settings.color_output_background;
                                     let color_input_hex3 = document.querySelector("#output");
                                     color_input_hex3.style.color = settings.color_output_text;
+                                    let color_input_hex6 = document.querySelector("#command");
+                                    color_input_hex6.style.borderColor = settings.color_input_border;
+                                    let color_input_hex5 = document.querySelector("#output");
+                                    color_input_hex5.style.borderColor = settings.color_output_border;
                                     document.getElementById("output").setAttribute("cols", settings.mode_cols);
                                     document.getElementById("output").setAttribute("rows", settings.mode_rows);
                                     localStorage.setItem("color:input_text", settings.color_input_text);
@@ -2167,6 +2245,8 @@
                                     localStorage.setItem("color:input_background", settings.color_input_background);
                                     localStorage.setItem("color:output_background", settings.color_output_background);
                                     localStorage.setItem("color:background", settings.color_background);
+                                    localStorage.setItem("color:input_border", settings.color_input_border);
+                                    localStorage.setItem("color:output_border", settings.color_output_border);
                                     localStorage.setItem("mode:rows", settings.mode_rows);
                                     localStorage.setItem("mode:cols", settings.mode_cols);
                                     document.getElementById("output").innerHTML += "Settings has been applied successfully\r\n";
@@ -2211,6 +2291,10 @@
                                     color_input_hex1.style.backgroundColor = settings.color_output_background;
                                     let color_input_hex3 = document.querySelector("#output");
                                     color_input_hex3.style.color = settings.color_output_text;
+                                    let color_input_hex6 = document.querySelector("#command");
+                                    color_input_hex6.style.borderColor = settings.color_input_border;
+                                    let color_input_hex5 = document.querySelector("#output");
+                                    color_input_hex5.style.borderColor = settings.color_output_border;
                                     document.getElementById("output").setAttribute("cols", settings.mode_cols);
                                     document.getElementById("output").setAttribute("rows", settings.mode_rows);
                                     localStorage.setItem("color:input_text", settings.color_input_text);
@@ -2218,6 +2302,8 @@
                                     localStorage.setItem("color:input_background", settings.color_input_background);
                                     localStorage.setItem("color:output_background", settings.color_output_background);
                                     localStorage.setItem("color:background", settings.color_background);
+                                    localStorage.setItem("color:input_border", settings.color_input_border);
+                                    localStorage.setItem("color:output_border", settings.color_output_border);
                                     localStorage.setItem("mode:rows", settings.mode_rows);
                                     localStorage.setItem("mode:cols", settings.mode_cols);
                                     document.getElementById("output").innerHTML += "Settings has been applied successfully\r\n";
@@ -2241,8 +2327,12 @@
                             color_input_hex1.style.backgroundColor = window.backup[3];
                             let color_input_hex3 = document.querySelector("#output");
                             color_input_hex3.style.color = window.backup[4];
-                            document.getElementById("output").setAttribute("cols", window.backup[5]);
-                            document.getElementById("output").setAttribute("rows", window.backup[6]);
+                            let color_input_hex6 = document.querySelector("#command");
+                            color_input_hex6.style.borderColor = window.backup[6];
+                            let color_input_hex5 = document.querySelector("#output");
+                            color_input_hex3.style.borderColor = window.backup[7];
+                            document.getElementById("output").setAttribute("cols", window.backup[8]);
+                            document.getElementById("output").setAttribute("rows", window.backup[9]);
                             window.backup[7] = false;
                         } else {
                             document.getElementById("output").innerHTML += "Unable to undo because you already undo for there is no import action to undo\r\n";
