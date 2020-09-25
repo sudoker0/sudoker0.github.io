@@ -1098,6 +1098,7 @@
                 }
                 var str = document.getElementById("command").value;
                 var a = str.split(" ");
+                console.log(a)
                 //console.log(a[0]);
                 var a_length = a.length;
                 if (window.console_output) {
@@ -1532,7 +1533,7 @@
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
                         document.getElementById("output").innerHTML += "Version: 1.2.2\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.2.2.92520_Revision1\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.2.2.92520_Revision2\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -2084,7 +2085,8 @@
                                 "mode_cols": document.getElementById("output").getAttribute("cols"),
                                 "mode_rows": document.getElementById("output").getAttribute("rows")
                             }
-                            var test1 = JSON.stringify(settings)
+                            var test1 = JSON.stringify(settings);
+                            test1 = test1.replace(/\s/g, '');
                             document.getElementById("output").innerHTML += "Here is your JSON text: " + test1 + "\r\n";
                             document.getElementById("output").innerHTML += "The JSON part started at '{' and at '}'\r\n";
                         } else {
@@ -2184,6 +2186,7 @@
                             document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                         }
                     } else if (a[1] == "settings-jsontext") {
+                        a[2] = a[2].replace(/\s/g, '');
                         function IsJsonString(input) {
                             try {
                                 JSON.parse(input);
