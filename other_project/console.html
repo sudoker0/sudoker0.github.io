@@ -1533,7 +1533,7 @@
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
                         document.getElementById("output").innerHTML += "Version: 1.2.2\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.2.2.92520_Revision4\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.2.2.92520_Revision5\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -2187,7 +2187,6 @@
                             document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                         }
                     } else if (a[1] == "settings-jsontext") {
-                        a[2] = a[2].replace(/\s/g, '');
                         function IsJsonString(input) {
                             try {
                                 JSON.parse(input);
@@ -2226,7 +2225,7 @@
                                     document.getElementById("output").innerHTML += "Please provide a valid JSON text.\r\n";
                                 }
                             } else {
-                                document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
+                                document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end. Or it might because your JSON string contain space, please remove any space you found and try again.\r\n";
                             }
                         }
                         
@@ -2279,7 +2278,7 @@
                     ab.document.write('<p>The final part: The revision part: The text _Revision3 in: ...82320_Revision3<=. Let say that I release a new update or change in the same day that I just release a update or change before, what to do? I know, I will increase the Revision number to let you know that: I just make an update or change this the same day, and the number will tell you how many time I update or change stuff in the same day.</p>');
                     ab.document.write('<p>3. FINAL NOTE</p>');
                     ab.document.write('<p>You can use my "console" for free with some limitation, The Build number does have a meaning and do not made me upset. That is it, enjoy!</p>');
-                    ab.document.write('<p>Copyright (C) Quan_MCPC 2020</p>');
+                    ab.document.write('<p>Copyright (C) Quan_MCPC 2020. This document is the first edition, grammar fix and new stuff might be added in the next version.</p>');
                 } else {
                     //Error 1: Not a correct command
                     document.getElementById("output").innerHTML += "'" + document.getElementById("command").value + "'" +" is not a valid command.\r\n";
