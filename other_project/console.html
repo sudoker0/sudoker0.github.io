@@ -1533,7 +1533,7 @@
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
                         document.getElementById("output").innerHTML += "Version: 1.2.2\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.2.2.92520_Revision2\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.2.2.92520_Revision3\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -2129,6 +2129,7 @@
                                 }
                                 fileInput = document.createElement("input")
                                 fileInput.type='file'
+                                fileInput.accept='application/json,.json'
                                 fileInput.style.display='none'
                                 fileInput.onchange=readFile
                                 fileInput.func=func
