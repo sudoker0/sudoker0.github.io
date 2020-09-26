@@ -324,7 +324,7 @@
                 <br>
                 <button onclick="keyboard_enable_shift()" id="shift">Shift [X]</button><button onclick="keyboard_key('Z')">Z</button><button onclick="keyboard_key('X')">X</button><button onclick="keyboard_key('C')">C</button><button onclick="keyboard_key('V')">V</button><button onclick="keyboard_key('B')">B</button><button onclick="keyboard_key('N')">N</button><button onclick="keyboard_key('M')">M</button><button onclick="keyboard_key(',')">,</button><button onclick="keyboard_key('.')">.</button><button onclick="keyboard_key('/')">/</button><button onclick="keyboard_key('?')">?</button><button onclick="keyboard_key('<')">&lt;</button><button onclick="keyboard_key('>')">&gt;</button><button onclick="keyboard_enable_shift()" id="shift1">Shift [X]</button>
                 <br>
-                <button onclick="keyboard_select_all()">Select All</button><button onclick="keyboard_key(' ')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Space&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button><button onclick="keyboard_delete_all()">Delete All</button>
+                <button onclick="keyboard_select_all()">Select All</button><button onclick="keyboard_key(' ')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Space&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button><button>[Dummy Key]</button>
                 <br>
                 <button onclick="keyboard_copy_selected()">Copy Selected Text</button>
             </div>
@@ -336,6 +336,7 @@
             <noscript><p style="color: white">Look like JavaScript is disabled or not installed in your browser! Please install or enable JavaScript</p></noscript>
         </center>
         <script>
+            window.command = '';
             //Editor Script
             var start_1 = 0;
             window.count_1 = 0;
@@ -868,9 +869,6 @@
                     document.execCommand('copy');
                 }
             }
-            function keyboard_delete_all() {
-                document.getElementById("command").value = '';
-            }
             function keyboard_enable_cl() {
                 if (!window.enable_cl) {
                     window.enable_cl = true;
@@ -892,22 +890,27 @@
             }
             function keyboard_key(key) {
                 if (window.enable_shift) {
-                    document.getElementById("command").value += key;
+                    document.getElementById("output").value += key;
                     window.enable_shift = false;
                     document.getElementById("shift").innerHTML = "Shift [X]";
                     document.getElementById("shift1").innerHTML = "Shift [X]";
                     return false;
                 }
                 if (window.enable_cl) {
-                    document.getElementById("command").value += key;
+                    document.getElementById("output").value += key;
                 } else {
-                    document.getElementById("command").value += key.toLowerCase();
+                    document.getElementById("output").value += key.toLowerCase();
                 }
             }
             function keyboard_backspace() {        
-                var command_old = document.getElementById("command").value;
-                var command_new = command_old.substring(0, command_old.length - 1);
-                document.getElementById("command").value = command_new;
+                var command_old = document.getElementById("output").value;
+                if (window.command.length == 0) {
+
+                } else {
+                    var command_new = command_old.substring(0, command_old.length - 1);
+                    document.getElementById("output").value = command_new;
+                }
+                
             }
             dragElement(document.getElementById("keyboard"));
             function dragElement(elmnt) {
@@ -1076,39 +1079,81 @@
                     document.getElementById("output").innerHTML += localStorage.getItem("welcome_content");
                     document.getElementById("output").innerHTML += "\r\n";
                 }
-                if (getParameterByName("command") == null) {} else {
-                    document.getElementById("command").value = getParameterByName("command");
-                    enter_2()
-                }
-            }
-            document.getElementById('command').onkeypress = function(e){    
-                if (!e) e = window.event;
-                if (e.keyCode == '13'){
-                    enter();
-                    document.getElementById("command").value = '';
-                }
+                document.getElementById("output").innerHTML += "user@browser:/>"
             }
             function enter_2() {
                 enter();
-                document.getElementById("command").value = '';
             }
+            /*function console_input(e) {
+                var keyNum;
+                if (window.event) {
+                    keynum = e.keyCode;
+                } else if (e.which) {
+                    keynum = e.which
+                }
+                console.log(keyNum)
+                if (keynum == 13) {
+                    enter_2()
+                }
+                if (keynum == 8) {
+                    console.log("test");
+                    if (window.command.length == 0) {} else {
+                        var newStr = window.command.substring(0, window.command.length - 1);
+                        window.command = newStr;
+                        var newStr2 = document.getElementById("output").innerHTML.substring(0, document.getElementById("output").innerHTML.length - 1);
+                        document.getElementById("output").innerHTML = newStr2;
+                    }
+                } else {
+                    document.getElementById("output").innerHTML += String.fromCharCode(keynum);
+                    window.command = window.command + String.fromCharCode(keynum);
+                }
+                
+            }*/
+            window.addEventListener("keydown", function (e) {
+                console.log(e.keyCode)
+                console.log(e.charCode);
+                if (e.keyCode == 13) {
+                    enter_2();
+                    window.command = '';
+                    document.getElementById("output").innerHTML += "user@browser:/>"
+                } else if (e.keyCode == 8) {
+                    if (window.command.length == 0) {} else {
+                        var newStr = window.command.substring(0, window.command.length - 1);
+                        window.command = newStr;
+                        var newStr2 = document.getElementById("output").innerHTML.substring(0, document.getElementById("output").innerHTML.length - 1);
+                        document.getElementById("output").innerHTML = newStr2;
+                    }
+                } else if   (
+                                [
+                                    9, 16, 17, 18, 20, 
+                                    27, 33, 34, 35, 36, 
+                                    37, 38, 39, 40, 45, 
+                                    46, 91, 112, 113, 114, 
+                                    115, 116, 117, 118, 119, 
+                                    120, 121, 122, 123, 144
+                                ].indexOf(e.keyCode) > -1
+                            ) {} else {
+                    document.getElementById("output").innerHTML += e.key;
+                    window.command = window.command + e.key;
+                }
+            })
             function enter() {
                 if (log_c < 20) {
-                    z[log_c] = document.getElementById("command").value;
+                    z[log_c] = window.command;
                     //console.log("z[" + log_c + "] = " + z[log_c]);
                     log_c++;
                 } else {
                     //console.log(z);
                     z.shift();
-                    z.push(document.getElementById("command").value);
+                    z.push(window.command);
                 }
-                var str = document.getElementById("command").value;
+                var str = window.command;
                 var a = str.split(" ");
                 console.log(a)
                 //console.log(a[0]);
                 var a_length = a.length;
                 if (window.console_output) {
-                    document.getElementById("output").innerHTML += "> " + document.getElementById("command").value + "\r\n";
+                    document.getElementById("output").innerHTML += "\r\n";
                 }
                 a[0] = a[0].toLowerCase();
                 if (a[0] == "help") { //Command "help"
@@ -1537,11 +1582,9 @@
                         })();
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
-                        document.getElementById("output").innerHTML += "Version: 1.2.3\n";
-                        document.getElementById("output").innerHTML += "Release on: August 23th 2020\r\n";
-                        document.getElementById("output").innerHTML += "Info about the first version: 328 lines of code, have 11 commands and a separate icon file\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.2.2\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.2.3.92620_Revision1\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.2.2.92520_Revision6\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -1550,7 +1593,7 @@
                     if (!a[1] == '') {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                     } else {
-                        document.getElementById("output").innerHTML += "Version: 1.2.3\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.2.2\r\n";
                     }
                 } else if (a[0] == "timer") { //Command: timer
                     if (!isNaN(a[1])) {
@@ -2373,7 +2416,7 @@
                     ab.document.write('<p>Copyright (C) Quan_MCPC 2020. This document is the first edition, grammar fix and new stuff might be added in the next version.</p>');
                 } else {
                     //Error 1: Not a correct command
-                    document.getElementById("output").innerHTML += "'" + document.getElementById("command").value + "'" +" is not a valid command.\r\n";
+                    document.getElementById("output").innerHTML += "'" + window.command + "'" +" is not a valid command.\r\n";
                     document.getElementById("output").innerHTML += "Please refer the help page by typing: 'help' for valid command.\r\n";
                 }
             };
