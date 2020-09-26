@@ -310,7 +310,7 @@
         </div>
         <!--Editor Part-->
         <center>
-            <!--Keyboard Part-->
+            <!--Keyboard Part
             <div id="keyboard">
                 <div id="keyboard_bar" style="text-align: center;"><button style="position: absolute; left: 10px" onclick="exit_keyboard()">Close</button>On-Screen Keyboard</div>
                 <button onclick="keyboard_key('!')">!</button><button onclick="keyboard_key('@')">@</button><button onclick="keyboard_key('#')">#</button><button onclick="keyboard_key('$')">$</button><button onclick="keyboard_key('%')">%</button><button onclick="keyboard_key('^')">^</button><button onclick="keyboard_key('&')">&</button><button onclick="keyboard_key('*')">*</button><button onclick="keyboard_key('(')">(</button><button onclick="keyboard_key(')')">)</button><button onclick="keyboard_key('-')">-</button><button onclick="keyboard_key('+')">+</button><button onclick="keyboard_key('_')">_</button><button onclick="keyboard_key('=')">=</button>
@@ -323,18 +323,41 @@
                 <br>
                 <button onclick="keyboard_enable_shift()" id="shift">Shift [X]</button><button onclick="keyboard_key('Z')">Z</button><button onclick="keyboard_key('X')">X</button><button onclick="keyboard_key('C')">C</button><button onclick="keyboard_key('V')">V</button><button onclick="keyboard_key('B')">B</button><button onclick="keyboard_key('N')">N</button><button onclick="keyboard_key('M')">M</button><button onclick="keyboard_key(',')">,</button><button onclick="keyboard_key('.')">.</button><button onclick="keyboard_key('/')">/</button><button onclick="keyboard_key('?')">?</button><button onclick="keyboard_key('<')">&lt;</button><button onclick="keyboard_key('>')">&gt;</button><button onclick="keyboard_enable_shift()" id="shift1">Shift [X]</button>
                 <br>
-                <button onclick="keyboard_select_all()">Select All</button><button onclick="keyboard_key(' ')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Space&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button><button onclick="keyboard_delete_all()">Delete All</button>
+                <button onclick="keyboard_key(' ')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Space&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
                 <br>
                 <button onclick="keyboard_copy_selected()">Copy Selected Text</button>
             </div>
-            <!--Keyboard Part-->
+            Keyboard Part-->
             <textarea placeholder="Console Output..." id="output" rows="30" cols="100" readonly style="resize: none; overflow-y: hidden; background-color: black; color: white; border-color: white; border-width: 3px; border-style: solid;"></textarea>
             <br><br>
-            <div><input id="command" type="text" placeholder="Command..." style="background-color: black; color: white; border-color: white; border-width: 3px; border-style: solid;"></div><br><br><button onclick="enter()">Enter command</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="on_keyboard()">On-Screen Keyboard</button>
             <!--This message is usually hidden unless JavaScript is not installed-->
             <noscript><p style="color: white">Look like JavaScript is disabled or not installed in your browser! Please install or enable JavaScript</p></noscript>
         </center>
         <script>
+            window.command = "";
+            document.addEventListener('keydown', event => {
+                const charList = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWYXZ~!@#$%^&*()-=_+;,./{}|:"<>?0123456789 ';
+                const key = event.key
+                // we are only interested in alphanumeric keys
+                if (event.keyCode == 8) {
+                    if (window.command.length == 0) {} else {
+                        var newString = window.command.substring(0, window.command.length - 1);
+                        window.command = newString;
+                        var newString2 = document.getElementById("output").innerHTML.substring(0, document.getElementById("output").innerHTML.length - 1);
+                        document.getElementById("output").innerHTML = newString2;
+                    }
+                } else if (event.keyCode == 13) {
+                    document.getElementById("output").innerHTML += "\r\n";
+                    enter();
+                    window.command = '';
+                    document.getElementById("output").innerHTML += "user@console:/>"
+                } else if (charList.indexOf(key) === -1) {return} else {
+                    //console.log(key);
+                    window.command = window.command + key;
+                    document.getElementById("output").innerHTML += key;
+                    //console.log(window.command);
+                };
+            });
             //Editor Script
             var start_1 = 0;
             window.count_1 = 0;
@@ -839,7 +862,7 @@
             }
             //Editor Script
             //Keyboard Script
-            function reset() {
+            /*function reset() {
                 let keyboard_3 = document.querySelector("#keyboard");
                 keyboard_3.style.top = 1 + "px";
                 keyboard_3.style.left = 1 + "px";
@@ -953,7 +976,7 @@
                     document.onmousemove = null;
                 }
             }
-            //Keyboard Script
+            //Keyboard Script*/
             //Editor Script
             dragElement1(document.getElementById("editor"));
             function dragElement1(elmnt1) {
@@ -1012,7 +1035,7 @@
             var log_c = 0;
             var z = [""];
             var textarea = document.getElementById('output');
-            setInterval(function(){ textarea.scrollTop = textarea.scrollHeight; }, 50);
+            setInterval(function(){ textarea.scrollTop = textarea.scrollHeight; }, 25);
             function getParameterByName(name, url) {
                 if (!url) url = window.location.href;
                 name = name.replace(/[\[\]]/g, '\\$&');
@@ -1078,36 +1101,26 @@
                     document.getElementById("command").value = getParameterByName("command");
                     enter_2()
                 }
-            }
-            document.getElementById('command').onkeypress = function(e){
-                if (!e) e = window.event;
-                if (e.keyCode == '13'){
-                    enter();
-                    document.getElementById("command").value = '';
-                }
+                document.getElementById("output").innerHTML += "user@console:/>"
             }
             function enter_2() {
                 enter();
-                document.getElementById("command").value = '';
             }
             function enter() {
                 if (log_c < 20) {
-                    z[log_c] = document.getElementById("command").value;
+                    z[log_c] = window.command;
                     //console.log("z[" + log_c + "] = " + z[log_c]);
                     log_c++;
                 } else {
                     //console.log(z);
                     z.shift();
-                    z.push(document.getElementById("command").value);
+                    z.push(window.command);
                 }
-                var str = document.getElementById("command").value;
+                var str = window.command;
                 var a = str.split(" ");
                 console.log(a)
                 //console.log(a[0]);
                 var a_length = a.length;
-                if (window.console_output) {
-                    document.getElementById("output").innerHTML += "> " + document.getElementById("command").value + "\r\n";
-                }
                 a[0] = a[0].toLowerCase();
                 if (a[0] == "help") { //Command "help"
                     if (!a[1] == '') {
@@ -1534,13 +1547,17 @@
                             return M.join(' ');
                         })();
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
-                        document.getElementById("output").innerHTML += "About WTOS\r\n";
-                        document.getElementById("output").innerHTML += "Version: 1.2.3\n";
-                        document.getElementById("output").innerHTML += "Release on: August 23th 2020\r\n";
-                        document.getElementById("output").innerHTML += "Info about the first version: 328 lines of code, have 11 commands and a separate icon file\r\n";
+                        document.getElementById("output").innerHTML += "About WTOS (Unoffical Version)\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.2.3u\n";
+                        document.getElementById("output").innerHTML += "Release on: September 27th 2020\r\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.2.3.92620_Revision1\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.2.3u.92720_Revision1\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
+                        document.getElementById("output").innerHTML += "Note: This version is just a test from me (The Developer)\r\n";
+                        document.getElementById("output").innerHTML += "about a concept which is type command directly into the console\r\n";
+                        document.getElementById("output").innerHTML += "Do note that this is an unoffical version so there will be limitaion: \r\n";
+                        document.getElementById("output").innerHTML += "+ No update will be released for this Unoffical Version\r\n";
+                        document.getElementById("output").innerHTML += "+ There might be some type of bug in this Unoffical Version\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
                     }
@@ -2368,7 +2385,7 @@
                     ab.document.write('<p>Copyright (C) Quan_MCPC 2020. This document is the first edition, grammar fix and new stuff might be added in the next version.</p>');
                 } else {
                     //Error 1: Not a correct command
-                    document.getElementById("output").innerHTML += "'" + document.getElementById("command").value + "'" +" is not a valid command.\r\n";
+                    document.getElementById("output").innerHTML += "'" + window.command + "'" +" is not a valid command.\r\n";
                     document.getElementById("output").innerHTML += "Please refer the help page by typing: 'help' for valid command.\r\n";
                 }
             };

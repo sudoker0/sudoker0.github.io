@@ -320,7 +320,7 @@
                 <br>
                 <button onclick="keyboard_key('Q')">Q</button><button onclick="keyboard_key('W')">W</button><button onclick="keyboard_key('E')">E</button><button onclick="keyboard_key('R')">R</button><button onclick="keyboard_key('T')">T</button><button onclick="keyboard_key('Y')">Y</button><button onclick="keyboard_key('U')">U</button><button onclick="keyboard_key('I')">I</button><button onclick="keyboard_key('O')">O</button><button onclick="keyboard_key('P')">P</button><button onclick="keyboard_key('[')">[</button><button onclick="keyboard_key(']')">]</button><button onclick="keyboard_key('{')">{</button><button onclick="keyboard_key('}')">}</button><button onclick="keyboard_key('|')">|</button>
                 <br>
-                <button onclick="keyboard_enable_cl()" id="caps_lock">Caps Lock [X]</button><button onclick="keyboard_key('A')">A</button><button onclick="keyboard_key('S')">S</button><button onclick="keyboard_key('D')">D</button><button onclick="keyboard_key('F')">F</button><button onclick="keyboard_key('G')">G</button><button onclick="keyboard_key('H')">H</button><button onclick="keyboard_key('J')">J</button><button onclick="keyboard_key('K')">K</button><button onclick="keyboard_key('L')">L</button><button onclick="keyboard_key(';')">;</button><button onclick="keyboard_key(':')">:</button><button onclick="enter_2()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enter</button>
+                <button onclick="keyboard_enable_cl()" id="caps_lock">Caps Lock [X]</button><button onclick="keyboard_key('A')">A</button><button onclick="keyboard_key('S')">S</button><button onclick="keyboard_key('D')">D</button><button onclick="keyboard_key('F')">F</button><button onclick="keyboard_key('G')">G</button><button onclick="keyboard_key('H')">H</button><button onclick="keyboard_key('J')">J</button><button onclick="keyboard_key('K')">K</button><button onclick="keyboard_key('L')">L</button><button onclick="keyboard_key(';')">;</button><button onclick="keyboard_key(':')">:</button><button onclick="enter()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enter</button>
                 <br>
                 <button onclick="keyboard_enable_shift()" id="shift">Shift [X]</button><button onclick="keyboard_key('Z')">Z</button><button onclick="keyboard_key('X')">X</button><button onclick="keyboard_key('C')">C</button><button onclick="keyboard_key('V')">V</button><button onclick="keyboard_key('B')">B</button><button onclick="keyboard_key('N')">N</button><button onclick="keyboard_key('M')">M</button><button onclick="keyboard_key(',')">,</button><button onclick="keyboard_key('.')">.</button><button onclick="keyboard_key('/')">/</button><button onclick="keyboard_key('?')">?</button><button onclick="keyboard_key('<')">&lt;</button><button onclick="keyboard_key('>')">&gt;</button><button onclick="keyboard_enable_shift()" id="shift1">Shift [X]</button>
                 <br>
@@ -894,12 +894,15 @@
                     window.enable_shift = false;
                     document.getElementById("shift").innerHTML = "Shift [X]";
                     document.getElementById("shift1").innerHTML = "Shift [X]";
+                    window.command = window.command + key;
                     return false;
                 }
                 if (window.enable_cl) {
                     document.getElementById("output").value += key;
+                    window.command = window.command + key;
                 } else {
                     document.getElementById("output").value += key.toLowerCase();
+                    window.command = window.command + key;
                 }
             }
             function keyboard_backspace() {        
@@ -1113,9 +1116,7 @@
                 console.log(e.keyCode)
                 console.log(e.charCode);
                 if (e.keyCode == 13) {
-                    enter_2();
-                    window.command = '';
-                    document.getElementById("output").innerHTML += "user@browser:/>"
+                    enter();
                 } else if (e.keyCode == 8) {
                     if (window.command.length == 0) {} else {
                         var newStr = window.command.substring(0, window.command.length - 1);
@@ -2419,6 +2420,8 @@
                     document.getElementById("output").innerHTML += "'" + window.command + "'" +" is not a valid command.\r\n";
                     document.getElementById("output").innerHTML += "Please refer the help page by typing: 'help' for valid command.\r\n";
                 }
+                window.command = '';
+                document.getElementById("output").innerHTML += "user@browser:/>"
             };
         </script>
     </body>
