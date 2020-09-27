@@ -233,7 +233,31 @@
 				<div id="img9"><div id="image" style="color:rgb(170, 170, 170); width:image width px; font-size:150%; text-align:center;"><img width="1023" height="525" src="website/image/9.png"><b>Compact Calculator [1.15.2] [Front View] [9.png]</b></div><div onclick="oimage9()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
 				</script>
 				<h4 style="color:white">Copyright (C) 2020 Quan_MCPC. Created on: 7/17/20, this website will live <b style="color:red";>forever</b></h4>
-				<p style="color: white"><b>Info: [Total size: 31,801,239 bytes, Default: 10,907,733 bytes, <a id="hidden" onclick="location.href='lite/home.html'">Basic</a>: 18,841 bytes, Other: 20,874,665 bytes].</b></p>
+				<script>
+					function readTextFile(file, callback) {
+						var rawFile = new XMLHttpRequest();
+						rawFile.overrideMimeType("application/json");
+						rawFile.open("GET", file, true);
+						rawFile.onreadystatechange = function() {
+							if (rawFile.readyState === 4 && rawFile.status == "200") {
+								callback(rawFile.responseText);
+							}
+						}
+						rawFile.send(null);
+					}
+					readTextFile("file_size.json", function (text) {
+						var data = JSON.parse(text);
+						var total = data.total;
+						var default_1 = data.default;
+						var basic = data.basic;
+						var other = data.other;
+						document.getElementById("total").innerHTML = total;
+						document.getElementById("default").innerHTML = default_1;
+						document.getElementById("basic").innerHTML = basic;
+						document.getElementById("other").innerHTML = other;
+					})
+				</script>
+				<p style="color: white"><b>Info: [Total size: <span id="total">00,000,000</span> bytes, Default: <span id="default">00,000,000</span> bytes, <a id="hidden" onclick="location.href='lite/home.html'">Basic</a>: <span id="basic">00,000</span> bytes, Other: <span id="other">00,000,000</span> bytes].</b></p>
 				<p style="color: white"><b>Langugaes used: HTML (HyperText Markup Language), CSS (Cascading Style Sheets) and JS (JavaScript)</b></p>
 				<script>
 					function date_check() {
