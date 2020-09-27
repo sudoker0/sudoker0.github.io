@@ -39,7 +39,7 @@
         {
             var fileToLoad = document.getElementById("fileToLoad").files[0];
             var fileReader = new FileReader();
-            fileReader.onload = function(fileLoadedEvent) 
+            fileReader.onload = function(fileLoadedEvent)
             {
                 var textFromFileLoaded = fileLoadedEvent.target.result;
                 document.getElementById("encrypted_text").value = textFromFileLoaded;
@@ -156,7 +156,7 @@
 				if (decrypt_array[i2] == "I2ji") {decrypt_array[i2] = "]"; document.getElementById("decrypted_text").innerHTML += decrypt_array[i2];} else
 				if (decrypt_array[i2] == "SNPg") {decrypt_array[i2] = "{"; document.getElementById("decrypted_text").innerHTML += decrypt_array[i2];} else
 				if (decrypt_array[i2] == "BRFr") {decrypt_array[i2] = "}"; document.getElementById("decrypted_text").innerHTML += decrypt_array[i2];} else
-				if (decrypt_array[i2] == "JbR5") {decrypt_array[i2] = "\n"; document.getElementById("decrypted_text").innerHTML += decrypt_array[i2];} else 
+				if (decrypt_array[i2] == "JbR5") {decrypt_array[i2] = "\n"; document.getElementById("decrypted_text").innerHTML += decrypt_array[i2];} else
                 { decrypt_array[i2] = "�"; document.getElementById("decrypted_text").innerHTML += decrypt_array[i2]; }
             }
         }
@@ -252,7 +252,7 @@
                 if (array[i1] == "]") {array[i1] = "I2ji"; document.getElementById("cipher_text").innerHTML += array[i1];} else
                 if (array[i1] == "{") {array[i1] = "SNPg"; document.getElementById("cipher_text").innerHTML += array[i1];} else
                 if (array[i1] == "}") {array[i1] = "BRFr"; document.getElementById("cipher_text").innerHTML += array[i1];} else
-                if (array[i1] == "\n") {array[i1] = "JbR5"; document.getElementById("cipher_text").innerHTML += array[i1];} else 
+                if (array[i1] == "\n") {array[i1] = "JbR5"; document.getElementById("cipher_text").innerHTML += array[i1];} else
                 { alert("Detected Invalid Charater, please check your sentence or paragraph again! (Valid charater will still be encrypted, Invalid charater will be shown as 'XXXX')"); array[i1] = "XXXX"; document.getElementById("cipher_text").innerHTML += array[i1]; }
             }
         }

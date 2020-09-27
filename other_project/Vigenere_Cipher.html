@@ -43,7 +43,7 @@
         <button onclick="loadFile()">Load TXT</button>
         <hr style="color:rgb(56, 56, 56); border-width: 2px; border-style: solid;">
         <p>Copyright (C) 2020 Quan_MCPC</p>
-        <p>(This only took 400 lines of code, and a whole day to complete and repair).</p> 
+        <p>(This only took 400 lines of code, and a whole day to complete and repair).</p>
         <p>Note 1: Some older browser will not work, I check on my browser and it work so if your browser doesn't want to do things correctly, please update the browser.</p>
         <p>Note 2: This currently only support non-capital letter so no space, no number, no special charater, ...</p>
         <button onclick="exit()">Exit</button>
@@ -71,7 +71,7 @@
         {
             var fileToLoad = document.getElementById("fileToLoad").files[0];
             var fileReader = new FileReader();
-            fileReader.onload = function(fileLoadedEvent) 
+            fileReader.onload = function(fileLoadedEvent)
             {
                 var textFromFileLoaded = fileLoadedEvent.target.result;
                 document.getElementById("encrypted_text").value = textFromFileLoaded;
@@ -105,7 +105,7 @@
             //Convert input variable into array
             const array_input = [...input];
             //Encrypt plain text with A1Z26 method (A=1, B=2, C=3, etc.)
-            for (var i1 = 0; i1 < input.length; i1++) 
+            for (var i1 = 0; i1 < input.length; i1++)
             {
                 if (array_input[i1] == "a") { array_input[i1] = 1; }
                 if (array_input[i1] == "b") { array_input[i1] = 2; }
@@ -256,7 +256,7 @@
             //Convert input variable into array
             const array_input2 = [...input2];
             //Convert text into number with A1Z26 method (A=1, B=2, C=3, etc.)
-            for (var i1_1 = 0; i1_1 < input2.length; i1_1++) 
+            for (var i1_1 = 0; i1_1 < input2.length; i1_1++)
             {
                 if (array_input2[i1_1] == "a") { array_input2[i1_1] = 1; }
                 if (array_input2[i1_1] == "b") { array_input2[i1_1] = 2; }

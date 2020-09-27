@@ -151,12 +151,12 @@
 					}
 					date_check();
 					check1();
-				}	
+				}
 				function check1() {
 					if (!sessionStorage.getItem("access_granted") == 1) {
 						window.location.replace("warning");
 					}
-				}			
+				}
 				var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
 				//Home
 				var link1 = "Home";
@@ -233,13 +233,14 @@
 				<div id="img9"><div id="image" style="color:rgb(170, 170, 170); width:image width px; font-size:150%; text-align:center;"><img width="1023" height="525" src="website/image/9.png"><b>Compact Calculator [1.15.2] [Front View] [9.png]</b></div><div onclick="oimage9()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
 				</script>
 				<h4 style="color:white">Copyright (C) 2020 Quan_MCPC. Created on: 7/17/20, this website will live <b style="color:red";>forever</b></h4>
-				<p style="color: white"><b>Info: [Total size: 31,801,239 bytes, Default: 10,907,733 bytes, <a id="hidden" onclick="location.href='lite/home.html'">Basic</a>: 18,841 bytes, Other: 20,874,665 bytes], Current languages used: HTML (HyperText Markup Language) and CSS (Cascading Style Sheets)</b>.</p>
+				<p style="color: white"><b>Info: [Total size: 31,801,239 bytes, Default: 10,907,733 bytes, <a id="hidden" onclick="location.href='lite/home.html'">Basic</a>: 18,841 bytes, Other: 20,874,665 bytes].</b></p>
+				<p style="color: white"><b>Langugaes used: HTML (HyperText Markup Language), CSS (Cascading Style Sheets) and JS (JavaScript)</b></p>
 				<script>
 					function date_check() {
 						var date1 = new Date("07/17/2020");
 						var date2 = new Date();
-						var Difference_In_Time = date2.getTime() - date1.getTime(); 
-						// To calculate the no. of days between two dates 
+						var Difference_In_Time = date2.getTime() - date1.getTime();
+						// To calculate the no. of days between two dates
 						var Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
 						document.getElementById("days_from").innerHTML = Difference_In_Days;
 					}
