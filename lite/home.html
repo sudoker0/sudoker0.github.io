@@ -27,8 +27,8 @@
 					var anchor = document.createElement("a");
 					var anchor_text = document.createTextNode(list.split(" / ")[0]);
 					anchor.appendChild(anchor_text);
-					anchor.title = list.split("/")[1];
-					anchor.href = list.split("/")[2];
+					anchor.title = list.split(" / ")[1];
+					anchor.href = list.split(" / ")[2];
 					document.getElementById("accbar").appendChild(anchor);
 					if (index < name_.length - 1) {
 						document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
