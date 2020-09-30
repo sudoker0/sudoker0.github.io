@@ -153,49 +153,36 @@
 					}
 				}
 				var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
-				//Home
-				var anchor_0 = document.createElement("a")
-				var anchor_text_0 = document.createTextNode("Home");
-				anchor_0.appendChild(anchor_text_0);
-				anchor_0.title = "Home - The main page of the website";
-				anchor_0.href = "home?id=" + dateTime;
-				document.getElementById("accbar").appendChild(anchor_0);
-				//Adding space
-				document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
-				//How did I make the website
-				var anchor_1 = document.createElement("a")
-				var anchor_text_1 = document.createTextNode("How did I make the website?");
-				anchor_1.appendChild(anchor_text_1);
-				anchor_1.title = "HDIMTW - How did I make the website?";
-				anchor_1.href = "how?id=" + dateTime;
-				document.getElementById("accbar").appendChild(anchor_1);
-				//Adding space
-				document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
-				//Credit
-				var anchor_2 = document.createElement("a")
-				var anchor_text_2 = document.createTextNode("Credit");
-				anchor_2.appendChild(anchor_text_2);
-				anchor_2.title = "Credit - All of the stuff and people that created this website will be listed here";
-				anchor_2.href = "credit?id=" + dateTime;
-				document.getElementById("accbar").appendChild(anchor_2);
-				//Adding space
-				document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
-				//Sneak Peak and Event
-				var anchor_3 = document.createElement("a")
-				var anchor_text_3 = document.createTextNode("Sneak Peak and Event");
-				anchor_3.appendChild(anchor_text_3);
-				anchor_3.title = "Sneak Peak and Event - The Log for Big Event and a single Sneak Peak";
-				anchor_3.href = "spne?id=" + dateTime;
-				document.getElementById("accbar").appendChild(anchor_3);
-				//Adding space
-				document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
-				//Other Project
-				var anchor_4 = document.createElement("a")
-				var anchor_text_4 = document.createTextNode("Other Project");
-				anchor_4.appendChild(anchor_text_4);
-				anchor_4.title = "Other Project - Where all of my knowledge and fun about HTML and JS is in";
-				anchor_4.href = "other_project?id=" + dateTime;
-				document.getElementById("accbar").appendChild(anchor_4);
+				var name_ = [
+					"Home",
+					"How did I make the website?",
+					"Credit",
+					"Sneak Peak and Event",
+					"Other Project"
+				];
+				var description = [
+					"Home - The main page of the website",
+					"HDIMTW - How did I make the website?",
+					"Credit - All of the stuff and people that created this website will be listed here",
+					"Sneak Peak and Event - The Log for Big Event and a single Sneak Peak",
+					"Other Project - Where all of my knowledge and fun about HTML and JS is in"
+				];
+				var link = [
+					"home?id=" + dateTime,
+					"how?id=" + dateTime,
+					"credit?id=" + dateTime,
+					"spne?id=" + dateTime,
+					"other_project?id=" + dateTime
+				];
+				name_.forEach(function (list, index) {
+					var anchor = document.createElement("a");
+					var anchor_text = document.createTextNode(list);
+					anchor.appendChild(anchor_text);
+					anchor.title = description[index];
+					anchor.href = link[index];
+					document.getElementById("accbar").appendChild(anchor);
+					document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
+				});
 			</script>
 		</center>
 		<div class="container">
