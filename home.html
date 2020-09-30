@@ -154,27 +154,48 @@
 				}
 				var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
 				//Home
-				var link1 = "Home";
-				var alink1 = "home?id=" + dateTime;
-				var html_link1 = link1.link(alink1);
+				var anchor_0 = document.createElement("a")
+				var anchor_text_0 = document.createTextNode("Home");
+				anchor_0.appendChild(anchor_text_0);
+				anchor_0.title = "Home - The main page of the website";
+				anchor_0.href = "home?id=" + dateTime;
+				document.getElementById("accbar").appendChild(anchor_0);
+				//Adding space
+				document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
 				//How did I make the website
-				var link2 = "How did I make the website?";
-				var alink2 = "how?id=" + dateTime;
-				var html_link2 = link2.link(alink2);
+				var anchor_1 = document.createElement("a")
+				var anchor_text_1 = document.createTextNode("How did I make the website?");
+				anchor_1.appendChild(anchor_text_1);
+				anchor_1.title = "HDIMTW - How did I make the website?";
+				anchor_1.href = "how?id=" + dateTime;
+				document.getElementById("accbar").appendChild(anchor_1);
+				//Adding space
+				document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
 				//Credit
-				var link3 = "Credit";
-				var alink3 = "credit?id=" + dateTime;
-				var html_link3 = link3.link(alink3);
+				var anchor_2 = document.createElement("a")
+				var anchor_text_2 = document.createTextNode("Credit");
+				anchor_2.appendChild(anchor_text_2);
+				anchor_2.title = "Credit - All of the stuff and people that created this website will be listed here";
+				anchor_2.href = "credit?id=" + dateTime;
+				document.getElementById("accbar").appendChild(anchor_2);
+				//Adding space
+				document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
 				//Sneak Peak and Event
-				var link4 = "Sneak Peak and Event";
-				var alink4 = "spne?id=" + dateTime;
-				var html_link4 = link4.link(alink4);
+				var anchor_3 = document.createElement("a")
+				var anchor_text_3 = document.createTextNode("Sneak Peak and Event");
+				anchor_3.appendChild(anchor_text_3);
+				anchor_3.title = "Sneak Peak and Event - The Log for Big Event and a single Sneak Peak";
+				anchor_3.href = "spne?id=" + dateTime;
+				document.getElementById("accbar").appendChild(anchor_3);
+				//Adding space
+				document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
 				//Other Project
-				var link5 = "Other Project";
-				var alink5 = "other_project?id=" + dateTime;
-				var html_link5 = link5.link(alink5);
-				//Access Bar
-				document.getElementById("accbar").innerHTML = html_link1 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link2 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link3 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link4 + '\xa0\xa0\xa0\xa0\xa0\xa0' + html_link5;
+				var anchor_4 = document.createElement("a")
+				var anchor_text_4 = document.createTextNode("Other Project");
+				anchor_4.appendChild(anchor_text_4);
+				anchor_4.title = "Other Project - Where all of my knowledge and fun about HTML and JS is in";
+				anchor_4.href = "other_project?id=" + dateTime;
+				document.getElementById("accbar").appendChild(anchor_4);
 			</script>
 		</center>
 		<div class="container">
@@ -187,16 +208,16 @@
 				<p><u><b><a href="https://www.planetminecraft.com/project/printer-1-16/"  target="_blank">Printer 1.16</a></b></u></p>
 				<p><u><b><a href="https://www.planetminecraft.com/project/security-vault-2-0/"  target="_blank">Security Vault 2.0</a></b></u></p>
 				<p><u><b><a href="https://www.planetminecraft.com/project/compact-calculator-1-15-2/"  target="_blank">Compact Calculator (1.15.2)</a></b></u></p>
-				<p style="color:orange";>Here is some screenshots of my map [Click on any of the image to view the image]:</p>
-				<img id="imagen1" onclick="image1()" width="455" height="234" src="website\image\1.png">
-				<img id="imagen2" onclick="image2()" width="455" height="234" src="website\image\2.png">
-				<img id="imagen3" onclick="image3()" width="455" height="234" src="website\image\3.png">
-				<img id="imagen4" onclick="image4()" width="455" height="234" src="website\image\4.png">
-				<img id="imagen5" onclick="image5()" width="455" height="234" src="website\image\5.png">
-				<img id="imagen6" onclick="image6()" width="455" height="234" src="website\image\6.png">
-				<img id="imagen7" onclick="image7()" width="455" height="234" src="website\image\7.png">
-				<img id="imagen8" onclick="image8()" width="455" height="234" src="website\image\8.png">
-				<img id="imagen9" onclick="image9()" width="455" height="234" src="website\image\9.png">
+				<p style="color:orange";>Here is some screenshots of my map [Click on any of the image to maximize the image]:</p>
+				<img id="imagen1" onclick="image1()" width="455" height="234" src="website\image\1.png" title="Click the image to maximize the image">
+				<img id="imagen2" onclick="image2()" width="455" height="234" src="website\image\2.png" title="Click the image to maximize the image">
+				<img id="imagen3" onclick="image3()" width="455" height="234" src="website\image\3.png" title="Click the image to maximize the image">
+				<img id="imagen4" onclick="image4()" width="455" height="234" src="website\image\4.png" title="Click the image to maximize the image">
+				<img id="imagen5" onclick="image5()" width="455" height="234" src="website\image\5.png" title="Click the image to maximize the image">
+				<img id="imagen6" onclick="image6()" width="455" height="234" src="website\image\6.png" title="Click the image to maximize the image">
+				<img id="imagen7" onclick="image7()" width="455" height="234" src="website\image\7.png" title="Click the image to maximize the image">
+				<img id="imagen8" onclick="image8()" width="455" height="234" src="website\image\8.png" title="Click the image to maximize the image">
+				<img id="imagen9" onclick="image9()" width="455" height="234" src="website\image\9.png" title="Click the image to maximize the image">
 				<script>
 					function image1() { document.getElementById("img1").style.display = "block"; }
 					function image2() { document.getElementById("img2").style.display = "block"; }
