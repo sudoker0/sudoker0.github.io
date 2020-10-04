@@ -14,6 +14,17 @@
 			<hr style="border-style:solid">
 			<script>
 				function check() {
+					function getParameterByName(name, url) {
+						if (!url) url = window.location.href;
+						name = name.replace(/[\[\]]/g, '\\$&');
+						var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
+						if (!results) return null;
+						if (!results[2]) return '';
+						return decodeURIComponent(results[2].replace(/\+/g, ' '));
+					}
+					if (getParameterByName("sv_cheat") >= 1 || getParameterByName("debug") >= 1 || getParameterByName("hack") >= 1) {
+						window.location.replace("ban");
+					}
 					if (localStorage.getItem("ls") == "927") {
 						window.location.replace("../ban");
 					}
