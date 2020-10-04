@@ -9,43 +9,6 @@
 		<title>Quan_MCPC Website</title>
 		<link rel="stylesheet" type="text/css" href="main.css">
 		<style>
-			/*
-			a:link, a:visited {
-				color: rgb(255, 255, 255);
-				text-decoration: none;
-				display: inline-block;
-			}
-			a:hover, a:active {
-				color: rgb(158, 158, 158);
-			}
-			div.accb {
-				background-color:rgba(20, 20, 20, 0.850);
-				border: 3px solid black;
-  				opacity: 1;
-				margin: auto;
-				text-align: center;
-				position: sticky;
-				position: -webkit-sticky;
-				top: 8px;
-			}
-			div.container {
-				margin: 20px;
-				background-color:rgba(20, 20, 20, 0.850);
-  				border: 3px solid black;
-  				opacity: 1;
-			}
-			body {
-				background-image: url(website/image/background.png);
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-attachment: fixed;
-				background: linear-gradient( rgba(138, 138, 138, 0.7), rgba(138, 138, 138, 0.7)), url(website/image/background.png), no-repeat, cover, fixed;
-				-ms-overflow-style: none;
-  				scrollbar-width: none;
-			}
-			body::-webkit-scrollbar {
-    			display: none;
-			}*/
 			#hidden:link, #hidden:visited, #hidden:hover, #hidden:active {
 				color: rgb(255, 255, 255);
 				text-decoration: none;
@@ -84,11 +47,6 @@
 				background-attachment: fixed;
 				background-position: center;
 				background: linear-gradient( rgba(138, 138, 138, 0.7), rgba(138, 138, 138, 0.7)), url(website/image/background.png), no-repeat, cover, fixed;
-				-ms-overflow-style: none;  /* IE and Edge */
-  				scrollbar-width: none;  /* Firefox */
-			}
-			body::-webkit-scrollbar {
-    			display: none;
 			}
 			#img1, #img2, #img3, #img4, #img5, #img6, #img7, #img8, #img9 {
   				position: fixed;
@@ -131,16 +89,9 @@
                 margin: 0px 1px;
                 cursor: pointer;
             }
-			/*#logo {
-				position: absolute;
-				left: 10px;
-				max-width: 100%;
-				max-height: 100%;
-				height: auto;
-			}*/
 		</style>
 	</head>
-	<body onload="check()">
+	<body onload="check()" id="temp">
 		<div class="accb" style="width: auto; height: auto" id="accb">
 			<h3 id="accbar"></h3>
 		</div>
@@ -178,38 +129,6 @@
 						document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
 					}
 				});
-				/*var name_ = [
-					"Home",
-					"How did I make the website?",
-					"Credit",
-					"Sneak Peak and Event",
-					"Other Project"
-				];
-				var description = [
-					"Home - The main page of the website",
-					"HDIMTW - How did I make the website?",
-					"Credit - All of the stuff and people that created this website will be listed here",
-					"Sneak Peak and Event - The Log for Big Event and a single Sneak Peak",
-					"Other Project - Where all of my knowledge and fun about HTML and JS is in"
-				];
-				var link = [
-					"home?id=" + dateTime,
-					"how?id=" + dateTime,
-					"credit?id=" + dateTime,
-					"spne?id=" + dateTime,
-					"other_project?id=" + dateTime
-				];
-				name_.forEach(function (list, index) {
-					var anchor = document.createElement("a");
-					var anchor_text = document.createTextNode(list);
-					anchor.appendChild(anchor_text);
-					anchor.title = description[index];
-					anchor.href = link[index];
-					document.getElementById("accbar").appendChild(anchor);
-					if (index < name_.length - 1) {
-						document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
-					}
-				});*/
 			</script>
 		</center>
 		<div class="container">

@@ -48,3 +48,6 @@ h4 {
 	font-family: Raleway;
 	font-weight: 600;
 }
+body {
+  overflow-y: scroll;
+}
