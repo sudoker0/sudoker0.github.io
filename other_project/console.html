@@ -330,7 +330,7 @@
             <!--Keyboard Part-->
             <textarea placeholder="Console Output..." id="output" rows="30" cols="100" readonly style="resize: none; overflow-y: hidden; background-color: black; color: white; border-color: white; border-width: 3px; border-style: solid;"></textarea>
             <br><br>
-            <div><input id="command" type="text" placeholder="Command..." style="background-color: black; color: white; border-color: white; border-width: 3px; border-style: solid;"></div><br><br><button onclick="enter()">Enter command</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="on_keyboard()">On-Screen Keyboard</button>
+            <div><input id="command" type="text" placeholder="Command..." style="background-color: black; color: white; border-color: white; border-width: 3px; border-style: solid;"></div><br><br><button onclick="enter()" class="button">Enter command</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="on_keyboard()" class="button">On-Screen Keyboard</button>
             <!--This message is usually hidden unless JavaScript is not installed-->
             <noscript><p style="color: white">Look like JavaScript is disabled or not installed in your browser! Please install or enable JavaScript</p></noscript>
         </center>
@@ -1022,7 +1022,20 @@
                 return decodeURIComponent(results[2].replace(/\+/g, ' '));
             }
             function intro() {
-                console.log("Ok")
+                //Don't worry about this code (start)
+                if (localStorage.getItem("ls") == "927") {
+                    document.getElementById("output").innerHTML += "The console has been disabled by your Administrator\r\n";
+                    document.getElementById("output").innerHTML += "Ask the Admin to re-enable the console\r\n";
+                    var c = document.getElementById("command");
+                    var c_att = document.createAttribute("readonly");
+                    c.setAttributeNode(c_att);
+                    for (r = 0; r < document.querySelectorAll("button").length; r++) {
+                        var f = document.getElementsByTagName("button")[r];
+                        f.setAttributeNode(document.createAttribute("disabled"));
+                    }
+                    return false;
+                }
+                //Don't worry about this code (end)
                 if (localStorage.hasOwnProperty("color:background")) {
                     let color_input_hex = document.querySelector("#background");
                     color_input_hex.style.backgroundColor = localStorage.getItem("color:background");
@@ -1087,10 +1100,22 @@
                 }
             }
             function enter_2() {
+                //Don't worry about this code (start)
+                if (localStorage.getItem("ls") == "927") {
+                    console.error("Fatal error: ACCESS_BLOCKED");
+                    throw new Error("System Crashed");
+                }
+                //Don't worry about this code (end)
                 enter();
                 document.getElementById("command").value = '';
             }
             function enter() {
+                //Don't worry about this code (start)
+                if (localStorage.getItem("ls") == "927") {
+                    console.error("Fatal error: ACCESS_BLOCKED");
+                    throw new Error("System Crashed");
+                }
+                //Don't worry about this code (end)
                 if (log_c < 20) {
                     z[log_c] = document.getElementById("command").value;
                     //console.log("z[" + log_c + "] = " + z[log_c]);
