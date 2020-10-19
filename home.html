@@ -89,9 +89,28 @@
                 margin: 0px 1px;
                 cursor: pointer;
             }
+			#noscript_overlay {
+				position: fixed; /* Sit on top of the page content */
+				display: block; /* Hidden by default */
+				width: 100%; /* Full width (cover the whole page) */
+				height: 100%; /* Full height (cover the whole page) */
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: rgba(0,0,0,0.8); /* Black background with opacity */
+				z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+				cursor: not-allowed; /* Add a pointer on hover */
+			}
 		</style>
 	</head>
 	<body onload="check()" id="temp">
+		<noscript>
+			<div id="noscript_overlay">
+				<h2 style="color: red; text-align: center">Important!</h2>
+				<h2 style="color: white; text-align: center;">Because JavaScript is required to make the website function correctly, please enable JavaScript</h2>
+			</div>
+		</noscript>
 		<div class="accb" style="width: auto; height: auto" id="accb">
 			<h3 id="accbar"></h3>
 		</div>
