@@ -1277,6 +1277,10 @@
                                 document.getElementById("output").innerHTML += "Syntax: readme\r\n";
                                 document.getElementById("output").innerHTML += "Example: readme\r\n";
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "music: Play music from a JSON music sheet, for how to write a JSON music sheet, type music help\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: music [help]\r\n";
+                                document.getElementById("output").innerHTML += "Example: music, music help\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
                             } else {
                                 document.getElementById("output").innerHTML += "Invalid page number!\r\n"
                             }
@@ -1560,12 +1564,12 @@
                         })();
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
-                        document.getElementById("output").innerHTML += "Version: 1.2.4\r\n";
-                        document.getElementById("output").innerHTML += "Release on: October 10th 2020\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.2.5\r\n";
+                        document.getElementById("output").innerHTML += "Release on: October 19th 2020\r\n";
                         document.getElementById("output").innerHTML += "Original Release Date: August 23th 2020\r\n";
                         document.getElementById("output").innerHTML += "Info about the first version: 328 lines of code, have 11 commands and a separate icon file\r\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.2.4.100420_Revision1\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.2.5.101920_Revision1\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -1574,7 +1578,7 @@
                     if (!a[1] == '') {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                     } else {
-                        document.getElementById("output").innerHTML += "Version: 1.2.4\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.2.5\r\n";
                     }
                 } else if (a[0] == "timer") { //Command: timer
                     if (!isNaN(a[1])) {
@@ -2392,6 +2396,109 @@
                     ab.document.write('<p>3. FINAL NOTE</p>');
                     ab.document.write('<p>You can use my "console" for free with some limitation, The Build number does have a meaning and do not made me upset. That is it, enjoy!</p>');
                     ab.document.write('<p>Copyright (C) Quan_MCPC 2020. This document is the first edition, grammar fix and new stuff might be added in the next version.</p>');
+                } else if (a[0] == "music") { //Command: music]
+                    if (a[1] == "help") {
+                        var sheet = window.open("", "sheet", "width=800,height=600");
+                        sheet.document.write("<hr><h1 style=\"text-align: center;\">How to write a valid JSON music sheet for the console</h1>");
+                        sheet.document.write("<h2>1. Normal note</h2>");
+                        sheet.document.write("<h3> - The music sheet is a big array containing \"music note\" which is just JSON object.</h3>");
+                        sheet.document.write("<h3> - Here is the syntax of a \"music note\": {\"vol\": xx, \"freq\": xx, \"duration\": xx, \"type\": \"xxx\"}");
+                        sheet.document.write("<h3>  + vol: The volume of the note, must be a number, example: 50</h3>");
+                        sheet.document.write("<h3>  + freq: The frequency of the note, must be a number, example: 1000</h3>");
+                        sheet.document.write("<h3>  + duration: The length pf the note, must be a number, example: 1000, the unit is milisecond, the note will not fade away by time</h3>");
+                        sheet.document.write("<h3>  + type: The type of note, must be one of the following: \"sine, sawtooth, square or triangle\", example: square</h3>");
+                        sheet.document.write("<h2>2. Example 1</h2>");
+                        sheet.document.write("<h3> - Full example of a note: {\"vol\": 50, \"freq\": 1000, \"duration\": 1000, \"type\": \"square\"}</h3>");
+                        sheet.document.write("<h3> * Note: The music sheet will begin from the first one to the last one and there is no way to change the sequence that the note wil be play</h3>");
+                        sheet.document.write("<h2>3. Break note</h2>");
+                        sheet.document.write("<h3> - If you want to add a delay before continue to the next note, use the break note</h3>");
+                        sheet.document.write("<h3> - Here is the syntax of a break note: {\"break\": xx}</h3>");
+                        sheet.document.write("<h3>  + break: The amount of time that it will delay before continue to the next note, must be a number, the unit is milisecond</h3>");
+                        sheet.document.write("<h2>4. Example 2</h2>");
+                        sheet.document.write("<h3> - Full example of a break: {\"break\": 1000}</h3>");
+                        sheet.document.write("<h2>5. Full example of a valid JSON music sheet</h2>");
+                        sheet.document.write('<p>[<br>\xa0\xa0\xa0\xa0{"vol": 20, "freq": 700, "duration": 2000, "type": "square"},<br>\xa0\xa0\xa0\xa0{"break": 1000},<br>\xa0\xa0\xa0\xa0{"vol": 20, "freq": 200, "duration": 3000, "type": "sine"}<br>]</p>');
+                        sheet.document.write("<h2>6. Final note</h2>");
+                        sheet.document.write("<h3> - Make sure to save your music sheet as .json</h3>");
+                        sheet.document.write("<h3> - You can write the music sheet as one continous line or each line for each note</h3>");
+                        sheet.document.write("<h3>That's it!</h3>");
+                    } else if (a[1] == null) {
+                        document.getElementById("output").innerHTML += "Insert the valid JSON music sheet into the open dialog box.\r\nIf you want to know how to write an valid JSON music sheet for this console, type music help\r\n";
+                        openFile(parseData);
+                        function clickElem(elem) {
+                            // Thx user1601638 on Stack Overflow (6/6/2018 - https://stackoverflow.com/questions/13405129/javascript-create-and-save-file )
+                            var eventMouse = document.createEvent("MouseEvents")
+                            eventMouse.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
+                            elem.dispatchEvent(eventMouse)
+                        }
+                        function openFile(func) {
+                            readFile = function(e) {
+                                var file = e.target.files[0];
+                                if (!file) {
+                                    return;
+                                }
+                                var reader = new FileReader();
+                                reader.onload = function(e) {
+                                var contents = e.target.result;
+                                    fileInput.func(contents)
+                                    document.body.removeChild(fileInput)
+                                }
+                                reader.readAsText(file)
+                            }
+                            fileInput = document.createElement("input")
+                            fileInput.type='file'
+                            fileInput.accept='application/json'
+                            fileInput.style.display='none'
+                            fileInput.onchange=readFile
+                            fileInput.func=func
+                            document.body.appendChild(fileInput)
+                            clickElem(fileInput)
+                        }
+                        function wait(ms){
+                            var start = new Date().getTime();
+                            var end = start;
+                            while(end < start + ms) {
+                                end = new Date().getTime();
+                            }
+                        }
+                        function parseData(input) {
+                            var input = JSON.parse(input);
+                            for (var b = 0; b < input.length; b++) {
+                                if (input[b].break !== undefined && input[b].break !== null) {
+                                    wait(input[b].break);
+                                    continue;
+                                } else {
+                                    if (input[b].vol == null || input[b].vol == undefined) { document.getElementById("output").innerHTML += "An error has occurred while reading line " + (b + 1) + ": Volume must be defined. System can not continue\r\n"; return false; console.log("Not pass 1");
+                                    } else if (input[b].freq == null || input[b].freq == undefined) { document.getElementById("output").innerHTML += "An error has occurred while reading line " + (b + 1) + ": Frequency must be defined. System can not continue\r\n"; return false; console.log("Not pass 1");
+                                    } else if (input[b].duration == null || input[b].duration == undefined) { document.getElementById("output").innerHTML += "An error has occurred while reading line " + (b + 1) + ": Duration must be defined. System can not continue\r\n"; return false; console.log("Not pass 1");
+                                    } else if (input[b].type == null || input[b].type == undefined) { document.getElementById("output").innerHTML += "An error has occurred while reading line " + (b + 1) + ": Type of sound must be defined. System can not continue\r\n"; return false; console.log("Not pass 1");
+                                    } else if (isNaN(Number(input[b].vol))) { document.getElementById("output").innerHTML += "An error has occurred while reading line " + (b + 1) + ": Volume must be number. System can not continue\r\n"; return false; console.log("Not pass 1");
+                                    } else if (isNaN(Number(input[b].freq))) { document.getElementById("output").innerHTML += "An error has occurred while reading line " + (b + 1) + ": Frequency must be number. System can not continue\r\n"; return false; console.log("Not pass 1");
+                                    } else if (isNaN(Number(input[b].duration))) { document.getElementById("output").innerHTML += "An error has occurred while reading line " + (b + 1) + ": Duration must be number. System can not continue\r\n"; return false; console.log("Not pass 1");
+                                    } else if (input[b].type !== "sine" && input[b].type !== "sawtooth" && input[b].type !== "triangle" && input[b].type !== "square") { document.getElementById("output").innerHTML += "An error has occurred while reading line " + (b + 1) + ": Type of sound must be: \"Sine, Sawtooth, Triangle or Square\". System can not continue\r\n"; return false; console.log("Not pass 1");
+                                    } else {
+                                        beep(input[b].vol, input[b].freq, input[b].duration, input[b].type)
+                                        wait(input[b].duration);
+                                    }
+                                }
+                            }
+                            //console.log(input);
+                        }
+                        function beep(vol, freq, duration, type){
+                            a = new AudioContext();
+                            v=a.createOscillator()
+                            u=a.createGain()
+                            v.connect(u)
+                            v.frequency.value=freq
+                            v.type=type;
+                            u.connect(a.destination)
+                            u.gain.value=vol*0.01
+                            v.start(a.currentTime)
+                            v.stop(a.currentTime+duration*0.001)
+                        }
+                    } else {
+                        document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end. Or it might because your JSON string contain space, please remove any space you found and try again.\r\n";
+                    }
                 } else {
                     //Error 1: Not a correct command
                     document.getElementById("output").innerHTML += "'" + document.getElementById("command").value + "'" +" is not a valid command.\r\n";
