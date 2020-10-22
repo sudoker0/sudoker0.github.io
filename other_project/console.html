@@ -417,7 +417,6 @@
                         const replace_with = document.getElementById("editor_replace_find_name").value;
                         const input = document.getElementById("editor_input").value;
                         const output = input.split(search).join(replace_with);
-                        //console.log(search + ' ' + replace_with + ' ' + input + ' ' + output);
                         document.getElementById("editor_input").value = output;
                     } else {
                         throw new Error("This is not an error")
@@ -481,7 +480,6 @@
             }
             function editor_find1() {
                 if (document.getElementById("editor_find_name").value == "") {
-                    //console.log("open");
                     var sel = document.getElementById('editor_find_name');
                     var tarea = document.getElementById('editor_input');
                     selectTextareaLine(tarea, sel.value);
@@ -492,7 +490,6 @@
             }
             function editor_find2() {
                 if (document.getElementById("editor_find_name").value == "") {
-                    //console.log("open");
                     var sel = document.getElementById('editor_find_replace_name');
                     var tarea = document.getElementById('editor_input');
                     selectTextareaLine1(tarea, sel.value);
@@ -502,7 +499,6 @@
                 }
             }
 	        function editor_find3() {
-                //console.log(window.start_3);
                 var sel = document.getElementById('editor_find_replace_name');
                 var tarea = document.getElementById('editor_input');
                 selectTextareaLine2(tarea, sel.value);
@@ -562,20 +558,16 @@
                 }
             }
 		    function selectTextareaLine2(tarea, word_1) {
-                //console.log(tarea.value.indexOf(word_1, window.start_3));
                 if (tarea.value.indexOf(word_1, window.start_3) > -1) {
                     const words_1 = tarea.value.split(" ");
-                    //console.log(window.start_3);
                     // calculate start/end
                     const startPos_1 = tarea.value.indexOf(word_1, window.start_3), endPos_1 = startPos_1 + word_1.length
-                    //console.log(startPos_1 + ' ' + endPos_1);
                     if (typeof(tarea.selectionStart) != "undefined") {
                         tarea.focus();
                         tarea.selectionStart = startPos_1;
                         tarea.selectionEnd = endPos_1;
                         count_1++;
                         window.start_3 = tarea.value.indexOf(word_1, window.start_3) + 1;
-                        //console.log(tarea.value.indexOf(word_1) + 1)
                         var textLines = tarea.value.substr(0, tarea.selectionStart).split("\n");
                         var currentLineNumber = textLines.length;
                         if (currentLineNumber >= 29) {
@@ -604,20 +596,16 @@
                 return false;
             }
             function selectTextareaLine(tarea, word_1) {
-                //console.log(tarea.value.indexOf(word_1, window.start_1));
                 if (tarea.value.indexOf(word_1, window.start_1) > -1) {
                     const words_1 = tarea.value.split(" ");
-                    //console.log(window.start_1);
                     // calculate start/end
                     const startPos_1 = tarea.value.indexOf(word_1, window.start_1), endPos_1 = startPos_1 + word_1.length
-                    //console.log(startPos_1 + ' ' + endPos_1);
                     if (typeof(tarea.selectionStart) != "undefined") {
                         tarea.focus();
                         tarea.selectionStart = startPos_1;
                         tarea.selectionEnd = endPos_1;
                         count_1++;
                         window.start_1 = tarea.value.indexOf(word_1, window.start_1) + 1;
-                        //console.log(tarea.value.indexOf(word_1) + 1);
                         var textLines = tarea.value.substr(0, tarea.selectionStart).split("\n");
                         var currentLineNumber = textLines.length;
                         if (currentLineNumber >= 29) {
@@ -650,20 +638,16 @@
                 return false;
             }
             function selectTextareaLine1(tarea, word_2) {
-                //console.log(tarea.value.indexOf(word_2, window.start_2));
                 if (tarea.value.indexOf(word_2, window.start_2) > -1) {
                     const words_2 = tarea.value.split(" ");
-                    //console.log(window.start_2);
                     // calculate start/end
                     const startPos_2 = tarea.value.indexOf(word_2, window.start_2), endPos_2 = startPos_2 + word_2.length
-                    //console.log(startPos_2 + ' ' + endPos_2);
                     if (typeof(tarea.selectionStart) != "undefined") {
                         tarea.focus();
                         tarea.selectionStart = startPos_2;
                         tarea.selectionEnd = endPos_2;
                         count_2++;
                         window.start_2 = tarea.value.indexOf(word_2, window.start_2) + 1;
-                        //console.log(tarea.value.indexOf(word_2) + 1)
                         var textLines = tarea.value.substr(0, tarea.selectionStart).split("\n");
                         var currentLineNumber = textLines.length;
                         if (currentLineNumber >= 29) {
@@ -849,7 +833,6 @@
                 keyboard_1.style.display = "none";
             }
             function on_keyboard() {
-                //console.log(window.innerWidth + ' ' + window.innerHeight);
                 if (window.innerHeight > 200) {
                     let keyboard_2 = document.querySelector("#keyboard");
                     keyboard_2.style.display = "block";
@@ -936,7 +919,6 @@
                     pos3 = e.clientX;
                     pos4 = e.clientY;
                     // set the element's new position:
-                    //console.log(pos1 + ' ' + pos2 + ' ' + pos3 + ' ' + pos4);
                     test_1 = (elmnt.offsetTop - pos2);
                     test_2 = (elmnt.offsetLeft - pos1);
                     if (test_2 <= 0 || test_1 <= 0 || window.innerWidth - 607 < test_2 || window.innerHeight - 207 < test_1) {
@@ -945,7 +927,6 @@
                         elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
                         elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
                     }
-                    //console.log(elmnt.style.top + ' ' + elmnt.style.left);
                 }
                 function closeDragElement() {
                     // stop moving when mouse button is released:
@@ -984,7 +965,6 @@
                     pos3_1 = e.clientX;
                     pos4_1 = e.clientY;
                     // set the element's new position:
-                    //console.log(pos1 + ' ' + pos2 + ' ' + pos3 + ' ' + pos4);
                     test_1_1 = (elmnt1.offsetTop - pos2_1);
                     test_2_1 = (elmnt1.offsetLeft - pos1_1);
                     if (test_2_1 <= 0 || test_1_1 <= 0 || window.innerWidth - 757 < test_2_1 || window.innerHeight - 557 < test_1_1) {
@@ -993,7 +973,6 @@
                         elmnt1.style.top = (elmnt1.offsetTop - pos2_1) + "px";
                         elmnt1.style.left = (elmnt1.offsetLeft - pos1_1) + "px";
                     }
-                    //console.log(elmnt.style.top + ' ' + elmnt.style.left);
                 }
                 function closeDragElement1() {
                     // stop moving when mouse button is released:
@@ -1118,17 +1097,14 @@
                 //Don't worry about this code (end)
                 if (log_c < 20) {
                     z[log_c] = document.getElementById("command").value;
-                    //console.log("z[" + log_c + "] = " + z[log_c]);
                     log_c++;
                 } else {
-                    //console.log(z);
                     z.shift();
                     z.push(document.getElementById("command").value);
                 }
                 var str = document.getElementById("command").value;
                 var a = str.split(" ");
                 console.log(a)
-                //console.log(a[0]);
                 var a_length = a.length;
                 if (window.console_output) {
                     document.getElementById("output").innerHTML += "> " + document.getElementById("command").value + "\r\n";
@@ -1564,12 +1540,12 @@
                         })();
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
-                        document.getElementById("output").innerHTML += "Version: 1.2.5\r\n";
-                        document.getElementById("output").innerHTML += "Release on: October 19th 2020\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.2.6\r\n";
+                        document.getElementById("output").innerHTML += "Release on: October 22th 2020\r\n";
                         document.getElementById("output").innerHTML += "Original Release Date: August 23th 2020\r\n";
                         document.getElementById("output").innerHTML += "Info about the first version: 328 lines of code, have 11 commands and a separate icon file\r\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.2.5.101920_Revision1\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.2.6.102220_Revision1\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -1578,7 +1554,7 @@
                     if (!a[1] == '') {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                     } else {
-                        document.getElementById("output").innerHTML += "Version: 1.2.5\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.2.6\r\n";
                     }
                 } else if (a[0] == "timer") { //Command: timer
                     if (!isNaN(a[1])) {
@@ -1604,7 +1580,6 @@
                 } else if (a[0] == "stopwatch") { //Command: stopwatch
                     start = 0;
                     stop_signal = 0;
-                    //console.log(stop_signal);
                     if (a[1] == "-n") { //Normal: 1
                         if (!a[2] == '') {
                             document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
@@ -1681,7 +1656,6 @@
                         clearInterval(mm); mm = -1;
                         start = 0;
                         stop_signal = 1;
-                        //console.log(stop_signal);
                     } else {
                         document.getElementById("output").innerHTML += "Invalid Syntax! Expected a mode, type timer -help to get help with the command\r\n";
                     }
@@ -2003,8 +1977,6 @@
                     } else {
                         if (!isNaN(a[1]) && !isNaN(a[2]) && !isNaN(a[3])) {
                             if (a[4] == "sine" || a[4] == "sawtooth" || a[4] == "triangle" || a[4] == "square" || !a[4] == null) {
-                                //console.log(typeof(a[1]), typeof(a[2]), typeof(a[3]), typeof(a[4]))
-                                //console.log(a[1], a[2], a[3], a[4]);
                                 document.getElementById("output").innerHTML += "Now playing: One-Simple-One-Bit-Beep (OSOBB) (Volume: "+ a[1] + ", Frequency: " + a[2] + ", Duration: " + a[3] + "ms" + ", Type: " + a[4] + ")\r\n";
                                 beep(Number(a[1]), Number(a[2]), Number(a[3]), a[4]);
                                 function beep(vol, freq, duration, type){
@@ -2150,7 +2122,9 @@
                                 "color_input_border": document.querySelector("#command").style.borderColor,
                                 "color_output_border": document.querySelector("#output").style.borderColor,
                                 "mode_cols": document.getElementById("output").getAttribute("cols"),
-                                "mode_rows": document.getElementById("output").getAttribute("rows")
+                                "mode_rows": document.getElementById("output").getAttribute("rows"),
+                                "welcome_message": localStorage.getItem("welcome_content"),
+                                "welcome_message_set": localStorage.getItem("welcome_content_set")
                             }
                             var test1 = JSON.stringify(settings)
                             var textToSave = test1;
@@ -2183,7 +2157,9 @@
                                 "color_input_border": document.querySelector("#command").style.borderColor,
                                 "color_output_border": document.querySelector("#output").style.borderColor,
                                 "mode_cols": document.getElementById("output").getAttribute("cols"),
-                                "mode_rows": document.getElementById("output").getAttribute("rows")
+                                "mode_rows": document.getElementById("output").getAttribute("rows"),
+                                "welcome_message": localStorage.getItem("welcome_content"),
+                                "welcome_message_set": localStorage.getItem("welcome_content_set")
                             }
                             var test1 = JSON.stringify(settings);
                             test1 = test1.replace(/\s/g, '');
@@ -2247,6 +2223,8 @@
                                     document.querySelector("#output").style.borderColor,
                                     document.getElementById("output").getAttribute("cols"),
                                     document.getElementById("output").getAttribute("rows"),
+                                    localStorage.getItem("welcome_content"),
+                                    localStorage.getItem("welcome_content_set"),
                                     true //For check if there is a backup
                                 ]
                                 console.log(window.backup);
@@ -2268,6 +2246,10 @@
                                     color_input_hex5.style.borderColor = settings.color_output_border;
                                     document.getElementById("output").setAttribute("cols", settings.mode_cols);
                                     document.getElementById("output").setAttribute("rows", settings.mode_rows);
+                                    if (settings.welcome_message_set == 1) {
+                                        localStorage.setItem("welcome_content", settings.welcome_message);
+                                        localStorage.setItem("welcome_content_set", 1);
+                                    }
                                     localStorage.setItem("color:input_text", settings.color_input_text);
                                     localStorage.setItem("color:output_text", settings.color_output_text);
                                     localStorage.setItem("color:input_background", settings.color_input_background);
@@ -2325,6 +2307,10 @@
                                     color_input_hex5.style.borderColor = settings.color_output_border;
                                     document.getElementById("output").setAttribute("cols", settings.mode_cols);
                                     document.getElementById("output").setAttribute("rows", settings.mode_rows);
+                                    if (settings.welcome_message_set == 1) {
+                                        localStorage.setItem("welcome_content", settings.welcome_message);
+                                        localStorage.setItem("welcome_content_set", 1);
+                                    }
                                     localStorage.setItem("color:input_text", settings.color_input_text);
                                     localStorage.setItem("color:output_text", settings.color_output_text);
                                     localStorage.setItem("color:input_background", settings.color_input_background);
@@ -2343,7 +2329,7 @@
                             }
                         }
                     } else if (a[1] == "undo") {
-                        if (window.backup[7]) {
+                        if (window.backup[11]) {
                             let color_input_hex = document.querySelector("#background");
                             color_input_hex.style.backgroundColor = window.backup[0];
                             let color_input_hex2 = document.querySelector("#command");
@@ -2355,12 +2341,14 @@
                             let color_input_hex3 = document.querySelector("#output");
                             color_input_hex3.style.color = window.backup[4];
                             let color_input_hex6 = document.querySelector("#command");
-                            color_input_hex6.style.borderColor = window.backup[6];
+                            color_input_hex6.style.borderColor = window.backup[5];
                             let color_input_hex5 = document.querySelector("#output");
-                            color_input_hex3.style.borderColor = window.backup[7];
-                            document.getElementById("output").setAttribute("cols", window.backup[8]);
-                            document.getElementById("output").setAttribute("rows", window.backup[9]);
-                            window.backup[7] = false;
+                            color_input_hex3.style.borderColor = window.backup[6];
+                            document.getElementById("output").setAttribute("cols", window.backup[7]);
+                            document.getElementById("output").setAttribute("rows", window.backup[8]);
+                            localStorage.setItem("welcome_content", window.backup[9]);
+                            localStorage.setItem("welcome_content_set", window.backup[10])
+                            window.backup[11] = false;
                         } else {
                             document.getElementById("output").innerHTML += "Unable to undo because you already undo for there is no import action to undo\r\n";
                         }
@@ -2396,7 +2384,7 @@
                     ab.document.write('<p>3. FINAL NOTE</p>');
                     ab.document.write('<p>You can use my "console" for free with some limitation, The Build number does have a meaning and do not made me upset. That is it, enjoy!</p>');
                     ab.document.write('<p>Copyright (C) Quan_MCPC 2020. This document is the first edition, grammar fix and new stuff might be added in the next version.</p>');
-                } else if (a[0] == "music") { //Command: music]
+                } else if (a[0] == "music") { //Command: music
                     if (a[1] == "help") {
                         var sheet = window.open("", "sheet", "width=800,height=600");
                         sheet.document.write("<hr><h1 style=\"text-align: center;\">How to write a valid JSON music sheet for the console</h1>");
@@ -2462,7 +2450,14 @@
                             }
                         }
                         function parseData(input) {
-                            var input = JSON.parse(input);
+                            try {
+                                var input = JSON.parse(input);
+                            }
+                            catch (err) {
+                                document.getElementById("output").innerHTML += "An error has occurred while parsing file, Here is the detail: \"" + err.message + "\"\r\n";
+                                return false;
+                            }
+                            if (!Array.isArray(input)) { document.getElementById("output").innerHTML += "An error has occurred while parsing file: The sheet must be an array. System can not continue\r\n"; return false; }
                             for (var b = 0; b < input.length; b++) {
                                 if (input[b].break !== undefined && input[b].break !== null) {
                                     wait(input[b].break);
@@ -2482,7 +2477,6 @@
                                     }
                                 }
                             }
-                            //console.log(input);
                         }
                         function beep(vol, freq, duration, type){
                             a = new AudioContext();
