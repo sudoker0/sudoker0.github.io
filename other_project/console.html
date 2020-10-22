@@ -1545,7 +1545,7 @@
                         document.getElementById("output").innerHTML += "Original Release Date: August 23th 2020\r\n";
                         document.getElementById("output").innerHTML += "Info about the first version: 328 lines of code, have 11 commands and a separate icon file\r\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.2.6.102220_Revision1\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.2.6.102220_Revision2\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -1880,7 +1880,7 @@
                             document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid mode (-hex or -name), type color -help to get help with the command\r\n";
                         }
                     } else if (a[1] == "-help") {
-                        document.getElementById("output").innerHTML += "Syntax: color <type: background/output-background/output-text/input-background/input-text> -hex <color-code: # + hex_data> OR\r\n";
+                        document.getElementById("output").innerHTML += "Syntax: color <type: background/output-background/output-text/input-background/input-text/input-border/output-border> -hex <color-code: # + hex_data> OR\r\n";
                         document.getElementById("output").innerHTML += "color <type: background/output-background/output-text/input-background/input-text/input-border/output-border> -name <color-name: text> OR\r\n";
                         document.getElementById("output").innerHTML += "color -reset\r\n";
                         document.getElementById("output").innerHTML += "Example: color background -hex #ffffff, color input-background -name red\r\n";
@@ -2149,20 +2149,19 @@
                     } else if (a[1] == "settings-jsontext") {
                         if (a[2] == null) {
                             var settings = {
-                                "color_input_text": document.querySelector("#command").style.color,
-                                "color_output_text": document.querySelector("#output").style.color,
-                                "color_input_background": document.querySelector("#command").style.backgroundColor,
-                                "color_output_background": document.querySelector("#output").style.backgroundColor,
-                                "color_background": document.querySelector("#background").style.backgroundColor,
-                                "color_input_border": document.querySelector("#command").style.borderColor,
-                                "color_output_border": document.querySelector("#output").style.borderColor,
-                                "mode_cols": document.getElementById("output").getAttribute("cols"),
-                                "mode_rows": document.getElementById("output").getAttribute("rows"),
+                                "color_input_text": document.querySelector("#command").style.color.replace(/\s/g, ''),
+                                "color_output_text": document.querySelector("#output").style.color.replace(/\s/g, ''),
+                                "color_input_background": document.querySelector("#command").style.backgroundColor.replace(/\s/g, ''),
+                                "color_output_background": document.querySelector("#output").style.backgroundColor.replace(/\s/g, ''),
+                                "color_background": document.querySelector("#background").style.backgroundColor.replace(/\s/g, ''),
+                                "color_input_border": document.querySelector("#command").style.borderColor.replace(/\s/g, ''),
+                                "color_output_border": document.querySelector("#output").style.borderColor.replace(/\s/g, ''),
+                                "mode_cols": document.getElementById("output").getAttribute("cols").replace(/\s/g, ''),
+                                "mode_rows": document.getElementById("output").getAttribute("rows").replace(/\s/g, ''),
                                 "welcome_message": localStorage.getItem("welcome_content"),
                                 "welcome_message_set": localStorage.getItem("welcome_content_set")
                             }
                             var test1 = JSON.stringify(settings);
-                            test1 = test1.replace(/\s/g, '');
                             document.getElementById("output").innerHTML += "Here is your JSON text: " + test1 + "\r\n";
                             document.getElementById("output").innerHTML += "The JSON part started at '{' and at '}'\r\n";
                         } else {
