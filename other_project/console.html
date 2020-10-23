@@ -1540,12 +1540,12 @@
                         })();
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
-                        document.getElementById("output").innerHTML += "Version: 1.2.6\r\n";
-                        document.getElementById("output").innerHTML += "Release on: October 22th 2020\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.2.7\r\n";
+                        document.getElementById("output").innerHTML += "Release on: October 23th 2020 (Exactly 2 month after the original release date)\r\n";
                         document.getElementById("output").innerHTML += "Original Release Date: August 23th 2020\r\n";
                         document.getElementById("output").innerHTML += "Info about the first version: 328 lines of code, have 11 commands and a separate icon file\r\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.2.6.102220_Revision2\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.2.7.102320_Revision1\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -1554,7 +1554,7 @@
                     if (!a[1] == '') {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                     } else {
-                        document.getElementById("output").innerHTML += "Version: 1.2.6\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.2.7\r\n";
                     }
                 } else if (a[0] == "timer") { //Command: timer
                     if (!isNaN(a[1])) {
@@ -1665,7 +1665,7 @@
 	                if (!a[2] == '') {
 		                document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
 	                } else {
-                        document.getElementById("output").innerHTML += "Warning: save_console_out IS OBSOLETE, Please use the export command instead. This command will be removed in the future\r\n";
+                        document.getElementById("output").innerHTML += "Warning: save_console_out IS OBSOLETE, Please use \"export console_out\" command instead. This command will be removed in the future\r\n";
     			        var textToSave = document.getElementById("output").value;
 	    		        var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
 	    		        var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
@@ -2494,8 +2494,8 @@
                     }
                 } else {
                     //Error 1: Not a correct command
-                    document.getElementById("output").innerHTML += "'" + document.getElementById("command").value + "'" +" is not a valid command.\r\n";
-                    document.getElementById("output").innerHTML += "Please refer the help page by typing: 'help' for valid command.\r\n";
+                    document.getElementById("output").innerHTML += "\"" + document.getElementById("command").value + "\"" +" is not a valid command.\r\n";
+                    document.getElementById("output").innerHTML += "Please refer the help page by typing: \"help\" for valid command.\r\n";
                 }
             };
         </script>
