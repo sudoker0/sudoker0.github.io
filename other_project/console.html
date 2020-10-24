@@ -1053,7 +1053,6 @@
                 y = n.getFullYear();
                 m = n.getMonth() + 1;
                 d = n.getDate();
-                console.log(getParameterByName("nowelcome"));
                 if (getParameterByName("nowelcome") == null || getParameterByName("nowelcome") == "" || getParameterByName("nowelcome") == "0" || getParameterByName("nowelcome") >= "2") {
                     document.getElementById("output").innerHTML += "Welcome to WTOS v1.2 (Web-Terminal Operating System)\r\n";
                     document.getElementById("output").innerHTML += "This is a VERY BASIC Operating System that can only execute a certain command like a linux terminal.\r\n";
@@ -1071,11 +1070,22 @@
                     enter_2()
                 }
             }
-            document.getElementById('command').onkeypress = function(e){
+            var ltec_counter_0 = 1;
+            document.getElementById('command').onkeydown = function(e){
                 if (!e) e = window.event;
                 if (e.keyCode == '13'){
                     enter();
                     document.getElementById("command").value = '';
+                } else if (e.keyCode == '38') {
+                    if (ltec_counter_0 != z.length + 1) {
+                        ltec_counter_0++;
+                        document.getElementById("command").value = z[z.length - ltec_counter_0 + 1];
+                    }
+                } else if (e.keyCode == '40') {
+                    if (ltec_counter_0 != 2) {
+                        ltec_counter_0--;
+                        document.getElementById("command").value = z[z.length - ltec_counter_0 + 1];
+                    }
                 }
             }
             function enter_2() {
@@ -1089,13 +1099,14 @@
                 document.getElementById("command").value = '';
             }
             function enter() {
+                ltec_counter_0 = 1;
                 //Don't worry about this code (start)
                 if (localStorage.getItem("ls") == "927") {
                     console.error("Fatal error: ACCESS_BLOCKED");
                     throw new Error("System Crashed");
                 }
                 //Don't worry about this code (end)
-                if (log_c < 20) {
+                if (log_c < 256) {
                     z[log_c] = document.getElementById("command").value;
                     log_c++;
                 } else {
@@ -1180,7 +1191,7 @@
                                 document.getElementById("output").innerHTML += "You are viewing page: 3/5\r\n";
                                 document.getElementById("output").innerHTML += "<>: Forced, []: Optional\r\n";
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "log_command/lc: Show the last 20 command entered by the user\r\n";
+                                document.getElementById("output").innerHTML += "log_command/lc: Show the last 20 command entered by the user [REMOVED]\r\n";
                                 document.getElementById("output").innerHTML += "Syntax: log_command/lc\r\n";
                                 document.getElementById("output").innerHTML += "Example: log_command/lc\r\n";
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
@@ -1200,7 +1211,7 @@
                                 document.getElementById("output").innerHTML += "Syntax: Type {stopwatch -help} to get the full help of this command\r\n";
                                 document.getElementById("output").innerHTML += "Example: stopwatch -n\r\n"
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "save_console_output/sco [OBSOLETE]: Save the console output into a file\r\n";
+                                document.getElementById("output").innerHTML += "save_console_output/sco [REMOVED]: Save the console output into a file\r\n";
                                 document.getElementById("output").innerHTML += "Syntax: save_console_output/sco [filename.extension: string]\r\n";
                                 document.getElementById("output").innerHTML += "Example: save_console_output/sco test.txt\r\n";
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
@@ -1511,14 +1522,16 @@
                         document.getElementById("output").innerHTML += "\r\n";
                     }
                 } else if (a[0] == "log_command" || a[0] == "lc") { //Command: log_command
-                    if (!a[1] == '') {
+                    /*if (!a[1] == '') {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                     } else {
                         document.getElementById("output").innerHTML += "Here is the last 20 command entered\r\n";
                         for (v = 0; v < 20; v++) {
                             document.getElementById("output").innerHTML += +v + +1 + ". " + z[v] + "\r\n";
                         }
-                    }
+                    }*/
+                    document.getElementById("output").innerHTML += "This command has been removed, please use \"export ltec\" OR \"export last_256_entered_command\"\r\n";
+                    return false
                 } else if (a[0] == "about") { //Command: about
                     if (!a[1] == '') {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
@@ -1540,12 +1553,12 @@
                         })();
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
-                        document.getElementById("output").innerHTML += "Version: 1.2.7\r\n";
-                        document.getElementById("output").innerHTML += "Release on: October 23th 2020 (Exactly 2 month after the original release date)\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.2.8\r\n";
+                        document.getElementById("output").innerHTML += "Release on: October 24th 2020\r\n";
                         document.getElementById("output").innerHTML += "Original Release Date: August 23th 2020\r\n";
                         document.getElementById("output").innerHTML += "Info about the first version: 328 lines of code, have 11 commands and a separate icon file\r\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.2.7.102320_Revision2\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.2.8.102420_Revision1\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -1554,7 +1567,7 @@
                     if (!a[1] == '') {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                     } else {
-                        document.getElementById("output").innerHTML += "Version: 1.2.7\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.2.8\r\n";
                     }
                 } else if (a[0] == "timer") { //Command: timer
                     if (!isNaN(a[1])) {
@@ -1662,7 +1675,7 @@
                 } else if (a[0] == "stop") {
                     start = 0;
                 } else if (a[0] == "save_console_output" || a[0] == "sco") {
-	                if (!a[2] == '') {
+	                /*if (!a[2] == '') {
 		                document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
 	                } else {
                         document.getElementById("output").innerHTML += "Warning: save_console_out IS OBSOLETE, Please use \"export console_out\" command instead. This command will be removed in the future\r\n";
@@ -1681,7 +1694,8 @@
 		                function destroyClickedElement(event) {
     			            document.body.removeChild(event.target);
 		                }
-	                }
+                    }*/
+                    document.getElementById("output").innerHTML += "This command has been removed, please use \"export console_output\"\r\n";
                 } else if (a[0] == "color") { //Command: color
                     if (a[1] == "background") { //Type: background
                         if (a[2] == "-hex") { //Mode: Hex (#ffffff)
@@ -2084,18 +2098,18 @@
                         } else {
                             document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                         }
-                    } else if (a[1] == "last_20_entered_command" || a[1] == "ltec") {
+                    } else if (a[1] == "last_256_entered_command" || a[1] == "ltec") {
                         if (a[2] == null) {
                             var y = [''];
-                            var export_lc = "Here is the last 20 command entered\r\n";
-                            for (v = 0; v < 20; v++) {
+                            var export_lc = "Here is the last 256 command entered\r\n";
+                            for (v = 0; v < 256; v++) {
                                 y[v] = +v + +1 + ". " + z[v] + "\r\n";
                             }
                             var result = y.join("");
                             var textToSave = export_lc.concat(result);
                             var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
                             var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
-                            var fileNameToSaveAs = "export_last_20_entered_command.txt";
+                            var fileNameToSaveAs = "export_last_256_entered_command.txt";
                             var downloadLink = document.createElement("a");
                             downloadLink.download = fileNameToSaveAs;
                             downloadLink.innerHTML = "Download File";
@@ -2170,7 +2184,7 @@
                     } else if (a[1] == "help") {
                         if (a[2] == null) {
                             document.getElementById("output").innerHTML += "Export your console settings as JSON for backup, last 20 entered command and console output as txt\r\n";
-                            document.getElementById("output").innerHTML += "Syntax: export <settings/settings-jsontext/console_output/co/last_20_entered_command/ltec>\r\n";
+                            document.getElementById("output").innerHTML += "Syntax: export <settings/settings-jsontext/console_output/co/last_256_entered_command/ltec>\r\n";
                             document.getElementById("output").innerHTML += "Example: export settings, export console_output\r\n";
                         } else {
                             document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
