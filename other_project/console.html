@@ -1098,6 +1098,24 @@
                 enter();
                 document.getElementById("command").value = '';
             }
+            function command_busy(data) {
+                if (data) {
+                    var c = document.getElementById("command");
+                    var c_att = document.createAttribute("readonly");
+                    c.setAttributeNode(c_att);
+                    for (r = 0; r < document.querySelectorAll("button").length; r++) {
+                        var f = document.getElementsByTagName("button")[r];
+                        f.setAttributeNode(document.createAttribute("disabled"));
+                    }
+                } else if (!data) {
+                    document.getElementById("command").removeAttribute("readonly");
+                    for (r = 0; r < document.querySelectorAll("button").length; r++) {
+                        document.getElementsByTagName("button")[r].removeAttribute("disabled");
+                    }
+                } else {
+                    throw new Error("Input can only be boolean")
+                }
+            }
             function enter() {
                 ltec_counter_0 = 1;
                 //Don't worry about this code (start)
@@ -1553,12 +1571,12 @@
                         })();
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
-                        document.getElementById("output").innerHTML += "Version: 1.2.8\r\n";
-                        document.getElementById("output").innerHTML += "Release on: October 24th 2020\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.2.9\r\n";
+                        document.getElementById("output").innerHTML += "Release on: October 25th 2020\r\n";
                         document.getElementById("output").innerHTML += "Original Release Date: August 23th 2020\r\n";
                         document.getElementById("output").innerHTML += "Info about the first version: 328 lines of code, have 11 commands and a separate icon file\r\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.2.8.102420_Revision1\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.2.9.102520_Revision1\r\n";
                         document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -1567,21 +1585,24 @@
                     if (!a[1] == '') {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                     } else {
-                        document.getElementById("output").innerHTML += "Version: 1.2.8\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.2.9\r\n";
                     }
                 } else if (a[0] == "timer") { //Command: timer
                     if (!isNaN(a[1])) {
                         if (!a[2] == '') {
                             document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                         } else {
+                            document.getElementById("output").innerHTML += "Press Ctrl + B to immediately end the timer\r\n";
                             var timer_a = document.getElementById("output").value;
                             var fa = setInterval(function () {
                                 if (!a[1] == 0) {
+                                    command_busy(true);
                                     document.getElementById("output").innerHTML = '';
                                     document.getElementById("output").innerHTML = timer_a;
                                     document.getElementById("output").innerHTML += "Time left: " + a[1] + "\r\n";
                                     a[1]--;
                                 } else {
+                                    command_busy(false);
                                     document.getElementById("output").innerHTML += "The timer has run out!\r\n";
                                     clearInterval(fa);
                                 }
@@ -1590,6 +1611,22 @@
                     } else {
                         document.getElementById("output").innerHTML += "Invalid syntax! Expected an number!\r\n";
                     }
+                    let buffer = [];
+                    let lastKeyTime = Date.now();
+                    'use strict';
+                    document.addEventListener('keydown', event => {
+                        const currentTime = Date.now();
+                        if (currentTime - lastKeyTime > 1000) { buffer = []; }
+                        const key = event.key.toLowerCase();
+                        buffer.push(key);
+                        lastKeyTime = currentTime;
+                        if (buffer.includes("control", 0) && buffer.includes("b", 1)) {
+                            console.log("break");
+                            command_busy(false);
+                            clearInterval(fa);
+                            document.getElementById("output").innerHTML += "The timer has been stopped by user!\r\n";
+                        }
+                    });
                 } else if (a[0] == "stopwatch") { //Command: stopwatch
                     start = 0;
                     stop_signal = 0;
@@ -1600,9 +1637,10 @@
                             var stopwatch_a = document.getElementById("output").value;
                             var mnt = 0;
                             mn = setInterval(function () {
+                                command_busy(true);
                                 document.getElementById("output").innerHTML = '';
                                 document.getElementById("output").innerHTML = stopwatch_a;
-                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Normal. Type stopwatch -stop to stop the stopwatch\r\n"
+                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Normal. Press Ctrl + B to stop the stopwatch\r\n"
                                 document.getElementById("output").innerHTML += mnt + "\r\n";
                                 mnt++;
                             }, 1000);
@@ -1615,9 +1653,10 @@
                             var mdt = 0;
                             var stopwatch_a = document.getElementById("output").value;
                             md = setInterval(function () {
+                                command_busy(true);
                                 document.getElementById("output").innerHTML = '';
                                 document.getElementById("output").innerHTML = stopwatch_a;
-                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Decisecond (1/10 of a second). Type stopwatch -stop to stop the stopwatch\r\n"
+                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Decisecond (1/10 of a second). Press Ctrl + B to stop the stopwatch\r\n"
                                 document.getElementById("output").innerHTML += mdt / 10 + "\r\n";
                                 mdt++;
                             }, 100);
@@ -1630,9 +1669,10 @@
                             var mct = 0;
                             var stopwatch_a = document.getElementById("output").value;
                             mc = setInterval(function () {
+                                command_busy(true);
                                 document.getElementById("output").innerHTML = '';
                                 document.getElementById("output").innerHTML = stopwatch_a;
-                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Centisecond(1/100 of a second). Type stopwatch -stop to stop the stopwatch\r\n"
+                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Centisecond(1/100 of a second). Press Ctrl + B to stop the stopwatch\r\n"
                                 document.getElementById("output").innerHTML += mct / 100 + "\r\n";
                                 mct++;
                             }, 10);
@@ -1645,9 +1685,10 @@
                             var mmt = 0;
                             var stopwatch_a = document.getElementById("output").value;
                             mm = setInterval(function () {
+                                command_busy(true);
                                 document.getElementById("output").innerHTML = '';
                                 document.getElementById("output").innerHTML = stopwatch_a;
-                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Milisecond. Type stopwatch -stop to stop the stopwatch\r\n"
+                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Milisecond. Press Ctrl + B to stop the stopwatch\r\n"
                                 document.getElementById("output").innerHTML += mmt / 1000 + "\r\n";
                                 mmt++;
                             }, 1);
@@ -1657,21 +1698,33 @@
                         if (!a[2] == '') {
                             document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                         } else {
-                            document.getElementById("output").innerHTML += "Syntax: stopwatch <mode: -n (Normal), -d (Decisecond [1/10 of a second]), -c (Centisecond [1/100 of a second]), -m (Milisecond), -stop (Stop the stopwatch)>\r\n";
+                            document.getElementById("output").innerHTML += "Syntax: stopwatch <mode: -n (Normal), -d (Decisecond [1/10 of a second]), -c (Centisecond [1/100 of a second]), -m (Milisecond)>\r\n";
                             document.getElementById("output").innerHTML += "Example: stopwatch -n\r\n";
                             document.getElementById("output").innerHTML += "Warning: Option -m is only for strong connection and for strong computer. Also the stopwatch will in most cases count the time wrong in this mode.\r\n";
                         }
-                    } else
-                    if (a[1] == "-stop") {
-                        clearInterval(mn); mn = -1;
-                        clearInterval(md); md = -1;
-                        clearInterval(mc); mc = -1;
-                        clearInterval(mm); mm = -1;
-                        start = 0;
-                        stop_signal = 1;
                     } else {
                         document.getElementById("output").innerHTML += "Invalid Syntax! Expected a mode, type timer -help to get help with the command\r\n";
                     }
+                    let buffer = [];
+                    let lastKeyTime = Date.now();
+                    'use strict';
+                    document.addEventListener('keydown', event => {
+                        const currentTime = Date.now();
+                        if (currentTime - lastKeyTime > 1000) { buffer = []; }
+                        const key = event.key.toLowerCase();
+                        buffer.push(key);
+                        lastKeyTime = currentTime;
+                        if (buffer.includes("control", 0) && buffer.includes("b", 1)) {
+                            console.log("break");
+                            command_busy(false);
+                            clearInterval(mn); mn = -1;
+                            clearInterval(md); md = -1;
+                            clearInterval(mc); mc = -1;
+                            clearInterval(mm); mm = -1;
+                            start = 0;
+                            stop_signal = 1;
+                        }
+                    });
                 } else if (a[0] == "stop") {
                     start = 0;
                 } else if (a[0] == "save_console_output" || a[0] == "sco") {
@@ -1986,14 +2039,15 @@
                 } else if (a[0] == "sound") { //Command: sound
                     console.log(typeof(a[1]), typeof(a[2]), typeof(a[3]))
                     console.log(a[1], a[2], a[3]);
-                    if (a[1] == null || a[2] == null || a[3] == null || a[4] == null) {
-
-                    } else {
+                    if (a[1] == null || a[2] == null || a[3] == null || a[4] == null) {} else {
                         if (!isNaN(a[1]) && !isNaN(a[2]) && !isNaN(a[3])) {
                             if (a[4] == "sine" || a[4] == "sawtooth" || a[4] == "triangle" || a[4] == "square" || !a[4] == null) {
+                                setTimeout(function() { command_busy(false); }, a[3]);
                                 document.getElementById("output").innerHTML += "Now playing: One-Simple-One-Bit-Beep (OSOBB) (Volume: "+ a[1] + ", Frequency: " + a[2] + ", Duration: " + a[3] + "ms" + ", Type: " + a[4] + ")\r\n";
+                                document.getElementById("output").innerHTML += "To stop the sound, press Ctrl + B\r\n";
+                                command_busy(true);
                                 beep(Number(a[1]), Number(a[2]), Number(a[3]), a[4]);
-                                function beep(vol, freq, duration, type){
+                                function beep(vol, freq, duration, type) {
                                     a = new AudioContext();
                                     v=a.createOscillator()
                                     u=a.createGain()
@@ -2004,6 +2058,21 @@
                                     u.gain.value=vol*0.01
                                     v.start(a.currentTime)
                                     v.stop(a.currentTime+duration*0.001)
+                                    let buffer = [];
+                                    let lastKeyTime = Date.now();
+                                    'use strict';
+                                    document.addEventListener('keydown', event => {
+                                        const currentTime = Date.now();
+                                        if (currentTime - lastKeyTime > 1000) { buffer = []; }
+                                        const key = event.key.toLowerCase();
+                                        buffer.push(key);
+                                        lastKeyTime = currentTime;
+                                        if (buffer.includes("control", 0) && buffer.includes("b", 1)) {
+                                            command_busy(false);
+                                            document.getElementById("output").innerHTML += "Sound has been stopped by the user!\r\n";
+                                            v.stop(a.currentTime)
+                                        }
+                                    });
                                 }
                             } else {
                                 document.getElementById("output").innerHTML += "Invalid Syntax! Expected number for Volume, Frequency, Duration part and Type of Sound.\r\n";
@@ -2471,6 +2540,7 @@
                                 return false;
                             }
                             if (!Array.isArray(input)) { document.getElementById("output").innerHTML += "An error has occurred while parsing file: The sheet must be an array. System can not continue\r\n"; return false; }
+                            document.getElementById("output").innerHTML += "To stop the music, press Ctrl + B or F5\r\n";
                             for (var b = 0; b < input.length; b++) {
                                 if (input[b].break !== undefined && input[b].break !== null) {
                                     wait(input[b].break);
@@ -2485,11 +2555,13 @@
                                     } else if (isNaN(Number(input[b].duration))) { document.getElementById("output").innerHTML += "An error has occurred while reading line " + (b + 1) + ": Duration must be number. System can not continue\r\n"; return false; console.log("Not pass 1");
                                     } else if (input[b].type !== "sine" && input[b].type !== "sawtooth" && input[b].type !== "triangle" && input[b].type !== "square") { document.getElementById("output").innerHTML += "An error has occurred while reading line " + (b + 1) + ": Type of sound must be: \"Sine, Sawtooth, Triangle or Square\". System can not continue\r\n"; return false; console.log("Not pass 1");
                                     } else {
+                                        command_busy(true);
                                         beep(input[b].vol, input[b].freq, input[b].duration, input[b].type)
                                         wait(input[b].duration);
                                     }
                                 }
                             }
+                            command_busy(false)
                         }
                         function beep(vol, freq, duration, type){
                             a = new AudioContext();
@@ -2502,6 +2574,21 @@
                             u.gain.value=vol*0.01
                             v.start(a.currentTime)
                             v.stop(a.currentTime+duration*0.001)
+                            let buffer = [];
+                            let lastKeyTime = Date.now();
+                            'use strict';
+                            document.addEventListener('keydown', event => {
+                                const currentTime = Date.now();
+                                if (currentTime - lastKeyTime > 1000) { buffer = []; }
+                                const key = event.key.toLowerCase();
+                                buffer.push(key);
+                                lastKeyTime = currentTime;
+                                if (buffer.includes("control", 0) && buffer.includes("b", 1)) {
+                                    command_busy(false);
+                                    document.getElementById("output").innerHTML += "Music has been stopped by the user!\r\n";
+                                    v.stop(a.currentTime)
+                                }
+                            });
                         }
                     } else {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end. Or it might because your JSON string contain space, please remove any space you found and try again.\r\n";
