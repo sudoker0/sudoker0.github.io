@@ -107,3 +107,6 @@ for( ; ; ) {
 10 PRINT "Loop!"
 20 GOTO 10
 ```
+***
+Copyright &copy; 2020 Quan_MCPC
+***
