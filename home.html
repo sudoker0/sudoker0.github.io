@@ -78,17 +78,17 @@
 				height: auto;
 			}
 			button {
-                background-color: #707070;
-                border: none;
-                color: white;
-                padding: 2px 10px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 14px;
-                margin: 0px 1px;
-                cursor: pointer;
-            }
+				background-color: #707070;
+				border: none;
+				color: white;
+				padding: 2px 10px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 14px;
+				margin: 0px 1px;
+				cursor: pointer;
+			}
 			#noscript_overlay {
 				position: fixed; /* Sit on top of the page content */
 				display: block; /* Hidden by default */
@@ -139,21 +139,21 @@
 						window.location.replace("warning");
 					}
 				}
-				var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
 				var name_ = [
-					"Home / Home - The main page of the website / home?id=" + dateTime,
-					"How did I make the website? / HDIMTW - How did I make the website? / how?id=" + dateTime,
-					"Credit / Credit - All of the stuff and people that created this website will be listed here / credit?id=" + dateTime,
-					"Sneak Peak and Event / Sneak Peak and Event - The Log for Big Event and a single Sneak Peak / spne?id=" + dateTime,
-					"Other Project / Other Project - Where all of my knowledge and fun about HTML and JS is in / other_project?id=" + dateTime
+					"Home / Home - The main page of the website / home",
+					"How did I make the website? / HDIMTW - How did I make the website? / how",
+					"Credit / Credit - All of the stuff and people that created this website will be listed here / credit",
+					"Sneak Peak and Event / Sneak Peak and Event - The Log for Big Event and a single Sneak Peak / spne",
+					"Other Project / Other Project - Where all of my knowledge and fun about HTML and JS is in / other_project"
 				];
-				//Syntax: Name / Description / Link + dateTime (Space is important)
+				//Syntax: Name / Description / Link (Space is important)
 				name_.forEach(function (list, index) {
+					var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
 					var anchor = document.createElement("a");
 					var anchor_text = document.createTextNode(list.split(" / ")[0]);
 					anchor.appendChild(anchor_text);
 					anchor.title = list.split(" / ")[1];
-					anchor.href = list.split(" / ")[2];
+					anchor.href = list.split(" / ")[2] + "?id=" + dateTime;
 					document.getElementById("accbar").appendChild(anchor);
 					if (index < name_.length - 1) {
 						document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
