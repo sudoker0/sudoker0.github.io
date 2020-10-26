@@ -984,6 +984,7 @@
                 let edit_1 = document.querySelector("#editor");
                 edit_1.style.display = "none";
             }
+            var login;
             var mn = -1;
             var md = -1;
             var mc = -1;
@@ -1001,6 +1002,7 @@
                 return decodeURIComponent(results[2].replace(/\+/g, ' '));
             }
             function intro() {
+                login = new Date();
                 //Don't worry about this code (start)
                 if (localStorage.getItem("ls") == "927") {
                     document.getElementById("output").innerHTML += "The console has been disabled by your Administrator\r\n";
@@ -1054,7 +1056,7 @@
                 m = n.getMonth() + 1;
                 d = n.getDate();
                 if (getParameterByName("nowelcome") == null || getParameterByName("nowelcome") == "" || getParameterByName("nowelcome") == "0" || getParameterByName("nowelcome") >= "2") {
-                    document.getElementById("output").innerHTML += "Welcome to WTOS v1.2 (Web-Terminal Operating System)\r\n";
+                    document.getElementById("output").innerHTML += "Welcome to WTOS v1.2 (Web-Terminal Operating System) [1.2.10.102620_Revision1]\r\n";
                     document.getElementById("output").innerHTML += "This is a VERY BASIC Operating System that can only execute a certain command like a linux terminal.\r\n";
                     document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC\r\n";
                     document.getElementById("output").innerHTML += "To get started, type [help] with no bracket\r\n";
@@ -1285,6 +1287,10 @@
                                 document.getElementById("output").innerHTML += "music: Play music from a JSON music sheet, for how to write a JSON music sheet, type music help\r\n";
                                 document.getElementById("output").innerHTML += "Syntax: music [help]\r\n";
                                 document.getElementById("output").innerHTML += "Example: music, music help\r\n";
+                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").innerHTML += "userinfo: Show the current user's info\r\n";
+                                document.getElementById("output").innerHTML += "Syntax: userinfo\r\n";
+                                document.getElementById("output").innerHTML += "Example: userinfo\r\n";
                                 document.getElementById("output").innerHTML += "-------------------------------------\r\n";
                             } else {
                                 document.getElementById("output").innerHTML += "Invalid page number!\r\n"
@@ -1571,13 +1577,13 @@
                         })();
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
-                        document.getElementById("output").innerHTML += "Version: 1.2.9\r\n";
-                        document.getElementById("output").innerHTML += "Release on: October 25th 2020\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.2.10\r\n";
+                        document.getElementById("output").innerHTML += "Release on: October 26th 2020\r\n";
                         document.getElementById("output").innerHTML += "Original Release Date: August 23th 2020\r\n";
                         document.getElementById("output").innerHTML += "Info about the first version: 328 lines of code, have 11 commands and a separate icon file\r\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.2.9.102520_Revision1\r\n";
-                        document.getElementById("output").innerHTML += "This project is JFF (Just For Fun)\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.2.10.102620_Revision1\r\n";
+                        document.getElementById("output").innerHTML += "This project is J4F (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
                     }
@@ -1585,7 +1591,7 @@
                     if (!a[1] == '') {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                     } else {
-                        document.getElementById("output").innerHTML += "Version: 1.2.9\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.2.10\r\n";
                     }
                 } else if (a[0] == "timer") { //Command: timer
                     if (!isNaN(a[1])) {
@@ -2593,6 +2599,19 @@
                     } else {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end. Or it might because your JSON string contain space, please remove any space you found and try again.\r\n";
                     }
+                } else if (a[0] == "userinfo") {
+                    function date_check() {
+                        var date2 = new Date();
+                        var Difference_In_Time = date2.getTime() - login.getTime();
+                        var DIS = Math.round(Difference_In_Time / 1000);
+                        var Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
+                        console.log(Difference_In_Days, Difference_In_Time)
+                        return DIS + " seconds";
+                    }
+                    document.getElementById("output").innerHTML += "Current User Info: \r\n";
+                    document.getElementById("output").innerHTML += "Login time:  " + login + "\r\n";
+                    document.getElementById("output").innerHTML += "Up Time: "+ date_check() + "\r\n";
+                    document.getElementById("output").innerHTML += "Type: browser/user\r\n";
                 } else {
                     //Error 1: Not a correct command
                     document.getElementById("output").innerHTML += "\"" + document.getElementById("command").value + "\"" +" is not a valid command.\r\n";
