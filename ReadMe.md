@@ -63,7 +63,7 @@
 #### Here is a table that show the percentage ratio of file in my repo
 File Extension | Percentage | Number of file | Likely to change
 ---------------|------------|----------------|-----------------
-(Every file) | 100%       | 158 files      | 5%
+*.*(Every file)| 100%       | 158 files      | 5%
 *.css          | ~1.27%     | 2 files        | 2%
 *.delete       | ~0.63%     | 1 file         | 1%
 *.gif          | ~1.9%      | 3 files        | 2%
