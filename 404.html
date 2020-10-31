@@ -15,7 +15,17 @@
         <h4 style="color: white">You are asking to access a part of the website that does not exist</h4>
         <h4 style="color: white">Please check if the page actually exist</h4>
         <h4 style="color: white">We are just getting some info and we will print it to the black box on the right side</h4>
-        <img src="website/image/loading.gif" style="float: right" width="80" height="80"><img src="website/image/logo.png" style="float: right" width="80" height="80"><h4 style="color: white">404 Page by Quan_MCPC</h4><br><br>
+        <img src="website/image/loading.gif" style="float: right" width="80" height="80"><img src="website/image/logo.png" style="float: right" width="80" height="80" onclick="startgame()"><h4 style="color: white">404 Page by Quan_MCPC</h4><br><br>
         <hr style="border: 1px solid white">
     </BODY>
+    <script>
+        function startgame() {
+            var a = prompt("Please insert the \"secrect\" code below:");
+            if (a == "secrect") {
+                 document.getElementsByTagName("textarea")[0].innerHTML = "Thank you for fixing me! There is no info yet, hope you can undertand ^-^";
+            } else {
+                alert("Sorry, wrong code! Please try again!")
+            }
+        }
+    </script>
 </html>
