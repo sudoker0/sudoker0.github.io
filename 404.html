@@ -98,12 +98,14 @@
             90% {transform: skew(5deg);}
             100% {transform: skew(-3deg);}
         }
+        #web:hover {
+            cursor: pointer;
+        }
     </style>
     <!--jk-->
-    <BODY style="background-color:rgb(54, 54, 54)">
+    <BODY style="background-color:rgb(54, 54, 54)" onload="getinfo()">
         <hr style="border: 1px solid white">
-        <textarea style="background-color: black; width: 500px; height: 300px; float: right; color: white; resize: none;"
-            readonly>ErRoR 666: UnAblE to GeT InFO.... err0r...term.ated. ThEy ArE ComMIng...TG4kKLJzzvuR7yLTmoxybw0HGMH15GWl</textarea>
+        <textarea id="getinfo" style="background-color: black; width: 500px; height: 300px; float: right; color: white; resize: none;" readonly></textarea>
         <h1 style="color: white">Oopsie, something has gone wrong!</h1>
         <h3 style="color: white"><span class="glitch" data-text="Error code: 404">Error Code: 404</span></h3>
         <h4 style="color: white">It look like GitHub finally gave up on trying to do the stuff that you're asked</h4>
@@ -111,20 +113,30 @@
         <h4 style="color: white">You are asking to access a part of the website that does not exist</h4>
         <h4 style="color: white">Please check if the page actually exist</h4>
         <h4 style="color: white">We are just getting some info and we will print it to the black box on the right side</h4>
-        <img src="website/image/loading.gif" style="float: right" width="80" height="80"><img src="website/image/logo.png" style="float: right" width="80" height="80" onclick="startgame()">
+        <img src="website/image/loading.gif" style="float: right" width="80" height="80"><img id="web" src="website/image/logo.png" style="float: right" width="80" height="80" onclick="goToWebsite()" title="Return back to the main website">
         <h4 style="color: white">404 Page by Quan_MCPC</h4><br><br>
         <hr style="border: 1px solid white">
     </BODY>
     <script>
-        function startgame() {
-            var a = prompt("Please insert the \"secrect\" code below:");
-            if (a == "secrect") {
-                document.getElementsByTagName("textarea")[0].innerHTML = "Thank you for fixing me! There is no info yet, hope you can undertand ^-^";
-            } else if (a == null) {
-                console.log("Canceled");
-            } else {
-                alert("Sorry, wrong code! Please try again!")
-            }
+        var a = document.getElementById("getinfo")
+        function getinfo() {
+            a.innerHTML += "> 404console.getFullUrl()\r\n";
+            a.innerHTML += "Full URL: " + window.location.href + "\r\n";
+            a.innerHTML += "> 404console.getHostName()\r\n";
+            a.innerHTML += "Host name: " + window.location.hostname + "\r\n";
+            a.innerHTML += "> 404console.getPathName()\r\n";
+            a.innerHTML += "Path Name: " + window.location.pathname + "\r\n";
+            a.innerHTML += "> 404console.getProtocol()\r\n";
+            a.innerHTML += "Used Protocol: "+ window.location.protocol.replace(":", "") +"\r\n";
+            a.innerHTML += "> 404console.getOrigin()\r\n";
+            a.innerHTML += "Origin: "+ window.location.origin +"\r\n";
+            a.innerHTML += "> 404console.getPortNumber()\r\n";
+            a.innerHTML += "Port Number: "+ window.location.port +"\r\n";
+            a.innerHTML += "Note: Some browser will not return the port number so here is some port number for certain protocol (80 for http, 443 for https)\r\n";
+            a.innerHTML += "Althrough if the url set a port number (example: http://localhost:8080), the port number will be different (8080)\r\n";
+        }
+        function goToWebsite() {
+            window.location.replace("https://quanmcpc.github.io");
         }
     </script>
 </html>
