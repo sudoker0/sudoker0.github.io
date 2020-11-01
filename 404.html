@@ -123,6 +123,8 @@
         var a = prompt("Please insert the \"secrect\" code below:");
         if (a == "secrect") {
             document.getElementsByTagName("textarea")[0].innerHTML = "Thank you for fixing me! There is no info yet, hope you can undertand ^-^";
+        } else if (a == null) {
+            console.log("Canceled");
         } else {
             alert("Sorry, wrong code! Please try again!")
         }
