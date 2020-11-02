@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        Username: <input type="text" id="username"><br><br>
+        PIN: <input type="password" maxlength="4" id="pin"><br><br>
+        <button onclick="send()">Submit</button>
+    </body>
+    <script>
+        var a = document.getElementById("username");
+        var b = document.getElementById("pin");
+        function send() {
+            if (a.value.length == 0) {
+                alert("Username must not leave blank!");
+                return;
+            } else if (b.value.length == 0) {
+                alert("PIN must not leave blank!");
+                return;
+            } else {
+                var c = new XMLHttpRequest();
+                c.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        alert(this.responseText);
+                    }
+                };
+                c.open("GET", "http://quanmcpc.000webhostapp.com/parse.php?username=" + a.innerHTML + "?pin=" + b.innerHTML, true);
+                c.send();
+            }
+        }
+    </script>
+</html>
