@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <body>
+        <strong>This is just a test website</strong>
         Username: <input type="text" id="username"><br><br>
         PIN: <input type="password" maxlength="4" id="pin"><br><br>
         <button onclick="send()">Submit</button>
@@ -22,7 +23,7 @@
                         alert(this.responseText);
                     }
                 };
-                c.open("GET", "http://quanmcpc.000webhostapp.com/parse.php?username=" + a.innerHTML + "?pin=" + b.innerHTML, true);
+                c.open("GET", "https://quanmcpc.000webhostapp.com/parse.php?username=" + a.innerHTML + "?pin=" + b.innerHTML, true);
                 c.send();
             }
         }
