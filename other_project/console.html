@@ -205,9 +205,82 @@
             #keyboard button {
                 margin: 0px 0px;
             }
+            .context-menu {
+                position: absolute;
+                text-align: center;
+                background: rgb(99, 99, 99);
+                border: 1px solid black;
+            }
+            .context-menu ul {
+                padding: 0px;
+                margin: 0px;
+                min-width: 150px;
+                list-style: none;
+            }
+            .context-menu ul li {
+                padding-bottom: 7px;
+                padding-top: 7px;
+                border: 1px solid black;
+            }
+            .context-menu ul li a {
+                text-decoration: none;
+                color: black;
+            }
+            .context-menu ul li:hover {
+                background: rgb(158, 158, 158);
+            }
         </style>
     </head>
     <body style="background-color: rgb(34, 34, 34);" onload="intro()" id="background" onresize="reset()">
+        <div id="contextMenu" class="context-menu" style="display:none">
+            <ul>
+                <li><a href="javascript:showListOfUsedCommand()">Show List Of Used Command</a></li>
+                <li><a href="javascript:colorChange_2()">Color Changer (GUI)</a></li>
+                <li><a href="javascript:consolesize_2()">Console Size Changer (GUI)</a></li>
+            </ul>
+        </div>
+        <div id="consolesize" style="z-index: 3; display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 150px; color: white; border: 6px double white; background:rgb(77, 77, 77);">
+            <center>
+                <p style="text-align: center;">Console Size Changer (GUI)</p>
+                <label for="cols">Cols: </label><input type="number" id="cols" name="cols" style="width: 40px">
+                <label for="rows">Rows: </label><input type="number" id="rows" name="rows" style="width: 40px"><br><br>
+                <button onclick="consolesize()">Change size</button>&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="document.getElementById('consolesize').style.display = 'none'; window_already_opened = false;">Close Window</button>
+            </center>
+        </div>
+        <div id="colorchanger" style="z-index: 3; display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 150px; color: white; border: 6px double white; background:rgb(77, 77, 77);">
+            <center>
+                <p style="text-align: center;">Color Changer (GUI)</p>
+                <label for="colorchanger_a">Select the element that you want to change</label>
+                <select id="colorchanger_a" name="colorchanger_a">
+                    <option value="background">Background</option>
+                    <optgroup label="Output">
+                        <option value="output-background">Output Background</option>
+                        <option value="output-text">Output Text</option>
+                        <option value="output-border">Output Border</option>
+                    </optgroup>
+                    <optgroup label="Input">
+                        <option value="input-background">Input Background</option>
+                        <option value="input-text">Input Text</option>
+                        <option value="input-border">Input Border</option>
+                    </optgroup>
+                </select>
+                <br>
+                <label for="colorchanger_b">Select the color that you want to change</label>
+                <input type="color" name="colorchanger_b" id="colorchanger_b">
+                <button onclick="colorchange()">Change color</button>&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="document.getElementById('colorchanger').style.display = 'none'; window_already_opened = false;">Close Window</button>
+            </center>
+        </div>
+        <div id="showListOfUsedCommand" style="z-index: 3; display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 150px; color: white; border: 6px double white; background:rgb(77, 77, 77);">
+            <p style="text-align: center;">List of command</p>
+            <center>
+                <label for="listOfUsedCommand">Select a command from here</label>
+                <select id="listOfUsedCommand" name="listOfUsedCommand">
+                    <option disabled>Please select a command</option>
+                </select>
+                <br><br>
+                <button onclick="insertCommandFromTheList()">Insert Command</button>&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="javascript:document.getElementById('showListOfUsedCommand').style.display = 'none'; window_already_opened = false;">Close Window</button>
+            </center>
+        </div>
         <!--Editor Part-->
         <div id="editor">
             <div id="editor_bar" style="text-align: center;"><button style="position: absolute; left: 10px" onclick="exit_edit()">Close</button>Edit Document In Terminal [Edit]</div>
@@ -335,6 +408,97 @@
             <noscript><p style="color: white">Look like JavaScript is disabled or not installed in your browser! Please install or enable JavaScript</p></noscript>
         </center>
         <script>
+            var window_already_opened = false;
+            function consolesize_2() {
+                if (!window_already_opened) {
+                    document.getElementById("consolesize").style.display = "block";
+                    window_already_opened = true;
+                }
+            }
+            function consolesize() {
+                if (document.getElementById("cols").value < 0 || document.getElementById("rows").value < 0) {
+                    alert("Size cannot be a negative number!");
+                    return false;
+                } else {
+                    document.getElementById("output").setAttribute("cols", document.getElementById("cols").value);
+                    document.getElementById("output").setAttribute("rows", document.getElementById("rows").value);
+                    localStorage.setItem("mode:cols", document.getElementById("cols").value);
+                    localStorage.setItem("mode:rows", document.getElementById("rows").value);
+                }
+            }
+            function colorChange_2() {
+                if (!window_already_opened) {
+                    document.getElementById("colorchanger").style.display = 'block';
+                    window_already_opened = true;
+                }
+            }
+            function colorchange() {
+                var a = document.getElementById("colorchanger_a").options[document.getElementById("colorchanger_a").selectedIndex].value;
+                var b = document.getElementById("colorchanger_b").value;
+                if (a == "background") {
+                    document.querySelector("#background").style.backgroundColor = b;
+                    localStorage.setItem("color:background", b);
+                } else if (a == "input-background") {
+                    document.querySelector("#command").style.backgroundColor = b;
+                    localStorage.setItem("color:input_background", b);
+                } else if (a == "output-background") {
+                    document.querySelector("#output").style.backgroundColor = b;
+                    localStorage.setItem("color:output_background", b);
+                } else if (a == "input-text") {
+                    document.querySelector("#command").style.color = b;
+                    localStorage.setItem("color:input_text", b);
+                } else if (a == "output-text") {
+                    document.querySelector("#output").style.color = b;
+                    localStorage.setItem("color:output_text", b);
+                } else if (a == "input-border") {
+                    document.querySelector("#command").style.borderColor = b;
+                    localStorage.setItem("color:input_border", b);
+                } else if (a == "output-border") {
+                    document.querySelector("#output").style.borderColor = b;
+                    localStorage.setItem("color:output_border", b);
+                }
+            }
+            function insertCommandFromTheList() {
+                var a = document.getElementById("listOfUsedCommand").options[document.getElementById("listOfUsedCommand").selectedIndex].value
+                document.getElementById("command").value = a;
+                enter();
+                document.getElementById("showListOfUsedCommand").style.display = "none";
+                document.getElementById("command").value = "";
+            }
+            function showListOfUsedCommand() {
+                if (!window_already_opened) {
+                    document.getElementById("showListOfUsedCommand").style.display = 'block';
+                    while(document.getElementById("listOfUsedCommand").options.length > 0) {
+                        document.getElementById("listOfUsedCommand").remove(0);
+                    }
+                    for (var i = 0; i < z.length; i++) {
+                        let a = new Option( (i + 1) + ". " + z[i], z[i]);
+                        let b = document.getElementById("listOfUsedCommand");
+                        b.add(a, undefined);
+                    }
+                    window_already_opened = true;
+                }
+            }
+            document.onclick = hideMenu;
+            document.oncontextmenu = rightClick;
+            var alreadyClicked = false;
+            function hideMenu() {
+                document.getElementById("contextMenu").style.display = "none";
+                alreadyClicked = false;
+            }
+            function rightClick(e) {
+                if (!alreadyClicked) {
+                    e.preventDefault();
+                    alreadyClicked = true;
+                } else {
+                    document.getElementById("contextMenu").style.display = "none";
+                    alreadyClicked = false;
+                }
+                var menu = document.getElementById("contextMenu")
+                menu.style.display = 'block';
+                menu.style.left = e.pageX + "px";
+                menu.style.top = e.pageY + "px";
+            }
             //Editor Script
             var start_1 = 0;
             window.count_1 = 0;
@@ -990,7 +1154,7 @@
             var mc = -1;
             var mm = -1;
             var log_c = 0;
-            var z = [""];
+            var z = new Array();
             var textarea = document.getElementById('output');
             setInterval(function(){ textarea.scrollTop = textarea.scrollHeight; }, 50);
             function getParameterByName(name, url) {
@@ -1056,7 +1220,7 @@
                 m = n.getMonth() + 1;
                 d = n.getDate();
                 if (getParameterByName("nowelcome") == null || getParameterByName("nowelcome") == "" || getParameterByName("nowelcome") == "0" || getParameterByName("nowelcome") >= "2") {
-                    document.getElementById("output").innerHTML += "Welcome to WTOS v1.2 (Web-Terminal Operating System) [1.2.10.102620_Revision1]\r\n";
+                    document.getElementById("output").innerHTML += "Welcome to WTOS v1.2 (Web-Terminal Operating System) [1.2.11.110320_Revision0_Beta1]\r\n";
                     document.getElementById("output").innerHTML += "This is a VERY BASIC Operating System that can only execute a certain command like a linux terminal.\r\n";
                     document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC\r\n";
                     document.getElementById("output").innerHTML += "To get started, type [help] with no bracket\r\n";
@@ -1577,12 +1741,12 @@
                         })();
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
-                        document.getElementById("output").innerHTML += "Version: 1.2.10\r\n";
-                        document.getElementById("output").innerHTML += "Release on: October 26th 2020\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.2.11\r\n";
+                        document.getElementById("output").innerHTML += "Release on: November 3rd 2020\r\n";
                         document.getElementById("output").innerHTML += "Original Release Date: August 23th 2020\r\n";
                         document.getElementById("output").innerHTML += "Info about the first version: 328 lines of code, have 11 commands and a separate icon file\r\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.2.10.102620_Revision1\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.2.11.110320_Revision0_Beta1\r\n";
                         document.getElementById("output").innerHTML += "This project is J4F (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -1591,7 +1755,7 @@
                     if (!a[1] == '') {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                     } else {
-                        document.getElementById("output").innerHTML += "Version: 1.2.10\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.2.11\r\n";
                     }
                 } else if (a[0] == "timer") { //Command: timer
                     if (!isNaN(a[1])) {
