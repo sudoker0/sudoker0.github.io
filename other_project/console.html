@@ -206,38 +206,40 @@
                 margin: 0px 0px;
             }
             .context-menu {
-                position: absolute;
+                width: 200px;
                 text-align: center;
                 background: rgb(99, 99, 99);
                 border: 1px solid black;
             }
-            .context-menu ul {
-                padding: 0px;
-                margin: 0px;
-                min-width: 150px;
-                list-style: none;
+            .context-menu {
+                background-color:rgba(20, 20, 20, 0.850);
+				border: 1px solid rgba(20, 20, 20, 0.850);
+  				opacity: 1;
+				text-align: center;
+				position: sticky;
+				position: -webkit-sticky;
+				top: 0px;
+				margin-left: -8px;
+				margin-right: -8px;
+				margin-top: -8px;
             }
-            .context-menu ul li {
-                padding-bottom: 7px;
-                padding-top: 7px;
-                border: 1px solid black;
+            h3 {
+                margin-top: 4px;
+                margin-bottom: 4px;
             }
-            .context-menu ul li a {
-                text-decoration: none;
-                color: black;
-            }
-            .context-menu ul li:hover {
-                background: rgb(158, 158, 158);
-            }
+            a:link, a:visited {
+				color: rgb(255, 255, 255);
+				text-decoration: none;
+				display: inline-block;
+			}
+			a:hover, a:active {
+				color: rgb(158, 158, 158);
+			}
         </style>
     </head>
     <body style="background-color: rgb(34, 34, 34);" onload="intro()" id="background" onresize="reset()">
-        <div id="contextMenu" class="context-menu" style="display:none">
-            <ul>
-                <li><a href="javascript:showListOfUsedCommand()">Show List Of Used Command</a></li>
-                <li><a href="javascript:colorChange_2()">Color Changer (GUI)</a></li>
-                <li><a href="javascript:consolesize_2()">Console Size Changer (GUI)</a></li>
-            </ul>
+        <div id="contextMenu" class="context-menu" style="width: auto; height: auto">
+            <h3><a href="javascript:showListOfUsedCommand()">Show List Of Used Command</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:colorChange_2()">Color Changer (GUI)</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:consolesize_2()">Console Size Changer (GUI)</a></h3>
         </div>
         <div id="consolesize" style="z-index: 3; display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 150px; color: white; border: 6px double white; background:rgb(77, 77, 77);">
             <center>
@@ -478,26 +480,6 @@
                     }
                     window_already_opened = true;
                 }
-            }
-            document.onclick = hideMenu;
-            document.oncontextmenu = rightClick;
-            var alreadyClicked = false;
-            function hideMenu() {
-                document.getElementById("contextMenu").style.display = "none";
-                alreadyClicked = false;
-            }
-            function rightClick(e) {
-                if (!alreadyClicked) {
-                    e.preventDefault();
-                    alreadyClicked = true;
-                } else {
-                    document.getElementById("contextMenu").style.display = "none";
-                    alreadyClicked = false;
-                }
-                var menu = document.getElementById("contextMenu")
-                menu.style.display = 'block';
-                menu.style.left = e.pageX + "px";
-                menu.style.top = e.pageY + "px";
             }
             //Editor Script
             var start_1 = 0;
@@ -1220,7 +1202,7 @@
                 m = n.getMonth() + 1;
                 d = n.getDate();
                 if (getParameterByName("nowelcome") == null || getParameterByName("nowelcome") == "" || getParameterByName("nowelcome") == "0" || getParameterByName("nowelcome") >= "2") {
-                    document.getElementById("output").innerHTML += "Welcome to WTOS v1.2 (Web-Terminal Operating System) [1.2.11.110320_Revision0_Beta1]\r\n";
+                    document.getElementById("output").innerHTML += "Welcome to WTOS v1.2 (Web-Terminal Operating System) [1.2.11.110320_Revision1]\r\n";
                     document.getElementById("output").innerHTML += "This is a VERY BASIC Operating System that can only execute a certain command like a linux terminal.\r\n";
                     document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC\r\n";
                     document.getElementById("output").innerHTML += "To get started, type [help] with no bracket\r\n";
@@ -1746,7 +1728,7 @@
                         document.getElementById("output").innerHTML += "Original Release Date: August 23th 2020\r\n";
                         document.getElementById("output").innerHTML += "Info about the first version: 328 lines of code, have 11 commands and a separate icon file\r\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.2.11.110320_Revision0_Beta1\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.2.11.110320_Revision1\r\n";
                         document.getElementById("output").innerHTML += "This project is J4F (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
