@@ -381,7 +381,7 @@
                 <p style="text-align: center">Release Date: Friday, 23th 2020</p>
                 <p style="text-align: center">First release: Wednesday, 9th, 2020</p>
                 <p style="text-align: center">Copyright (C) 2020 Quan_MCPC</p>
-                <p style="text-align: center">Source code are free to copy, modify and publish. Just remember to include my Copyright</b></p>
+                <p style="text-align: center">Source code are free to copy, modify and publish. Just remember to include my Copyright</p>
                 <center>
                     <button onclick="editor_about_close()">OK</button>
                 </center>
@@ -2458,7 +2458,7 @@
                             document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                         }
                     } else if (a[1] == "settings-jsontext") {
-                        if (a[2] == null) {
+                        /*if (a[2] == null) {
                             var settings = {
                                 "color_input_text": document.querySelector("#command").style.color.replace(/\s/g, ''),
                                 "color_output_text": document.querySelector("#output").style.color.replace(/\s/g, ''),
@@ -2469,7 +2469,7 @@
                                 "color_output_border": document.querySelector("#output").style.borderColor.replace(/\s/g, ''),
                                 "mode_cols": document.getElementById("output").getAttribute("cols").replace(/\s/g, ''),
                                 "mode_rows": document.getElementById("output").getAttribute("rows").replace(/\s/g, ''),
-                                "welcome_message": localStorage.getItem("welcome_content"),
+                                "welcome_message": localStorage.getItem("welcome_content").replace(/\s/g, '##space##'),
                                 "welcome_message_set": localStorage.getItem("welcome_content_set")
                             }
                             var test1 = JSON.stringify(settings);
@@ -2477,7 +2477,8 @@
                             document.getElementById("output").innerHTML += "The JSON part started at '{' and at '}'\r\n";
                         } else {
                             document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
-                        }
+                        }*/
+                        document.getElementById("output").innerHTML += "This function has been disabled due to countless bug found!\r\n";
                     } else if (a[1] == "help") {
                         if (a[2] == null) {
                             document.getElementById("output").innerHTML += "Export your console settings as JSON for backup, last 20 entered command and console output as txt\r\n";
@@ -2587,7 +2588,7 @@
                             document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                         }
                     } else if (a[1] == "settings-jsontext") {
-                        function IsJsonString(input) {
+                        /*function IsJsonString(input) {
                             try {
                                 JSON.parse(input);
                             } catch (e) {
@@ -2618,7 +2619,7 @@
                                     document.getElementById("output").setAttribute("cols", settings.mode_cols);
                                     document.getElementById("output").setAttribute("rows", settings.mode_rows);
                                     if (settings.welcome_message_set == 1) {
-                                        localStorage.setItem("welcome_content", settings.welcome_message);
+                                        localStorage.setItem("welcome_content", settings.welcome_message.replace('##space##', "\xa0"));
                                         localStorage.setItem("welcome_content_set", 1);
                                     }
                                     localStorage.setItem("color:input_text", settings.color_input_text);
@@ -2637,7 +2638,8 @@
                             } else {
                                 document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end. Or it might because your JSON string contain space, please remove any space you found and try again.\r\n";
                             }
-                        }
+                        }*/
+                        document.getElementById("output").innerHTML += "This function has been disabled due to countless bug found!\r\n";
                     } else if (a[1] == "undo") {
                         if (window.backup[11]) {
                             let color_input_hex = document.querySelector("#background");
