@@ -253,10 +253,11 @@
             </center>
         </div>
         <div id="colorchanger" style="z-index: 3; display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 150px; color: white; border: 6px double white; background:rgb(77, 77, 77);">
+            <a style="position: absolute; cursor: pointer; font-size: 0.75em" href="javascript:colorchange_alt()" id="enable_colorchange_alt">Color box not show up?</a>
             <center>
                 <p style="text-align: center;">Color Changer (GUI)</p>
                 <label for="colorchanger_a">Select the element that you want to change</label>
-                <select id="colorchanger_a" name="colorchanger_a">
+                <select id="colorchanger_a" name="colorchanger_a" onclick="colorchange_3()">
                     <option value="background">Background</option>
                     <optgroup label="Output">
                         <option value="output-background">Output Background</option>
@@ -270,8 +271,8 @@
                     </optgroup>
                 </select>
                 <br>
-                <label for="colorchanger_b">Select the color that you want to change</label>
-                <input type="color" name="colorchanger_b" id="colorchanger_b">
+                <label for="colorchanger_b" id="tag_colorchanger_b">Select the color that you want to change</label>
+                <input type="color" name="colorchanger_b" id="colorchanger_b" maxlength="7" placeholder="#000000">
                 <button onclick="colorchange()">Change color</button>&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="document.getElementById('colorchanger').style.display = 'none'; window_already_opened = false;">Close Window</button>
             </center>
         </div>
@@ -279,7 +280,7 @@
             <p style="text-align: center;">List of command</p>
             <center>
                 <label for="listOfUsedCommand">Select a command from here</label>
-                <select id="listOfUsedCommand" name="listOfUsedCommand">
+                <select id="listOfUsedCommand" name="listOfUsedCommand" style="width: 165px;">
                     <option disabled>Please select a command</option>
                 </select>
                 <br><br>
@@ -414,9 +415,64 @@
         </center>
         <script>
             var window_already_opened = false;
+            function rgb2hex(rgb) {
+                if (/^#[0-9A-F]{6}$/i.test(rgb)) return rgb;
+                rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+                function hex(x) {
+                    return ("0" + parseInt(x).toString(16)).slice(-2);
+                }
+                return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+            }
+            function standardize_color(str){
+                var ctx = document.createElement("canvas").getContext("2d");
+                ctx.fillStyle = str;
+                return ctx.fillStyle;
+            }
+            function colorchange_convert(element, type) {
+                switch (type) {
+                    case "backgroundColor":
+                        if (document.querySelector(element).style.backgroundColor.includes("rgb(")) {
+                            return rgb2hex(document.querySelector(element).style.backgroundColor);
+                        } else {
+                            return standardize_color(document.querySelector(element).style.backgroundColor);
+                        }
+                    case "color":
+                        if (document.querySelector(element).style.color.includes("rgb(")) {
+                            return rgb2hex(document.querySelector(element).style.color);
+                        } else {
+                            return standardize_color(document.querySelector(element).style.color);
+                        }
+                    case "borderColor":
+                        if (document.querySelector(element).style.borderColor.includes("rgb(")) {
+                            return rgb2hex(document.querySelector(element).style.borderColor);
+                        } else {
+                            return standardize_color(document.querySelector(element).style.borderColor);
+                        }
+                }
+            }
+            function colorchange_3() {
+                var a = document.getElementById("colorchanger_a").options[document.getElementById("colorchanger_a").selectedIndex].value;
+                if (a == "background") {
+                    document.getElementById("colorchanger_b").value = colorchange_convert("#background", "backgroundColor");
+                } else if (a == "input-background") {
+                    document.getElementById("colorchanger_b").value = colorchange_convert("#command", "backgroundColor");
+                } else if (a == "output-background") {
+                    document.getElementById("colorchanger_b").value = colorchange_convert("#output", "backgroundColor");
+                } else if (a == "input-text") {
+                    document.getElementById("colorchanger_b").value = colorchange_convert("#command", "color");
+                } else if (a == "output-text") {
+                    document.getElementById("colorchanger_b").value = colorchange_convert("#output", "color");
+                } else if (a == "input-border") {
+                    document.getElementById("colorchanger_b").value = colorchange_convert("#command", "borderColor");
+                } else if (a == "output-border") {
+                    document.getElementById("colorchanger_b").value = colorchange_convert("#output", "borderColor");
+                }
+            }
             function consolesize_2() {
                 if (!window_already_opened) {
                     document.getElementById("consolesize").style.display = "block";
+                    document.getElementById("cols").value = document.getElementById("output").getAttribute("cols");
+                    document.getElementById("rows").value = document.getElementById("output").getAttribute("rows");
                     window_already_opened = true;
                 }
             }
@@ -434,6 +490,7 @@
             function colorChange_2() {
                 if (!window_already_opened) {
                     document.getElementById("colorchanger").style.display = 'block';
+                    colorchange_3()
                     window_already_opened = true;
                 }
             }
@@ -463,6 +520,22 @@
                     localStorage.setItem("color:output_border", b);
                 }
             }
+            var colorchange_alt1 = false;
+            function colorchange_alt() {
+                if (!colorchange_alt1) {
+                    document.getElementById("tag_colorchanger_b").innerHTML = "Input the color code that you want to change (Hex)";
+                    document.getElementById("colorchanger_b").setAttribute("type", "text")
+                    document.getElementById("colorchanger_b").style.width = "53px";
+                    document.getElementById("enable_colorchange_alt").innerHTML = "Return back to the color box";
+                    colorchange_alt1 = true;
+                } else {
+                    document.getElementById("tag_colorchanger_b").innerHTML = "Select the color that you want to change";
+                    document.getElementById("colorchanger_b").setAttribute("type", "color")
+                    document.getElementById("colorchanger_b").style.width = "53px";
+                    document.getElementById("enable_colorchange_alt").innerHTML = "Color box not show up?";
+                    colorchange_alt1 = false;
+                }
+            }
             function insertCommandFromTheList() {
                 var a = document.getElementById("listOfUsedCommand").options[document.getElementById("listOfUsedCommand").selectedIndex].value
                 document.getElementById("command").value = a;
@@ -473,8 +546,8 @@
             function showListOfUsedCommand() {
                 if (!window_already_opened) {
                     document.getElementById("showListOfUsedCommand").style.display = 'block';
-                    while(document.getElementById("listOfUsedCommand").options.length > 0) {
-                        document.getElementById("listOfUsedCommand").remove(0);
+                    while(document.getElementById("listOfUsedCommand").options.length > 1) {
+                        document.getElementById("listOfUsedCommand").remove(1);
                     }
                     for (var i = 0; i < z.length; i++) {
                         let a = new Option( (i + 1) + ". " + z[i], z[i]);
@@ -1205,7 +1278,7 @@
                 m = n.getMonth() + 1;
                 d = n.getDate();
                 if (getParameterByName("nowelcome") == null || getParameterByName("nowelcome") == "" || getParameterByName("nowelcome") == "0" || getParameterByName("nowelcome") >= "2") {
-                    document.getElementById("output").innerHTML += "Welcome to WTOS v1.2 (Web-Terminal Operating System) [1.2.11.110320_Revision1]\r\n";
+                    document.getElementById("output").innerHTML += "Welcome to WTOS v1.2 (Web-Terminal Operating System) [1.2.12.110420_Revision1]\r\n";
                     document.getElementById("output").innerHTML += "This is a VERY BASIC Operating System that can only execute a certain command like a linux terminal.\r\n";
                     document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC\r\n";
                     document.getElementById("output").innerHTML += "To get started, type [help] with no bracket\r\n";
@@ -1726,12 +1799,12 @@
                         })();
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
                         document.getElementById("output").innerHTML += "About WTOS\r\n";
-                        document.getElementById("output").innerHTML += "Version: 1.2.11\r\n";
-                        document.getElementById("output").innerHTML += "Release on: November 3rd 2020\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.2.12\r\n";
+                        document.getElementById("output").innerHTML += "Release on: November 4th 2020\r\n";
                         document.getElementById("output").innerHTML += "Original Release Date: August 23th 2020\r\n";
                         document.getElementById("output").innerHTML += "Info about the first version: 328 lines of code, have 11 commands and a separate icon file\r\n";
                         document.getElementById("output").innerHTML += "Copyright (C) 2020 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.2.11.110320_Revision1\r\n";
+                        document.getElementById("output").innerHTML += "Build number: 1.2.12.110420_Revision1\r\n";
                         document.getElementById("output").innerHTML += "This project is J4F (Just For Fun)\r\n";
                         document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
                         document.getElementById("output").innerHTML += "------------------------------\r\n";
@@ -1740,7 +1813,7 @@
                     if (!a[1] == '') {
                         document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
                     } else {
-                        document.getElementById("output").innerHTML += "Version: 1.2.11\r\n";
+                        document.getElementById("output").innerHTML += "Version: 1.2.12\r\n";
                     }
                 } else if (a[0] == "timer") { //Command: timer
                     if (!isNaN(a[1])) {
