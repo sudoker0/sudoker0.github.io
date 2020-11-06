@@ -8,7 +8,7 @@
             "name": "Launch Console",
             "request": "launch",
             "type": "chrome",
-            "url": "http://127.0.0.1:5500/console.html",
+            "url": "http://127.0.0.1:5500/other_project/console.html",
             "webRoot": "${workspaceFolder}",
             "runtimeExecutable": "C:/Users/tuana/AppData/Local/CocCoc/Browser/Application/browser.exe"
         },
