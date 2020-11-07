@@ -61,29 +61,37 @@
     - **Maybe**, but I will probably prefer to stay on HTML, mainly because that mean I have to learn a new language and adapt all of the difference syntax and other things too
 ### Other
 #### Here is a table that show the percentage ratio of file in my repo
-File Extension | Percentage | Number of file | Likely to change
----------------|------------|----------------|-----------------
-(Every file)   | 100%       | 158 files      | 5%
-*.css          | ~1.27%     | 2 files        | 2%
-*.delete       | ~0.63%     | 1 file         | 1%
-*.gif          | ~1.9%      | 3 files        | 2%
-*.gitattributes| ~0.63%     | 1 file         | 1%
-*.htaccess     | ~0.63%     | 1 file         | 1%
-*.html         | ~19%       | 30 files       | 10%
-*.ico          | ~1.27%     | 2 files        | 1%
-*.idx          | ~0.63%     | 1 file         | ~0%
-*.json         | ~1.27%     | 2 files        | 3%
-*.md           | ~1.27%     | 2 files        | 2%
-*.new          | ~0.63%     | 1 file         | ~0%
-*.old          | ~1.9%      | 3 files        | 1%
-*.pack         | ~0.63%     | 1 file         | ~0%
-*.png          | ~17.72%    | 28 files       | 4%
-*.sample       | ~7.6%      | 12 files       | ~0%
-*.ttf          | ~2.53%     | 4 files        | ~0%
-*.txt          | ~2.53%     | 3 files        | 2%
-*.xml          | ~1.27%     | 2 files        | 1%
-(No Extension) | ~37.34%    | 59 files       | ~0%
+File Extensions | Percentages | Number of files | Likely to change | File/Folder size (Bytes)
+----------------|-------------|-----------------|------------------|--------------------------
+(Every file)    | 100%        | 230 files       | 5%               | 32,410,426 bytes
+*.css           | ~0.87%      | 2 files         | 2%               | 2,258 bytes
+*.delete        | ~0.43%      | 1 file          | 1%               | 173,764 bytes
+*.gif           | ~1.3%       | 3 files         | 2%               | 19,696 bytes
+*.gitattributes | ~0.43%      | 1 file          | 1%               | 68 bytes
+*.htaccess      | ~0.43%      | 1 file          | 1%               | 256 bytes
+*.html          | ~13.48%     | 31 files        | 10%              | 622,760 bytes
+*.ico           | ~1.27%      | 2 files         | 1%               | 209,639 bytes
+*.idx           | ~0.43%      | 1 file          | ~0%              | 51,724 bytes
+*.json          | ~1.74%      | 4 files         | 3%               | 1,734 bytes
+*.md            | ~1.27%      | 2 files         | 2%               | 12,394 bytes
+*.new           | ~0.43%      | 1 file          | ~0%              | 1,386,417 bytes
+*.old           | ~1.3%       | 3 files         | 1%               | 106,742 bytes
+*.pack          | ~0.43%      | 1 file          | ~0%              | 13,111,540 bytes
+*.png           | ~12.17%     | 28 files        | 4%               | 15,658,873 bytes
+*.sample        | ~4.78%      | 11 files        | ~0%              | 18,844 bytes
+*.ttf           | ~2.53%      | 4 files         | ~0%              | 653,688 bytes
+*.txt           | ~2.53%      | 3 files         | 2%               | 41,893 bytes
+*.xml           | ~0.87%      | 2 files         | 1%               | 40 bytes
+(No Extension)  | ~56.09%     | 129 files       | ~0%              | 338,420 bytes
 #### **Note**: The percentage and likely to change number is estimated!
+> You might ask: How do I able to get all of the file extensions, the number of file and other info?
+>> For file extensions and number of files: ```cmd /c ">NUL (@for /R %I in (*) do @set /a ext[%~xI] += 1) & set ext["```
+>>
+>> Percentages: The number of file of that extension / The total number of file * 100
+>>
+>> Likely to change: Yeah I really don't know
+>>
+>> File/Folder size: ```dir *.<insert_file_extension> /s```
 ### Random Stuff
 > JavaScript Loop Code
 ```JavaScript
@@ -94,7 +102,7 @@ while(1) {
 > Python Loop Code
 ```Python
 while True:
-    print("Loop!");
+    print("Loop!")
 ```
 > C++ Loop Code
 ```c++
