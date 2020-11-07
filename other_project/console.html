@@ -2829,7 +2829,6 @@
                         var Difference_In_Time = date2.getTime() - login.getTime();
                         var DIS = Math.round(Difference_In_Time / 1000);
                         var Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
-                        console.log(Difference_In_Days, Difference_In_Time)
                         return DIS + " seconds";
                     }
                     document.getElementById("output").innerHTML += "Current User Info: \r\n";
