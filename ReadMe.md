@@ -63,13 +63,13 @@
 #### Here is a table that show the percentage ratio of file in my repo
 File Extensions | Percentages | Number of files | Likely to change | File/Folder size (Bytes)
 ----------------|-------------|-----------------|------------------|--------------------------
-(Every file)    | 100%        | 230 files       | 5%               | 32,410,426 bytes
+(Every file)    | 100%        | 230 files       | 5%               | 32,492,525 bytes
 *.css           | ~0.87%      | 2 files         | 2%               | 2,258 bytes
 *.delete        | ~0.43%      | 1 file          | 1%               | 173,764 bytes
 *.gif           | ~1.3%       | 3 files         | 2%               | 19,696 bytes
 *.gitattributes | ~0.43%      | 1 file          | 1%               | 68 bytes
 *.htaccess      | ~0.43%      | 1 file          | 1%               | 256 bytes
-*.html          | ~13.48%     | 31 files        | 10%              | 622,760 bytes
+*.html          | ~13.48%     | 31 files        | 10%              | 628,482 bytes
 *.ico           | ~1.27%      | 2 files         | 1%               | 209,639 bytes
 *.idx           | ~0.43%      | 1 file          | ~0%              | 51,724 bytes
 *.json          | ~1.74%      | 4 files         | 3%               | 1,734 bytes
