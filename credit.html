@@ -70,6 +70,19 @@
 				90% { opacity: .9; }
 				100% { opacity: 1; }
 			}
+			@keyframes swipe-out {
+				0% { opacity: 1; }
+				10% { opacity: .9; }
+				20% { opacity: .8; }
+				30% { opacity: .7; }
+				40% { opacity: .6; }
+				50% { opacity: .5; }
+				60% { opacity: .4; }
+				70% { opacity: .3; }
+				80% { opacity: .2; }
+				90% { opacity: .1; }
+				100% { opacity: 0; }
+			}
 		</style>
 	</head>
 	<body onload="check()">
@@ -121,6 +134,7 @@
 					anchor.appendChild(anchor_text);
 					anchor.title = list.split(" / ")[1];
 					anchor.href = list.split(" / ")[2] + "?id=" + dateTime;
+					anchor.onclick = "document.getElementById('test').style.animation = 'swipe-out 0.3s';"
 					document.getElementById("accbar").appendChild(anchor);
 					if (index < name_.length - 1) {
 						document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
