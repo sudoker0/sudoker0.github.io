@@ -7,7 +7,7 @@
 4. [FAQ](#faq)
 5. [Other](#other)
 6. [Random Stuff](#random-stuff)
-7. [Big Update #1](#big-update-#1)
+7. [Big Update #1](#big-update-number-1)
 ### Introduction
 * This repository is not the first ever repo that I created. I created the first one to store my game that I created using Unity but then I delete that because I still want my game private.
 * After deleting that, I rarely use GitHub. But one day, I want to created my first ever website and then I found a [website](https://medium.com/@svinkle/publish-and-share-your-own-website-for-free-with-github-2eff049a1cb5) that help you created a free website On [GitHub](https://github.com). And after that, [QuanMCPC.github.io](https://quanmcpc.github.io) was born!
@@ -116,7 +116,7 @@ for( ; ; ) {
 10 PRINT "Loop!"
 20 GOTO 10
 ```
-### Big Update #1
+### Big Update Number 1
 #### What's the big update you ask?
 #### It's: Website is now accessable from both **___computer___** and **___phone___**!!!
 #### **___{Drum_Music.mp4}___**
