@@ -154,20 +154,40 @@
 					}
 				}
 				var name_ = [
-					"Home / Home - The main page of the website / home",
-					"How did I make the website? / HDIMTW - How did I make the website? / how",
-					"Credit / Credit - All of the stuff and people that created this website will be listed here / credit",
-					"Sneak Peak and Event / Sneak Peak and Event - The Log for Big Event and a single Sneak Peak / spne",
-					"Other Project / Other Project - Where all of my knowledge and fun about HTML and JS is in / other_project"
+					{
+						"name": "Home",
+						"title": "Home - The main page of the website",
+						"address": "home"
+					},
+					{
+						"name": "How did I make the website?",
+						"title": "HDIMTW - How did I make the website?",
+						"address": "how"
+					},
+					{
+						"name": "Credit",
+						"title": "Credit - All of the stuff and people that created this website will be listed here",
+						"address": "credit"
+					},
+					{
+						"name": "Sneak Peak and Event",
+						"title": "Sneak Peak and Event - The Log for Big Event and a single Sneak Peak",
+						"address": "spne"
+					},
+					{
+						"name": "Other Project",
+						"title": "Other Project - Where all of my knowledge and fun about HTML and JS is in",
+						"address": "other_project"
+					}
 				];
 				//Syntax: Name / Description / Link (Space is important)
 				name_.forEach(function (list, index) {
 					var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
 					var anchor = document.createElement("a");
-					var anchor_text = document.createTextNode(list.split(" / ")[0]);
+					var anchor_text = document.createTextNode(list.name);
 					anchor.appendChild(anchor_text);
-					anchor.title = list.split(" / ")[1];
-					anchor.href = list.split(" / ")[2] + "?id=" + dateTime;
+					anchor.title = list.title;
+					anchor.href = list.address + "?id=" + dateTime;
 					anchor.onclick = "document.getElementById('test').style.animation = 'swipe-out 0.3s';"
 					document.getElementById("accbar").appendChild(anchor);
 					if (index < name_.length - 1) {
