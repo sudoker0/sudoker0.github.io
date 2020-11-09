@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <body onload="chec()"></body>
     <script>
         function chec() {
