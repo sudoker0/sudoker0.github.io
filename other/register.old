@@ -22,7 +22,7 @@
             <p>Also the key is encrypted so you don't have to worry about your information get leaked.</p>
             <p>To continue, please check the box: I am not a robot</p>
             <div class="robot">
-                <div class="aa"><a id="b" href="javascript:yes()" class="button">X</a><p id="c"><b>I am not a robot</b></p></div>
+                <div class="aa"><a rel="noreferrer" id="b" href="javascript:yes()" class="button">X</a><p id="c"><b>I am not a robot</b></p></div>
             </div>
 
             <button onclick="pass()">I am not a robot, please let me pass!</button>
