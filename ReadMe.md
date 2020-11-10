@@ -64,26 +64,26 @@
 #### Here is a table that show the percentage ratio of file in my repo
 File Extensions | Percentages | Number of files | Likely to change | File/Folder size (Bytes)
 ----------------|-------------|-----------------|------------------|--------------------------
-(Every file)    | 100%        | 230 files       | 5%               | 32,492,525 bytes
-*.css           | ~0.87%      | 2 files         | 2%               | 2,258 bytes
-*.delete        | ~0.43%      | 1 file          | 1%               | 173,764 bytes
-*.gif           | ~1.3%       | 3 files         | 2%               | 19,696 bytes
-*.gitattributes | ~0.43%      | 1 file          | 1%               | 68 bytes
-*.htaccess      | ~0.43%      | 1 file          | 1%               | 256 bytes
-*.html          | ~13.48%     | 31 files        | 10%              | 628,482 bytes
-*.ico           | ~1.27%      | 2 files         | 1%               | 209,639 bytes
-*.idx           | ~0.43%      | 1 file          | ~0%              | 51,724 bytes
-*.json          | ~1.74%      | 4 files         | 3%               | 1,734 bytes
-*.md            | ~1.27%      | 2 files         | 2%               | 12,394 bytes
-*.new           | ~0.43%      | 1 file          | ~0%              | 1,386,417 bytes
-*.old           | ~1.3%       | 3 files         | 1%               | 106,742 bytes
-*.pack          | ~0.43%      | 1 file          | ~0%              | 13,111,540 bytes
-*.png           | ~12.17%     | 28 files        | 4%               | 15,658,873 bytes
-*.sample        | ~4.78%      | 11 files        | ~0%              | 18,844 bytes
-*.ttf           | ~2.53%      | 4 files         | ~0%              | 653,688 bytes
-*.txt           | ~2.53%      | 3 files         | 2%               | 41,893 bytes
-*.xml           | ~0.87%      | 2 files         | 1%               | 40 bytes
-(No Extension)  | ~56.09%     | 129 files       | ~0%              | 338,420 bytes
+(Every file)    | 100%        | 453 files       | 5%               | 29,641,962 bytes
+*.css           | ~0.44%      | 2 files         | 2%               | 1,910 bytes
+*.delete        | ~0.22%      | 1 file          | 1%               | 174,114 bytes
+*.gif           | ~0.66%      | 3 files         | 2%               | 19,696 bytes
+*.gitattributes | ~0.22%      | 1 file          | 1%               | 68 bytes
+*.htaccess      | ~0.22%      | 1 file          | 1%               | 256 bytes
+*.html          | ~6.84%      | 31 files        | 10%              | 641,966 bytes
+*.ico           | ~0.44%      | 2 files         | 1%               | 209,639 bytes
+*.idx           | ~0.22%      | 1 file          | ~0%              | 51,724 bytes
+*.json          | ~0.88%      | 4 files         | 3%               | 1,733 bytes
+*.md            | ~0.44%      | 2 files         | 2%               | 12,957 bytes
+*.new           | ~0.22%      | 1 file          | ~0%              | 1,386,417 bytes
+*.old           | ~0.66%      | 3 files         | 1%               | 106,779 bytes
+*.pack          | ~0.22%      | 1 file          | ~0%              | 13,111,540 bytes
+*.png           | ~6.18%      | 28 files        | 4%               | 8,995,478 bytes
+*.sample        | ~2.42%      | 11 files        | ~0%              | 18,844 bytes
+*.ttf           | ~0.88%      | 4 files         | ~0%              | 653,688 bytes
+*.txt           | ~0.66%      | 3 files         | 2%               | 41,913 bytes
+*.xml           | ~0.44%      | 2 files         | 1%               | 40 bytes
+(No Extension)  | ~77.70%     | 352 files       | ~0%              | 3,874,780 bytes
 #### **Note**: The percentage and likely to change number is estimated!
 > You might ask: How do I able to get all of the file extensions, the number of file and other info?
 >> For file extensions and number of files: ```cmd /c ">NUL (@for /R %I in (*) do @set /a ext[%~xI] += 1) & set ext["```
