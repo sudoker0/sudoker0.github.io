@@ -61,7 +61,7 @@
 - If GitHub support PHP or other language, will I ever use those language to write my website?
     - **Maybe**, but I will probably prefer to stay on HTML, mainly because that mean I have to learn a new language and adapt all of the difference syntax and other things too
 ### Other
-#### Here is a table that show the percentage ratio of file in my repo
+#### File information of the website's folder
 File Extensions | Percentages | Number of files | Likely to change | File/Folder size (Bytes)
 ----------------|-------------|-----------------|------------------|--------------------------
 (Every file)    | 100%        | 453 files       | 5%               | 29,641,962 bytes
