@@ -85,6 +85,7 @@ File Extensions | Percentages | Number of files | Likely to change | File/Folder
 *.xml           | ~0.44%      | 2 files         | 1%               | 40 bytes
 (No Extension)  | ~77.70%     | 352 files       | ~0%              | 3,874,780 bytes
 #### **Note**: The percentage and likely to change number is estimated!
+[Download the table as HTML in a zip file (Style is not the same)](https://drive.google.com/u/0/uc?id=1ijDD_QCY6xbfYFVnKyJvaJsK8WKmu2zo&export=download)
 > You might ask: How do I able to get all of the file extensions, the number of file and other info?
 >> For file extensions and number of files: ```cmd /c ">NUL (@for /R %I in (*) do @set /a ext[%~xI] += 1) & set ext["```
 >>
