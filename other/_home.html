@@ -121,6 +121,19 @@
 				z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
 				cursor: not-allowed; /* Add a pointer on hover */
 			}
+			#secret {
+				position: fixed; /* Sit on top of the page content */
+				display: block; /* Hidden by default */
+				width: 0; /* Full width (cover the whole page) */
+				height: 100%; /* Full height (cover the whole page) */
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: rgb(0, 0, 0); /* Black background with opacity */
+				z-index: 10; /* Specify a stack order in case you're using a different order for other elements */
+				transition: 0.5s;
+			}
 			@keyframes swipe {
 				0% { opacity: 0; }
 				10% { opacity: .1; }
@@ -134,6 +147,16 @@
 				90% { opacity: .9; }
 				100% { opacity: 1; }
 			}
+			#secret_textarea {
+				width: 100%;
+				height: 100%;
+				display: none;
+				resize: none;
+				outline: none;
+				position: absolute;
+				background-color: black;
+				color: white;
+			}
 		</style>
 	</head>
 	<body onload="check()" id="temp">
@@ -143,6 +166,9 @@
 				<h2 style="color: white; text-align: center;">Because JavaScript is required to make the website function correctly, please enable JavaScript</h2>
 			</div>
 		</noscript>
+		<div id="secret">
+			<canvas width="480" height="270"></canvas>
+		</div>
 		<div class="accb" style="width: auto; height: auto" id="accb">
 			<h3 id="accbar"></h3>
 		</div>
@@ -286,7 +312,64 @@
 						document.getElementById("default").innerHTML = default_1;
 						document.getElementById("basic").innerHTML = basic;
 						document.getElementById("other").innerHTML = other;
-					})
+					});
+					var allowed_ = false;
+					var contextmenu = document.getElementById('img4').getElementsByTagName("div")[0];
+					var initX, initY, mousePressX, mousePressY;
+					contextmenu.addEventListener('mousedown', function(event) {
+						if (allowed_) {
+							initX = this.offsetLeft;
+							initY = this.offsetTop;
+							mousePressX = event.clientX;
+							mousePressY = event.clientY;
+							this.addEventListener('mousemove', repositionElement, false);
+							window.addEventListener('mouseup', function() {
+								contextmenu.removeEventListener('mousemove', repositionElement, false);
+							}, false);
+						}
+					}, false);
+					function repositionElement(event) {
+						this.style.left = initX + event.clientX - mousePressX + 'px';
+						this.style.top = initY + event.clientY - mousePressY + 'px';
+					}
+					let buffer = [];
+                    let lastKeyTime = Date.now();
+                    'use strict';
+                    document.addEventListener('keydown', event => {
+                        const currentTime = Date.now();
+                        if (currentTime - lastKeyTime > 1000) { buffer = []; }
+                        const key = event.key.toLowerCase();
+                        buffer.push(key);
+                        lastKeyTime = currentTime;
+                        if (buffer.includes("s", 0) && buffer.includes("e", 1) && buffer.includes("c", 2) && buffer.includes("r", 3) && buffer.includes("e", 4) && buffer.includes("t", 5)) {
+                            if (document.getElementById("img4").style.display == "block") {
+								var d = document.createAttribute("draggable");
+								d.value = "false";
+								document.getElementById("img4").getElementsByTagName("div")[0].getElementsByTagName("img")[0].setAttributeNode(d)
+								allowed_ = true;
+								console.log("p");
+								var a = document.createElement("button");
+								var b = document.createAttribute("style");
+								var e = document.createAttribute("onclick");
+								var c = document.createTextNode("Activate Protocol \"secret\"")
+								b.value = 'position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); z-index: -1;';
+								e.value = "secret()";
+								a.setAttributeNode(b);
+								a.setAttributeNode(e);
+								a.appendChild(c);
+								document.getElementById("img4").appendChild(a)
+							} else {
+								buffer = []
+							}
+                        }
+					});
+					function secret() {
+						if (prompt("To continue, please insert the correct \"passwrd\" word into the box") == "password") {
+							document.getElementById("secret").style.width = "100%";
+						} else {
+							alert("Wrong password")
+						}
+					}
 				</script>
 			</center>
 			<hr style="border: 1.5px solid black; background-color: black;">
