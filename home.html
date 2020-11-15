@@ -282,7 +282,23 @@
 				<div id="img9"><div id="image" style="color:rgb(170, 170, 170); width:image width px; font-size:150%; text-align:center;"><img src="website/image/9.png" style="width: 100%; height: auto;"><b>Compact Calculator [1.15.2] [Front View] [9.png]</b></div><div onclick="oimage9()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
 				</script>
 				<script>
-					
+					setInterval(function() {
+						var xhr = new XMLHttpRequest();
+						var file = "https://quanmcpc.github.io/website/image/empty.jpg";
+						var randomNum = Math.round(Math.random() * 10000);
+						xhr.open('HEAD', file + "?rand=" + randomNum, true);
+						xhr.send();
+						xhr.addEventListener("readystatechange", processRequest, false);
+						function processRequest(e) {
+							if (xhr.readyState == 4) {
+								if (xhr.status >= 200 && xhr.status < 304) {
+									document.getElementById("nointernet").style.display = "none";
+								} else {
+									document.getElementById("nointernet").style.display = "block";
+								}
+							}
+						}
+					}, 1000)
 					function readTextFile(file, callback) {
 						var rawFile = new XMLHttpRequest();
 						rawFile.overrideMimeType("application/json");
