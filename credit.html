@@ -209,15 +209,19 @@
 					xhr.addEventListener("readystatechange", processRequest, false);
 					function processRequest(e) {
 						if (getParameterByName("no_internet_check") == "true") {} else {
-							if (xhr.readyState == 4) {
-								if (xhr.status >= 200 && xhr.status < 304) {
-									//document.getElementById("nointernet").style.display = "none";
-									document.getElementById("nointernet").style.opacity = "0";
-								} else {
-									//document.getElementById("nointernet").style.display = "block";
-									document.getElementById("nointernet").style.opacity = "1";
-								}
-							}
+							if (xhr.status >= 200 && xhr.status < 304) {
+										//document.getElementById("nointernet").style.display = "none";
+										document.getElementById("nointernet").style.opacity = "0";
+										for (i = 0; i < document.getElementsByTagName("a").length; i++) {
+											document.getElementsByTagName("a")[i].style.pointerEvents = "auto";
+										}
+									} else {
+										//document.getElementById("nointernet").style.display = "block";
+										document.getElementById("nointernet").style.opacity = "1";
+										for (i = 0; i < document.getElementsByTagName("a").length; i++) {
+											document.getElementsByTagName("a")[i].style.pointerEvents = "none";
+										}
+									}
 						}
 					}
 				}, 1000)
