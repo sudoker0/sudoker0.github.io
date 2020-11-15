@@ -134,6 +134,20 @@
 				90% { opacity: .9; }
 				100% { opacity: 1; }
 			}
+			#nointernet {
+				width: 100%;
+				background-color: rgba(255, 0, 0, 0.75);
+				color: white;
+				text-align: center;
+				bottom: 0;
+				position: fixed;
+				margin-left: -8px;
+				display: none;
+			}
+			#nointernet p {
+				margin-top: 5px;
+				margin-bottom: 5px;
+			}
 		</style>
 	</head>
 	<body onload="check()" id="temp">
@@ -145,6 +159,9 @@
 		</noscript>
 		<div class="accb" style="width: auto; height: auto" id="accb">
 			<h3 id="accbar"></h3>
+		</div>
+		<div id="nointernet">
+			<p>No Internet</p>
 		</div>
 		<center>
 			<script>
@@ -265,6 +282,21 @@
 				<div id="img9"><div id="image" style="color:rgb(170, 170, 170); width:image width px; font-size:150%; text-align:center;"><img src="website/image/9.png" style="width: 100%; height: auto;"><b>Compact Calculator [1.15.2] [Front View] [9.png]</b></div><div onclick="oimage9()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
 				</script>
 				<script>
+					setInterval(function() {
+						var xhr = XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHttp');
+						xhr.onload = function(){
+							if(yes instanceof Function){
+								document.getElementById("nointernet").style.display = 'none';
+							}
+						}
+						xhr.onerror = function(){
+							if(no instanceof Function){
+								document.getElementById("nointernet").style.display = 'block';
+							}
+						}
+						xhr.open("GET","file_size.json",true);
+						xhr.send();
+					}, 100);
 					function readTextFile(file, callback) {
 						var rawFile = new XMLHttpRequest();
 						rawFile.overrideMimeType("application/json");
