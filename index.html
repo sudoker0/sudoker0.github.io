@@ -78,6 +78,23 @@
 				background-color: rgba(0,0,0,0.8); /* Black background with opacity */
 				z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
 				cursor: not-allowed; /* Add a pointer on hover */
+            }
+            #nointernet {
+				width: 100%;
+				background-color: rgba(255, 0, 0, 0.75);
+				color: white;
+				text-align: center;
+				bottom: 0;
+				position: fixed;
+				margin-left: -8px;
+				display: block;
+				pointer-events: none;
+				opacity: 0;
+				transition: 0.5s;
+			}
+			#nointernet p {
+				margin-top: 5px;
+				margin-bottom: 5px;
 			}
         </style>
 		<link rel="icon" href="website/image/favicon.ico">
@@ -89,7 +106,10 @@
 				<h2 style="color: red; text-align: center">Important!</h2>
 				<h2 style="color: white; text-align: center;">Because JavaScript is required to make the website function correctly, please enable JavaScript</h2>
 			</div>
-		</noscript>
+        </noscript>
+        <div id="nointernet">
+            <p>No Internet</p>
+        </div>
         <div class="center-screen">
             <center><img src="website/image/loading.gif"></center>
             <center><h4>Loading: Quan_MCPC's Default Home</h4></center>
@@ -118,6 +138,7 @@
 			//document.getElementById("access").innerHTML = html_link1;
 			document.getElementById("lite_access").innerHTML = html_link2;
             var i = 0;
+            var pause = false;
             window.mobileCkeck_ = mobileCkeck();
             function yes() {
                 window.mobileCkeck_ = false;
@@ -159,22 +180,45 @@
                         var width = 1;
                         var id = setInterval(frame, 50);
                         function frame() {
-                            if (width >= 100) {
-                                clearInterval(id);
-                                i = 0;
-                                var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
-                                var webSite = "home?id=" + dateTime
-                                sessionStorage.setItem("access_granted", 1);
-                                window.location.replace(webSite);
-                            } else {
-                                width++;
-                                elem.style.width = width + "%";
-                                elem.innerHTML = width + "%";
+                            if (!pause) {
+                                if (width >= 100) {
+                                    clearInterval(id);
+                                    i = 0;
+                                    var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
+                                    var webSite = "home?id=" + dateTime
+                                    sessionStorage.setItem("access_granted", 1);
+                                    window.location.replace(webSite);
+                                } else {
+                                    width++;
+                                    elem.style.width = width + "%";
+                                    elem.innerHTML = width + "%";
+                                }
                             }
                         }
                     }
                 }
             }
+            setInterval(function() {
+				var xhr = new XMLHttpRequest();
+				var file = "https://quanmcpc.github.io/website/image/empty.jpg";
+				var randomNum = Math.round(Math.random() * 10000);
+				xhr.open('HEAD', file + "?rand=" + randomNum, true);
+				xhr.send();
+				xhr.addEventListener("readystatechange", processRequest, false);
+				function processRequest(e) {
+					if (xhr.readyState == 4) {
+						if (xhr.status >= 200 && xhr.status < 304) {
+							//document.getElementById("nointernet").style.display = "none";
+                            document.getElementById("nointernet").style.opacity = "0";
+                            pause = false;
+						} else {
+							//document.getElementById("nointernet").style.display = "block";
+                            document.getElementById("nointernet").style.opacity = "1";
+                            pause = true;
+						}
+					}
+				}
+			}, 1000)
 		</script>
 	</body>
 		<!--<script>

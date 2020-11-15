@@ -26,6 +26,22 @@
 			@media (min-width: 640px) { body { font-size: 0.7rem; } #accbar a { margin-left: 9px; margin-right: 9px; }}
 			@media (min-width: 960px) { body { font-size: 0.8rem; } #accbar a { margin-left: 11px; margin-right: 11px; }}
 			@media (min-width: 1100px) { body { font-size: 1rem; } #accbar a { margin-left: 13px; margin-right: 13px; }}
+			#nointernet {
+				background-color: rgba(255, 255, 255, 0.7);
+				width: 100%;
+				text-align: center;
+				bottom: 0;
+				position: fixed;
+				margin-left: -8px;
+				display: block;
+				pointer-events: none;
+				opacity: 0;
+				transition: 0.5s;
+			}
+			#nointernet p {
+				margin-top: 5px;
+				margin-bottom: 5px;
+			}
 		</style>
 	</head>
 	<body onload="check()">
@@ -33,6 +49,11 @@
 			<hr style="border-style:solid">
 			<h3 id="accbar"></h3>
 			<hr style="border-style:solid">
+			<div id="nointernet">
+				<hr style="border-style:solid">
+				<p>No Internet</p>
+				<hr style="border-style:solid">
+			</div>
 			<script>
 				function check() {
 					function getParameterByName(name, url) {
@@ -91,6 +112,25 @@
 						document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
 					}*/
 				});
+				setInterval(function() {
+					var xhr = new XMLHttpRequest();
+					var file = "https://quanmcpc.github.io/website/image/empty.jpg";
+					var randomNum = Math.round(Math.random() * 10000);
+					xhr.open('HEAD', file + "?rand=" + randomNum, true);
+					xhr.send();
+					xhr.addEventListener("readystatechange", processRequest, false);
+					function processRequest(e) {
+						if (xhr.readyState == 4) {
+							if (xhr.status >= 200 && xhr.status < 304) {
+								//document.getElementById("nointernet").style.display = "none";
+								document.getElementById("nointernet").style.opacity = "0";
+							} else {
+								//document.getElementById("nointernet").style.display = "block";
+								document.getElementById("nointernet").style.opacity = "1";
+							}
+						}
+					}
+				}, 1000)
 			</script>
 		</center>
 		<center>

@@ -142,7 +142,10 @@
 				bottom: 0;
 				position: fixed;
 				margin-left: -8px;
-				display: none;
+				display: block;
+				pointer-events: none;
+				opacity: 0;
+				transition: 0.5s;
 			}
 			#nointernet p {
 				margin-top: 5px;
@@ -292,9 +295,11 @@
 						function processRequest(e) {
 							if (xhr.readyState == 4) {
 								if (xhr.status >= 200 && xhr.status < 304) {
-									document.getElementById("nointernet").style.display = "none";
+									//document.getElementById("nointernet").style.display = "none";
+									document.getElementById("nointernet").style.opacity = "0";
 								} else {
-									document.getElementById("nointernet").style.display = "block";
+									//document.getElementById("nointernet").style.display = "block";
+									document.getElementById("nointernet").style.opacity = "1";
 								}
 							}
 						}
