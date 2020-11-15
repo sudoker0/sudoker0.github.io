@@ -294,7 +294,7 @@
 								no();
 							}
 						}
-						xhr.open("GET","file_size.json",true);
+						xhr.open("GET","dummy.html",true);
 						xhr.send();
 					}
 					setInterval(isOnline(
@@ -304,7 +304,7 @@
 						function(){
 							document.getElementById("nointernet").style.display = 'none';
 						}
-					), 100);
+					), 1000);
 					function readTextFile(file, callback) {
 						var rawFile = new XMLHttpRequest();
 						rawFile.overrideMimeType("application/json");
