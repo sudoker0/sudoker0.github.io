@@ -282,29 +282,7 @@
 				<div id="img9"><div id="image" style="color:rgb(170, 170, 170); width:image width px; font-size:150%; text-align:center;"><img src="website/image/9.png" style="width: 100%; height: auto;"><b>Compact Calculator [1.15.2] [Front View] [9.png]</b></div><div onclick="oimage9()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
 				</script>
 				<script>
-					function isOnline(no,yes){
-						var xhr = XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHttp');
-						xhr.onload = function(){
-							if(yes instanceof Function){
-								yes();
-							}
-						}
-						xhr.onerror = function(){
-							if(no instanceof Function){
-								no();
-							}
-						}
-						xhr.open("GET","website/image/1.png",true);
-						xhr.send();
-					}
-					setInterval(isOnline(
-						function(){
-							document.getElementById("nointernet").style.display = 'block';
-						},
-						function(){
-							document.getElementById("nointernet").style.display = 'none';
-						}
-					), 1000);
+					
 					function readTextFile(file, callback) {
 						var rawFile = new XMLHttpRequest();
 						rawFile.overrideMimeType("application/json");
