@@ -125,15 +125,15 @@
 		</div>
 		<center>
 			<script>
+				function getParameterByName(name, url) {
+					if (!url) url = window.location.href;
+					name = name.replace(/[\[\]]/g, '\\$&');
+					var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
+					if (!results) return null;
+					if (!results[2]) return '';
+					return decodeURIComponent(results[2].replace(/\+/g, ' '));
+				}
 				function check() {
-					function getParameterByName(name, url) {
-						if (!url) url = window.location.href;
-						name = name.replace(/[\[\]]/g, '\\$&');
-						var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
-						if (!results) return null;
-						if (!results[2]) return '';
-						return decodeURIComponent(results[2].replace(/\+/g, ' '));
-					}
 					if (getParameterByName("sv_cheat") >= 1 || getParameterByName("debug") >= 1 || getParameterByName("hack") >= 1) {
 						window.location.replace("ban");
 					}
@@ -198,18 +198,18 @@
 					function processRequest(e) {
 						if (getParameterByName("no_internet_check") == "true") {} else {
 							if (xhr.status >= 200 && xhr.status < 304) {
-										//document.getElementById("nointernet").style.display = "none";
-										document.getElementById("nointernet").style.opacity = "0";
-										for (i = 0; i < document.getElementsByTagName("a").length; i++) {
-											document.getElementsByTagName("a")[i].style.pointerEvents = "auto";
-										}
-									} else {
-										//document.getElementById("nointernet").style.display = "block";
-										document.getElementById("nointernet").style.opacity = "1";
-										for (i = 0; i < document.getElementsByTagName("a").length; i++) {
-											document.getElementsByTagName("a")[i].style.pointerEvents = "none";
-										}
-									}
+								//document.getElementById("nointernet").style.display = "none";
+								document.getElementById("nointernet").style.opacity = "0";
+								for (i = 0; i < document.getElementsByTagName("a").length; i++) {
+									document.getElementsByTagName("a")[i].style.pointerEvents = "auto";
+								}
+							} else {
+								//document.getElementById("nointernet").style.display = "block";
+								document.getElementById("nointernet").style.opacity = "1";
+								for (i = 0; i < document.getElementsByTagName("a").length; i++) {
+									document.getElementsByTagName("a")[i].style.pointerEvents = "none";
+								}
+							}
 						}
 					}
 				}, 1000)
