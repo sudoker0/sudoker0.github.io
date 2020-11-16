@@ -152,7 +152,7 @@
 				margin-top: 5px;
 				margin-bottom: 5px;
 			}
-			form {
+			#b {
 				border: 1px solid black;
 				width: 350px;
 				height: 120px;
@@ -161,6 +161,7 @@
 				left: 50%;
 				transform: translate(-50%, -50%);
 				background-color: rgb(196, 196, 196);
+				display: none;
 			}
 			#a {
 				position: absolute;
@@ -174,7 +175,7 @@
 			}
 			#form_overlay {
 				position: fixed; /* Sit on top of the page content */
-				display: block; /* Hidden by default */
+				display: none; /* Hidden by default */
 				width: 100%; /* Full width (cover the whole page) */
 				height: 100%; /* Full height (cover the whole page) */
 				top: 0;
@@ -388,13 +389,13 @@
 			</script>
 		</div>
 		<div id="form_overlay">
-			<form action="./home.html" method="POST" onsubmit="validate()">
+			<div id="b">
 				<div id="a">
 					<label for="key">To continue, please enter the Secret ID</label><input name="key" pattern="[a-zA-Z0-9]{5}-[a-zA-Z0-9]{5}-[a-zA-Z0-9]{5}-[a-zA-Z0-9]{5}-[a-zA-Z0-9]{5}" placeholder="Format: 12345-abcde-ABCDE-67890-11111" style="width: 275px; border: 2px solid rgb(0, 0, 0)"><br><br>
-					<input type="submit" value="Submit">
+					<input type="button" value="Submit" onclick="validate()">
 					<p>Form By QuanMCPC</p>
 				</div>
-			</form>
+			</div>
 		</div>
 		<script>
 			var a = ["5Q4E5R5Q5Q5J5Q4D5R5R5P495O5R5L5R5L4C5L4E5R4E5P4C5L5R5P495R4B"]
