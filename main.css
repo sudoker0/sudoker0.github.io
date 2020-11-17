@@ -35,3 +35,7 @@ h4 {
 body {
   overflow-y: scroll;
 }
+a {
+  font-family: Raleway;
+  font-weight: 600;
+}
