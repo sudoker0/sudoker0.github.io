@@ -52,6 +52,7 @@
 				margin-left: -8px;
 				margin-right: -8px;
 				margin-top: -8px;
+				transition: top 0.3s;
 			}
 			div.container {
 				margin: 20px;
@@ -202,6 +203,16 @@
 		</div>
 		<center>
 			<script>
+				var prevScrollpos = window.pageYOffset;
+				window.onscroll = function() {
+				var currentScrollPos = window.pageYOffset;
+				if (prevScrollpos > currentScrollPos) {
+					document.getElementById("accb").style.top = "0";
+				} else {
+					document.getElementById("accb").style.top = "-" + document.getElementById("accb").offsetHeight + "px";
+				}
+				prevScrollpos = currentScrollPos;
+				}
 				function getParameterByName(name, url) {
 					if (!url) url = window.location.href;
 					name = name.replace(/[\[\]]/g, '\\$&');
