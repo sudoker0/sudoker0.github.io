@@ -108,6 +108,19 @@
 				margin-top: 5px;
 				margin-bottom: 5px;
 			}
+			#screentoosmall {
+				position: fixed; /* Sit on top of the page content */
+				display: none; /* Hidden by default */
+				width: 100%; /* Full width (cover the whole page) */
+				height: 100%; /* Full height (cover the whole page) */
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: black; /* Black background with opacity */
+				z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+				cursor: not-allowed; /* Add a pointer on hover */
+			}
 		</style>
 	</head>
 	<body onload="check()">
@@ -124,8 +137,22 @@
 		<div id="nointernet">
 			<p>No Internet</p>
 		</div>
+		<div id="screentoosmall">
+			<h2 style="color:red; text-align: center;">Error!</h2>
+			<p style="text-align: center; color: white">We have detected that the width of the screen that you are using right now is too small for the website to render properly</p>
+			<p style="text-align: center; color: white;">Try to rotate the device so that the screen orientation is horizontal. Or if that didn't work either, then that mean your screen is incompatiable to view the website</p>
+		</div>
 		<center>
 			<script>
+				window.onresize = function() {
+					if (getParameterByName("no_screen_size_check") == "true") {} else {
+						if (window.innerWidth < 320) {
+							document.getElementById("screentoosmall").style.display = "block";
+						} else {
+							document.getElementById("screentoosmall").style.display = "none";
+						}
+					}
+				}
 				var prevScrollpos = window.pageYOffset;
 				window.onscroll = function() {
 				var currentScrollPos = window.pageYOffset;
