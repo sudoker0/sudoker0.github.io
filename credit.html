@@ -57,8 +57,11 @@
 				margin-left: -8px;
 				margin-right: -8px;
 				text-align: center;
+				position: fixed;
+				width: 100%;
 			}
 			#accb_small_ {
+				position: sticky;
 				color: white;
 				top: 0;
 				opacity: 1;
@@ -69,6 +72,7 @@
 				margin-right: -8px;
 				text-align: center;
 				margin-top: -8px;
+				transition: top 0.3s;
 			}
 			.arrow {
 				border: solid black;
@@ -193,6 +197,8 @@
 		<center>
 			<script>
 				window.onload = window.onresize = function() {
+					accb_small_isOn = false;
+					document.getElementById("accb_small").style.display = "none"
 					if (getParameterByName("no_screen_size_check") == "true") {} else {
 						if (window.innerWidth < 320) {
 							document.getElementById("screentoosmall").style.display = "block";
@@ -220,13 +226,17 @@
 				}
 				var prevScrollpos = window.pageYOffset;
 				window.onscroll = function() {
-				var currentScrollPos = window.pageYOffset;
-				if (prevScrollpos > currentScrollPos) {
-					document.getElementsByClassName("accb")[0].style.top = "0";
-				} else {
-					document.getElementsByClassName("accb")[0].style.top = "-" + document.getElementsByClassName("accb")[0].offsetHeight + "px";
-				}
-				prevScrollpos = currentScrollPos;
+					document.getElementById("accb_small").style.display = "none"
+					accb_small_isOn = false;
+					var currentScrollPos = window.pageYOffset;
+					if (prevScrollpos > currentScrollPos) {
+						document.getElementsByClassName("accb")[0].style.top = "0";
+						document.getElementById("accb_small_").style.top = "0";
+					} else {
+						document.getElementsByClassName("accb")[0].style.top = "-" + document.getElementsByClassName("accb")[0].offsetHeight + "px";
+						document.getElementById("accb_small_").style.top = "-" + document.getElementById("accb_small_").offsetHeight + "px";
+					}
+					prevScrollpos = currentScrollPos;
 				}
 				function getParameterByName(name, url) {
 					if (!url) url = window.location.href;
@@ -237,6 +247,7 @@
 					return decodeURIComponent(results[2].replace(/\+/g, ' '));
 				}
 				function check() {
+					document.getElementById("accb_small").style.top = document.getElementById("accb_small_").style.width
 					if (getParameterByName("sv_cheat") >= 1 || getParameterByName("debug") >= 1 || getParameterByName("hack") >= 1) {
 						window.location.replace("ban");
 					}
