@@ -54,6 +54,16 @@
 				margin-top: -8px;
 				transition: top 0.3s;
 			}
+			#accb_small {
+				opacity: 1;
+				display: block;
+				background-color:rgba(20, 20, 20, 0.850);
+				border: 1px solid rgba(20, 20, 20, 0.850);
+				margin-left: -8px;
+				margin-right: -8px;
+				text-align: center;
+				font-size: 2em
+			}
 			div.container {
 				margin: 20px;
 				background-color:rgba(20, 20, 20, 0.850);
@@ -210,6 +220,9 @@
 		<div class="accb" style="width: auto; height: auto" id="accb">
 			<h3 id="accbar"></h3>
 		</div>
+		<div id="accb_small">
+			<h3 id="accbar_small"></h3>
+		</div>
 		<div id="nointernet">
 			<p>No Internet</p>
 		</div>
@@ -292,12 +305,15 @@
 				//Syntax: Name / Description / Link (Space is important)
 				name_.forEach(function (list, index) {
 					var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
-					var anchor = document.createElement("a");
-					var anchor_text = document.createTextNode(list.name);
+					var anchor = document.createElement("a"), anchor_text = document.createTextNode(list.name), anchor2 = document.createElement("a"), anchor2_text = document.createTextNode(list.name), anchor3 = document.createElement("br");
 					anchor.appendChild(anchor_text);
 					anchor.title = list.title;
 					anchor.href = list.address + "?id=" + dateTime;
-					anchor.onclick = "document.getElementById('test').style.animation = 'swipe-out 0.3s';"
+					anchor2.appendChild(anchor2_text);
+					anchor2.title = list.title;
+					anchor2.href = list.address + "?id=" + dateTime;
+					document.getElementById("accbar_small").appendChild(anchor2)
+					document.getElementById("accbar_small").appendChild(anchor3)
 					document.getElementById("accbar").appendChild(anchor);
 					/*if (index < name_.length - 1) {
 						document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";

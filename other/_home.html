@@ -227,12 +227,10 @@
 				//Syntax: Name / Description / Link (Space is important)
 				name_.forEach(function (list, index) {
 					var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
-					var anchor = document.createElement("a");
-					var anchor_text = document.createTextNode(list.name);
+					var anchor = document.createElement("a"), anchor_text = document.createTextNode(list.name);
 					anchor.appendChild(anchor_text);
 					anchor.title = list.title;
 					anchor.href = list.address + "?id=" + dateTime;
-					anchor.onclick = "document.getElementById('test').style.animation = 'swipe-out 0.3s';"
 					document.getElementById("accbar").appendChild(anchor);
 					/*if (index < name_.length - 1) {
 						document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
