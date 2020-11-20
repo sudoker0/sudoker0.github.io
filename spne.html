@@ -23,11 +23,11 @@
 				}
 			}
 			html { font-size: 100%; }
-			@media (min-width: 320px) { body { font-size: 0.4rem; } #accbar a { margin-left: 5px; margin-right: 5px; }}
-			@media (min-width: 482px) { body { font-size: 0.6rem; } #accbar a { margin-left: 7px; margin-right: 7px; }}
-			@media (min-width: 640px) { body { font-size: 0.7rem; } #accbar a { margin-left: 9px; margin-right: 9px; }}
-			@media (min-width: 960px) { body { font-size: 0.8rem; } #accbar a { margin-left: 11px; margin-right: 11px; }}
-			@media (min-width: 1100px) { body { font-size: 1rem; } #accbar a { margin-left: 13px; margin-right: 13px; }}
+			@media (min-width: 320px) { body { font-size: 0.4rem; } #accbar a { margin-left: 5px; margin-right: 5px; } #accb_small, #accb_small_ p { font-size: 1.9em }}
+			@media (min-width: 482px) { body { font-size: 0.6rem; } #accbar a { margin-left: 7px; margin-right: 7px; } #accb_small, #accb_small_ p { font-size: 1.7em } }
+			@media (min-width: 640px) { body { font-size: 0.7rem; } #accbar a { margin-left: 9px; margin-right: 9px; } #accb_small, #accb_small_ p { font-size: 1.5em } }
+			@media (min-width: 960px) { body { font-size: 0.8rem; } #accbar a { margin-left: 11px; margin-right: 11px; } #accb_small, #accb_small_ p { font-size: 1.3em } }
+			@media (min-width: 1100px) { body { font-size: 1rem; } #accbar a { margin-left: 13px; margin-right: 13px; } #accb_small, #accb_small_ p { font-size: 1.1em } }
 			a:link, a:visited {
 				color: rgb(255, 255, 255);
 				text-decoration: none;
@@ -48,6 +48,37 @@
 				margin-right: -8px;
 				margin-top: -8px;
 				transition: top 0.3s;
+			}
+			#accb_small {
+				opacity: 1;
+				display: none;
+				background-color:rgba(20, 20, 20, 0.850);
+				border: 1px solid rgba(20, 20, 20, 0.850);
+				margin-left: -8px;
+				margin-right: -8px;
+				text-align: center;
+			}
+			#accb_small_ {
+				color: white;
+				top: 0;
+				opacity: 1;
+				display: none;
+				background-color:rgba(20, 20, 20, 0.850);
+				border: 1px solid rgba(20, 20, 20, 0.850);
+				margin-left: -8px;
+				margin-right: -8px;
+				text-align: center;
+				margin-top: -8px;
+			}
+			.arrow {
+				border: solid black;
+				border-width: 0 3px 3px 0;
+				display: inline-block;
+				padding: 3px;
+			}
+			.down {
+				transform: rotate(45deg);
+				-webkit-transform: rotate(45deg);
 			}
 			div.container {
 				margin: 20px;
@@ -133,6 +164,12 @@
 			<h3 id="accbar"></h3>
 			<!--<h3 style="display: block; float: left; margin-top: 0; cursor: pointer; margin-left: 0"><img id="icon_accb1" src="../website/image/logo.png" height="59px"></h3><h3 id="accbar" style=" text-align: left; margin-left: 80px;"></h3>-->
 		</div>
+		<div id="accb_small_">
+			<p style="cursor: pointer"><a onclick="accb_small()">Home &#8681;</a></p>
+		</div>
+		<div id="accb_small">
+			<h3 id="accbar_small"></h3>
+		</div>
 		<div id="nointernet">
 			<p>No Internet</p>
 		</div>
@@ -143,13 +180,30 @@
 		</div>
 		<center>
 			<script>
-				window.onresize = function() {
+				window.onload = window.onresize = function() {
 					if (getParameterByName("no_screen_size_check") == "true") {} else {
 						if (window.innerWidth < 320) {
 							document.getElementById("screentoosmall").style.display = "block";
 						} else {
 							document.getElementById("screentoosmall").style.display = "none";
 						}
+					}
+					if (window.innerWidth < 960) {
+						document.getElementById("accb_small_").style.display = "block";
+						document.getElementsByClassName("accb")[0].style.display = "none"
+					} else {
+						document.getElementById("accb_small_").style.display = "none";
+						document.getElementsByClassName("accb")[0].style.display = "block";
+					}
+				}
+				accb_small_isOn = false;
+				function accb_small() {
+					if (accb_small_isOn) {
+						document.getElementById("accb_small").style.display = "none";
+						accb_small_isOn = false;
+					} else {
+						document.getElementById("accb_small").style.display = "block";
+						accb_small_isOn = true;
 					}
 				}
 				var prevScrollpos = window.pageYOffset;
@@ -214,10 +268,15 @@
 				//Syntax: Name / Description / Link (Space is important)
 				name_.forEach(function (list, index) {
 					var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
-					var anchor = document.createElement("a"), anchor_text = document.createTextNode(list.name);
+					var anchor = document.createElement("a"), anchor_text = document.createTextNode(list.name), anchor2 = document.createElement("a"), anchor2_text = document.createTextNode(list.name), anchor3 = document.createElement("br");
 					anchor.appendChild(anchor_text);
 					anchor.title = list.title;
 					anchor.href = list.address + "?id=" + dateTime;
+					anchor2.appendChild(anchor2_text);
+					anchor2.title = list.title;
+					anchor2.href = list.address + "?id=" + dateTime;
+					document.getElementById("accbar_small").appendChild(anchor2)
+					document.getElementById("accbar_small").appendChild(anchor3)
 					document.getElementById("accbar").appendChild(anchor);
 					/*if (index < name_.length - 1) {
 						document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";

@@ -23,11 +23,11 @@
 				}
 			}
 			html { font-size: 100%; }
-			@media (min-width: 320px) { body { font-size: 0.4rem; } #accbar a { margin-left: 5px; margin-right: 5px; } #accb_small { font-size: 1.9em }}
-			@media (min-width: 482px) { body { font-size: 0.6rem; } #accbar a { margin-left: 7px; margin-right: 7px; } #accb_small { font-size: 1.7em } }
-			@media (min-width: 640px) { body { font-size: 0.7rem; } #accbar a { margin-left: 9px; margin-right: 9px; } #accb_small { font-size: 1.5em } }
-			@media (min-width: 960px) { body { font-size: 0.8rem; } #accbar a { margin-left: 11px; margin-right: 11px; } #accb_small { font-size: 1.3em } }
-			@media (min-width: 1100px) { body { font-size: 1rem; } #accbar a { margin-left: 13px; margin-right: 13px; } #accb_small { font-size: 1.1em } }
+			@media (min-width: 320px) { body { font-size: 0.4rem; } #accbar a { margin-left: 5px; margin-right: 5px; } #accb_small, #accb_small_ p { font-size: 1.9em }}
+			@media (min-width: 482px) { body { font-size: 0.6rem; } #accbar a { margin-left: 7px; margin-right: 7px; } #accb_small, #accb_small_ p { font-size: 1.7em } }
+			@media (min-width: 640px) { body { font-size: 0.7rem; } #accbar a { margin-left: 9px; margin-right: 9px; } #accb_small, #accb_small_ p { font-size: 1.5em } }
+			@media (min-width: 960px) { body { font-size: 0.8rem; } #accbar a { margin-left: 11px; margin-right: 11px; } #accb_small, #accb_small_ p { font-size: 1.3em } }
+			@media (min-width: 1100px) { body { font-size: 1rem; } #accbar a { margin-left: 13px; margin-right: 13px; } #accb_small, #accb_small_ p { font-size: 1.1em } }
 			#hidden:link, #hidden:visited, #hidden:hover, #hidden:active {
 				color: rgb(255, 255, 255);
 				text-decoration: none;
@@ -56,12 +56,34 @@
 			}
 			#accb_small {
 				opacity: 1;
-				display: block;
+				display: none;
 				background-color:rgba(20, 20, 20, 0.850);
 				border: 1px solid rgba(20, 20, 20, 0.850);
 				margin-left: -8px;
 				margin-right: -8px;
 				text-align: center;
+			}
+			#accb_small_ {
+				color: white;
+				top: 0;
+				opacity: 1;
+				display: none;
+				background-color:rgba(20, 20, 20, 0.850);
+				border: 1px solid rgba(20, 20, 20, 0.850);
+				margin-left: -8px;
+				margin-right: -8px;
+				text-align: center;
+				margin-top: -8px;
+			}
+			.arrow {
+				border: solid black;
+				border-width: 0 3px 3px 0;
+				display: inline-block;
+				padding: 3px;
+			}
+			.down {
+				transform: rotate(45deg);
+				-webkit-transform: rotate(45deg);
 			}
 			div.container {
 				margin: 20px;
@@ -219,6 +241,9 @@
 		<div class="accb" style="width: auto; height: auto" id="accb">
 			<h3 id="accbar"></h3>
 		</div>
+		<div id="accb_small_">
+			<p style="cursor: pointer"><a onclick="accb_small()">Home &#8681;</a></p>
+		</div>
 		<div id="accb_small">
 			<h3 id="accbar_small"></h3>
 		</div>
@@ -232,13 +257,30 @@
 		</div>
 		<center>
 			<script>
-				window.onresize = function() {
+				window.onload = window.onresize = function() {
 					if (getParameterByName("no_screen_size_check") == "true") {} else {
 						if (window.innerWidth < 320) {
 							document.getElementById("screentoosmall").style.display = "block";
 						} else {
 							document.getElementById("screentoosmall").style.display = "none";
 						}
+					}
+					if (window.innerWidth < 960) {
+						document.getElementById("accb_small_").style.display = "block";
+						document.getElementsByClassName("accb")[0].style.display = "none"
+					} else {
+						document.getElementById("accb_small_").style.display = "none";
+						document.getElementsByClassName("accb")[0].style.display = "block";
+					}
+				}
+				accb_small_isOn = false;
+				function accb_small() {
+					if (accb_small_isOn) {
+						document.getElementById("accb_small").style.display = "none";
+						accb_small_isOn = false;
+					} else {
+						document.getElementById("accb_small").style.display = "block";
+						accb_small_isOn = true;
 					}
 				}
 				var prevScrollpos = window.pageYOffset;
