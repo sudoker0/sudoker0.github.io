@@ -269,6 +269,10 @@
 					if (localStorage.getItem("ls") == "927") {
 						window.location.replace("ban");
 					}
+					if (getParameterByName("secret") == "true") {
+						document.getElementById("secret_image").style.display = "block"
+						document.getElementsByTagName("body")[0].style.backgroundImage = "url(website/image/sus_.png)"
+					}
 					check1();
 				}
 				function check1() {
