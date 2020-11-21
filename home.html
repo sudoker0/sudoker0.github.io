@@ -261,6 +261,18 @@
 		</div>
 		<center>
 			<script>
+				document.addEventListener("click", function(evt) {
+					var flyoutElement = document.getElementById('accb_small'),
+						targetElement = evt.target,
+						flyoutElement_2 = document.getElementById("accb_small_");  // clicked element
+					do {
+						if (targetElement == flyoutElement || targetElement == flyoutElement_2) { return; }
+						targetElement = targetElement.parentNode;
+					} while (targetElement);
+					document.getElementById("accb_small").style.display = "none";
+					accb_small_isOn = false;
+					document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8681;"
+				});
 				window.onload = window.onresize = function() {
 					accb_small_isOn = false;
 					document.getElementById("accb_small").style.display = "none"
