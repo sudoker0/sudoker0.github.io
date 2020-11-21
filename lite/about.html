@@ -166,46 +166,27 @@
 			</script>
 		</center>
 		<center>
-			<h1><b>Quan_MCPC Website (Basic HTML version)</b></h1>
-			<h2>Thank you for visiting my website</h2>
-			<p>Here is some of my favourite map that I created:</p>
-			<p><u><b><a rel="noreferrer" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-1/"  target="_blank">The Longest Useless Machine in Minecraft (version 1.2)</a></b></u></p>
-			<p><u><b><a rel="noreferrer" href="https://www.planetminecraft.com/project/8-bit-decoder-in-minecraft/"  target="_blank">8-Bit Decoder in Minecraft</a></b></u></p>
-			<p><u><b><a rel="noreferrer" href="https://www.planetminecraft.com/project/printer-1-16/"  target="_blank">Printer 1.16</a></b></u></p>
-			<p><u><b><a rel="noreferrer" href="https://www.planetminecraft.com/project/security-vault-2-0/"  target="_blank">Security Vault 2.0</a></b></u></p>
-			<p><u><b><a rel="noreferrer" href="https://www.planetminecraft.com/project/compact-calculator-1-15-2/"  target="_blank">Compact Calculator (1.15.2)</a></b></u></p>
+			<h1><b>Sneak Peak and Event</b></h1>
+			<!--Sneak Peak here-->
+			<h2>Sneak Peak</h2>
+			<h3>Error: image.not.present(speak_peak.png), image.displayengine.fail(return 0)</h3>
+			<!--Event here-->
+			<h2>Event</h2>
+			<h4><b>Date: April 12th, 2020: </b><u>Quan_MCPC joined the Planet Minecraft community</u></h4>
+			<h4><b>Date: April 13th, 2020: </b><u>Quan_MCPC added map: 8-bit Decoder in Minecraft</u></h4>
+			<h4><b>Date: Jun 28th, 2020: </b><u>Quan_MCPC added map: The Longest Useless Machine in Minecraft</u></h4>
+			<h4><b>Date: July 13th, 2020: </b><u>Quan_MCPC added map: Compact Calculator (1.15.2)</u></h4>
+			<h4><b>Date: July 13th, 2020: </b><u>Quan_MCPC added map: Security Vault 2.0</u></h4>
+			<h4><b>Date: July 15th, 2020: </b><u>Quan_MCPC added map: The Longest Useless Machine in Minecraft (version 1.1)</u></h4>
+			<h4><b>Date: July 15th, 2020: </b><u>Quan_MCPC added map: Printer 1.16</u></h4>
+			<h4><b>Date: July 16th, 2020: </b><u>The website: quanmcpc.github.io was created (Old name: quan215.github.io)</u></h4>
+			<h4><b>Date: July 16th, 2020: </b><u>2 new tab added: How did I make this website? and Credit</u></h4>
+			<h4><b>Date: July 17th, 2020: </b><u>1 new tab added: Sneak Peak and Event</u></h4>
+			<h4><b>Date: July 17th, 2020: </b><u>Going to offline until July 23th, 2020</u></h4>
+			<h4><b>Date: July 28th, 2020: </b><u>1 new tab added: Other Project</u></h4>
+			<h4><b>Last Updated on: July 31th, 2020</b></h4>
 		</center>
-		<script>
-			function readTextFile(file, callback) {
-				var rawFile = new XMLHttpRequest();
-				rawFile.overrideMimeType("application/json");
-				rawFile.open("GET", file, true);
-				rawFile.onreadystatechange = function() {
-					if (rawFile.readyState === 4 && rawFile.status == "200") {
-						callback(rawFile.responseText);
-					}
-				}
-				rawFile.send(null);
-			}
-			readTextFile("../file_size.json", function (text) {
-				var data = JSON.parse(text);
-				var total = data.total;
-				var default_1 = data.default;
-				var basic = data.basic;
-				var other = data.other;
-				document.getElementById("total").innerHTML = total;
-				document.getElementById("default").innerHTML = default_1;
-				document.getElementById("basic").innerHTML = basic;
-				document.getElementById("other").innerHTML = other;
-			})
-		</script>
 		<hr style="border-style:solid">
-		<footer style="margin: 5px; text-align: center;">
-			<h4>Copyright (C) 2020 Quan_MCPC. Created on: 7/17/20, this website will live <b>forever</b></h4>
-			<p><b>Info: [Total size: <span id="total">00,000,000</span> bytes, <a id="hidden" onclick="location.href='../home.html'">Default</a>: <span id="default">00,000,000</span> bytes, Basic: <span id="basic">00,000</span> bytes, Other: <span id="other">00,000,000</span> bytes].</b></p>
-			<p><b>Langugaes used: HTML (HyperText Markup Language), CSS (Cascading Style Sheets) and JS (JavaScript)</b></p>
-			<a href="https://quanmcpc.netlify.app/" rel="noreferrer" style="font-size: 0.8em;">My alternative website (Hosted by Netlify, all code is synced and the same from the orginial website)</a><br>
-			<a href="https://quanmcpc.gitlab.io/" rel="noreferrer" style="font-size: 0.8em;">My second website (Hosted by GitLab)</a>
-		</footer>
+		<h4>Copyright (C) 2020 Quan_MCPC</h4>
 	</body>
 </html>

@@ -124,12 +124,6 @@
 				90% { opacity: .9; }
 				100% { opacity: 1; }
 			}
-			#hard_way {
-				width: 90%;
-				border: 3px solid rgb(255, 255, 255);
-				padding: 5px;
-				margin: 0 auto 10px;
-			}
 			#nointernet {
 				width: 100%;
 				background-color: rgba(255, 0, 0, 0.75);
@@ -170,7 +164,7 @@
 				display: none;
 			}
 		</style>
- 	</head>
+	</head>
 	<body>
 		<div id="secret_image">
 			<img src="website/image/secret_.png">
@@ -183,9 +177,10 @@
 		</noscript>
 		<div class="accb">
 			<h3 id="accbar"></h3>
+			<!--<h3 style="display: block; float: left; margin-top: 0; cursor: pointer; margin-left: 0"><img id="icon_accb1" src="../website/image/logo.png" height="59px"></h3><h3 id="accbar" style=" text-align: left; margin-left: 80px;"></h3>-->
 		</div>
 		<div id="accb_small_">
-			<p><a onclick="accb_small()" style="cursor: pointer;">How did I make the website? &#8681;</a></p>
+			<p><a onclick="accb_small()" style="cursor: pointer;">About Website &#8681;</a></p>
 		</div>
 		<div id="accb_small">
 			<h3 id="accbar_small"></h3>
@@ -210,11 +205,11 @@
 					} while (targetElement);
 					document.getElementById("accb_small").style.display = "none";
 					accb_small_isOn = false;
-					document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "How did I make the website? &#8681;"
+					document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "About Website &#8681;"
 				});
 				window.onload = window.onresize = function() {
 					check()
-					document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "How did I make the website? &#8681;"
+					document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "About Website &#8681;"
 					accb_small_isOn = false;
 					document.getElementById("accb_small").style.display = "none"
 					if (getParameterByName("no_screen_size_check") == "true") {} else {
@@ -235,18 +230,18 @@
 				accb_small_isOn = false;
 				function accb_small() {
 					if (accb_small_isOn) {
-						document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "How did I make the website? &#8681;"
+						document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "About Website &#8681;"
 						document.getElementById("accb_small").style.display = "none";
 						accb_small_isOn = false;
 					} else {
-						document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "How did I make the website? &#8679;"
+						document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "About Website &#8679;"
 						document.getElementById("accb_small").style.display = "block";
 						accb_small_isOn = true;
 					}
 				}
 				var prevScrollpos = window.pageYOffset;
 				window.onscroll = function() {
-					document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "How did I make the website? &#8681;"
+					document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "About Website &#8681;"
 					document.getElementById("accb_small").style.display = "none"
 					accb_small_isOn = false;
 					var currentScrollPos = window.pageYOffset;
@@ -276,7 +271,7 @@
 						window.location.replace("ban");
 					}
 					if (getParameterByName("secret") == "true") {
-						document.getElementById("secret_image").style.display = "block";
+						document.getElementById("secret_image").style.display = "block"
 						document.getElementsByTagName("body")[0].style.backgroundImage = "url(website/image/sus_.png)"
 					}
 					check1();
@@ -359,28 +354,51 @@
 		</center>
 		<div class="container">
 			<center>
-				<h2 style="color:green">How did I make this website?</h2>
-				<h3 style="color:orange">It's a bit <i style="color:red">complicated</i> to make but at least every one can make a website for <i style="color:green">free</i></h3>
-				<h3 style="color:#09972B">Here is the <u style="color:green">website</u> that will help you making a website: <a style="pointer-events: none;" rel="noreferrer" href="https://medium.com/@svinkle/publish-and-share-your-own-website-for-free-with-github-2eff049a1cb5"><del>Click This Link</del></a><span style="color: red">&nbsp;[Link is broken, will update when link isn't broken]</span></h3>
-				<h3 style="color:orange">Now you do need to <u style="color:red">understand</u> a bit of <i style="color:red">html coding</i> and <i style="color:red">a GitHub account</i>. So prepare all of your avaliable free time</h3>
-			</center>
-			<div id="hard_way">
-				<h4 style="color:white">How to make a website in Github?</h4>
-				<p style="color: white">Step 1. Create a Github account or log into your existing Github account</p>
-				<p style="color: white">Step 2. Create a new repository by clicking on the "Create repository" button on the left or click the "+" on the near top-right corner then "New repository"</p>
-				<p style="color: white">Step 3. IMPORTANT! In the repository name, you have to name that repository {your_username}.github.io (Replace the {your_username} with your username, example: example.github.io), make sure that the repo is public then press "Create repository"</p>
-				<p style="color: white">Step 4. After that, create a new file and name that file "index.html" (without quotes). This will be the file that load into the browser when type the address in</p>
-				<p style="color: white">Step 5. Add your HTML code into the file, type the address into the address bar and the website should show up</p>
-				<p style="color: white">I recommend you learning the basic of HTML then experimenting new thing by watching tutorial video on the Internet or reading tutorial page that is also on the Internet.</p>
-				<p style="color: white">The offical Github Page website: <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">https://pages.github.com</a></p>
-				<p style="color: white">GitHub Documentation about GitHub Page: <a href="http://https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages" target="_blank" rel="noopener noreferrer">https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages</a></p>
-			</div>
-			<center>
+				<h2 style="color:green"><b>About Website</b></h2>
+				<p style="color: white">File size: [Total size: <span id="total">00,000,000</span> bytes, Default: <span id="default">00,000,000</span> bytes, <a id="hidden" onclick="location.href='lite/home.html'">Basic</a>: <span id="basic">00,000</span> bytes, Other: <span id="other">00,000,000</span> bytes].</b></p>
+				<p style="color: white">Website's age: <span id="days_from">0</span> days since when the website was created.</p>
+				<p style="color: white">Langugaes used: HTML (HyperText Markup Language), CSS (Cascading Style Sheets) and JS (JavaScript)</p>
+				<p style="color: white">This website used to have a dark and light mode and a simple design then the website get a re-designed from August 26th 2020</p>
+				<p style="color: white">Number of commits: 522 (Last updated on: 11/21/2020)</p>
+				<p style="color: white">External languages use (or contain in the website): JSON (JavaScript Object Notation), XML (eXtensible Markup Language), MD (MarkDown), .htaccess</p>
 				<hr style="border: 1.5px solid black; background-color: black;">
 				<footer style="margin: 5px; text-align: center;">
 					<p style="color:white">Copyright (C) 2020 Quan_MCPC. Created on: 7/17/20, this website will live <b style="color:red">forever</b></p>
 				</footer>
 			</center>
 		</div>
+		<script>
+			function readTextFile(file, callback) {
+				var rawFile = new XMLHttpRequest();
+				rawFile.overrideMimeType("application/json");
+				rawFile.open("GET", file, true);
+				rawFile.onreadystatechange = function() {
+					if (rawFile.readyState === 4 && rawFile.status == "200") {
+						callback(rawFile.responseText);
+					}
+				}
+				rawFile.send(null);
+			}
+			readTextFile("file_size.json", function (text) {
+				var data = JSON.parse(text);
+				var total = data.total;
+				var default_1 = data.default;
+				var basic = data.basic;
+				var other = data.other;
+				document.getElementById("total").innerHTML = total;
+				document.getElementById("default").innerHTML = default_1;
+				document.getElementById("basic").innerHTML = basic;
+				document.getElementById("other").innerHTML = other;
+			})
+			function date_check() {
+				var date1 = new Date("07/17/2020");
+				var date2 = new Date();
+				var Difference_In_Time = date2.getTime() - date1.getTime();
+				// To calculate the no. of days between two dates
+				var Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
+				document.getElementById("days_from").innerHTML = Difference_In_Days;
+			}
+			date_check()
+		</script>
 	</body>
 </html>
