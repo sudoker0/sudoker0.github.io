@@ -166,26 +166,47 @@
 			</script>
 		</center>
 		<center>
-			<h1><b>Sneak Peak and Event</b></h1>
-			<!--Sneak Peak here-->
-			<h2>Sneak Peak</h2>
-			<h3>Error: image.not.present(speak_peak.png), image.displayengine.fail(return 0)</h3>
-			<!--Event here-->
-			<h2>Event</h2>
-			<h4><b>Date: April 12th, 2020: </b><u>Quan_MCPC joined the Planet Minecraft community</u></h4>
-			<h4><b>Date: April 13th, 2020: </b><u>Quan_MCPC added map: 8-bit Decoder in Minecraft</u></h4>
-			<h4><b>Date: Jun 28th, 2020: </b><u>Quan_MCPC added map: The Longest Useless Machine in Minecraft</u></h4>
-			<h4><b>Date: July 13th, 2020: </b><u>Quan_MCPC added map: Compact Calculator (1.15.2)</u></h4>
-			<h4><b>Date: July 13th, 2020: </b><u>Quan_MCPC added map: Security Vault 2.0</u></h4>
-			<h4><b>Date: July 15th, 2020: </b><u>Quan_MCPC added map: The Longest Useless Machine in Minecraft (version 1.1)</u></h4>
-			<h4><b>Date: July 15th, 2020: </b><u>Quan_MCPC added map: Printer 1.16</u></h4>
-			<h4><b>Date: July 16th, 2020: </b><u>The website: quanmcpc.github.io was created (Old name: quan215.github.io)</u></h4>
-			<h4><b>Date: July 16th, 2020: </b><u>2 new tab added: How did I make this website? and Credit</u></h4>
-			<h4><b>Date: July 17th, 2020: </b><u>1 new tab added: Sneak Peak and Event</u></h4>
-			<h4><b>Date: July 17th, 2020: </b><u>Going to offline until July 23th, 2020</u></h4>
-			<h4><b>Date: July 28th, 2020: </b><u>1 new tab added: Other Project</u></h4>
-			<h4><b>Last Updated on: July 31th, 2020</b></h4>
+			<h2><b>About Website</b></h2>
+			<p>File size: [Total size: <span id="total">00,000,000</span> bytes, Default: <span id="default">00,000,000</span> bytes, <a id="hidden" onclick="location.href='lite/home.html'">Basic</a>: <span id="basic">00,000</span> bytes, Other: <span id="other">00,000,000</span> bytes] (Last updated on: 11/21/2020)</b></p>
+			<p>Website's age: <span id="days_from">0</span> days since when the website was created.</p>
+			<p>Langugaes used: HTML (HyperText Markup Language), CSS (Cascading Style Sheets) and JS (JavaScript)</p>
+			<p>This website used to have a dark and light mode and a simple design then the website get a re-designed from August 26th 2020</p>
+			<p>Number of commits: 524 (Last updated on: 11/21/2020)</p>
+			<p>External languages use (or contain in the website): JSON (JavaScript Object Notation), XML (eXtensible Markup Language), MD (MarkDown), .htaccess</p>
 		</center>
+		<script>
+			function readTextFile(file, callback) {
+				var rawFile = new XMLHttpRequest();
+				rawFile.overrideMimeType("application/json");
+				rawFile.open("GET", file, true);
+				rawFile.onreadystatechange = function() {
+					if (rawFile.readyState === 4 && rawFile.status == "200") {
+						callback(rawFile.responseText);
+					}
+				}
+				rawFile.send(null);
+			}
+			readTextFile("../file_size.json", function (text) {
+				var data = JSON.parse(text);
+				var total = data.total;
+				var default_1 = data.default;
+				var basic = data.basic;
+				var other = data.other;
+				document.getElementById("total").innerHTML = total;
+				document.getElementById("default").innerHTML = default_1;
+				document.getElementById("basic").innerHTML = basic;
+				document.getElementById("other").innerHTML = other;
+			})
+			function date_check() {
+				var date1 = new Date("07/17/2020");
+				var date2 = new Date();
+				var Difference_In_Time = date2.getTime() - date1.getTime();
+				// To calculate the no. of days between two dates
+				var Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
+				document.getElementById("days_from").innerHTML = Difference_In_Days;
+			}
+			date_check()
+		</script>
 		<hr style="border-style:solid">
 		<h4>Copyright (C) 2020 Quan_MCPC</h4>
 	</body>

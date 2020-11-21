@@ -175,35 +175,9 @@
 			<p><u><b><a rel="noreferrer" href="https://www.planetminecraft.com/project/security-vault-2-0/"  target="_blank">Security Vault 2.0</a></b></u></p>
 			<p><u><b><a rel="noreferrer" href="https://www.planetminecraft.com/project/compact-calculator-1-15-2/"  target="_blank">Compact Calculator (1.15.2)</a></b></u></p>
 		</center>
-		<script>
-			function readTextFile(file, callback) {
-				var rawFile = new XMLHttpRequest();
-				rawFile.overrideMimeType("application/json");
-				rawFile.open("GET", file, true);
-				rawFile.onreadystatechange = function() {
-					if (rawFile.readyState === 4 && rawFile.status == "200") {
-						callback(rawFile.responseText);
-					}
-				}
-				rawFile.send(null);
-			}
-			readTextFile("../file_size.json", function (text) {
-				var data = JSON.parse(text);
-				var total = data.total;
-				var default_1 = data.default;
-				var basic = data.basic;
-				var other = data.other;
-				document.getElementById("total").innerHTML = total;
-				document.getElementById("default").innerHTML = default_1;
-				document.getElementById("basic").innerHTML = basic;
-				document.getElementById("other").innerHTML = other;
-			})
-		</script>
 		<hr style="border-style:solid">
 		<footer style="margin: 5px; text-align: center;">
 			<h4>Copyright (C) 2020 Quan_MCPC. Created on: 7/17/20, this website will live <b>forever</b></h4>
-			<p><b>Info: [Total size: <span id="total">00,000,000</span> bytes, <a id="hidden" onclick="location.href='../home.html'">Default</a>: <span id="default">00,000,000</span> bytes, Basic: <span id="basic">00,000</span> bytes, Other: <span id="other">00,000,000</span> bytes].</b></p>
-			<p><b>Langugaes used: HTML (HyperText Markup Language), CSS (Cascading Style Sheets) and JS (JavaScript)</b></p>
 			<a href="https://quanmcpc.netlify.app/" rel="noreferrer" style="font-size: 0.8em;">My alternative website (Hosted by Netlify, all code is synced and the same from the orginial website)</a><br>
 			<a href="https://quanmcpc.gitlab.io/" rel="noreferrer" style="font-size: 0.8em;">My second website (Hosted by GitLab)</a>
 		</footer>
