@@ -210,9 +210,11 @@
 				accb_small_isOn = false;
 				function accb_small() {
 					if (accb_small_isOn) {
+						document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "How did I make the website? &#8681;"
 						document.getElementById("accb_small").style.display = "none";
 						accb_small_isOn = false;
 					} else {
+						document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "How did I make the website? &#8679;"
 						document.getElementById("accb_small").style.display = "block";
 						accb_small_isOn = true;
 					}
