@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+        <link rel="stylesheet" type="text/css" href="main.css">
         <meta name="keywords" content="QuanMCPC, Quan_MCPC">
 		<meta name="description" content="Quan_MCPC's Personal Website">
 		<meta name="author" content="Quan_MCPC">
@@ -100,6 +101,16 @@
             a:hover {
                 color: rgb(255, 0, 0);
             }
+            .center-screen button {
+                margin: 5px;
+                font-size: 1.05rem;
+                border: none;
+                padding: 10px;
+                color: white;
+                background-color: rgb(90, 90, 90);
+                display: block;
+                cursor: pointer;
+            }
         </style>
 		<link rel="icon" href="website/image/favicon.ico">
 		<title>Basic Website Redirector [quanmcpc.github.io]</title>
@@ -116,9 +127,10 @@
         </div>
         <div class="center-screen">
             <center><img src="website/image/loading.gif"></center>
-            <center><h3>Welcome visitor! Please choose one of the action under there!</h3></center>
-            <center><h3 id="full_access"></h3><!--<h3 id="access"></h3>--><h3 id="lite_access"></h3></center>
-            <center><h3><a rel="noreferrer" href="old/index.html">Load the first version of the website</a></h3></center>
+            <center><h3>Welcome visitor! Where do you want to go?</h3></center>
+            <center><div id="button_"></div></center>
+            <center><button onclick="window.location.replace('old/index.html')">Load the first version of the website</button></center>
+            <hr style="width: 100%; border: 1px solid rgb(78, 78, 78)">
         </div>
         <div id="warning">
             <center><h1 style="color: blue">Information</h1></center>
@@ -129,21 +141,16 @@
         </div>
         <script>
 			var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
-			//Load default home immediately
-			/*var link1 = "Load default home immediately";
-			var alink1 = "home?id=" + dateTime;
-			var html_link1 = link1.link(alink1);*/
-			//Load basic home
-			var link2 = "Load basic home (for slow connection)";
-			var alink2 = "lite/home?id=" + dateTime;
-            var html_link2 = link2.link(alink2);
-            var link3 = "Load default home"
-            var alink3 = "home?id=" + dateTime;
-            var html_link3 = link3.link(alink3);
-			//Access Bar
-			//document.getElementById("access").innerHTML = html_link1;
-            document.getElementById("lite_access").innerHTML = html_link2;
-            document.getElementById("full_access").innerHTML = html_link3;
+            var button1 = document.createElement("button"), button1_att_ = document.createTextNode("Load Default Home"),
+                button2 = document.createElement("button"), button2_att_ = document.createTextNode("Load Basic Home (For Slow Connection)")
+            button1.onclick = "window.location.replace('home?id="+ dateTime +"')"; button2.onclick = "window.location.replace('lite/home?id="+ dateTime +"')";
+            button1.appendChild(button1_att_);
+            button2.appendChild(button2_att_);
+            document.getElementById("button_").appendChild(button1); document.getElementById("button_").appendChild(button2)
+            /*button1.onclick = "window.location.replace('home?id="+ dateTime +"')"; button2.onclick = "window.location.replace('lite/home?id="+ dateTime +"')"
+            button1.innerHTML = "Load Default Home"; button2.innerHTML = "Load Basic Home (For Slow Connection)";*/
+            document.getElementById("button_").appendChild(button1)
+            document.getElementById("button_").appendChild(button2)
             var i = 0;
             var pause = false;
             window.mobileCkeck_ = mobileCkeck();
