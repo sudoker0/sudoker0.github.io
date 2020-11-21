@@ -233,9 +233,20 @@
 				background-color: rgba(0,0,0,0.8); /* Black background with opacity */
 				z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
 			}
+			#secret_image {
+				position: fixed;
+				background-image: url("website/image/secret_.png");
+				width: 100%;
+				height: 100%;
+				z-index: -1;
+				display: none;
+			}
 		</style>
 	</head>
-	<body onload="check()" id="temp">
+	<body id="temp">
+		<div id="secret_image">
+			<img src="website/image/secret_.png">
+		</div>
 		<noscript>
 			<div id="noscript_overlay">
 				<h2 style="color: red; text-align: center">Important!</h2>
@@ -274,6 +285,7 @@
 					document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8681;"
 				});
 				window.onload = window.onresize = function() {
+					check()
 					document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8681;"
 					accb_small_isOn = false;
 					document.getElementById("accb_small").style.display = "none"
@@ -334,6 +346,9 @@
 					}
 					if (localStorage.getItem("ls") == "927") {
 						window.location.replace("ban");
+					}
+					if (getParameterByName("secret") == "true") {
+						document.getElementById("secret_image").style.display = "block"
 					}
 					date_check();
 					check1();
