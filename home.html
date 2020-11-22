@@ -351,7 +351,6 @@
 						document.getElementById("secret_image").style.display = "block"
 						document.getElementsByTagName("body")[0].style.backgroundImage = "url(website/image/sus_.png)"
 					}
-					date_check();
 					check1();
 				}
 				function check1() {
@@ -481,30 +480,6 @@
 				<div id="img7"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/7.png" style="width: 100%; height: auto;"><b>Printer 1.16 [7.png]</b></div><div onclick="oimage7()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
 				<div id="img8"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/8.png" style="width: 100%; height: auto;"><b>8-Bit Decoder in Minecraft [8.png]</b></div><div onclick="oimage8()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
 				<div id="img9"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/9.png" style="width: 100%; height: auto;"><b>Compact Calculator [1.15.2] [Front View] [9.png]</b></div><div onclick="oimage9()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
-				<script>
-					function readTextFile(file, callback) {
-						var rawFile = new XMLHttpRequest();
-						rawFile.overrideMimeType("application/json");
-						rawFile.open("GET", file, true);
-						rawFile.onreadystatechange = function() {
-							if (rawFile.readyState === 4 && rawFile.status == "200") {
-								callback(rawFile.responseText);
-							}
-						}
-						rawFile.send(null);
-					}
-					readTextFile("file_size.json", function (text) {
-						var data = JSON.parse(text);
-						var total = data.total;
-						var default_1 = data.default;
-						var basic = data.basic;
-						var other = data.other;
-						document.getElementById("total").innerHTML = total;
-						document.getElementById("default").innerHTML = default_1;
-						document.getElementById("basic").innerHTML = basic;
-						document.getElementById("other").innerHTML = other;
-					})
-				</script>
 			</center>
 			<hr style="border: 1.5px solid black; background-color: black;">
 			<footer style="margin: 5px; text-align: center;">
