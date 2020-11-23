@@ -3,9 +3,7 @@
     <head>
         <title>Guess the Number Game</title>
         <script>
-           var counter = 0;
-           var start = 0;
-           var n1 = 0;
+           var counter = 0, start = 0, n1 = 0;
         </script>
     </head>
     <body>
@@ -26,14 +24,8 @@
         <script>
            var textarea = document.getElementById('result');
            setInterval(function(){ textarea.scrollTop = textarea.scrollHeight; }, 50);
-           document.getElementById("result").value += 'Initializing...\n';
-           document.getElementById("result").value += 'Welcome to my Guess The Number Game!\n';
-           document.getElementById("result").value += 'To beat the game, you must guess the correct number from 10000 to 99999\n';
-           document.getElementById("result").value += 'To start the game, press Start\n'
-            var minutesLabel = document.getElementById("minutes");
-            var secondsLabel = document.getElementById("seconds");
-            var totalSeconds = 0;
-            var timerVar = setInterval(setTime, 1000);
+           document.getElementById("result").value += 'Initializing...\nWelcome to my Guess The Number Game!\nTo beat the game, you must guess the correct number from 10000 to 99999\nTo start the game, press Start\n(Press Enter to insert value, Press Esc to clear the input box)\n';
+            var minutesLabel = document.getElementById("minutes"), secondsLabel = document.getElementById("seconds"), totalSeconds = 0, timerVar = setInterval(setTime, 1000);
             function exit() { window.location.replace("https://quanmcpc.github.io"); }
             function setTime() {
                 if (start == 1) {
@@ -94,6 +86,14 @@
                         n1 = 0;
                     }
                 } else { document.getElementById("result").value += 'Please press Start to start the game.\n'; }
+            }
+            document.onkeyup = function(event) {
+                if (event.keyCode == 13) {
+                    submit();
+                    document.getElementById("input").value = "";
+                } else if (event.keyCode == 27) {
+                    document.getElementById("input").value = ""
+                }
             }
         </script>
     </body>
