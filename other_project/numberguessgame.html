@@ -24,7 +24,7 @@
         <script>
            var textarea = document.getElementById('result');
            setInterval(function(){ textarea.scrollTop = textarea.scrollHeight; }, 50);
-           document.getElementById("result").value += 'Initializing...\nWelcome to my Guess The Number Game!\nTo beat the game, you must guess the correct number from 10000 to 99999\nTo start the game, press Start\n(Press Enter to insert value, Press Esc to clear the input box)\n';
+           document.getElementById("result").value += 'Initializing...\nWelcome to my Guess The Number Game!\nTo beat the game, you must guess the correct number from 10000 to 99999\nTo start the game, press Start\n(Press Enter to insert value, Press Esc to clear the input box)\n(Press F4 to start the game, F7 to end the game)\n';
             var minutesLabel = document.getElementById("minutes"), secondsLabel = document.getElementById("seconds"), totalSeconds = 0, timerVar = setInterval(setTime, 1000);
             function exit() { window.location.replace("https://quanmcpc.github.io"); }
             function setTime() {
@@ -47,16 +47,13 @@
                     counter = 0;
                     document.getElementById("result").value += 'The game has started! A new number has been generated!\n';
                     rnumber = Math.floor(10000 + Math.random() * 90000);
-                    start = 1;
-                    n1 = 1;
+                    start = n1 = 1;
                 }
             }
             function no() {
                 document.getElementById("input").value = '';
                 document.getElementById("result").value += 'The game has been ended by a user!\n';
-                start = 0;
-                totalSeconds = 0;
-                n1 = 0;
+                start = totalSeconds = n1 = 0;
             }
             function submit() {
                 counter = counter + 1;
@@ -74,8 +71,7 @@
                     }
                     if (input_user == rnumber) {
                         document.getElementById("input").value = '';
-                        var m = document.getElementById("minutes").innerHTML;
-                        var s = document.getElementById("seconds").innerHTML;
+                        var m = document.getElementById("minutes").innerHTML ,s = document.getElementById("seconds").innerHTML;
                         document.getElementById("result").value += 'Your number was: ' + input_user + '\n';
                         document.getElementById("result").value += 'You guessed the number!!!\n';
                         document.getElementById("result").value += 'The number was: ' + rnumber + ' and the number that you enter is: ' + input_user + '\n';
@@ -88,11 +84,15 @@
                 } else { document.getElementById("result").value += 'Please press Start to start the game.\n'; }
             }
             document.onkeyup = function(event) {
-                if (event.keyCode == 13) {
+                if (event.key == "Enter" || event.keyCode == 13) {
                     submit();
                     document.getElementById("input").value = "";
-                } else if (event.keyCode == 27) {
+                } else if (event.key == "Escape" || event.keyCode == 27) {
                     document.getElementById("input").value = ""
+                } else if (event.key == "F4" || event.keyCode == 115) {
+                    now();
+                } else if (event.key == "F7" || event.keyCode == 118) {
+                    no();
                 }
             }
         </script>
