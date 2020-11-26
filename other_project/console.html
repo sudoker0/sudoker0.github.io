@@ -414,6 +414,17 @@
             <noscript><p style="color: white">Look like JavaScript is disabled or not installed in your browser! Please install or enable JavaScript</p></noscript>
         </center>
         <script>
+            document.addEventListener("keydown", function(event) {
+                if (event.keyCode == 78 || event.code == "KeyN") { if (event.altKey) { editor_new(); } }
+                if (event.keyCode == 79 || event.code == "KeyO") { if (event.altKey) { editor_open(); } }
+                if (event.keyCode == 83 || event.code == "KeyS") { if (event.altKey) { editor_save(); } }
+                if (event.keyCode == 46 || event.code == "Escape") { if (event.altKey) { editor_exit(); } }
+                if (event.keyCode == 73 || event.code == "KeyI") { if (event.altKey) { editor_find(); } }
+                if (event.keyCode == 72 || event.code == "KeyH") { if (event.altKey) { editor_replace(); } }
+                if (event.keyCode == 71 || event.code == "KeyG") { if (event.altKey) { editor_gotoline(); } }
+                if (event.keyCode == 76 || event.code == "KeyL") { if (event.altKey) { editor_search_with_google(); } }
+                if (event.keyCode == 84 || event.code == "KeyT") { if (event.altKey) { editor_td_text(); } }
+            })
             var window_already_opened = false;
             function rgb2hex(rgb) {
                 if (/^#[0-9A-F]{6}$/i.test(rgb)) return rgb;
