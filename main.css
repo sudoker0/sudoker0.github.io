@@ -16,26 +16,10 @@ h1 {
 	font-family: Raleway;
 	font-weight: 500;
 }
-p {
-	font-family: Raleway;
-	font-weight: 600;
-}
-h2 {
-	font-family: Raleway;
-	font-weight: 600;
-}
-h3 {
-	font-family: Raleway;
-	font-weight: 600;
-}
-h4 {
+p, h2, h3, h4, a, label {
 	font-family: Raleway;
 	font-weight: 600;
 }
 body {
   overflow-y: scroll;
-}
-a {
-  font-family: Raleway;
-  font-weight: 600;
 }
