@@ -643,7 +643,7 @@
                 window.start_1 = 0; window.start_2 = 0; window.start_3 = 0; window.count_1 = 0; window.count_2 = 0;
             }
             function editor_replace2() {
-                if (document.getElementById("editor_find_name").value !== "") {
+                if (document.getElementById("editor_find_replace_name").value !== "") {
                     var a = confirm("Are you sure that you want to replace ALL OCCURRENCES?");
                     if (a) {
                         const search = document.getElementById("editor_find_replace_name").value;
@@ -660,7 +660,7 @@
                 }
             }
             function editor_replace1() {
-                if (document.getElementById("editor_find_name").value !== "") {
+                if (document.getElementById("editor_find_replace_name").value !== "") {
                     editor_find3();
                     var el = document.getElementById("editor_input");
                     var el_1 = document.getElementById("editor_replace_find_name").value;
@@ -722,7 +722,7 @@
                 }
             }
             function editor_find2() {
-                if (document.getElementById("editor_find_name").value !== "") {
+                if (document.getElementById("editor_find_replace_name").value !== "") {
                     var sel = document.getElementById('editor_find_replace_name');
                     var tarea = document.getElementById('editor_input');
                     selectTextareaLine1(tarea, sel.value);
