@@ -1,7 +1,7 @@
 "use strict";
 
-var CACHE_NAME = "version-2";
-var urlsToCache = ["https://quanmcpc.github.io/website/script/offline.html"]; // Install the service worker and open the cache and add files mentioned in array to cache
+var CACHE_NAME = "version-3";
+var urlsToCache = ["offline.html"]; // Install the service worker and open the cache and add files mentioned in array to cache
 
 self.addEventListener('install', function (event) {
   event.waitUntil(caches.open(CACHE_NAME).then(function (cache) {
@@ -20,7 +20,7 @@ self.addEventListener('fetch', function (event) {
 
 
     return fetch(event.request)["catch"](function (err) {
-      return caches.match("https://quanmcpc.github.io/website/script/offline.html");
+      return caches.match("./offline.html");
     });
   }));
 });
