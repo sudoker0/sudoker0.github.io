@@ -1,6 +1,6 @@
 const CACHE_NAME = "version-1";
 const urlsToCache = [
-    'offline.html'
+    "https://quanmcpc.github.io/website/script/offline.html"
 ];
 
 // Install the service worker and open the cache and add files mentioned in array to cache
