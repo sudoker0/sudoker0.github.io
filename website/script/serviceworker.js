@@ -1,6 +1,6 @@
 const CACHE_NAME = "version-6";
 const urlsToCache = [
-    "https://quanmcpc.github.io/website/script/offline.html"
+    "/website/script/offline.html"
 ];
 
 // Install the service worker and open the cache and add files mentioned in array to cache
@@ -30,7 +30,7 @@ self.addEventListener('fetch', function(event) {
                 return fetch(event.request)
                     .catch(err => {
                         console.log("err:", err)
-                        return caches.match('https://quanmcpc.github.io/website/script/offline.html');
+                        return caches.match('/website/script/offline.html');
                     })
             }
         )
