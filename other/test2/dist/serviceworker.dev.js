@@ -20,7 +20,7 @@ self.addEventListener('fetch', function (event) {
 
 
     return fetch(event.request)["catch"](function (err) {
-      return caches.match("offline.html");
+      return caches.match("https://quanmcpc.github.io/website/script/offline.html");
     });
   }));
 });
