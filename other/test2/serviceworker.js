@@ -1,4 +1,4 @@
-const CACHE_NAME = "version-1";
+const CACHE_NAME = "version-2";
 const urlsToCache = [
     "https://quanmcpc.github.io/website/script/offline.html"
 ];
