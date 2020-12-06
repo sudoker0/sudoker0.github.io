@@ -1,4 +1,4 @@
-const CACHE_NAME = "version-3";
+const CACHE_NAME = "version-4";
 const urlsToCache = [
     "offline.html"
 ];

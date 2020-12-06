@@ -1,6 +1,6 @@
 "use strict";
 
-var CACHE_NAME = "version-3";
+var CACHE_NAME = "version-4";
 var urlsToCache = ["offline.html"]; // Install the service worker and open the cache and add files mentioned in array to cache
 
 self.addEventListener('install', function (event) {
