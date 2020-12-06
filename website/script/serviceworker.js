@@ -28,6 +28,10 @@ self.addEventListener('fetch', function(event) {
 
                 // The requested file is not present in cache so we send it forward to the internet
                 return fetch(event.request)
+                    .catch(err => {
+                        console.log("err:", err)
+                        return caches.match('offline.html');
+                    })
             }
         )
     );
