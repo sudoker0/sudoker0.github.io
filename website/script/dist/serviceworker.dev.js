@@ -19,9 +19,7 @@ self.addEventListener('fetch', function (event) {
     } // The requested file is not present in cache so we send it forward to the internet
 
 
-    return fetch(event.request)["catch"](function (err) {
-      return caches.match("./offline.html");
-    });
+    return fetch(event.request);
   }));
 });
 self.addEventListener('activate', function (event) {
