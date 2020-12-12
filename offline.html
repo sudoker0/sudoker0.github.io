@@ -269,9 +269,10 @@
                 <button onclick="closeImage()">Close</button>
                 <hr style="border: 2px solid black">
                 <span style="color: black"><i>Tool</i></span><br>
-                <button id="pencil" onclick="tool_ = 'pencil'" title="Brush">Pencil</button>
-                <button id="eraser" onclick="tool_ = 'eraser'" title="Eraser">Eraser</button>
-                <button id="text" onclick="tool_ = 'colorpicker'" title="Color Picker">Color Picker</button><br>
+                <span style="color: black" id="currentTool">Current tool: </span><br>
+                <button id="pencil" onclick="tool_ = 'pencil'; $('#currentTool')[0].innerHTML = 'Current tool: Pencil'" title="Brush">Pencil</button>
+                <button id="eraser" onclick="tool_ = 'eraser'; $('#currentTool')[0].innerHTML = 'Current tool: Eraser'" title="Eraser">Eraser</button>
+                <button id="text" onclick="tool_ = 'colorpicker'; $('#currentTool')[0].innerHTML = 'Current tool: Color Picker'" title="Color Picker">Color Picker</button><br>
                 <hr style="border: 2px solid black">
                 <span style="color: black"><i>Settings</i></span><br>
                 <label for="brush_size" style="color: black">Pencil Size: </label><input type="number" name="brush_size" id="brush_size" value="2" style="width: 50px"><br>
@@ -355,7 +356,7 @@
                 prevX, prevY, currX, currY = 0
             var $canvas = $('#canvas');
             var ctx = $canvas[0].getContext('2d');
-            $(document).on('mousemove mousedown mouseup mouseout', function(e) {
+            $("#canvas").on('mousemove mousedown mouseup mouseout', function(e) {
                 prevX = currX;
                 prevY = currY;
                 currX = e.clientX - $canvas.offset().left;
@@ -420,7 +421,7 @@
         })
         $("#drawpaper_tool").dialog({
             width: 270,
-            height: 305,
+            height: 320,
             title: "Draw Control Panel",
             resizable: false,
             position: {
