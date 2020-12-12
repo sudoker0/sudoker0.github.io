@@ -1,7 +1,7 @@
 "use strict";
 
-var CACHE_NAME = "version-5";
-var urlsToCache = ["offline.html"]; // Install the service worker and open the cache and add files mentioned in array to cache
+var CACHE_NAME = "version-6";
+var urlsToCache = ["offline.html", "index.js", "jquery.min.js", "jquery-ui.min.css", "jquery-ui.min.js", "jquery-ui.theme.min.css", "jquery-ui.structure.min.css", "website/image/ui-icons_444444_256x240.png", "website/image/ui-icons_555555_256x240.png", "website/image/ui-icons_777620_256x240.png", "website/image/ui-icons_777777_256x240.png", "website/image/ui-icons_cc0000_256x240.png", "website/image/ui-icons_ffffff_256x240.png"]; // Install the service worker and open the cache and add files mentioned in array to cache
 
 self.addEventListener('install', function (event) {
   event.waitUntil(caches.open(CACHE_NAME).then(function (cache) {

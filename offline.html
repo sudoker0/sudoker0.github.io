@@ -1,1 +1,529 @@
-<p>Offline!</p>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Look like you're offline | Quan_MCPC's Website</title>
+        <script src="jquery.min.js"></script>
+        <script src="jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="jquery-ui.min.css">
+        <link rel="stylesheet" href="jquery-ui.structure.min.css">
+        <link rel="stylesheet" href="jquery-ui.theme.min.css">
+        <style>
+            p, h1, h2, h3, h4, h5, h6, span, label, a {
+                font-family: 'Raleway';
+                font-weight: 500;
+                color: white
+            }
+            h4 {
+                margin: 0.3rem
+            }
+            h1, h3 {
+                margin: 1rem
+            }
+            #option *, #option1 * {
+                color: black
+            }
+            .ui-dialog-title {
+                color: black
+            }
+            /*Source: https://codepen.io/cipherbeta/pen/YLdVjw*/
+            /*Source: SCSS; Has to be converted to CSS using compiler*/
+            .glitch {
+                position: relative;
+                color: white;
+                font-size: 2em;
+                animation: glitch-skew 1s infinite linear alternate-reverse;
+            }
+
+            .glitch::before {
+                content: attr(data-text);
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                left: 2px;
+                text-shadow: -2px 0 #ff00c1;
+                clip: rect(44px, 450px, 56px, 0);
+                animation: glitch-anim 5s infinite linear alternate-reverse;
+            }
+
+            .glitch::after {
+                content: attr(data-text);
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                left: -2px;
+                text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+                animation: glitch-anim2 1s infinite linear alternate-reverse;
+            }
+            @keyframes glitch-anim {
+                0% {clip: rect(4px, 9999px, 30px, 0); transform: skew(0.68deg);}
+                5% {clip: rect(76px, 9999px, 86px, 0); transform: skew(0.68deg);}
+                10% {clip: rect(80px, 9999px, 18px, 0); transform: skew(0.28deg);}
+                15% {clip: rect(17px, 9999px, 44px, 0); transform: skew(0.78deg);}
+                20% {clip: rect(40px, 9999px, 48px, 0); transform: skew(0.09deg);}
+                25% {clip: rect(25px, 9999px, 61px, 0); transform: skew(0.67deg);}
+                30% {clip: rect(15px, 9999px, 69px, 0); transform: skew(0.08deg);}
+                35% {clip: rect(52px, 9999px, 4px, 0); transform: skew(0.83deg);}
+                40% {clip: rect(64px, 9999px, 55px, 0); transform: skew(0.44deg);}
+                45% {clip: rect(1px, 9999px, 1px, 0); transform: skew(0.78deg);}
+                50% {clip: rect(13px, 9999px, 73px, 0); transform: skew(0.16deg);}
+                55% {clip: rect(51px, 9999px, 53px, 0); transform: skew(0.1deg);}
+                60% {clip: rect(58px, 9999px, 7px, 0); transform: skew(0.64deg);}
+                65% {clip: rect(49px, 9999px, 18px, 0); transform: skew(0.92deg);}
+                70% {clip: rect(43px, 9999px, 32px, 0); transform: skew(0.57deg);}
+                75% {clip: rect(92px, 9999px, 27px, 0); transform: skew(0.45deg);}
+                80% {clip: rect(49px, 9999px, 28px, 0); transform: skew(0.5deg);}
+                85% {clip: rect(67px, 9999px, 95px, 0); transform: skew(0.08deg);}
+                90% {clip: rect(52px, 9999px, 39px, 0); transform: skew(0.07deg);}
+                95% {clip: rect(1px, 9999px, 27px, 0); transform: skew(0.53deg);}
+                100% {clip: rect(17px, 9999px, 75px, 0); transform: skew(0.06deg);}
+            }
+            @keyframes glitch-anim2 {
+                0% {clip: rect(71px, 9999px, 36px, 0); transform: skew(0.76deg);}
+                5% {clip: rect(76px, 9999px, 42px, 0); transform: skew(0.78deg);}
+                10% {clip: rect(58px, 9999px, 38px, 0); transform: skew(0.17deg);}
+                15% {clip: rect(91px, 9999px, 76px, 0); transform: skew(0.3deg);}
+                20% {clip: rect(58px, 9999px, 17px, 0); transform: skew(0.37deg);}
+                25% {clip: rect(4px, 9999px, 45px, 0); transform: skew(0.54deg);}
+                30% {clip: rect(80px, 9999px, 76px, 0); transform: skew(0.2deg);}
+                35% {clip: rect(44px, 9999px, 23px, 0); transform: skew(0.32deg);}
+                40% {clip: rect(41px, 9999px, 11px, 0); transform: skew(0.4deg);}
+                45% {clip: rect(25px, 9999px, 88px, 0); transform: skew(0.11deg);}
+                50% {clip: rect(92px, 9999px, 59px, 0); transform: skew(0.38deg);}
+                55% {clip: rect(99px, 9999px, 26px, 0); transform: skew(0.1deg);}
+                60% {clip: rect(30px, 9999px, 41px, 0); transform: skew(0.96deg);}
+                65% {clip: rect(1px, 9999px, 42px, 0); transform: skew(0.15deg);}
+                70% {clip: rect(58px, 9999px, 15px, 0); transform: skew(0.55deg);}
+                75% {clip: rect(63px, 9999px, 90px, 0); transform: skew(0.86deg);}
+                80% {clip: rect(61px, 9999px, 56px, 0); transform: skew(0.03deg);}
+                85% {clip: rect(21px, 9999px, 58px, 0); transform: skew(0.38deg);}
+                90% {clip: rect(10px, 9999px, 65px, 0); transform: skew(0.2deg);}
+                95% {clip: rect(48px, 9999px, 67px, 0); transform: skew(0.85deg);}
+                100% {clip: rect(18px, 9999px, 48px, 0); transform: skew(0.73deg);}
+            }
+            @keyframes glitch-skew {
+                0% {transform: skew(-2deg);}
+                10% {transform: skew(2deg);}
+                20% {transform: skew(4deg);}
+                30% {transform: skew(3deg);}
+                40% {transform: skew(0deg);}
+                50% {transform: skew(-4deg);}
+                60% {transform: skew(-3deg);}
+                70% {transform: skew(-4deg);}
+                80% {transform: skew(-1deg);}
+                90% {transform: skew(5deg);}
+                100% {transform: skew(-3deg);}
+            }
+            #option, #option1 {
+                padding: 10px;
+            }
+            /*.ui-dialog-titlebar-close {
+                display: none
+            }*/
+            body {
+                max-height: fit-content
+            }
+            #openBuild {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                border: 1px solid green;
+                background-color: green;
+                color: white;
+                cursor: pointer;
+                padding: 4px;
+                width: fit-content;
+                margin: 5px;
+            }
+            #hideoffline {
+                position: absolute;
+                top: 0;
+                right: 0;
+                border: 1px solid red;
+                background-color: red;
+                color: white;
+                cursor: pointer;
+                padding: 4px;
+                width: fit-content;
+                margin: 5px;
+            }
+            #off {
+                position: fixed;
+                border: 2px solid white;
+                padding: 10px
+            }
+            #openBuild_ {
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                border: 1px solid green;
+                background-color: green;
+                color: white;
+                cursor: pointer;
+                padding: 4px;
+                width: fit-content;
+                height: fit-content;
+                display: none;
+                opacity: 0.1
+            }
+            #openBuild_:hover {
+                opacity: 0.7
+            }
+            #openBuild__ {
+                position: fixed;
+                right: 0;
+                top: 0;
+                border: 1px solid red;
+                background-color: red;
+                color: white;
+                cursor: pointer;
+                padding: 4px;
+                width: fit-content;
+                height: fit-content;
+                display: none;
+                opacity: 0.1
+            }
+            #openBuild__:hover {
+                opacity: 0.7;
+            }
+            .b-block:focus {
+                outline: black
+            }
+            #drawpaper {
+                display: none;
+                width: 100%;
+                height: 100%;
+                background-color: white;
+            }
+            .draweditor .ui-dialog-titlebar-close { display: none; }
+        </style>
+    </head>
+    <body style="background-color: rgb(54, 54, 54);">
+        <div id="off">
+            <h1 style="color: white">It look like you are offline!</h1>
+            <h3 style="color: white" class="glitch" data-text="Error code: Null">Error code: Null</h3>
+            <h4 style="color: white">You might think: Why isn't the dinasour or that sad file face here?</h4>
+            <h4 style="color: white">The answer: Those are so old and boring, so I have created a different game: 2d-Building</h4>
+            <h4 style="color: white">In here, you can create block at any size, any color, edit, destroy block and more!</h4>
+            <h4 style="color: white">Of course, if you prefer the dino game then you can play that instead.</h4>
+            <h4 style="color: white">Language used: HTML, CSS, JavaScript and for the first time ever: JQuery and JQuery UI.</h4>
+            <h4 style="color: white">To get started, press the "Open Block Editor"</h4>
+            <h4 style="color: white">To hide this box, press the Hide button at the top-left corner of this box.</h4>
+            <h4 style="color: white">(If you hide this, to open the block editor, just hover at the</h4>
+            <h4 style="color: white">bottom-right corner of the browser window and the "Open Block Editor" button should</h4>
+            <h4 style="color: white">appear, click it. To show this box, hover at the top-right corner of the browser window)</h4>
+            <h4 style="color: white">and the "Show" button should show up, click it</h4>
+            <h4 style="color: white"><a href="javascript:openImage1()">[If you want to draw, click here!]</a></h4>
+            <h4 style="color: white">Copyright (C) 2020 Quan_MCPC</h4>
+            <h4 style="color: white">JQuery and JQuery UI | Copyright (C) JS Foundation</h4>
+            <h4 style="color: white">Version: 1.0_Beta1_12920</h4>
+            <div id="hideoffline" onclick="$('#off').toggle('slide'); $('#openBuild_').toggle('slide', {direction: 'right'}); $('#openBuild__').toggle('slide', {direction: 'right'});">
+                <a>Hide</a>
+            </div>
+            <div id="openBuild" onclick="$('#option1').dialog('open')">
+                <a>Open Block Editor</a>
+            </div>
+        </div>
+        <div id="openBuild_" onclick="$('#option1').dialog('open')">
+            <a>Open Block Editor</a>
+        </div>
+        <div id="openBuild__" onclick="$('#off').toggle('slide'); $('#openBuild_').toggle('slide', {direction: 'right'}); $('#openBuild__').toggle('slide', {direction: 'right'});">
+            <a>Show</a>
+        </div>
+        <div id="option1">
+            <div id="build">
+                <span><i>Create Block</i></span><br>
+                <label for="color1">Color: </label><input type="color" name="color1" id="color1">
+                <label for="size1">Width: </label><input type="number" name="size1" id="size1" style="width: 50px">
+                <label for="size2">Height: </label><input type="number" name="size2" id="size2" style="width: 50px"><br>
+                <label for="snapallow">Allow snap for block: <sub title="Snap-enabled block will work both for block that is snap-enabled and snap-disabled">(?)</sub></label><input type="checkbox" name="snapallow" id="snapallow"><br>
+                <label for="snapnumber">The distance in pixels from the snap block edges at which snapping should occur: </label><input type="number" name="snapnumber" id="snapnumber" style="width: 50px" value="10"><br>
+                <label for="allowResize">Resizable: </label><input type="checkbox" name="allowResize" id="allowResize" checked><br>
+                <button onclick="createNewBlock()">Create new block</button>
+                <hr style="border: 2px solid black">
+                <span><i>Edit Block</i></span><br>
+                <span id="option1_select">No block selected! Please select a block</span><br>
+                <label for="color1_">New color: </label><input type="color" name="color1_" id="color1_">
+                <label for="size1_">New width: </label><input type="number" name="size1_" id="size1_" style="width: 50px">
+                <label for="size2_">New height: </label><input type="number" name="size2_" id="size2_" style="width: 50px"><br>
+                <label for="snapallow_">Allow snap for block: <sub title="Snap-enabled block will work both for block that is snap-enabled and snap-disabled">(?)</sub></label><input type="checkbox" name="snapallow_" id="snapallow_"><br>
+                <label for="snapnumber_">The new distance in pixels from the snap block edges at which snapping should occur: </label><input type="number" name="snapnumber_" id="snapnumber_" style="width: 50px" value="10"><br>
+                <label for="allowResize_">Resizable: </label><input type="checkbox" name="allowResize_" id="allowResize_"><br>
+                <button onclick="editBlock()">Edit block</button><button onclick="destroyBlock()">Destroy block</button><br>
+                <button onclick="bringForward()">Bring selected block forward</button><button onclick="sendBackward()">Send selected block backward</button>
+            </div>
+        </div>
+        <div id="drawpaper">
+            <canvas id="canvas" width="640" height="480" style="position:absolute;top:0;left:0;border:2px solid black; z-index: 99; background-color: white"></canvas>
+            <div id="drawpaper_tool">
+                <hr style="border: 2px solid black">
+                <span style="color: black"><i>File</i></span><br>
+                <button onclick="newImage()">New</button>
+                <button onclick="saveImage()">Save</button>
+                <button onclick="openImage()">Open</button>
+                <button onclick="closeImage()">Close</button>
+                <hr style="border: 2px solid black">
+                <span style="color: black"><i>Tool</i></span><br>
+                <button id="pencil" onclick="tool_ = 'pencil'" title="Brush">Pencil</button>
+                <button id="eraser" onclick="tool_ = 'eraser'" title="Eraser">Eraser</button>
+                <button id="text" onclick="tool_ = 'colorpicker'" title="Color Picker">Color Picker</button><br>
+                <hr style="border: 2px solid black">
+                <span style="color: black"><i>Settings</i></span><br>
+                <label for="brush_size" style="color: black">Pencil Size: </label><input type="number" name="brush_size" id="brush_size" value="2" style="width: 50px"><br>
+                <label for="brush_color" style="color: black">Pencil Color: </label><input type="color" name="brush_color" id="brush_color"><br>
+                <label for="eraser_size" style="color: black">Eraser Size: </label><input type="number" name="eraser_size" id="eraser_size" value="2" style="width: 50px"><br>
+            </div>
+        </div>
+    </body>
+    <script>
+        function newImage() {
+            $("#canvas")[0].getContext("2d").clearRect(0, 0, $("#canvas")[0].width, $("#canvas")[0].height)
+        }
+        function saveImage() {
+            var link = document.createElement("a");
+            link.download = "canvasImage.png";
+            link.href = document.getElementById("canvas").toDataURL();
+            link.click();
+            link.delete;
+        }
+        function openImage() {
+            openFile();
+            function clickElem(elem) {
+                // Thx user1601638 on Stack Overflow (6/6/2018 - https://stackoverflow.com/questions/13405129/javascript-create-and-save-file )
+                var eventMouse = document.createEvent("MouseEvents")
+                eventMouse.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
+                elem.dispatchEvent(eventMouse)
+            }
+            function openFile() {
+                readFile = function(e) {
+                    var file = e.target.files[0];
+                    if (!file) {
+                        return;
+                    }
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        var img = new Image();
+                        img.onload = function() {
+                            $("#canvas")[0].getContext("2d").clearRect(0, 0, $("#canvas")[0].width, $("#canvas")[0].height)
+                            document.getElementById("canvas").getContext("2d").drawImage(img, 0, -18)
+                        }
+                        img.src = e.target.result;
+                    }
+                    reader.readAsDataURL(file)
+                }
+                fileInput = document.createElement("input")
+                fileInput.type='file'
+                fileInput.accept='image/*'
+                fileInput.style.display='none'
+                fileInput.onchange=readFile
+                document.body.appendChild(fileInput)
+                clickElem(fileInput)
+            }
+        }
+        function closeImage() {
+            $("#drawpaper").css("display", "none")
+            $('#drawpaper_tool').dialog('close')
+        }
+        function openImage1() {
+            $("#drawpaper").css("display", "block")
+            $('#drawpaper_tool').dialog('open')
+        }
+        function rgbToHex2(r, g, b) {
+            if (r > 255 || g > 255 || b > 255) throw "Invalid color";
+            return ((r << 16) | (g << 8) | b).toString(16)
+        }
+        var hexDigits = new Array("0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f");
+        //Function to convert rgb color to hex format
+        function rgb2hex(rgb) {
+            rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+            return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+        }
+        function hex(x) {
+            return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16];
+        }
+        var tool_
+        window.onresize = window.onload = function(event) {
+            $("#canvas").attr({width: window.innerWidth - 4, height: window.innerHeight - 4})
+        }
+        $(document).ready(function() {
+            var flag, dot_flag = false,
+                prevX, prevY, currX, currY = 0
+            var $canvas = $('#canvas');
+            var ctx = $canvas[0].getContext('2d');
+            $(document).on('mousemove mousedown mouseup mouseout', function(e) {
+                prevX = currX;
+                prevY = currY;
+                currX = e.clientX - $canvas.offset().left;
+                currY = e.clientY - $canvas.offset().top;
+                //console.log(currX, currY)
+                if (e.type == 'mousedown') {
+                    flag = true;
+                    if (tool_ == "colorpicker") {
+                        var colorData = ctx.getImageData(currX, currY, 1, 1).data
+                        if (colorData[2] == 0) {
+                            $("#brush_color").val("#ffffff")
+                        } else {
+                            $("#brush_color").val(rgb2hex("rgb(" + colorData[0] + "," + colorData[1] + "," + colorData[2] + ")"))
+                        }
+                    }
+                }
+                if (e.type == 'mouseup' || e.type == 'mouseout') { flag = false; }
+                if (e.type == 'mousemove') {
+                    if (flag) {
+                        ctx.beginPath();
+                        if (tool_ == "pencil") {
+                            ctx.globalCompositeOperation="source-over";
+                            ctx.moveTo(prevX, prevY);
+                            ctx.lineTo(currX, currY);
+                            ctx.strokeStyle = $("#brush_color").val();
+                            ctx.lineWidth = $("#brush_size").val();
+                            ctx.lineCap = 'round';
+                            ctx.stroke();
+                        } else if (tool_ == "eraser") {
+                            ctx.globalCompositeOperation = "destination-out";
+                            ctx.arc(prevX, prevY, $("#eraser_size").val(), 0, Math.PI*2, false);
+                            ctx.fill();
+                        }
+                    }
+                }
+            });
+            $('.canvas-clear').on('click', function(e) {
+                c_width = $canvas.width();
+                c_height = $canvas.height();
+                ctx.clearRect(0, 0, c_width, c_height);
+                $('#canvasimg').hide();
+            });
+        });
+        var isInsideBuilder = false;
+        var buildShow = true;
+        $("#option1").dialog({
+            width: 760,
+            height: 480,
+            title: "Block Editor",
+            resizable: false,
+            position: {
+                my: "center",
+                at: "center",
+                of: "body"
+            },
+            autoOpen: false,
+            classes: {
+                "ui-dialog": "blockeditor"
+            },
+            show: "fold",
+            hide: "fold"
+        })
+        $("#drawpaper_tool").dialog({
+            width: 270,
+            height: 305,
+            title: "Draw Control Panel",
+            resizable: false,
+            position: {
+                my: "center",
+                at: "center",
+                of: "body"
+            },
+            autoOpen: false,
+            classes: {
+                "ui-dialog": "draweditor"
+            },
+            show: "fold",
+            hide: "fold",
+        })
+        $(".blockeditor").mouseover(function() { isInsideBuilder = true }).mouseleave(function() { isInsideBuilder = false; })
+        var id = 1, id1 = 0, currentElementSelected;
+        function resetEditBuilder() {
+            $("#option1_select").text("No block selected! Please select a block");
+            currentElementSelected = undefined;
+            $("#size1_").val("");
+            $("#size2_").val("");
+            $("#color1_").val("#000000")
+            $("#snapnumber_").val("")
+            $("#snapallow_").prop("checked", false)
+            $("#allowResize_").prop("checked", false)
+        }
+        function changeData(event) {
+            if (event.target.id.includes("b-block")) {
+                $("#option1_select").text(`Block selected with Id: ${event.target.id.replace("b-block-", "")}`);
+                currentElementSelected = event.target.id;
+                $("#size1_").val($("#" + event.target.id).width());
+                $("#size2_").val($("#" + event.target.id).height());
+                $("#color1_").val(rgb2hex($("#" + event.target.id).css("backgroundColor")))
+                $("#snapnumber_").val($("#" + event.target.id).draggable("option", "snapTolerance"))
+                $("#snapallow_").prop("checked", $("#" + event.target.id).draggable("option", "snap"))
+                $("#allowResize_").prop("checked", !$("#" + event.target.id).resizable("option", "disabled"))
+                $("#" + event.target.id).attr("title", `Width: ${$("#" + event.target.id).width()}px\nHeight: ${$("#" + event.target.id).height()}px\nColor: ${rgb2hex($("#" + event.target.id).css("backgroundColor"))}\nLayer: ${$("#" + event.target.id).css("zIndex")}\nId: ${id1}\nSnap: ${$("#" + event.target.id).draggable("option", "snap")}\nSnap Tolerance: ${$("#" + event.target.id).draggable("option", "snapTolerance")}\nResizable: ${!$("#" + event.target.id).resizable("option", "disabled")}`)
+            } else {
+                if (!isInsideBuilder) { resetEditBuilder() }
+            }
+        }
+        $(document).mousedown(function(event) { changeData(event); })
+        function createNewBlock() {
+            if ($("#size2").val() != "" && $("#size1").val() != "") {
+                id1++
+                $("<div/>", {
+                    "class": "b-block",
+                    "id": `b-block-${id1}`,
+                    "style": `width: ${$("#size1").val()}px; height: ${$("#size2").val()}px; background-color: ${$("#color1").val()}; position: absolute; z-index: 1; top: 0; left: 0`,
+                    "title": `Width: ${$("#size1").val()}px\nHeight: ${$("#size2").val()}px\nColor: ${$("#color1").val()}\nId: ${id1}\nSnap: ${$("#snapallow").is(":checked")}\nSnap Tolerance: ${$("#snapnumber").val()}\nResizable: ${$("#allowResize").is(":checked")}`
+                }).appendTo("body")
+                $(`#b-block-${id1}`).resizable({disabled: !$("#allowResize").is(":checked"), autoHide: true}).draggable({ start: function(event) {
+                    if (event.target.id.includes("b-block")) {
+                        $("#option1_select").text(`Block selected with Id: ${event.target.id.replace("b-block-", "")}`);
+                        currentElementSelected = event.target.id;
+                        $("#size1_").val($("#" + event.target.id).width());
+                        $("#size2_").val($("#" + event.target.id).height());
+                        $("#color1_").val(rgb2hex($("#" + event.target.id).css("backgroundColor")))
+                        $("#snapnumber_").val($("#" + event.target.id).draggable("option", "snapTolerance"))
+                        $("#snapallow_").prop("checked", $("#" + event.target.id).draggable("option", "snap"))
+                        $("#allowResize_").prop("checked", !$("#" + event.target.id).resizable("option", "disabled"))
+                    }
+                }, snapTolerance: $("#snapnumber").val(), snap: $("#snapallow").is(":checked"), containment: [0, 0, Number.MAX_VALUE, Number.MAX_VALUE]}).on("resize", function(event) { changeData(event) })
+            } else {
+                alert("Do not leave the Width and Height number blank!")
+            }
+        }
+        function editBlock() {
+            if (!!currentElementSelected) {
+                $("#" + currentElementSelected).attr({
+                    "class": "b-block",
+                    "id": currentElementSelected,
+                    "style": `width: ${$("#size1_").val()}px; height: ${$("#size2_").val()}px; background-color: ${$("#color1_").val()}; position: absolute; z-index: 1; left: ${$("#" + currentElementSelected).offset().left}px; top: ${$("#" + currentElementSelected).offset().top}px`,
+                    "title": `Width: ${$("#size1_").val()}px\nHeight: ${$("#size2_").val()}px\nColor: ${$("#color1_").val()}\nId: ${id1}\nSnap: ${$("#snapallow_").is(":checked")}\nSnap Tolerance: ${$("#snapnumber_").val()}\nResizable: ${$("#allowResize_").is(":checked")}`
+                })
+                $("#" + currentElementSelected).draggable({snap: $("#snapallow_").is(":checked"), snapTolerance: $("#snapnumber_").val()}).resizable({disabled: !$("#allowResize_").is(":checked")})
+            } else {
+                alert("Please select a block to edit")
+            }
+        }
+        function destroyBlock() {
+            if (!!currentElementSelected) {
+                $("#" + currentElementSelected).remove()
+                resetEditBuilder()
+            } else {
+                alert("Please select a block to destroy")
+            }
+        }
+        function sendBackward() {
+            if (!!currentElementSelected) {
+                if ($("#" + currentElementSelected).prev().attr("id").includes("b-block-")) {
+                    $("#" + currentElementSelected).insertBefore($("#" + currentElementSelected).prev())
+                }
+            } else {
+                alert("Please select a block to send backward")
+            }
+        }
+        function bringForward() {
+            if (!!currentElementSelected) {
+                $("#" + currentElementSelected).insertAfter($("#" + currentElementSelected).next())
+            } else {
+                alert("Please select a block to bring forward")
+            }
+        }
+    </script>
+</html>
