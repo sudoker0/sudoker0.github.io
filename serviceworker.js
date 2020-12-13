@@ -1,4 +1,4 @@
-const CACHE_NAME = "version-6";
+const CACHE_NAME = "version-" +  + Math.floor(Math.random() * 100000);
 const urlsToCache = [
     "offline.html",
     "index.js",
