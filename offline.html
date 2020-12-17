@@ -363,7 +363,8 @@
                     flag = true;
                     if (tool_ == "colorpicker") {
                         var colorData = ctx.getImageData(currX, currY, 1, 1).data
-                        if (colorData[2] == 0) {
+                        console.log(colorData)
+                        if (colorData[3] == 0) {
                             $("#brush_color").val("#ffffff")
                         } else {
                             $("#brush_color").val(rgb2hex("rgb(" + colorData[0] + "," + colorData[1] + "," + colorData[2] + ")"))
