@@ -257,10 +257,10 @@
 				function check() {
 					document.getElementById("accb_small").style.top = document.getElementById("accb_small_").style.width
 					if (getParameterByName("sv_cheat") >= 1 || getParameterByName("debug") >= 1 || getParameterByName("hack") >= 1) {
-						window.location.replace("ban");
+						window.location.replace("ban.html");
 					}
 					if (localStorage.getItem("ls") == "927") {
-						window.location.replace("ban");
+						window.location.replace("ban.html");
 					}
 					if (getParameterByName("secret") == "true") {
 						document.getElementById("secret_image").style.display = "block"
@@ -270,34 +270,34 @@
 				}
 				function check1() {
 					if (!sessionStorage.getItem("access_granted") == 1) {
-						window.location.replace("warning");
+						window.location.replace("warning.html");
 					}
 				}
 				var name_ = [
 					{
 						"name": "Home",
 						"title": "Home - The main page of the website",
-						"address": "home"
+						"address": "home.html"
 					},
 					{
 						"name": "How did I make the website?",
 						"title": "HDIMTW - How did I make the website?",
-						"address": "how"
+						"address": "how.html"
 					},
 					{
 						"name": "Credit",
 						"title": "Credit - All of the stuff and people that created this website will be listed here",
-						"address": "credit"
+						"address": "credit.html"
 					},
 					{
 						"name": "About Website",
 						"title": "About Website - Information about my website",
-						"address": "about"
+						"address": "about.html"
 					},
 					{
 						"name": "Other Project",
 						"title": "Other Project - Where all of my knowledge and fun about HTML and JS is in",
-						"address": "other_project"
+						"address": "other_project.html"
 					}
 				];
 				//Syntax: Name / Description / Link (Space is important)

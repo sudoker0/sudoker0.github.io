@@ -144,7 +144,7 @@
 			var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
             var button1 = document.createElement("button"), button1_att_ = document.createTextNode("Load Default Home"),
                 button2 = document.createElement("button"), button2_att_ = document.createTextNode("Load Basic Home (For Slow Connection)")
-            button1.onclick = function() {window.location.replace('home?id='+ dateTime +'')}; button2.onclick = function() {window.location.replace('lite/home?id='+ dateTime +'')};
+            button1.onclick = function() {window.location.replace('home.html?id='+ dateTime +'')}; button2.onclick = function() {window.location.replace('lite/home.html?id='+ dateTime +'')};
             button1.appendChild(button1_att_);
             button2.appendChild(button2_att_);
             document.getElementById("button_").appendChild(button1); document.getElementById("button_").appendChild(button2)
@@ -179,13 +179,13 @@
             function move() {
                 sessionStorage.setItem("access_granted", 1)
                 if (getParameterByName("sv_cheat") >= 1 || getParameterByName("debug") >= 1 || getParameterByName("hack") >= 1) {
-                    window.location.replace("ban");
+                    window.location.replace("ban.html");
                 }
                 if (window.mobileCkeck_) {
                     document.getElementById("warning").style.display = "block";
                 }
                 if (localStorage.getItem("ls") == "927") {
-                    window.location.replace("ban");
+                    window.location.replace("ban.html");
                 }
             }
 		</script>
@@ -193,7 +193,7 @@
 		<!--<script>
 			function check() {
 					if (localStorage.getItem("ls") == "927") {
-						window.location.replace("ban");
+						window.location.replace("ban.html");
 					}
 				}
 			var timeleft = 5;

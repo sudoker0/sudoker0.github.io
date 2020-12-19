@@ -184,17 +184,17 @@
 						return decodeURIComponent(results[2].replace(/\+/g, ' '));
 					}
 					if (getParameterByName("sv_cheat") >= 1 || getParameterByName("debug") >= 1 || getParameterByName("hack") >= 1) {
-						window.location.replace("ban");
+						window.location.replace("ban.html");
 					}
 					if (localStorage.getItem("ls") == "927") {
-						window.location.replace("ban");
+						window.location.replace("ban.html");
 					}
 					date_check();
 					check1();
 				}
 				function check1() {
 					if (!sessionStorage.getItem("access_granted") == 1) {
-						window.location.replace("warning");
+						window.location.replace("warning.html");
 					}
 				}
 				var name_ = [

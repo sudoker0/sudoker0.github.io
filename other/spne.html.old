@@ -265,10 +265,10 @@
 				function check() {
 					document.getElementById("accb_small").style.top = document.getElementById("accb_small_").style.width
 					if (getParameterByName("sv_cheat") >= 1 || getParameterByName("debug") >= 1 || getParameterByName("hack") >= 1) {
-						window.location.replace("ban");
+						window.location.replace("ban.html");
 					}
 					if (localStorage.getItem("ls") == "927") {
-						window.location.replace("ban");
+						window.location.replace("ban.html");
 					}
 					if (getParameterByName("secret") == "true") {
 						document.getElementById("secret_image").style.display = "block"
@@ -278,7 +278,7 @@
 				}
 				function check1() {
 					if (!sessionStorage.getItem("access_granted") == 1) {
-						window.location.replace("warning");
+						window.location.replace("warning.html");
 					}
 				}
 				var name_ = [
