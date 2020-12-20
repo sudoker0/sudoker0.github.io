@@ -40,6 +40,15 @@
 				z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
 				cursor: not-allowed; /* Add a pointer on hover */
 			}
+			table, th, td {
+                border: 1px solid black;
+            }
+            th, td {
+                padding: 15px;
+			}
+			body {
+				overflow-y: scroll;
+			}
 		</style>
 	</head>
 	<body onload="check()">
@@ -121,12 +130,78 @@
 		</center>
 		<center>
 			<h2><b>About Website</b></h2>
-			<p>File size: [Total size: <span id="total">00,000,000</span> bytes, Default: <span id="default">00,000,000</span> bytes, <a id="hidden" onclick="location.href='../home.html'">Basic</a>: <span id="basic">00,000</span> bytes, Other: <span id="other">00,000,000</span> bytes] (Last updated on: 11/21/2020)</b></p>
-			<p>Website's age: <span id="days_from">0</span> days since when the website was created.</p>
-			<p>Langugaes used: HTML (HyperText Markup Language), CSS (Cascading Style Sheets) and JS (JavaScript)</p>
-			<p>This website used to have a dark and light mode and a simple design then the website get a re-designed from August 26th 2020</p>
-			<p>Number of commits: 577 (Last updated on: 12/19/2020)</p>
-			<p>External languages use (or contain in the website): JSON (JavaScript Object Notation), XML (eXtensible Markup Language), MD (MarkDown), .htaccess</p>
+			<a href="#" onclick="document.getElementById('textview').style.display = 'block'; document.getElementById('tableview').style.display = 'none'; document.getElementById('switchtextview').style.display = 'none'; document.getElementById('switchtableview').style.display = 'block'" id="switchtextview">[Switch to text view]</a>
+			<a href="#" onclick="document.getElementById('textview').style.display = 'none'; document.getElementById('tableview').style.display = 'table'; document.getElementById('switchtextview').style.display = 'block'; document.getElementById('switchtableview').style.display = 'none'" id="switchtableview" style="display: none;">[Switch to table view]</a>
+			<div id="textview" style="display: none;">
+				<p>File size: [Total size: <span id="total">00,000,000</span> bytes, Default: <span id="default">00,000,000</span> bytes, <a id="hidden" onclick="location.href='../home.html'">Basic</a>: <span id="basic">00,000</span> bytes, Other: <span id="other">00,000,000</span> bytes] (Last updated on: 11/21/2020)</b></p>
+				<p>Website's age: <span id="days_from">0</span> days since when the website was created.</p>
+				<p>Langugaes used: HTML (HyperText Markup Language), CSS (Cascading Style Sheets) and JS (JavaScript)</p>
+				<p>This website used to have a dark and light mode and a simple design then the website get a re-designed from August 26th 2020</p>
+				<p>Number of commits: 577 (Last updated on: 12/19/2020)</p>
+				<p>External languages use (or contain in the website): JSON (JavaScript Object Notation), XML (eXtensible Markup Language), MD (MarkDown), .htaccess</p>
+				<p>Website's Certificate valid before: <span id="validuntil"></span> days</p>
+			</div>
+			<table class="tg" style="table-layout: fixed; max-width: 100%; margin: 10px" id="tableview">
+				<colgroup>
+					<col style="width: 203px">
+					<col style="width: 121px">
+					<col style="width: 329px">
+				</colgroup>
+				<tbody>
+					<tr>
+						<td class="tg-0pky" rowspan="4">File size (Last updated on: 11/21/2020)</td>
+						<td class="tg-0pky">Total size</td>
+						<td class="tg-0lax"><span id="total1">00,000,000</span> bytes</td>
+					</tr>
+					<tr>
+						<td class="tg-0pky">Default</td>
+						<td class="tg-0lax"><span id="default1">00,000,000</span> bytes</td>
+					</tr>
+					<tr>
+						<td class="tg-0pky"><a id="hidden" onclick="location.href='lite/home.html'">Basic</a></td>
+						<td class="tg-0lax"><span id="basic1">00,000</span> bytes</td>
+					</tr>
+					<tr>
+						<td class="tg-0pky">Other</td>
+						<td class="tg-0lax"><span id="other1">00,000,000</span> bytes</td>
+					</tr>
+					<tr>
+						<td class="tg-0pky">Website's age</td>
+						<td class="tg-0pky" colspan="2"><span id="days_from1">0</span> (Since when the website was created)</td>
+					</tr>
+					<tr>
+						<td class="tg-0lax" rowspan="6">Language used<br>(or contain in the website)</td>
+						<td class="tg-0lax" colspan="2">HTML (HyperText Markup Language)</td>
+					</tr>
+					<tr>
+						<td class="tg-0lax" colspan="2">CSS (Cascading Style Sheets)</td>
+					</tr>
+					<tr>
+						<td class="tg-0lax" colspan="2">JS (JavaScript)</td>
+					</tr>
+					<tr>
+						<td class="tg-0lax" colspan="2">JSON (JavaScript Object Notation)</td>
+					</tr>
+					<tr>
+						<td class="tg-0lax" colspan="2">XML (eXtensible Markup Language)</td>
+					</tr>
+					<tr>
+						<td class="tg-0lax" colspan="2">MD (MarkDown)</td>
+					</tr>
+					<tr>
+						<td class="tg-0lax">Number of commit</td>
+						<td class="tg-0lax" colspan="2">577 (Last updated on: 12/19/2020)</td>
+					</tr>
+					<tr>
+						<td class="tg-0lax">Website's Certificate age</td>
+						<td class="tg-0lax" colspan="2"><span id="validuntil1"></span> days</td>
+					</tr>
+					<tr>
+						<td class="tg-0lax">Other Information</td>
+						<td class="tg-0lax" colspan="2">This website used to have a dark and light mode and a simple then the website get a re-designed from August 26th 2020</td>
+					</tr>
+				</tbody>
+			</table>
 		</center>
 		<script>
 			function readTextFile(file, callback) {
@@ -150,14 +225,24 @@
 				document.getElementById("default").innerHTML = default_1;
 				document.getElementById("basic").innerHTML = basic;
 				document.getElementById("other").innerHTML = other;
+				document.getElementById("total1").innerHTML = total;
+				document.getElementById("default1").innerHTML = default_1;
+				document.getElementById("basic1").innerHTML = basic;
+				document.getElementById("other1").innerHTML = other;
 			})
 			function date_check() {
 				var date1 = new Date("07/17/2020");
 				var date2 = new Date();
+				var date3 = new Date("4/14/2022");
 				var Difference_In_Time = date2.getTime() - date1.getTime();
-				// To calculate the no. of days between two dates///
+				var Difference_In_Time1 = date3.getTime() - date2.getTime();
+				// To calculate the no. of days between two dates
 				var Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
+				var Difference_In_Days1 = Math.round(Difference_In_Time1 / (1000 * 3600 * 24));
 				document.getElementById("days_from").innerHTML = Difference_In_Days;
+				document.getElementById("validuntil").innerHTML = Difference_In_Days1;
+				document.getElementById("days_from1").innerHTML = Difference_In_Days;
+				document.getElementById("validuntil1").innerHTML = Difference_In_Days1;
 			}
 			date_check()
 		</script>
