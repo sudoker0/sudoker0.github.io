@@ -133,11 +133,11 @@
 			<a href="#" onclick="document.getElementById('textview').style.display = 'block'; document.getElementById('tableview').style.display = 'none'; document.getElementById('switchtextview').style.display = 'none'; document.getElementById('switchtableview').style.display = 'block'" id="switchtextview">[Switch to text view]</a>
 			<a href="#" onclick="document.getElementById('textview').style.display = 'none'; document.getElementById('tableview').style.display = 'table'; document.getElementById('switchtextview').style.display = 'block'; document.getElementById('switchtableview').style.display = 'none'" id="switchtableview" style="display: none;">[Switch to table view]</a>
 			<div id="textview" style="display: none;">
-				<p>File size: [Total size: <span id="total">00,000,000</span> bytes, Default: <span id="default">00,000,000</span> bytes, <a id="hidden" onclick="location.href='../home.html'">Basic</a>: <span id="basic">00,000</span> bytes, Other: <span id="other">00,000,000</span> bytes] (Last updated on: 11/21/2020)</b></p>
+				<p>File size: [Total size: <span id="total">00,000,000</span> bytes, Default: <span id="default">00,000,000</span> bytes, <a id="hidden" onclick="location.href='../home.html'">Basic</a>: <span id="basic">00,000</span> bytes, Other: <span id="other">00,000,000</span> bytes] (Last updated on: <span id="lastupdateon_"></span>)</b></p>
 				<p>Website's age: <span id="days_from">0</span> days since when the website was created.</p>
 				<p>Langugaes used: HTML (HyperText Markup Language), CSS (Cascading Style Sheets) and JS (JavaScript)</p>
 				<p>This website used to have a dark and light mode and a simple design then the website get a re-designed from August 26th 2020</p>
-				<p>Number of commits: 577 (Last updated on: 12/19/2020)</p>
+				<p>Number of commits: <span id="numberofcommit"></span> (Last updated on: <span id="lastupdateon"></span>)</p>
 				<p>External languages use (or contain in the website): JSON (JavaScript Object Notation), XML (eXtensible Markup Language), MD (MarkDown), .htaccess</p>
 				<p>Website's Certificate valid before: <span id="validuntil"></span> days</p>
 			</div>
@@ -149,7 +149,7 @@
 				</colgroup>
 				<tbody>
 					<tr>
-						<td class="tg-0pky" rowspan="4">File size (Last updated on: 11/21/2020)</td>
+						<td class="tg-0pky" rowspan="4">File size (Last updated on: <span id="lastupdateon_1"></span>)</td>
 						<td class="tg-0pky">Total size</td>
 						<td class="tg-0lax"><span id="total1">00,000,000</span> bytes</td>
 					</tr>
@@ -190,7 +190,7 @@
 					</tr>
 					<tr>
 						<td class="tg-0lax">Number of commit</td>
-						<td class="tg-0lax" colspan="2">577 (Last updated on: 12/19/2020)</td>
+						<td class="tg-0lax" colspan="2"><span id="numberofcommit1"></span> (Last updated on: <span id="lastupdateon1"></span>)</td>
 					</tr>
 					<tr>
 						<td class="tg-0lax">Website's Certificate valid before</td>
@@ -215,20 +215,22 @@
 				}
 				rawFile.send(null);
 			}
-			readTextFile("../file_size.json", function (text) {
+			readTextFile("../website_data.json", function (text) {
 				var data = JSON.parse(text);
-				var total = data.total;
-				var default_1 = data.default;
-				var basic = data.basic;
-				var other = data.other;
-				document.getElementById("total").innerHTML = total;
-				document.getElementById("default").innerHTML = default_1;
-				document.getElementById("basic").innerHTML = basic;
-				document.getElementById("other").innerHTML = other;
-				document.getElementById("total1").innerHTML = total;
-				document.getElementById("default1").innerHTML = default_1;
-				document.getElementById("basic1").innerHTML = basic;
-				document.getElementById("other1").innerHTML = other;
+				var total = data.filesize.total;
+				var default_1 = data.filesize.default;
+				var basic = data.filesize.basic;
+				var other = data.filesize.other;
+				var numberofcommit = data.numberofcommit;
+				var lastupdateon = data.lastupdateon;
+				var lastupdateon1 = data.filesize.lastupdateon;
+				document.getElementById("total").innerHTML = total; document.getElementById("total1").innerHTML = total;
+				document.getElementById("default").innerHTML = default_1; document.getElementById("default1").innerHTML = default_1;
+				document.getElementById("basic").innerHTML = basic; document.getElementById("basic1").innerHTML = basic;
+				document.getElementById("other").innerHTML = other; document.getElementById("other1").innerHTML = other;
+				document.getElementById("numberofcommit").innerHTML = numberofcommit; document.getElementById("numberofcommit1").innerHTML = numberofcommit;
+				document.getElementById("lastupdateon").innerHTML = lastupdateon; document.getElementById("lastupdateon1").innerHTML = lastupdateon;
+				document.getElementById("lastupdateon_").innerHTML = lastupdateon1; document.getElementById("lastupdateon_1").innerHTML = lastupdateon1;
 			})
 			function date_check() {
 				var date1 = new Date("07/17/2020");
