@@ -197,7 +197,16 @@
                 height: 100%;
                 background-color: white;
             }
-            .draweditor .ui-dialog-titlebar-close { display: none; }
+            /*.draweditor .ui-dialog-titlebar-close { display: none; }*/
+            #opendrawpapertool {
+                background-color: rgba(10, 10, 10, 0.3);
+                color: white;
+                padding: 6px;
+                position: absolute;
+                top: 0;
+                right: 10px;
+                cursor: pointer;
+            }
         </style>
     </head>
     <body style="background-color: rgb(54, 54, 54);">
@@ -256,7 +265,8 @@
             </div>
         </div>
         <div id="drawpaper">
-            <canvas id="canvas" width="640" height="480" style="position:absolute;top:0;left:0;border:2px solid black; z-index: 99; background-color: white"></canvas>
+            <div id="cardboard" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; background-color: rgb(54, 54, 54)"></div>
+            <canvas id="canvas" width="640" height="480" style="width: 640px; height: 480px;position:absolute;top:0;left:0;border:2px solid black; z-index: 99; background-color: white"></canvas>
             <div id="drawpaper_tool">
                 <hr style="border: 2px solid black">
                 <span style="color: black"><i>File</i></span><br>
@@ -271,14 +281,60 @@
                 <button id="eraser" onclick="tool_ = 'eraser'; $('#currentTool')[0].innerHTML = 'Current tool: Eraser'" title="Eraser">Eraser</button>
                 <button id="text" onclick="tool_ = 'colorpicker'; $('#currentTool')[0].innerHTML = 'Current tool: Color Picker'" title="Color Picker">Color Picker</button><br>
                 <hr style="border: 2px solid black">
-                <span style="color: black"><i>Settings</i></span><br>
+                <span style="color: black"><i>Settings <abbr title="Click outside the settings box to apply settings"><small>(Note)</small></abbr></i></span><br>
                 <label for="brush_size" style="color: black">Pencil Size: </label><input type="number" name="brush_size" id="brush_size" value="2" style="width: 50px"><br>
                 <label for="brush_color" style="color: black">Pencil Color: </label><input type="color" name="brush_color" id="brush_color"><br>
                 <label for="eraser_size" style="color: black">Eraser Size: </label><input type="number" name="eraser_size" id="eraser_size" value="2" style="width: 50px"><br>
+                <label for="canvas_width" style="color: black">Canvas Width: </label><input type="number" name="canvas_width" id="canvas_width" value="640" style="width: 50px"><br>
+                <label for="canvas_height" style="color: black">Canvas Height: </label><input type="number" name="canvas_height" id="canvas_height" value="480" style="width: 50px">
             </div>
+            <div id="opendrawpapertool" onclick="$('#drawpaper_tool').dialog('open'); $('#opendrawpapertool').toggle('slide', {direction: 'up'})"><a>Open Draw Tool</a></div>
         </div>
     </body>
     <script>
+        var memctx
+        $("#canvas").resizable({
+            stop: function(event, ui) {
+                memctx = $("#canvas")[0].toDataURL();
+                $("#canvas").attr({ width: ui.size.width, height: ui.size.height })
+                $("#canvas_width").val(ui.size.width)
+                $("#canvas_height").val(ui.size.height)
+                var img = new Image();
+                img.src = memctx
+                img.onload = function() {
+                    $("#canvas")[0].getContext("2d").drawImage(img, 0, 0)
+                }
+            },
+            ghost: true
+        })
+        $("#canvas_width").change(function(ev) {
+            memctx = $("#canvas")[0].toDataURL();
+            //console.log(memctx)
+            if (!!$("#canvas_width").val()) {
+                $("#canvas").attr("width", $("#canvas_width").val())
+                $("#canvas").width($("#canvas_width").val())
+            }
+            var img = new Image();
+            img.src = memctx
+            img.onload = function() {
+                document.getElementById("canvas").getContext("2d").drawImage(img, 0, 0)
+            }
+            $("#canvas").parent().eq(0).width($("#canvas_width").val())
+        })
+        $("#canvas_height").change(function(ev) {
+            memctx = $("#canvas")[0].toDataURL();
+            //console.log(memctx)
+            if (!!$("#canvas_height").val()) {
+                $("#canvas").attr("height", $("#canvas_height").val())
+                $("#canvas").height($("#canvas_height").val())
+            }
+            var img = new Image();
+            img.src = memctx
+            img.onload = function() {
+                document.getElementById("canvas").getContext("2d").drawImage(img, 0, 0)
+            }
+            $("#canvas").parent().eq(0).height($("#canvas_height").val())
+        })
         function newImage() {
             $("#canvas")[0].getContext("2d").clearRect(0, 0, $("#canvas")[0].width, $("#canvas")[0].height)
         }
@@ -307,6 +363,11 @@
                     reader.onload = function(e) {
                         var img = new Image();
                         img.onload = function() {
+                            $("#canvas_width").val(img.width)
+                            $("#canvas_height").val(img.height)
+                            $("#canvas").attr({width: img.width, height: img.height})
+                            $("#canvas").width(img.width).height(img.height)
+                            $("#canvas").parent().eq(0).width(img.width).height(img.height)
                             $("#canvas")[0].getContext("2d").clearRect(0, 0, $("#canvas")[0].width, $("#canvas")[0].height)
                             document.getElementById("canvas").getContext("2d").drawImage(img, 0, 0)
                         }
@@ -329,7 +390,6 @@
         }
         function openImage1() {
             $("#drawpaper").css("display", "block")
-            $('#drawpaper_tool').dialog('open')
         }
         function rgbToHex2(r, g, b) {
             if (r > 255 || g > 255 || b > 255) throw "Invalid color";
@@ -345,9 +405,6 @@
             return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16];
         }
         var tool_
-        window.onresize = window.onload = function(event) {
-            $("#canvas").attr({width: window.innerWidth - 4, height: window.innerHeight - 4})
-        }
         $(document).ready(function() {
             var flag, dot_flag = false,
                 prevX, prevY, currX, currY = 0
@@ -419,7 +476,7 @@
         })
         $("#drawpaper_tool").dialog({
             width: 270,
-            height: 320,
+            height: 370,
             title: "Draw Control Panel",
             resizable: false,
             position: {
@@ -433,6 +490,9 @@
             },
             show: "fold",
             hide: "fold",
+            close: function(event, ui) {
+                $('#opendrawpapertool').toggle('slide', {direction: 'up'})
+            }
         })
         $(".blockeditor").mouseover(function() { isInsideBuilder = true }).mouseleave(function() { isInsideBuilder = false; })
         var id = 1, id1 = 0, currentElementSelected;
