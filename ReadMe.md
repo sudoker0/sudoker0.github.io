@@ -125,5 +125,5 @@ for( ; ; ) {
 #### By adding some meta tag and some css code, I managed to make the website more ___responsive___
 #### **Important**: When I test the website, I notice that when using Samsung Internet, the image background get a little bit weird.
 ***
-Copyright &copy; 2020 Quan_MCPC
+Copyright &copy; 2021 Quan_MCPC
 ***
