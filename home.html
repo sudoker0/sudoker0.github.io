@@ -262,6 +262,21 @@
 			@media (min-width: 640px) { body { font-size: 0.76rem; } #accbar a { margin-left: 9px; margin-right: 9px; } #accb_small, #accb_small_ p { font-size: 1.5em } div.container *:not(#project *) { max-width: 80% } }
 			@media (min-width: 960px) { body { font-size: 0.88rem; } #accbar a { margin-left: 11px; margin-right: 11px; } #accb_small, #accb_small_ p { font-size: 1.3em } div.container *:not(#project *) { max-width: 65% } }
 			@media (min-width: 1100px) { body { font-size: 1rem; } #accbar a { margin-left: 13px; margin-right: 13px; } #accb_small, #accb_small_ p { font-size: 1.1em } }
+			ul {
+				list-style: none;
+			}
+			li::before {
+				content: "• ";
+				color: white;
+			}
+			li li::before {
+				content: "▪ ";
+				color: white;
+			}
+			li li li::before {
+				content: "▫ ";
+				color: white;
+			}
 		</style>
 	</head>
 	<body id="temp">
