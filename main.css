@@ -16,7 +16,7 @@ h1 {
 	font-family: Raleway;
 	font-weight: 500;
 }
-p, h2, h3, h4, a, label, table {
+* {
 	font-family: Raleway;
 	font-weight: 600;
 }

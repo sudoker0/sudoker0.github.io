@@ -35,11 +35,7 @@
 				}
 			}
 			html { font-size: 100%; }
-			@media (min-width: 320px) { body { font-size: 0.4rem; } #accbar a { margin-left: 5px; margin-right: 5px; } #accb_small, #accb_small_ p { font-size: 1.9em }}
-			@media (min-width: 482px) { body { font-size: 0.6rem; } #accbar a { margin-left: 7px; margin-right: 7px; } #accb_small, #accb_small_ p { font-size: 1.7em } }
-			@media (min-width: 640px) { body { font-size: 0.7rem; } #accbar a { margin-left: 9px; margin-right: 9px; } #accb_small, #accb_small_ p { font-size: 1.5em } }
-			@media (min-width: 960px) { body { font-size: 0.8rem; } #accbar a { margin-left: 11px; margin-right: 11px; } #accb_small, #accb_small_ p { font-size: 1.3em } }
-			@media (min-width: 1100px) { body { font-size: 1rem; } #accbar a { margin-left: 13px; margin-right: 13px; } #accb_small, #accb_small_ p { font-size: 1.1em } }
+
 			#hidden:link, #hidden:visited, #hidden:hover, #hidden:active {
 				color: rgb(255, 255, 255);
 				text-decoration: none;
@@ -107,6 +103,7 @@
   				border: 3px solid black;
   				opacity: 1;
 				animation: swipe 0.3s;
+				padding: 0 20px 0 20px;
 			}
 			body {
 				background-image: url(website/image/background.webp);
@@ -129,7 +126,7 @@
 			}
 			#imagen1, #imagen2, #imagen3, #imagen4, #imagen5, #imagen6, #imagen7, #imagen8, #imagen9 {
 				cursor: pointer;
-				max-width: 100%;
+				/* max-width: 100%; */
 				height: auto;
 			}
 			#image {
@@ -236,6 +233,35 @@
 				z-index: -1;
 				display: none;
 			}
+			div.container *:not(#project *) {
+				max-width: 50%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			svg#github_link:hover, svg#plannetminecraft_link:hover {
+				cursor: pointer;
+			}
+			div#social_link {
+				margin-left: auto;
+				margin-right: auto;
+				display: block
+			}
+			#project * :not(span) {
+				margin: 5px
+			}
+			#project ul {
+				margin-left: 20px;
+				padding-left: 5px;
+				margin-top: 0;
+			}
+			#project h4 {
+				margin: 10px;
+			}
+			@media (min-width: 320px) { body { font-size: 0.4rem; } #accbar a { margin-left: 5px; margin-right: 5px; } #accb_small, #accb_small_ p { font-size: 1.9em } div.container *:not(#project *) { max-width: 100% } div#project *:not(span) { margin-top: 1px; margin-bottom: 1px; } div#project ul { margin-left: 5px } }
+			@media (min-width: 482px) { body { font-size: 0.6rem; } #accbar a { margin-left: 7px; margin-right: 7px; } #accb_small, #accb_small_ p { font-size: 1.7em } div.container *:not(#project *) { max-width: 95% } div#project *:not(span) { margin-top: 3px; margin-bottom: 3px; } div#project ul { margin-left: 10px } }
+			@media (min-width: 640px) { body { font-size: 0.7rem; } #accbar a { margin-left: 9px; margin-right: 9px; } #accb_small, #accb_small_ p { font-size: 1.5em } div.container *:not(#project *) { max-width: 80% } }
+			@media (min-width: 960px) { body { font-size: 0.8rem; } #accbar a { margin-left: 11px; margin-right: 11px; } #accb_small, #accb_small_ p { font-size: 1.3em } div.container *:not(#project *) { max-width: 65% } }
+			@media (min-width: 1100px) { body { font-size: 1rem; } #accbar a { margin-left: 13px; margin-right: 13px; } #accb_small, #accb_small_ p { font-size: 1.1em } }
 		</style>
 	</head>
 	<body id="temp">
@@ -262,190 +288,345 @@
 			<p style="text-align: center; color: white">We have detected that the width of the screen that you are using right now is too small for the website to render properly</p>
 			<p style="text-align: center; color: white;">Try to rotate the device so that the screen orientation is horizontal. Or if that didn't work either, then that mean your screen is incompatiable to view the website</p>
 		</div>
-		<center>
-			<script>
-				document.addEventListener("click", function(evt) {
-					var flyoutElement = document.getElementById('accb_small'),
-						targetElement = evt.target,
-						flyoutElement_2 = document.getElementById("accb_small_");  // clicked element
-					do {
-						if (targetElement == flyoutElement || targetElement == flyoutElement_2) { return; }
-						targetElement = targetElement.parentNode;
-					} while (targetElement);
+		<script>
+			document.addEventListener("click", function(evt) {
+				var flyoutElement = document.getElementById('accb_small'),
+					targetElement = evt.target,
+					flyoutElement_2 = document.getElementById("accb_small_");  // clicked element
+				do {
+					if (targetElement == flyoutElement || targetElement == flyoutElement_2) { return; }
+					targetElement = targetElement.parentNode;
+				} while (targetElement);
+				document.getElementById("accb_small").style.display = "none";
+				accb_small_isOn = false;
+				document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8681;"
+			});
+			window.onload = window.onresize = function() {
+				check()
+				document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8681;"
+				accb_small_isOn = false;
+				document.getElementById("accb_small").style.display = "none"
+				if (getParameterByName("no_screen_size_check") == "true") {} else {
+					if (window.innerWidth < 320) {
+						document.getElementById("screentoosmall").style.display = "block";
+					} else {
+						document.getElementById("screentoosmall").style.display = "none";
+					}
+				}
+				if (window.innerWidth < 960) {
+					document.getElementById("accb_small_").style.display = "block";
+					document.getElementsByClassName("accb")[0].style.display = "none"
+				} else {
+					document.getElementById("accb_small_").style.display = "none";
+					document.getElementsByClassName("accb")[0].style.display = "block";
+				}
+			}
+			accb_small_isOn = false;
+			function accb_small() {
+				if (accb_small_isOn) {
+					document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8681;"
 					document.getElementById("accb_small").style.display = "none";
 					accb_small_isOn = false;
-					document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8681;"
-				});
-				window.onload = window.onresize = function() {
-					check()
-					document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8681;"
-					accb_small_isOn = false;
-					document.getElementById("accb_small").style.display = "none"
-					if (getParameterByName("no_screen_size_check") == "true") {} else {
-						if (window.innerWidth < 320) {
-							document.getElementById("screentoosmall").style.display = "block";
-						} else {
-							document.getElementById("screentoosmall").style.display = "none";
-						}
-					}
-					if (window.innerWidth < 960) {
-						document.getElementById("accb_small_").style.display = "block";
-						document.getElementsByClassName("accb")[0].style.display = "none"
-					} else {
-						document.getElementById("accb_small_").style.display = "none";
-						document.getElementsByClassName("accb")[0].style.display = "block";
-					}
+				} else {
+					document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8679;"
+					document.getElementById("accb_small").style.display = "block";
+					accb_small_isOn = true;
 				}
+			}
+			var prevScrollpos = window.pageYOffset;
+			window.onscroll = function() {
+				document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8681;"
+				document.getElementById("accb_small").style.display = "none"
 				accb_small_isOn = false;
-				function accb_small() {
-					if (accb_small_isOn) {
-						document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8681;"
-						document.getElementById("accb_small").style.display = "none";
-						accb_small_isOn = false;
-					} else {
-						document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8679;"
-						document.getElementById("accb_small").style.display = "block";
-						accb_small_isOn = true;
-					}
+				var currentScrollPos = window.pageYOffset;
+				if (prevScrollpos > currentScrollPos) {
+					document.getElementsByClassName("accb")[0].style.top = "0";
+					document.getElementById("accb_small_").style.top = "0";
+				} else {
+					document.getElementsByClassName("accb")[0].style.top = "-" + document.getElementsByClassName("accb")[0].offsetHeight + "px";
+					document.getElementById("accb_small_").style.top = "-" + document.getElementById("accb_small_").offsetHeight + "px";
 				}
-				var prevScrollpos = window.pageYOffset;
-				window.onscroll = function() {
-					document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8681;"
-					document.getElementById("accb_small").style.display = "none"
-					accb_small_isOn = false;
-					var currentScrollPos = window.pageYOffset;
-					if (prevScrollpos > currentScrollPos) {
-						document.getElementsByClassName("accb")[0].style.top = "0";
-						document.getElementById("accb_small_").style.top = "0";
-					} else {
-						document.getElementsByClassName("accb")[0].style.top = "-" + document.getElementsByClassName("accb")[0].offsetHeight + "px";
-						document.getElementById("accb_small_").style.top = "-" + document.getElementById("accb_small_").offsetHeight + "px";
-					}
-					prevScrollpos = currentScrollPos;
+				prevScrollpos = currentScrollPos;
+			}
+			function getParameterByName(name, url) {
+				if (!url) url = window.location.href;
+				name = name.replace(/[\[\]]/g, '\\$&');
+				var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
+				if (!results) return null;
+				if (!results[2]) return '';
+				return decodeURIComponent(results[2].replace(/\+/g, ' '));
+			}
+			function check() {
+				document.getElementById("accb_small").style.top = document.getElementById("accb_small_").style.width
+				if (getParameterByName("sv_cheat") >= 1 || getParameterByName("debug") >= 1 || getParameterByName("hack") >= 1) {
+					window.location.replace("ban.html");
 				}
-				function getParameterByName(name, url) {
-					if (!url) url = window.location.href;
-					name = name.replace(/[\[\]]/g, '\\$&');
-					var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
-					if (!results) return null;
-					if (!results[2]) return '';
-					return decodeURIComponent(results[2].replace(/\+/g, ' '));
+				if (localStorage.getItem("ls") == "927") {
+					window.location.replace("ban.html");
 				}
-				function check() {
-					document.getElementById("accb_small").style.top = document.getElementById("accb_small_").style.width
-					if (getParameterByName("sv_cheat") >= 1 || getParameterByName("debug") >= 1 || getParameterByName("hack") >= 1) {
-						window.location.replace("ban.html");
-					}
-					if (localStorage.getItem("ls") == "927") {
-						window.location.replace("ban.html");
-					}
-					if (getParameterByName("secret") == "true") {
-						document.getElementById("secret_image").style.display = "block"
-						document.getElementsByTagName("body")[0].style.backgroundImage = "url(website/image/sus_.png)"
-					}
+				if (getParameterByName("secret") == "true") {
+					document.getElementById("secret_image").style.display = "block"
+					document.getElementsByTagName("body")[0].style.backgroundImage = "url(website/image/sus_.png)"
 				}
-				var name_ = [
-					{
-						"name": "Home",
-						"title": "Home - The main page of the website",
-						"address": "home.html"
-					},
-					{
-						"name": "How did I make the website?",
-						"title": "HDIMTW - How did I make the website?",
-						"address": "how.html"
-					},
-					{
-						"name": "Credit",
-						"title": "Credit - All of the stuff and people that created this website will be listed here",
-						"address": "credit.html"
-					},
-					{
-						"name": "About Website",
-						"title": "About Website - Information about my website",
-						"address": "about.html"
-					},
-					{
-						"name": "Other Project",
-						"title": "Other Project - Where all of my knowledge and fun about HTML and JS is in",
-						"address": "other_project.html"
-					}
-				];
-				//Syntax: Name / Description / Link (Space is important)
-				name_.forEach(function (list, index) {
-					var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
-					var anchor = document.createElement("a"), anchor_text = document.createTextNode(list.name), anchor2 = document.createElement("a"), anchor2_text = document.createTextNode(list.name), anchor3 = document.createElement("br");
-					anchor.appendChild(anchor_text);
-					anchor.title = list.title;
-					anchor.href = list.address + "?id=" + dateTime;
-					anchor2.appendChild(anchor2_text);
-					anchor2.title = list.title;
-					anchor2.href = list.address + "?id=" + dateTime;
-					document.getElementById("accbar_small").appendChild(anchor2)
-					document.getElementById("accbar_small").appendChild(anchor3)
-					document.getElementById("accbar").appendChild(anchor);
-					/*if (index < name_.length - 1) {
-						document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
-					}*/
-				});
-			</script>
-		</center>
+			}
+			var name_ = [
+				{
+					"name": "Home",
+					"title": "Home - The main page of the website",
+					"address": "home.html"
+				},
+				{
+					"name": "How did I make the website?",
+					"title": "HDIMTW - How did I make the website?",
+					"address": "how.html"
+				},
+				{
+					"name": "Credit",
+					"title": "Credit - All of the stuff and people that created this website will be listed here",
+					"address": "credit.html"
+				},
+				{
+					"name": "About Website",
+					"title": "About Website - Information about my website",
+					"address": "about.html"
+				}
+			];
+			//Syntax: Name / Description / Link (Space is important)
+			name_.forEach(function (list, index) {
+				var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
+				var anchor = document.createElement("a"), anchor_text = document.createTextNode(list.name), anchor2 = document.createElement("a"), anchor2_text = document.createTextNode(list.name), anchor3 = document.createElement("br");
+				anchor.appendChild(anchor_text);
+				anchor.title = list.title;
+				anchor.href = list.address + "?id=" + dateTime;
+				anchor2.appendChild(anchor2_text);
+				anchor2.title = list.title;
+				anchor2.href = list.address + "?id=" + dateTime;
+				document.getElementById("accbar_small").appendChild(anchor2)
+				document.getElementById("accbar_small").appendChild(anchor3)
+				document.getElementById("accbar").appendChild(anchor);
+				/*if (index < name_.length - 1) {
+					document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
+				}*/
+			});
+		</script>
 		<div class="container">
-			<center>
-				<h1 style="color:red"><b>Quan_MCPC's Website</b></h1>
-				<h2 style="color:green">Thank you for visiting my website</h2>
-				<p style="color:orange">Here is some of my favourite map that I created:</p>
-				<p><u><b><a rel="noreferrer" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-1/"  target="_blank">The Longest Useless Machine in Minecraft (version 1.2)</a></b></u></p>
-				<p><u><b><a rel="noreferrer" href="https://www.planetminecraft.com/project/8-bit-decoder-in-minecraft/"  target="_blank">8-Bit Decoder in Minecraft</a></b></u></p>
-				<p><u><b><a rel="noreferrer" href="https://www.planetminecraft.com/project/printer-1-16/"  target="_blank">Printer 1.16</a></b></u></p>
-				<p><u><b><a rel="noreferrer" href="https://www.planetminecraft.com/project/security-vault-2-0/"  target="_blank">Security Vault 2.0</a></b></u></p>
-				<p><u><b><a rel="noreferrer" href="https://www.planetminecraft.com/project/compact-calculator-1-15-2/"  target="_blank">Compact Calculator (1.15.2)</a></b></u></p>
-				<p style="color:orange">Here is some screenshots of my map [Click on any of the image to maximize the image]:</p>
-				<img id="imagen1" onclick="image1()" width="455" height="234" src="website\image\1.webp" title="Click the image to maximize the image">
-				<img id="imagen2" onclick="image2()" width="455" height="234" src="website\image\2.webp" title="Click the image to maximize the image">
-				<img id="imagen3" onclick="image3()" width="455" height="234" src="website\image\3.webp" title="Click the image to maximize the image">
-				<img id="imagen4" onclick="image4()" width="455" height="234" src="website\image\4.webp" title="Click the image to maximize the image">
-				<img id="imagen5" onclick="image5()" width="455" height="234" src="website\image\5.webp" title="Click the image to maximize the image">
-				<img id="imagen6" onclick="image6()" width="455" height="234" src="website\image\6.webp" title="Click the image to maximize the image">
-				<img id="imagen7" onclick="image7()" width="455" height="234" src="website\image\7.webp" title="Click the image to maximize the image">
-				<img id="imagen8" onclick="image8()" width="455" height="234" src="website\image\8.webp" title="Click the image to maximize the image">
-				<img id="imagen9" onclick="image9()" width="455" height="234" src="website\image\9.webp" title="Click the image to maximize the image">
-				<script>
-					function image1() { document.getElementById("img1").style.display = "block"; }
-					function image2() { document.getElementById("img2").style.display = "block"; }
-					function image3() { document.getElementById("img3").style.display = "block"; }
-					function image4() { document.getElementById("img4").style.display = "block"; }
-					function image5() { document.getElementById("img5").style.display = "block"; }
-					function image6() { document.getElementById("img6").style.display = "block"; }
-					function image7() { document.getElementById("img7").style.display = "block"; }
-					function image8() { document.getElementById("img8").style.display = "block"; }
-					function image9() { document.getElementById("img9").style.display = "block"; }
-					function oimage1() { document.getElementById("img1").style.display = "none"; }
-					function oimage2() { document.getElementById("img2").style.display = "none"; }
-					function oimage3() { document.getElementById("img3").style.display = "none"; }
-					function oimage4() { document.getElementById("img4").style.display = "none"; }
-					function oimage5() { document.getElementById("img5").style.display = "none"; }
-					function oimage6() { document.getElementById("img6").style.display = "none"; }
-					function oimage7() { document.getElementById("img7").style.display = "none"; }
-					function oimage8() { document.getElementById("img8").style.display = "none"; }
-					function oimage9() { document.getElementById("img9").style.display = "none"; }
-				</script>
-				<div id="img1"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/1.webp" style="width: 100%; height: auto;"><b>Compact Calculator [1.15.2] [Full View] [1.webp]</b></div><div onclick="oimage1()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
-				<div id="img2"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/2.webp" style="width: 100%; height: auto;"><b>Security Vault 2.0 [Outside View] [2.webp]</b></div><div onclick="oimage2()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
-				<div id="img3"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/3.webp" style="width: 100%; height: auto;"><b>Security Vault 2.0 [Inside View] [3.webp]</b></div><div onclick="oimage3()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
-				<div id="img4"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/4.webp" style="width: 100%; height: auto;"><b>The Longest Useless Machine in Minecraft [version 1.1] [Inside View] [4.webp]</b></div><div onclick="oimage4()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
-				<div id="img5"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/5.webp" style="width: 100%; height: auto;"><b>The Longest Useless Machine in Minecraft [version 1.1] [Outside View #1] [5.webp]</b></div><div onclick="oimage5()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
-				<div id="img6"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/6.webp" style="width: 100%; height: auto;"><b>The Longest Useless Machine in Minecraft [version 1.1] [Outside View #2] [6.webp]</b></div><div onclick="oimage6()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
-				<div id="img7"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/7.webp" style="width: 100%; height: auto;"><b>Printer 1.16 [7.webp]</b></div><div onclick="oimage7()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
-				<div id="img8"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/8.webp" style="width: 100%; height: auto;"><b>8-Bit Decoder in Minecraft [8.webp]</b></div><div onclick="oimage8()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
-				<div id="img9"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/9.webp" style="width: 100%; height: auto;"><b>Compact Calculator [1.15.2] [Front View] [9.webp]</b></div><div onclick="oimage9()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div><br>
-				<a href="/website/image/old_version_image.zip" download="old_version_image.zip" style="color: white">Download 9 of the image and the background image as PNG</a>
-			</center>
-			<hr style="border: 1.5px solid black; background-color: black;">
-			<footer style="margin: 5px; text-align: center;">
-				<p style="color:white">Copyright (C) 2021 Quan_MCPC. Created on: 7/17/20, this website will live <b style="color:red">forever</b></p>
-				<a href="https://quanmcpc.netlify.app/" rel="noreferrer" style="font-size: 0.8em;">My alternative website (Hosted by Netlify, all code is synced and the same from the orginial website)</a><br>
-				<a href="https://quanmcpc.gitlab.io/" rel="noreferrer" style="font-size: 0.8em;">My second website (Hosted by GitLab)</a>
+			<h1 style="color:rgb(255, 0, 0); text-align: center;"><b>Student. Developer. Gamer.</b></h1>
+			<h2 style="color: white; ">Hello! My name is Quan, a student, a small developer and a gamer. I'm currently living at Vietnam and HTML, CSS and JS are the three programming language I'm best at.</h2>
+			<h3 style="color: rgb(0, 255, 0); text-align: center">Social link</h3>
+			<div id="social_link">
+				<center>
+					<svg id="github_link" width="64" height="64" version="1.1" viewBox="0 0 33.867 33.867" xmlns="http://www.w3.org/2000/svg" onclick="window.location.href = 'https://github.com/QuanMCPC'" xmlns:xlink="http://www.w3.org/1999/xlink" title="My GitHub page">
+						<g fill="#ffffff">
+							<path d="m16.933 0c-9.3509 0-16.933 7.7731-16.933 17.362 0 7.671 4.852 14.179 11.58 16.475 0.84628 0.16072 1.157-0.37664 1.157-0.83521 0-0.41401-0.01571-1.7817-0.02299-3.2325-4.7109 1.0503-5.705-2.0485-5.705-2.0485-0.77029-2.0068-1.8802-2.5404-1.8802-2.5404-1.5364-1.0776 0.11581-1.0554 0.11581-1.0554 1.7004 0.12219 2.5958 1.7894 2.5958 1.7894 1.5103 2.654 3.9614 1.8866 4.9277 1.443 0.15198-1.1221 0.59083-1.8884 1.0751-2.3216-3.7612-0.43902-7.715-1.9277-7.715-8.5804 0-1.8955 0.66149-3.4443 1.7447-4.6602-0.17582-0.43759-0.75543-2.2032 0.16404-4.5947 0 0 1.422-0.46663 4.6579 1.7797 1.3507-0.38469 2.7993-0.5776 4.2384-0.58422 1.4391 0.0066 2.8888 0.19953 4.2421 0.58422 3.232-2.2463 4.652-1.7797 4.652-1.7797 0.92171 2.3915 0.34182 4.1571 0.166 4.5947 1.0858 1.2159 1.7428 2.7647 1.7428 4.6602 0 6.6685-3.9614 8.1368-7.7321 8.5666 0.60737 0.53879 1.1486 1.5954 1.1486 3.2152 0 2.3231-0.01962 4.1927-0.01962 4.7646 0 0.46203 0.30481 1.0034 1.1631 0.83291 6.7245-2.2983 11.57-8.8041 11.57-16.472-1.2e-5 -9.589-7.5815-17.362-16.933-17.362" fill-rule="evenodd"/>
+							<g>
+								<path d="m6.4136 24.928c-0.037295 0.08654-0.16965 0.11213-0.29023 0.0529-0.12282-0.05664-0.1918-0.17423-0.15198-0.26077 0.036452-0.08855 0.16909-0.11328 0.29163-0.05434 0.1231 0.05693 0.1932 0.17567 0.15058 0.26221"/>
+								<path d="m7.0994 25.712c-0.080758 0.07676-0.23863 0.04112-0.34575-0.08022-0.11076-0.12104-0.13151-0.28291-0.049631-0.36082 0.083282-0.07648 0.23639-0.04054 0.34743 0.08021 0.11076 0.12248 0.13235 0.2832 0.047946 0.36082"/>
+								<path d="m7.7671 26.712c-0.10375 0.07389-0.2734 0.0046-0.37828-0.14979-0.10375-0.15439-0.10375-0.33955 0.00222-0.41372 0.10515-0.07418 0.27228-0.0072 0.37856 0.14577 0.10347 0.15698 0.10347 0.34214-0.00254 0.41775"/>
+								<path d="m8.6818 27.678c-0.092816 0.10494-0.29051 0.07676-0.4352-0.06641-0.14806-0.14002-0.18928-0.33868-0.09618-0.44363 0.093937-0.10523 0.29275-0.07561 0.43856 0.06641 0.14694 0.13973 0.1918 0.33983 0.092816 0.44363"/>
+								<path d="m9.9437 28.239c-0.040943 0.13599-0.23134 0.1978-0.42314 0.14002-0.19152-0.05952-0.31686-0.21879-0.27817-0.35622 0.039823-0.13685 0.23106-0.20126 0.42426-0.13944 0.19124 0.05922 0.31686 0.21736 0.27705 0.35565"/>
+								<path d="m11.329 28.343c0.0048 0.14318-0.15787 0.26192-0.35921 0.2645-0.20246 0.0046-0.36622-0.11126-0.36846-0.25214 0-0.14462 0.15899-0.26221 0.36145-0.26566 0.20134-4e-3 0.36622 0.11098 0.36622 0.2533"/>
+								<path d="m12.619 28.118c0.02412 0.13973-0.11581 0.28319-0.31574 0.32143-0.19657 0.0368-0.37856-0.04945-0.40351-0.18803-0.02439-0.14318 0.11805-0.28664 0.31434-0.32373 0.20021-0.03565 0.3794 0.0483 0.40491 0.19033"/>
+							</g>
+						</g>
+					</svg>
+					<svg id="plannetminecraft_link" width="64" height="64" version="1.1" viewBox="0 0 16.933 16.933" xmlns="http://www.w3.org/2000/svg" onclick="window.location.href = 'https://www.planetminecraft.com/member/quan_mcpc/'">
+						<g>
+							<path d="m6.0772 0.8v1.0583h4.7626v-1.0583zm-5.0272 4.7625v4.7625h1.3229v-4.7625zm1.3229 4.7625v2.3812h1.0584v-2.3812zm1.0584 2.3812v1.3229h2.6459v-1.3229zm2.6459 1.3229v1.3229h2.6459v-0.52917h-0.52918v-0.52917h-0.26459v-0.26458zm7.1439-3.7042v2.3812h1.3229v-1.8521h-0.26459v-0.26458h-0.26459v-0.26458zm0 2.3812h-2.3813v1.3229h2.3813zm-2.3813 1.3229h-0.79377v0.26458h-0.26459v0.79375h-0.26459v0.26458h1.3229z" fill="#014e96"/>
+							<path d="m3.4313 1.8583v1.0583h2.6459v-1.0583zm0 1.0583h-1.0584v2.6458h1.0584zm7.4085-1.0583v1.0583h2.3813v-1.0583zm2.3813 1.0583v2.6458h1.3229v-2.6458zm1.3229 2.6458v4.7625h1.3229v-4.7625zm0 4.7625h-0.52918v0.26458h0.26459v0.26458h0.26459v-0.26458zm-2.3813 0v1.3229h-1.3229v1.0583h2.3813v-2.3812zm-4.2334 3.7042v0.26458h0.26459v0.52917h0.52918v0.52917h0.79377v-0.26458h0.26459v-0.79375h0.52918v-0.26458z" fill="#2a5401"/>
+							<path d="m14.015 5.5625v2.3812h-0.79377v1.3229h0.52918v1.0583h0.79377v-4.7625z" fill="#448001"/>
+							<rect x="4.7542" y="4.2396" width="2.3813" height="2.3812" fill="#fff"/>
+						</g>
+						<g fill="#6ec310">
+							<path d="m3.4313 4.2396v2.3812h-1.0584v3.4396h1.0584v0.26458h1.3229v-0.52917h-0.52918v-0.26458h-0.52918v-0.79375h0.26459v-0.26458h0.79377v0.26458h0.26459v0.26458h0.26459v-1.0583h0.52918v-1.3229h-1.0584v-2.3812z"/>
+							<path d="m4.7542 2.9167v1.3229h2.1167v-0.52917h-0.26459v-0.26458h0.26459v-0.52917h-0.26459zm2.6459 0v0.52917h0.79377v-0.52917zm-0.26459 1.5875v0.52917h0.26459v-0.52917zm0.26459 0.52917v0.52917h0.52918v-0.26458h-0.26459v-0.26458z"/>
+							<rect x="6.0772" y="10.854" width="2.3813" height=".79375"/>
+						</g>
+						<g>
+							<path d="m6.0772 1.8583v1.0583h0.79377v-0.26458h0.52918v0.26458h3.4397v-1.0583h-2.6459zm-2.6459 1.0583v1.3229h1.3229v-1.3229zm-1.0584 2.6458v1.0583h1.0584v-1.0583zm1.0584 4.7625v0.26458h0.79377v0.52917h0.79377v0.26458h0.26459v0.26458h0.79377v-0.26458h-0.52918v-0.26458h-0.26459v-0.52917h-0.52918v-0.26458zm2.6459 1.3229v1.0583h3.9688v-1.0583z" fill="#57b10f"/>
+							<path d="m6.0772 12.706v0.79375h1.0584v0.52917h3.7043v-1.3229z" fill="#448001"/>
+							<path d="m11.369 2.9167v0.79375h0.79377v0.52917h0.79377v1.0583h0.26459v-2.3812z" fill="#448001"/>
+							<path d="m13.221 5.5625v2.3812h0.79377v-2.3812zm0 3.7042v1.0583h0.52918v-1.0583zm-7.1439 4.2333v0.52917h1.0584v-0.52917z" fill="#0d74d3"/>
+							<rect x="3.4313" y="11.648" width="1.3229" height="1.0583" fill="#0d74d3"/>
+						</g>
+						<g fill="#278eed">
+							<path d="m10.84 2.9167v2.6458h2.3813v-0.26458h-0.26459v-1.0583h-0.79377v-0.52917h-0.79377v-0.79375zm1.3229 3.7042v3.7042h1.0584v-3.7042zm0 3.7042h-1.3229v1.3229h1.3229zm-1.3229 1.3229h-0.79377v1.0583h0.79377z"/>
+							<path d="m3.4313 10.59v1.0583h1.3229v1.0583h1.3229v-1.0583h-0.79377v-0.26458h-0.26459v-0.26458h-0.79377v-0.52917z"/>
+							<path d="m4.7542 10.325v0.26458h0.52918v0.52917h0.26459v0.26458h0.52918v-1.0583z"/>
+							<rect x="2.3729" y="10.06" width="1.0584" height=".26458"/>
+							<rect x="6.871" y="2.6521" width=".52918" height=".26458"/>
+						</g>
+							<rect x="6.0772" y="13.5" width="1.0584" height=".52917" fill-opacity="0"/>
+						<g>
+							<path d="m8.4585 2.9167v3.7042h-1.3229v1.3229h-1.8521v1.0583h-0.26459v-0.26458h-0.26459v-0.26458h-0.79377v0.26458h-0.26459v0.79375h0.52918v0.26458h0.52918v0.52917h1.3229v-1.0583h2.3813v-1.3229h1.3229v-1.3229h1.0584v2.6458h-1.0584v1.0583h-1.3229v1.3229h2.3813v-1.3229h1.3229v-3.7042h1.0584v-1.0583h-3.4397v-2.6458z" fill="#2e95f4"/>
+							<path d="m6.871 2.9167v0.52917h-0.26459v0.26458h0.26459v0.52917h0.26459v0.26458h0.26459v0.52917h0.26459v0.26458h0.26459v0.26458h-0.52918v-0.52917h-0.26459v1.5875h1.3229v-3.7042h-0.26459v0.52917h-0.79377v-0.52917zm2.9105 3.7042v1.3229h-1.3229v1.3229h-2.3813v1.5875h2.3813v-0.52917h1.3229v-1.0583h1.0584v-2.6458z" fill="#4ba8ff"/>
+							<rect x="9.7814" y="2.9167" width="1.0584" height="2.6458" fill="#4ba8ff"/>
+							<rect x="5.8126" y="6.6208" width="1.3229" height="1.3229" fill="#57aaff"/>
+							<path d="m1.05 10.325v0.52917h0.26459v0.26458h0.26459v0.26458h0.52918v1.8521h0.26459v0.26458h0.26459v0.26458h0.52918v0.52917h0.26459v0.26458h0.26459v0.26458h0.26459v0.26458h1.8521v0.52917h0.26459v0.26458h0.26459v0.26458h4.2334v-0.26458h0.26459v-0.26458h0.26459v-0.52917h1.5875v-0.26458h0.26459v-0.26458h0.26459v-0.26458h0.26459v-0.52917h0.79377v-0.26458h0.26459v-0.26458h0.26459v-2.3812h-0.26459v1.8521h-1.3229v1.3229h-2.3813v1.3229h-4.7626v-1.3229h-2.6459v-1.3229h-1.0584v-2.3812z" fill="#012647"/>
+							<path d="m14.544 10.325v0.52917h0.26459v0.52917h0.52918v-0.26458h0.26459v-0.26458h0.26459v-0.52917z" fill="#132e2f"/>
+						</g>
+					</svg>
+				</center>
+			</div>
+			<h3 style="color: rgb(0, 255, 0); text-align: center">Project</h3>
+			<div id="project" style="border: 2px solid white; padding-left: 10px">
+				<h4 style="color: white;">Here's a list of my project</h4>
+				<ul>
+					<li>
+						<span style="color: white">JavaScript Project (with some HTML): <a href="https://github.com/QuanMCPC/JavaScript-Project">[Link]</a></span>
+						<ul>
+							<li>
+								<span style="color: white">Edit for other website: </span>
+								<ul>
+									<li><span style="color: white">Link: <a href="https://github.com/QuanMCPC/JavaScript-Project/blob/master/Edit_For_Other_Website.js">[Link]</a></span></li>
+									<li><span style="color: white">Description: Allow other people to use edit in their website</span></li>
+								</ul>
+							</li>
+							<li>
+								<span style="color: white">Random picture generator: </span>
+								<ul>
+									<li><span style="color: white">Link: <a href="https://github.com/QuanMCPC/JavaScript-Project/blob/master/random-picture.js">[Link]</a></span></li>
+									<li><span style="color: white">Description: Create picture with "randomness"</span></li>
+								</ul>
+							</li>
+							<li>
+								<span style="color: white">UnderJScript: </span>
+								<ul>
+									<li><span style="color: white">Link: <a href="https://github.com/QuanMCPC/JavaScript-Project/blob/master/random-picture.js">[Link]</a></span></li>
+									<li><span style="color: white">Description: A small JavaScript library that add some function that I can get</span></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span style="color: white">Edit: </a></span>
+						<ul>
+							<li><span style="color: white">Link: <a href="https://github.com/QuanMCPC/Edit">[Link]</a></span></li>
+							<li><span style="color: white">Description: Started as a small program in <a href="https://quanmcpc.github.io/other_project/console.html">console</a>, it's now a native program that in executable in Windows and Linux</span></li>
+						</ul>
+					</li>
+					<li>
+						<span style="color: white">Project: <a href="https://github.com/QuanMCPC/QuanMCPC.github.io/tree/master/other_project">[Link]</a></span>
+						<ul>
+							<li>
+								<span style="color: white">Console: </span>
+								<ul>
+									<li><span style="color: white">Source code: <a href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/console.html">[Link]</a></span></li>
+									<li><span style="color: white">Link: <a href="http://quanmcpc.github.io/other_project/console.html">[Link]</a></span></li>
+									<li><span style="color: white">Description: My very first large HTML project which is my first CLI OS in HTML.</span></li>
+								</ul>
+							</li>
+							<li>
+								<span style="color: white">Vigenere cipher: </span>
+								<ul>
+									<li><span style="color: white">Source code: <a href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/Vigenere_Cipher.html">[Link]</a></span></li>
+									<li><span style="color: white">Link: <a href="https://quanmcpc.github.io/other_project/Vigenere_Cipher.html"></a></span></li>
+									<li><span style="color: white">Description: It's an Vigenere cipther but very limited<small title="Input only accept normal character, no number, space, etc.">(?)</small></span></li>
+								</ul>
+							</li>
+							<li>
+								<span style="color: white">Basic message encrptor and decrptor: </span>
+								<ul>
+									<li><span style="color: white">Source code: <a href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/message_en_de.html">[Link]</a></span></li>
+									<li><span style="color: white">Link: </span><a href="http://quanmcpc.github.io/other_project/message_en_de.html">[Link]</a></li>
+									<li><span style="color: white">Description: A very, Very basic message encryptor and decrytor that just replace each character to the pre-set 4 random character</span></li>
+								</ul>
+							</li>
+							<li>
+								<span style="color: white">Guess the number gane: </span>
+								<ul>
+									<li><span style="color: white">Source code: <a href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/numberguessgame.html">[Link]</a></span></li>
+									<li><span style="color: white">Link: </span><a href="https://quanmcpc.github.io/other_project/numberguessgame.html">[Link]</a></li>
+									<li><span style="color: white">Description: A game where you have to guess the correct number, that's it.</span></li>
+								</ul>
+							</li>
+							<li>
+								<span style="color: white">Text editor (Lite and Full version): </span>
+								<ul>
+									<li><span style="color: white">Source code: <a href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/texteditor_basic.html">[Link for lite version]</a><a href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/texteditor_html.html">[Link for full version]</a></span></li>
+									<li><span style="color: white">Link: <a href="https://quanmcpc.github.io/other_project/texteditor_basic.html">[Link for lite version]</a><a href="https://quanmcpc.github.io/other_project/texteditor_html.html">[Link for full version]</a></span></li>
+									<li><span style="color: white">Description: A text editor that work in your browser. There are two version of the text editor. A full version but only export as or .htm format, a lite verson that allow you to export as any format.</span></li>
+								</ul>
+							</li>
+							<li>
+								<span style="color: white">MyFirstGame: </span>
+								<ul>
+									<li><span style="color: white">Source code: Lost in time</span></li>
+									<li>
+										<span style="color: white">Link: </span>
+										<ul>
+											<li><span style="color: white">Version 1.0 (Linux): <a href="https://drive.google.com/u/0/uc?id=1hkj_x7mDC4jV9oz3j8nxyWrB3tjDA0Py&export=download">[Link]</a></span></li>
+											<li><span style="color: white">Version 1.0 (Windows): <a href="https://drive.google.com/u/0/uc?id=10mPjRaw9HUV7aWz01x_h6E195QtAxDim&export=download">[Link]</a></span></li>
+											<li><span style="color: white">Version 1.1 (Linux): <a href="https://drive.google.com/u/0/uc?id=1c-uA6DiDiSSDBOLWh-YRN1PoG5Bg-HYt&export=download">[Link]</a></span></li>
+											<li><span style="color: white">Version 1.1 (Windows): <a href="https://drive.google.com/u/0/uc?id=1cXx4IZLxzOAR1YvjwCQQV4RJVRQv4Qj2&export=download">[Link]</a></span></li>
+											<li><span style="color: white">Version 1.2 (Linux): <a href="https://drive.google.com/u/0/uc?id=1HEGj9377joBw73VL5dheAdSlI2dYuXXf&export=download">[Link]</a></span></li>
+											<li><span style="color: white">Version 1.2 (Windows): <a href="https://drive.google.com/u/0/uc?id=1WvzufDhLfLhSmeYboybzHKcE3K6mi-s2&export=download">[Link]</a></span></li>
+											<li><span style="color: white">Version 1.3 (Linux): <a href="https://drive.google.com/u/0/uc?id=1EOIoMX8dJ97tyZ22XAXLSHNRZ54YtmXs&export=download">[Link]</a></span></li>
+											<li><span style="color: white">Version 1.3 (Windows): <a href="https://drive.google.com/u/0/uc?id=1tDGNNfBw-6QgA8OC_Fc_WQBGEGuvRQvs&export=download">[Link]</a></span></li>
+											<li><span style="color: white">Version 1.4 (Linux): <a href="https://drive.google.com/u/0/uc?id=1i2s_QccxxsXi-tjuZjFDspkzM1rsiinN&export=download">[Link]</a></span></li>
+											<li><span style="color: white">Version 1.4 (Windows): <a href="https://drive.google.com/u/0/uc?id=1rBOSjmIM5o-HQfKVLndYbTHtx01aI1CC&export=download">[Link]</a></span></li>
+											<li><span style="color: white">Version 1.5 (Linux): <a href="https://drive.google.com/u/0/uc?id=1tQ6_wyipfWmBXuD1Dx3OW3Nmgs0abEiC&export=download">[Link]</a></span></li>
+											<li><span style="color: white">Version 1.5 (Windows): <a href="https://drive.google.com/u/0/uc?id=1q5bxU_c1Nk6j3Gk6Iz7PyDNxsvPuYkqQ&export=download">[Link]</a></span></li>
+											<li><span style="color: white">Version 1.6 (Linux): <a href="https://drive.google.com/u/0/uc?id=14PJZptSA0MxZ9cCXWWJhttmlSJBapBfj&export=download">[Link]</a></span></li>
+											<li><span style="color: white">Version 1.6 (Windows): <a href="https://drive.google.com/u/0/uc?id=1s8TcS9_kn_OOqF37PmWUfu4LMhl9X0o7&export=download">[Link]</a></span></li>
+											<li><span style="color: white">Link to all version inside of an ISO file<a href="https://drive.google.com/u/0/uc?id=1sj2Uin_mRP0ipujgeWyR7B81frscRykn&export=download">[Link]</a></span></li>
+										</ul>
+									</li>
+									<li><span style="color: white">Description: One of my very first game and also my last game written in Unity</span></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<!-- <p style="color:orange">Here is some of my favourite map that I created:</p>
+			<p><u><b><a rel="noreferrer" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-1/"  target="_blank">The Longest Useless Machine in Minecraft (version 1.2)</a></b></u></p>
+			<p><u><b><a rel="noreferrer" href="https://www.planetminecraft.com/project/8-bit-decoder-in-minecraft/"  target="_blank">8-Bit Decoder in Minecraft</a></b></u></p>
+			<p><u><b><a rel="noreferrer" href="https://www.planetminecraft.com/project/printer-1-16/"  target="_blank">Printer 1.16</a></b></u></p>
+			<p><u><b><a rel="noreferrer" href="https://www.planetminecraft.com/project/security-vault-2-0/"  target="_blank">Security Vault 2.0</a></b></u></p>
+			<p><u><b><a rel="noreferrer" href="https://www.planetminecraft.com/project/compact-calculator-1-15-2/"  target="_blank">Compact Calculator (1.15.2)</a></b></u></p>
+			<p style="color:orange">Here is some screenshots of my map [Click on any of the image to maximize the image]:</p>
+			<img id="imagen1" onclick="image1()" width="455" height="234" src="website\image\1.webp" title="Click the image to maximize the image">
+			<img id="imagen2" onclick="image2()" width="455" height="234" src="website\image\2.webp" title="Click the image to maximize the image">
+			<img id="imagen3" onclick="image3()" width="455" height="234" src="website\image\3.webp" title="Click the image to maximize the image">
+			<img id="imagen4" onclick="image4()" width="455" height="234" src="website\image\4.webp" title="Click the image to maximize the image">
+			<img id="imagen5" onclick="image5()" width="455" height="234" src="website\image\5.webp" title="Click the image to maximize the image">
+			<img id="imagen6" onclick="image6()" width="455" height="234" src="website\image\6.webp" title="Click the image to maximize the image">
+			<img id="imagen7" onclick="image7()" width="455" height="234" src="website\image\7.webp" title="Click the image to maximize the image">
+			<img id="imagen8" onclick="image8()" width="455" height="234" src="website\image\8.webp" title="Click the image to maximize the image">
+			<img id="imagen9" onclick="image9()" width="455" height="234" src="website\image\9.webp" title="Click the image to maximize the image">
+			<script>
+				function image1() { document.getElementById("img1").style.display = "block"; }
+				function image2() { document.getElementById("img2").style.display = "block"; }
+				function image3() { document.getElementById("img3").style.display = "block"; }
+				function image4() { document.getElementById("img4").style.display = "block"; }
+				function image5() { document.getElementById("img5").style.display = "block"; }
+				function image6() { document.getElementById("img6").style.display = "block"; }
+				function image7() { document.getElementById("img7").style.display = "block"; }
+				function image8() { document.getElementById("img8").style.display = "block"; }
+				function image9() { document.getElementById("img9").style.display = "block"; }
+				function oimage1() { document.getElementById("img1").style.display = "none"; }
+				function oimage2() { document.getElementById("img2").style.display = "none"; }
+				function oimage3() { document.getElementById("img3").style.display = "none"; }
+				function oimage4() { document.getElementById("img4").style.display = "none"; }
+				function oimage5() { document.getElementById("img5").style.display = "none"; }
+				function oimage6() { document.getElementById("img6").style.display = "none"; }
+				function oimage7() { document.getElementById("img7").style.display = "none"; }
+				function oimage8() { document.getElementById("img8").style.display = "none"; }
+				function oimage9() { document.getElementById("img9").style.display = "none"; }
+			</script>
+			<div id="img1"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/1.webp" style="width: 100%; height: auto;"><b>Compact Calculator [1.15.2] [Full View] [1.webp]</b></div><div onclick="oimage1()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
+			<div id="img2"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/2.webp" style="width: 100%; height: auto;"><b>Security Vault 2.0 [Outside View] [2.webp]</b></div><div onclick="oimage2()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
+			<div id="img3"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/3.webp" style="width: 100%; height: auto;"><b>Security Vault 2.0 [Inside View] [3.webp]</b></div><div onclick="oimage3()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
+			<div id="img4"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/4.webp" style="width: 100%; height: auto;"><b>The Longest Useless Machine in Minecraft [version 1.1] [Inside View] [4.webp]</b></div><div onclick="oimage4()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
+			<div id="img5"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/5.webp" style="width: 100%; height: auto;"><b>The Longest Useless Machine in Minecraft [version 1.1] [Outside View #1] [5.webp]</b></div><div onclick="oimage5()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
+			<div id="img6"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/6.webp" style="width: 100%; height: auto;"><b>The Longest Useless Machine in Minecraft [version 1.1] [Outside View #2] [6.webp]</b></div><div onclick="oimage6()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
+			<div id="img7"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/7.webp" style="width: 100%; height: auto;"><b>Printer 1.16 [7.webp]</b></div><div onclick="oimage7()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
+			<div id="img8"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/8.webp" style="width: 100%; height: auto;"><b>8-Bit Decoder in Minecraft [8.webp]</b></div><div onclick="oimage8()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
+			<div id="img9"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/9.webp" style="width: 100%; height: auto;"><b>Compact Calculator [1.15.2] [Front View] [9.webp]</b></div><div onclick="oimage9()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div><br>
+			<a href="/website/image/old_version_image.zip" download="old_version_image.zip" style="color: white">Download 9 of the image and the background image as PNG</a>
+			<hr style="border: 1.5px solid black; background-color: black;"> -->
+			<footer>
+				<p style="color:white; margin: 0; max-width: 100%;">Copyright (C) 2021 Quan_MCPC. Created on: 7/17/20, this website will live <b style="color:red">forever</b></p>
 			</footer>
 		</div>
 	</body>
