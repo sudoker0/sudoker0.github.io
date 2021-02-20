@@ -104,7 +104,7 @@
 				animation: swipe 0.3s;
 			}
 			body {
-				background-image: url(website/image/background.webp);
+				background-image: url(website/image/background.png);
 				background-repeat: no-repeat;
 				background-size: cover;
 				background-attachment: fixed;
@@ -203,13 +203,13 @@
 					accb_small_isOn = false;
 					document.getElementById("accb_small").style.display = "none"
 					if (getParameterByName("no_screen_size_check") == "true") {} else {
-						if (window.innerWidth < 320) {
+						if (window.outerWidth < 320) {
 							document.getElementById("screentoosmall").style.display = "block";
 						} else {
 							document.getElementById("screentoosmall").style.display = "none";
 						}
 					}
-					if (window.innerWidth < 960) {
+					if (window.outerWidth < 960) {
 						document.getElementById("accb_small_").style.display = "block";
 						document.getElementsByClassName("accb")[0].style.display = "none"
 					} else {

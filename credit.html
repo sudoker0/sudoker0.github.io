@@ -35,11 +35,6 @@
 				}
 			}
 			html { font-size: 100%; }
-			@media (min-width: 320px) { body { font-size: 0.4rem; } #accbar a { margin-left: 5px; margin-right: 5px; } #accb_small, #accb_small_ p { font-size: 1.9em }}
-			@media (min-width: 482px) { body { font-size: 0.6rem; } #accbar a { margin-left: 7px; margin-right: 7px; } #accb_small, #accb_small_ p { font-size: 1.7em } }
-			@media (min-width: 640px) { body { font-size: 0.7rem; } #accbar a { margin-left: 9px; margin-right: 9px; } #accb_small, #accb_small_ p { font-size: 1.5em } }
-			@media (min-width: 960px) { body { font-size: 0.8rem; } #accbar a { margin-left: 11px; margin-right: 11px; } #accb_small, #accb_small_ p { font-size: 1.3em } }
-			@media (min-width: 1100px) { body { font-size: 1rem; } #accbar a { margin-left: 13px; margin-right: 13px; } #accb_small, #accb_small_ p { font-size: 1.1em } }
 			a:link, a:visited {
 				color: rgb(255, 255, 255);
 				text-decoration: none;
@@ -104,7 +99,7 @@
 				animation: swipe 0.3s;
 			}
 			body {
-				background-image: url(website/image/background.webp);
+				background-image: url(website/image/background.png);
 				background-repeat: no-repeat;
 				background-size: cover;
 				background-attachment: fixed;
@@ -170,6 +165,18 @@
 				z-index: -1;
 				display: none;
 			}
+			div.container * {
+				max-width: 50%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.first_level { padding-left: 50px }
+			.second_level { padding-left: 100px }
+			@media (min-width: 320px) { body { font-size: 0.52rem; } #accbar a { margin-left: 5px; margin-right: 5px; } #accb_small, #accb_small_ p { font-size: 1.9em } div.container *:not(#project *) { max-width: 100% } .container > h1 { padding-left: 10px } .first_level { padding-left: 30px } .second_level { padding-left: 50px } }
+			@media (min-width: 482px) { body { font-size: 0.64rem; } #accbar a { margin-left: 7px; margin-right: 7px; } #accb_small, #accb_small_ p { font-size: 1.7em } div.container *:not(#project *) { max-width: 95% } .first_level { padding-left: 40px } .second_level { padding-left: 60px } }
+			@media (min-width: 640px) { body { font-size: 0.76rem; } #accbar a { margin-left: 9px; margin-right: 9px; } #accb_small, #accb_small_ p { font-size: 1.5em } div.container *:not(#project *) { max-width: 80% } .first_level { padding-left: 50px } .second_level { padding-left: 100px } }
+			@media (min-width: 960px) { body { font-size: 0.88rem; } #accbar a { margin-left: 11px; margin-right: 11px; } #accb_small, #accb_small_ p { font-size: 1.3em } div.container *:not(#project *) { max-width: 65% } }
+			@media (min-width: 1100px) { body { font-size: 1rem; } #accbar a { margin-left: 13px; margin-right: 13px; } #accb_small, #accb_small_ p { font-size: 1.1em } div.container *:not(#project *) { max-width: 50% } }
 		</style>
 	</head>
 	<body>
@@ -196,152 +203,147 @@
 			<p style="text-align: center; color: white">We have detected that the width of the screen that you are using right now is too small for the website to render properly</p>
 			<p style="text-align: center; color: white;">Try to rotate the device so that the screen orientation is horizontal. Or if that didn't work either, then that mean your screen is incompatiable to view the website</p>
 		</div>
-		<center>
-			<script>
-				document.addEventListener("click", function(evt) {
-					var flyoutElement = document.getElementById('accb_small'),
-						targetElement = evt.target,
-						flyoutElement_2 = document.getElementById("accb_small_");  // clicked element
-					do {
-						if (targetElement == flyoutElement || targetElement == flyoutElement_2) { return; }
-						targetElement = targetElement.parentNode;
-					} while (targetElement);
+		<script>
+			document.addEventListener("click", function(evt) {
+				var flyoutElement = document.getElementById('accb_small'),
+					targetElement = evt.target,
+					flyoutElement_2 = document.getElementById("accb_small_");  // clicked element
+				do {
+					if (targetElement == flyoutElement || targetElement == flyoutElement_2) { return; }
+					targetElement = targetElement.parentNode;
+				} while (targetElement);
+				document.getElementById("accb_small").style.display = "none";
+				accb_small_isOn = false;
+				document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Credit &#8681;"
+			});
+			window.onload = window.onresize = function() {
+				check()
+				document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Credit &#8681;"
+				accb_small_isOn = false;
+				document.getElementById("accb_small").style.display = "none"
+				if (getParameterByName("no_screen_size_check") == "true") {} else {
+					if (window.outerWidth < 320) {
+						document.getElementById("screentoosmall").style.display = "block";
+					} else {
+						document.getElementById("screentoosmall").style.display = "none";
+					}
+				}
+				if (window.outerWidth < 960) {
+					document.getElementById("accb_small_").style.display = "block";
+					document.getElementsByClassName("accb")[0].style.display = "none"
+				} else {
+					document.getElementById("accb_small_").style.display = "none";
+					document.getElementsByClassName("accb")[0].style.display = "block";
+				}
+			}
+			accb_small_isOn = false;
+			function accb_small() {
+				if (accb_small_isOn) {
+					document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Credit &#8681;"
 					document.getElementById("accb_small").style.display = "none";
 					accb_small_isOn = false;
-					document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Credit &#8681;"
-				});
-				window.onload = window.onresize = function() {
-					check()
-					document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Credit &#8681;"
-					accb_small_isOn = false;
-					document.getElementById("accb_small").style.display = "none"
-					if (getParameterByName("no_screen_size_check") == "true") {} else {
-						if (window.innerWidth < 320) {
-							document.getElementById("screentoosmall").style.display = "block";
-						} else {
-							document.getElementById("screentoosmall").style.display = "none";
-						}
-					}
-					if (window.innerWidth < 960) {
-						document.getElementById("accb_small_").style.display = "block";
-						document.getElementsByClassName("accb")[0].style.display = "none"
-					} else {
-						document.getElementById("accb_small_").style.display = "none";
-						document.getElementsByClassName("accb")[0].style.display = "block";
-					}
+				} else {
+					document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Credit &#8679;"
+					document.getElementById("accb_small").style.display = "block";
+					accb_small_isOn = true;
 				}
+			}
+			var prevScrollpos = window.pageYOffset;
+			window.onscroll = function() {
+				document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Credit &#8681;"
+				document.getElementById("accb_small").style.display = "none"
 				accb_small_isOn = false;
-				function accb_small() {
-					if (accb_small_isOn) {
-						document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Credit &#8681;"
-						document.getElementById("accb_small").style.display = "none";
-						accb_small_isOn = false;
-					} else {
-						document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Credit &#8679;"
-						document.getElementById("accb_small").style.display = "block";
-						accb_small_isOn = true;
-					}
+				var currentScrollPos = window.pageYOffset;
+				if (prevScrollpos > currentScrollPos) {
+					document.getElementsByClassName("accb")[0].style.top = "0";
+					document.getElementById("accb_small_").style.top = "0";
+				} else {
+					document.getElementsByClassName("accb")[0].style.top = "-" + document.getElementsByClassName("accb")[0].offsetHeight + "px";
+					document.getElementById("accb_small_").style.top = "-" + document.getElementById("accb_small_").offsetHeight + "px";
 				}
-				var prevScrollpos = window.pageYOffset;
-				window.onscroll = function() {
-					document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Credit &#8681;"
-					document.getElementById("accb_small").style.display = "none"
-					accb_small_isOn = false;
-					var currentScrollPos = window.pageYOffset;
-					if (prevScrollpos > currentScrollPos) {
-						document.getElementsByClassName("accb")[0].style.top = "0";
-						document.getElementById("accb_small_").style.top = "0";
-					} else {
-						document.getElementsByClassName("accb")[0].style.top = "-" + document.getElementsByClassName("accb")[0].offsetHeight + "px";
-						document.getElementById("accb_small_").style.top = "-" + document.getElementById("accb_small_").offsetHeight + "px";
-					}
-					prevScrollpos = currentScrollPos;
+				prevScrollpos = currentScrollPos;
+			}
+			function getParameterByName(name, url) {
+				if (!url) url = window.location.href;
+				name = name.replace(/[\[\]]/g, '\\$&');
+				var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
+				if (!results) return null;
+				if (!results[2]) return '';
+				return decodeURIComponent(results[2].replace(/\+/g, ' '));
+			}
+			function check() {
+				document.getElementById("accb_small").style.top = document.getElementById("accb_small_").style.width
+				if (getParameterByName("sv_cheat") >= 1 || getParameterByName("debug") >= 1 || getParameterByName("hack") >= 1) {
+					window.location.replace("ban.html");
 				}
-				function getParameterByName(name, url) {
-					if (!url) url = window.location.href;
-					name = name.replace(/[\[\]]/g, '\\$&');
-					var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
-					if (!results) return null;
-					if (!results[2]) return '';
-					return decodeURIComponent(results[2].replace(/\+/g, ' '));
+				if (localStorage.getItem("ls") == "927") {
+					window.location.replace("ban.html");
 				}
-				function check() {
-					document.getElementById("accb_small").style.top = document.getElementById("accb_small_").style.width
-					if (getParameterByName("sv_cheat") >= 1 || getParameterByName("debug") >= 1 || getParameterByName("hack") >= 1) {
-						window.location.replace("ban.html");
-					}
-					if (localStorage.getItem("ls") == "927") {
-						window.location.replace("ban.html");
-					}
-					if (getParameterByName("secret") == "true") {
-						document.getElementById("secret_image").style.display = "block"
-						document.getElementsByTagName("body")[0].style.backgroundImage = "url(website/image/sus_.png)"
-					}
+				if (getParameterByName("secret") == "true") {
+					document.getElementById("secret_image").style.display = "block"
+					document.getElementsByTagName("body")[0].style.backgroundImage = "url(website/image/sus_.png)"
 				}
-				var name_ = [
-					{
-						"name": "Home",
-						"title": "Home - The main page of the website",
-						"address": "home.html"
-					},
-					{
-						"name": "How did I make the website?",
-						"title": "HDIMTW - How did I make the website?",
-						"address": "how.html"
-					},
-					{
-						"name": "Credit",
-						"title": "Credit - All of the stuff and people that created this website will be listed here",
-						"address": "credit.html"
-					},
-					{
-						"name": "About Website",
-						"title": "About Website - Information about my website",
-						"address": "about.html"
-					}
-				];
-				//Syntax: Name / Description / Link (Space is important)
-				name_.forEach(function (list, index) {
-					var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
-					var anchor = document.createElement("a"), anchor_text = document.createTextNode(list.name), anchor2 = document.createElement("a"), anchor2_text = document.createTextNode(list.name), anchor3 = document.createElement("br");
-					anchor.appendChild(anchor_text);
-					anchor.title = list.title;
-					anchor.href = list.address + "?id=" + dateTime;
-					anchor2.appendChild(anchor2_text);
-					anchor2.title = list.title;
-					anchor2.href = list.address + "?id=" + dateTime;
-					document.getElementById("accbar_small").appendChild(anchor2)
-					document.getElementById("accbar_small").appendChild(anchor3)
-					document.getElementById("accbar").appendChild(anchor);
-					/*if (index < name_.length - 1) {
-						document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
-					}*/
-				});
-			</script>
-		</center>
+			}
+			var name_ = [
+				{
+					"name": "Home",
+					"title": "Home - The main page of the website",
+					"address": "home.html"
+				},
+				{
+					"name": "Credit",
+					"title": "Credit - All of the stuff and people that created this website will be listed here",
+					"address": "credit.html"
+				},
+				{
+					"name": "About Website",
+					"title": "About Website - Information about my website",
+					"address": "about.html"
+				},
+				{
+					"name": "Gallery",
+					"title": "Gallery - Where I store picture of project and stuff",
+					"address": "gallery.html"
+				}
+			];
+			//Syntax: Name / Description / Link (Space is important)
+			name_.forEach(function (list, index) {
+				var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
+				var anchor = document.createElement("a"), anchor_text = document.createTextNode(list.name), anchor2 = document.createElement("a"), anchor2_text = document.createTextNode(list.name), anchor3 = document.createElement("br");
+				anchor.appendChild(anchor_text);
+				anchor.title = list.title;
+				anchor.href = list.address + "?id=" + dateTime;
+				anchor2.appendChild(anchor2_text);
+				anchor2.title = list.title;
+				anchor2.href = list.address + "?id=" + dateTime;
+				document.getElementById("accbar_small").appendChild(anchor2)
+				document.getElementById("accbar_small").appendChild(anchor3)
+				document.getElementById("accbar").appendChild(anchor);
+				/*if (index < name_.length - 1) {
+					document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
+				}*/
+			});
+		</script>
 		<div class="container">
-			<center>
-				<h2 style="color:green">Credit</h2>
-				<h3 style="color:green">Tool:</h3>
-				<h3 style="color:orange">Visual Studio Code (to write html file) <a target="_blank" rel="noopener noreferrer" href="https://code.visualstudio.com/">[Download here]</a></h3>
-				<h3 style="color:orange">Google Chrome (to test html file) <a target="_blank" rel="noopener noreferrer" href="http://chrome.com/">[Download here]</a></h3>
-				<h3 style="color:orange">GitHub Desktop (before: to upload file, now: to check history of repository) <a target="_blank" rel="noopener noreferrer" href="https://desktop.github.com/">[Download here]</a></h3>
-				<h3 style="color:orange">Git (to upload file) <a target="_blank" rel="noopener noreferrer" href="https://git-scm.com/">[Download here]</a></h3>
-				<h3 style="color:green">Website that have helped me a lot:</h3>
-				<h3 style="color:red">GitHub <a href="https://github.com">[github.com]</a></h3>
-				<h3 style="color:red">StackOverFlow <a href="https://stackoverflow.com">[stackoverflow.com]</a></h3>
-				<h3 style="color:red">W3Schools <a href="https://w3schools.com">[w3schools.com]</a></h3>
-				<h3 style="color:red">MDN Web Docs (before: Mozilla Developer Network) <a href="https://developer.mozilla.org">[developer.mozilla.org]</a></h3>
-				<h3 style="color:red">Google <a href="https://google.com">[google.com]</a></h3>
-				<h3 style="color:red">Youtube <a href="https://youtube.com">[youtube.com]</a></h3>
-				<h3 style="color:green">A special thanks for:</h3>
-				<h3 style="color:red">My Brain and Computer</h3>
-				<h3 style="color:yellow">For writing the website</h3>
-				<hr style="border: 1.5px solid black; background-color: black;">
-				<footer style="margin: 5px; text-align: center;">
-					<p style="color:white">Copyright (C) 2021 Quan_MCPC. Created on: 7/17/20, this website will live <b style="color:red">forever</b></p>
-				</footer>
-			</center>
+			<h1 style="color:red; text-align: center;">Credit</h1>
+			<h2 style="color:green;" class="first_level">Tool:</h2>
+			<h3 style="color:orange;" class="second_level">Visual Studio Code (to write html file) <a target="_blank" rel="noopener noreferrer" href="https://code.visualstudio.com/">[Download here]</a></h3>
+			<h3 style="color:orange;" class="second_level">Google Chrome (to test html file) <a target="_blank" rel="noopener noreferrer" href="http://chrome.com/">[Download here]</a></h3>
+			<h3 style="color:orange;" class="second_level">GitHub Desktop (before: to upload file, now: to check history of repository) <a target="_blank" rel="noopener noreferrer" href="https://desktop.github.com/">[Download here]</a></h3>
+			<h3 style="color:orange;" class="second_level">Git (to upload file) <a target="_blank" rel="noopener noreferrer" href="https://git-scm.com/">[Download here]</a></h3>
+			<h2 style="color:green;" class="first_level">Website that have helped me a lot:</h2>
+			<h3 style="color:red;" class="second_level">GitHub <a href="https://github.com">[github.com]</a></h3>
+			<h3 style="color:red;" class="second_level">StackOverFlow <a href="https://stackoverflow.com">[stackoverflow.com]</a></h3>
+			<h3 style="color:red;" class="second_level">W3Schools <a href="https://w3schools.com">[w3schools.com]</a></h3>
+			<h3 style="color:red;" class="second_level">MDN Web Docs (before: Mozilla Developer Network) <a href="https://developer.mozilla.org">[developer.mozilla.org]</a></h3>
+			<h3 style="color:red;" class="second_level">Google <a href="https://google.com">[google.com]</a></h3>
+			<h3 style="color:red;" class="second_level">Youtube <a href="https://youtube.com">[youtube.com]</a></h3>
+			<h2 style="color:green;" class="first_level">A special thanks for:</h2>
+			<h3 style="color:red;" class="second_level">My Brain and Computer</h3>
+			<h3 style="color:yellow;" class="second_level">For writing the website</h3>
+			<footer style="margin-top: 15px; margin-bottom: 15px;">
+				<p style="color:white; max-width: 100%; text-align: center;">Copyright (C) 2021 Quan_MCPC. Created on: 7/17/20, this website will live <b style="color:red">forever</b></p>
+			</footer>
 		</div>
 	</body>
 </html>
