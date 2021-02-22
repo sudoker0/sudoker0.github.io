@@ -233,7 +233,7 @@
 				z-index: -1;
 				display: none;
 			}
-			div.container *:not(#project *) {
+			div.container *:not(#project *):not(#project_ *) {
 				max-width: 50%;
 				margin-left: auto;
 				margin-right: auto;
@@ -277,11 +277,11 @@
 				content: "▫ ";
 				color: white;
 			}
-			@media (min-width: 320px) { body { font-size: 0.65rem; } #accbar a { margin-left: 5px; margin-right: 5px; } #accb_small, #accb_small_ p { font-size: 1.9em } div.container *:not(#project *) { max-width: 100% } div#project *:not(span) { margin-top: 3px; margin-bottom: 3px; } div#project ul { margin-left: 5px } }
-			@media (min-width: 482px) { body { font-size: 0.73rem; } #accbar a { margin-left: 7px; margin-right: 7px; } #accb_small, #accb_small_ p { font-size: 1.7em } div.container *:not(#project *) { max-width: 95% } div#project *:not(span) { margin-top: 5px; margin-bottom: 5px; } div#project ul { margin-left: 10px } }
-			@media (min-width: 640px) { body { font-size: 0.81rem; } #accbar a { margin-left: 9px; margin-right: 9px; } #accb_small, #accb_small_ p { font-size: 1.5em } div.container *:not(#project *) { max-width: 80% } }
-			@media (min-width: 960px) { body { font-size: 1rem; } #accbar a { margin-left: 11px; margin-right: 11px; } #accb_small, #accb_small_ p { font-size: 1.3em } div.container *:not(#project *) { max-width: 65% } }
-			@media (min-width: 1100px) { body { font-size: 1rem; } #accbar a { margin-left: 13px; margin-right: 13px; } #accb_small, #accb_small_ p { font-size: 1.1em } div.container *:not(#project *) { max-width: 50% } }
+			@media (min-width: 320px) { body { font-size: 0.65rem; } #accbar a { margin-left: 5px; margin-right: 5px; } #accb_small, #accb_small_ p { font-size: 1.9em } div.container *:not(#project *):not(#project_ *) { max-width: 100% } div#project *:not(span) { margin-top: 3px; margin-bottom: 3px; } div#project ul { margin-left: 5px } }
+			@media (min-width: 482px) { body { font-size: 0.73rem; } #accbar a { margin-left: 7px; margin-right: 7px; } #accb_small, #accb_small_ p { font-size: 1.7em } div.container *:not(#project *):not(#project_ *) { max-width: 95% } div#project *:not(span) { margin-top: 5px; margin-bottom: 5px; } div#project ul { margin-left: 10px } }
+			@media (min-width: 640px) { body { font-size: 0.81rem; } #accbar a { margin-left: 9px; margin-right: 9px; } #accb_small, #accb_small_ p { font-size: 1.5em } div.container *:not(#project *):not(#project_ *) { max-width: 80% } }
+			@media (min-width: 960px) { body { font-size: 1rem; } #accbar a { margin-left: 11px; margin-right: 11px; } #accb_small, #accb_small_ p { font-size: 1.3em } div.container *:not(#project *):not(#project_ *) { max-width: 65% } }
+			@media (min-width: 1100px) { body { font-size: 1rem; } #accbar a { margin-left: 13px; margin-right: 13px; } #accb_small, #accb_small_ p { font-size: 1.1em } div.container *:not(#project *):not(#project_ *) { max-width: 50% } }
 		</style>
 	</head>
 	<body id="temp">
@@ -488,6 +488,9 @@
 				</center>
 			</div>
 			<h3 style="color: rgb(0, 255, 0); text-align: center">Project</h3>
+			<div id="project_" style="overflow-x: scroll; border: 2px solid white;">
+				<div id="project__" style="height: 0.1px"></div>
+			</div>
 			<div id="project" style="border: 2px solid white; overflow-x: auto; white-space: nowrap;">
 				<h4 style="color: white;">Here's a list of my project</h4>
 				<ul>
@@ -664,6 +667,15 @@
 					if (event.code == "Enter" || event.code == "Space") { window.location.href = 'https://www.planetminecraft.com/member/quan_mcpc/' }
 				}
 				console.log(window.outerWidth, window.outerHeight, window.innerWidth, window.innerHeight)
+				document.getElementById("project_").onscroll = () => {
+					document.getElementById("project").scrollLeft = document.getElementById("project_").scrollLeft
+				}
+				document.getElementById("project").onscroll = () => {
+					document.getElementById("project_").scrollLeft = document.getElementById("project").scrollLeft
+				}
+				window.onload = () => {
+					document.getElementById("project__").style.width = document.getElementById("project").scrollWidth + "px"
+				}
 			</script>
 			<footer style="margin-top: 15px; margin-bottom: 15px; max-width: 100%">
 				<p style="color:white; max-width: 100%; text-align: center;">Copyright (C) 2021 Quan_MCPC. Created on: 7/17/20, this website will live <b style="color:red">forever</b></p>
