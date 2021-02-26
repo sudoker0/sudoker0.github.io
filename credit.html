@@ -55,6 +55,14 @@
 				margin-right: -8px;
 				margin-top: -8px;
 				transition: top 0.3s;
+				display: grid;
+				grid-template-areas: "left_ right_";
+				grid-template-columns: 1fr 5fr;
+			}
+			#accbar {
+				grid-area: right_-start;
+				display: flex;
+				justify-content: flex-end;
 			}
 			#accb_small {
 				opacity: 1;
@@ -63,9 +71,14 @@
 				border: 1px solid rgba(20, 20, 20, 0.850);
 				margin-left: -8px;
 				margin-right: -8px;
-				text-align: center;
+				text-align: left;
+				padding-left: 10px;
 				position: fixed;
 				width: 100%;
+			}
+			#accb_small * {
+				margin-top: 4px;
+				margin-bottom: 4px;
 			}
 			#accb_small_ {
 				position: sticky;
@@ -77,9 +90,17 @@
 				border: 1px solid rgba(20, 20, 20, 0.850);
 				margin-left: -8px;
 				margin-right: -8px;
-				text-align: center;
+				/* text-align: center; */
 				margin-top: -8px;
 				transition: top 0.3s;
+				display: none;
+				grid-template-areas: "left__ right__";
+				grid-template-columns: 1fr 5fr;
+			}
+			#accb_small_a {
+				grid-area: right__-start;
+				display: flex;
+				justify-content: flex-end;
 			}
 			.arrow {
 				border: solid black;
@@ -97,6 +118,7 @@
   				border: 3px solid black;
   				opacity: 1;
 				animation: swipe 0.3s;
+				padding: 0 20px 0 20px;
 			}
 			body {
 				background-image: url(website/image/background.png);
@@ -172,11 +194,11 @@
 			}
 			.first_level { padding-left: 50px }
 			.second_level { padding-left: 100px }
-			@media (min-width: 320px) { body { font-size: 0.65rem; } #accbar a { margin-left: 5px; margin-right: 5px; } #accb_small, #accb_small_ p { font-size: 1.9em } div.container *:not(#project *) { max-width: 100% } .container > h1 { padding-left: 10px } .first_level { padding-left: 30px } .second_level { padding-left: 50px } }
-			@media (min-width: 482px) { body { font-size: 0.73rem; } #accbar a { margin-left: 7px; margin-right: 7px; } #accb_small, #accb_small_ p { font-size: 1.7em } div.container *:not(#project *) { max-width: 95% } .first_level { padding-left: 40px } .second_level { padding-left: 60px } }
-			@media (min-width: 640px) { body { font-size: 0.81rem; } #accbar a { margin-left: 9px; margin-right: 9px; } #accb_small, #accb_small_ p { font-size: 1.5em } div.container *:not(#project *) { max-width: 80% } .first_level { padding-left: 50px } .second_level { padding-left: 100px } }
-			@media (min-width: 960px) { body { font-size: 1rem; } #accbar a { margin-left: 11px; margin-right: 11px; } #accb_small, #accb_small_ p { font-size: 1.3em } div.container *:not(#project *) { max-width: 65% } }
-			@media (min-width: 1100px) { body { font-size: 1rem; } #accbar a { margin-left: 13px; margin-right: 13px; } #accb_small, #accb_small_ p { font-size: 1.1em } div.container *:not(#project *) { max-width: 50% } }
+			@media (min-width: 320px) { body { font-size: 0.75rem; } #accbar a { margin-left: 5px; margin-right: 5px; } #accb_small, #accb_small_ p { font-size: 1.5em } div.container *:not(#project *):not(#project_ *) { max-width: 100% } div#project *:not(span) { margin-top: 3px; margin-bottom: 3px; } div#project ul { margin-left: 5px } .first_level { padding-left: 10px } .second_level { padding-left: 20px } }
+			@media (min-width: 482px) { body { font-size: 0.75rem; } #accbar a { margin-left: 7px; margin-right: 7px; } #accb_small, #accb_small_ p { font-size: 1.4em } div.container *:not(#project *):not(#project_ *) { max-width: 95% } div#project *:not(span) { margin-top: 5px; margin-bottom: 5px; } div#project ul { margin-left: 10px } .first_level { padding-left: 20px } .second_level { padding-left: 40px } }
+			@media (min-width: 640px) { body { font-size: 0.81rem; } #accbar a { margin-left: 9px; margin-right: 9px; } #accb_small, #accb_small_ p { font-size: 1.3em } div.container *:not(#project *):not(#project_ *) { max-width: 80% } .first_level { padding-left: 30px } .second_level { padding-left: 60px } }
+			@media (min-width: 960px) { body { font-size: 1rem; } #accbar a { margin-left: 11px; margin-right: 11px; } #accb_small, #accb_small_ p { font-size: 1.2em } div.container *:not(#project *):not(#project_ *) { max-width: 65% } .first_level { padding-left: 40px } .second_level { padding-left: 80px } }
+			@media (min-width: 1100px) { body { font-size: 1rem; } #accbar a { margin-left: 13px; margin-right: 13px; } #accb_small, #accb_small_ p { font-size: 1.1em } div.container *:not(#project *):not(#project_ *) { max-width: 50% } .first_level { padding-left: 50px } .second_level { padding-left: 100px } }
 		</style>
 	</head>
 	<body>
@@ -189,11 +211,40 @@
 				<h2 style="color: white; text-align: center;">Because JavaScript is required to make the website function correctly, please enable JavaScript</h2>
 			</div>
 		</noscript>
-		<div class="accb">
+		<div class="accb" style="width: auto; height: auto; display: none;" id="accb">
+			<a href="https://quanmcpc.github.io/home.html" style="grid-area: left_-start; width: 61px">
+				<svg width="80px" height="75px" version="1.1" viewBox="0 0 210 297" xmlns="http://www.w3.org/2000/svg" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);" id="image_">
+					<rect x="-53.4" y="-1.1102e-16" width="316.8" height="297" fill="#fff" stroke-width="3.96"/>
+					<g stroke-width="3.96">
+						<path d="m97.08 1.5077v15.84h15.84v-15.84zm-150.48 126.72v19.8h19.8v-19.8zm297 0v19.8h19.8v-19.8z" fill="#d60000"/>
+						<path d="m97.08 37.148v19.8h15.84v-19.8zm-39.6 55.44v35.64h19.8v-35.64zm39.6 0v19.8h15.84v-19.8zm15.84 19.8v15.84h39.6v19.8h71.28v-19.8h-59.4v-15.84zm110.88 35.64v19.8h19.8v-19.8zm-71.28 0h-19.8v55.44h19.8zm-19.8 55.44h-19.8v19.8h19.8zm-19.8 19.8h-15.84v55.44h15.84zm-15.84 55.44h-19.8v19.8h19.8zm15.84-75.24v-19.8h-15.84v19.8zm-15.84-19.8v-15.84h-19.8v15.84zm0-15.84h15.84v-19.8h-15.84zm-114.84-39.6v19.8h19.8v-19.8zm55.44 19.8v35.64h19.8v-35.64zm19.8 55.44v19.8h19.8v-19.8z" fill="#fd0000"/>
+						<path d="m97.08 56.948v15.84h15.84v-15.84zm15.84 15.84v39.6h19.8v-39.6zm-91.08 39.6v15.84h35.64v-15.84zm0 15.84h-19.8v19.8h19.8zm55.44-15.84v15.84h19.8v-15.84zm-19.8 35.64v35.64h19.8v-35.64zm19.8 35.64v19.8h19.8v-19.8zm87.12-35.64v19.8h23.76v-19.8zm-51.48 19.8v15.84h19.8v-15.84zm-35.64 55.44v15.84h19.8v-15.84zm0 15.84h-19.8v19.8h19.8z" fill="#af0000"/>
+						<path d="m77.28 56.948v35.64h19.8v-35.64zm19.8 55.44v15.84h15.84v-15.84zm15.84 15.84v39.6h19.8v-19.8h19.8v-19.8h-19.8zm-15.84 0h-39.6v19.8h19.8v19.8h19.8v-19.8zm-95.04 19.8v19.8h35.64v-19.8z" fill="#d60000"/>
+					</g>
+				</svg>
+			</a>
+			<!-- <img src="/website/image/logo.png" alt="Redstone" style="width: 61px; position: absolute; top: 50%; transform: translateY(-50%); left: 1px;" id="image_"> -->
 			<h3 id="accbar"></h3>
 		</div>
 		<div id="accb_small_" style="z-index: 10">
-			<p><a onclick="accb_small()" style="cursor: pointer;">Credit &#8681;</a></p>
+			<a href="https://quanmcpc.github.io/home.html" style="grid-area: left__-start; width: 61px">
+				<svg width="80px" height="75px" version="1.1" viewBox="0 0 210 297" xmlns="http://www.w3.org/2000/svg" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);" id="image_">
+					<rect x="-53.4" y="-1.1102e-16" width="316.8" height="297" fill="#fff" stroke-width="3.96"/>
+					<g stroke-width="3.96">
+						<path d="m97.08 1.5077v15.84h15.84v-15.84zm-150.48 126.72v19.8h19.8v-19.8zm297 0v19.8h19.8v-19.8z" fill="#d60000"/>
+						<path d="m97.08 37.148v19.8h15.84v-19.8zm-39.6 55.44v35.64h19.8v-35.64zm39.6 0v19.8h15.84v-19.8zm15.84 19.8v15.84h39.6v19.8h71.28v-19.8h-59.4v-15.84zm110.88 35.64v19.8h19.8v-19.8zm-71.28 0h-19.8v55.44h19.8zm-19.8 55.44h-19.8v19.8h19.8zm-19.8 19.8h-15.84v55.44h15.84zm-15.84 55.44h-19.8v19.8h19.8zm15.84-75.24v-19.8h-15.84v19.8zm-15.84-19.8v-15.84h-19.8v15.84zm0-15.84h15.84v-19.8h-15.84zm-114.84-39.6v19.8h19.8v-19.8zm55.44 19.8v35.64h19.8v-35.64zm19.8 55.44v19.8h19.8v-19.8z" fill="#fd0000"/>
+						<path d="m97.08 56.948v15.84h15.84v-15.84zm15.84 15.84v39.6h19.8v-39.6zm-91.08 39.6v15.84h35.64v-15.84zm0 15.84h-19.8v19.8h19.8zm55.44-15.84v15.84h19.8v-15.84zm-19.8 35.64v35.64h19.8v-35.64zm19.8 35.64v19.8h19.8v-19.8zm87.12-35.64v19.8h23.76v-19.8zm-51.48 19.8v15.84h19.8v-15.84zm-35.64 55.44v15.84h19.8v-15.84zm0 15.84h-19.8v19.8h19.8z" fill="#af0000"/>
+						<path d="m77.28 56.948v35.64h19.8v-35.64zm19.8 55.44v15.84h15.84v-15.84zm15.84 15.84v39.6h19.8v-19.8h19.8v-19.8h-19.8zm-15.84 0h-39.6v19.8h19.8v19.8h19.8v-19.8zm-95.04 19.8v19.8h35.64v-19.8z" fill="#d60000"/>
+					</g>
+				</svg>
+			</a>
+			<h3 id="accb_small_a">
+				<a onclick="accb_small()" style="cursor: pointer; margin-right: 4px;">
+					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16" style="max-width: 100%; max-height: 100%">
+						<path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+					</svg>
+				</a>
+			</h3>
 		</div>
 		<div id="accb_small" style="z-index: 10">
 			<h3 id="accbar_small"></h3>
@@ -214,11 +265,11 @@
 				} while (targetElement);
 				document.getElementById("accb_small").style.display = "none";
 				accb_small_isOn = false;
-				document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Credit &#8681;"
+				//document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Credit &#8681;"
 			});
 			window.onload = window.onresize = function() {
 				check()
-				document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Credit &#8681;"
+				//document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Credit &#8681;"
 				accb_small_isOn = false;
 				document.getElementById("accb_small").style.display = "none"
 				if (getParameterByName("no_screen_size_check") == "true") {} else {
@@ -228,29 +279,29 @@
 						document.getElementById("screentoosmall").style.display = "none";
 					}
 				}
-				if (window.outerWidth < 960) {
-					document.getElementById("accb_small_").style.display = "block";
+				if (window.outerWidth < 482) {
+					document.getElementById("accb_small_").style.display = "grid";
 					document.getElementsByClassName("accb")[0].style.display = "none"
 				} else {
 					document.getElementById("accb_small_").style.display = "none";
-					document.getElementsByClassName("accb")[0].style.display = "block";
+					document.getElementsByClassName("accb")[0].style.display = "grid";
 				}
 			}
 			accb_small_isOn = false;
 			function accb_small() {
 				if (accb_small_isOn) {
-					document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Credit &#8681;"
+					//document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Credit &#8681;"
 					document.getElementById("accb_small").style.display = "none";
 					accb_small_isOn = false;
 				} else {
-					document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Credit &#8679;"
+					//document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Credit &#8679;"
 					document.getElementById("accb_small").style.display = "block";
 					accb_small_isOn = true;
 				}
 			}
 			var prevScrollpos = window.pageYOffset;
 			window.onscroll = function() {
-				document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Credit &#8681;"
+				//document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Credit &#8681;"
 				document.getElementById("accb_small").style.display = "none"
 				accb_small_isOn = false;
 				var currentScrollPos = window.pageYOffset;

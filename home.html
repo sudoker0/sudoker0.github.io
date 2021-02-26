@@ -61,6 +61,14 @@
 				margin-right: -8px;
 				margin-top: -8px;
 				transition: top 0.3s;
+				display: grid;
+				grid-template-areas: "left_ right_";
+				grid-template-columns: 1fr 5fr;
+			}
+			#accbar {
+				grid-area: right_-start;
+				display: flex;
+				justify-content: flex-end;
 			}
 			#accb_small {
 				opacity: 1;
@@ -69,9 +77,14 @@
 				border: 1px solid rgba(20, 20, 20, 0.850);
 				margin-left: -8px;
 				margin-right: -8px;
-				text-align: center;
+				text-align: left;
+				padding-left: 10px;
 				position: fixed;
 				width: 100%;
+			}
+			#accb_small * {
+				margin-top: 4px;
+				margin-bottom: 4px;
 			}
 			#accb_small_ {
 				position: sticky;
@@ -83,9 +96,17 @@
 				border: 1px solid rgba(20, 20, 20, 0.850);
 				margin-left: -8px;
 				margin-right: -8px;
-				text-align: center;
+				/* text-align: center; */
 				margin-top: -8px;
 				transition: top 0.3s;
+				display: none;
+				grid-template-areas: "left__ right__";
+				grid-template-columns: 1fr 5fr;
+			}
+			#accb_small_a {
+				grid-area: right__-start;
+				display: flex;
+				justify-content: flex-end;
 			}
 			.arrow {
 				border: solid black;
@@ -277,10 +298,10 @@
 				content: "▫ ";
 				color: white;
 			}
-			@media (min-width: 320px) { body { font-size: 0.65rem; } #accbar a { margin-left: 5px; margin-right: 5px; } #accb_small, #accb_small_ p { font-size: 1.9em } div.container *:not(#project *):not(#project_ *) { max-width: 100% } div#project *:not(span) { margin-top: 3px; margin-bottom: 3px; } div#project ul { margin-left: 5px } }
-			@media (min-width: 482px) { body { font-size: 0.73rem; } #accbar a { margin-left: 7px; margin-right: 7px; } #accb_small, #accb_small_ p { font-size: 1.7em } div.container *:not(#project *):not(#project_ *) { max-width: 95% } div#project *:not(span) { margin-top: 5px; margin-bottom: 5px; } div#project ul { margin-left: 10px } }
-			@media (min-width: 640px) { body { font-size: 0.81rem; } #accbar a { margin-left: 9px; margin-right: 9px; } #accb_small, #accb_small_ p { font-size: 1.5em } div.container *:not(#project *):not(#project_ *) { max-width: 80% } }
-			@media (min-width: 960px) { body { font-size: 1rem; } #accbar a { margin-left: 11px; margin-right: 11px; } #accb_small, #accb_small_ p { font-size: 1.3em } div.container *:not(#project *):not(#project_ *) { max-width: 65% } }
+			@media (min-width: 320px) { body { font-size: 0.75rem; } #accbar a { margin-left: 5px; margin-right: 5px; } #accb_small, #accb_small_ p { font-size: 1.5em } div.container *:not(#project *):not(#project_ *) { max-width: 100% } div#project *:not(span) { margin-top: 3px; margin-bottom: 3px; } div#project ul { margin-left: 5px } }
+			@media (min-width: 482px) { body { font-size: 0.75rem; } #accbar a { margin-left: 7px; margin-right: 7px; } #accb_small, #accb_small_ p { font-size: 1.4em } div.container *:not(#project *):not(#project_ *) { max-width: 95% } div#project *:not(span) { margin-top: 5px; margin-bottom: 5px; } div#project ul { margin-left: 10px } }
+			@media (min-width: 640px) { body { font-size: 0.81rem; } #accbar a { margin-left: 9px; margin-right: 9px; } #accb_small, #accb_small_ p { font-size: 1.3em } div.container *:not(#project *):not(#project_ *) { max-width: 80% } }
+			@media (min-width: 960px) { body { font-size: 1rem; } #accbar a { margin-left: 11px; margin-right: 11px; } #accb_small, #accb_small_ p { font-size: 1.2em } div.container *:not(#project *):not(#project_ *) { max-width: 65% } }
 			@media (min-width: 1100px) { body { font-size: 1rem; } #accbar a { margin-left: 13px; margin-right: 13px; } #accb_small, #accb_small_ p { font-size: 1.1em } div.container *:not(#project *):not(#project_ *) { max-width: 50% } }
 		</style>
 	</head>
@@ -294,11 +315,40 @@
 				<h2 style="color: white; text-align: center;">Because JavaScript is required to make the website function correctly, please enable JavaScript</h2>
 			</div>
 		</noscript>
-		<div class="accb" style="width: auto; height: auto" id="accb">
+		<div class="accb" style="width: auto; height: auto; display: none;" id="accb">
+			<a href="https://quanmcpc.github.io/home.html" style="grid-area: left_-start; width: 61px">
+				<svg width="80px" height="75px" version="1.1" viewBox="0 0 210 297" xmlns="http://www.w3.org/2000/svg" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);" id="image_">
+					<rect x="-53.4" y="-1.1102e-16" width="316.8" height="297" fill="#fff" stroke-width="3.96"/>
+					<g stroke-width="3.96">
+						<path d="m97.08 1.5077v15.84h15.84v-15.84zm-150.48 126.72v19.8h19.8v-19.8zm297 0v19.8h19.8v-19.8z" fill="#d60000"/>
+						<path d="m97.08 37.148v19.8h15.84v-19.8zm-39.6 55.44v35.64h19.8v-35.64zm39.6 0v19.8h15.84v-19.8zm15.84 19.8v15.84h39.6v19.8h71.28v-19.8h-59.4v-15.84zm110.88 35.64v19.8h19.8v-19.8zm-71.28 0h-19.8v55.44h19.8zm-19.8 55.44h-19.8v19.8h19.8zm-19.8 19.8h-15.84v55.44h15.84zm-15.84 55.44h-19.8v19.8h19.8zm15.84-75.24v-19.8h-15.84v19.8zm-15.84-19.8v-15.84h-19.8v15.84zm0-15.84h15.84v-19.8h-15.84zm-114.84-39.6v19.8h19.8v-19.8zm55.44 19.8v35.64h19.8v-35.64zm19.8 55.44v19.8h19.8v-19.8z" fill="#fd0000"/>
+						<path d="m97.08 56.948v15.84h15.84v-15.84zm15.84 15.84v39.6h19.8v-39.6zm-91.08 39.6v15.84h35.64v-15.84zm0 15.84h-19.8v19.8h19.8zm55.44-15.84v15.84h19.8v-15.84zm-19.8 35.64v35.64h19.8v-35.64zm19.8 35.64v19.8h19.8v-19.8zm87.12-35.64v19.8h23.76v-19.8zm-51.48 19.8v15.84h19.8v-15.84zm-35.64 55.44v15.84h19.8v-15.84zm0 15.84h-19.8v19.8h19.8z" fill="#af0000"/>
+						<path d="m77.28 56.948v35.64h19.8v-35.64zm19.8 55.44v15.84h15.84v-15.84zm15.84 15.84v39.6h19.8v-19.8h19.8v-19.8h-19.8zm-15.84 0h-39.6v19.8h19.8v19.8h19.8v-19.8zm-95.04 19.8v19.8h35.64v-19.8z" fill="#d60000"/>
+					</g>
+				</svg>
+			</a>
+			<!-- <img src="/website/image/logo.png" alt="Redstone" style="width: 61px; position: absolute; top: 50%; transform: translateY(-50%); left: 1px;" id="image_"> -->
 			<h3 id="accbar"></h3>
 		</div>
 		<div id="accb_small_" style="z-index: 10">
-			<p><a onclick="accb_small()" style="cursor: pointer;">Home &#8681;</a></p>
+			<a href="https://quanmcpc.github.io/home.html" style="grid-area: left__-start; width: 61px">
+				<svg width="80px" height="75px" version="1.1" viewBox="0 0 210 297" xmlns="http://www.w3.org/2000/svg" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);" id="image_">
+					<rect x="-53.4" y="-1.1102e-16" width="316.8" height="297" fill="#fff" stroke-width="3.96"/>
+					<g stroke-width="3.96">
+						<path d="m97.08 1.5077v15.84h15.84v-15.84zm-150.48 126.72v19.8h19.8v-19.8zm297 0v19.8h19.8v-19.8z" fill="#d60000"/>
+						<path d="m97.08 37.148v19.8h15.84v-19.8zm-39.6 55.44v35.64h19.8v-35.64zm39.6 0v19.8h15.84v-19.8zm15.84 19.8v15.84h39.6v19.8h71.28v-19.8h-59.4v-15.84zm110.88 35.64v19.8h19.8v-19.8zm-71.28 0h-19.8v55.44h19.8zm-19.8 55.44h-19.8v19.8h19.8zm-19.8 19.8h-15.84v55.44h15.84zm-15.84 55.44h-19.8v19.8h19.8zm15.84-75.24v-19.8h-15.84v19.8zm-15.84-19.8v-15.84h-19.8v15.84zm0-15.84h15.84v-19.8h-15.84zm-114.84-39.6v19.8h19.8v-19.8zm55.44 19.8v35.64h19.8v-35.64zm19.8 55.44v19.8h19.8v-19.8z" fill="#fd0000"/>
+						<path d="m97.08 56.948v15.84h15.84v-15.84zm15.84 15.84v39.6h19.8v-39.6zm-91.08 39.6v15.84h35.64v-15.84zm0 15.84h-19.8v19.8h19.8zm55.44-15.84v15.84h19.8v-15.84zm-19.8 35.64v35.64h19.8v-35.64zm19.8 35.64v19.8h19.8v-19.8zm87.12-35.64v19.8h23.76v-19.8zm-51.48 19.8v15.84h19.8v-15.84zm-35.64 55.44v15.84h19.8v-15.84zm0 15.84h-19.8v19.8h19.8z" fill="#af0000"/>
+						<path d="m77.28 56.948v35.64h19.8v-35.64zm19.8 55.44v15.84h15.84v-15.84zm15.84 15.84v39.6h19.8v-19.8h19.8v-19.8h-19.8zm-15.84 0h-39.6v19.8h19.8v19.8h19.8v-19.8zm-95.04 19.8v19.8h35.64v-19.8z" fill="#d60000"/>
+					</g>
+				</svg>
+			</a>
+			<h3 id="accb_small_a">
+				<a onclick="accb_small()" style="cursor: pointer; margin-right: 4px;">
+					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16" style="max-width: 100%; max-height: 100%">
+						<path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+					</svg>
+				</a>
+			</h3>
 		</div>
 		<div id="accb_small" style="z-index: 10">
 			<h3 id="accbar_small"></h3>
@@ -319,11 +369,12 @@
 				} while (targetElement);
 				document.getElementById("accb_small").style.display = "none";
 				accb_small_isOn = false;
-				document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8681;"
+				//document.getElementById("accb_small_").getElementsByTagName("h3")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8681;"
 			});
 			window.onload = window.onresize = function() {
 				check()
-				document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8681;"
+				check1()
+				//document.getElementById("accb_small_").getElementsByTagName("h3")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8681;"
 				accb_small_isOn = false;
 				document.getElementById("accb_small").style.display = "none"
 				if (getParameterByName("no_screen_size_check") == "true") {} else {
@@ -333,29 +384,29 @@
 						document.getElementById("screentoosmall").style.display = "none";
 					}
 				}
-				if (window.outerWidth < 960) {
-					document.getElementById("accb_small_").style.display = "block";
+				if (window.outerWidth < 482) {
+					document.getElementById("accb_small_").style.display = "grid";
 					document.getElementsByClassName("accb")[0].style.display = "none"
 				} else {
 					document.getElementById("accb_small_").style.display = "none";
-					document.getElementsByClassName("accb")[0].style.display = "block";
+					document.getElementsByClassName("accb")[0].style.display = "grid";
 				}
 			}
 			accb_small_isOn = false;
 			function accb_small() {
 				if (accb_small_isOn) {
-					document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8681;"
+					//document.getElementById("accb_small_").getElementsByTagName("h3")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8681;"
 					document.getElementById("accb_small").style.display = "none";
 					accb_small_isOn = false;
 				} else {
-					document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8679;"
+					//document.getElementById("accb_small_").getElementsByTagName("h3")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8679;"
 					document.getElementById("accb_small").style.display = "block";
 					accb_small_isOn = true;
 				}
 			}
 			var prevScrollpos = window.pageYOffset;
 			window.onscroll = function() {
-				document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8681;"
+				//document.getElementById("accb_small_").getElementsByTagName("h3")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8681;"
 				document.getElementById("accb_small").style.display = "none"
 				accb_small_isOn = false;
 				var currentScrollPos = window.pageYOffset;
@@ -428,6 +479,9 @@
 					document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
 				}*/
 			});
+			// window.onload = () => {
+			// 	document.getElementById("image_").style.height = + window.getComputedStyle(document.getElementById("accbar")).height.replace( /\D+$/g, '') + + window.getComputedStyle(document.getElementById("accbar")).marginTop.replace( /\D+$/g, '') + + window.getComputedStyle(document.getElementById("accbar")).marginBottom.replace( /\D+$/g, '') + "px"
+			// }
 		</script>
 		<div class="container">
 			<h1 style="color:rgb(255, 0, 0); text-align: center;"><b>Student. Developer. Gamer.</b></h1>
@@ -435,7 +489,7 @@
 			<h3 style="color: rgb(0, 255, 0); text-align: center">Social link</h3>
 			<div id="social_link">
 				<center>
-					<svg id="github_link" width="64" height="64" version="1.1" viewBox="0 0 33.867 33.867" xmlns="http://www.w3.org/2000/svg" onclick="window.location.href = 'https://github.com/QuanMCPC'" xmlns:xlink="http://www.w3.org/1999/xlink" title="My GitHub page" tabindex="1">
+					<svg id="github_link" width="64" height="64" version="1.1" viewBox="0 0 33.867 33.867" xmlns="http://www.w3.org/2000/svg" onclick="window.location.href = 'https://github.com/QuanMCPC'" xmlns:xlink="http://www.w3.org/1999/xlink" title="My GitHub page" tabindex="0">
 						<g fill="#ffffff">
 							<path d="m16.933 0c-9.3509 0-16.933 7.7731-16.933 17.362 0 7.671 4.852 14.179 11.58 16.475 0.84628 0.16072 1.157-0.37664 1.157-0.83521 0-0.41401-0.01571-1.7817-0.02299-3.2325-4.7109 1.0503-5.705-2.0485-5.705-2.0485-0.77029-2.0068-1.8802-2.5404-1.8802-2.5404-1.5364-1.0776 0.11581-1.0554 0.11581-1.0554 1.7004 0.12219 2.5958 1.7894 2.5958 1.7894 1.5103 2.654 3.9614 1.8866 4.9277 1.443 0.15198-1.1221 0.59083-1.8884 1.0751-2.3216-3.7612-0.43902-7.715-1.9277-7.715-8.5804 0-1.8955 0.66149-3.4443 1.7447-4.6602-0.17582-0.43759-0.75543-2.2032 0.16404-4.5947 0 0 1.422-0.46663 4.6579 1.7797 1.3507-0.38469 2.7993-0.5776 4.2384-0.58422 1.4391 0.0066 2.8888 0.19953 4.2421 0.58422 3.232-2.2463 4.652-1.7797 4.652-1.7797 0.92171 2.3915 0.34182 4.1571 0.166 4.5947 1.0858 1.2159 1.7428 2.7647 1.7428 4.6602 0 6.6685-3.9614 8.1368-7.7321 8.5666 0.60737 0.53879 1.1486 1.5954 1.1486 3.2152 0 2.3231-0.01962 4.1927-0.01962 4.7646 0 0.46203 0.30481 1.0034 1.1631 0.83291 6.7245-2.2983 11.57-8.8041 11.57-16.472-1.2e-5 -9.589-7.5815-17.362-16.933-17.362" fill-rule="evenodd"/>
 							<g>
@@ -449,7 +503,7 @@
 							</g>
 						</g>
 					</svg>
-					<svg id="plannetminecraft_link" width="64" height="64" version="1.1" viewBox="0 0 16.933 16.933" xmlns="http://www.w3.org/2000/svg" onclick="window.location.href = 'https://www.planetminecraft.com/member/quan_mcpc/'" tabindex="2">
+					<svg id="plannetminecraft_link" width="64" height="64" version="1.1" viewBox="0 0 16.933 16.933" xmlns="http://www.w3.org/2000/svg" onclick="window.location.href = 'https://www.planetminecraft.com/member/quan_mcpc/'" tabindex="0">
 						<g>
 							<path d="m6.0772 0.8v1.0583h4.7626v-1.0583zm-5.0272 4.7625v4.7625h1.3229v-4.7625zm1.3229 4.7625v2.3812h1.0584v-2.3812zm1.0584 2.3812v1.3229h2.6459v-1.3229zm2.6459 1.3229v1.3229h2.6459v-0.52917h-0.52918v-0.52917h-0.26459v-0.26458zm7.1439-3.7042v2.3812h1.3229v-1.8521h-0.26459v-0.26458h-0.26459v-0.26458zm0 2.3812h-2.3813v1.3229h2.3813zm-2.3813 1.3229h-0.79377v0.26458h-0.26459v0.79375h-0.26459v0.26458h1.3229z" fill="#014e96"/>
 							<path d="m3.4313 1.8583v1.0583h2.6459v-1.0583zm0 1.0583h-1.0584v2.6458h1.0584zm7.4085-1.0583v1.0583h2.3813v-1.0583zm2.3813 1.0583v2.6458h1.3229v-2.6458zm1.3229 2.6458v4.7625h1.3229v-4.7625zm0 4.7625h-0.52918v0.26458h0.26459v0.26458h0.26459v-0.26458zm-2.3813 0v1.3229h-1.3229v1.0583h2.3813v-2.3812zm-4.2334 3.7042v0.26458h0.26459v0.52917h0.52918v0.52917h0.79377v-0.26458h0.26459v-0.79375h0.52918v-0.26458z" fill="#2a5401"/>
@@ -673,12 +727,10 @@
 				document.getElementById("project").onscroll = () => {
 					document.getElementById("project_").scrollLeft = document.getElementById("project").scrollLeft
 				}
-				window.onload = () => {
-					document.getElementById("project__").style.width = document.getElementById("project").scrollWidth + "px"
-				}
+				function check1() { document.getElementById("project__").style.width = document.getElementById("project").scrollWidth + "px" }
 			</script>
-			<footer style="margin-top: 15px; margin-bottom: 15px; max-width: 100%">
-				<p style="color:white; max-width: 100%; text-align: center;">Copyright (C) 2021 Quan_MCPC. Created on: 7/17/20, this website will live <b style="color:red">forever</b></p>
+			<footer style="margin-top: 15px; margin-bottom: 15px;">
+				<p style="color:white; text-align: center;">Copyright (C) 2021 Quan_MCPC. Created on: 7/17/20, this website will live <b style="color:red">forever</b></p>
 			</footer>
 		</div>
 	</body>
