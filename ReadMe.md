@@ -62,38 +62,37 @@
     - **Maybe**, but I will probably prefer to stay on HTML, mainly because that mean I have to learn a new language and adapt all of the difference syntax and other things too
 ### Other
 #### File information of the website's folder
-File Extensions | Percentages | Number of files | Likely to change | File/Folder size (Bytes)
-----------------|-------------|-----------------|------------------|--------------------------
-(Every file)    | 100%        | 453 files       | 5%               | 29,641,962 bytes
-*.css           | ~0.44%      | 2 files         | 2%               | 1,910 bytes
-*.delete        | ~0.22%      | 1 file          | 1%               | 174,114 bytes
-*.gif           | ~0.66%      | 3 files         | 2%               | 19,696 bytes
-*.gitattributes | ~0.22%      | 1 file          | 1%               | 68 bytes
-*.htaccess      | ~0.22%      | 1 file          | 1%               | 256 bytes
-*.html          | ~6.84%      | 31 files        | 10%              | 641,966 bytes
-*.ico           | ~0.44%      | 2 files         | 1%               | 209,639 bytes
-*.idx           | ~0.22%      | 1 file          | ~0%              | 51,724 bytes
-*.json          | ~0.88%      | 4 files         | 3%               | 1,733 bytes
-*.md            | ~0.44%      | 2 files         | 2%               | 12,957 bytes
-*.new           | ~0.22%      | 1 file          | ~0%              | 1,386,417 bytes
-*.old           | ~0.66%      | 3 files         | 1%               | 106,779 bytes
-*.pack          | ~0.22%      | 1 file          | ~0%              | 13,111,540 bytes
-*.png           | ~6.18%      | 28 files        | 4%               | 8,995,478 bytes
-*.sample        | ~2.42%      | 11 files        | ~0%              | 18,844 bytes
-*.ttf           | ~0.88%      | 4 files         | ~0%              | 653,688 bytes
-*.txt           | ~0.66%      | 3 files         | 2%               | 41,913 bytes
-*.xml           | ~0.44%      | 2 files         | 1%               | 40 bytes
-(No Extension)  | ~77.70%     | 352 files       | ~0%              | 3,874,780 bytes
-#### **Note**: The percentage and likely to change number is estimated!
+File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
+----------------|--------------------- |-----------------|--------------------------
+(Every file)    | 100%                 | 243 files       | 33,599,011 bytes
+*.cache         | 0.1%                 | 1 file          | 25,742 bytes
+*.config        | 0.2%                 | 1 file          | 83,595 bytes
+*.css           | 0.2%                 | 5 files         | 61,911 bytes
+*.delete        | 0.5%                 | 1 file          | 174,950 bytes
+*.gif           | 0.1%                 | 3 files         | 19,696 bytes
+*.gitattributes | ~0%                  | 1 file          | 68 bytes
+*.html          | 2.4%                 | 46 files        | 811,320 bytes
+*.ico           | 0.6%                 | 2 files         | 209,639 bytes
+*.idx           | 0.3%                 | 1 file          | 91,988 bytes
+*.js            | 1.4%                 | 24 files        | 480,738 bytes
+*.json          | ~0%                  | 6 files         | 2,295 bytes
+*.md            | ~0%                  | 2 files         | 13,088 bytes
+*.new           | 4.1%                 | 1 file          | 1,386,417 bytes
+*.old           | 0.5%                 | 6 files         | 162,535 bytes
+*.pack          | 56.7%                | 1 file          | 19,051,367 bytes
+*.png           | 23.2%                | 27 files        | 7,787,534 bytes
+*.sample        | 0.1%                 | 12 files        | 19,260 bytes
+*.sqlite        | 0.3%                 | 1 file          | 90,112 bytes
+*.suo           | 0.2%                 | 1 file          | 56.320 bytes
+*.ttf           | 1.9%                 | 4 files         | 653,688 bytes
+*.txt           | 0.1%                 | 6 files         | 44,940 bytes
+*.webp          | 2.1%                 | 10 files        | 705,448 bytes
+*.xml           | ~0%                  | 4 files         | 1,265 bytes
+*.zip           | 4.2%                 | 1 file          | 1,414,985 bytes
+(No Extension)  | 0.7%                 | 76 files        | 250,030 bytes
 [Download the table as HTML in a zip file (Style is not the same)](https://drive.google.com/u/0/uc?id=1ijDD_QCY6xbfYFVnKyJvaJsK8WKmu2zo&export=download)
 > You might ask: How do I able to get all of the file extensions, the number of file and other info?
->> For file extensions and number of files: ```cmd /c ">NUL (@for /R %I in (*) do @set /a ext[%~xI] += 1) & set ext["```
->>
->> Percentages: The number of file of that extension / The total number of file * 100
->>
->> Likely to change: Yeah I really don't know
->>
->> File/Folder size: ```dir *.<insert_file_extension> /s```
+> Using WinDirStat [https://windirstat.net/](https://windirstat.net/)
 ### Random Stuff
 > JavaScript Loop Code
 ```JavaScript
