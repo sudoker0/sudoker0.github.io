@@ -24,23 +24,7 @@
 		<title>Quan_MCPC's Website</title>
 		<link rel="stylesheet" type="text/css" href="main.css">
 		<style>
-			@media (min-width:600px) {
-				img[data-src-600px] {
-					content: attr(data-src-600px, url);
-				}
-			}
-			@media (min-width:800px) {
-				img[data-src-800px] {
-					content: attr(data-src-800px, url);
-				}
-			}
 			html { font-size: 100%; }
-
-			#hidden:link, #hidden:visited, #hidden:hover, #hidden:active {
-				color: rgb(255, 255, 255);
-				text-decoration: none;
-				display: inline-block;
-			}
 			a:link, a:visited {
 				color: rgb(255, 255, 255);
 				text-decoration: none;
@@ -108,22 +92,11 @@
 				display: flex;
 				justify-content: flex-end;
 			}
-			.arrow {
-				border: solid black;
-				border-width: 0 3px 3px 0;
-				display: inline-block;
-				padding: 3px;
-			}
-			.down {
-				transform: rotate(45deg);
-				-webkit-transform: rotate(45deg);
-			}
 			div.container {
 				margin: 20px;
 				background-color:rgba(20, 20, 20, 0.850);
   				border: 3px solid black;
   				opacity: 1;
-				animation: swipe 0.3s;
 				padding: 0 20px 0 20px;
 			}
 			body {
@@ -132,46 +105,6 @@
 				background-size: cover;
 				background-attachment: fixed;
 				background-position: center;
-			}
-			#img1, #img2, #img3, #img4, #img5, #img6, #img7, #img8, #img9 {
-  				position: fixed;
-  				display: none;
- 				width: 100%;
- 				height: 100%;
-  				top: 0;
-  				left: 0;
-  				right: 0;
-  				bottom: 0;
-  				background-color: rgba(0, 0, 0, 0.8);
-  				z-index: 2;
-			}
-			#imagen1, #imagen2, #imagen3, #imagen4, #imagen5, #imagen6, #imagen7, #imagen8, #imagen9 {
-				cursor: pointer;
-				/* max-width: 100%; */
-				height: auto;
-			}
-			#image {
-  				position: absolute;
-				width: 75%;
-  				top: 50%;
-  				left: 50%;
-  				transform: translate(-50%,-50%);
-  				-ms-transform: translate(-50%,-50%);
-				max-width: 100%;
-				max-height: 100%;
-				height: auto;
-			}
-			button {
-				background-color: #707070;
-				border: none;
-				color: white;
-				padding: 2px 10px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				font-size: 14px;
-				margin: 0px 1px;
-				cursor: pointer;
 			}
 			#noscript_overlay {
 				position: fixed; /* Sit on top of the page content */
@@ -198,53 +131,6 @@
 				background-color: black; /* Black background with opacity */
 				z-index: 15; /* Specify a stack order in case you're using a different order for other elements */
 				cursor: not-allowed; /* Add a pointer on hover */
-			}
-			@keyframes swipe {
-				0% { opacity: 0; }
-				10% { opacity: .1; }
-				20% { opacity: .2; }
-				30% { opacity: .3; }
-				40% { opacity: .4; }
-				50% { opacity: .5; }
-				60% { opacity: .6; }
-				70% { opacity: .7; }
-				80% { opacity: .8; }
-				90% { opacity: .9; }
-				100% { opacity: 1; }
-			}
-
-			#b {
-				border: 1px solid black;
-				width: 350px;
-				height: 120px;
-				position: fixed;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				background-color: rgb(196, 196, 196);
-				display: none;
-			}
-			#a {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				padding: 5px;
-			}
-			#a p {
-				float: right;
-			}
-			#form_overlay {
-				position: fixed; /* Sit on top of the page content */
-				display: none; /* Hidden by default */
-				width: 100%; /* Full width (cover the whole page) */
-				height: 100%; /* Full height (cover the whole page) */
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background-color: rgba(0,0,0,0.8); /* Black background with opacity */
-				z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
 			}
 			#secret_image {
 				position: fixed;

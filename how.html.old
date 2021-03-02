@@ -24,16 +24,6 @@
 		<title>Quan_MCPC's Website</title>
 		<link rel="stylesheet" type="text/css" href="main.css">
 		<style>
-			@media (min-width:600px) {
-				img[data-src-600px] {
-					content: attr(data-src-600px, url);
-				}
-			}
-			@media (min-width:800px) {
-				img[data-src-800px] {
-					content: attr(data-src-800px, url);
-				}
-			}
 			html { font-size: 100%; }
 			@media (min-width: 320px) { body { font-size: 0.4rem; } #accbar a { margin-left: 5px; margin-right: 5px; } #accb_small, #accb_small_ p { font-size: 1.9em }}
 			@media (min-width: 482px) { body { font-size: 0.6rem; } #accbar a { margin-left: 7px; margin-right: 7px; } #accb_small, #accb_small_ p { font-size: 1.7em } }
@@ -86,22 +76,11 @@
 				margin-top: -8px;
 				transition: top 0.3s;
 			}
-			.arrow {
-				border: solid black;
-				border-width: 0 3px 3px 0;
-				display: inline-block;
-				padding: 3px;
-			}
-			.down {
-				transform: rotate(45deg);
-				-webkit-transform: rotate(45deg);
-			}
 			div.container {
 				margin: 20px;
 				background-color:rgba(20, 20, 20, 0.850);
 				border: 3px solid black;
 				opacity: 1;
-				animation: swipe 0.3s;
 			}
 			body {
 				background-image: url(website/image/background.png);
@@ -122,19 +101,6 @@
 				background-color: rgba(0,0,0,0.8); /* Black background with opacity */
 				z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
 				cursor: not-allowed; /* Add a pointer on hover */
-			}
-			@keyframes swipe {
-				0% { opacity: 0; }
-				10% { opacity: .1; }
-				20% { opacity: .2; }
-				30% { opacity: .3; }
-				40% { opacity: .4; }
-				50% { opacity: .5; }
-				60% { opacity: .6; }
-				70% { opacity: .7; }
-				80% { opacity: .8; }
-				90% { opacity: .9; }
-				100% { opacity: 1; }
 			}
 			#hard_way {
 				width: 90%;
