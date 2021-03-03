@@ -156,8 +156,8 @@
         </div> -->
         <script>
 			var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
-            var button1 = document.createElement("button"), button1_att_ = document.createTextNode("Load Default Home"),
-                button2 = document.createElement("button"), button2_att_ = document.createTextNode("Load Basic Home (For Slow Connection)")
+            var button1 = document.createElement("button"), button1_att_ = document.createTextNode("Load standard view"),
+                button2 = document.createElement("button"), button2_att_ = document.createTextNode("Load basic HTML view (For Slow Connection)")
             button1.onclick = function() {window.location.replace('home.html?id='+ dateTime +'')}; button2.onclick = function() {window.location.replace('lite/home.html?id='+ dateTime +'')};
             button1.appendChild(button1_att_);
             button2.appendChild(button2_att_);
