@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
+    <head>
         <script src="/index.js?ver=1202"></script>
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="HandheldFriendly" content="true">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="HandheldFriendly" content="true">
         <link rel="stylesheet" type="text/css" href="main.css">
         <meta name="keywords" content="QuanMCPC, Quan_MCPC">
-		<meta name="description" content="Quan_MCPC's Personal Website">
-		<meta name="author" content="Quan_MCPC">
+        <meta name="description" content="Quan_MCPC's Personal Website">
+        <meta name="author" content="Quan_MCPC">
         <meta charset="UTF-8">
         <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
         <meta http-equiv="Pragma" content="no-cache" />
@@ -85,17 +85,17 @@
                 cursor: pointer;
             }
             #noscript_overlay {
-				position: fixed; /* Sit on top of the page content */
-				display: block; /* Hidden by default */
-				width: 100%; /* Full width (cover the whole page) */
-				height: 100%; /* Full height (cover the whole page) */
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background-color: rgba(0,0,0,0.8); /* Black background with opacity */
-				z-index: 15; /* Specify a stack order in case you're using a different order for other elements */
-				cursor: not-allowed; /* Add a pointer on hover */
+                position: fixed; /* Sit on top of the page content */
+                display: block; /* Hidden by default */
+                width: 100%; /* Full width (cover the whole page) */
+                height: 100%; /* Full height (cover the whole page) */
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0,0,0,0.8); /* Black background with opacity */
+                z-index: 15; /* Specify a stack order in case you're using a different order for other elements */
+                cursor: not-allowed; /* Add a pointer on hover */
             }
             a:hover {
                 color: rgb(255, 0, 0);
@@ -131,15 +131,15 @@
                 }
             } */
         </style>
-		<link rel="icon" href="website/image/favicon.ico">
-		<title>Quan_MCPC's Website</title>
-	</head>
+        <link rel="icon" href="website/image/favicon.ico">
+        <title>Quan_MCPC's Website</title>
+    </head>
     <body onload="move()">
         <noscript>
-			<div id="noscript_overlay">
-				<h2 style="color: red; text-align: center">Important!</h2>
-				<h2 style="color: white; text-align: center;">Because JavaScript is required to make the website function correctly, please enable JavaScript</h2>
-			</div>
+            <div id="noscript_overlay">
+                <h2 style="color: red; text-align: center">Important!</h2>
+                <h2 style="color: white; text-align: center;">Because JavaScript is required to make the website function correctly, please enable JavaScript</h2>
+            </div>
         </noscript>
         <div class="center-screen">
             <center><img src="/website/image/redstone_dust_icon__.svg" srcset="/website/image/redstone_dust_icon__.svg, /website/image/loading.gif"></center>
@@ -155,7 +155,7 @@
             <center><button id="button_yes" onclick="yes()"><h1>Test</h1></button><button id="button_no" onclick="no()"><h1>Exit</h1></button></center>
         </div> -->
         <script>
-			var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
+            var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
             var button1 = document.createElement("button"), button1_att_ = document.createTextNode("Load standard view"),
                 button2 = document.createElement("button"), button2_att_ = document.createTextNode("Load basic HTML view (For Slow Connection)")
             button1.onclick = function() {window.location.replace('home.html?id='+ dateTime +'')}; button2.onclick = function() {window.location.replace('lite/home.html?id='+ dateTime +'')};
@@ -202,26 +202,26 @@
                     window.location.replace("ban.html");
                 }
             }
-		</script>
-	</body>
-		<!--<script>
-			function check() {
-					if (localStorage.getItem("ls") == "927") {
-						window.location.replace("ban.html");
-					}
-				}
-			var timeleft = 5;
-			var downloadTimer = setInterval(function(){
-			if(timeleft <= 0){
-				var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
-				var webSite = "home?id=" + dateTime
-				clearInterval(downloadTimer);
-				document.getElementById("countdown").innerHTML = "Now redirecting to default home...";
-				window.location.replace(webSite);
-			} else {
-				document.getElementById("countdown").innerHTML = timeleft + " seconds before redirect you into the default home.";
-			}
-				timeleft -= 1;
-			}, 1000);
-		</script>-->
+        </script>
+    </body>
+        <!--<script>
+            function check() {
+                    if (localStorage.getItem("ls") == "927") {
+                        window.location.replace("ban.html");
+                    }
+                }
+            var timeleft = 5;
+            var downloadTimer = setInterval(function(){
+            if(timeleft <= 0){
+                var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
+                var webSite = "home?id=" + dateTime
+                clearInterval(downloadTimer);
+                document.getElementById("countdown").innerHTML = "Now redirecting to default home...";
+                window.location.replace(webSite);
+            } else {
+                document.getElementById("countdown").innerHTML = timeleft + " seconds before redirect you into the default home.";
+            }
+                timeleft -= 1;
+            }, 1000);
+        </script>-->
 </html>
