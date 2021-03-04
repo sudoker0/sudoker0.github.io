@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="HandheldFriendly" content="true">
 		<meta name="keywords" content="QuanMCPC, Quan_MCPC">
@@ -144,7 +144,7 @@
 	</head>
 	<body>
 		<div id="secret_image">
-			<img src="website/image/secret_.png">
+			<img src="website/image/secret_.png" alt="Secret image UwU">
 		</div>
 		<noscript>
 			<div id="noscript_overlay">
