@@ -1,7 +1,12 @@
 <h1 style="text-align: center"></h1>
 
 ![QuanMCPC's Website](https://quanmcpc.github.io/website/image/social_preview_.png)
-<div align="center"><a href="https://quanmcpc.github.io"><h2>QuanMCPC.github.io</h2></a></div>
+
+<div align="center">
+    <a href="https://quanmcpc.github.io">
+        <h2>QuanMCPC.github.io</h2>
+    </a>
+</div>
 
 ## Welcome to my first ever repository and also my first ever website (And also my favourite repository) in GitHub.
 ### Contents
