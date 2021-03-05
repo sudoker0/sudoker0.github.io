@@ -1,4 +1,8 @@
-# Quan_MCPC.github.io
+<h1 style="text-align: center"></h1>
+
+![QuanMCPC's Website](https://quanmcpc.github.io/website/image/social_preview_.png)
+<div align="center"><a href="https://quanmcpc.github.io"><h2>QuanMCPC.github.io</h2></a></div>
+
 ## Welcome to my first ever repository and also my first ever website (And also my favourite repository) in GitHub.
 ### Contents
 1. [Introduction](#introduction)
@@ -19,33 +23,26 @@
     - GitHub does not supported parsing PHP, ASP
     - I like to keep my website **pure** HTML and JS
 - There are currently 5 page* on my website:
-    - Home: The page that you will see when you access my website, contain:
-        - Link to my favourite Minecraft project
-        - Image of my favourite Minecraft project
-        - Info of my website
-    - How did I make the website?: The page that explain how I make the website, contain:
-        - Some sentence from me
-        - Link to the site that help me created this website
-    - Credit: The page that credit software that help created this website, contain:
+    - Home: Show the page you will see when you access my website, this page contain:
+        - A little introduction about my self
+        - Social link
+        - A long list of all of my project
+    - Credit: Show credit for software and webpage that help with this website, this page contain:
         - Link to the software that help created this website
-    - Sneak Peak and Event: The page that show all of the big event of the website and sneak peak of something big that I created, contain:
-        - Image of something big that I created
-        - List of big event of the website
-    - Other Project: The page that list all of my other project that is not Minecraft, contain:
-        - Date that I posted a project
-        - The name and description of the project
-        - Link of the project and the source code of the project
-        - **Note**: Every project is split into a seperate area of the page
+        - Link to the webpage that help with the website
+    - About Website: Show information about my website in both Table and text form, this page contain:
+        - A table show information like the file size, number of commit, ...
+    - Gallery: Show a list of picture, this page contain:
+        - A UI to nagivate and see the picture
 - *: There are some page like: Loading page, lite version of the page that I did not mention. That's because most people will access the main version of the website (unless your Internet is slow). But I will still mention some of those:
     - Lite version:
-        - All have black and white (and sometimes blue) color
         - No custom font
         - Basic styling
-        - Home: No image
         - Can be access through the loading page
     - Loading page (index.html):
-        - A gif which show that the main one is loading
-        - 2 link:
+        - An animated SVG (or GIF is the SVG failed to load)
+        - 3 link:
+            - One redirect to the main version
             - One redirect to the lite version
             - One redirect to the first ever version of my website
     - First version:
@@ -90,6 +87,7 @@ File Extensions | Percentages of Bytes | Number of files | File/Folder size (Byt
 *.xml           | ~0%                  | 4 files         | 1,265 bytes
 *.zip           | 4.2%                 | 1 file          | 1,414,985 bytes
 (No Extension)  | 0.7%                 | 76 files        | 250,030 bytes
+
 [Download the table as HTML in a zip file (Style is not the same)](https://drive.google.com/u/0/uc?id=1ijDD_QCY6xbfYFVnKyJvaJsK8WKmu2zo&export=download)
 > You might ask: How do I able to get all of the file extensions, the number of file and other info?
 > Using WinDirStat [https://windirstat.net/](https://windirstat.net/)
