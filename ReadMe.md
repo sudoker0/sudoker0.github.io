@@ -40,7 +40,7 @@
         - Basic styling
         - Can be access through the loading page
     - Loading page (index.html):
-        - An animated SVG (or GIF is the SVG failed to load)
+        - An animated SVG (or GIF if the SVG one failed to load)
         - 3 link:
             - One redirect to the main version
             - One redirect to the lite version
