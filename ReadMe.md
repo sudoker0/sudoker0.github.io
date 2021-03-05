@@ -3,8 +3,8 @@
 ![QuanMCPC's Website](https://quanmcpc.github.io/website/image/social_preview_.png)
 
 <p align="center">
-    <a href="https://quanmcpc.github.io" align="center">
-        <h2>QuanMCPC.github.io</h2>
+    <a href="https://quanmcpc.github.io">
+        <h2 align="center">QuanMCPC.github.io</h2>
     </a>
 </p>
 
