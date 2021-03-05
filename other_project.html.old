@@ -17,8 +17,8 @@
         <meta property="og:site_name" content="Quan_MCPC's Website">
         <meta property="og:title" content="Quan_MCPC's Website | Other Project">
         <meta property="og:description" content="My personal website where I practice programming for myself and also post my stuff online.">
-        <meta property="og:image" content="https://quanmcpc.github.io/website/image/loading.gif">
-        <meta property="og:image:alt" content="The website loading screen (GIF)">
+        <meta property="og:image" content="https://quanmcpc.github.io/website/image/social_preview_.png">
+        <meta property="og:image:alt" content="Social preview image">
         <meta name="theme-color" content="#a00000">
 		<link rel="icon" href="website/image/favicon.ico">
 		<title>Quan_MCPC's Website</title>
