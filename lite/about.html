@@ -230,9 +230,9 @@
                             .then(() => {
                                 var d_ = new Date(utcTime * 1000)
                                 document.getElementById("lastupdateon").innerHTML = d_.toUTCString(); document.getElementById("lastupdateon1").innerHTML = d_.toUTCString()
+                                document.getElementById("numberofcommit").innerHTML = e_[0].total;
+                                document.getElementById("numberofcommit1").innerHTML = e_[0].total;
                             })
-                        document.getElementById("numberofcommit").innerHTML = e_[0].total;
-                        document.getElementById("numberofcommit1").innerHTML = e_[0].total;
                     })
                 document.getElementById("lastupdateon_").innerHTML = lastupdateon1; document.getElementById("lastupdateon_1").innerHTML = lastupdateon1;
             })
