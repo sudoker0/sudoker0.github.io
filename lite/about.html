@@ -220,19 +220,15 @@
                 document.getElementById("default").innerHTML = default_1; document.getElementById("default1").innerHTML = default_1;
                 document.getElementById("basic").innerHTML = basic; document.getElementById("basic1").innerHTML = basic;
                 document.getElementById("other").innerHTML = other; document.getElementById("other1").innerHTML = other;
-                fetch("https://api.github.com/repos/QuanMCPC/QuanMCPC.github.io/stats/contributors", { headers: { "accept": "application/vnd.github.v3+json" } })
+                var utcTime = 0;
+                fetch(`https://api.github.com/repos/QuanMCPC/QuanMCPC.github.io/stats/contributors?nocache=${Math.round(Math.random() * 1000000)}`, { headers: { "accept": "application/vnd.github.v3+json" } })
                     .then(e => e.json())
                     .then(e_ => {
-                        var utcTime = 0;
-                        fetch("https://api.github.com/repos/QuanMCPC/QuanMCPC.github.io/stats/contributors", { headers: { "accept": "application/vnd.github.v3+json" } })
-                            .then(e => e.json())
-                            .then(e_ => utcTime = e_[0].weeks[e_[0].weeks.length - 1].w)
-                            .then(() => {
-                                var d_ = new Date(utcTime * 1000)
-                                document.getElementById("lastupdateon").innerHTML = d_.toUTCString(); document.getElementById("lastupdateon1").innerHTML = d_.toUTCString()
-                                document.getElementById("numberofcommit").innerHTML = e_[0].total;
-                                document.getElementById("numberofcommit1").innerHTML = e_[0].total;
-                            })
+                        utcTime = e_[0].weeks[e_[0].weeks.length - 1].w
+                        var d_ = new Date(utcTime * 1000)
+                        document.getElementById("lastupdateon").innerHTML = d_.toUTCString(); document.getElementById("lastupdateon1").innerHTML = d_.toUTCString()
+                        document.getElementById("numberofcommit").innerHTML = e_[0].total;
+                        document.getElementById("numberofcommit1").innerHTML = e_[0].total;
                     })
                 document.getElementById("lastupdateon_").innerHTML = lastupdateon1; document.getElementById("lastupdateon_1").innerHTML = lastupdateon1;
             })
