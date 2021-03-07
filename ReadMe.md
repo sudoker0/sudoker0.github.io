@@ -10,12 +10,12 @@
 
 ## Welcome to my first ever repository and also my first ever website (And also my favourite repository) in GitHub.
 ### 📋 Index
-1. [Introduction](#introduction)
-2. [About](#about)
-3. [Details](#details)
-4. [FAQ](#faq)
-5. [Other](#other)
-6. [Random Stuff](#random-stuff)
+1. [📕 Introduction](#-introduction)
+2. [💡 About](#-about)
+3. [📖 Details](#-details)
+4. [❓ FAQ](#-faq)
+5. [📁 File information of the website's folder](#-file-information-of-the-website's-folder)
+6. [👀 Random Stuff](#-random-stuff)
 7. [Big Update Number 1](#big-update-number-1)
 ### 📕 Introduction
 * This repository is not the first ever repo that I created. I created the first one to store my game that I created using Unity but then I delete that because I still want my game private.
