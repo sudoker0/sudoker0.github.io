@@ -480,8 +480,7 @@
         getId("image_height").addEventListener("change", e => { cHIE(true); cWIE(true) })
         function cHIE(scaling) {
             memctx = canvasToImage("#ffffff", $canvas)
-            getId("canvas_width").value = getId("image_width").value
-            getId("canvas_height").value = getId("image_height").value
+            if (scaling) { getId("canvas_height").value = getId("image_height").value } else { getId("image_height").value = getId("canvas_height").value }
             if (!!getId("canvas_height").value) {
                 $canvas.setAttribute("height", getId("canvas_height").value);
                 $canvas.style.height = getId("canvas_height").value + "px";
@@ -489,8 +488,11 @@
             $canvas.parentElement.style.height = getId("canvas_height").value + "px";
         }
         function cWIE(scaling) {
-            getId("canvas_width").value = getId("image_width").value
-            getId("canvas_height").value = getId("image_height").value
+            if (scaling) {
+                getId("canvas_width").value = getId("image_width").value
+            } else {
+                getId("image_width").value = getId("canvas_width").value
+            }
             if (!!getId("canvas_width").value) {
                 $canvas.setAttribute("width", getId("canvas_width").value)
                 $canvas.style.width = getId("canvas_width").value + "px"
@@ -498,7 +500,7 @@
             var img = new Image();
             img.src = memctx;
             img.onload = function() {
-                $canvas.getContext("2d").drawImage(img, 0, 0, scaling ? getId("image_width").value : null, scaling ? getId("image_height").value : null)
+                if (scaling) { $canvas.getContext("2d").drawImage(img, 0, 0, getId("image_width").value, getId("image_height").value) } else { $canvas.getContext("2d").drawImage(img, 0, 0) }
             }
             $canvas.parentElement.style.width = getId("canvas_width").value + "px";
         }
