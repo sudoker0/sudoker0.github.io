@@ -164,7 +164,7 @@
             <hr>
         </noscript>
         <div id="verbose">
-            <p>SOOPE v1.0.2+20211803220300P7</p>
+            <p>SOOPE v1.0.3+20211803221400P7</p>
             <p>FPS: <span id="v_fps">0</span></p>
             <p>Cursor Position X / Y (In Canvas): <span id="v_cX">0</span> / <span id="v_cY">0</span></p>
             <p>Canvas Width / Height: <span id="v_width">0</span> / <span id="v_height">0</span></p>
@@ -375,7 +375,7 @@
                 <hr>
                 <h3 style="text-align: center;">SOOPE (Simple and Open-Source Online Picture Editor)</h3>
                 <hr>
-                <p>Version: 1.0.0, completed at: March 13th, 2021</p>
+                <p>Version: 1.0.3, completed at: March 13th, 2021</p>
                 <p>Created by: QuanMCPC, Product Made In VietNam.</p>
                 <p>Language used: HTML, CSS, JS</p>
                 <p>This allow user to edit picture from the browser online (and offline if you add this file to ServiceWorker).</p>
@@ -506,10 +506,7 @@
                 }
             }
         }
-        function dragOverHandler(e) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
+        function dragOverHandler(e) { e.preventDefault(); e.stopPropagation(); }
         document.ondrop = dropHandler;
         document.ondragover = dragOverHandler;
         document.body.onkeydown = function(e) {
@@ -772,6 +769,6 @@
                     }
                 }
             }
-        };
+        }
     </script>
 </html>
