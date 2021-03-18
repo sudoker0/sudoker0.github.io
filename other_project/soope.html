@@ -164,7 +164,7 @@
             <hr>
         </noscript>
         <div id="verbose">
-            <p>SOOPE v1.0.1+20211803220000P7</p>
+            <p>SOOPE v1.0.2+20211803220300P7</p>
             <p>FPS: <span id="v_fps">0</span></p>
             <p>Cursor Position X / Y (In Canvas): <span id="v_cX">0</span> / <span id="v_cY">0</span></p>
             <p>Canvas Width / Height: <span id="v_width">0</span> / <span id="v_height">0</span></p>
@@ -465,22 +465,22 @@
         }
         function stopV() { var cAT = window.cancelAnimationFrame || window.mozCancelAnimationFrame; cAT(ah43); getId("verbose").style.display = "none"; }
         function resizeHandler() {
-            if (document.body.clientWidth <= 831) {
+            if (document.body.clientWidth <= 879) {
                 getId("dropdown_files_").style.display = "block";
                 var j = getId("normal_files").children.length;
                 for (var i = 0; i < j; i++) { getId("dropdown_files").appendChild(getId("normal_files").children[0]) }
             }
-            if (document.body.clientWidth >= 832) {
+            if (document.body.clientWidth >= 880) {
                 getId("dropdown_files_").style.display = "none";
                 var j_ = getId("dropdown_files").children.length;
                 for (var i = 0; i < j_; i++) { getId("normal_files").appendChild(getId("dropdown_files").children[0]) }
             }
-            if (document.body.clientWidth <= 684) {
+            if (document.body.clientWidth <= 724) {
                 getId("dropdown_tools_").style.display = "block";
                 var j = getId("normal_tools").children.length;
                 for (var i = 0; i < j; i++) { getId("dropdown_tools").appendChild(getId("normal_tools").children[0]) }
             }
-            if (document.body.clientWidth >= 685) {
+            if (document.body.clientWidth >= 725) {
                 getId("dropdown_tools_").style.display = "none";
                 var j_ = getId("dropdown_tools").children.length;
                 for (var i = 0; i < j_; i++) { getId("normal_tools").appendChild(getId("dropdown_tools").children[0]) }
