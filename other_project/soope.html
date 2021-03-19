@@ -10,6 +10,7 @@
             body { margin: 0; font-family: Arial, Helvetica, sans-serif; }
             #access_bar {
                 top: 0;
+                position: -webkit-sticky;
                 position: sticky;
                 width: auto;
                 height: 30%;
@@ -150,6 +151,38 @@
                 z-index: 100;
                 pointer-events: none;
             }
+            #video {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.6);
+                z-index: 30;
+                display: none;
+            }
+            #video__ {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+            #button {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 1%;
+            }
+            video {
+                max-width: 100%;
+                max-height: 90%;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
         </style>
     </head>
     <body>
@@ -164,18 +197,17 @@
             <hr>
         </noscript>
         <div id="verbose">
-            <p>SOOPE v1.0.3+20211803221400P7</p>
+            <p>SOOPE v1.1.0-beta1+20212003000001P7</p>
             <p>FPS: <span id="v_fps">0</span></p>
-            <p>Cursor Position X / Y (In Canvas): <span id="v_cX">0</span> / <span id="v_cY">0</span></p>
-            <p>Canvas Width / Height: <span id="v_width">0</span> / <span id="v_height">0</span></p>
-            <p>Pencil Size: <span id="v_pSize">0</span></p>
-            <p>Eraser Size: <span id="v_eSize">0</span></p>
+            <p>Cursor Position X / Y (In Canvas) (px): <span id="v_cX">0</span> / <span id="v_cY">0</span></p>
+            <p>Canvas Width / Height (px): <span id="v_width">0</span> / <span id="v_height">0</span></p>
+            <p>Pencil / Eraser Size (px): <span id="v_pSize">0</span> / <span id="v_eSize">0</span></p>
             <p>Pencil Color: <span id="v_pColor">0</span></p>
             <p>Is background transparent? <span id="v_bT">0</span></p>
             <p>Is Undo/Redo enabled? <span id="v_eu">0</span></p>
-            <p>Tool: <span id="v_tool">0</span></p>
             <p>Keep aspect ratio for canvas size? <span id="v_lR">0</span></p>
             <p>Keep aspect ratio for image size? <span id="v_lR_">0</span></p>
+            <p>Tool: <span id="v_tool">0</span></p>
             <p>Items in the Clipboard variable: <span id="v_uic">0</span></p>
             <p>Position of "pointer" in the Clipboard variable: <span id="v_uip">0</span></p>
             <p>Size of the Clipboard variable (Byte): <span id="v_ual">0</span></p>
@@ -209,8 +241,9 @@
                         <div id="dropdown_open" class="dropdown_content" style="width: max-content">
                             <fieldset>
                                 <legend>Open</legend>
-                                <button onclick="openImage(false)">Open normal image file</button><br>
-                                <button onclick="openImage(true)">Open Base64 encoded image text file</button><br>
+                                <button onclick="openImage(0)">Open normal image file</button><br>
+                                <button onclick="openImage(1)">Open Base64 encoded image text file</button><br>
+                                <button onclick="openImage(2)">Take screenshot from video file</button><br>
                                 <small>Tip: You can drag image file and Base64 encoded</small><br>
                                 <small>image text file directly to the program.</small>
                             </fieldset>
@@ -259,19 +292,19 @@
                     <div class="dropdown_content" id="dropdown_tools" style="z-index: 2;"></div>
                 </div>
                 <div id="normal_tools" class="normal">
-                    <figure class="tool__ tool__pencil" onclick="resetAllTool(); for(var i = 0; i < getClass('tool__pencil').length; i++) { getClass('tool__pencil')[i].style.backgroundColor = '#999999' }; tool_ = 'pencil'; getId('pencil_cursor_image').style.display = 'block'; getId('pencil_cursor_image_2').style.display = 'block'; getId('canvas').style.cursor = 'none'; getId('pencil_cursor_image_2').style.top = getId('canvas').getBoundingClientRect().top + window.scrollY + Number(getCS(getId('canvas')).borderWidth.replace(/\D+$/g, '')) + 'px'; getId('pencil_cursor_image_2').style.left = getId('canvas').getBoundingClientRect().left + window.scrollX + Number(getCS(getId('canvas')).borderWidth.replace(/\D+$/g, '')) + 'px';">
+                    <figure class="tool__ tool__pencil" onclick="resetAllTool(); getClass('tool__pencil')[0].style.backgroundColor = '#999999'; tool_ = 'pencil'; getId('pencil_cursor_image').style.display = 'block'; getId('pencil_cursor_image_2').style.display = 'block'; getId('canvas').style.cursor = 'none'; getId('pencil_cursor_image_2').style.top = getId('canvas').getBoundingClientRect().top + window.scrollY + Number(getCS(getId('canvas')).borderWidth.replace(/\D+$/g, '')) + 'px'; getId('pencil_cursor_image_2').style.left = getId('canvas').getBoundingClientRect().left + window.scrollX + Number(getCS(getId('canvas')).borderWidth.replace(/\D+$/g, '')) + 'px';">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
                         </svg>
                         <figcaption>Pencil</figcaption>
                     </figure>
-                    <figure class="tool__ tool__eraser" onclick="resetAllTool(); for(var i = 0; i < getClass('tool__eraser').length; i++) { getClass('tool__eraser')[i].style.backgroundColor = '#999999' }; tool_ = 'eraser'; getId('cursor_image').style.display = 'block'; getId('cursor_image').style.top = getId('canvas').getBoundingClientRect().top + window.scrollY + Number(getCS(getId('canvas')).borderWidth.replace(/\D+$/g, '')) + 'px'; getId('cursor_image').style.left = getId('canvas').getBoundingClientRect().left + window.scrollX + Number(getCS(getId('canvas')).borderWidth.replace(/\D+$/g, '')) + 'px'; getId('canvas').style.cursor = 'none'">
+                    <figure class="tool__ tool__eraser" onclick="resetAllTool(); getClass('tool__eraser')[0].style.backgroundColor = '#999999'; tool_ = 'eraser'; getId('cursor_image').style.display = 'block'; getId('cursor_image').style.top = getId('canvas').getBoundingClientRect().top + window.scrollY + Number(getCS(getId('canvas')).borderWidth.replace(/\D+$/g, '')) + 'px'; getId('cursor_image').style.left = getId('canvas').getBoundingClientRect().left + window.scrollX + Number(getCS(getId('canvas')).borderWidth.replace(/\D+$/g, '')) + 'px'; getId('canvas').style.cursor = 'none'">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M8.086 2.207a2 2 0 0 1 2.828 0l3.879 3.879a2 2 0 0 1 0 2.828l-5.5 5.5A2 2 0 0 1 7.879 15H5.12a2 2 0 0 1-1.414-.586l-2.5-2.5a2 2 0 0 1 0-2.828l6.879-6.879zm2.121.707a1 1 0 0 0-1.414 0L4.16 7.547l5.293 5.293 4.633-4.633a1 1 0 0 0 0-1.414l-3.879-3.879zM8.746 13.547L3.453 8.254 1.914 9.793a1 1 0 0 0 0 1.414l2.5 2.5a1 1 0 0 0 .707.293H7.88a1 1 0 0 0 .707-.293l.16-.16z"/>
                         </svg>
                         <figcaption>Eraser</figcaption>
                     </figure>
-                    <figure class="tool__ tool__colorPicker" onclick="resetAllTool(); for(var i = 0; i < getClass('tool__colorPicker').length; i++) { getClass('tool__colorPicker')[i].style.backgroundColor = '#999999' }; tool_ = 'colorpicker';">
+                    <figure class="tool__ tool__colorPicker" onclick="resetAllTool(); getClass('tool__colorPicker')[0].style.backgroundColor = '#999999'; tool_ = 'colorpicker';">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M13.354.646a1.207 1.207 0 0 0-1.708 0L8.5 3.793l-.646-.647a.5.5 0 1 0-.708.708L8.293 5l-7.147 7.146A.5.5 0 0 0 1 12.5v1.793l-.854.854a.5.5 0 1 0 .708.707L1.707 15H3.5a.5.5 0 0 0 .354-.146L11 7.707l1.146 1.147a.5.5 0 0 0 .708-.708l-.647-.646 3.147-3.146a1.207 1.207 0 0 0 0-1.708l-2-2zM2 12.707l7-7L10.293 7l-7 7H2v-1.293z"/>
                         </svg>
@@ -306,7 +339,7 @@
                             <legend>Settings</legend>
                             <label for="brush_size" style="color: black">Pencil Size: </label><input type="number" name="brush_size" id="brush_size" value="2" style="width: 50px"><br>
                             <label for="eraser_size" style="color: black">Eraser Size: </label><input type="number" name="eraser_size" id="eraser_size" value="4" style="width: 50px"><br>
-                            <label for="brush_color" style="color: black">Pencil Color: </label><input type="color" name="brush_color" id="brush_color"><br>
+                            <label for="brush_color" style="color: black">Pencil Color: </label><input type="color" name="brush_color" id="brush_color" maxlength="7" placeholder="Always start with #"><br>
                             <label for="canvas_width" style="color: black">Canvas Width: </label><input type="number" name="canvas_width" id="canvas_width" value="640" style="width: 50px">
                             <svg class="lock" id="lockRatio" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" onclick="lockRatio()">
                                 <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
@@ -375,7 +408,7 @@
                 <hr>
                 <h3 style="text-align: center;">SOOPE (Simple and Open-Source Online Picture Editor)</h3>
                 <hr>
-                <p>Version: 1.0.3, completed at: March 13th, 2021</p>
+                <p>Version: 1.1.0-beta1, completed at: March 13th, 2021</p>
                 <p>Created by: QuanMCPC, Product Made In VietNam.</p>
                 <p>Language used: HTML, CSS, JS</p>
                 <p>This allow user to edit picture from the browser online (and offline if you add this file to ServiceWorker).</p>
@@ -410,6 +443,14 @@
         <div id="fullscreen">
             <img src="" alt="Full screen image" id="fullscreen_">
         </div>
+        <div id="video">
+            <div id="video__">
+                <video src="" id="video_" autoplay="autoplay" controls></video>
+                <div id="button">
+                    <button onclick="openImageFromVideo()">Choose</button><button onclick='getId("video").style.display = "none"; getId("video_").setAttribute("src", "")'>Cancel</button>
+                </div>
+            </div>
+        </div>
     </body>
     <script>
         function getId(id) { return document.getElementById(id) }
@@ -423,8 +464,8 @@
                 cs.setAttribute("height", h);
                 cs.style.width = w + "px";
                 cs.style.height = h + "px";
-                cs.parentElement.style.width = w;
-                cs.parentElement.style.height = h;
+                cs.parentElement.style.width = w + "px";
+                cs.parentElement.style.height = h + "px";
                 getId("canvas_width").value = getId("image_width").value = w;
                 getId("canvas_height").value = getId("image_height").value = h;
                 ratio = getId("canvas_width").value / getId("canvas_height").value;
@@ -438,7 +479,7 @@
             getId("fullscreen").style.display = "none";
             if (document.exitFullscreen) { document.exitFullscreen() } else if (document.webkitExitFullscreen) { document.webkitExitFullscreen() } else if (document.msExitFullscreen) { document.msExitFullscreen() }
         }
-        var tool_, toggleDS = false, unredo = [], unredoPos = 0, $canvas = getId("canvas"), type, id_, lockRatio_ = false, ratio = 0, lockRatio__ = false, prevX = 0, prevY = 0, currX = 0, currY = 0, ah43;
+        var tool_ = "pencil", toggleDS = false, unredo = [], unredoPos = 0, $canvas = getId("canvas"), type, id_, lockRatio_ = false, ratio = 0, lockRatio__ = false, prevX = 0, prevY = 0, currX = 0, currY = 0, ah43;
         document.body.onresize = resizeHandler
         function startV() {
             getId("verbose").style.display = "block";
@@ -491,18 +532,19 @@
             if (e.dataTransfer.items) {
                 for (var i = 0; i < e.dataTransfer.items.length; i++) {
                     if (e.dataTransfer.items[i].kind === 'file') {
-                        var f = e.dataTransfer.items[i].getAsFile(), r = new FileReader();
-                        r.onload = e => { var g = e.target.result; unredo = [g]; unredoPos = 0; reloadImage(g, $canvas) };
-                        if (e.dataTransfer.items[i].type.indexOf("image") != -1) { r.readAsDataURL(f) } else
-                        if (e.dataTransfer.items[i].type.indexOf("text") != -1) { r.readAsText(f) }
+                        var f = e.dataTransfer.items[i].getAsFile(), r = new FileReader(), t = e.dataTransfer.items[i].type;
+                        r.onload = e_ => { var g = e_.target.result; unredo = [g]; unredoPos = 0; console.log(t); if (t.indexOf("video") != -1) { getId("video").style.display = "block"; getId("video_").setAttribute("src", g) } else { reloadImage(g, $canvas) } };
+                        console.log(e.dataTransfer.items[i]);
+                        if (t.indexOf("image") != -1 || t.indexOf("video") != -1) { r.readAsDataURL(f) } else
+                        if (t.indexOf("text") != -1) { r.readAsText(f) }
                     }
                 }
             } else {
                 for (var i = 0; i < e.dataTransfer.files.length; i++) {
-                    var f = e.dataTransfer.files[i].getAsFile(), r = new FileReader();
-                    r.onload = e => { var g = e.target.result; console.log(g); unredo = [g]; unredoPos = 0; reloadImage(g, $canvas) };
-                    if (e.dataTransfer.files[i].type.indexOf("image") !== -1) { r.readAsDataURL(f) } else
-                    if (e.dataTransfer.files[i].type.indexOf("text") !== -1) { r.readAsText(f) }
+                    var f = e.dataTransfer.files[i].getAsFile(), r = new FileReader(), t = e.dataTransfer.files[i].type;
+                    r.onload = e_ => { var g = e_.target.result; console.log(g); unredo = [g]; unredoPos = 0; if (t.indexOf("video") != -1) { getId("video").style.display = "block"; getId("video_").setAttribute("src", g) } else { reloadImage(g, $canvas) } };
+                    if (t.indexOf("image") !== -1 || t.indexOf("video") != -1) { r.readAsDataURL(f) } else
+                    if (t.indexOf("text") !== -1) { r.readAsText(f) }
                 }
             }
         }
@@ -634,11 +676,7 @@
             $canvas.parentElement.style.height = getId("canvas_height").value + "px";
         }
         function cWIE(scaling) {
-            if (scaling) {
-                getId("canvas_width").value = getId("image_width").value
-            } else {
-                getId("image_width").value = getId("canvas_width").value
-            }
+            if (scaling) { getId("canvas_width").value = getId("image_width").value } else { getId("image_width").value = getId("canvas_width").value }
             if (!!getId("canvas_width").value) {
                 $canvas.setAttribute("width", getId("canvas_width").value)
                 $canvas.style.width = getId("canvas_width").value + "px"
@@ -676,7 +714,7 @@
             link.click();
             link.delete;
         }
-        function openImage(oAb64_) {
+        function openImage(mode) {
             openFile();
             function clickElem(elem) {
                 var eventMouse = document.createEvent("MouseEvents");
@@ -688,17 +726,31 @@
                     var file = e.target.files[0];
                     if (!file) { return }
                     var reader = new FileReader();
-                    reader.onload = function(e) { var g = e.target.result; unredo = [g]; unredoPos = 0; reloadImage(g, $canvas) }
-                    if (oAb64_) { reader.readAsText(file) } else { reader.readAsDataURL(file) }
+                    reader.onload = function(e) { var g = e.target.result; unredo = [g]; unredoPos = 0; if (mode == 2) { getId("video").style.display = "block"; getId("video_").setAttribute("src", e.target.result) } else { reloadImage(g, $canvas) } }
+                    if (mode == 1) { reader.readAsText(file) } else if (mode == 0 || mode == 2) { reader.readAsDataURL(file) }
                 }
                 fileInput = document.createElement("input");
                 fileInput.type = 'file';
-                fileInput.accept = oAb64_ ? 'text/plain' : 'image/*';
+                fileInput.accept = mode == 1 ? 'text/plain' : mode == 0 ? 'image/*' : "video/*";
                 fileInput.style.display = 'none';
                 fileInput.onchange = readFile;
                 document.body.appendChild(fileInput);
                 clickElem(fileInput);
             }
+        }
+        function openImageFromVideo() {
+            $canvas.setAttribute("width", getId("video_").videoWidth);
+            $canvas.setAttribute("height", getId("video_").videoHeight);
+            $canvas.style.width = getId("video_").videoWidth + "px";
+            $canvas.style.height = getId("video_").videoHeight + "px";
+            $canvas.parentElement.style.width = getId("video_").videoWidth + "px";
+            $canvas.parentElement.style.height = getId("video_").videoHeight + "px";
+            getId("canvas_width").value = getId("image_width").value = getId("video_").videoWidth;
+            getId("canvas_height").value = getId("image_height").value = getId("video_").videoHeight;
+            ratio = getId("canvas_width").value / getId("canvas_height").value;
+            $canvas.getContext("2d").drawImage(getId("video_"), 0, 0);
+            getId("video").style.display = "none";
+            getId("video_").setAttribute("src", "")
         }
         function rgbToHex2(r, g, b) {
             if (r > 255 || g > 255 || b > 255) throw "Invalid color";
@@ -711,6 +763,7 @@
         }
         function hex(x) { return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16] }
         document.body.onload = e => {
+            getClass('tool__pencil')[0].style.backgroundColor = '#999999'; tool_ = 'pencil'; getId('pencil_cursor_image').style.display = 'block'; getId('pencil_cursor_image_2').style.display = 'block'; getId('canvas').style.cursor = 'none';
             resizeHandler()
             unredo.unshift($canvas.toDataURL(type))
             getId("eraser_size").setAttribute("max", getId("canvas_width").value >= getId("canvas_height").value ? getId("canvas_width").value : getId("canvas_height").value)
