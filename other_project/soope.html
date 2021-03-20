@@ -151,7 +151,7 @@
                 z-index: 100;
                 pointer-events: none;
             }
-            #video {
+            /* #video {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -175,14 +175,40 @@
                 left: 50%;
                 transform: translateX(-50%);
                 bottom: 1%;
-            }
+            } */
             video {
                 max-width: 100%;
                 max-height: 90%;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+            #video {
                 position: absolute;
+                height: 100%;
+                width: 100%;
+                top: 0;
+                display: block;
+                z-index: 30;
+                background-color: rgba(0, 0, 0, 0.8);
+                display: none;
+            }
+            #video__ {
+                height: 100%;
+             }
+            #button {
                 left: 50%;
+                position: absolute;
                 transform: translateX(-50%);
             }
+            button {
+                background-color: white;
+                color: black;
+                border: 1px solid black;
+                margin: 2px;
+            }
+            button * { margin: 2px }
+            h3 { margin: 2px; text-align: center; }
         </style>
     </head>
     <body>
@@ -197,7 +223,7 @@
             <hr>
         </noscript>
         <div id="verbose">
-            <p>SOOPE v1.1.0-beta1+20212003000001P7</p>
+            <p>SOOPE v1.1.0-beta2+20212003121000P7</p>
             <p>FPS: <span id="v_fps">0</span></p>
             <p>Cursor Position X / Y (In Canvas) (px): <span id="v_cX">0</span> / <span id="v_cY">0</span></p>
             <p>Canvas Width / Height (px): <span id="v_width">0</span> / <span id="v_height">0</span></p>
@@ -244,8 +270,8 @@
                                 <button onclick="openImage(0)">Open normal image file</button><br>
                                 <button onclick="openImage(1)">Open Base64 encoded image text file</button><br>
                                 <button onclick="openImage(2)">Take screenshot from video file</button><br>
-                                <small>Tip: You can drag image file and Base64 encoded</small><br>
-                                <small>image text file directly to the program.</small>
+                                <small>Tip: You can drag image file, video file or Base64</small><br>
+                                <small>encoded image text file directly to the program.</small>
                             </fieldset>
                         </div>
                     </div>
@@ -408,7 +434,7 @@
                 <hr>
                 <h3 style="text-align: center;">SOOPE (Simple and Open-Source Online Picture Editor)</h3>
                 <hr>
-                <p>Version: 1.1.0-beta1, completed at: March 13th, 2021</p>
+                <p>Version: 1.1.0-beta2, completed at: March 13th, 2021</p>
                 <p>Created by: QuanMCPC, Product Made In VietNam.</p>
                 <p>Language used: HTML, CSS, JS</p>
                 <p>This allow user to edit picture from the browser online (and offline if you add this file to ServiceWorker).</p>
@@ -445,9 +471,9 @@
         </div>
         <div id="video">
             <div id="video__">
-                <video src="" id="video_" autoplay="autoplay" controls></video>
+                <video src="" id="video_" autoplay="autoplay" controls poster="data:image/png;base64,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"></video>
                 <div id="button">
-                    <button onclick="openImageFromVideo()">Choose</button><button onclick='getId("video").style.display = "none"; getId("video_").setAttribute("src", "")'>Cancel</button>
+                    <button onclick="openImageFromVideo()"><h4>Choose current frame</h4></button><button onclick='getId("video").style.display = "none"; getId("video_").setAttribute("src", "")'><h4>Cancel</h4></button>
                 </div>
             </div>
         </div>
