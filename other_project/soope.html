@@ -538,17 +538,17 @@
         function dropHandler(e) {
             e.preventDefault();
             if (e.dataTransfer.items) {
-                for (var i = 0; i < e.dataTransfer.items.length; i++) {
-                    if (e.dataTransfer.items[i].kind === 'file') {
-                        var f = e.dataTransfer.items[i].getAsFile(), r = new FileReader(), t = e.dataTransfer.items[i].type;
+                if (e.dataTransfer.items.length > 1) { alert("Currently, SOOPE doesn't support handling multiple pictures so please only drag 1 image into the program"); } else {
+                    if (e.dataTransfer.items[0].kind === 'file') {
+                        var f = e.dataTransfer.items[0].getAsFile(), r = new FileReader(), t = e.dataTransfer.items[0].type;
                         r.onload = e_ => { var g = e_.target.result; unredoPos = 0; if (t.indexOf("video") != -1) { getId("video").style.display = "block"; getId("video_").setAttribute("src", g); document.body.classList.toggle("noscroll"); } else { unredo = [g]; reloadImage(g, $canvas) } };
                         if (t.indexOf("image") != -1 || t.indexOf("video") != -1) { r.readAsDataURL(f) } else
                         if (t.indexOf("text") != -1) { r.readAsText(f) }
                     }
                 }
             } else {
-                for (var i = 0; i < e.dataTransfer.files.length; i++) {
-                    var f = e.dataTransfer.files[i].getAsFile(), r = new FileReader(), t = e.dataTransfer.files[i].type;
+                if (e.dataTransfer.files.length > 1) { alert("Currently, SOOPE doesn't support handling multiple pictures so please only drag 1 image into the program"); } else {
+                    var f = e.dataTransfer.files[0].getAsFile(), r = new FileReader(), t = e.dataTransfer.files[0].type;
                     r.onload = e_ => { var g = e_.target.result; unredoPos = 0; if (t.indexOf("video") != -1) { getId("video").style.display = "block"; getId("video_").setAttribute("src", g); document.body.classList.toggle("noscroll"); } else { unredo = [g]; reloadImage(g, $canvas) } };
                     if (t.indexOf("image") !== -1 || t.indexOf("video") != -1) { r.readAsDataURL(f) } else
                     if (t.indexOf("text") !== -1) { r.readAsText(f) }
@@ -779,7 +779,8 @@
             var flag, dot_flag = false;
             var ctx = $canvas.getContext('2d');
             $canvas.onmouseout = function(e) { getId("cursor_image").style.display = "none" }
-            $canvas.onmousemove = $canvas.onmousedown = $canvas.onmouseup = function(e) {
+            $canvas.onmousemove = $canvas.onmousedown = $canvas.onmouseup = draw;
+            function draw(e) {
                 if (tool_ == "eraser") { getId("cursor_image").style.display = "block" }
                 prevX = currX;
                 prevY = currY;
