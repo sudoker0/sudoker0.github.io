@@ -1,4 +1,4 @@
-var cacheName = `version-${Math.floor(Math.random() * 100000)}`, urlsToCache = ["other_project/soope.html?show-offline-dialog=secret"];
+var cacheName = `version-${Math.floor(Math.random() * 100000)}`, urlsToCache = ["other_project/soope.html", "offline.html"];
 self.addEventListener("install", e => {
     e.waitUntil(
         caches.open(cacheName)
@@ -13,13 +13,12 @@ self.addEventListener("fetch", e => {
         caches.match(e.request)
             .then(r => {
                 if (r) {
-                    console.log(r);
                     return r;
                 }
                 return fetch(e.request)
                     .catch(e => {
                         console.log(`Error: ${e}`);
-                        return caches.match("other_project/soope.html?show-offline-dialog=secret");
+                        return caches.match("offline.html");
                     })
             })
     )

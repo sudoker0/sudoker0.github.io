@@ -75,7 +75,7 @@
                 margin-left: 7px;
                 margin-right: 7px;
             }
-            #about, #kbsc, #offline {
+            #about, #kbsc {
                 position: absolute;
                 top: 50%;
                 left: 50%;
@@ -86,8 +86,8 @@
                 padding: 5px;
                 z-index: 9;
             }
-            #about *, #kbsc *, #offline * { margin: 5px; }
-            #about_, #kbsc_, #offline_ {
+            #about *, #kbsc * { margin: 5px; }
+            #about_, #kbsc_ {
                 background-color: rgba(0, 0, 0, 0.8);
                 z-index: 8;
                 width: 100%;
@@ -96,7 +96,7 @@
                 top: 0;
                 left: 0;
             }
-            #about__, #kbsc__, #offline__ { display: none; }
+            #about__, #kbsc__ { display: none; }
             #fullscreen {
                 width: 100%;
                 height: 100%;
@@ -183,14 +183,14 @@
                 margin: 2px;
             }
             button * { margin: 2px }
-            h3 { margin: 2px; text-align: center; }
+            h3 { margin: 2px; }
             .noscroll { overflow: hidden; }
         </style>
     </head>
     <body>
         <noscript>
             <hr>
-            <h1>A letter from the creator of the program</h1>
+            <h2>A letter from the creator of the program</h2>
             <hr>
             <h3>Hello, user.</h3>
             <p>You probally know that anyone need privacy and security (Me included), and I understand that. And you probally also know that JavaScript is dangerous if for malicious use so you have decide to turn off JavaScript all together (Or maybe you install an extension that automatically block JavaScript). And it's perfectly fine if you disable JavaScript. But you should consider that a lot (and I mean: A Lot) of website today simply can't work without JavaScript. Now that doesn't mean that you should remove the JS blocker or not block JavaScript, what I trying to say is that if you already installed a JS blocker, then only whitelist website you trust, and if you don't use one, if there's a website you suspect might be a bit sus, then it's a good idea to block the JS from that website. Although again, if the layout or stuff that is not working in the website, then maybe re-enable the JS for the website temporatily (or maybe permanently if you trust it).</p>
@@ -198,22 +198,6 @@
             <p>Sincerely, the creator of the program: QuanMCPC</p>
             <hr>
         </noscript>
-        <div id="offline__">
-            <div id="offline_"></div>
-            <div id="offline">
-                <hr>
-                <h4>It seems like you're offline!</h4>
-                <hr>
-                <p>Maybe your power got cut off, maybe you haven't pay the Internet bill, or maybe, just maybe, you using Wifi from your neighbor and the neighbor found out about it and decide to change the password.</p>
-                <p>But anyway, you're offline. That's a bad thing, right? Now, you might expecting a dino to show up and then you press Spacebar and you play a game about a dino running and you have to avoid the dino from hitting the obstacle.</p>
-                <p>But on my website, you can now draw when you're offline. The paint program is actually a project that I've work on which is SOOPE, it's listed in the Home page.</p>
-                <p>If you still want to play the dino game, just go to a different website while you're offline. (Only some browser include the Dino game)</p>
-                <p>Close this window to start drawing!</p>
-                <hr>
-                <button onclick="getId('offline__').style.display = 'none'">Close</button>
-                <hr>
-            </div>
-        </div>
         <div id="verbose">
             <p>SOOPE v1.1.1+20212003145300P7</p>
             <p>FPS: <span id="v_fps">0</span></p>
@@ -493,14 +477,6 @@
             }
             img.onerror = e => alert("Unable to parse, please make sure that the image file or the base64 encoded image text file is valid.");
             img.src = b64img;
-        }
-        function getParameterByName(name, url) {
-            if (!url) url = window.location.href;
-            name = name.replace(/[\[\]]/g, '\\$&');
-            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
         function eFS() {
             getId("fullscreen").style.display = "none";
@@ -796,7 +772,6 @@
         }
         function hex(x) { return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16] }
         document.body.onload = e => {
-            if (getParameterByName("show-offline-dialog") == "secret") { getId("offline__").style.display = "block" }
             getClass('tool__pencil')[0].style.backgroundColor = '#999999'; tool_ = 'pencil'; getId('pencil_cursor_image').style.display = 'block'; getId('pencil_cursor_image_2').style.display = 'block'; getId('canvas').style.cursor = 'none';
             resizeHandler()
             unredo.unshift($canvas.toDataURL(type))

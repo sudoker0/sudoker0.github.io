@@ -1,14 +1,7 @@
 if('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
-        navigator.serviceWorker.getRegistrations().then(r => {
-            for (let registration of r) {
-                registration.unregister()
-            }
-            navigator.serviceWorker.register('/sw.js')
+        navigator.serviceWorker.register('/sw.js?version=4')
             .then((registration) => { console.log('ServiceWorker registration successful with scope: ', registration.scope) })
             .catch(err => { console.log('ServiceWorker registration failed: ', err) });
-        }).catch(e => {
-            console.log('Service Worker unregistration failed: ', e)
-        });
     });
 }
