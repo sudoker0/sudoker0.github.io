@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="/index.js?ver=1202"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,500;1,300&display=swap" rel="stylesheet">
+        <style>
+            p, h1, h2, h3, h4 {
+                font-family: 'Raleway';
+                font-weight: 500;
+            }
+        </style>
+        <link rel="icon" href=
+        "data:image/png;base64,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
+        Uce/w+beTtjAEeY3gAAAABJRU5ErkJggg==">
+        <title>Page Not Found | Quan_MCPC's Website</title>
+    </head>
+    <style>
+        /*Source: https://codepen.io/cipherbeta/pen/YLdVjw*/
+        /*Source: SCSS; Has to be converted to CSS using compiler*/
+        .glitch {
+            position: relative;
+            color: white;
+            font-size: 2em;
+            animation: glitch-skew 1s infinite linear alternate-reverse;
+        }
+
+        .glitch::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            left: 2px;
+            text-shadow: -2px 0 #ff00c1;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            left: -2px;
+            text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+            animation: glitch-anim2 1s infinite linear alternate-reverse;
+        }
+        @keyframes glitch-anim {
+            0% {clip: rect(4px, 9999px, 30px, 0); transform: skew(0.68deg);}
+            5% {clip: rect(76px, 9999px, 86px, 0); transform: skew(0.68deg);}
+            10% {clip: rect(80px, 9999px, 18px, 0); transform: skew(0.28deg);}
+            15% {clip: rect(17px, 9999px, 44px, 0); transform: skew(0.78deg);}
+            20% {clip: rect(40px, 9999px, 48px, 0); transform: skew(0.09deg);}
+            25% {clip: rect(25px, 9999px, 61px, 0); transform: skew(0.67deg);}
+            30% {clip: rect(15px, 9999px, 69px, 0); transform: skew(0.08deg);}
+            35% {clip: rect(52px, 9999px, 4px, 0); transform: skew(0.83deg);}
+            40% {clip: rect(64px, 9999px, 55px, 0); transform: skew(0.44deg);}
+            45% {clip: rect(1px, 9999px, 1px, 0); transform: skew(0.78deg);}
+            50% {clip: rect(13px, 9999px, 73px, 0); transform: skew(0.16deg);}
+            55% {clip: rect(51px, 9999px, 53px, 0); transform: skew(0.1deg);}
+            60% {clip: rect(58px, 9999px, 7px, 0); transform: skew(0.64deg);}
+            65% {clip: rect(49px, 9999px, 18px, 0); transform: skew(0.92deg);}
+            70% {clip: rect(43px, 9999px, 32px, 0); transform: skew(0.57deg);}
+            75% {clip: rect(92px, 9999px, 27px, 0); transform: skew(0.45deg);}
+            80% {clip: rect(49px, 9999px, 28px, 0); transform: skew(0.5deg);}
+            85% {clip: rect(67px, 9999px, 95px, 0); transform: skew(0.08deg);}
+            90% {clip: rect(52px, 9999px, 39px, 0); transform: skew(0.07deg);}
+            95% {clip: rect(1px, 9999px, 27px, 0); transform: skew(0.53deg);}
+            100% {clip: rect(17px, 9999px, 75px, 0); transform: skew(0.06deg);}
+        }
+        @keyframes glitch-anim2 {
+            0% {clip: rect(71px, 9999px, 36px, 0); transform: skew(0.76deg);}
+            5% {clip: rect(76px, 9999px, 42px, 0); transform: skew(0.78deg);}
+            10% {clip: rect(58px, 9999px, 38px, 0); transform: skew(0.17deg);}
+            15% {clip: rect(91px, 9999px, 76px, 0); transform: skew(0.3deg);}
+            20% {clip: rect(58px, 9999px, 17px, 0); transform: skew(0.37deg);}
+            25% {clip: rect(4px, 9999px, 45px, 0); transform: skew(0.54deg);}
+            30% {clip: rect(80px, 9999px, 76px, 0); transform: skew(0.2deg);}
+            35% {clip: rect(44px, 9999px, 23px, 0); transform: skew(0.32deg);}
+            40% {clip: rect(41px, 9999px, 11px, 0); transform: skew(0.4deg);}
+            45% {clip: rect(25px, 9999px, 88px, 0); transform: skew(0.11deg);}
+            50% {clip: rect(92px, 9999px, 59px, 0); transform: skew(0.38deg);}
+            55% {clip: rect(99px, 9999px, 26px, 0); transform: skew(0.1deg);}
+            60% {clip: rect(30px, 9999px, 41px, 0); transform: skew(0.96deg);}
+            65% {clip: rect(1px, 9999px, 42px, 0); transform: skew(0.15deg);}
+            70% {clip: rect(58px, 9999px, 15px, 0); transform: skew(0.55deg);}
+            75% {clip: rect(63px, 9999px, 90px, 0); transform: skew(0.86deg);}
+            80% {clip: rect(61px, 9999px, 56px, 0); transform: skew(0.03deg);}
+            85% {clip: rect(21px, 9999px, 58px, 0); transform: skew(0.38deg);}
+            90% {clip: rect(10px, 9999px, 65px, 0); transform: skew(0.2deg);}
+            95% {clip: rect(48px, 9999px, 67px, 0); transform: skew(0.85deg);}
+            100% {clip: rect(18px, 9999px, 48px, 0); transform: skew(0.73deg);}
+        }
+        @keyframes glitch-skew {
+            0% {transform: skew(-2deg);}
+            10% {transform: skew(2deg);}
+            20% {transform: skew(4deg);}
+            30% {transform: skew(3deg);}
+            40% {transform: skew(0deg);}
+            50% {transform: skew(-4deg);}
+            60% {transform: skew(-3deg);}
+            70% {transform: skew(-4deg);}
+            80% {transform: skew(-1deg);}
+            90% {transform: skew(5deg);}
+            100% {transform: skew(-3deg);}
+        }
+        #web:hover {
+            cursor: pointer;
+        }
+    </style>
+    <!--jk-->
+    <BODY style="background-color:rgb(54, 54, 54)" onload="getinfo()">
+        <hr style="border: 1px solid white">
+        <textarea id="getinfo" style="background-color: black; width: 500px; height: 300px; float: right; color: white; resize: none;" readonly></textarea>
+        <h1 style="color: white">Oopsie, something has gone wrong!</h1>
+        <h3 style="color: white"><span class="glitch" data-text="Error code: 404">Error Code: 404</span></h3>
+        <h4 style="color: white">It look like GitHub finally gave up on trying to do the stuff that you're asked</h4>
+        <h4 style="color: white">But I mean like, who can say it's GitHub fault, it's part of your fault too!</h4>
+        <h4 style="color: white">You are asking to access a part of the website that does not exist</h4>
+        <h4 style="color: white">Please check if the page actually exist</h4>
+        <h4 style="color: white">We are just getting some info and we will print it to the black box on the right side</h4>
+        <img src="
+            data:image/gif;base64,R0lGODlheAB4APcfMQAAACQAAEgAAGwAAJAAALQAAN
+            gAAPwAAAAkACQkAEgkAGwkAJAkALQkANgkAPwkAABIACRIAEhIAGxIAJBIALRIAN
+            hIAPxIAABsACRsAEhsAGxsAJBsALRsANhsAPxsAACQACSQAEiQAGyQAJCQALSQAN
+            iQAPyQAAC0ACS0AEi0AGy0AJC0ALS0ANi0APy0AADYACTYAEjYAGzYAJDYALTYAN
+            jYAPzYAAD8ACT8AEj8AGz8AJD8ALT8ANj8APz8AAAAVSQAVUgAVWwAVZAAVbQAVd
+            gAVfwAVQAkVSQkVUgkVWwkVZAkVbQkVdgkVfwkVQBIVSRIVUhIVWxIVZBIVbRIVd
+            hIVfxIVQBsVSRsVUhsVWxsVZBsVbRsVdhsVfxsVQCQVSSQVUiQVWyQVZCQVbSQVd
+            iQVfyQVQC0VSS0VUi0VWy0VZC0VbS0Vdi0Vfy0VQDYVSTYVUjYVWzYVZDYVbTYVd
+            jYVfzYVQD8VST8VUj8VWz8VZD8VbT8Vdj8Vfz8VQAAqiQAqkgAqmwAqpAAqrQAqt
+            gAqvwAqgAkqiQkqkgkqmwkqpAkqrQkqtgkqvwkqgBIqiRIqkhIqmxIqpBIqrRIqt
+            hIqvxIqgBsqiRsqkhsqmxsqpBsqrRsqthsqvxsqgCQqiSQqkiQqmyQqpCQqrSQqt
+            iQqvyQqgC0qiS0qki0qmy0qpC0qrS0qti0qvy0qgDYqiTYqkjYqmzYqpDYqrTYqt
+            jYqvzYqgD8qiT8qkj8qmz8qpD8qrT8qtj8qvz8qgAA/yQA/0gA/2wA/5AA/7QA/9
+            gA//wA/wAk/yQk/0gk/2wk/5Ak/7Qk/9gk//wk/wBI/yRI/0hI/2xI/5BI/7RI/9
+            hI//xI/wBs/yRs/0hs/2xs/5Bs/7Rs/9hs//xs/wCQ/ySQ/0iQ/2yQ/5CQ/7SQ/9
+            iQ//yQ/wC0/yS0/0i0/2y0/5C0/7S0/9i0//y0/wDY/yTY/0jY/2zY/5DY/7TY/9
+            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
+            kEBQQAAAAsdwB3AAEAAQAACAQAAQQEADs="
+        style="float: right" width="80" height="80">
+        <img id="web" src="
+            data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABLCAIAAABoYp
+            eiAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwwAADsMBx2+oZAAAAZZJREFUeF
+            7tllFug0AMRLn/ZXqb3qaiq82QmoHdWsg2Epmn+Ql2bL9+pCxrOd/L8g4eFSLhfC
+            Rcyg0r70XCT0fCT+cG4Z9leQePCpFwPhIuRcIJ2HfJli8TdBQi4QQk/GHCeNqx8j
+            X+Ek5Awn9IOJ2UHfZd6vg6ZUsSTkfCEVilFjzdsCUJp3N9B91qY5WOVvYXmzpHwc
+            oIJOyGNGzoXKpK+P9gZQS79S143KGtdDeazqCZFDR1qEShA5zB6A2aufvQgq4ODZ
+            LwEJpJQVOHShQ6wBmM3qCZuw8t6OrQIAkPoZkUNHWoRKEDnMHoDZo5u5ugb9rQSv
+            rTTJonpRYsPvuPgMIZoyEvJDyGjrOhHXTcpHlSasFiCbegcMZoyAsJX4J20HFUxX
+            c6/s4oJHwJOtSv4e+MQsIJTKzQsWFLx2oIEk5AwkMlWzpWQ5BwBP67/Z1RSDgCv4
+            a/MwoJR+DX8HdGUbHD/ytdgIQTkPDjhMkQTzckXIqEI5DwjgcKz5FwKRLOR8KlVK
+            y0hrdIWiScgITv5MOE1/UXL6v7CK7hC4UAAAAASUVORK5CYII="
+        style="float: right" width="80" height="80" onclick="goToWebsite()" title="Return back to the main website">
+        <h4 style="color: white">404 Page by Quan_MCPC</h4><br><br>
+        <hr style="border: 1px solid white">
+    </BODY>
+    <script>
+        var a = document.getElementById("getinfo")
+        function getinfo() {
+            a.innerHTML += "> 404console.getFullUrl()\r\n";
+            a.innerHTML += "Full URL: " + window.location.href + "\r\n";
+            a.innerHTML += "> 404console.getHostName()\r\n";
+            a.innerHTML += "Host name: " + window.location.hostname + "\r\n";
+            a.innerHTML += "> 404console.getPathName()\r\n";
+            a.innerHTML += "Path Name: " + window.location.pathname + "\r\n";
+            a.innerHTML += "> 404console.getProtocol()\r\n";
+            a.innerHTML += "Used Protocol: "+ window.location.protocol.replace(":", "") +"\r\n";
+            a.innerHTML += "> 404console.getOrigin()\r\n";
+            a.innerHTML += "Origin: "+ window.location.origin +"\r\n";
+            a.innerHTML += "> 404console.getPortNumber()\r\n";
+            a.innerHTML += "Port Number: "+ window.location.port +"\r\n";
+            a.innerHTML += "Note: Some browser will not return the port number so here is some port number for certain protocol (80 for http, 443 for https)\r\n";
+            a.innerHTML += "Althrough if the url set a port number (example: http://localhost:8080), the port number will be different (8080)\r\n";
+        }
+        function goToWebsite() {
+            window.location.replace("https://quanmcpc.github.io");
+        }
+    </script>
+</html>
