@@ -37,8 +37,8 @@
         <div id="content">
             <hr>
             <h1>404 Not Found!</h1>
-            <p>The requested address: <code id="requestedURL"></code> was not found in the website's folder</p>
-            <p>If you want to get started on the website, go to <a href="https://quanmcpc.github.io">https://quanmcpc.github.io/</a></p>
+            <p>The requested address: <code id="requestedURL"></code> was <span id="a">not found</span> in the website's folder</p>
+            <p id="b">If you want to get started on the website, go to <a href="https://quanmcpc.github.io">https://quanmcpc.github.io/</a></p>
             <p>For now, here's some info that might be useful to you</p>
             <div id="log">
                 <code>----------------------------------------</code><br>
@@ -69,6 +69,10 @@
     </body>
     <script>
         function getId(id) { return document.getElementById(id) }
+        if (window.location.pathname.includes("/404")) {
+            getId("a").innerHTML = `<del>not</del> <b>found</b>`;
+            getId("b").innerHTML = `This 404 error is a <b>Lie</b>, please open an actual invalid pathname.`;
+        }
         getId("requestedURL").innerHTML = window.location.pathname;
         getId("fullURL").innerHTML = ` [\"${window.location.href}\"]`;
         getId("hostName").innerHTML = ` [\"${window.location.hostname}\"]`;
