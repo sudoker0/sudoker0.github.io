@@ -36,10 +36,10 @@
     <body>
         <div id="content">
             <hr>
-            <h1>404 Not Found!</h1>
+            <h1 id="c">404 Not Found!</h1>
             <p>The requested address: <code id="requestedURL"></code> was <span id="a">not found</span> in the website's folder</p>
             <p id="b">If you want to get started on the website, go to <a href="https://quanmcpc.github.io">https://quanmcpc.github.io/</a></p>
-            <p>For now, here's some info that might be useful to you</p>
+            <p>For now, here's some info that might be useful to you:</p>
             <div id="log">
                 <code>----------------------------------------</code><br>
                 <code>A request has been made from [Server]</code><br>
@@ -72,6 +72,7 @@
         if (window.location.pathname.includes("/404")) {
             getId("a").innerHTML = `<del>not</del> <b>found</b>`;
             getId("b").innerHTML = `This 404 error is a <b>Lie</b>, please open an actual invalid pathname.`;
+            getId("c").innerHTML = `<del>404 Not Found</del> 200 OK`;
         }
         getId("requestedURL").innerHTML = window.location.pathname;
         getId("fullURL").innerHTML = ` [\"${window.location.href}\"]`;
