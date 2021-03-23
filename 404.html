@@ -69,7 +69,7 @@
     </body>
     <script>
         function getId(id) { return document.getElementById(id) }
-        if (window.location.href.includes("quanmcpc.github.io/404")) {
+        if (window.location.pathname == "/404" || window.location.pathname == "/404.html") {
             getId("a").innerHTML = `<del>not</del> <b>found</b>`;
             getId("b").innerHTML = `This 404 error is a <b>Lie</b>, please open an actual invalid pathname.`;
             getId("c").innerHTML = `<del>404 Not Found</del> 200 OK`;
