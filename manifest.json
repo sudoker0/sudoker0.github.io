@@ -10,16 +10,14 @@
         {
             "src": "/website/image/logo.svg",
             "type": "image/svg+xml",
-            "sizes": "256x256",
-            "purpose": "any",
-            "maskable": "any"
+            "sizes": "512x512",
+            "purpose": "maskable any"
         },
         {
             "src": "/website/image/logo.png",
             "type": "image/png",
-            "sizes": "255x255",
-            "purpose": "any",
-            "maskable": "any"
+            "sizes": "512x512",
+            "purpose": "maskable any"
         }
     ],
     "start_url": "/index.html",
@@ -39,13 +37,13 @@
                     "src": "/website/image/home.svg",
                     "type": "image/svg+xml",
                     "sizes": "256x256",
-                    "purpose": "any"
+                    "purpose": "maskable any"
                 },
                 {
                     "src": "/website/image/home.png",
                     "type": "image/png",
-                    "sizes": "255x255",
-                    "purpose": "any"
+                    "sizes": "256x256",
+                    "purpose": "maskable any"
                 }
             ]
         },
@@ -59,13 +57,13 @@
                     "src": "/website/image/credit.svg",
                     "type": "image/svg+xml",
                     "sizes": "256x256",
-                    "purpose": "any"
+                    "purpose": "maskable any"
                 },
                 {
                     "src": "/website/image/credit.png",
                     "type": "image/png",
-                    "sizes": "255x255",
-                    "purpose": "any"
+                    "sizes": "256x256",
+                    "purpose": "maskable any"
                 }
             ]
         },
@@ -79,13 +77,13 @@
                     "src": "/website/image/about.svg",
                     "type": "image/svg+xml",
                     "sizes": "256x256",
-                    "purpose": "any"
+                    "purpose": "maskable any"
                 },
                 {
                     "src": "/website/image/about.png",
                     "type": "image/png",
-                    "sizes": "255x255",
-                    "purpose": "any"
+                    "sizes": "256x256",
+                    "purpose": "maskable any"
                 }
             ]
         },
@@ -99,13 +97,13 @@
                     "src": "/website/image/gallery.svg",
                     "type": "image/svg+xml",
                     "sizes": "256x256",
-                    "purpose": "any"
+                    "purpose": "maskable any"
                 },
                 {
                     "src": "/website/image/gallery.png",
                     "type": "image/png",
-                    "sizes": "255x255",
-                    "purpose": "any"
+                    "sizes": "256x256",
+                    "purpose": "maskable any"
                 }
             ]
         }
