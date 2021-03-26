@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg class="bi bi-person-lines-fill" width="256" height="256" fill="currentColor" version="1.1" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+ <rect width="256" height="256" fill="#ffffff" stroke-width="16"/>
+ <path d="m96 128a48 48 0 1 0 0-96 48 48 0 0 0 0 96zm-80 96s-16 0-16-16 16-64 96-64 96 48 96 64-16 16-16 16zm160-168a8 8 0 0 1 8-8h64a8 8 0 0 1 0 16h-64a8 8 0 0 1-8-8zm8 40a8 8 0 0 0 0 16h64a8 8 0 0 0 0-16zm32 48a8 8 0 0 0 0 16h32a8 8 0 0 0 0-16zm0 48a8 8 0 0 0 0 16h32a8 8 0 0 0 0-16z" stroke-width="16"/>
+</svg>

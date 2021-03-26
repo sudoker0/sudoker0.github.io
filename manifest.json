@@ -1,0 +1,113 @@
+{
+    "author": "QuanMCPC",
+    "short_name": "QuanMCPC's Website",
+    "name": "QuanMCPC's Website",
+    "developer": {
+        "name": "QuanMCPC",
+        "url": "https://github.com/QuanMCPC"
+    },
+    "icons": [
+        {
+            "src": "/website/image/logo.svg",
+            "type": "image/svg+xml",
+            "sizes": "256x256",
+            "purpose": "any",
+            "maskable": "any"
+        },
+        {
+            "src": "/website/image/logo.png",
+            "type": "image/png",
+            "sizes": "255x255",
+            "purpose": "any",
+            "maskable": "any"
+        }
+    ],
+    "start_url": "/index.html",
+    "background_color": "#a00000",
+    "scope": "/",
+    "theme_color": "#a00000",
+    "description": "My website in a installable web app",
+    "display": "standalone",
+    "shortcuts": [
+        {
+            "name": "Home",
+            "short_name": "Home",
+            "description": "The main page of the website",
+            "url": "/home.html",
+            "icons": [
+                {
+                    "src": "/website/image/home.svg",
+                    "type": "image/svg+xml",
+                    "sizes": "256x256",
+                    "purpose": "any"
+                },
+                {
+                    "src": "/website/image/home.png",
+                    "type": "image/png",
+                    "sizes": "255x255",
+                    "purpose": "any"
+                }
+            ]
+        },
+        {
+            "name": "Credit",
+            "short_name": "Credit",
+            "description": "All of the stuff and people that created this website will be listed here",
+            "url": "/credit.html",
+            "icons": [
+                {
+                    "src": "/website/image/credit.svg",
+                    "type": "image/svg+xml",
+                    "sizes": "256x256",
+                    "purpose": "any"
+                },
+                {
+                    "src": "/website/image/credit.png",
+                    "type": "image/png",
+                    "sizes": "255x255",
+                    "purpose": "any"
+                }
+            ]
+        },
+        {
+            "name": "About Website",
+            "short_name": "About Website",
+            "description": "Information about my website",
+            "url": "/about.html",
+            "icons": [
+                {
+                    "src": "/website/image/about.svg",
+                    "type": "image/svg+xml",
+                    "sizes": "256x256",
+                    "purpose": "any"
+                },
+                {
+                    "src": "/website/image/about.png",
+                    "type": "image/png",
+                    "sizes": "255x255",
+                    "purpose": "any"
+                }
+            ]
+        },
+        {
+            "name": "Gallery",
+            "short_name": "Gallery",
+            "description": "Where I store picture of project and stuff",
+            "url": "/gallery.html",
+            "icons": [
+                {
+                    "src": "/website/image/gallery.svg",
+                    "type": "image/svg+xml",
+                    "sizes": "256x256",
+                    "purpose": "any"
+                },
+                {
+                    "src": "/website/image/gallery.png",
+                    "type": "image/png",
+                    "sizes": "255x255",
+                    "purpose": "any"
+                }
+            ]
+        }
+    ]
+}

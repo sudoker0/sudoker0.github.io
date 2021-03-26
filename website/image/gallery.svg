@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg class="bi bi-card-image" width="256" height="256" fill="currentColor" version="1.1" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+ <rect width="256" height="256" fill="#ffffff" stroke-width="16"/>
+ <path d="m24 32a24 24 0 0 0-24 24v144a24 24 0 0 0 24 24h208a24 24 0 0 0 24-24v-144a24 24 0 0 0-24-24zm-0.1875 16a8 8 0 0 1 0.1875 0h208a8 8 0 0 1 8 8v96l-60.406-31.156a8 8 0 0 0-9.2188 1.5l-59.376 59.344-42.562-28.344a8 8 0 0 0-10.062 1l-42.344 37.656v8.625a8.08 8.08 0 0 1-0.03125-0.625v-144a8 8 0 0 1 7.8124-8zm48.406 16a24 24 0 0 0-24.188 24 24 24 0 0 0 48 0 24 24 0 0 0-23.812-24z" stroke-width="16"/>
+</svg>
