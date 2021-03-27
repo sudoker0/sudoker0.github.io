@@ -245,7 +245,8 @@
                 document.getElementById("basic").innerHTML = basic; document.getElementById("basic1").innerHTML = basic;
                 document.getElementById("other").innerHTML = other; document.getElementById("other1").innerHTML = other;
                 var utcTime = 0;
-                fetch(`https://api.github.com/repos/QuanMCPC/QuanMCPC.github.io/stats/contributors?nocache=${Math.round(Math.random() * 1000000)}`, { headers: { "accept": "application/vnd.github.v3+json" } })
+                function fetch_() {
+                    fetch(`https://api.github.com/repos/QuanMCPC/QuanMCPC.github.io/stats/contributors?nocache=${Math.round(Math.random() * 1000000)}`, { headers: { "accept": "application/vnd.github.v3+json" } })
                     .then(e => e.json())
                     .then(e_ => {
                         utcTime = e_[0].weeks[e_[0].weeks.length - 1].w
@@ -253,7 +254,11 @@
                         document.getElementById("lastupdateon").innerHTML = d_.toUTCString(); document.getElementById("lastupdateon1").innerHTML = d_.toUTCString()
                         document.getElementById("numberofcommit").innerHTML = e_[0].total;
                         document.getElementById("numberofcommit1").innerHTML = e_[0].total;
+                    }).catch(r => {
+                        setTimeout(fetch_, 2000)
                     })
+                }
+                fetch_()
                 document.getElementById("lastupdateon_").innerHTML = lastupdateon1; document.getElementById("lastupdateon_1").innerHTML = lastupdateon1;
             })
             function date_check() {
