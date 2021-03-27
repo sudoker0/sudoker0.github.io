@@ -137,6 +137,20 @@
                     padding: 45px;
                 }
             } */
+            #install {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                display: none;
+            }
+            #install * {
+                margin: 5px;
+            }
+            #install p {
+                color: white;
+            }
         </style>
         <link rel="icon" href="website/image/favicon.ico">
         <title>QuanMCPC's Website</title>
@@ -153,6 +167,12 @@
             <p>P.S: I know that this is the same NoScript message from the SOOPE. But it's so good that I decide to use it anyway.</p>
             <hr>
         </noscript>
+        <div id="install">
+            <center>
+                <p>Would you like to install the website to your device?</p>
+                <button id="yes">Yes</button><button id="no">No</button>
+            </center>
+        </div>
         <div class="center-screen">
             <center><img src="/website/image/redstone_dust_icon__.svg" srcset="/website/image/redstone_dust_icon__.svg, /website/image/loading.gif" alt="Loading animation"></center>
             <center><h3>Welcome visitor! Where do you want to go?</h3></center>
@@ -214,6 +234,22 @@
                     window.location.replace("ban.html");
                 }
             }
+            function showInstallPromotion() { document.getElementById("install").style.display = "block"; }
+            function hideInstallPromotion() { document.getElementById("install").style.display = "none"; }
+            let deferredPrompt;
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                deferredPrompt = e;
+                showInstallPromotion();
+                console.log(`'beforeinstallprompt' event was fired.`);
+            });
+            document.getElementById("yes").addEventListener('click', async () => {
+                hideInstallPromotion();
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                console.log(`User response to the install prompt: ${outcome}`);
+                deferredPrompt = null;
+            });
         </script>
     </body>
         <!--<script>
