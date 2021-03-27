@@ -62,7 +62,7 @@
     - **Yes**, I have. When I add or change something, there will always be problem and if there is, I will search on the Internet to find a solution. And just because you search things up on the Internet, it doesn't mean you not good. Even the smart people out there still have to read book and search thing up for the solution.
 - If GitHub support PHP or other language, will I ever use those language to write my website?
     - **Maybe**, but I will probably prefer to stay on HTML, mainly because that mean I have to learn a new language and adapt all of the difference syntax and other things too
-#### 📁 File information of the website's folder
+### 📁 File information of the website's folder
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
 (Every file)    | 100%                 | 243 files       | 33,599,011 bytes
@@ -119,12 +119,12 @@ for( ; ; ) {
 20 GOTO 10
 ```
 ### Big Update Number 1
-#### What's the big update you ask?
-#### It's: Website is now accessable from both **___computer___** and **___phone___**!!!
-#### **___{Drum_Music.mp4}___**
-#### But before you get too exiting, it's not fully completed yet but it should be ok for now.
-#### By adding some meta tag and some css code, I managed to make the website more ___responsive___
-#### **Important**: When I test the website, I notice that when using Samsung Internet, the image background get a little bit weird.
+What's the big update you ask?
+It's: Website is now accessable from both **___computer___** and **___phone___**!!!
+**___{Drum_Music.mp4}___**
+But before you get too exiting, it's not fully completed yet but it should be ok for now.
+By adding some meta tag and some css code, I managed to make the website more ___responsive___
+**Important**: When I test the website, I notice that when using Samsung Internet, the image background get a little bit weird.
 ***
 Copyright &copy; 2021 Quan_MCPC
 ***
