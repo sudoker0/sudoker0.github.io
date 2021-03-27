@@ -41,14 +41,12 @@
                 color: white;
             }
             .center-screen {
-               
                 margin: 0;
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 margin-right: -50%;
                 transform: translate(-50%, -50%);
-               
             }
             #warning {
                 width: 100%;
@@ -108,7 +106,7 @@
                 color: rgb(255, 0, 0);
             }
             .center-screen button {
-                margin: 5px;
+                margin: 5px 0 5px 0;
                 font-size: 1.05rem;
                 border: none;
                 padding: 10px;
@@ -116,6 +114,10 @@
                 background-color: rgb(90, 90, 90);
                 display: block;
                 cursor: pointer;
+                width: 95%;
+            }
+            .center-screen button:hover {
+                background-color: rgb(75, 75, 75);
             }
             @media (max-width: 960px) {
                 .center-screen button {
@@ -137,20 +139,7 @@
                     padding: 45px;
                 }
             } */
-            #install {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                background-color: rgba(0, 0, 0, 0.5);
-                display: none;
-            }
-            #install * {
-                margin: 5px;
-            }
-            #install p {
-                color: white;
-            }
+            #yes { display: none; }
         </style>
         <link rel="icon" href="website/image/favicon.ico">
         <title>QuanMCPC's Website</title>
@@ -167,17 +156,12 @@
             <p>P.S: I know that this is the same NoScript message from the SOOPE. But it's so good that I decide to use it anyway.</p>
             <hr>
         </noscript>
-        <div id="install">
-            <center>
-                <p>Would you like to install the website to your device?</p>
-                <button id="yes">Yes</button><button id="no">No</button>
-            </center>
-        </div>
         <div class="center-screen">
             <center><img src="/website/image/redstone_dust_icon__.svg" srcset="/website/image/redstone_dust_icon__.svg, /website/image/loading.gif" alt="Loading animation"></center>
             <center><h3>Welcome visitor! Where do you want to go?</h3></center>
             <center><div id="button_"></div></center>
             <center><button onclick="window.location.replace('old/index.html')">Load the first version of the website</button></center>
+            <center><button id="yes">Install website</button></center>
         </div>
         <!-- <div id="warning">
             <center><h1 style="color: blue">Information</h1></center>
@@ -223,6 +207,9 @@
                 return decodeURIComponent(results[2].replace(/\+/g, ' '));
             }
             function move() {
+                if (window.matchMedia('(display-mode: standalone)').matches || navigator.standalone) {
+                    document.getElementById("yes").style.display = "none";
+                }
                 sessionStorage.setItem("access_granted", 1)
                 if (getParameterByName("sv_cheat") >= 1 || getParameterByName("debug") >= 1 || getParameterByName("hack") >= 1) {
                     window.location.replace("ban.html");
@@ -234,20 +221,19 @@
                     window.location.replace("ban.html");
                 }
             }
-            function showInstallPromotion() { document.getElementById("install").style.display = "block"; }
-            function hideInstallPromotion() { document.getElementById("install").style.display = "none"; }
             let deferredPrompt;
             window.addEventListener('beforeinstallprompt', (e) => {
+                document.getElementById("yes").style.display = "block"
                 e.preventDefault();
                 deferredPrompt = e;
-                showInstallPromotion();
                 console.log(`'beforeinstallprompt' event was fired.`);
             });
             document.getElementById("yes").addEventListener('click', async () => {
-                hideInstallPromotion();
                 deferredPrompt.prompt();
                 const { outcome } = await deferredPrompt.userChoice;
-                console.log(`User response to the install prompt: ${outcome}`);
+                if (outcome == "accepted") {
+                    document.getElementById("yes").style.display = "none"
+                }
                 deferredPrompt = null;
             });
         </script>
