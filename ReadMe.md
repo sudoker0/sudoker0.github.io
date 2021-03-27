@@ -120,11 +120,17 @@ for( ; ; ) {
 ```
 ### Big Update Number 1
 What's the big update you ask?
+
 It's: Website is now accessable from both **___computer___** and **___phone___**!!!
+
 **___{Drum_Music.mp4}___**
+
 But before you get too exiting, it's not fully completed yet but it should be ok for now.
+
 By adding some meta tag and some css code, I managed to make the website more ___responsive___
+
 **Important**: When I test the website, I notice that when using Samsung Internet, the image background get a little bit weird.
+
 ***
 Copyright &copy; 2021 Quan_MCPC
 ***
