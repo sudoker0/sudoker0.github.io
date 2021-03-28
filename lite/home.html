@@ -124,8 +124,6 @@
                 height: 100%;
                 top: 0;
                 left: 0;
-                right: 0;
-                bottom: 0;
                 background-color: rgba(255, 255, 255, 0.8);
                 z-index: 15;
                 color: rgb(0, 0, 0);
@@ -139,9 +137,24 @@
                 max-width: initial;
                 margin: initial;
             }
+            #screentoosmall {
+                position: fixed;
+                display: none;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: 15;
+                cursor: not-allowed;
+            }
         </style>
     </head>
     <body onload="check1()">
+        <div id="screentoosmall">
+            <h2 style="color:red; text-align: center;">Error!</h2>
+            <p style="text-align: center;">We have detected that the width of the screen that you are using right now is too small for the website to render properly</p>
+            <p style="text-align: center;">Try to rotate the device so that the screen orientation is horizontal. Or if that didn't work either, then that mean your screen is incompatiable to view the website</p>
+        </div>
         <noscript id="noscript_overlay">
             <hr>
             <h2>A letter from the creator of the website.</h2>
@@ -454,6 +467,15 @@
             anchor2.href = list.address + "?id=" + dateTime;
             document.getElementById("accbar").appendChild(anchor);
         });
+        window.onload = window.onresize = e => {
+            if (getParameterByName("no_screen_size_check") == "true") {} else {
+                if (window.innerWidth < 320) {
+                    document.getElementById("screentoosmall").style.display = "block";
+                } else {
+                    document.getElementById("screentoosmall").style.display = "none";
+                }
+            }
+        }
         document.getElementById("github_link").onkeydown = event => {
             if (event.code == "Enter" || event.code == "Space") { window.location.href = 'https://github.com/QuanMCPC' }
         }

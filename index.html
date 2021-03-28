@@ -53,8 +53,6 @@
                 position: fixed;
                 top: 0;
                 left: 0;
-                right: 0;
-                bottom: 0;
                 z-index: 2;
                 display: none;
             }
@@ -89,8 +87,6 @@
                 height: 100%;
                 top: 0;
                 left: 0;
-                right: 0;
-                bottom: 0;
                 background-color: rgba(0,0,0,0.8);
                 z-index: 15;
                 color: white;
@@ -166,6 +162,13 @@
             }
             function no() {
                 alert("You know you can just close the browser tab of the app itself, right?")
+            }
+            document.onreadystatechange = e => {
+                switch (document.readyState) {
+                    case "complete": console.log("Completed!")
+                    case "interactive": console.log("Somewhat completed")
+                    case "loading": console.log("Still loading")
+                }
             }
             function mobileCkeck() {
                 let check = false;
