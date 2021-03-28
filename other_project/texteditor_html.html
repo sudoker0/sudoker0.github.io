@@ -68,7 +68,7 @@
 			window.location.replace("https://quanmcpc.github.io");
 		}
         function downloadfile(){
-            var fileName =  document.getElementById("namefile").value; // You can use the .txt extension if you want
+            var fileName =  document.getElementById("namefile").value;
             downloadInnerHtml(fileName, 'sampleeditor','text/html');
         };
         function downloadInnerHtml(filename, elId, mimeType) {
@@ -95,33 +95,33 @@
 			document.execCommand("delete", false);
 		}
 		function setUrl() {
-    		var url = document.getElementById('txtFormatUrl').value; // Get value from input tag
-    		var selection = document.getSelection(); // Get info from text selected
+    		var url = document.getElementById('txtFormatUrl').value;
+    		var selection = document.getSelection();
 
     		if(selection.rangeCount) {
-        		var textSelected = selection.toString(); // Get text selected
-        		var element = document.createElement('a'); // Create a new anchor DOM node
-        		element.innerText = textSelected; // Set de text selected to the new anchor DOM node
-        		element.setAttribute('href', url); // Set a href value
+        		var textSelected = selection.toString();
+        		var element = document.createElement('a');
+        		element.innerText = textSelected;
+        		element.setAttribute('href', url);
 
-        		var range = selection.getRangeAt(0); // Get selection range
-        		range.deleteContents(); // Delete the current text
-        		range.insertNode(element); // Replace the text
+        		var range = selection.getRangeAt(0);
+        		range.deleteContents();
+        		range.insertNode(element);
     		}
 		}
 		function setColor() {
-			var colorCode = document.getElementById('inputColorCode').value; // Get value from input tag
-    			var colorselection = document.getSelection(); // Get info from text selected
+			var colorCode = document.getElementById('inputColorCode').value;
+    			var colorselection = document.getSelection();
 
     			if(colorselection.rangeCount) {
-        			var textSelected = colorselection.toString(); // Get text selected
-        			var element = document.createElement('a'); // Create a new anchor DOM node
-       		 		element.innerText = textSelected; // Set de text selected to the new anchor DOM node
-        			element.setAttribute('style', colorCode); // Set a href value
+        			var textSelected = colorselection.toString();
+        			var element = document.createElement('a');
+       		 		element.innerText = textSelected;
+        			element.setAttribute('style', colorCode);
 
-        			var range = colorselection.getRangeAt(0); // Get selection range
-        			range.deleteContents(); // Delete the current text
-        			range.insertNode(element); // Replace the text
+        			var range = colorselection.getRangeAt(0);
+        			range.deleteContents();
+        			range.insertNode(element);
     			}
 			}
 

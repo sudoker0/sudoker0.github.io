@@ -83,7 +83,6 @@
                 border: 1px solid rgba(20, 20, 20, 0.850);
                 margin-left: -8px;
                 margin-right: -8px;
-                /* text-align: center; */
                 margin-top: -8px;
                 transition: top 0.3s;
                 display: none;
@@ -178,11 +177,6 @@
                 }
             }
             @media (min-width: 375px) {
-                /* #button_list * {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                } */
                  #button_list {
                     display: grid;
                     grid-template-columns: repeat(auto-fit, minmax(calc(33% - 17px), 1fr));
@@ -270,18 +264,16 @@
             document.addEventListener("click", function(evt) {
                 var flyoutElement = document.getElementById('accb_small'),
                     targetElement = evt.target,
-                    flyoutElement_2 = document.getElementById("accb_small_");  // clicked element
+                    flyoutElement_2 = document.getElementById("accb_small_")
                 do {
                     if (targetElement == flyoutElement || targetElement == flyoutElement_2) { return; }
                     targetElement = targetElement.parentNode;
                 } while (targetElement);
                 document.getElementById("accb_small").style.display = "none";
                 accb_small_isOn = false;
-                //document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Gallery &#8681;"
             });
             window.onload = window.onresize = function() {
                 check()
-                //document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Gallery &#8681;"
                 accb_small_isOn = false;
                 document.getElementById("accb_small").style.display = "none"
                 if (getParameterByName("no_screen_size_check") == "true") {} else {
@@ -302,18 +294,15 @@
             accb_small_isOn = false;
             function accb_small() {
                 if (accb_small_isOn) {
-                    //document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Gallery &#8681;"
                     document.getElementById("accb_small").style.display = "none";
                     accb_small_isOn = false;
                 } else {
-                    //document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Gallery &#8679;"
                     document.getElementById("accb_small").style.display = "block";
                     accb_small_isOn = true;
                 }
             }
             var prevScrollpos = window.pageYOffset;
             window.onscroll = function() {
-                //document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "Gallery &#8681;"
                 document.getElementById("accb_small").style.display = "none"
                 accb_small_isOn = false;
                 var currentScrollPos = window.pageYOffset;
@@ -382,9 +371,6 @@
                 document.getElementById("accbar_small").appendChild(anchor2)
                 document.getElementById("accbar_small").appendChild(anchor3)
                 document.getElementById("accbar").appendChild(anchor);
-                /*if (index < name_.length - 1) {
-                    document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
-                }*/
             });
         </script>
         <div class="container">

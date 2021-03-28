@@ -57,31 +57,25 @@ function uninitialize_editor() {
 }
 function dragElement1(elmnt1) {
     if (document.getElementById(elmnt1.id + "_bar")) {
-        // if present, the header is where you move the DIV from:
         document.getElementById(elmnt1.id + "_bar").onmousedown = dragMouseDown1;
     } else {
-        // otherwise, move the DIV from anywhere inside the DIV:
         elmnt.onmousedown = dragMouseDown1;
     }
     function dragMouseDown1(e) {
         e = e || window.event;
         e.preventDefault();
-        // get the mouse cursor position at startup:
         pos3_1 = e.clientX;
         pos4_1 = e.clientY;
         document.onmouseup = closeDragElement1;
-        // call a function whenever the cursor moves:
         document.onmousemove = elementDrag1;
     }
     function elementDrag1(e) {
         e = e || window.event;
         e.preventDefault();
-        // calculate the new cursor position:
         pos1_1 = pos3_1 - e.clientX;
         pos2_1 = pos4_1 - e.clientY;
         pos3_1 = e.clientX;
         pos4_1 = e.clientY;
-        // set the element's new position:
         test_1_1 = (elmnt1.offsetTop - pos2_1);
         test_2_1 = (elmnt1.offsetLeft - pos1_1);
         if (test_2_1 <= 0 || test_1_1 <= 0 || window.innerWidth - 757 < test_2_1 || window.innerHeight - 557 < test_1_1) {
@@ -91,7 +85,6 @@ function dragElement1(elmnt1) {
         }
     }
     function closeDragElement1() {
-        // stop moving when mouse button is released:
         document.onmouseup = null;
         document.onmousemove = null;
     }
@@ -212,12 +205,8 @@ function getInputSelection(el) {
         if (range && range.parentElement() == el) {
             len = el.value.length;
             normalizedValue = el.value.replace(/\r\n/g, "\n");
-            // Create a working TextRange that lives only in the input
             textInputRange = el.createTextRange();
             textInputRange.moveToBookmark(range.getBookmark());
-            // Check if the start and end of the selection are at the very end
-            // of the input, since moveStart/moveEnd doesn't return what we want
-            // in those cases
             endRange = el.createTextRange();
             endRange.collapse(false);
             if (textInputRange.compareEndPoints("StartToEnd", endRange) > -1) {
@@ -268,10 +257,9 @@ function editor_find3() {
     selectTextareaLine2(tarea, sel.value);
 }
 function selectTextareaLine3(tarea,lineNum) {
-    lineNum--; // array starts at 0
+    lineNum--;
     if (lineNum > -1) {
         var lines = tarea.value.split("\n");
-        // calculate start/end
         var startPos = 0, endPos = tarea.value.length;
         for(var x = 0; x < lines.length; x++) {
             if(x == lineNum) {
@@ -280,8 +268,6 @@ function selectTextareaLine3(tarea,lineNum) {
             startPos += (lines[x].length+1);
         }
         var endPos = lines[lineNum].length+startPos;
-        // do selection
-        // Chrome / Firefox
         if(typeof(tarea.selectionStart) != "undefined") {
             tarea.focus();
             tarea.selectionStart = startPos;
@@ -296,7 +282,6 @@ function selectTextareaLine3(tarea,lineNum) {
             }
             return true;
         }
-        // IE
         if (document.selection && document.selection.createRange) {
             tarea.focus();
             tarea.select();
@@ -316,7 +301,6 @@ function selectTextareaLine3(tarea,lineNum) {
 function selectTextareaLine2(tarea, word_1) {
     if (tarea.value.indexOf(word_1, window.start_3) > -1) {
         const words_1 = tarea.value.split(" ");
-        // calculate start/end
         const startPos_1 = tarea.value.indexOf(word_1, window.start_3), endPos_1 = startPos_1 + word_1.length
         if (typeof(tarea.selectionStart) != "undefined") {
             tarea.focus();
@@ -338,7 +322,6 @@ function selectTextareaLine2(tarea, word_1) {
         alert("End of line reached!");
         throw new Error("Do not panic! This is not a error");
     }
-    // IE
     if (document.selection && document.selection.createRange) {
         tarea.focus();
         tarea.select();
@@ -354,7 +337,6 @@ function selectTextareaLine2(tarea, word_1) {
 function selectTextareaLine(tarea, word_1) {
     if (tarea.value.indexOf(word_1, window.start_1) > -1) {
         const words_1 = tarea.value.split(" ");
-        // calculate start/end
         const startPos_1 = tarea.value.indexOf(word_1, window.start_1), endPos_1 = startPos_1 + word_1.length
         if (typeof(tarea.selectionStart) != "undefined") {
             tarea.focus();
@@ -380,7 +362,6 @@ function selectTextareaLine(tarea, word_1) {
             throw new Error("Do not panic! This is not a error");
         }
     }
-    // IE
     if (document.selection && document.selection.createRange) {
         tarea.focus();
         tarea.select();
@@ -396,7 +377,6 @@ function selectTextareaLine(tarea, word_1) {
 function selectTextareaLine1(tarea, word_2) {
     if (tarea.value.indexOf(word_2, window.start_2) > -1) {
         const words_2 = tarea.value.split(" ");
-        // calculate start/end
         const startPos_2 = tarea.value.indexOf(word_2, window.start_2), endPos_2 = startPos_2 + word_2.length
         if (typeof(tarea.selectionStart) != "undefined") {
             tarea.focus();
@@ -422,7 +402,6 @@ function selectTextareaLine1(tarea, word_2) {
             throw new Error("Do not panic! This is not a error");
         }
     }
-    // IE
     if (document.selection && document.selection.createRange) {
         tarea.focus();
         tarea.select();
@@ -496,8 +475,7 @@ function editor_selectall_text() {
     document.getElementById("editor_input").select();
 }
 function editor_exit() {
-    /*let close = document.querySelector("#editor");
-    close.style.display = "none";*/
+    close.style.display = "none";
     if (confirm("WARNING: Unlike the close button up the top that only close the window but still keep the progress. Reset and Close will reset your progress [including the console log] and close the window. Please download any document that you're currently writing!\r\n Are you sure you want to continue?")) {
         window.location.reload(true);
     }
@@ -533,7 +511,6 @@ function editor_load1() {
     let cancel = document.querySelector("#editor_open");
     cancel.style.display = "none";
     document.querySelector("#editor_overlay").style.display = "none";
-    //document.getElementById("editor_filename").innerHTML = "File: " + document.getElementById("editor_open_name").value.replace(/fakepath/, '');
     var fullPath = document.getElementById('editor_open_name').value;
     if (fullPath) {
         var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));

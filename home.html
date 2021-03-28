@@ -83,7 +83,6 @@
                 border: 1px solid rgba(20, 20, 20, 0.850);
                 margin-left: -8px;
                 margin-right: -8px;
-                /* text-align: center; */
                 margin-top: -8px;
                 transition: top 0.3s;
                 display: none;
@@ -277,131 +276,6 @@
             <p style="text-align: center; color: white">We have detected that the width of the screen that you are using right now is too small for the website to render properly</p>
             <p style="text-align: center; color: white;">Try to rotate the device so that the screen orientation is horizontal. Or if that didn't work either, then that mean your screen is incompatiable to view the website</p>
         </div>
-        <script>
-            document.addEventListener("click", function(evt) {
-                var flyoutElement = document.getElementById('accb_small'),
-                    targetElement = evt.target,
-                    flyoutElement_2 = document.getElementById("accb_small_");  // clicked element
-                do {
-                    if (targetElement == flyoutElement || targetElement == flyoutElement_2) { return; }
-                    targetElement = targetElement.parentNode;
-                } while (targetElement);
-                document.getElementById("accb_small").style.display = "none";
-                accb_small_isOn = false;
-                //document.getElementById("accb_small_").getElementsByTagName("h3")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8681;"
-            });
-            window.onload = window.onresize = function() {
-                check()
-                check1()
-                //document.getElementById("accb_small_").getElementsByTagName("h3")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8681;"
-                accb_small_isOn = false;
-                document.getElementById("accb_small").style.display = "none"
-                if (getParameterByName("no_screen_size_check") == "true") {} else {
-                    if (window.innerWidth < 320) {
-                        document.getElementById("screentoosmall").style.display = "block";
-                    } else {
-                        document.getElementById("screentoosmall").style.display = "none";
-                    }
-                }
-                if (window.innerWidth < 482) {
-                    document.getElementById("accb_small_").style.display = "grid";
-                    document.getElementsByClassName("accb")[0].style.display = "none"
-                } else {
-                    document.getElementById("accb_small_").style.display = "none";
-                    document.getElementsByClassName("accb")[0].style.display = "grid";
-                }
-            }
-            accb_small_isOn = false;
-            function accb_small() {
-                if (accb_small_isOn) {
-                    //document.getElementById("accb_small_").getElementsByTagName("h3")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8681;"
-                    document.getElementById("accb_small").style.display = "none";
-                    accb_small_isOn = false;
-                } else {
-                    //document.getElementById("accb_small_").getElementsByTagName("h3")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8679;"
-                    document.getElementById("accb_small").style.display = "block";
-                    accb_small_isOn = true;
-                }
-            }
-            var prevScrollpos = window.pageYOffset;
-            window.onscroll = function() {
-                //document.getElementById("accb_small_").getElementsByTagName("h3")[0].getElementsByTagName("a")[0].innerHTML = "Home &#8681;"
-                document.getElementById("accb_small").style.display = "none"
-                accb_small_isOn = false;
-                var currentScrollPos = window.pageYOffset;
-                if (prevScrollpos > currentScrollPos) {
-                    document.getElementsByClassName("accb")[0].style.top = "0";
-                    document.getElementById("accb_small_").style.top = "0";
-                } else {
-                    document.getElementsByClassName("accb")[0].style.top = "-" + document.getElementsByClassName("accb")[0].offsetHeight + "px";
-                    document.getElementById("accb_small_").style.top = "-" + document.getElementById("accb_small_").offsetHeight + "px";
-                }
-                prevScrollpos = currentScrollPos;
-            }
-            function getParameterByName(name, url) {
-                if (!url) url = window.location.href;
-                name = name.replace(/[\[\]]/g, '\\$&');
-                var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
-                if (!results) return null;
-                if (!results[2]) return '';
-                return decodeURIComponent(results[2].replace(/\+/g, ' '));
-            }
-            function check() {
-                document.getElementById("accb_small").style.top = document.getElementById("accb_small_").style.width
-                if (getParameterByName("sv_cheat") >= 1 || getParameterByName("debug") >= 1 || getParameterByName("hack") >= 1) {
-                    window.location.replace("ban.html");
-                }
-                if (localStorage.getItem("ls") == "927") {
-                    window.location.replace("ban.html");
-                }
-                if (getParameterByName("secret") == "true") {
-                    document.getElementById("secret_image").style.display = "block"
-                    document.getElementsByTagName("body")[0].style.backgroundImage = "url(website/image/sus_.png)"
-                }
-            }
-            var name_ = [
-                {
-                    "name": "Home",
-                    "title": "Home - The main page of the website",
-                    "address": "home.html"
-                },
-                {
-                    "name": "Credit",
-                    "title": "Credit - All of the stuff and people that created this website will be listed here",
-                    "address": "credit.html"
-                },
-                {
-                    "name": "About Website",
-                    "title": "About Website - Information about my website",
-                    "address": "about.html"
-                },
-                {
-                    "name": "Gallery",
-                    "title": "Gallery - Where I store picture of project and stuff",
-                    "address": "gallery.html"
-                }
-            ];
-            //Syntax: Name / Description / Link (Space is important)
-            name_.forEach(function (list, index) {
-                var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
-                var anchor = document.createElement("a"), anchor_text = document.createTextNode(list.name), anchor2 = document.createElement("a"), anchor2_text = document.createTextNode(list.name), anchor3 = document.createElement("br");
-                anchor.appendChild(anchor_text);
-                anchor.title = list.title;
-                anchor.href = list.address + "?id=" + dateTime;
-                anchor2.appendChild(anchor2_text);
-                anchor2.title = list.title;
-                anchor2.href = list.address + "?id=" + dateTime;
-                document.getElementById("accbar_small").appendChild(anchor2)
-                document.getElementById("accbar_small").appendChild(anchor3)
-                document.getElementById("accbar").appendChild(anchor);
-                /*if (index < name_.length - 1) {
-                    document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
-                }*/
-            });
-            // window.onload = () => {
-            //     document.getElementById("image_").style.height = + window.getComputedStyle(document.getElementById("accbar")).height.replace( /\D+$/g, '') + + window.getComputedStyle(document.getElementById("accbar")).marginTop.replace( /\D+$/g, '') + + window.getComputedStyle(document.getElementById("accbar")).marginBottom.replace( /\D+$/g, '') + "px"
-            // }
-        </script>
         <div class="container">
             <h1 style="color:rgb(255, 0, 0); text-align: center;"><b>Student. Developer. Gamer.</b></h1>
             <h2 style="color: white; ">Hello! My name is Quan, a student, a small developer and a gamer. I'm currently living at Vietnam and HTML, CSS and JS are the three programming language I'm best at.</h2>
@@ -659,54 +533,119 @@
                     </li>
                 </ul>
             </div>
-            <!-- <p style="color:orange">Here is some of my favourite map that I created:</p>
-            <p><u><b><a rel="noreferrer" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-1/"  target="_blank">The Longest Useless Machine in Minecraft (version 1.2)</a></b></u></p>
-            <p><u><b><a rel="noreferrer" href="https://www.planetminecraft.com/project/8-bit-decoder-in-minecraft/"  target="_blank">8-Bit Decoder in Minecraft</a></b></u></p>
-            <p><u><b><a rel="noreferrer" href="https://www.planetminecraft.com/project/printer-1-16/"  target="_blank">Printer 1.16</a></b></u></p>
-            <p><u><b><a rel="noreferrer" href="https://www.planetminecraft.com/project/security-vault-2-0/"  target="_blank">Security Vault 2.0</a></b></u></p>
-            <p><u><b><a rel="noreferrer" href="https://www.planetminecraft.com/project/compact-calculator-1-15-2/"  target="_blank">Compact Calculator (1.15.2)</a></b></u></p>
-            <p style="color:orange">Here is some screenshots of my map [Click on any of the image to maximize the image]:</p>
-            <img id="imagen1" onclick="image1()" width="455" height="234" src="website\image\1.webp" title="Click the image to maximize the image">
-            <img id="imagen2" onclick="image2()" width="455" height="234" src="website\image\2.webp" title="Click the image to maximize the image">
-            <img id="imagen3" onclick="image3()" width="455" height="234" src="website\image\3.webp" title="Click the image to maximize the image">
-            <img id="imagen4" onclick="image4()" width="455" height="234" src="website\image\4.webp" title="Click the image to maximize the image">
-            <img id="imagen5" onclick="image5()" width="455" height="234" src="website\image\5.webp" title="Click the image to maximize the image">
-            <img id="imagen6" onclick="image6()" width="455" height="234" src="website\image\6.webp" title="Click the image to maximize the image">
-            <img id="imagen7" onclick="image7()" width="455" height="234" src="website\image\7.webp" title="Click the image to maximize the image">
-            <img id="imagen8" onclick="image8()" width="455" height="234" src="website\image\8.webp" title="Click the image to maximize the image">
-            <img id="imagen9" onclick="image9()" width="455" height="234" src="website\image\9.webp" title="Click the image to maximize the image">
             <script>
-                function image1() { document.getElementById("img1").style.display = "block"; }
-                function image2() { document.getElementById("img2").style.display = "block"; }
-                function image3() { document.getElementById("img3").style.display = "block"; }
-                function image4() { document.getElementById("img4").style.display = "block"; }
-                function image5() { document.getElementById("img5").style.display = "block"; }
-                function image6() { document.getElementById("img6").style.display = "block"; }
-                function image7() { document.getElementById("img7").style.display = "block"; }
-                function image8() { document.getElementById("img8").style.display = "block"; }
-                function image9() { document.getElementById("img9").style.display = "block"; }
-                function oimage1() { document.getElementById("img1").style.display = "none"; }
-                function oimage2() { document.getElementById("img2").style.display = "none"; }
-                function oimage3() { document.getElementById("img3").style.display = "none"; }
-                function oimage4() { document.getElementById("img4").style.display = "none"; }
-                function oimage5() { document.getElementById("img5").style.display = "none"; }
-                function oimage6() { document.getElementById("img6").style.display = "none"; }
-                function oimage7() { document.getElementById("img7").style.display = "none"; }
-                function oimage8() { document.getElementById("img8").style.display = "none"; }
-                function oimage9() { document.getElementById("img9").style.display = "none"; }
-            </script>
-            <div id="img1"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/1.webp" style="width: 100%; height: auto;"><b>Compact Calculator [1.15.2] [Full View] [1.webp]</b></div><div onclick="oimage1()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
-            <div id="img2"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/2.webp" style="width: 100%; height: auto;"><b>Security Vault 2.0 [Outside View] [2.webp]</b></div><div onclick="oimage2()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
-            <div id="img3"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/3.webp" style="width: 100%; height: auto;"><b>Security Vault 2.0 [Inside View] [3.webp]</b></div><div onclick="oimage3()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
-            <div id="img4"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/4.webp" style="width: 100%; height: auto;"><b>The Longest Useless Machine in Minecraft [version 1.1] [Inside View] [4.webp]</b></div><div onclick="oimage4()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
-            <div id="img5"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/5.webp" style="width: 100%; height: auto;"><b>The Longest Useless Machine in Minecraft [version 1.1] [Outside View #1] [5.webp]</b></div><div onclick="oimage5()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
-            <div id="img6"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/6.webp" style="width: 100%; height: auto;"><b>The Longest Useless Machine in Minecraft [version 1.1] [Outside View #2] [6.webp]</b></div><div onclick="oimage6()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
-            <div id="img7"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/7.webp" style="width: 100%; height: auto;"><b>Printer 1.16 [7.webp]</b></div><div onclick="oimage7()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
-            <div id="img8"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/8.webp" style="width: 100%; height: auto;"><b>8-Bit Decoder in Minecraft [8.webp]</b></div><div onclick="oimage8()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div>
-            <div id="img9"><div id="image" style="color:rgb(170, 170, 170); font-size:150%; text-align:center;"><img src="website/image/9.webp" style="width: 100%; height: auto;"><b>Compact Calculator [1.15.2] [Front View] [9.webp]</b></div><div onclick="oimage9()" style="position: fixed; right: 10px; top: 10px;"><button><b>Close</b></button></div></div><br>
-            <a href="/website/image/old_version_image.zip" download="old_version_image.zip" style="color: white">Download 9 of the image and the background image as PNG</a>
-            <hr style="border: 1.5px solid black; background-color: black;"> -->
-            <script>
+                document.addEventListener("click", function(evt) {
+                    var flyoutElement = document.getElementById('accb_small'),
+                        targetElement = evt.target,
+                        flyoutElement_2 = document.getElementById("accb_small_");
+                    do {
+                        if (targetElement == flyoutElement || targetElement == flyoutElement_2) { return; }
+                        targetElement = targetElement.parentNode;
+                    } while (targetElement);
+                    document.getElementById("accb_small").style.display = "none";
+                    accb_small_isOn = false;
+                });
+                window.onload = window.onresize = function() {
+                    check()
+                    check1()
+                    accb_small_isOn = false;
+                    document.getElementById("accb_small").style.display = "none"
+                    if (getParameterByName("no_screen_size_check") == "true") {} else {
+                        if (window.innerWidth < 320) {
+                            document.getElementById("screentoosmall").style.display = "block";
+                        } else {
+                            document.getElementById("screentoosmall").style.display = "none";
+                        }
+                    }
+                    if (window.innerWidth < 482) {
+                        document.getElementById("accb_small_").style.display = "grid";
+                        document.getElementsByClassName("accb")[0].style.display = "none"
+                    } else {
+                        document.getElementById("accb_small_").style.display = "none";
+                        document.getElementsByClassName("accb")[0].style.display = "grid";
+                    }
+                }
+                accb_small_isOn = false;
+                function accb_small() {
+                    if (accb_small_isOn) {
+                        document.getElementById("accb_small").style.display = "none";
+                        accb_small_isOn = false;
+                    } else {
+                        document.getElementById("accb_small").style.display = "block";
+                        accb_small_isOn = true;
+                    }
+                }
+                var prevScrollpos = window.pageYOffset;
+                window.onscroll = function() {
+                    document.getElementById("accb_small").style.display = "none"
+                    accb_small_isOn = false;
+                    var currentScrollPos = window.pageYOffset;
+                    if (prevScrollpos > currentScrollPos) {
+                        document.getElementsByClassName("accb")[0].style.top = "0";
+                        document.getElementById("accb_small_").style.top = "0";
+                    } else {
+                        document.getElementsByClassName("accb")[0].style.top = "-" + document.getElementsByClassName("accb")[0].offsetHeight + "px";
+                        document.getElementById("accb_small_").style.top = "-" + document.getElementById("accb_small_").offsetHeight + "px";
+                    }
+                    prevScrollpos = currentScrollPos;
+                }
+                function getParameterByName(name, url) {
+                    if (!url) url = window.location.href;
+                    name = name.replace(/[\[\]]/g, '\\$&');
+                    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
+                    if (!results) return null;
+                    if (!results[2]) return '';
+                    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+                }
+                function check() {
+                    document.getElementById("accb_small").style.top = document.getElementById("accb_small_").style.width
+                    if (getParameterByName("sv_cheat") >= 1 || getParameterByName("debug") >= 1 || getParameterByName("hack") >= 1) {
+                        window.location.replace("ban.html");
+                    }
+                    if (localStorage.getItem("ls") == "927") {
+                        window.location.replace("ban.html");
+                    }
+                    if (getParameterByName("secret") == "true") {
+                        document.getElementById("secret_image").style.display = "block"
+                        document.getElementsByTagName("body")[0].style.backgroundImage = "url(website/image/sus_.png)"
+                    }
+                }
+                var name_ = [
+                    {
+                        "name": "Home",
+                        "title": "Home - The main page of the website",
+                        "address": "home.html"
+                    },
+                    {
+                        "name": "Credit",
+                        "title": "Credit - All of the stuff and people that created this website will be listed here",
+                        "address": "credit.html"
+                    },
+                    {
+                        "name": "About Website",
+                        "title": "About Website - Information about my website",
+                        "address": "about.html"
+                    },
+                    {
+                        "name": "Gallery",
+                        "title": "Gallery - Where I store picture of project and stuff",
+                        "address": "gallery.html"
+                    }
+                ];
+                //Syntax: Name / Description / Link (Space is important)
+                name_.forEach(function (list, index) {
+                    var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
+                    var anchor = document.createElement("a"), anchor_text = document.createTextNode(list.name), anchor2 = document.createElement("a"), anchor2_text = document.createTextNode(list.name), anchor3 = document.createElement("br");
+                    anchor.appendChild(anchor_text);
+                    anchor.title = list.title;
+                    anchor.href = list.address + "?id=" + dateTime;
+                    anchor2.appendChild(anchor2_text);
+                    anchor2.title = list.title;
+                    anchor2.href = list.address + "?id=" + dateTime;
+                    document.getElementById("accbar_small").appendChild(anchor2)
+                    document.getElementById("accbar_small").appendChild(anchor3)
+                    document.getElementById("accbar").appendChild(anchor);
+                });
                 document.getElementById("github_link").onkeydown = event => {
                     if (event.code == "Enter" || event.code == "Space") { window.location.href = 'https://github.com/QuanMCPC' }
                 }

@@ -267,7 +267,6 @@
                 var date3 = new Date("4/14/2022");
                 var Difference_In_Time = date2.getTime() - date1.getTime();
                 var Difference_In_Time1 = date3.getTime() - date2.getTime();
-                // To calculate the no. of days between two dates
                 var Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
                 var Difference_In_Days1 = Math.round(Difference_In_Time1 / (1000 * 3600 * 24));
                 document.getElementById("days_from").innerHTML = Difference_In_Days;
@@ -312,12 +311,7 @@
             anchor2.appendChild(anchor2_text);
             anchor2.title = list.title;
             anchor2.href = list.address + "?id=" + dateTime;
-            // document.getElementById("accbar_small").appendChild(anchor2)
-            // document.getElementById("accbar_small").appendChild(anchor3)
             document.getElementById("accbar").appendChild(anchor);
-            /*if (index < name_.length - 1) {
-                document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
-            }*/
         });
     </script>
 </html>

@@ -197,9 +197,6 @@
                 #accb_small, #accb_small_ p { font-size: 1.1em }
                 div.container *:not(#textview) { max-width: 50% }
             }
-            /* th, td {
-                padding: 15px;
-            } */
         </style>
     </head>
     <body>
@@ -217,13 +214,6 @@
             <p>P.S: I know that this is the same NoScript message from the SOOPE. But it's so good that I decide to use it anyway.</p>
             <hr>
         </noscript>
-        <!-- <div class="accb">
-            <h3 id="accbar"></h3>
-            <\!--<h3 style="display: block; float: left; margin-top: 0; cursor: pointer; margin-left: 0"><img id="icon_accb1" src="../website/image/logo.png" height="59px"></h3><h3 id="accbar" style=" text-align: left; margin-left: 80px;"></h3>-\->
-        </div>
-        <div id="accb_small_" style="z-index: 10">
-            <p><a onclick="accb_small()" style="cursor: pointer;">About Website &#8681;</a></p>
-        </div> -->
         <div class="accb" style="width: auto; height: auto; display: none;" id="accb">
             <a href="https://quanmcpc.github.io/" title="Return to main page"  style="grid-area: left_-start; width: 61px">
                 <img src="/website/image/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);">
@@ -256,18 +246,16 @@
                 document.addEventListener("click", function(evt) {
                     var flyoutElement = document.getElementById('accb_small'),
                         targetElement = evt.target,
-                        flyoutElement_2 = document.getElementById("accb_small_");  // clicked element
+                        flyoutElement_2 = document.getElementById("accb_small_");
                     do {
                         if (targetElement == flyoutElement || targetElement == flyoutElement_2) { return; }
                         targetElement = targetElement.parentNode;
                     } while (targetElement);
                     document.getElementById("accb_small").style.display = "none";
                     accb_small_isOn = false;
-                    //document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "About Website &#8681;"
                 });
                 window.onload = window.onresize = function() {
                     check()
-                    //document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "About Website &#8681;"
                     accb_small_isOn = false;
                     document.getElementById("accb_small").style.display = "none"
                     if (getParameterByName("no_screen_size_check") == "true") {} else {
@@ -288,18 +276,15 @@
                 accb_small_isOn = false;
                 function accb_small() {
                     if (accb_small_isOn) {
-                        //document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "About Website &#8681;"
                         document.getElementById("accb_small").style.display = "none";
                         accb_small_isOn = false;
                     } else {
-                        //document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "About Website &#8679;"
                         document.getElementById("accb_small").style.display = "block";
                         accb_small_isOn = true;
                     }
                 }
                 var prevScrollpos = window.pageYOffset;
                 window.onscroll = function() {
-                    //document.getElementById("accb_small_").getElementsByTagName("p")[0].getElementsByTagName("a")[0].innerHTML = "About Website &#8681;"
                     document.getElementById("accb_small").style.display = "none"
                     accb_small_isOn = false;
                     var currentScrollPos = window.pageYOffset;
@@ -368,9 +353,6 @@
                     document.getElementById("accbar_small").appendChild(anchor2)
                     document.getElementById("accbar_small").appendChild(anchor3)
                     document.getElementById("accbar").appendChild(anchor);
-                    /*if (index < name_.length - 1) {
-                        document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
-                    }*/
                 });
             </script>
         </center>
@@ -492,7 +474,6 @@
                     })
                 }
                 fetch_();
-                //document.getElementById("numberofcommit").innerHTML = numberofcommit; document.getElementById("numberofcommit1").innerHTML = numberofcommit;
                 document.getElementById("lastupdateon_").innerHTML = lastupdateon1; document.getElementById("lastupdateon_1").innerHTML = lastupdateon1;
             })
             function date_check() {
@@ -501,7 +482,6 @@
                 var date3 = new Date("4/14/2022");
                 var Difference_In_Time = date2.getTime() - date1.getTime();
                 var Difference_In_Time1 = date3.getTime() - date2.getTime();
-                // To calculate the no. of days between two dates
                 var Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
                 var Difference_In_Days1 = Math.round(Difference_In_Time1 / (1000 * 3600 * 24));
                 document.getElementById("days_from").innerHTML = Difference_In_Days;

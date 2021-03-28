@@ -101,8 +101,8 @@
             }
             #output {
                 outline: none;
-                -ms-overflow-style: none; 
-  				scrollbar-width: none; 
+                -ms-overflow-style: none;
+  				scrollbar-width: none;
             }
             #output::-webkit-scrollbar {
                 display: none;
@@ -198,8 +198,8 @@
                 display: none;
             }
             #editor_input {
-                -ms-overflow-style: none; 
-  				scrollbar-width: none; 
+                -ms-overflow-style: none;
+  				scrollbar-width: none;
             }
             #edit_file_dropdown:hover #edit_file_menu { display: block; }
             #edit_edit_dropdown:hover #edit_edit_menu { display: block; }
@@ -346,30 +346,23 @@
             <textarea id="editor_input" style="width: 735px; height: 80%; bottom: 0px; position: absolute; z-index: -1; resize: none; outline: none; background-color: black; color: white; border: 6px double rgb(197, 197, 197);"></textarea>
             <div id="editor_save" style="z-index: 3; display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 150px; color: white; border: 6px double white">
                 <p style="text-align: center;">Download Document</p>
-                <!--<p style="text-align: center;">Save file as:</p>-->
-                <!--<div style="padding: 3px 3px; position: absolute; left: 50%; top: 50%; border: 4px double white; background-color: black; color: white; transform: translate(-50%, -50%); outline: none">-->
                 <center>
                     <label for="editor_save_name" style="text-align: center">Download file as: </label>
                     <input placeholder="Filename" id="editor_save_name" style="outline: none">
                     <br><br>
                     <button onclick="editor_save1()">Download file</button><button onclick="editor_cancel_save()">Cancel</button>
                 </center>
-                <!--</div>-->
             </div>
             <div id="editor_open" style="z-index: 3; display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 150px; color: white; border: 6px double white">
                 <p style="text-align: center;">Open Document</p>
-                <!--<p style="text-align: center;">Save file as:</p>-->
-                <!--<div style="padding: 3px 3px; position: absolute; left: 50%; top: 50%; border: 4px double white; background-color: black; color: white; transform: translate(-50%, -50%); outline: none">-->
                 <center>
                     <label for="editor_open_name" style="text-align: center">Load file: </label>
                     <input id="editor_open_name" type="file">
                     <br><br>
                     <button onclick="editor_load1()">Load file</button><button onclick="editor_cancel_load()">Cancel</button>
                 </center>
-                <!--</div>-->
             </div>
             <div id="editor_find" style="bottom: 0; right: 0; padding: 5px 5px; z-index: 3; display: none; position: absolute; width: 360px; height: 25px; color: white; border: 6px double white">
-                <!--<p style="text-align: center;">Save file as:</p>-->
                 <label for="editor_find_name" style="text-align: center">Find: </label>
                 <input placeholder="Find word" id="editor_find_name" style="outline: none; border: 2px solid gray; width: 80px;">
                 <button onclick="editor_find1()">Find</button><button onclick="editor_cancel_find()">Cancel</button>
@@ -694,12 +687,8 @@
                     if (range && range.parentElement() == el) {
                         len = el.value.length;
                         normalizedValue = el.value.replace(/\r\n/g, "\n");
-                        // Create a working TextRange that lives only in the input
                         textInputRange = el.createTextRange();
                         textInputRange.moveToBookmark(range.getBookmark());
-                        // Check if the start and end of the selection are at the very end
-                        // of the input, since moveStart/moveEnd doesn't return what we want
-                        // in those cases
                         endRange = el.createTextRange();
                         endRange.collapse(false);
                         if (textInputRange.compareEndPoints("StartToEnd", endRange) > -1) {
@@ -750,10 +739,9 @@
                 selectTextareaLine2(tarea, sel.value);
             }
             function selectTextareaLine3(tarea,lineNum) {
-                lineNum--; // array starts at 0
+                lineNum--;
                 if (lineNum > -1) {
                     var lines = tarea.value.split("\n");
-                    // calculate start/end
                     var startPos = 0, endPos = tarea.value.length;
                     for(var x = 0; x < lines.length; x++) {
                         if(x == lineNum) {
@@ -762,8 +750,6 @@
                         startPos += (lines[x].length+1);
                     }
                     var endPos = lines[lineNum].length+startPos;
-                    // do selection
-                    // Chrome / Firefox
                     if(typeof(tarea.selectionStart) != "undefined") {
                         tarea.focus();
                         tarea.selectionStart = startPos;
@@ -778,7 +764,6 @@
                         }
                         return true;
                     }
-                    // IE
                     if (document.selection && document.selection.createRange) {
                         tarea.focus();
                         tarea.select();
@@ -806,7 +791,6 @@
 		    function selectTextareaLine2(tarea, word_1) {
                 if (tarea.value.indexOf(word_1, window.start_3) > -1) {
                     const words_1 = tarea.value.split(" ");
-                    // calculate start/end
                     const startPos_1 = tarea.value.indexOf(word_1, window.start_3), endPos_1 = startPos_1 + word_1.length
                     if (typeof(tarea.selectionStart) != "undefined") {
                         tarea.focus();
@@ -828,7 +812,6 @@
                     alert("End of line reached!");
                     throw new Error("Do not panic! This is not a error");
                 }
-                // IE
                 if (document.selection && document.selection.createRange) {
                     tarea.focus();
                     tarea.select();
@@ -844,7 +827,6 @@
             function selectTextareaLine(tarea, word_1) {
                 if (tarea.value.indexOf(word_1, window.start_1) > -1) {
                     const words_1 = tarea.value.split(" ");
-                    // calculate start/end
                     const startPos_1 = tarea.value.indexOf(word_1, window.start_1), endPos_1 = startPos_1 + word_1.length
                     if (typeof(tarea.selectionStart) != "undefined") {
                         tarea.focus();
@@ -870,7 +852,6 @@
                         throw new Error("Do not panic! This is not a error");
                     }
                 }
-                // IE
                 if (document.selection && document.selection.createRange) {
                     tarea.focus();
                     tarea.select();
@@ -886,7 +867,6 @@
             function selectTextareaLine1(tarea, word_2) {
                 if (tarea.value.indexOf(word_2, window.start_2) > -1) {
                     const words_2 = tarea.value.split(" ");
-                    // calculate start/end
                     const startPos_2 = tarea.value.indexOf(word_2, window.start_2), endPos_2 = startPos_2 + word_2.length
                     if (typeof(tarea.selectionStart) != "undefined") {
                         tarea.focus();
@@ -912,7 +892,6 @@
                         throw new Error("Do not panic! This is not a error");
                     }
                 }
-                // IE
                 if (document.selection && document.selection.createRange) {
                     tarea.focus();
                     tarea.select();
@@ -986,8 +965,6 @@
                 document.getElementById("editor_input").select();
             }
             function editor_exit() {
-                /*let close = document.querySelector("#editor");
-                close.style.display = "none";*/
 			    if (confirm("WARNING: Unlike the close button up the top that only close the window but still keep the progress. Reset and Close will reset your progress [including the console log] and close the window. Please download any document that you're currently writing!\r\n Are you sure you want to continue?")) {
 			    	window.location.reload(true);
 			    }
@@ -1023,7 +1000,6 @@
                 let cancel = document.querySelector("#editor_open");
                 cancel.style.display = "none";
 		        document.querySelector("#editor_overlay").style.display = "none";
-                //document.getElementById("editor_filename").innerHTML = "File: " + document.getElementById("editor_open_name").value.replace(/fakepath/, '');
                 var fullPath = document.getElementById('editor_open_name').value;
                 if (fullPath) {
                     var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
@@ -1140,42 +1116,34 @@
             function dragElement(elmnt) {
                 var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
                 if (document.getElementById(elmnt.id + "_bar")) {
-                    // if present, the header is where you move the DIV from:
                     document.getElementById(elmnt.id + "_bar").onmousedown = dragMouseDown;
                 } else {
-                    // otherwise, move the DIV from anywhere inside the DIV:
                     elmnt.onmousedown = dragMouseDown;
                 }
                 function dragMouseDown(e) {
                     e = e || window.event;
                     e.preventDefault();
-                    // get the mouse cursor position at startup:
                     pos3 = e.clientX;
                     pos4 = e.clientY;
                     document.onmouseup = closeDragElement;
-                    // call a function whenever the cursor moves:
                     document.onmousemove = elementDrag;
                 }
                 function elementDrag(e) {
                     e = e || window.event;
                     e.preventDefault();
-                    // calculate the new cursor position:
                     pos1 = pos3 - e.clientX;
                     pos2 = pos4 - e.clientY;
                     pos3 = e.clientX;
                     pos4 = e.clientY;
-                    // set the element's new position:
                     test_1 = (elmnt.offsetTop - pos2);
                     test_2 = (elmnt.offsetLeft - pos1);
                     if (test_2 <= 0 || test_1 <= 0 || window.innerWidth - 607 < test_2 || window.innerHeight - 207 < test_1) {
-                        //Empty
                     } else {
                         elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
                         elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
                     }
                 }
                 function closeDragElement() {
-                    // stop moving when mouse button is released:
                     document.onmouseup = null;
                     document.onmousemove = null;
                 }
@@ -1186,31 +1154,25 @@
             function dragElement1(elmnt1) {
                 var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
                 if (document.getElementById(elmnt1.id + "_bar")) {
-                    // if present, the header is where you move the DIV from:
                     document.getElementById(elmnt1.id + "_bar").onmousedown = dragMouseDown1;
                 } else {
-                    // otherwise, move the DIV from anywhere inside the DIV:
                     elmnt.onmousedown = dragMouseDown1;
                 }
                 function dragMouseDown1(e) {
                     e = e || window.event;
                     e.preventDefault();
-                    // get the mouse cursor position at startup:
                     pos3_1 = e.clientX;
                     pos4_1 = e.clientY;
                     document.onmouseup = closeDragElement1;
-                    // call a function whenever the cursor moves:
                     document.onmousemove = elementDrag1;
                 }
                 function elementDrag1(e) {
                     e = e || window.event;
                     e.preventDefault();
-                    // calculate the new cursor position:
                     pos1_1 = pos3_1 - e.clientX;
                     pos2_1 = pos4_1 - e.clientY;
                     pos3_1 = e.clientX;
                     pos4_1 = e.clientY;
-                    // set the element's new position:
                     test_1_1 = (elmnt1.offsetTop - pos2_1);
                     test_2_1 = (elmnt1.offsetLeft - pos1_1);
                     if (test_2_1 <= 0 || test_1_1 <= 0 || window.innerWidth - 757 < test_2_1 || window.innerHeight - 557 < test_1_1) {
@@ -1221,7 +1183,6 @@
                     }
                 }
                 function closeDragElement1() {
-                    // stop moving when mouse button is released:
                     document.onmouseup = null;
                     document.onmousemove = null;
                 }
@@ -1249,7 +1210,6 @@
             }
             function intro() {
                 login = new Date();
-                //Don't worry about this code (start)
                 if (localStorage.getItem("ls") == "927") {
                     document.getElementById("output").innerHTML += "The console has been disabled by your Administrator\r\n";
                     document.getElementById("output").innerHTML += "Ask the Admin to re-enable the console\r\n";
@@ -1262,7 +1222,6 @@
                     }
                     return false;
                 }
-                //Don't worry about this code (end)
                 if (localStorage.hasOwnProperty("color:background")) {
                     let color_input_hex = document.querySelector("#background");
                     color_input_hex.style.backgroundColor = localStorage.getItem("color:background");
@@ -1337,12 +1296,10 @@
                 }
             }
             function enter_2() {
-                //Don't worry about this code (start)
                 if (localStorage.getItem("ls") == "927") {
                     console.error("Fatal error: ACCESS_BLOCKED");
                     throw new Error("System Crashed");
                 }
-                //Don't worry about this code (end)
                 enter();
                 document.getElementById("command").value = '';
             }
@@ -1366,12 +1323,10 @@
             }
             function enter() {
                 ltec_counter_0 = 1;
-                //Don't worry about this code (start)
                 if (localStorage.getItem("ls") == "927") {
                     console.error("Fatal error: ACCESS_BLOCKED");
                     throw new Error("System Crashed");
                 }
-                //Don't worry about this code (end)
                 if (log_c < 256) {
                     z[log_c] = document.getElementById("command").value;
                     log_c++;
@@ -1792,14 +1747,6 @@
                         document.getElementById("output").innerHTML += "\r\n";
                     }
                 } else if (a[0] == "log_command" || a[0] == "lc") { //Command: log_command
-                    /*if (!a[1] == '') {
-                        document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
-                    } else {
-                        document.getElementById("output").innerHTML += "Here is the last 20 command entered\r\n";
-                        for (v = 0; v < 20; v++) {
-                            document.getElementById("output").innerHTML += +v + +1 + ". " + z[v] + "\r\n";
-                        }
-                    }*/
                     document.getElementById("output").innerHTML += "This command has been removed, please use \"export ltec\" OR \"export last_256_entered_command\"\r\n";
                     return false
                 } else if (a[0] == "about") { //Command: about
@@ -1980,26 +1927,6 @@
                 } else if (a[0] == "stop") {
                     start = 0;
                 } else if (a[0] == "save_console_output" || a[0] == "sco") {
-	                /*if (!a[2] == '') {
-		                document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
-	                } else {
-                        document.getElementById("output").innerHTML += "Warning: save_console_out IS OBSOLETE, Please use \"export console_out\" command instead. This command will be removed in the future\r\n";
-    			        var textToSave = document.getElementById("output").value;
-	    		        var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
-	    		        var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
-	    	            var fileNameToSaveAs = a[1];
-	    		        var downloadLink = document.createElement("a");
-	    		        downloadLink.download = fileNameToSaveAs;
-	    	            downloadLink.innerHTML = "Download File";
-	    	            downloadLink.href = textToSaveAsURL;
-			            downloadLink.onclick = destroyClickedElement;
-    		            downloadLink.style.display = "none";
-	    		        document.body.appendChild(downloadLink);
-	    		        downloadLink.click();
-		                function destroyClickedElement(event) {
-    			            document.body.removeChild(event.target);
-		                }
-                    }*/
                     document.getElementById("output").innerHTML += "This command has been removed, please use \"export console_output\"\r\n";
                 } else if (a[0] == "color") { //Command: color
                     if (a[1] == "background") { //Type: background
@@ -2482,26 +2409,6 @@
                             document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                         }
                     } else if (a[1] == "settings-jsontext") {
-                        /*if (a[2] == null) {
-                            var settings = {
-                                "color_input_text": document.querySelector("#command").style.color.replace(/\s/g, ''),
-                                "color_output_text": document.querySelector("#output").style.color.replace(/\s/g, ''),
-                                "color_input_background": document.querySelector("#command").style.backgroundColor.replace(/\s/g, ''),
-                                "color_output_background": document.querySelector("#output").style.backgroundColor.replace(/\s/g, ''),
-                                "color_background": document.querySelector("#background").style.backgroundColor.replace(/\s/g, ''),
-                                "color_input_border": document.querySelector("#command").style.borderColor.replace(/\s/g, ''),
-                                "color_output_border": document.querySelector("#output").style.borderColor.replace(/\s/g, ''),
-                                "mode_cols": document.getElementById("output").getAttribute("cols").replace(/\s/g, ''),
-                                "mode_rows": document.getElementById("output").getAttribute("rows").replace(/\s/g, ''),
-                                "welcome_message": localStorage.getItem("welcome_content").replace(/\s/g, '##space##'),
-                                "welcome_message_set": localStorage.getItem("welcome_content_set")
-                            }
-                            var test1 = JSON.stringify(settings);
-                            document.getElementById("output").innerHTML += "Here is your JSON text: " + test1 + "\r\n";
-                            document.getElementById("output").innerHTML += "The JSON part started at '{' and at '}'\r\n";
-                        } else {
-                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
-                        }*/
                         document.getElementById("output").innerHTML += "This function has been disabled due to countless bug found!\r\n";
                     } else if (a[1] == "help") {
                         if (a[2] == null) {
@@ -2612,57 +2519,6 @@
                             document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                         }
                     } else if (a[1] == "settings-jsontext") {
-                        /*function IsJsonString(input) {
-                            try {
-                                JSON.parse(input);
-                            } catch (e) {
-                                return false;
-                            }
-                            return true;
-                        }
-                        if (a[2] == null) {
-                            document.getElementById("output").innerHTML += "Please provide a JSON text.\r\n";
-                        } else {
-                            if (a[3] == null) {
-                                if (IsJsonString(a[2])) {
-                                    var settings = JSON.parse(a[2]);
-                                    let color_input_hex = document.querySelector("#background");
-                                    color_input_hex.style.backgroundColor = settings.color_background;
-                                    let color_input_hex2 = document.querySelector("#command");
-                                    color_input_hex2.style.backgroundColor = settings.color_input_background;
-                                    let color_input_hex4 = document.querySelector("#command");
-                                    color_input_hex4.style.color = settings.color_input_text;
-                                    let color_input_hex1 = document.querySelector("#output");
-                                    color_input_hex1.style.backgroundColor = settings.color_output_background;
-                                    let color_input_hex3 = document.querySelector("#output");
-                                    color_input_hex3.style.color = settings.color_output_text;
-                                    let color_input_hex6 = document.querySelector("#command");
-                                    color_input_hex6.style.borderColor = settings.color_input_border;
-                                    let color_input_hex5 = document.querySelector("#output");
-                                    color_input_hex5.style.borderColor = settings.color_output_border;
-                                    document.getElementById("output").setAttribute("cols", settings.mode_cols);
-                                    document.getElementById("output").setAttribute("rows", settings.mode_rows);
-                                    if (settings.welcome_message_set == 1) {
-                                        localStorage.setItem("welcome_content", settings.welcome_message.replace('##space##', "\xa0"));
-                                        localStorage.setItem("welcome_content_set", 1);
-                                    }
-                                    localStorage.setItem("color:input_text", settings.color_input_text);
-                                    localStorage.setItem("color:output_text", settings.color_output_text);
-                                    localStorage.setItem("color:input_background", settings.color_input_background);
-                                    localStorage.setItem("color:output_background", settings.color_output_background);
-                                    localStorage.setItem("color:background", settings.color_background);
-                                    localStorage.setItem("color:input_border", settings.color_input_border);
-                                    localStorage.setItem("color:output_border", settings.color_output_border);
-                                    localStorage.setItem("mode:rows", settings.mode_rows);
-                                    localStorage.setItem("mode:cols", settings.mode_cols);
-                                    document.getElementById("output").innerHTML += "Settings has been applied successfully\r\n";
-                                } else {
-                                    document.getElementById("output").innerHTML += "Please provide a valid JSON text.\r\n";
-                                }
-                            } else {
-                                document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end. Or it might because your JSON string contain space, please remove any space you found and try again.\r\n";
-                            }
-                        }*/
                         document.getElementById("output").innerHTML += "This function has been disabled due to countless bug found!\r\n";
                     } else if (a[1] == "undo") {
                         if (window.backup[11]) {

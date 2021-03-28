@@ -83,11 +83,6 @@
                 div.container * { max-width: 50% }
             }
             @media (min-width: 375px) {
-                /* #button_list * {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                } */
                  #button_list {
                     display: grid;
                     grid-template-columns: repeat(auto-fit, minmax(calc(33% - 17px), 1fr));
@@ -308,12 +303,7 @@
             anchor2.appendChild(anchor2_text);
             anchor2.title = list.title;
             anchor2.href = list.address + "?id=" + dateTime;
-            // document.getElementById("accbar_small").appendChild(anchor2)
-            // document.getElementById("accbar_small").appendChild(anchor3)
             document.getElementById("accbar").appendChild(anchor);
-            /*if (index < name_.length - 1) {
-                document.getElementById("accbar").innerHTML += "\xa0\xa0\xa0\xa0\xa0\xa0";
-            }*/
         });
     </script>
 </html>
