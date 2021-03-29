@@ -99,7 +99,7 @@
             a:hover {
                 color: rgb(255, 0, 0);
             }
-            .center-screen button {
+            .center-screen button, .center-screen a {
                 margin: 5px 0 5px 0;
                 font-size: 1.05rem;
                 border: none;
@@ -110,7 +110,7 @@
                 cursor: pointer;
                 width: 95%;
             }
-            .center-screen button:hover {
+            .center-screen button:hover, .center-screen a:hover {
                 background-color: rgb(75, 75, 75);
             }
             @media (max-width: 960px) {
@@ -139,7 +139,7 @@
             <center><img src="/website/image/redstone_dust_icon__.svg" srcset="/website/image/redstone_dust_icon__.svg, /website/image/loading.gif" alt="Loading animation"></center>
             <center><h3>Welcome visitor! Where do you want to go?</h3></center>
             <center><div id="button_"></div></center>
-            <center><button onclick="window.location.href = 'old/index.html'">Load the first version of the website</button></center>
+            <center><a href="/old/index.html" target="_parent">Load the first version of the website</a></center>
             <center><button id="yes">Install website</button></center>
         </div>
         <script>

@@ -27,7 +27,7 @@
            setInterval(function(){ textarea.scrollTop = textarea.scrollHeight; }, 50);
            document.getElementById("result").value += 'Initializing...\nWelcome to my Guess The Number Game!\nTo beat the game, you must guess the correct number from 10000 to 99999\nTo start the game, press Start\n(Press Enter to insert value, Press Esc to clear the input box)\n(Press F4 to start the game, F7 to end the game)\n';
             var minutesLabel = document.getElementById("minutes"), secondsLabel = document.getElementById("seconds"), totalSeconds = 0, timerVar = setInterval(setTime, 1000);
-            function exit() { window.location.replace("https://quanmcpc.github.io"); }
+            function exit() { window.location.href = "/"; }
             function setTime() {
                 if (start == 1) {
                     ++totalSeconds;
