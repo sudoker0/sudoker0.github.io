@@ -26,6 +26,13 @@
     "theme_color": "#a00000",
     "description": "My website in a installable web app",
     "display": "minimal-ui",
+    "screenshots": [
+        {
+            "src": "/website/image/background.png",
+            "type": "image/png",
+            "sizes": "1366x768"
+        }
+    ],
     "shortcuts": [
         {
             "name": "Home",
