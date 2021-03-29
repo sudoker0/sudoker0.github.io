@@ -25,7 +25,7 @@
     "scope": "/",
     "theme_color": "#a00000",
     "description": "My website in a installable web app",
-    "display": "standalone",
+    "display": "minimal-ui",
     "shortcuts": [
         {
             "name": "Home",
