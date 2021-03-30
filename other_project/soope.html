@@ -484,6 +484,10 @@
             getId("fullscreen").style.display = "none";
             if (document.exitFullscreen) { document.exitFullscreen() } else if (document.webkitExitFullscreen) { document.webkitExitFullscreen() } else if (document.msExitFullscreen) { document.msExitFullscreen() }
         }
+        function openFPSDisplay(o) {
+            getId("canvas_").style.display = "block";
+            getId("canvas_").style.opacity = o;
+        }
         var tool_ = "pencil", toggleDS = false, unredo = [], unredoPos = 0, $canvas = getId("canvas"), type, id_, lockRatio_ = false, ratio = 0, lockRatio__ = false, prevX = 0, prevY = 0, currX = 0, currY = 0, ah43, startTime = performance.now(),  cAT = window.cancelAnimationFrame || window.mozCancelAnimationFrame, rAT = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
         document.body.onresize = resizeHandler
         function startV() {
@@ -493,7 +497,7 @@
                 times.push(timestamp);
                 fps = times.length;
                 var fps_ = fps / 2;
-                getId("v_fps").innerHTML = fps_ + " fps"; getId("v_pColor").innerHTML = getId("brush_color").value;
+                getId("v_fps").innerHTML = fps + " fps"; getId("v_pColor").innerHTML = getId("brush_color").value;
                 if (xPos >= getId("canvas_").getAttribute("width")) { xPos = 0 }
                 ctx.beginPath();
                 ctx.globalCompositeOperation="source-over";
@@ -569,10 +573,6 @@
                     if (t.indexOf("text") !== -1) { r.readAsText(f) }
                 }
             }
-        }
-        function openFPSDisplay(o) {
-            getId("canvas_").style.display = "block";
-            getId("canvas_").style.opacity = o;
         }
         function dragOverHandler(e) { e.preventDefault(); e.stopPropagation(); }
         document.ondrop = dropHandler;
