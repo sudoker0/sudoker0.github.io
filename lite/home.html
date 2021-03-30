@@ -487,7 +487,7 @@
             return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
         function oOPIIF(url) {
-            document.getElementById("iframe__").setAttribute("src", url);
+            document.getElementById("iframe__").setAttribute("src", url + `?nocache=${Math.round(Math.random() * 1000000)}`);
             document.getElementById("iframe_").style.display = "block";
             document.getElementsByTagName("body")[0].style.overflow = "hidden";
         }
