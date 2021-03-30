@@ -199,7 +199,7 @@
             <hr>
         </noscript>
         <div id="verbose">
-            <p>SOOPE v1.1.1+20212003145300P7</p>
+            <p>SOOPE v1.1.2+20213003130400P7</p>
             <p>FPS: <span id="v_fps">0</span></p>
             <p>Cursor Position X / Y (In Canvas) (px): <span id="v_cX">0</span> / <span id="v_cY">0</span></p>
             <p>Canvas Width / Height (px): <span id="v_width">0</span> / <span id="v_height">0</span></p>
@@ -213,6 +213,7 @@
             <p>Items in the Clipboard variable: <span id="v_uic">0</span></p>
             <p>Position of "pointer" in the Clipboard variable: <span id="v_uip">0</span></p>
             <p>Size of the Clipboard variable (Byte): <span id="v_ual">0</span></p>
+            <p>A message have been send in DevTools</p>
             <p>Time wasted drawing (ms): <span id="v_tWD">0</span></p>
         </div>
         <p id="a" style="display: none;">Test</p>
@@ -404,6 +405,7 @@
                 </svg>
             </div>
             <canvas id="canvas" width="640" height="480" style="width: 640px; height: 480px; border:2px solid black; z-index: 99; background-color: white"></canvas>
+            <canvas id="canvas_" width="450" height="60" style="display: none; position: fixed; left: 0; bottom: 0; opacity: 0.8; pointer-events: none; float: left; width: 450px; height: 70px; border:2px solid black; z-index: 99; background-color: white"></canvas>
         </div>
         <div id="about__">
             <div id="about_"></div>
@@ -411,7 +413,7 @@
                 <hr>
                 <h3 style="text-align: center;">SOOPE (Simple and Open-Source Online Picture Editor)</h3>
                 <hr>
-                <p>Version: 1.1.1, completed at: March 20th, 2021</p>
+                <p>Version: 1.1.2, completed at: March 30st, 2021</p>
                 <p>Created by: QuanMCPC, Product Made In VietNam.</p>
                 <p>Language used: HTML, CSS, JS</p>
                 <p>This allow user to edit picture from the browser online (and offline if you add this file to ServiceWorker).</p>
@@ -486,11 +488,24 @@
         document.body.onresize = resizeHandler
         function startV() {
             getId("verbose").style.display = "block";
-            var fps = 1, times = [], a, fpsLoop = function (timestamp) {
+            var fps = 1, times = [], a, xPos = 1, oldYPos = 0, ctx = getId("canvas_").getContext("2d"), fpsLoop = function (timestamp) {
                 while (times.length > 0 && times[0] <= timestamp - 1000) { times.shift(); }
                 times.push(timestamp);
                 fps = times.length;
-                getId("v_fps").innerHTML = fps + " fps"; getId("v_pColor").innerHTML = getId("brush_color").value;
+                var fps_ = fps / 2;
+                getId("v_fps").innerHTML = fps_ + " fps"; getId("v_pColor").innerHTML = getId("brush_color").value;
+                if (xPos >= getId("canvas_").getAttribute("width")) { xPos = 0 }
+                ctx.beginPath();
+                ctx.globalCompositeOperation="source-over";
+                ctx.moveTo(xPos, getId("canvas_").getAttribute("height") - fps_);
+                ctx.fillStyle = "#ffffff"
+                ctx.fillRect(xPos + 5, 0, 1, getId("canvas_").getAttribute("height"))
+                ctx.lineTo(xPos + 1, getId("canvas_").getAttribute("height") - fps_);
+                ctx.strokeStyle = "#ff0000";
+                ctx.lineWidth = 2;
+                ctx.lineCap = 'butt';
+                ctx.stroke();
+                xPos++;
                 getId("v_cX").innerHTML = currX; getId("v_cY").innerHTML = currY;
                 getId("v_width").innerHTML = $canvas.getAttribute("width"); getId("v_height").innerHTML = $canvas.getAttribute("height");
                 getId("v_pSize").innerHTML = getId("brush_size").value; getId("v_eSize").innerHTML = getId("eraser_size").value;
@@ -555,6 +570,10 @@
                 }
             }
         }
+        function openFPSDisplay(o) {
+            getId("canvas_").style.display = "block";
+            getId("canvas_").style.opacity = o;
+        }
         function dragOverHandler(e) { e.preventDefault(); e.stopPropagation(); }
         document.ondrop = dropHandler;
         document.ondragover = dragOverHandler;
@@ -564,7 +583,17 @@
             if (e.key == "n" && e.altKey) { newImage() }
             if (e.key == "s" && e.altKey) { saveImage() }
             if (e.key == "o" && e.altKey) { openImage() }
-            if (e.key == "F3" && e.altKey && e.ctrlKey) { if (toggleDS) { stopV(); toggleDS = false; } else { startV(); toggleDS = true; } }
+            if (e.key == "F3" && e.altKey && e.ctrlKey) {
+                if (toggleDS) {
+                    stopV();
+                    getId("canvas_").style.display = "none";
+                    toggleDS = false;
+                } else {
+                    console.log("Run function: \"openFPSDisplay(<insert_opacity_from_0_to_1_here>)\"")
+                    startV();
+                    toggleDS = true;
+                }
+            }
             if (e.key == "F11" && e.altKey) {
                 if (getId("fullscreen").style.display == "block") { eFS() } else { fullS() }
             }
