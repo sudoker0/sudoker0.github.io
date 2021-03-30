@@ -102,7 +102,7 @@
             #output {
                 outline: none;
                 -ms-overflow-style: none;
-  				scrollbar-width: none;
+                  scrollbar-width: none;
             }
             #output::-webkit-scrollbar {
                 display: none;
@@ -199,7 +199,7 @@
             }
             #editor_input {
                 -ms-overflow-style: none;
-  				scrollbar-width: none;
+                  scrollbar-width: none;
             }
             #edit_file_dropdown:hover #edit_file_menu { display: block; }
             #edit_edit_dropdown:hover #edit_edit_menu { display: block; }
@@ -229,28 +229,28 @@
             }
             .context-menu {
                 background-color:rgba(20, 20, 20, 0.850);
-				border: 1px solid rgba(20, 20, 20, 0.850);
-  				opacity: 1;
-				text-align: center;
-				position: sticky;
-				position: -webkit-sticky;
-				top: 0px;
-				margin-left: -8px;
-				margin-right: -8px;
-				margin-top: -8px;
+                border: 1px solid rgba(20, 20, 20, 0.850);
+                  opacity: 1;
+                text-align: center;
+                position: sticky;
+                position: -webkit-sticky;
+                top: 0px;
+                margin-left: -8px;
+                margin-right: -8px;
+                margin-top: -8px;
             }
             h3 {
                 margin-top: 4px;
                 margin-bottom: 4px;
             }
             a:link, a:visited {
-				color: rgb(255, 255, 255);
-				text-decoration: none;
-				display: inline-block;
-			}
-			a:hover, a:active {
-				color: rgb(158, 158, 158);
-			}
+                color: rgb(255, 255, 255);
+                text-decoration: none;
+                display: inline-block;
+            }
+            a:hover, a:active {
+                color: rgb(158, 158, 158);
+            }
         </style>
     </head>
     <body style="background-color: rgb(34, 34, 34);" onload="intro()" id="background" onresize="reset()">
@@ -733,7 +733,7 @@
                     throw new Error("This is not an error");
                 }
             }
-	        function editor_find3() {
+            function editor_find3() {
                 var sel = document.getElementById('editor_find_replace_name');
                 var tarea = document.getElementById('editor_input');
                 selectTextareaLine2(tarea, sel.value);
@@ -788,7 +788,7 @@
                     return false;
                 }
             }
-		    function selectTextareaLine2(tarea, word_1) {
+            function selectTextareaLine2(tarea, word_1) {
                 if (tarea.value.indexOf(word_1, window.start_3) > -1) {
                     const words_1 = tarea.value.split(" ");
                     const startPos_1 = tarea.value.indexOf(word_1, window.start_3), endPos_1 = startPos_1 + word_1.length
@@ -965,9 +965,9 @@
                 document.getElementById("editor_input").select();
             }
             function editor_exit() {
-			    if (confirm("WARNING: Unlike the close button up the top that only close the window but still keep the progress. Reset and Close will reset your progress [including the console log] and close the window. Please download any document that you're currently writing!\r\n Are you sure you want to continue?")) {
-			    	window.location.reload(true);
-			    }
+                if (confirm("WARNING: Unlike the close button up the top that only close the window but still keep the progress. Reset and Close will reset your progress [including the console log] and close the window. Please download any document that you're currently writing!\r\n Are you sure you want to continue?")) {
+                    window.location.reload(true);
+                }
             }
             function editor_open() {
                 let open = document.querySelector("#editor_open");
@@ -999,7 +999,7 @@
                 fileReader.readAsText(fileToLoad, "UTF-8");
                 let cancel = document.querySelector("#editor_open");
                 cancel.style.display = "none";
-		        document.querySelector("#editor_overlay").style.display = "none";
+                document.querySelector("#editor_overlay").style.display = "none";
                 var fullPath = document.getElementById('editor_open_name').value;
                 if (fullPath) {
                     var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
@@ -1038,7 +1038,7 @@
                 let cancel1 = document.querySelector("#editor_save");
                 cancel1.style.display = "none";
                 document.getElementById("editor_filename").innerHTML = "File: " + document.getElementById("editor_save_name").value;
-			    document.querySelector("#editor_overlay").style.display = "none";
+                document.querySelector("#editor_overlay").style.display = "none";
             }
             function destroyClickedElement(event) {
                 document.body.removeChild(event.target);

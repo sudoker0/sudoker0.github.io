@@ -1,56 +1,56 @@
 <html lang="en">
 <head>
         <script src="/index.js?ver=1202"></script>
-	<title>HTML Text Editor</title>
-	<link rel="stylesheet" type="text/css" href="main.css">
-	<style>
-		#txtFormatUrl { width: 22%; }
-		#inputColorCode { width: 19%; }
-		#namefile { width: 16%; }
-		.editor
+    <title>HTML Text Editor</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <style>
+        #txtFormatUrl { width: 22%; }
+        #inputColorCode { width: 19%; }
+        #namefile { width: 16%; }
+        .editor
         {
-			border:solid 1px #ccc;
-			padding: 20px;
-			min-height:400px;
+            border:solid 1px #ccc;
+            padding: 20px;
+            min-height:400px;
         }
 
         .sample-toolbar
         {
-			border:solid 1px #ddd;
-			background:#f4f4f4;
-			padding: 5px;
-			border-radius:3px;
+            border:solid 1px #ddd;
+            background:#f4f4f4;
+            padding: 5px;
+            border-radius:3px;
         }
 
         .sample-toolbar > span
         {
-			cursor:pointer;
-		}
+            cursor:pointer;
+        }
 
         .sample-toolbar > span:hover
         {
-			text-decoration:underline;
-		}
-		.exitButton {float: right;}
+            text-decoration:underline;
+        }
+        .exitButton {float: right;}
 
-	</style>
+    </style>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
 
 <body>
-	<div class="sample-toolbar">
-		<a rel="noreferrer" href="javascript:void(0)" onclick="format('bold')"><span class="fa fa-bold fa-fw"></span></a>
+    <div class="sample-toolbar">
+        <a rel="noreferrer" href="javascript:void(0)" onclick="format('bold')"><span class="fa fa-bold fa-fw"></span></a>
         <a rel="noreferrer" href="javascript:void(0)" onclick="format('italic')"><span class="fa fa-italic fa-fw"></span></a>
-		<a rel="noreferrer" href="javascript:void(0)" onclick="format('underline')"><span class="fa fa-underline fa-fw"></span></a>
-		<a rel="noreferrer" href="javascript:void(0)" onclick="clearAll()"><span class="fa fa-trash fa-fw"></span></a>
-		<a rel="noreferrer" href="javascript:void(0)" onclick="format('insertunorderedlist')"><span class="fa fa-list fa-fw"></span></a>
-		<a rel="noreferrer" href="javascript:void(0)" onclick="setUrl()"><span class="fa fa-link fa-fw"></span></a>
-		<span><input id="txtFormatUrl" placeholder="URL [https://www.google.com or folder/test.html]" class="form-control"></span>
-		<a rel="noreferrer" href="javascript:void(0)" onclick="setColor()"><span class="fa fa-brush fa-fw"></span></a>
-		<span><input id="inputColorCode" placeholder="Color Data [color:red or color:#FF0000]"></input></span>
-		<a rel="noreferrer" href="javascript:void(0)" onclick="downloadfile()"><span class="fa fa-save fa-fw"></span></a>
-		<input type="text" id="namefile" name="namefile" placeholder="Filename [default: html or htm]"></input>
-		<span>&nbsp;[Basic HTML Text Editor]</span>
+        <a rel="noreferrer" href="javascript:void(0)" onclick="format('underline')"><span class="fa fa-underline fa-fw"></span></a>
+        <a rel="noreferrer" href="javascript:void(0)" onclick="clearAll()"><span class="fa fa-trash fa-fw"></span></a>
+        <a rel="noreferrer" href="javascript:void(0)" onclick="format('insertunorderedlist')"><span class="fa fa-list fa-fw"></span></a>
+        <a rel="noreferrer" href="javascript:void(0)" onclick="setUrl()"><span class="fa fa-link fa-fw"></span></a>
+        <span><input id="txtFormatUrl" placeholder="URL [https://www.google.com or folder/test.html]" class="form-control"></span>
+        <a rel="noreferrer" href="javascript:void(0)" onclick="setColor()"><span class="fa fa-brush fa-fw"></span></a>
+        <span><input id="inputColorCode" placeholder="Color Data [color:red or color:#FF0000]"></input></span>
+        <a rel="noreferrer" href="javascript:void(0)" onclick="downloadfile()"><span class="fa fa-save fa-fw"></span></a>
+        <input type="text" id="namefile" name="namefile" placeholder="Filename [default: html or htm]"></input>
+        <span>&nbsp;[Basic HTML Text Editor]</span>
     </div>
 
 <div class="editor" id="sampleeditor" contenteditable="true"></div>
@@ -62,7 +62,7 @@
 <h5>Edited, fixed by: Quan_MCPC</h5>
 <h5 style="color:red">NOTE: I am NOT the person that write this. I just added new features and fixed some bug in the og code.</h5>
 
-	<script>
+    <script>
         function downloadfile(){
             var fileName =  document.getElementById("namefile").value;
             downloadInnerHtml(fileName, 'sampleeditor','text/html');
@@ -78,49 +78,49 @@
         }
 
 
-		window.addEventListener('load', function(){
-			document.getElementById('sampleeditor').setAttribute('contenteditable', 'true');
-			document.getElementById('sampleeditor2').setAttribute('contenteditable', 'true');
+        window.addEventListener('load', function(){
+            document.getElementById('sampleeditor').setAttribute('contenteditable', 'true');
+            document.getElementById('sampleeditor2').setAttribute('contenteditable', 'true');
         });
 
-		function format(command, value) {
-			document.execCommand(command, true, value);
-		}
-		function clearAll() {
-			document.execCommand("selectAll", false);
-			document.execCommand("delete", false);
-		}
-		function setUrl() {
-    		var url = document.getElementById('txtFormatUrl').value;
-    		var selection = document.getSelection();
+        function format(command, value) {
+            document.execCommand(command, true, value);
+        }
+        function clearAll() {
+            document.execCommand("selectAll", false);
+            document.execCommand("delete", false);
+        }
+        function setUrl() {
+            var url = document.getElementById('txtFormatUrl').value;
+            var selection = document.getSelection();
 
-    		if(selection.rangeCount) {
-        		var textSelected = selection.toString();
-        		var element = document.createElement('a');
-        		element.innerText = textSelected;
-        		element.setAttribute('href', url);
+            if(selection.rangeCount) {
+                var textSelected = selection.toString();
+                var element = document.createElement('a');
+                element.innerText = textSelected;
+                element.setAttribute('href', url);
 
-        		var range = selection.getRangeAt(0);
-        		range.deleteContents();
-        		range.insertNode(element);
-    		}
-		}
-		function setColor() {
-			var colorCode = document.getElementById('inputColorCode').value;
-    			var colorselection = document.getSelection();
+                var range = selection.getRangeAt(0);
+                range.deleteContents();
+                range.insertNode(element);
+            }
+        }
+        function setColor() {
+            var colorCode = document.getElementById('inputColorCode').value;
+                var colorselection = document.getSelection();
 
-    			if(colorselection.rangeCount) {
-        			var textSelected = colorselection.toString();
-        			var element = document.createElement('a');
-       		 		element.innerText = textSelected;
-        			element.setAttribute('style', colorCode);
+                if(colorselection.rangeCount) {
+                    var textSelected = colorselection.toString();
+                    var element = document.createElement('a');
+                        element.innerText = textSelected;
+                    element.setAttribute('style', colorCode);
 
-        			var range = colorselection.getRangeAt(0);
-        			range.deleteContents();
-        			range.insertNode(element);
-    			}
-			}
+                    var range = colorselection.getRangeAt(0);
+                    range.deleteContents();
+                    range.insertNode(element);
+                }
+            }
 
-	</script>
+    </script>
 </body>
 </html>
