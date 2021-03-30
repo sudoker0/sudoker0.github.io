@@ -50,7 +50,6 @@
 		<span><input id="inputColorCode" placeholder="Color Data [color:red or color:#FF0000]"></input></span>
 		<a rel="noreferrer" href="javascript:void(0)" onclick="downloadfile()"><span class="fa fa-save fa-fw"></span></a>
 		<input type="text" id="namefile" name="namefile" placeholder="Filename [default: html or htm]"></input>
-		<a rel="noreferrer" href="javascript:void(0)" onclick="exit()" class="exitButton"><span class="fa fa-window-close fa-fw>"></span></a>
 		<span>&nbsp;[Basic HTML Text Editor]</span>
     </div>
 
@@ -64,9 +63,6 @@
 <h5 style="color:red">NOTE: I am NOT the person that write this. I just added new features and fixed some bug in the og code.</h5>
 
 	<script>
-		function exit() {
-			window.location.href = "/";
-		}
         function downloadfile(){
             var fileName =  document.getElementById("namefile").value;
             downloadInnerHtml(fileName, 'sampleeditor','text/html');
