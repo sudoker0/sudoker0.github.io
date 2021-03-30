@@ -116,7 +116,7 @@
                 top: 0;
                 left: 0;
                 background-color: rgba(0,0,0,0.8);
-                z-index: 15;
+                z-index: 50;
                 color: white;
             }
             #noscript_overlay * {
@@ -132,7 +132,7 @@
                 top: 0;
                 left: 0;
                 background-color: black;
-                z-index: 15;
+                z-index: 50;
                 cursor: not-allowed;
             }
             #secret_image {
@@ -241,7 +241,7 @@
             }
             #iframe_accbar {
                 width: 100%;
-                height: 30px;
+                height: 20px;
                 background-color: gray;
             }
             #abcd {
@@ -251,8 +251,8 @@
                 border: 1px solid gray;
             }
             #iframe_accbar button {
-                height: 30px;
-                min-width: 75px;
+                height: 20px;
+                min-width: 50px;
                 border: none;
                 margin-left: 5px;
                 margin-right: 5px;
@@ -263,7 +263,7 @@
             iframe {
                 border: none;
                 overflow: scroll;
-                height: calc(100% - 36px);
+                height: calc(100% - 26px);
             }
         </style>
     </head>
@@ -273,7 +273,7 @@
                 <button onclick="document.getElementById('iframe__').setAttribute('src', 'about:blank'); document.getElementById('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Close</button><button onclick="window.open(document.getElementById('iframe__').getAttribute('src'), '_blank'); document.getElementById('iframe_').style.display = 'none'">Open in a new tab</button>
             </div>
             <hr id="abcd">
-            <iframe id="iframe__" scrolling="yes" src="https://quanmcpc.github.io/other_project/soope.html" width="100%"></iframe>
+            <iframe id="iframe__" scrolling="yes" src="about:blank" width="100%" allowfullscreen></iframe>
         </div>
         <div id="secret_image">
             <img src="website/image/secret_.png" alt="Secret image UwU">
