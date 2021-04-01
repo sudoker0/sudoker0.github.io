@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  src: url(website/font/Raleway-Medium.ttf);
+  font-display: fallback;
+}
+h1 {
+  font-family: Raleway;
+  font-weight: 500;
+}
+* {
+  font-family: Raleway;
+  font-weight: 500;
+}
+body {
+  overflow-y: scroll;
+}
