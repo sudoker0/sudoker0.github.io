@@ -1,4 +1,4 @@
-var cacheName = `version-${Math.floor(Math.random() * 100000)}`, urlsToCache = ["other_project/soope.html", "offline.html"];
+var cacheName = `version-${Math.floor(Math.random() * 100000)}`, urlsToCache = ["/other_project/soope.html", "/offline.html"];
 self.addEventListener("install", e => {
     e.waitUntil(
         caches.open(cacheName)
