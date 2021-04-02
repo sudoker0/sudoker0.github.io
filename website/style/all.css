@@ -2,7 +2,7 @@
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 600;
-  src: url(website/font/Raleway-Medium.ttf);
+  src: url(/website/font/Raleway-Medium.ttf);
   font-display: fallback;
 }
 h1 {
