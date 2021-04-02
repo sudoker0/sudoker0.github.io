@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link rel="stylesheet" href="/website/style/lite.css">
+        <script src="/website/script/lite.js" defer></script>
         <meta charset="UTF-8">
         <link rel="manifest" href="/manifest.json">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,64 +26,6 @@
         <link rel="icon" href="/website/image/favicon.ico">
         <title>QuanMCPC's Website</title>
         <style>
-            #accb {
-                border: 2px solid black;
-                width: calc(100% - 4px);
-                display: grid;
-                grid-template-areas: "left_ right_";
-                grid-template-columns: 1fr 5fr;
-                margin: 0;
-                position: relative;
-            }
-            body { margin: 2px; }
-            #accbar {
-                grid-area: right_-start;
-                display: flex;
-                justify-content: flex-end;
-            }
-            #accbar * {
-                margin-left: 13px;
-                margin-right: 13px;
-            }
-            .container {
-                margin: 24px;
-                border: 2px solid black;
-            }
-            .container * {
-                margin-left: auto;
-                margin-right: auto;
-                max-width: 50%;
-            }
-            @media (min-width: 320px) {
-                body { font-size: 0.75rem; }
-                #accbar a { margin-left: 5px; margin-right: 5px; }
-                #accb_small, #accb_small_ p { font-size: 1.5em }
-                div.container * { max-width: 100% }
-            }
-            @media (min-width: 482px) {
-                body { font-size: 0.75rem; }
-                #accbar a { margin-left: 7px; margin-right: 7px; }
-                #accb_small, #accb_small_ p { font-size: 1.4em }
-                div.container * { max-width: 95% }
-            }
-            @media (min-width: 640px) {
-                body { font-size: 0.81rem; }
-                #accbar a { margin-left: 9px; margin-right: 9px; }
-                #accb_small, #accb_small_ p { font-size: 1.3em }
-                div.container * { max-width: 80% }
-            }
-            @media (min-width: 960px) {
-                body { font-size: 1rem; }
-                #accbar a { margin-left: 11px; margin-right: 11px; }
-                #accb_small, #accb_small_ p { font-size: 1.2em }
-                div.container * { max-width: 65% }
-            }
-            @media (min-width: 1100px) {
-                body { font-size: 1rem; }
-                #accbar a { margin-left: 13px; margin-right: 13px; }
-                #accb_small, #accb_small_ p { font-size: 1.1em }
-                div.container * { max-width: 50% }
-            }
             @media (min-width: 375px) {
                  #button_list {
                     display: grid;
@@ -112,36 +56,9 @@
             #overlay_:hover {
                 cursor: zoom-in;
             }
-            #noscript_overlay {
-                position: fixed;
-                display: block;
-                width: 100%;
-                height: 100%;
-                top: 0;
-                left: 0;
-                background-color: rgba(255, 255, 255, 0.8);
-                z-index: 50;
-                color: rgb(0, 0, 0);
-            }
-            #noscript_overlay * {
-                max-width: 95%;
-                margin-left: auto;
-                margin-right: auto;
-            }
             div#button_list *, div#button_list {
                 max-width: initial;
                 margin: initial;
-            }
-            #screentoosmall {
-                position: fixed;
-                display: none;
-                width: 100%;
-                height: 100%;
-                top: 0;
-                left: 0;
-                z-index: 50;
-                cursor: not-allowed;
-                background-color: white;
             }
         </style>
     </head>
@@ -292,49 +209,6 @@
             document.getElementById("image__").setAttribute("src", 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTM2NiIgaGVpZ2h0PSI3MDUiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDM2MS40MiAxODYuNTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8cmVjdCB3aWR0aD0iMzYxLjQyIiBoZWlnaHQ9IjE4Ni41MyIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIuMjY2MTEiLz4KIDx0ZXh0IHRyYW5zZm9ybT0ic2NhbGUoMS4wNTcxIC45NDU5NSkiIHg9IjE2OS42OTQ2NyIgeT0iMTAyLjY0NDA3IiBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTEuNDcycHgiIHN0cm9rZS13aWR0aD0iLjEzMzMyIiB0ZXh0LWFsaWduPSJjZW50ZXIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJsaW5lLWhlaWdodDoxLjI1IiB4bWw6c3BhY2U9InByZXNlcnZlIj48dHNwYW4geD0iMTY5LjY5NDY3IiB5PSIxMDIuNjQ0MDciIHRleHQtYWxpZ249ImNlbnRlciI+Tm8gSW1hZ2U8L3RzcGFuPjx0c3BhbiB4PSIxNjkuNjk0NjciIHk9IjExNi45ODM4MyIgdGV4dC1hbGlnbj0iY2VudGVyIj4xMzY2IHggNzA1PC90c3Bhbj48L3RleHQ+Cjwvc3ZnPgo=')
             document.getElementById("overlay_").style.opacity = 0
             document.getElementById("cancel_image").style.display = "block"
-        }
-        var name_ = [
-            {
-                "name": "Home",
-                "title": "Home - The main page of the website",
-                "address": "home.html"
-            },
-            {
-                "name": "Credit",
-                "title": "Credit - All of the stuff and people that created this website will be listed here",
-                "address": "credit.html"
-            },
-            {
-                "name": "About Website",
-                "title": "About Website - Information about my website",
-                "address": "about.html"
-            },
-            {
-                "name": "Gallery",
-                "title": "Gallery - Where I store picture of project and stuff",
-                "address": "gallery.html"
-            }
-        ];
-        //Syntax: Name / Description / Link (Space is important)
-        name_.forEach(function (list, index) {
-            var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
-            var anchor = document.createElement("a"), anchor_text = document.createTextNode(list.name), anchor2 = document.createElement("a"), anchor2_text = document.createTextNode(list.name), anchor3 = document.createElement("br");
-            anchor.appendChild(anchor_text);
-            anchor.title = list.title;
-            anchor.href = list.address + "?id=" + dateTime;
-            anchor2.appendChild(anchor2_text);
-            anchor2.title = list.title;
-            anchor2.href = list.address + "?id=" + dateTime;
-            document.getElementById("accbar").appendChild(anchor);
-        });
-        window.onload = window.onresize = e => {
-            if (getParameterByName("no_screen_size_check") == "true") {} else {
-                if (window.innerWidth < 320 || window.outerWidth < 320) {
-                    document.getElementById("screentoosmall").style.display = "block";
-                } else {
-                    document.getElementById("screentoosmall").style.display = "none";
-                }
-            }
         }
     </script>
 </html>
