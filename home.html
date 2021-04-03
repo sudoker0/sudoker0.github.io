@@ -434,6 +434,11 @@
         </main>
     </body>
     <script>
+        function oOPIIF(url) {
+            document.getElementById("iframe__").setAttribute("src", url + `?nocache=${Math.round(Math.random() * 1000000)}`);
+            document.getElementById("iframe_").style.display = "block";
+            document.getElementsByTagName("body")[0].style.overflow = "hidden";
+        }
         document.getElementById("github_link").onkeydown = event => {
             if (event.code == "Enter" || event.code == "Space") { window.location.href = 'https://github.com/QuanMCPC' }
         }
