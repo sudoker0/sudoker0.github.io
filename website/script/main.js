@@ -71,13 +71,6 @@ window.onload = window.onresize = function() {
     check()
     accb_small_isOn = false;
     document.getElementById("accb_small").style.display = "none"
-    if (getParameterByName("no_screen_size_check") == "true") {} else {
-        if (window.innerWidth < 320 || window.outerWidth < 320) {
-            document.getElementById("screentoosmall").style.display = "block";
-        } else {
-            document.getElementById("screentoosmall").style.display = "none";
-        }
-    }
     if (window.innerWidth < 482 || window.outerWidth < 482) {
         document.getElementById("accb_small_").style.display = "grid";
         document.getElementsByClassName("accb")[0].style.display = "none"

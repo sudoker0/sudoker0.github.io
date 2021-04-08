@@ -121,7 +121,7 @@
             }
         </style>
     </head>
-    <body id="temp">
+    <body id="temp" onload="check1()">
         <div id="iframe_">
             <div id="iframe_accbar">
                 <button onclick="document.getElementById('iframe__').setAttribute('src', 'about:blank'); document.getElementById('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Close</button><button onclick="window.open(document.getElementById('iframe__').getAttribute('src'), '_blank'); document.getElementById('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Open in a new tab</button>

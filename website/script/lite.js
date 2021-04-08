@@ -40,12 +40,3 @@ name_.forEach(function (list, index) {
     anchor2.href = list.address + "?id=" + dateTime;
     document.getElementById("accbar").appendChild(anchor);
 });
-window.onload = window.onresize = e => {
-    if (getParameterByName("no_screen_size_check") == "true") {} else {
-        if (window.innerWidth < 320 || window.outerWidth < 320) {
-            document.getElementById("screentoosmall").style.display = "block";
-        } else {
-            document.getElementById("screentoosmall").style.display = "none";
-        }
-    }
-}
