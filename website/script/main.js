@@ -1,4 +1,6 @@
 //@QuanMCPC
+//@ts-check//
+var pathname = window.location.pathname, accb_small_isOn;
 var name_ = [
     {
         "name": "Home",
@@ -45,7 +47,7 @@ function getParameterByName(name, url) {
 }
 function check() {
     document.getElementById("accb_small").style.top = document.getElementById("accb_small_").style.width
-    if (getParameterByName("sv_cheat") >= 1 || getParameterByName("debug") >= 1 || getParameterByName("hack") >= 1) {
+    if (Number(getParameterByName("sv_cheat")) >= 1 || Number(getParameterByName("debug")) >= 1 || Number(getParameterByName("hack")) >= 1) {
         window.location.replace("ban.html");
     }
     if (localStorage.getItem("ls") == "927") {
@@ -68,6 +70,7 @@ document.addEventListener("click", function(evt) {
     accb_small_isOn = false;
 });
 window.onload = window.onresize = function() {
+    if (pathname == "/home.html" || pathname == "/home") { document.getElementById("project__").style.width = document.getElementById("project").scrollWidth + "px" }
     check()
     accb_small_isOn = false;
     document.getElementById("accb_small").style.display = "none"
