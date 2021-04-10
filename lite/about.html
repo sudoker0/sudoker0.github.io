@@ -27,28 +27,31 @@
         <link rel="icon" href="/website/image/favicon.ico">
         <title>QuanMCPC's Website</title>
         <style>
-            div.container *:not(#textview) {
+            div.container * {
                 margin-left: auto;
                 margin-right: auto;
                 max-width: 50%;
             }
             @media (min-width: 320px) {
-                div.container *:not(#textview) { max-width: 100% }
+                div.container * { max-width: 100% }
             }
             @media (min-width: 482px) {
-                div.container *:not(#textview) { max-width: 95% }
+                div.container * { max-width: 95% }
             }
             @media (min-width: 640px) {
-                div.container *:not(#textview) { max-width: 80% }
+                div.container * { max-width: 80% }
                 th, td { padding: 5px }
             }
             @media (min-width: 960px) {
-                div.container *:not(#textview) { max-width: 65% }
+                div.container * { max-width: 65% }
                 th, td { padding: 15px }
             }
             @media (min-width: 1100px) {
-                div.container *:not(#textview) { max-width: 50% }
+                div.container * { max-width: 50% }
                 th, td { padding: 15px }
+            }
+            #textview {
+                max-width: initial;
             }
             table {
                 color: black;
@@ -194,18 +197,14 @@
             rawFile.send(null);
         }
         readTextFile("/website_data.json", function (text) {
-            var data = JSON.parse(text);
-            var total = data.filesize.total;
-            var default_1 = data.filesize.default;
-            var basic = data.filesize.basic;
-            var other = data.filesize.other;
-            var numberofcommit = data.numberofcommit;
-            var lastupdateon = data.lastupdateon;
-            var lastupdateon1 = data.filesize.lastupdateon;
-            document.getElementById("total").innerHTML = total; document.getElementById("total1").innerHTML = total;
-            document.getElementById("default").innerHTML = default_1; document.getElementById("default1").innerHTML = default_1;
-            document.getElementById("basic").innerHTML = basic; document.getElementById("basic1").innerHTML = basic;
-            document.getElementById("other").innerHTML = other; document.getElementById("other1").innerHTML = other;
+            var data = JSON.parse(text), total = data.filesize.total,
+                default_1 = data.filesize.default, basic = data.filesize.basic, other = data.filesize.other,
+                numberofcommit = data.numberofcommit,
+                lastupdateon = data.lastupdateon, lastupdateon1 = data.filesize.lastupdateon;
+            document.getElementById("total").innerHTML = document.getElementById("total1").innerHTML = total;
+            document.getElementById("default").innerHTML = document.getElementById("default1").innerHTML = default_1;
+            document.getElementById("basic").innerHTML = document.getElementById("basic1").innerHTML = basic;
+            document.getElementById("other").innerHTML = document.getElementById("other1").innerHTML = other;
             var utcTime = 0;
             function fetch_() {
                 fetch(`https://api.github.com/repos/QuanMCPC/QuanMCPC.github.io/stats/contributors?nocache=${Math.round(Math.random() * 1000000)}`, { headers: { "accept": "application/vnd.github.v3+json" } })
@@ -224,17 +223,11 @@
             document.getElementById("lastupdateon_").innerHTML = lastupdateon1; document.getElementById("lastupdateon_1").innerHTML = lastupdateon1;
         })
         function date_check() {
-            var date1 = new Date("07/17/2020");
-            var date2 = new Date();
-            var date3 = new Date("4/14/2022");
-            var Difference_In_Time = date2.getTime() - date1.getTime();
-            var Difference_In_Time1 = date3.getTime() - date2.getTime();
-            var Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
-            var Difference_In_Days1 = Math.round(Difference_In_Time1 / (1000 * 3600 * 24));
-            document.getElementById("days_from").innerHTML = Difference_In_Days;
-            document.getElementById("validuntil").innerHTML = Difference_In_Days1;
-            document.getElementById("days_from1").innerHTML = Difference_In_Days;
-            document.getElementById("validuntil1").innerHTML = Difference_In_Days1;
+            var date1 = new Date("07/17/2020"), date2 = new Date(), date3 = new Date("4/14/2022"),
+                DInTime = date2.getTime() - date1.getTime(), DInTime1 = date3.getTime() - date2.getTime(),
+                DInDays = Math.round(DInTime / (1000 * 3600 * 24)), DInDays1 = Math.round(DInTime1 / (1000 * 3600 * 24));
+            document.getElementById("days_from").innerHTML = document.getElementById("days_from1").innerHTML = DInDays;
+            document.getElementById("validuntil").innerHTML = document.getElementById("validuntil1").innerHTML = DInDays1;
         }
         date_check()
         document.getElementById('switchtableview').style.display = 'none'
