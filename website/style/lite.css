@@ -27,14 +27,14 @@ body { margin: 2px; }
     max-width: 50%;
 }
 @media (max-width: 319px) {
-    #screentoosmall { display: block; }
+    div#screentoosmall { display: block; }
 }
 @media (min-width: 320px) {
     body { font-size: 0.75rem; }
     #accbar a { margin-left: 5px; margin-right: 5px; }
     #accb_small, #accb_small_ p { font-size: 1.5em }
     div.container * { max-width: 95% }
-    #screentoosmall { display: none; }
+    div#screentoosmall { display: none; }
 }
 @media (min-width: 482px) {
     body { font-size: 0.75rem; }
