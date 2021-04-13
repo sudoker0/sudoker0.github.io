@@ -4,14 +4,13 @@ nav.accb {
   border: 1px solid rgba(20, 20, 20, 0.850);
   opacity: 1;
   text-align: center;
-  position: -website-sticky;
+  position: -webkit-sticky;
   position: sticky;
   top: 0px;
   margin-left: -8px;
   margin-right: -8px;
   margin-top: -8px;
   transition: top 0.3s;
-  display: grid;
   grid-template-areas: "left_ right_";
   grid-template-columns: 1fr 5fr;
 }
@@ -37,7 +36,7 @@ nav.accb {
   margin-bottom: 4px;
 }
 #accb_small_ {
-  position: -website-sticky;
+  position: -webkit-sticky;
   position: sticky;
   color: white;
   top: 0;
@@ -49,7 +48,6 @@ nav.accb {
   margin-right: -8px;
   margin-top: -8px;
   transition: top 0.3s;
-  display: none;
   grid-template-areas: "left__ right__";
   grid-template-columns: 1fr 5fr;
 }
@@ -61,8 +59,8 @@ nav.accb {
 div.container {
   margin: 20px;
   background-color:rgba(20, 20, 20, 0.850);
-    border: 3px solid black;
-    opacity: 1;
+  border: 3px solid black;
+  opacity: 1;
   padding: 0 20px 0 20px;
 }
 body {
@@ -120,9 +118,7 @@ a:link, a:visited {
 a:hover, a:active {
   color: rgb(158, 158, 158);
 }
-@media (max-width: 319px) {
-  #screentoosmall { display: block; }
-}
+@media (max-width: 319px) { #screentoosmall { display: block; } }
 @media (min-width: 320px) {
   body { font-size: 0.75rem; }
   #accbar a { margin-left: 5px; margin-right: 5px; }
@@ -136,11 +132,17 @@ a:hover, a:active {
   #accb_small, #accb_small_ p { font-size: 1.4em }
   div.container * { max-width: 95% }
 }
+@media (max-width: 639px) {
+  #accb_small_ { display: grid; }
+  nav.accb { display: none; }
+}
 @media (min-width: 640px) {
   body { font-size: 0.81rem; }
   #accbar a { margin-left: 9px; margin-right: 9px; }
   #accb_small, #accb_small_ p { font-size: 1.3em }
   div.container * { max-width: 80% }
+  #accb_small_ { display: none; }
+  nav.accb { display: grid; }
 }
 @media (min-width: 960px) {
   body { font-size: 1rem; }

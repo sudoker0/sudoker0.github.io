@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8" />
         <script src="/website/script/main.js" defer></script>
         <link rel="stylesheet" type="text/css" href="/website/style/all.css" />
-        <meta charset="UTF-8" />
         <script src="/index.js?ver=1202" defer></script>
         <link rel="manifest" href="/manifest.json" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -127,7 +127,7 @@
                 <button onclick="document.getElementById('iframe__').setAttribute('src', 'about:blank'); document.getElementById('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Close</button><button onclick="window.open(document.getElementById('iframe__').getAttribute('src'), '_blank'); document.getElementById('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Open in a new tab</button>
             </div>
             <hr id="abcd">
-            <iframe id="iframe__" scrolling="yes" src="about:blank" width="100%" allowfullscreen sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-modals allow-popups"></iframe>
+            <iframe title="A place to display my project" id="iframe__" scrolling="yes" src="about:blank" width="100%" allowfullscreen sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-modals allow-popups"></iframe>
         </div>
         <div id="secret_image">
             <img src="website/image/secret_.png" alt="Secret image UwU">
@@ -143,7 +143,7 @@
             <p>P.S: I know that this is the same NoScript message from the SOOPE. But it's so good that I decide to use it anyway.</p>
             <hr>
         </noscript>
-        <nav class="accb" style="width: auto; height: auto; display: none;" id="accb">
+        <nav class="accb" style="width: auto; height: auto;" id="accb">
             <a href="/" title="Return to main page"  style="grid-area: left_-start; width: 61px">
                 <img src="/website/image/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);">
             </a>
