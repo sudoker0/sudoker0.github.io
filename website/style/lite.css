@@ -33,7 +33,7 @@ body { margin: 2px; }
     body { font-size: 0.75rem; }
     #accbar a { margin-left: 5px; margin-right: 5px; }
     #accb_small, #accb_small_ p { font-size: 1.5em }
-    div.container * { max-width: 100% }
+    div.container * { max-width: 95% }
     #screentoosmall { display: none; }
 }
 @media (min-width: 482px) {

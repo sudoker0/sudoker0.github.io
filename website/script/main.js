@@ -25,7 +25,7 @@ var name_ = [
 ];
 //Syntax: Name / Description / Link (Space is important)
 name_.forEach(function (list, index) {
-    var rnd = Math.floor(Math.random() * 1000), dateTime = rnd + '-' + rnd + '-' + rnd + '-' + rnd,
+    var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000),
         anchor = document.createElement("a"), anchor_text = document.createTextNode(list.name),
         anchor2 = document.createElement("a"), anchor2_text = document.createTextNode(list.name),
         anchor3 = document.createElement("br");
@@ -76,13 +76,6 @@ window.onload = window.onresize = function() {
     check()
     accb_small_isOn = false;
     document.getElementById("accb_small").style.display = "none"
-    // if (window.innerWidth < 482 || window.outerWidth < 482) {
-    //     document.getElementById("accb_small_").style.display = "grid";
-    //     document.getElementsByClassName("accb")[0].style.display = "none"
-    // } else {
-    //     document.getElementById("accb_small_").style.display = "none";
-    //     document.getElementsByClassName("accb")[0].style.display = "grid";
-    // }
 }
 accb_small_isOn = false;
 function accb_small() {
