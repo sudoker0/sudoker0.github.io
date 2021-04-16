@@ -30,7 +30,7 @@ var name_ = [
 ];
 //Syntax: Name / Description / Link (Space is important)
 name_.forEach(function (list, index) {
-    var rnd = Math.floor(Math.random() * 1000), dateTime = rnd + '-' + rnd + '-' + rnd + '-' + rnd,
+    var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000),
         anchor = document.createElement("a"), anchor_text = document.createTextNode(list.name),
         anchor2 = document.createElement("a"), anchor2_text = document.createTextNode(list.name)
     anchor.appendChild(anchor_text);

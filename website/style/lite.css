@@ -17,11 +17,12 @@ body { margin: 2px; }
     margin-left: 13px;
     margin-right: 13px;
 }
-.container {
+div.container {
     margin: 24px;
     border: 2px solid black;
+    padding: 0 20px 0 20px;
 }
-.container * {
+div.container * {
     margin-left: auto;
     margin-right: auto;
     max-width: 50%;
