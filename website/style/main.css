@@ -118,6 +118,10 @@ a:link, a:visited {
 a:hover, a:active {
   color: rgb(158, 158, 158);
 }
+@keyframes rotate_ {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 @media (max-width: 319px) { #screentoosmall { display: block; } }
 @media (min-width: 320px) {
   body { font-size: 0.75rem; }

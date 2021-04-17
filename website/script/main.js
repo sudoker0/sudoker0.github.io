@@ -39,7 +39,7 @@ name_.forEach(function (list, index) {
     document.getElementById("accbar_small").appendChild(anchor3)
     document.getElementById("accbar").appendChild(anchor);
 });
-function getParameterByName(name, url) {
+function gPBName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, '\\$&');
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
@@ -49,16 +49,25 @@ function getParameterByName(name, url) {
 }
 function check() {
     document.getElementById("accb_small").style.top = document.getElementById("accb_small_").style.width
-    if (Number(getParameterByName("sv_cheat")) >= 1 || Number(getParameterByName("debug")) >= 1 || Number(getParameterByName("hack")) >= 1) {
+    if (Number(gPBName("sv_cheat")) >= 1 || Number(gPBName("debug")) >= 1 || Number(gPBName("hack")) >= 1) {
         window.location.replace("ban.html");
     }
     if (localStorage.getItem("ls") == "927") {
         window.location.replace("ban.html");
     }
-    if (getParameterByName("secret") == "true") {
+    if (gPBName("secret") == "true" || gPBName("id") == "secret") {
         document.getElementById("secret_image").style.display = "block"
         document.getElementsByTagName("body")[0].style.backgroundImage = "url(website/image/sus_.png)"
     }
+    if (gPBName("id") == "entropy") {
+        setInterval(() => {
+            var lChar = Math.round(Math.random() * document.body.innerHTML.length), char = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()<>,.";
+            var rChar = char.charAt(Math.floor(Math.random() * char.length));
+            document.body.innerHTML = document.body.innerHTML.substring(0, lChar) + rChar + document.body.innerHTML.substring(lChar + 1);
+        }, 1000)
+    }
+    if (gPBName("id") == "rotate") { document.body.style.animation = "rotate_ 5s ease"; }
+    if (gPBName("id") == "rotate-inf") { document.body.style.animation = "rotate_ 5s ease infinite"; }
 }
 document.addEventListener("click", function(evt) {
     var flyoutElement = document.getElementById('accb_small'),
