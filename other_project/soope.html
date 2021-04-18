@@ -342,7 +342,7 @@
                         <fieldset>
                             <legend>Settings</legend>
                             <label for="brush_size" style="color: black">Pencil Size: </label><input type="number" name="brush_size" id="brush_size" value="2" style="width: 50px"><br>
-                            <label for="eraser_size" style="color: black">Eraser Size: </label><input type="number" name="eraser_size" id="eraser_size" value="4" style="width: 50px"><br>
+                            <label for="eraser_size" style="color: black">Eraser Size: </label><input type="number" name="eraser_size" id="eraser_size" value="16" style="width: 50px"><br>
                             <label for="brush_color" style="color: black">Pencil Color: </label><input type="color" name="brush_color" id="brush_color" maxlength="7" placeholder="Always start with #"><br>
                             <label for="canvas_width" style="color: black">Canvas Width: </label><input type="number" name="canvas_width" id="canvas_width" value="640" style="width: 50px">
                             <svg class="lock" id="lockRatio" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" onclick="lockRatio()">
@@ -725,12 +725,12 @@
             $canvas.parentElement.style.width = getId("canvas_width").value + "px";
         }
         getId("eraser_size").addEventListener("change", (e) => {
-            getId("child_cursor_image").setAttribute("width", getId("eraser_size").value * 4);
-            getId("child_cursor_image").setAttribute("height", getId("eraser_size").value * 4);
+            getId("child_cursor_image").setAttribute("width", getId("eraser_size").value);
+            getId("child_cursor_image").setAttribute("height", getId("eraser_size").value);
         })
         getId("brush_size").addEventListener("change", (e) => {
-            getId("child_pencil_cursor_image").setAttribute("width", getId("brush_size").value * 4);
-            getId("child_pencil_cursor_image").setAttribute("height", getId("brush_size").value * 4);
+            getId("child_pencil_cursor_image").setAttribute("width", getId("brush_size").value);
+            getId("child_pencil_cursor_image").setAttribute("height", getId("brush_size").value);
         })
         getId("brush_color").addEventListener("input", (e) => { getId("child_pencil_cursor_image_child").setAttribute("fill", getId("brush_color").value) })
         function newImage() { $canvas.getContext("2d").clearRect(0, 0, $canvas.getBoundingClientRect().width, $canvas.getBoundingClientRect().height) }
@@ -815,8 +815,8 @@
                 prevY = currY;
                 currX = e.clientX - $canvas.offsetLeft - Number(getCS($canvas).borderWidth.replace(/\D+$/g, "")) + window.pageXOffset || (document.documentElement || document.body.parentNode || document.body).scrollLeft;
                 currY = e.clientY - $canvas.offsetTop - Number(getCS($canvas).borderWidth.replace(/\D+$/g, "")) + window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
-                getId("cursor_image").style.top = e.clientY - Number(getCS(getId("cursor_image")).height.replace(/\D+$/g, "") / 2) + "px";
-                getId("cursor_image").style.left = e.clientX - Number(getCS(getId("cursor_image")).width.replace(/\D+$/g, "") / 2) + "px";
+                getId("cursor_image").style.top = e.clientY - Number(getCS(getId("cursor_image")).height.replace(/\D+$/g, "")) + "px";
+                getId("cursor_image").style.left = e.clientX - Number(getCS(getId("cursor_image")).width.replace(/\D+$/g, "")) + "px";
                 getId("pencil_cursor_image").style.left = e.clientX - Number(getCS(getId("pencil_cursor_image")).width.replace(/\D+$/g, "") / 2) + "px";
                 getId("pencil_cursor_image").style.top = e.clientY - Number(getCS(getId("pencil_cursor_image")).height.replace(/\D+$/g, "") / 2) + "px";
                 getId("pencil_cursor_image_2").style.left = e.clientX - Number(getCS(getId("pencil_cursor_image_2")).width.replace(/\D+$/g, "") / 2) + "px";
@@ -848,7 +848,7 @@
                             ctx.stroke();
                         } else if (tool_ == "eraser") {
                             ctx.globalCompositeOperation = "destination-out";
-                            ctx.fillRect(currX - (getId("eraser_size").value * 2), currY - (getId("eraser_size").value * 2), getId("eraser_size").value * 4, getId("eraser_size").value * 4)
+                            ctx.fillRect(currX - (getId("eraser_size").value * 1), currY - (getId("eraser_size").value * 1), getId("eraser_size").value, getId("eraser_size").value)
                         }
                     }
                 }
