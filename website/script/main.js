@@ -47,6 +47,11 @@ function gPBName(name, url) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
+function rString(l) {
+    var r = [], c = 'XLft#w!g03OK^h$5osJkvxI9VN(zecY1HTy8}rniRCj@S7m,UbPd%{a2lFEWqM)Q*&G4A6BDuZ.p', cL = c.length;
+    for ( var i = 0; i < l; i++ ) { r.push(c.charAt(Math.floor(Math.random() * cL))) }
+    return r.join('');
+}
 function check() {
     document.getElementById("accb_small").style.top = document.getElementById("accb_small_").style.width
     if (Number(gPBName("sv_cheat")) >= 1 || Number(gPBName("debug")) >= 1 || Number(gPBName("hack")) >= 1) {
@@ -60,10 +65,11 @@ function check() {
         document.getElementsByTagName("body")[0].style.backgroundImage = "url(website/image/sus_.png)"
     }
     if (gPBName("id") == "entropy") {
+        var charStart = 1;
         setInterval(() => {
-            var lChar = Math.round(Math.random() * document.body.innerHTML.length), char = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()<>,.";
-            var rChar = char.charAt(Math.floor(Math.random() * char.length));
-            document.body.innerHTML = document.body.innerHTML.substring(0, lChar) + rChar + document.body.innerHTML.substring(lChar + 1);
+            var lChar = Math.round(Math.random() * document.body.innerHTML.length), char = rString(Math.floor(charStart));
+            document.body.innerHTML = document.body.innerHTML.substring(0, lChar) + char + document.body.innerHTML.substring(lChar + Math.floor(charStart));
+            charStart =  charStart <= 32 ? charStart + 0.1 : charStart;
         }, 1000)
     }
     if (gPBName("id") == "rotate") { document.body.style.animation = "rotate_ 5s ease"; }
