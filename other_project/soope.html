@@ -843,7 +843,7 @@
                             ctx.moveTo(prevX, prevY);
                             ctx.lineTo(currX, currY);
                             ctx.strokeStyle = getId("brush_color").value;
-                            ctx.lineWidth = getId("brush_size").value * 4;
+                            ctx.lineWidth = getId("brush_size").value;
                             ctx.lineCap = 'round';
                             ctx.stroke();
                         } else if (tool_ == "eraser") {
