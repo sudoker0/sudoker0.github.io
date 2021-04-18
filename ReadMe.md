@@ -64,34 +64,38 @@
 ### 📁 File information of the website's folder
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-(Every file)    | 100%                 | 243 files       | 33,599,011 bytes
-*.cache         | 0.1%                 | 1 file          | 25,742 bytes
+(Every file)    | 100%                 | 243 files       | 43,008,519 bytes
+*.7z            | ~0%                  | 1 file          | 8,955 bytes
+*.cache         | 0.1%                 | 1 file          | 32,577 bytes
 *.config        | 0.2%                 | 1 file          | 83,595 bytes
-*.css           | 0.2%                 | 5 files         | 61,911 bytes
-*.delete        | 0.5%                 | 1 file          | 174,950 bytes
-*.gif           | 0.1%                 | 3 files         | 19,696 bytes
+*.css           | ~0%                  | 3 files         | 6,538 bytes
+*.exe           | 11.5%                | 1 file          | 4,957,184 bytes
+*.gif           | ~0%                  | 3 files         | 1,640 bytes
 *.gitattributes | ~0%                  | 1 file          | 68 bytes
-*.html          | 2.4%                 | 46 files        | 811,320 bytes
-*.ico           | 0.6%                 | 2 files         | 209,639 bytes
-*.idx           | 0.3%                 | 1 file          | 91,988 bytes
-*.js            | 1.4%                 | 24 files        | 480,738 bytes
-*.json          | ~0%                  | 6 files         | 2,295 bytes
-*.md            | ~0%                  | 2 files         | 13,088 bytes
-*.new           | 4.1%                 | 1 file          | 1,386,417 bytes
-*.old           | 0.5%                 | 6 files         | 162,535 bytes
-*.pack          | 56.7%                | 1 file          | 19,051,367 bytes
-*.png           | 23.2%                | 27 files        | 7,787,534 bytes
-*.sample        | 0.1%                 | 12 files        | 19,260 bytes
+*.gitignore     | ~0%                  | 1 file          | 9 bytes
+*.html          | 2.4%                 | 46 files        | 567,665 bytes
+*.ico           | ~0%                  | 2 files         | 4,026 bytes
+*.idx           | 0.3%                 | 1 file          | 120,044 bytes
+*.js            | 1.4%                 | 24 files        | 124,057 bytes
+*.json          | ~0%                  | 6 files         | 4,074 bytes
+*.md            | ~0%                  | 2 files         | 7,879 bytes
+*.pack          | 49.7%                | 1 file          | 21,383,145 bytes
+*.pem           | ~0%                  | 2 files         | 3,310 bytes
+*.png           | 23.2%                | 27 files        | 8,170,883 bytes
+*.py            | ~0%                  | 1 file          | 1,437 bytes
+*.sample        | ~0%                  | 12 files        | 19,260 bytes
 *.sqlite        | 0.3%                 | 1 file          | 90,112 bytes
-*.suo           | 0.2%                 | 1 file          | 56.320 bytes
+*.suo           | 0.2%                 | 1 file          | 56,320 bytes
+*.svg           | ~0%                  | 3 files         | 6,668 bytes
 *.ttf           | 1.9%                 | 4 files         | 653,688 bytes
-*.txt           | 0.1%                 | 6 files         | 44,940 bytes
+*.txt           | ~0%                  | 6 files         | 288 bytes
 *.webp          | 2.1%                 | 10 files        | 705,448 bytes
-*.xml           | ~0%                  | 4 files         | 1,265 bytes
-*.zip           | 4.2%                 | 1 file          | 1,414,985 bytes
-(No Extension)  | 0.7%                 | 76 files        | 250,030 bytes
+*.xml           | ~0%                  | 4 files         | 1,223 bytes
+*.zip           | 4.2%                 | 1 file          | 4,350,166 bytes
+(No Extension)  | 0.7%                 | 76 files        | 1,648,310 bytes
+> Last updated on: 04/18/2021
 
-[Download the table as HTML in a zip file (Style is not the same)](https://drive.google.com/u/0/uc?id=1ijDD_QCY6xbfYFVnKyJvaJsK8WKmu2zo&export=download)
+[Download the table as HTML in a zip file (Style is not the same)](https://drive.google.com/u/0/uc?id=1nvijtp61EX7gtisnjHCAEBkfgQKs-zTh&export=download)
 > You might ask: How do I able to get all of the file extensions, the number of file and other info?
 > Using WinDirStat [https://windirstat.net/](https://windirstat.net/)
 ### 👀 Random Stuff
