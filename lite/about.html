@@ -216,7 +216,12 @@
                     document.getElementById("numberofcommit").innerHTML = e_[0].total;
                     document.getElementById("numberofcommit1").innerHTML = e_[0].total;
                 }).catch(r => {
-                    setTimeout(fetch_, 2000)
+                    if (failed <= 10) {
+                        failed++;
+                        setTimeout(fetch_, 2000);
+                    } else {
+                        document.getElementById("numberofcommit").innerHTML = document.getElementById("numberofcommit1").innerHTML = "Failed to get data from GitHub API, this maybe due to number of request exceeded for your current IP. Please see the number of commit on: https://github.com/QuanMCPC/QuanMCPC.github.io"
+                    }
                 })
             }
             fetch_()
