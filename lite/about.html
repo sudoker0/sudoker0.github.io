@@ -205,7 +205,7 @@
             document.getElementById("default").innerHTML = document.getElementById("default1").innerHTML = default_1;
             document.getElementById("basic").innerHTML = document.getElementById("basic1").innerHTML = basic;
             document.getElementById("other").innerHTML = document.getElementById("other1").innerHTML = other;
-            var utcTime = 0;
+            var utcTime = 0, failed = 0;
             function fetch_() {
                 fetch(`https://api.github.com/repos/QuanMCPC/QuanMCPC.github.io/stats/contributors?nocache=${Math.round(Math.random() * 1000000)}`, { headers: { "accept": "application/vnd.github.v3+json" } })
                 .then(e => e.json())
