@@ -7,7 +7,10 @@
     margin: 0;
     position: relative;
 }
-body { margin: 2px; }
+body {
+    margin: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+}
 #accbar {
     grid-area: right_-start;
     display: flex;
