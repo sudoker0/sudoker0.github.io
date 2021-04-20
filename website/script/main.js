@@ -1,5 +1,5 @@
 //@QuanMCPC
-//@ts-check//
+//@ts-check/
 var pathname = window.location.pathname, accb_small_isOn;
 var name_ = [
     {
@@ -108,10 +108,10 @@ window.onscroll = function() {
     accb_small_isOn = false;
     var currentScrollPos = window.pageYOffset;
     if (prevScrollpos > currentScrollPos) {
-        document.getElementsByClassName("accb")[0].style.top = "0";
+        document.getElementById("accb").style.top = "0";
         document.getElementById("accb_small_").style.top = "0";
     } else {
-        document.getElementsByClassName("accb")[0].style.top = "-" + document.getElementsByClassName("accb")[0].offsetHeight + "px";
+        document.getElementById("accb").style.top = "-" + document.getElementById("accb").offsetHeight + "px";
         document.getElementById("accb_small_").style.top = "-" + document.getElementById("accb_small_").offsetHeight + "px";
     }
     prevScrollpos = currentScrollPos;
