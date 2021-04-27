@@ -1,4 +1,4 @@
-# A Python script to automate the changing file info
+# A Python script to automate the changing file info.
 import os, re, json
 from datetime import date
 default_size = lite_size = total_size = 0
