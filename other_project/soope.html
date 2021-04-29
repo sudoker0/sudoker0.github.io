@@ -199,7 +199,7 @@
             <hr>
         </noscript>
         <div id="verbose">
-            <p>SOOPE v1.1.2+20213003130400P7</p>
+            <p>SOOPE v1.1.3+20212904221300P7</p>
             <p>FPS: <span id="v_fps">0</span></p>
             <p>Cursor Position X / Y (In Canvas) (px): <span id="v_cX">0</span> / <span id="v_cY">0</span></p>
             <p>Canvas Width / Height (px): <span id="v_width">0</span> / <span id="v_height">0</span></p>
@@ -413,7 +413,7 @@
                 <hr>
                 <h3 style="text-align: center;">SOOPE (Simple and Open-Source Online Picture Editor)</h3>
                 <hr>
-                <p>Version: 1.1.2, completed at: March 30st, 2021</p>
+                <p>Version: 1.1.3, completed at: April 29th, 2021</p>
                 <p>Created by: QuanMCPC, Product Made In VietNam.</p>
                 <p>Language used: HTML, CSS, JS</p>
                 <p>This allow user to edit picture from the browser online (and offline if you add this file to ServiceWorker).</p>
@@ -498,7 +498,7 @@
                 fps = times.length;
                 var fps_ = fps / 2;
                 getId("v_fps").innerHTML = fps + " fps"; getId("v_pColor").innerHTML = getId("brush_color").value;
-                if (xPos >= getId("canvas_").getAttribute("width")) { xPos = 0 }
+                if (xPos >= getId("canvas_").getAttribute("width")) { xPos = -5 }
                 ctx.beginPath();
                 ctx.globalCompositeOperation="source-over";
                 ctx.moveTo(xPos, getId("canvas_").getAttribute("height") - fps_);
