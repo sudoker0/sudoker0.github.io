@@ -111,11 +111,15 @@ window.onscroll = function() {
     accb_small_isOn = false;
     var currentScrollPos = window.pageYOffset;
     if (prevScrollpos > currentScrollPos) {
-        getId("accb").style.top = "0";
-        getId("accb_small_").style.top = "0";
+        // getId("accb").style.top = "0";
+        // getId("accb_small_").style.top = "0";
+        getId("accb").style.transform = "translateY(0%)";
+        getId("accb_small_").style.transform = "translateY(0%)";
     } else {
-        getId("accb").style.top = "-" + getId("accb").offsetHeight + "px";
-        getId("accb_small_").style.top = "-" + getId("accb_small_").offsetHeight + "px";
+        // getId("accb").style.top = "-" + getId("accb").offsetHeight + "px";
+        // getId("accb_small_").style.top = "-" + getId("accb_small_").offsetHeight + "px";
+        getId("accb").style.transform = "translateY(-100%)";
+        getId("accb_small_").style.transform = "translateY(-100%)";
     }
     prevScrollpos = currentScrollPos;
 }

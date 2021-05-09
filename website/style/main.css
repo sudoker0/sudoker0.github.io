@@ -10,7 +10,7 @@ nav.accb {
   margin-left: -8px;
   margin-right: -8px;
   margin-top: -8px;
-  transition: top 0.3s;
+  transition: all 0.3s;
   grid-template-areas: "left_ right_";
   grid-template-columns: 1fr 5fr;
 }
@@ -47,7 +47,7 @@ nav.accb {
   margin-left: -8px;
   margin-right: -8px;
   margin-top: -8px;
-  transition: top 0.3s;
+  transition: all 0.3s;
   grid-template-areas: "left__ right__";
   grid-template-columns: 1fr 5fr;
 }
