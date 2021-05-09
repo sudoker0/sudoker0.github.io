@@ -17,3 +17,8 @@ body {
   overflow-y: scroll;
 }
 button:hover { cursor: pointer; }
+/* *:focus {
+  outline-style: dashed;
+  outline-width: 2px;
+  outline-color: red;
+} */
