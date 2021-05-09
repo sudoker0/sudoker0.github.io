@@ -1,6 +1,3 @@
-h1, h2, h3, h4, h5, h6, p, span, a, label {
-  color: white;
-}
 html { font-size: 100%; }
 nav.accb {
   background-color:rgba(20, 20, 20, 0.850);
@@ -72,6 +69,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
+  color: white;
 }
 #noscript_overlay {
   position: fixed;
@@ -97,7 +95,7 @@ body {
   top: 0;
   left: 0;
   background-color: black;
-  z-index: 50;
+  z-index: 105;
   cursor: not-allowed;
 }
 #secret_image {
@@ -140,7 +138,7 @@ div#settings:hover {
   cursor: pointer;
 }
 div#settingspage {
-  display: none;
+  transform: translateY(-100%);
   position: fixed;
   top: 0;
   left: 0;
@@ -148,6 +146,7 @@ div#settingspage {
   width: 100%;
   height: 100%;
   background-color: rgba(15, 15, 15, 0.8);
+  transition: all 0.75s ease 0s;
 }
 div#spb_inside button {
   max-width: 100%;
