@@ -133,8 +133,8 @@ var constant = 0;
 */
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Fired!")
-    document.querySelectorAll('.notransition').forEach((v) => {
-        v.classList.remove("notransition");
+    document.querySelectorAll('.nt').forEach((v) => {
+        v.classList.remove("nt");
     })
 });
 function fetchLocal() {

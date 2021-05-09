@@ -1,6 +1,13 @@
 h1, h2, h3, h4, h5, h6, p, span, a, label {
   color: white;
 }
+.nt {
+  transition: none !important;
+  -webkit-transition: none !important;
+  -o-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+}
 html { font-size: 100%; }
 nav.accb {
   background-color:rgba(20, 20, 20, 0.850);
@@ -142,7 +149,9 @@ div#settings:hover {
   cursor: pointer;
 }
 div#settingspage {
-  display: none;
+  display: block;
+  opacity: 0;
+  pointer-events: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -150,6 +159,7 @@ div#settingspage {
   width: 100%;
   height: 100%;
   background-color: rgba(15, 15, 15, 0.8);
+  transition: opacity 0.5s ease;
 }
 div#spb_inside button {
   max-width: 100%;
