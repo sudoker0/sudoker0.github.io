@@ -1,9 +1,5 @@
-.notransition {
-  transition: none !important;
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -o-transition: none !important;
-  -ms-transition: none !important;
+h1, h2, h3, h4, h5, h6, p, span, a, label {
+  color: white;
 }
 html { font-size: 100%; }
 nav.accb {
@@ -78,7 +74,6 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
-  color: white;
 }
 #noscript_overlay {
   position: fixed;
@@ -104,7 +99,7 @@ body {
   top: 0;
   left: 0;
   background-color: black;
-  z-index: 105;
+  z-index: 50;
   cursor: not-allowed;
 }
 #secret_image {
@@ -147,7 +142,7 @@ div#settings:hover {
   cursor: pointer;
 }
 div#settingspage {
-  transform: translateY(-100%);
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -155,7 +150,6 @@ div#settingspage {
   width: 100%;
   height: 100%;
   background-color: rgba(15, 15, 15, 0.8);
-  transition: transform 0.75s;
 }
 div#spb_inside button {
   max-width: 100%;
