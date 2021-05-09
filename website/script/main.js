@@ -133,9 +133,8 @@ var constant = 0;
 */
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Fired!")
-    document.querySelectorAll('.notransition').forEach((v) => {
-        v.classList.remove("notransition");
-    })
+    let node = document.querySelector('.notransition');
+    node.classList.remove('notransition');
 });
 function fetchLocal() {
     if (ls_gt("background") && ls_gt("theme")) {
