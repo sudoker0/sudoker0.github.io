@@ -68,16 +68,23 @@
                 color: white;
             }
             @media (min-width: 320px) {
-                div#project *:not(span) { margin-top: 3px; margin-bottom: 3px; }
+                div#project *, div#sp_actual * { margin-top: 3px; margin-bottom: 3px; }
                 div#project ul { margin-left: 5px }
+                span { margin-top: initial; margin-bottom: initial; }
             }
             @media (min-width: 482px) {
-                div#project *:not(span) { margin-top: 5px; margin-bottom: 5px; }
+                div#project *, div#sp_actual * { margin-top: 5px; margin-bottom: 5px; }
                 div#project ul { margin-left: 10px }
+                span { margin-top: initial; margin-bottom: initial; }
             }
             div#project *, div#project_ * {
                 max-width: initial;
                 margin: initial;
+            }
+            div#sp_actual * {
+                margin-left: initial;
+                margin-right: initial;
+                max-width: initial;
             }
             del {
                 margin: 0
@@ -125,7 +132,7 @@
     <body id="temp" onload="check1()">
         <div id="iframe_">
             <div id="iframe_accbar">
-                <button onclick="document.getElementById('iframe__').setAttribute('src', 'about:blank'); document.getElementById('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Close</button><button onclick="window.open(document.getElementById('iframe__').getAttribute('src'), '_blank'); document.getElementById('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Open in a new tab</button>
+                <button onclick="getId('iframe__').setAttribute('src', 'about:blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Close</button><button onclick="window.open(getId('iframe__').getAttribute('src'), '_blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Open in a new tab</button>
             </div>
             <hr id="abcd">
             <iframe title="A place to display my project" id="iframe__" scrolling="yes" src="about:blank" width="100%" allowfullscreen sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-modals allow-popups"></iframe>
@@ -167,14 +174,14 @@
         </nav>
         <div id="screentoosmall">
             <h2 style="color:red; text-align: center;">Error!</h2>
-            <p style="text-align: center; color: white">We have detected that the width of the screen that you are using right now is too small for the website to render properly</p>
-            <p style="text-align: center; color: white;">Try to rotate the device so that the screen orientation is horizontal. Or if that didn't work either, then that mean your screen is incompatiable to view the website</p>
+            <p style="text-align: center;">We have detected that the width of the screen that you are using right now is too small for the website to render properly</p>
+            <p style="text-align: center;">Try to rotate the device so that the screen orientation is horizontal. Or if that didn't work either, then that mean your screen is incompatiable to view the website</p>
         </div>
         <main>
             <div class="container">
                 <h1 style="color:rgb(255, 0, 0); text-align: center;"><b>Student. Developer. Gamer.</b></h1>
-                <h2 style="color: white;">Hello! My name is Quan, a student, a small developer and a gamer. I'm currently living at Vietnam and HTML, CSS and JS are the three programming language I'm good at, well, good as in junior/amateur level that is.</h2>
-                <h2 style="color: white;">Even though this is a personal website, I made the website look more like a business website or commercial website for no reason ;)</h2>
+                <h2>Hello! My name is Quan, a student, a small developer and a gamer. I'm currently living at Vietnam and HTML, CSS and JS are the three programming language I'm good at, well, good as in junior/amateur level that is.</h2>
+                <h2>Even though this is a personal website, I made the website look more like a business website or commercial website for no reason ;)</h2>
                 <h3 style="color: rgb(0, 255, 0); text-align: center">Social link</h3>
                 <div id="social_link">
                     <center>
@@ -301,155 +308,155 @@
                     <div id="project__" style="height: 0.1px"></div>
                 </div>
                 <div id="project" style="border: 2px solid white; overflow-x: auto; white-space: nowrap;">
-                    <h4 style="color: white;">Here's a list of my project</h4>
+                    <h4>Here's a list of my project</h4>
                     <ul>
                         <li>
-                            <span style="color: white">Other Project</span>
+                            <span>Other Project</span>
                             <ul>
                                 <li>
-                                    <span style="color: white">Experiment ID: OldWeb</span>
+                                    <span>Experiment ID: OldWeb</span>
                                     <ul>
-                                        <li><span style="color: white">Link: <a target="_blank" rel="noreferrer noopener" href="http://oldquanmcpc.html-5.me/">[Click here]</a></span></li>
-                                        <li><span style="color: white">External link: <a href="/other_project/oldweb.zip" download="oldweb.zip">[Click here to download the source]</a></span></li>
+                                        <li><span>Link: <a target="_blank" rel="noreferrer noopener" href="http://oldquanmcpc.html-5.me/">[Click here]</a></span></li>
+                                        <li><span>External link: <a href="/other_project/oldweb.zip" download="oldweb.zip">[Click here to download the source]</a></span></li>
                                         <li>
-                                            <span style="color: white">Note: The project is also served using GitLab page, here's the: </span>
+                                            <span>Note: The project is also served using GitLab page, here's the: </span>
                                             <ul>
-                                                <li><span style="color: white">Link: <a target="_blank" rel="noreferrer noopener" href="https://quanmcpc.gitlab.io">[Click here]</a> and</span></li>
-                                                <li><span style="color: white">Source code: <a target="_blank" rel="noreferrer noopener" href="https://gitlab.com/QuanMCPC/quanmcpc.gitlab.io">[Click here]</a></span></li>
+                                                <li><span>Link: <a target="_blank" rel="noreferrer noopener" href="https://quanmcpc.gitlab.io">[Click here]</a> and</span></li>
+                                                <li><span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://gitlab.com/QuanMCPC/quanmcpc.gitlab.io">[Click here]</a></span></li>
                                             </ul>
                                         </li>
-                                        <li><span style="color: white">Description: Created as an experiment to make the website compatible with most version of a lot of browsers.</span></li>
+                                        <li><span>Description: Created as an experiment to make the website compatible with most version of a lot of browsers.</span></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <span style="color: white">Edit:</span>
+                                    <span>Edit:</span>
                                     <ul>
-                                        <li><span style="color: white">Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/Edit">[Click here]</a></span></li>
-                                        <li><span style="color: white">Description: Started as a small program in <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/console.html">console</a>, it's now a native program that in executable in Windows and Linux</span></li>
+                                        <li><span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/Edit">[Click here]</a></span></li>
+                                        <li><span>Description: Started as a small program in <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/console.html">console</a>, it's now a native program that in executable in Windows and Linux</span></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <span style="color: white">Guess the number Game</span>
+                                    <span>Guess the number Game</span>
                                     <ul>
-                                        <li><span style="color: white">Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/Guess-The-Number-Game/">[Click here]</a></span></li>
-                                        <li><span style="color: white">Description: My second game written in C# and based on the <a href="#" data-address="/other_project/numberguessgame.html" onclick="oOPIIF(this.getAttribute('data-address'))">NumberGuessingGame</a></span></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <span style="color: white">Minecraft Project: </span>
-                            <ul>
-                                <li><span style="color: white">8-bit Decoder: <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/8-bit-decoder-in-minecraft/">[Click here]</a></span></li>
-                                <li><span style="color: white">Compact Calculator (1.15.2): <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/compact-calculator-1-15-2/">[Click here]</a></span></li>
-                                <li><span style="color: white">The Longest Useless Machine in Minecraft (version 1.0): <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-0/">[Click here]</a></span></li>
-                                <li><span style="color: white">The Longest Useless Machine in Minecraft (version 1.<del>1</del>2): <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-1/">[Click here]</a></span></li>
-                                <li><span style="color: white">Printer 1.16: <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/printer-1-16/">[Click here]</a></span></li>
-                                <li><span style="color: white">Security Vault 2.0: <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/security-vault-2-0/">[Click here]</a></span></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <span style="color: white">JavaScript Project (with some HTML): <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/JavaScript-Project">[Click here]</a></span>
-                            <ul>
-                                <li>
-                                    <span style="color: white">Edit for other website: </span>
-                                    <ul>
-                                        <li><span style="color: white">Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/JavaScript-Project/blob/master/Edit_For_Other_Website.js">[Click here]</a></span></li>
-                                        <li><span style="color: white">Description: Allow other people to use edit in their website</span></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <span style="color: white">Random picture generator: </span>
-                                    <ul>
-                                        <li><span style="color: white">Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/JavaScript-Project/blob/master/random-picture.js">[Click here]</a></span></li>
-                                        <li><span style="color: white">Description: Create picture with "randomness"</span></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <span style="color: white">UnderJScript: </span>
-                                    <ul>
-                                        <li><span style="color: white">Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/JavaScript-Project/blob/master/underjscript.js">[Click here]</a></span></li>
-                                        <li><span style="color: white">Description: A small JavaScript library that add some function that I can get</span></li>
+                                        <li><span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/Guess-The-Number-Game/">[Click here]</a></span></li>
+                                        <li><span>Description: My second game written in C# and based on the <a href="#" data-address="/other_project/numberguessgame.html" onclick="oOPIIF(this.getAttribute('data-address'))">NumberGuessingGame</a></span></li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <span style="color: white">Project: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/tree/master/other_project">[Click here]</a></span>
+                            <span>Minecraft Project: </span>
+                            <ul>
+                                <li><span>8-bit Decoder: <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/8-bit-decoder-in-minecraft/">[Click here]</a></span></li>
+                                <li><span>Compact Calculator (1.15.2): <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/compact-calculator-1-15-2/">[Click here]</a></span></li>
+                                <li><span>The Longest Useless Machine in Minecraft (version 1.0): <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-0/">[Click here]</a></span></li>
+                                <li><span>The Longest Useless Machine in Minecraft (version 1.<del>1</del>2): <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-1/">[Click here]</a></span></li>
+                                <li><span>Printer 1.16: <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/printer-1-16/">[Click here]</a></span></li>
+                                <li><span>Security Vault 2.0: <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/security-vault-2-0/">[Click here]</a></span></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>JavaScript Project (with some HTML): <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/JavaScript-Project">[Click here]</a></span>
                             <ul>
                                 <li>
-                                    <span style="color: white">SOOPE (Simple and Open-Source Online Picture Editor)</span>
+                                    <span>Edit for other website: </span>
                                     <ul>
-                                        <li><span style="color: white">Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/soope.html">[Click here]</a></span></li>
-                                        <li><span style="color: white">Link: <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/soope.html">[Click here]</a></span></li>
-                                        <li><span style="color: white">Description: A simple and open source picture editor for edit picture on browser and more.</span></li>
+                                        <li><span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/JavaScript-Project/blob/master/Edit_For_Other_Website.js">[Click here]</a></span></li>
+                                        <li><span>Description: Allow other people to use edit in their website</span></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <span style="color: white">Console: </span>
+                                    <span>Random picture generator: </span>
                                     <ul>
-                                        <li><span style="color: white">Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/console.html">[Click here]</a></span></li>
-                                        <li><span style="color: white">Link: <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/console.html">[Click here]</a></span></li>
-                                        <li><span style="color: white">Description: My very first large HTML project which is my first CLI OS in HTML.</span></li>
+                                        <li><span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/JavaScript-Project/blob/master/random-picture.js">[Click here]</a></span></li>
+                                        <li><span>Description: Create picture with "randomness"</span></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <span style="color: white">Vigenere cipher: </span>
+                                    <span>UnderJScript: </span>
                                     <ul>
-                                        <li><span style="color: white">Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/Vigenere_Cipher.html">[Click here]</a></span></li>
-                                        <li><span style="color: white">Link: <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/Vigenere_Cipher.html">[Click here]</a></span></li>
-                                        <li><span style="color: white">Description: It's an Vigenere cipther but very limited<small title="Input only accept normal character, no number, space, etc.">(?)</small></span></li>
+                                        <li><span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/JavaScript-Project/blob/master/underjscript.js">[Click here]</a></span></li>
+                                        <li><span>Description: A small JavaScript library that add some function that I can get</span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>Project: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/tree/master/other_project">[Click here]</a></span>
+                            <ul>
+                                <li>
+                                    <span>SOOPE (Simple and Open-Source Online Picture Editor)</span>
+                                    <ul>
+                                        <li><span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/soope.html">[Click here]</a></span></li>
+                                        <li><span>Link: <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/soope.html">[Click here]</a></span></li>
+                                        <li><span>Description: A simple and open source picture editor for edit picture on browser and more.</span></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <span style="color: white">Basic message encrptor and decrptor: </span>
+                                    <span>Console: </span>
                                     <ul>
-                                        <li><span style="color: white">Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/message_en_de.html">[Click here]</a></span></li>
-                                        <li><span style="color: white">Link: </span><a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/message_en_de.html">[Click here]</a></li>
-                                        <li><span style="color: white">Description: A very, Very basic message encryptor and decrytor that just replace each character to the pre-set 4 random character</span></li>
+                                        <li><span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/console.html">[Click here]</a></span></li>
+                                        <li><span>Link: <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/console.html">[Click here]</a></span></li>
+                                        <li><span>Description: My very first large HTML project which is my first CLI OS in HTML.</span></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <span style="color: white">Guess the number gane: </span>
+                                    <span>Vigenere cipher: </span>
                                     <ul>
-                                        <li><span style="color: white">Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/numberguessgame.html">[Click here]</a></span></li>
-                                        <li><span style="color: white">Link: </span><a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/numberguessgame.html">[Click here]</a></li>
-                                        <li><span style="color: white">Description: A game where you have to guess the correct number, that's it.</span></li>
+                                        <li><span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/Vigenere_Cipher.html">[Click here]</a></span></li>
+                                        <li><span>Link: <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/Vigenere_Cipher.html">[Click here]</a></span></li>
+                                        <li><span>Description: It's an Vigenere cipther but very limited<small title="Input only accept normal character, no number, space, etc.">(?)</small></span></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <span style="color: white">Text editor (Lite and Full version): </span>
+                                    <span>Basic message encrptor and decrptor: </span>
                                     <ul>
-                                        <li><span style="color: white">Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/texteditor_basic.html">[Click here for lite version]</a> <a target="_blank" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/texteditor_html.html">[Click here for full version]</a></span></li>
-                                        <li><span style="color: white">Link: <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/texteditor_basic.html">[Click here for lite version]</a> <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/texteditor_html.html">[Click here for full version]</a></span></li>
-                                        <li><span style="color: white">Description: A text editor that work in your browser.</span></li>
+                                        <li><span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/message_en_de.html">[Click here]</a></span></li>
+                                        <li><span>Link: </span><a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/message_en_de.html">[Click here]</a></li>
+                                        <li><span>Description: A very, Very basic message encryptor and decrytor that just replace each character to the pre-set 4 random character</span></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <span style="color: white">MyFirstGame: </span>
+                                    <span>Guess the number gane: </span>
                                     <ul>
-                                        <li><span style="color: white">Source code: Lost in time</span></li>
+                                        <li><span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/numberguessgame.html">[Click here]</a></span></li>
+                                        <li><span>Link: </span><a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/numberguessgame.html">[Click here]</a></li>
+                                        <li><span>Description: A game where you have to guess the correct number, that's it.</span></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span>Text editor (Lite and Full version): </span>
+                                    <ul>
+                                        <li><span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/texteditor_basic.html">[Click here for lite version]</a> <a target="_blank" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/texteditor_html.html">[Click here for full version]</a></span></li>
+                                        <li><span>Link: <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/texteditor_basic.html">[Click here for lite version]</a> <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/texteditor_html.html">[Click here for full version]</a></span></li>
+                                        <li><span>Description: A text editor that work in your browser.</span></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span>MyFirstGame: </span>
+                                    <ul>
+                                        <li><span>Source code: Lost in time</span></li>
                                         <li>
-                                            <span style="color: white">Link: </span>
+                                            <span>Link: </span>
                                             <ul>
-                                                <li><span style="color: white">Version 1.0 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1hkj_x7mDC4jV9oz3j8nxyWrB3tjDA0Py&export=download">[Click here]</a></span></li>
-                                                <li><span style="color: white">Version 1.0 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=10mPjRaw9HUV7aWz01x_h6E195QtAxDim&export=download">[Click here]</a></span></li>
-                                                <li><span style="color: white">Version 1.1 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1c-uA6DiDiSSDBOLWh-YRN1PoG5Bg-HYt&export=download">[Click here]</a></span></li>
-                                                <li><span style="color: white">Version 1.1 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1cXx4IZLxzOAR1YvjwCQQV4RJVRQv4Qj2&export=download">[Click here]</a></span></li>
-                                                <li><span style="color: white">Version 1.2 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1HEGj9377joBw73VL5dheAdSlI2dYuXXf&export=download">[Click here]</a></span></li>
-                                                <li><span style="color: white">Version 1.2 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1WvzufDhLfLhSmeYboybzHKcE3K6mi-s2&export=download">[Click here]</a></span></li>
-                                                <li><span style="color: white">Version 1.3 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1EOIoMX8dJ97tyZ22XAXLSHNRZ54YtmXs&export=download">[Click here]</a></span></li>
-                                                <li><span style="color: white">Version 1.3 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1tDGNNfBw-6QgA8OC_Fc_WQBGEGuvRQvs&export=download">[Click here]</a></span></li>
-                                                <li><span style="color: white">Version 1.4 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1i2s_QccxxsXi-tjuZjFDspkzM1rsiinN&export=download">[Click here]</a></span></li>
-                                                <li><span style="color: white">Version 1.4 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1rBOSjmIM5o-HQfKVLndYbTHtx01aI1CC&export=download">[Click here]</a></span></li>
-                                                <li><span style="color: white">Version 1.5 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1tQ6_wyipfWmBXuD1Dx3OW3Nmgs0abEiC&export=download">[Click here]</a></span></li>
-                                                <li><span style="color: white">Version 1.5 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1q5bxU_c1Nk6j3Gk6Iz7PyDNxsvPuYkqQ&export=download">[Click here]</a></span></li>
-                                                <li><span style="color: white">Version 1.6 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=14PJZptSA0MxZ9cCXWWJhttmlSJBapBfj&export=download">[Click here]</a></span></li>
-                                                <li><span style="color: white">Version 1.6 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1s8TcS9_kn_OOqF37PmWUfu4LMhl9X0o7&export=download">[Click here]</a></span></li>
-                                                <li><span style="color: white">Link to all version inside of an ISO file: <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1sj2Uin_mRP0ipujgeWyR7B81frscRykn&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.0 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1hkj_x7mDC4jV9oz3j8nxyWrB3tjDA0Py&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.0 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=10mPjRaw9HUV7aWz01x_h6E195QtAxDim&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.1 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1c-uA6DiDiSSDBOLWh-YRN1PoG5Bg-HYt&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.1 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1cXx4IZLxzOAR1YvjwCQQV4RJVRQv4Qj2&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.2 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1HEGj9377joBw73VL5dheAdSlI2dYuXXf&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.2 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1WvzufDhLfLhSmeYboybzHKcE3K6mi-s2&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.3 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1EOIoMX8dJ97tyZ22XAXLSHNRZ54YtmXs&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.3 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1tDGNNfBw-6QgA8OC_Fc_WQBGEGuvRQvs&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.4 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1i2s_QccxxsXi-tjuZjFDspkzM1rsiinN&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.4 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1rBOSjmIM5o-HQfKVLndYbTHtx01aI1CC&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.5 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1tQ6_wyipfWmBXuD1Dx3OW3Nmgs0abEiC&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.5 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1q5bxU_c1Nk6j3Gk6Iz7PyDNxsvPuYkqQ&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.6 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=14PJZptSA0MxZ9cCXWWJhttmlSJBapBfj&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.6 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1s8TcS9_kn_OOqF37PmWUfu4LMhl9X0o7&export=download">[Click here]</a></span></li>
+                                                <li><span>Link to all version inside of an ISO file: <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1sj2Uin_mRP0ipujgeWyR7B81frscRykn&export=download">[Click here]</a></span></li>
                                             </ul>
                                         </li>
-                                        <li><span style="color: white">Description: One of my very first game and also my last game written in Unity</span></li>
+                                        <li><span>Description: One of my very first game and also my last game written in Unity</span></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -460,32 +467,67 @@
                     <p style="color:white; text-align: center; max-width: 100%;">Copyright (C) 2021 Quan_MCPC. Created on: 7/17/20, this website will live <b style="color:red">forever</b></p>
                 </footer>
             </div>
+            <div id="settings" onclick="getId('settingspage').style.display = 'block'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ffffff" class="bi bi-gear" viewBox="0 0 16 16">
+                    <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                    <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+                </svg>
+            </div>
+            <div id="settingspage">
+                <h1 style="color: red; text-align: center;">Settings</h1>
+                <div id="sp_actual">
+                    <ul>
+                        <li>
+                            <span>Background style:</span>
+                            <ul id="bg_control">
+                                <li><input type="radio" name="bgstyle" id="bg-day"><label for="bg-day"> Day time</label></li>
+                                <li><input type="radio" name="bgstyle" id="bg-night"><label for="bg-night"> Night time</label></li>
+                                <li><input type="radio" name="bgstyle" id="bg-sys"><label for="bg-sys"> Based on system preferences</label></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>Website's look:</span>
+                            <ul id="theme_control">
+                                <li><input type="radio" name="wslook" id="wslook-default"><label for="wslook-default"> Default</label></li>
+                                <li><input type="radio" name="wslook" id="wslook-minimal"><label for="wslook-minimal"> Minimalist</label></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div id="sp_button">
+                    <div id="spb_inside"><button onclick="getId('settingspage').style.display = 'none'">Cancel</button></div>
+                </div>
+            </div>
         </main>
     </body>
     <script>
+        function getId(i) { return document.getElementById(i) }
+        function qSelAll(q) { return document.querySelectorAll(q) }
+        function qSel(q) { return document.querySelector(q) }
+        var constant = 0;
         function oOPIIF(url) {
-            document.getElementById("iframe__").setAttribute("src", url + `?nocache=${Math.round(Math.random() * 1000000)}`);
-            document.getElementById("iframe_").style.display = "block";
+            getId("iframe__").setAttribute("src", url + `?nocache=${Math.round(Math.random() * 1000000)}`);
+            getId("iframe_").style.display = "block";
             document.getElementsByTagName("body")[0].style.overflow = "hidden";
         }
-        document.getElementById("github_link").onkeydown = event => {
+        getId("github_link").onkeydown = event => {
             if (event.code == "Enter" || event.code == "Space") { window.location.href = 'https://github.com/QuanMCPC' }
         }
-        document.getElementById("plannetminecraft_link").onkeydown = event => {
+        getId("plannetminecraft_link").onkeydown = event => {
             if (event.code == "Enter" || event.code == "Space") { window.location.href = 'https://www.planetminecraft.com/member/quan_mcpc/' }
         }
-        document.querySelectorAll(".social_link").forEach((el) => {
+        qSelAll(".social_link").forEach((el) => {
             el.addEventListener("keydown", e => {
                 if (e.code == "Enter" || e.code == "Space") { window.location.href = el.getAttribute("data-slink") }
             })
             el.addEventListener("click", e => { window.location.href = el.getAttribute("data-slink") })
         })
         console.log(window.innerWidth, window.outerHeight, window.innerWidth, window.innerHeight)
-        document.getElementById("project_").onscroll = () => {
-            document.getElementById("project").scrollLeft = document.getElementById("project_").scrollLeft
+        getId("project_").onscroll = () => {
+            getId("project").scrollLeft = getId("project_").scrollLeft
         }
-        document.getElementById("project").onscroll = () => {
-            document.getElementById("project_").scrollLeft = document.getElementById("project").scrollLeft
+        getId("project").onscroll = () => {
+            getId("project_").scrollLeft = getId("project").scrollLeft
         }
     </script>
 </html>

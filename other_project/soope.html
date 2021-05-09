@@ -75,7 +75,7 @@
                 margin-left: 7px;
                 margin-right: 7px;
             }
-            #about, #kbsc {
+            #about, #kbsc, #fetchFromURL {
                 position: absolute;
                 top: 50%;
                 left: 50%;
@@ -86,8 +86,8 @@
                 padding: 5px;
                 z-index: 9;
             }
-            #about *, #kbsc * { margin: 5px; }
-            #about_, #kbsc_ {
+            #about *, #kbsc *, #fetchFromURL * { margin: 5px; }
+            #about_, #kbsc_, #fetchFromURL_ {
                 background-color: rgba(0, 0, 0, 0.8);
                 z-index: 8;
                 width: 100%;
@@ -96,7 +96,7 @@
                 top: 0;
                 left: 0;
             }
-            #about__, #kbsc__ { display: none; }
+            #about__, #kbsc__, #fetchFromURL__ { display: none; }
             #fullscreen {
                 width: 100%;
                 height: 100%;
@@ -248,6 +248,7 @@
                                 <button onclick="openImage(0)">Open normal image file</button><br>
                                 <button onclick="openImage(1)">Open Base64 encoded image text file</button><br>
                                 <button onclick="openImage(2)">Take screenshot from video file</button><br>
+                                <button onclick="openImage(3)">Fetch image from URL</button><br>
                                 <small>Tip: You can drag image file, video file or Base64</small><br>
                                 <small>encoded image text file directly to the program.</small>
                             </fieldset>
@@ -381,6 +382,17 @@
                     </svg>
                     <figcaption>About</figcaption>
                 </figure>
+            </div>
+        </div>
+        <div id="fetchFromURL__" style="display: none;">
+            <div id="fetchFromURL_"></div>
+            <div id="fetchFromURL">
+                <hr>
+                <p>Please enter a valid image URL under the textbox.</p>
+                <p>(Note: Do to stuff like Cross-Origin Resource Sharing, some server might not allow website to fetch data.)</p>
+                <input type="url" name="imageURL" id="imageURL" style="border: 1px solid black; width: calc(100% - 22px)" placeholder="URL: https://example.com"><br>
+                <button onclick="fetchImageFromURL()">Fetch!</button><button onclick="getId('fetchFromURL__').style.display = 'none'">Cancel</button>
+                <hr>
             </div>
         </div>
         <div id="draw_area">
@@ -751,28 +763,41 @@
             link.delete;
         }
         function openImage(mode) {
-            openFile();
-            function clickElem(elem) {
-                var eventMouse = document.createEvent("MouseEvents");
-                eventMouse.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-                elem.dispatchEvent(eventMouse);
-            }
-            function openFile() {
-                readFile = function(e) {
-                    var file = e.target.files[0];
-                    if (!file) { return }
-                    var reader = new FileReader();
-                    reader.onload = function(e) { var g = e.target.result; unredoPos = 0; if (mode == 2) { getId("video").style.display = "block"; getId("video_").setAttribute("src", e.target.result); document.body.classList.toggle("noscroll"); } else { unredo = [g]; reloadImage(g, $canvas) } }
-                    if (mode == 1) { reader.readAsText(file) } else if (mode == 0 || mode == 2) { reader.readAsDataURL(file) }
+            if (mode == 3) {
+                getId("fetchFromURL__").style.display = "block";
+            } else {
+                openFile();
+                function clickElem(elem) {
+                    var eventMouse = document.createEvent("MouseEvents");
+                    eventMouse.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                    elem.dispatchEvent(eventMouse);
                 }
-                fileInput = document.createElement("input");
-                fileInput.type = 'file';
-                fileInput.accept = mode == 1 ? 'text/plain' : mode == 0 ? 'image/*' : "video/*";
-                fileInput.style.display = 'none';
-                fileInput.onchange = readFile;
-                document.body.appendChild(fileInput);
-                clickElem(fileInput);
+                function openFile() {
+                    readFile = function(e) {
+                        var file = e.target.files[0];
+                        if (!file) { return }
+                        var reader = new FileReader();
+                        reader.onload = function(e) { var g = e.target.result; unredoPos = 0; if (mode == 2) { getId("video").style.display = "block"; getId("video_").setAttribute("src", e.target.result); document.body.classList.toggle("noscroll"); } else { unredo = [g]; reloadImage(g, $canvas) } }
+                        if (mode == 1) { reader.readAsText(file) } else if (mode == 0 || mode == 2) { reader.readAsDataURL(file) }
+                    }
+                    fileInput = document.createElement("input");
+                    fileInput.type = 'file';
+                    fileInput.accept = mode == 1 ? 'text/plain' : mode == 0 ? 'image/*' : "video/*";
+                    fileInput.style.display = 'none';
+                    fileInput.onchange = readFile;
+                    document.body.appendChild(fileInput);
+                    clickElem(fileInput);
+                }
             }
+        }
+        function fetchImageFromURL() {
+            fetch(getId("imageURL").value)
+                .then(e => { e.blob().then(e_ => {
+                    var outside = URL.createObjectURL(e_)
+                    reloadImage(outside, $canvas)
+                    getId("fetchFromURL__").style.display = "none";
+                })})
+                .catch(e => console.log(e))
         }
         function openImageFromVideo() {
             document.body.classList.toggle("noscroll");

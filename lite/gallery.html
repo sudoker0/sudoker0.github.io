@@ -121,6 +121,9 @@
         </main>
     </body>
     <script>
+        function getId(i) { return document.getElementById(i) }
+        function qSelAll(q) { return document.querySelectorAll(q) }
+        function qSel(q) { return document.querySelector(q) }
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;
             name = name.replace(/[\[\]]/g, '\\$&');
@@ -169,8 +172,8 @@
         ]
         var imagePos = 0;
         var doneLoading = true
-        var left_ = document.getElementById("left")
-        var right_ = document.getElementById("right")
+        var left_ = getId("left")
+        var right_ = getId("right")
         left_.onclick = e => { left() }
         right_.onclick = e => { right() }
         left_.onkeydown = event => { if (event.code == "Space" || event.code == "Enter") { left() } }
@@ -197,20 +200,20 @@
                 right_.style.pointerEvents = ""
             }
             doneLoading = false;
-            document.getElementById("cancel_image").style.display = "block"
-            document.getElementById("overlay_").style.opacity = 1
-            document.getElementById("image__").setAttribute("src", imageArray[imagePos].location)
-            document.getElementById("description_").innerHTML = `Page ${imagePos + 1} / ${imageArray.length}`
-            document.getElementById("pic_caption").innerHTML = imageArray[imagePos].description
-            document.getElementById("image__").setAttribute("alt", imageArray[imagePos].description)
+            getId("cancel_image").style.display = "block"
+            getId("overlay_").style.opacity = 1
+            getId("image__").setAttribute("src", imageArray[imagePos].location)
+            getId("description_").innerHTML = `Page ${imagePos + 1} / ${imageArray.length}`
+            getId("pic_caption").innerHTML = imageArray[imagePos].description
+            getId("image__").setAttribute("alt", imageArray[imagePos].description)
         }
         reloadImage()
-        document.getElementById("image__").onload = () => { document.getElementById("overlay_").style.opacity = 0; document.getElementById("cancel_image").style.display = "none"; doneLoading = true }
-        document.getElementById("overlay_").onclick = () => {if (doneLoading) { window.open(imageArray[imagePos].location, "_blank") }}
+        getId("image__").onload = () => { getId("overlay_").style.opacity = 0; getId("cancel_image").style.display = "none"; doneLoading = true }
+        getId("overlay_").onclick = () => {if (doneLoading) { window.open(imageArray[imagePos].location, "_blank") }}
         function cancelImageLoading() {
-            document.getElementById("image__").setAttribute("src", 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTM2NiIgaGVpZ2h0PSI3MDUiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDM2MS40MiAxODYuNTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8cmVjdCB3aWR0aD0iMzYxLjQyIiBoZWlnaHQ9IjE4Ni41MyIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIuMjY2MTEiLz4KIDx0ZXh0IHRyYW5zZm9ybT0ic2NhbGUoMS4wNTcxIC45NDU5NSkiIHg9IjE2OS42OTQ2NyIgeT0iMTAyLjY0NDA3IiBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTEuNDcycHgiIHN0cm9rZS13aWR0aD0iLjEzMzMyIiB0ZXh0LWFsaWduPSJjZW50ZXIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJsaW5lLWhlaWdodDoxLjI1IiB4bWw6c3BhY2U9InByZXNlcnZlIj48dHNwYW4geD0iMTY5LjY5NDY3IiB5PSIxMDIuNjQ0MDciIHRleHQtYWxpZ249ImNlbnRlciI+Tm8gSW1hZ2U8L3RzcGFuPjx0c3BhbiB4PSIxNjkuNjk0NjciIHk9IjExNi45ODM4MyIgdGV4dC1hbGlnbj0iY2VudGVyIj4xMzY2IHggNzA1PC90c3Bhbj48L3RleHQ+Cjwvc3ZnPgo=')
-            document.getElementById("overlay_").style.opacity = 0
-            document.getElementById("cancel_image").style.display = "block"
+            getId("image__").setAttribute("src", 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTM2NiIgaGVpZ2h0PSI3MDUiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDM2MS40MiAxODYuNTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8cmVjdCB3aWR0aD0iMzYxLjQyIiBoZWlnaHQ9IjE4Ni41MyIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIuMjY2MTEiLz4KIDx0ZXh0IHRyYW5zZm9ybT0ic2NhbGUoMS4wNTcxIC45NDU5NSkiIHg9IjE2OS42OTQ2NyIgeT0iMTAyLjY0NDA3IiBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTEuNDcycHgiIHN0cm9rZS13aWR0aD0iLjEzMzMyIiB0ZXh0LWFsaWduPSJjZW50ZXIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJsaW5lLWhlaWdodDoxLjI1IiB4bWw6c3BhY2U9InByZXNlcnZlIj48dHNwYW4geD0iMTY5LjY5NDY3IiB5PSIxMDIuNjQ0MDciIHRleHQtYWxpZ249ImNlbnRlciI+Tm8gSW1hZ2U8L3RzcGFuPjx0c3BhbiB4PSIxNjkuNjk0NjciIHk9IjExNi45ODM4MyIgdGV4dC1hbGlnbj0iY2VudGVyIj4xMzY2IHggNzA1PC90c3Bhbj48L3RleHQ+Cjwvc3ZnPgo=')
+            getId("overlay_").style.opacity = 0
+            getId("cancel_image").style.display = "block"
         }
     </script>
 </html>

@@ -112,7 +112,7 @@
     <body onload="check1()">
         <div id="iframe_">
             <div id="iframe_accbar">
-                <button onclick="document.getElementById('iframe__').setAttribute('src', 'about:blank'); document.getElementById('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Close</button><button onclick="window.open(document.getElementById('iframe__').getAttribute('src'), '_blank'); document.getElementById('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Open in a new tab</button>
+                <button onclick="getId('iframe__').setAttribute('src', 'about:blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Close</button><button onclick="window.open(getId('iframe__').getAttribute('src'), '_blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Open in a new tab</button>
             </div>
             <hr id="abcd">
             <iframe id="iframe__" scrolling="yes" src="about:blank" width="100%" allowfullscreen sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-modals allow-popups"></iframe>
@@ -426,6 +426,9 @@
         </main>
     </body>
     <script>
+        function getId(i) { return document.getElementById(i) }
+        function qSelAll(q) { return document.querySelectorAll(q) }
+        function qSel(q) { return document.querySelector(q) }
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;
             name = name.replace(/[\[\]]/g, '\\$&');
@@ -435,8 +438,8 @@
             return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
         function oOPIIF(url) {
-            document.getElementById("iframe__").setAttribute("src", url + `?nocache=${Math.round(Math.random() * 1000000)}`);
-            document.getElementById("iframe_").style.display = "block";
+            getId("iframe__").setAttribute("src", url + `?nocache=${Math.round(Math.random() * 1000000)}`);
+            getId("iframe_").style.display = "block";
             document.getElementsByTagName("body")[0].style.overflow = "hidden";
         }
         document.querySelectorAll(".social_link").forEach((el) => {
@@ -446,12 +449,12 @@
             el.addEventListener("click", e => { window.location.href = el.getAttribute("data-slink") })
         })
         console.log(window.innerWidth, window.outerHeight, window.innerWidth, window.innerHeight)
-        document.getElementById("project_").onscroll = () => {
-            document.getElementById("project").scrollLeft = document.getElementById("project_").scrollLeft
+        getId("project_").onscroll = () => {
+            getId("project").scrollLeft = getId("project_").scrollLeft
         }
-        document.getElementById("project").onscroll = () => {
-            document.getElementById("project_").scrollLeft = document.getElementById("project").scrollLeft
+        getId("project").onscroll = () => {
+            getId("project_").scrollLeft = getId("project").scrollLeft
         }
-        function check1() { document.getElementById("project__").style.width = document.getElementById("project").scrollWidth + "px" }
+        function check1() { getId("project__").style.width = getId("project").scrollWidth + "px" }
     </script>
 </html>

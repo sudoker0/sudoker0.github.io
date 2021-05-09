@@ -107,24 +107,24 @@
         </nav>
         <div id="screentoosmall">
             <h2 style="color:red; text-align: center;">Error!</h2>
-            <p style="text-align: center; color: white">We have detected that the width of the screen that you are using right now is too small for the website to render properly</p>
-            <p style="text-align: center; color: white;">Try to rotate the device so that the screen orientation is horizontal. Or if that didn't work either, then that mean your screen is incompatiable to view the website</p>
+            <p style="text-align: center;">We have detected that the width of the screen that you are using right now is too small for the website to render properly</p>
+            <p style="text-align: center;">Try to rotate the device so that the screen orientation is horizontal. Or if that didn't work either, then that mean your screen is incompatiable to view the website</p>
         </div>
         <main>
             <div class="container">
                 <h1 style="color:red; text-align: center; max-width: 100%;"><b>About Website</b></h1>
                 <center>
-                    <a href="#" onclick="document.getElementById('textview').style.display = 'block'; document.getElementById('tableview').style.display = 'none'; document.getElementById('switchtextview').style.display = 'none'; document.getElementById('switchtableview').style.display = 'block'" id="switchtextview">[Switch to text view]</a>
-                    <a href="#" onclick="document.getElementById('textview').style.display = 'none'; document.getElementById('tableview').style.display = 'table'; document.getElementById('switchtextview').style.display = 'block'; document.getElementById('switchtableview').style.display = 'none'" id="switchtableview" style="display: none;">[Switch to table view]</a>
+                    <a href="#" onclick="getId('textview').style.display = 'block'; getId('tableview').style.display = 'none'; getId('switchtextview').style.display = 'none'; getId('switchtableview').style.display = 'block'" id="switchtextview">[Switch to text view]</a>
+                    <a href="#" onclick="getId('textview').style.display = 'none'; getId('tableview').style.display = 'table'; getId('switchtextview').style.display = 'block'; getId('switchtableview').style.display = 'none'" id="switchtableview" style="display: none;">[Switch to table view]</a>
                 </center>
                 <div id="textview" style="display: none;">
-                    <p style="color: white">File size: [Total size: <span id="total">00,000,000</span> bytes, Default: <span id="default">00,000,000</span> bytes, <a id="hidden" onclick="location.href='lite/home.html'">Basic</a>: <span id="basic">00,000</span> bytes, Other: <span id="other">00,000,000</span> bytes] (Last updated on: <span id="lastupdateon_"></span>)</b></p>
-                    <p style="color: white">Website's age: <span id="days_from">0</span> days since when the website was created.</p>
-                    <p style="color: white">Langugaes used: HTML (HyperText Markup Language), CSS (Cascading Style Sheets) and JS (JavaScript)</p>
-                    <p style="color: white">Number of commits: <span id="numberofcommit"></span> (Last updated on: <span id="lastupdateon"></span>)</p>
-                    <p style="color: white">External languages use (or contain in the website): JSON (JavaScript Object Notation), XML (eXtensible Markup Language), MD (MarkDown)</p>
-                    <p style="color: white">Website's Certificate valid before: <span id="validuntil"></span> days</p>
-                    <p style="color: white">This website used to have a dark and light mode and a simple design then the website get a re-designed from August 26th 2020</p>
+                    <p>File size: [Total size: <span id="total">00,000,000</span> bytes, Default: <span id="default">00,000,000</span> bytes, <a id="hidden" onclick="location.href='lite/home.html'">Basic</a>: <span id="basic">00,000</span> bytes, Other: <span id="other">00,000,000</span> bytes] (Last updated on: <span id="lastupdateon_"></span>)</b></p>
+                    <p>Website's age: <span id="days_from">0</span> days since when the website was created.</p>
+                    <p>Langugaes used: HTML (HyperText Markup Language), CSS (Cascading Style Sheets) and JS (JavaScript)</p>
+                    <p>Number of commits: <span id="numberofcommit"></span> (Last updated on: <span id="lastupdateon"></span>)</p>
+                    <p>External languages use (or contain in the website): JSON (JavaScript Object Notation), XML (eXtensible Markup Language), MD (MarkDown)</p>
+                    <p>Website's Certificate valid before: <span id="validuntil"></span> days</p>
+                    <p>This website used to have a dark and light mode and a simple design then the website get a re-designed from August 26th 2020</p>
                 </div>
                 <table class="tg" style="table-layout: fixed;" id="tableview" style="display: block;">
                     <colgroup>
@@ -191,9 +191,43 @@
                     <p style="color:white; text-align: center; max-width: 100%;">Copyright (C) 2021 Quan_MCPC. Created on: 7/17/20, this website will live <b style="color:red">forever</b></p>
                 </footer>
             </div>
+            <div id="settings" onclick="getId('settingspage').style.display = 'block'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ffffff" class="bi bi-gear" viewBox="0 0 16 16">
+                    <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                    <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+                </svg>
+            </div>
+            <div id="settingspage">
+                <h1 style="color: red; text-align: center;">Settings</h1>
+                <div id="sp_actual">
+                    <ul>
+                        <li>
+                            <span>Background style:</span>
+                            <ul id="bg_control">
+                                <li><input type="radio" name="bgstyle" id="bg-day"><label for="bg-day"> Day time</label></li>
+                                <li><input type="radio" name="bgstyle" id="bg-night"><label for="bg-night"> Night time</label></li>
+                                <li><input type="radio" name="bgstyle" id="bg-sys"><label for="bg-sys"> Based on system preferences</label></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>Website's look:</span>
+                            <ul id="theme_control">
+                                <li><input type="radio" name="wslook" id="wslook-default"><label for="wslook-default"> Default</label></li>
+                                <li><input type="radio" name="wslook" id="wslook-minimal"><label for="wslook-minimal"> Minimalist</label></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div id="sp_button">
+                    <div id="spb_inside"><button onclick="getId('settingspage').style.display = 'none'">Cancel</button></div>
+                </div>
+            </div>
         </main>
     </body>
     <script>
+        function getId(i) { return document.getElementById(i) }
+        function qSelAll(q) { return document.querySelectorAll(q) }
+        function qSel(q) { return document.querySelector(q) }
         function readTextFile(file, callback) {
             var rawFile = new XMLHttpRequest();
             rawFile.overrideMimeType("application/json");
@@ -210,10 +244,10 @@
                 default_1 = data.filesize.default, basic = data.filesize.basic, other = data.filesize.other,
                 numberofcommit = data.numberofcommit,
                 lastupdateon = data.lastupdateon, lastupdateon1 = data.filesize.lastupdateon;
-            document.getElementById("total").innerHTML = document.getElementById("total1").innerHTML = total;
-            document.getElementById("default").innerHTML = document.getElementById("default1").innerHTML = default_1;
-            document.getElementById("basic").innerHTML = document.getElementById("basic1").innerHTML = basic;
-            document.getElementById("other").innerHTML = document.getElementById("other1").innerHTML = other;
+            getId("total").innerHTML = getId("total1").innerHTML = total;
+            getId("default").innerHTML = getId("default1").innerHTML = default_1;
+            getId("basic").innerHTML = getId("basic1").innerHTML = basic;
+            getId("other").innerHTML = getId("other1").innerHTML = other;
             var utcTime = 0, failed = 0;
             function fetch_() {
                 fetch(`https://api.github.com/repos/QuanMCPC/QuanMCPC.github.io/stats/contributors?nocache=${Math.round(Math.random() * 1000000)}`, { headers: { "accept": "application/vnd.github.v3+json" } })
@@ -221,30 +255,30 @@
                 .then(e_ => {
                     utcTime = e_[0].weeks[e_[0].weeks.length - 1].w
                     var d_ = new Date(utcTime * 1000)
-                    document.getElementById("lastupdateon").innerHTML = d_.toUTCString();
-                    document.getElementById("lastupdateon1").innerHTML = d_.toUTCString();
-                    document.getElementById("numberofcommit").innerHTML = e_[0].total;
-                    document.getElementById("numberofcommit1").innerHTML = e_[0].total;
+                    getId("lastupdateon").innerHTML = d_.toUTCString();
+                    getId("lastupdateon1").innerHTML = d_.toUTCString();
+                    getId("numberofcommit").innerHTML = e_[0].total;
+                    getId("numberofcommit1").innerHTML = e_[0].total;
                 }).catch(r => {
                     if (failed <= 10) {
                         failed++;
                         setTimeout(fetch_, 2000);
                     } else {
-                        document.getElementById("numberofcommit").innerHTML = document.getElementById("numberofcommit1").innerHTML = "Failed to get data from GitHub API, this maybe due to number of request exceeded for your current IP. Please see the number of commit on: https://github.com/QuanMCPC/QuanMCPC.github.io"
+                        getId("numberofcommit").innerHTML = getId("numberofcommit1").innerHTML = "Failed to get data from GitHub API, this maybe due to number of request exceeded for your current IP. Please see the number of commit on: https://github.com/QuanMCPC/QuanMCPC.github.io"
                     }
                 })
             }
             fetch_();
-            document.getElementById("lastupdateon_").innerHTML = lastupdateon1; document.getElementById("lastupdateon_1").innerHTML = lastupdateon1;
+            getId("lastupdateon_").innerHTML = lastupdateon1; getId("lastupdateon_1").innerHTML = lastupdateon1;
         })
         function date_check() {
             var date1 = new Date("07/17/2020"), date2 = new Date(), date3 = new Date("4/14/2022"),
                 DInTime = date2.getTime() - date1.getTime(), DInTime1 = date3.getTime() - date2.getTime(),
                 DInDays = Math.round(DInTime / (1000 * 3600 * 24)), DInDays1 = Math.round(DInTime1 / (1000 * 3600 * 24));
-            document.getElementById("days_from").innerHTML = document.getElementById("days_from1").innerHTML = DInDays;
-            document.getElementById("validuntil").innerHTML = document.getElementById("validuntil1").innerHTML = DInDays1;
+            getId("days_from").innerHTML = getId("days_from1").innerHTML = DInDays;
+            getId("validuntil").innerHTML = getId("validuntil1").innerHTML = DInDays1;
         }
         date_check()
-        document.getElementById('switchtableview').style.display = 'none'
+        getId('switchtableview').style.display = 'none'
     </script>
 </html>

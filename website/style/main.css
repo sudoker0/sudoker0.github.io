@@ -1,3 +1,6 @@
+h1, h2, h3, h4, h5, h6, p, span, a, label {
+  color: white;
+}
 html { font-size: 100%; }
 nav.accb {
   background-color:rgba(20, 20, 20, 0.850);
@@ -64,7 +67,7 @@ div.container {
   padding: 0 20px 0 20px;
 }
 body {
-  background-image: url("/website/image/background.png");
+  background-image: url("/website/image/background_light.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -105,7 +108,7 @@ body {
   z-index: -1;
   display: none;
 }
-div.container * {
+div.container *, div#settingspage * {
   max-width: 50%;
   margin-left: auto;
   margin-right: auto;
@@ -122,19 +125,73 @@ a:hover, a:active {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+div#settings {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 5px;
+  z-index: 100;
+  background-color: rgba(31, 31, 31, 0.8);
+  padding: 5px;
+  border: 2px solid black;
+}
+div#settings:hover {
+  background-color: rgba(15, 15, 15, 0.8);
+  cursor: pointer;
+}
+div#settingspage {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 15, 15, 0.8);
+}
+div#spb_inside button {
+  max-width: 100%;
+  height: 30px;
+  background-color: rgb(90, 90, 90);
+  border: none;
+  color: white;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+div#settingspage div#sp_button button:hover {
+  background-color: rgb(75, 75, 75);
+}
+div#spb_inside {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+div#sp_actual {
+  border: 2px solid white;
+  margin-bottom: 5px;
+}
+div#settingspage ul {list-style: none;}
+div#settingspage li::before {content: "• ";color: white;}
+div#settingspage li li::before {content: "▪ ";color: white;}
+div#settingspage li li li::before {content: "▫ ";color: white;}
 @media (max-width: 319px) { #screentoosmall { display: block; } }
 @media (min-width: 320px) {
   body { font-size: 0.75rem; }
   #accbar a { margin-left: 5px; margin-right: 5px; }
   #accb_small, #accb_small_ p { font-size: 1.5em }
-  div.container * { max-width: 95% }
+  div.container *, div#settingspage * { max-width: 95% }
   #screentoosmall { display: none; }
+  div#sp_actual * { margin-top: 3px; margin-bottom: 3px; }
+  div#settingspage span { margin-top: initial; margin-bottom: initial; }
 }
 @media (min-width: 482px) {
   body { font-size: 0.75rem; }
   #accbar a { margin-left: 7px; margin-right: 7px; }
   #accb_small, #accb_small_ p { font-size: 1.4em }
-  div.container * { max-width: 95% }
+  div.container *, div#settingspage * { max-width: 95% }
+  div#sp_actual * { margin-top: 5px; margin-bottom: 5px; }
+  div#settingspage span { margin-top: initial; margin-bottom: initial; }
 }
 @media (max-width: 639px) {
   #accb_small_ { display: grid; }
@@ -144,7 +201,7 @@ a:hover, a:active {
   body { font-size: 0.81rem; }
   #accbar a { margin-left: 9px; margin-right: 9px; }
   #accb_small, #accb_small_ p { font-size: 1.3em }
-  div.container * { max-width: 80% }
+  div.container *, div#settingspage * { max-width: 80% }
   #accb_small_ { display: none; }
   nav.accb { display: grid; }
 }
@@ -152,11 +209,16 @@ a:hover, a:active {
   body { font-size: 1rem; }
   #accbar a { margin-left: 11px; margin-right: 11px; }
   #accb_small, #accb_small_ p { font-size: 1.2em }
-  div.container * { max-width: 65% }
+  div.container *, div#settingspage * { max-width: 65% }
 }
 @media (min-width: 1100px) {
   body { font-size: 1rem; }
   #accbar a { margin-left: 13px; margin-right: 13px; }
   #accb_small, #accb_small_ p { font-size: 1.1em }
-  div.container * { max-width: 50% }
+  div.container *, div#settingspage * { max-width: 50% }
+}
+div#sp_actual * {
+  margin-left: initial;
+  margin-right: initial;
+  max-width: initial;
 }

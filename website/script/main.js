@@ -1,5 +1,8 @@
 //@QuanMCPC
 //@ts-check/
+function getId(i) { return document.getElementById(i) }
+function qSelAll(q) { return document.querySelectorAll(q) }
+function qSel(q) { return document.querySelector(q) }
 var pathname = window.location.pathname, accb_small_isOn;
 var name_ = [
     {
@@ -35,9 +38,9 @@ name_.forEach(function (list, index) {
     anchor2.appendChild(anchor2_text);
     anchor2.title = list.title;
     anchor2.href = list.address + "?id=" + dateTime;
-    document.getElementById("accbar_small").appendChild(anchor2)
-    document.getElementById("accbar_small").appendChild(anchor3)
-    document.getElementById("accbar").appendChild(anchor);
+    getId("accbar_small").appendChild(anchor2)
+    getId("accbar_small").appendChild(anchor3)
+    getId("accbar").appendChild(anchor);
 });
 function gPBName(name, url) {
     if (!url) url = window.location.href;
@@ -53,7 +56,7 @@ function rString(l) {
     return r.join('');
 }
 function check() {
-    document.getElementById("accb_small").style.top = document.getElementById("accb_small_").style.width
+    getId("accb_small").style.top = getId("accb_small_").style.width
     if (Number(gPBName("sv_cheat")) >= 1 || Number(gPBName("debug")) >= 1 || Number(gPBName("hack")) >= 1) {
         window.location.replace("ban.html");
     }
@@ -61,7 +64,7 @@ function check() {
         window.location.replace("ban.html");
     }
     if (gPBName("secret") == "true" || gPBName("id") == "secret") {
-        document.getElementById("secret_image").style.display = "block"
+        getId("secret_image").style.display = "block"
         document.getElementsByTagName("body")[0].style.backgroundImage = "url(website/image/sus_.png)"
     }
     if (gPBName("id") == "entropy") {
@@ -76,43 +79,133 @@ function check() {
     if (gPBName("id") == "rotate-inf") { document.body.style.animation = "rotate_ 5s ease infinite"; }
 }
 document.addEventListener("click", function(evt) {
-    var flyoutElement = document.getElementById('accb_small'),
+    var flyoutElement = getId('accb_small'),
         targetElement = evt.target,
-        flyoutElement_2 = document.getElementById("accb_small_")
+        flyoutElement_2 = getId("accb_small_")
     do {
         if (targetElement == flyoutElement || targetElement == flyoutElement_2) { return; }
         targetElement = targetElement.parentNode;
     } while (targetElement);
-    document.getElementById("accb_small").style.display = "none";
+    getId("accb_small").style.display = "none";
     accb_small_isOn = false;
 });
 window.onload = window.onresize = function() {
-    if (pathname == "/home.html" || pathname == "/home") { document.getElementById("project__").style.width = document.getElementById("project").scrollWidth + "px" }
+    if (pathname == "/home.html" || pathname == "/home") { getId("project__").style.width = getId("project").scrollWidth + "px" }
     check()
     accb_small_isOn = false;
-    document.getElementById("accb_small").style.display = "none"
+    getId("accb_small").style.display = "none"
 }
 accb_small_isOn = false;
 function accb_small() {
     if (accb_small_isOn) {
-        document.getElementById("accb_small").style.display = "none";
+        getId("accb_small").style.display = "none";
         accb_small_isOn = false;
     } else {
-        document.getElementById("accb_small").style.display = "block";
+        getId("accb_small").style.display = "block";
         accb_small_isOn = true;
     }
 }
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
-    document.getElementById("accb_small").style.display = "none"
+    getId("accb_small").style.display = "none"
     accb_small_isOn = false;
     var currentScrollPos = window.pageYOffset;
     if (prevScrollpos > currentScrollPos) {
-        document.getElementById("accb").style.top = "0";
-        document.getElementById("accb_small_").style.top = "0";
+        getId("accb").style.top = "0";
+        getId("accb_small_").style.top = "0";
     } else {
-        document.getElementById("accb").style.top = "-" + document.getElementById("accb").offsetHeight + "px";
-        document.getElementById("accb_small_").style.top = "-" + document.getElementById("accb_small_").offsetHeight + "px";
+        getId("accb").style.top = "-" + getId("accb").offsetHeight + "px";
+        getId("accb_small_").style.top = "-" + getId("accb_small_").offsetHeight + "px";
     }
     prevScrollpos = currentScrollPos;
 }
+function changeBg(isLight) { if (isLight) { qSel("body").style.backgroundImage = "url(\"/website/image/background_light.png\")"; } else { qSel("body").style.backgroundImage = "url(\"/website/image/background_dark.png\")"; } }
+function ls_gt(i) { return localStorage.getItem(i) }
+function ls_st(i, v) { localStorage.setItem(i, v) }
+var constant = 0;
+/*
+    Background: Light (0)/Dark(1)/BasedOnSystemPreferences(2)
+    Theme: Default (0)/Minimal(1)
+*/
+function fetchLocal() {
+    if (ls_gt("background") && ls_gt("theme")) {
+        document.getElementById("bg_control").getElementsByTagName("li")[Number(ls_gt("background"))].childNodes[0].setAttribute("checked", "checked")
+        document.getElementById("theme_control").getElementsByTagName("li")[Number(ls_gt("theme"))].childNodes[0].setAttribute("checked", "checked")
+        if (ls_gt("theme") == "0") {
+            ws_1()
+        } else {
+            ws_2()
+        }
+    } else {
+        ls_st("background", "0");
+        ls_st("theme", "0");
+        fetchLocal();
+    }
+}
+fetchLocal();
+function ws_1() {
+    qSel(".accb").style.backgroundColor = "rgba(20, 20, 20, 0.85)";
+    qSel(".accb").style.border = "1px solid rgb(21, 21, 21)";
+    qSel("#accb_small_").style.backgroundColor = "rgba(20, 20, 20, 0.85)";
+    qSel("#accb_small_").style.border = "1px solid rgb(21, 21, 21)";
+    qSel(".container").style.backgroundColor = "rgba(20, 20, 20, 0.85)";
+    qSel(".container").style.border = "3px solid black";
+    qSel(".container").style.margin = "20px";
+    qSel("body").style.backgroundColor = "initial";
+    if (ls_gt("background") == "0") {
+        changeBg(true);
+    } else if (ls_gt("background") == "1") {
+        changeBg(false);
+    } else {
+        if (window.matchMedia("(prefers-color-scheme: light)").matches) { changeBg(true); } else { changeBg(false);}
+        window.matchMedia("(prefers-color-scheme: light)").onchange = function(e) {
+            if (e.matches) { changeBg(true); } else { changeBg(false);}
+        }
+    }
+    getId("bg-day").removeAttribute("disabled")
+    getId("bg-night").removeAttribute("disabled")
+    getId("bg-sys").removeAttribute("disabled")
+}
+function ws_2() {
+    qSel(".accb").style.backgroundColor = "rgb(21, 21, 21)";
+    qSel(".accb").style.border = "1px solid rgb(21, 21, 21)";
+    qSel("#accb_small_").style.backgroundColor = "rgb(21, 21, 21)";
+    qSel("#accb_small_").style.border = "1px solid rgb(21, 21, 21)";
+    qSel(".container").style.backgroundColor = "rgb(21, 21, 21)";
+    qSel(".container").style.border = "1px solid rgb(21, 21, 21)";
+    qSel(".container").style.margin = "-8px";
+    qSel("body").style.backgroundColor = "rgb(21, 21, 21)";
+    qSel("body").style.backgroundImage = "initial";
+    getId("bg-day").setAttribute("disabled", "disabled")
+    getId("bg-night").setAttribute("disabled", "disabled")
+    getId("bg-sys").setAttribute("disabled", "disabled")
+}
+getId("bg-night").onchange = () => {
+    constant = constant + 0.5
+    changeBg(false);
+    ls_st("background", "1");
+    if (constant >= 15) {
+        alert("Hey! Who keep changing the day?")
+        constant = 0
+    }
+}
+getId("bg-day").onchange = () => {
+    constant = constant + 0.5
+    changeBg(true);
+    ls_st("background", "0");
+    if (constant >= 15) {
+        alert("Hey! Who keep changing the day?")
+        constant = 0
+    }
+}
+getId("bg-sys").onchange = () => {
+    constant = constant + 0.5
+    if (window.matchMedia("(prefers-color-scheme: light)").matches) { changeBg(true); } else { changeBg(false);}
+    ls_st("background", "2");
+    if (constant >= 15) {
+        alert("Hey! Who keep changing the day?")
+        constant = 0
+    }
+}
+getId("wslook-default").onchange = () => { ws_1(); ls_st("theme", 0); }
+getId("wslook-minimal").onchange = () => { ws_2(); ls_st("theme", 1); }
