@@ -131,6 +131,11 @@ var constant = 0;
     Background: Light (0)/Dark(1)/BasedOnSystemPreferences(2)
     Theme: Default (0)/Minimal(1)
 */
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Fired!")
+    let node = document.querySelector('.notransition');
+    node.classList.remove('notransition');
+});
 function fetchLocal() {
     if (ls_gt("background") && ls_gt("theme")) {
         document.getElementById("bg_control").getElementsByTagName("li")[Number(ls_gt("background"))].childNodes[0].setAttribute("checked", "checked")
