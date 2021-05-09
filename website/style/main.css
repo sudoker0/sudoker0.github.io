@@ -10,9 +10,10 @@ nav.accb {
   margin-left: -8px;
   margin-right: -8px;
   margin-top: -8px;
-  transition: all 0.3s;
   grid-template-areas: "left_ right_";
   grid-template-columns: 1fr 5fr;
+  transition: all 0.3s;
+  transform: translateY(0%);
 }
 #accbar {
   grid-area: right_-start;
@@ -47,6 +48,7 @@ nav.accb {
   margin-left: -8px;
   margin-right: -8px;
   margin-top: -8px;
+  transform: translateY(0%);
   transition: all 0.3s;
   grid-template-areas: "left__ right__";
   grid-template-columns: 1fr 5fr;
