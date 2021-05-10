@@ -61,7 +61,7 @@
     - **Yes**, I have. When I add or change something, there will always be problem and if there is, I will search on the Internet to find a solution. And just because you search things up on the Internet, it doesn't mean you not good. Even the smart people out there still have to read book and search thing up for the solution.
 - If GitHub support PHP or other language, will I ever use those language to write my website?
     - **Maybe**, but I will probably prefer to stay on HTML, mainly because that mean I have to learn a new language and adapt all of the difference syntax and other things too
-### 📁 File information of the website's folder
+### 📁 Information about the files in the website's folder
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
 (Every file)    | 100%                 | 243 files       | 43,008,519 bytes
@@ -120,6 +120,12 @@ for( ; ; ) {
 ```basic
 10 PRINT "Loop!"
 20 GOTO 10
+```
+> MCPC in my username is acronym and it can mean a lot of things:
+```nim
+ - MineCraft for Personal Computer (The correct one)
+ - May Center around Piece of Crap (When something break)
+ - Might Code for Poor Coder (When something work)
 ```
 ***
 Copyright &copy; 2021 Quan_MCPC

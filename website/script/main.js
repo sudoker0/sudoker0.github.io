@@ -69,11 +69,16 @@ function check() {
     }
     if (gPBName("id") == "entropy") {
         var charStart = 1;
-        setInterval(() => {
+        function d() {
             var lChar = Math.round(Math.random() * document.body.innerHTML.length), char = rString(Math.floor(charStart));
             document.body.innerHTML = document.body.innerHTML.substring(0, lChar) + char + document.body.innerHTML.substring(lChar + Math.floor(charStart));
             charStart =  charStart <= 32 ? charStart + 0.1 : charStart;
-        }, 1000)
+            // if (document.body.querySelectorAll("*").length <= 2) {
+            //     clearInterval(c);
+            //     document.body.innerHTML += `<div style="max-length: 70%; color: white; background-color: black; border: 2px solid white; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 10px; position: fixed;">An error has occurred in the root of the website, so we have to suspend your current session.<br>A dump of the current session will be created and allow you to download. You can continue with the current session but it's not recommended by <button onclick="c = setInterval(d, 750)">click here</button>.</div>`;
+            // }
+        }
+        var c = setInterval(d, 10)
     }
     if (gPBName("id") == "rotate") { document.body.style.animation = "rotate_ 5s ease"; }
     if (gPBName("id") == "rotate-inf") { document.body.style.animation = "rotate_ 5s ease infinite"; }
