@@ -1,7 +1,22 @@
 //@QuanMCPC
 //@ts-check/
+/**
+ * Short for: document.getElementById
+ * @param {string} i The Id of the element
+ * @returns HTMLELement
+ */
 function getId(i) { return document.getElementById(i) }
+/**
+ * Short for: document.querySelectorAll
+ * @param {string} q The selector
+ * @returns NodeListOf<Element>
+ */
 function qSelAll(q) { return document.querySelectorAll(q) }
+/**
+ * Short for: document.querySelector
+ * @param {string} q The selector
+ * @returns Element
+ */
 function qSel(q) { return document.querySelector(q) }
 var pathname = window.location.pathname, accb_small_isOn;
 var name_ = [
@@ -42,6 +57,12 @@ name_.forEach(function (list, index) {
     getId("accbar_small").appendChild(anchor3)
     getId("accbar").appendChild(anchor);
 });
+/**
+ * Get the value of a field in a URL
+ * @param {string} name The field that you want to get the value
+ * @param {string} url The URL that you want to use (Optional)
+ * @returns String
+ */
 function gPBName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, '\\$&');
