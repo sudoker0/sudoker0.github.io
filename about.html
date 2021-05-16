@@ -64,9 +64,53 @@
             #textview {
                 max-width: initial;
             }
+            #iframe_ {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: calc(100% - 8px);
+                height: calc(100% - 8px);
+                z-index: 30;
+                border: 4px solid gray;
+                background-color: white;
+                display: none;
+            }
+            #iframe_accbar {
+                width: 100%;
+                height: 20px;
+                background-color: gray;
+            }
+            #abcd {
+                margin: 0;
+                height: 4px;
+                background-color: gray;
+                border: 1px solid gray;
+            }
+            #iframe_accbar button {
+                height: 20px;
+                min-width: 50px;
+                border: none;
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+            #iframe_accbar button:hover {
+                background-color: rgb(180, 180, 180);
+            }
+            iframe {
+                border: none;
+                overflow: scroll;
+                height: calc(100% - 26px);
+            }
         </style>
     </head>
     <body>
+        <div id="iframe_">
+            <div id="iframe_accbar">
+                <button onclick="getId('iframe__').setAttribute('src', 'about:blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Close</button><button onclick="window.open(getId('iframe__').getAttribute('src'), '_blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Open in a new tab</button>
+            </div>
+            <hr id="abcd">
+            <iframe title="A place to display my project" id="iframe__" scrolling="yes" src="about:blank" width="100%" allowfullscreen sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-modals allow-popups"></iframe>
+        </div>
         <div id="secret_image">
             <img src="website/image/secret_.png" alt="Secret image UwU">
         </div>
@@ -172,8 +216,11 @@
                             <td class="tg-0lax" colspan="2">Python</td>
                         </tr>
                         <tr>
-                            <td class="tg-0lax">Number of commit</td>
+                            <td class="tg-0lax" rowspan="2">Number of commit</td>
                             <td class="tg-0lax" colspan="2"><span id="numberofcommit1"></span> (Last updated on: <span id="lastupdateon1"></span>)</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax" colspan="2"><a href="#" onclick="oOPIIF('/other_project/commit.html')" style="max-width: initial;">Click here for a detailed graph about the number of commit</a></td>
                         </tr>
                         <tr>
                             <td class="tg-0lax">Website's Certificate valid before</td>
@@ -226,6 +273,11 @@
         function getId(i) { return document.getElementById(i) }
         function qSelAll(q) { return document.querySelectorAll(q) }
         function qSel(q) { return document.querySelector(q) }
+        function oOPIIF(url) {
+            getId("iframe__").setAttribute("src", url + `?nocache=${Math.round(Math.random() * 1000000)}`);
+            getId("iframe_").style.display = "block";
+            document.getElementsByTagName("body")[0].style.overflow = "hidden";
+        }
         function readTextFile(file, callback) {
             var rawFile = new XMLHttpRequest();
             rawFile.overrideMimeType("application/json");

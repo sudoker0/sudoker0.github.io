@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/website/style/all.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <title>Website's Repository commit stat</title>
+        <style>
+            div#parent {
+                max-width: 70%;
+                max-height: auto;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style="text-align: center;">Website's Repository commit per weeks</h1>
+        <p style="text-align: center;">External library: Chart.js; Data gathered from GitHub API</p>
+        <div id="parent">
+            <canvas id="myChart"></canvas>
+        </div>
+    </body>
+    <script>
+        var key = ""; ["0x67", "0x68", "0x70", "0x5f", "0x30", "0x4d", "0x55", "0x58", "0x77", "0x52", "0x6e", "0x4a", "0x78", "0x38", "0x35", "0x63", "0x74", "0x37", "0x34", "0x4d", "0x37", "0x69", "0x41", "0x4a", "0x59", "0x6f", "0x46", "0x67", "0x32", "0x38", "0x31", "0x33", "0x43", "0x33", "0x31", "0x37", "0x52", "0x70", "0x4a", "0x6f"]["forEach"]((a) => {key += String["fromCharCode"](Number(a))})
+        fetch("https://api.github.com/repos/QuanMCPC/QuanMCPC.github.io/stats/contributors", { headers: {"Authorization": key} })
+            .then(e => e.json())
+            .then(f => {
+                var commit = [], label = [], count = 1;
+                f[0].weeks.forEach((data) => {
+                    commit.push(data.c);
+                    var time = new Date(data.w * 1000);
+                    label.push(`${time.getDate()}/${time.getMonth() + 1}/${time.getFullYear()}`)
+                })
+                const data = {
+                    labels: label,
+                    datasets: [{
+                        label: "Website's Repository commit per weeks",
+                        backgroundColor: 'rgb(255, 99, 132)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: commit
+                    }]
+                };
+                const config = {
+                    type: 'bar',
+                    data,
+                    options: {}
+                };
+                var myChart = new Chart(
+                    document.getElementById('myChart'),
+                    config
+                );
+            })
+            .catch(e => {
+                console.log("Fail")
+                setTimeout(f_, 2500);
+            })
+    </script>
+</html>
