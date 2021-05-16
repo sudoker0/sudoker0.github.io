@@ -256,7 +256,7 @@
             getId("other").innerHTML = getId("other1").innerHTML = other;
             var utcTime = 0, failed = 0;
             function fetch_() {
-                fetch(`https://api.github.com/repos/QuanMCPC/QuanMCPC.github.io/stats/contributors?nocache=${Math.round(Math.random() * 1000000)}`, { headers: { "accept": "application/vnd.github.v3+json" } })
+                fetch(`https://api.github.com/repos/QuanMCPC/QuanMCPC.github.io/stats/contributors?nocache=${Math.round(Math.random() * 1000000)}`, { headers: { "accept": "application/vnd.github.v3+json", "Authorization": key } })
                 .then(e => e.json())
                 .then(e_ => {
                     utcTime = e_[0].weeks[e_[0].weeks.length - 1].w

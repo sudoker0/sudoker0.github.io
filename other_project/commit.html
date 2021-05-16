@@ -20,6 +20,7 @@
         <h1 style="text-align: center;">Website's Repository commit per weeks</h1>
         <p style="text-align: center;">External library: Chart.js; Data gathered from GitHub API</p>
         <div id="parent">
+            <p style="text-align: center; display: none;" id="bc">Failed to get data from GitHub API, this maybe due to number of request exceeded for your current IP. Please see the number of commit on: https://github.com/QuanMCPC/QuanMCPC.github.io</p>
             <canvas id="myChart"></canvas>
         </div>
     </body>
@@ -54,8 +55,12 @@
                 );
             })
             .catch(e => {
-                console.log("Fail")
-                setTimeout(f_, 2500);
+                if (f.message) {
+                    document.getElementById("bc").style.display = "block";
+                } else {
+                    console.log("Fail")
+                    setTimeout(f_, 2500);
+                }
             })
     </script>
 </html>
