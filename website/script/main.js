@@ -115,7 +115,26 @@ document.addEventListener("click", function(evt) {
     getId("accb_small").style.display = "none";
     accb_small_isOn = false;
 });
-window.onload = window.onresize = function() {
+window.onresize = smtg;
+window.onload = () => {
+    smtg();
+    setTimeout(() => {
+        getId("loadingIndicator").style.opacity = 0;
+        getId("loadingIndicator").style.pointerEvents = "none"
+    }, 500);
+    document.querySelectorAll("h3#accbar a, h3#accbar_small a").forEach((v) => {
+        v.addEventListener("click", e => {
+            e.preventDefault();
+            getId("loadingIndicator").style.opacity = 1;
+            getId("loadingIndicator").style.pointerEvents = "initial";
+            setTimeout(() => {
+                window.location.href = e.target.href;
+            }, 500)
+        })
+    })
+
+}
+function smtg() {
     if (pathname == "/home.html" || pathname == "/home") { getId("project__").style.width = getId("project").scrollWidth + "px" }
     check()
     accb_small_isOn = false;
