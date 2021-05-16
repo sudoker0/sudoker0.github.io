@@ -87,7 +87,7 @@ div.container * {
   height: 100%;
   top: 0;
   left: 0;
-  z-index: 50;
+  z-index: 110;
   cursor: not-allowed;
   background-color: white;
 }
