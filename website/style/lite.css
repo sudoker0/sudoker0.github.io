@@ -109,3 +109,20 @@ div#loadingIndicator div img {
   margin-left: auto;
   margin-right: auto;
 }
+.loading_text span {
+  animation: dots 2s infinite cubic-bezier(0, 1, 0, 1);
+}
+.loading_text span:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.loading_text span:nth-child(3) {
+  animation-delay: 0.8s;
+}
+@keyframes dots {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
