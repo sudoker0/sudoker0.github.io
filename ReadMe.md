@@ -17,7 +17,7 @@
 5. [📁 File information of the website's folder](#-file-information-of-the-website's-folder)
 6. [👀 Random Stuff](#-random-stuff)
 ### 📕 Introduction
-* This repository is not the first ever repo that I created. I created the first one to store my game that I created using Unity but then I delete that because I still want my game private.
+* Ok, I have to tell the truth: This repository is not really the first ever repo that I created. I created the first one to store my game that I created using Unity but then I delete that because I still want my game private.
 * After deleting that, I rarely use GitHub. But one day, I want to created my first ever website and then I found a [website](https://medium.com/@svinkle/publish-and-share-your-own-website-for-free-with-github-2eff049a1cb5) that help you created a free website On [GitHub](https://github.com). And after that, [QuanMCPC.github.io](https://quanmcpc.github.io) was born!
 * **Note**: When I created the website, my original GitHub nickname was Quan215 so the name of my website was actually Quan215.github.io. But then I change my nickname to my Minecraft username and after that I have to change the name of the repo to the current website name.
 ### 💡 About
