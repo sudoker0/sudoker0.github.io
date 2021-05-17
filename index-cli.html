@@ -55,16 +55,17 @@
             newLetter();
         }
         function timeLoop() {
-            document.getElementById("seconds_").innerHTML = secondLeft;
             if (secondLeft <= 0) {
                 clearInterval(b);
             } else {
                 secondLeft--;
                 b = setTimeout(timeLoop, 1000);
             }
+            document.getElementById("seconds_").innerHTML = secondLeft;
         }
         timeLoop();
         var b = setTimeout(() => {
+            console.log("B")
             document.getElementById("theRest").innerHTML = `No keystroke detected, now Booting with mode: 1 `
             print("/home.html?id=696-969-420-911");
         }, 5000)
@@ -76,18 +77,18 @@
             switch (e.key) {
                 case "1":
                     final();
-                    print("/home.html?id=696-969-420-911");
                     clearTimeout(b);
+                    print("/home.html?id=696-969-420-911");
                     break;
                 case "2":
                     final();
-                    print("/lite/home.html?id=696-969-420-911");
                     clearTimeout(b);
+                    print("/lite/home.html?id=696-969-420-911");
                     break;
                 case "3":
                     final();
-                    print("/old_version.html");
                     clearTimeout(b);
+                    print("/old_version.html");
                     break;
                 case "Delete":
                     document.getElementById("theRest").innerHTML = `Returning to the GUI Portal  `;
