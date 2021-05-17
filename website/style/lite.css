@@ -14,6 +14,7 @@ body {
 #accbar {
   grid-area: right_-start;
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
 }
 #accbar * {
