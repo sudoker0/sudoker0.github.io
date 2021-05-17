@@ -139,7 +139,7 @@
         <link rel="icon" href="website/image/favicon.ico">
         <title>QuanMCPC's Website</title>
     </head>
-    <body onload="move()">
+    <body onload="move(event)">
         <noscript id="noscript_overlay">
             <hr>
             <h2>A letter from the creator of the website.</h2>
@@ -217,7 +217,13 @@
                 if (!results[2]) return '';
                 return decodeURIComponent(results[2].replace(/\+/g, ' '));
             }
-            function move() {
+            window.onkeydown = (e) => {
+                if (e.key == "C" && e.shiftKey && e.altKey) {
+                    window.location.href = "/index-cli.html"
+                }
+            }
+            function move(e) {
+                console.log(e);
                 if (window.matchMedia('(display-mode: standalone)').matches || navigator.standalone || window.matchMedia('(display-mode: minimal-ui)').matches) {
                     document.getElementById("yes").style.display = "none";
                 }
