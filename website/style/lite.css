@@ -91,3 +91,21 @@ div.container * {
   cursor: not-allowed;
   background-color: white;
 }
+div#loadingIndicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 104;
+  display: grid;
+  place-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  opacity: 1;
+}
+div#loadingIndicator div img {
+  background-color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
