@@ -3,362 +3,211 @@
     <head>
         <script src="/index.js?ver=1202"></script>
         <title>Message Encryption and Decryption v2.0</title>
+        <style>
+            :root { font-family: 'Courier New', Courier, monospace; }
+            div.endecrypt {
+                display: grid;
+                grid-template-areas:
+                    'plain encrypt'
+                    'control control';
+                grid-template-columns: 1fr 1fr;
+            }
+            div.endecrypt_inout {
+                grid-area: plain;
+            }
+            div.endecrypt_outin {
+                grid-area: encrypt;
+            }
+            div.endecrypt_control {
+                display: grid;
+                place-items: center;
+            }
+        </style>
     </head>
     <body>
-        <h3>Message Encryption and Decryption v2.0</h3>
-        <h3>Method: Vigenere</h3>
         <!--Encryption Part-->
-        <hr style="color:rgb(56, 56, 56); border-width: 2px; border-style: solid;">
-        <h3>Encryption Part</h3>
-        <!--Input-->
-        <p>Plain Text</p>
-        <textarea onkeyup="validate_textarea1()" name="textarea" cols="100" rows="15" id="plain_text" style="resize: none;"></textarea>
-        <!--Key-->
-        <p>Key: <input name="input" onkeyup="validate_input1()" id="encrypt_keys"></p>
-        <!--Output-->
-        <p>Output Text (Encrypted Text)</p>
-        <textarea cols="100" rows="15" id="encrypt_text" readonly style="resize: none;"></textarea>
-        <br><br>
-        <button onclick="encrypt()">Encrypt Message</button>
-        <br><br>
-        <input id="inputFileNameToSaveAs">
-        <button onclick="saveOutputToFile()">Save Encrypted Text to File</button>
-        <br>
+        <fieldset>
+            <legend>Vigenere Encoder</legend>
+            <div class="endecrypt">
+                <div class="endecrypt_inout">
+                    <p>Plain Text</p>
+                    <textarea onkeyup="validate_textarea1()" name="textarea" id="plain_text" style="resize: vertical; width: 95%; min-height: 300px;"></textarea>
+                </div>
+                <div class="endecrypt_outin">
+                    <p>Output Text (Encrypted Text)</p>
+                    <textarea id="encrypt_text" readonly style="resize: vertical; width: 95%; min-height: 300px;"></textarea>
+                </div>
+            </div>
+            <div class="endecrypt_control">
+                <div>
+                    <label for="input">Key: </label><input name="input" onkeyup="validate_input1()" id="encrypt_keys">
+                    <button onclick="encrypt()">Encrypt Message</button>
+                    <input id="inputFileNameToSaveAs">
+                    <button onclick="saveOutputToFile()">Save Encrypted Text to File</button>
+                </div>
+            </div>
+        </fieldset>
         <!--Decryption Part-->
-        <hr style="color:rgb(56, 56, 56); border-width: 2px; border-style: solid;">
-        <h3>Decryption Part</h3>
-        <!--Input-->
-        <p>Encrypted Text</p>
-        <textarea name="textarea" onkeyup="validate_textarea()" cols="100" rows="15" id="encrypted_text" style="resize: none;"></textarea>
-        <!--Key-->
-        <p>Key: <input name="input" onkeyup="validate_input()" id="decrypt_keys"></p>
-        <!--Output-->
-        <p>Output Text (Decrypted Text)</p>
-        <textarea cols="100" rows="15" id="decrypt_text" readonly style="resize: none;"></textarea>
-        <br>
-        <br>
-        <button onclick="decrypt()">Decrypt Message</button>
-        <br>
-        <br>
-        <input type="file" id="fileToLoad">
-        <button onclick="loadFile()">Load TXT</button>
-        <hr style="color:rgb(56, 56, 56); border-width: 2px; border-style: solid;">
-        <p>Copyright (C) 2021 Quan_MCPC</p>
-        <p>(This only took 400 lines of code, and a whole day to complete and repair).</p>
-        <p>Note 1: Some older browser will not work, I check on my browser and it work so if your browser doesn't want to do things correctly, please update the browser.</p>
-        <p>Note 2: This currently only support non-capital letter so no space, no number, no special charater, ...</p>
+        <fieldset>
+            <legend>Vigenere Decoder</legend>
+            <div class="endecrypt">
+                <div class="endecrypt_inout">
+                    <p>Encrypted Text</p>
+                    <textarea name="textarea" onkeyup="validate_textarea()" id="encrypted_text" style="resize: vertical; width: 95%; min-height: 300px;"></textarea>
+                </div>
+                <div class="endecrypt_outin">
+                    <p>Output Text (Decrypted Text)</p>
+                    <textarea id="decrypt_text" readonly style="resize: vertical; width: 95%; min-height: 300px;"></textarea>
+                </div>
+            </div>
+            <div class="endecrypt_control">
+                <div>
+                    <label for="input">Key: </label><input name="input" onkeyup="validate_input()" id="decrypt_keys">
+                    <button onclick="decrypt()">Decrypt Message</button>
+                    <input type="file" id="fileToLoad">
+                    <button onclick="loadFile()">Load TXT</button>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Information</legend>
+            <p>Copyright (C) 2021 Quan_MCPC</p>
+            <p>214 lines of code, work for character that is not capital letter, and other special character</p>
+            <p>Here's the Regex that check for valid character for your nerds out there: /[^a-z\s.,\/!@#$%^&*()\-_+=\[\]{}|\\:;'"<>~`\d]+/g</p>
+        </fieldset>
     </body>
     <script>
-        function saveOutputToFile()
-        {
-            var textToSave = document.getElementById("encrypt_text").value;
-            var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
-            var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
-            var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAs").value;
-            var downloadLink = document.createElement("a");
-            downloadLink.download = fileNameToSaveAs;
-            downloadLink.innerHTML = "Download File";
-            downloadLink.href = textToSaveAsURL;
-            downloadLink.onclick = destroyClickedElement;
-            downloadLink.style.display = "none";
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
+        function getId(id) { return document.getElementById(id) }
+        function saveOutputToFile() {
+            var tTS = getId("encrypt_text").value, tTSAB = new Blob([tTS], {type:"text/plain"}), tTSAU = window.URL.createObjectURL(tTSAB), fNTSA = getId("inputFileNameToSaveAs").value, dL = document.createElement("a");
+            dL.download = fNTSA;
+            dL.innerHTML = "Download File";
+            dL.href = tTSAU;
+            dL.onclick = destroyClickedElement;
+            dL.style.display = "none";
+            document.body.appendChild(dL);
+            dL.click();
         }
         function destroyClickedElement(event) { document.body.removeChild(event.target); }
-
-        function loadFile()
-        {
-            var fileToLoad = document.getElementById("fileToLoad").files[0];
-            var fileReader = new FileReader();
-            fileReader.onload = function(fileLoadedEvent)
-            {
+        function loadFile() {
+            var fileToLoad = getId("fileToLoad").files[0], fileReader = new FileReader();
+            fileReader.onload = function(fileLoadedEvent) {
                 var textFromFileLoaded = fileLoadedEvent.target.result;
-                document.getElementById("encrypted_text").value = textFromFileLoaded;
+                getId("encrypted_text").value = textFromFileLoaded;
             };
             fileReader.readAsText(fileToLoad, "UTF-8");
         }
         function validate_textarea1() {
-            var textarea_element = document.getElementById("plain_text");
-            textarea_element.value = textarea_element.value.replace(/[^a-z]+/, '');
+            var textarea_element = getId("plain_text");
+            textarea_element.value = textarea_element.value.replace(/[^a-z\s.,\/!@#$%^&*()\-_+=\[\]{}|\\:;'"<>~`\d]+/g, '');
         }
         function validate_input1() {
-            var input_element = document.getElementById("encrypt_keys");
-            input_element.value = input_element.value.replace(/[^a-z]+/, '');
+            var input_element = getId("encrypt_keys");
+            input_element.value = input_element.value.replace(/[^a-z]+/g, '');
         }
         function validate_textarea() {
-            var textarea_element1 = document.getElementById("encrypted_text");
-            textarea_element1.value = textarea_element1.value.replace(/[^a-z]+/, '');
+            var textarea_element1 = getId("encrypted_text");
+            textarea_element1.value = textarea_element1.value.replace(/[^a-z\s.,\/!@#$%^&*()\-_+=\[\]{}|\\:;'"<>~`\d]+/g, '');
         }
         function validate_input() {
-            var input_element1 = document.getElementById("decrypt_keys");
-            input_element1.value = input_element1.value.replace(/[^a-z]+/, '');
+            var input_element1 = getId("decrypt_keys");
+            input_element1.value = input_element1.value.replace(/[^a-z]+/g, '');
         }
+        const alphabetArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
         function encrypt() {
-            document.getElementById("encrypt_text").innerHTML = "";
-            var input = document.getElementById("plain_text").value;
-            const array_input = [...input];
-            for (var i1 = 0; i1 < input.length; i1++)
-            {
-                if (array_input[i1] == "a") { array_input[i1] = 1; }
-                if (array_input[i1] == "b") { array_input[i1] = 2; }
-                if (array_input[i1] == "c") { array_input[i1] = 3; }
-                if (array_input[i1] == "d") { array_input[i1] = 4; }
-                if (array_input[i1] == "e") { array_input[i1] = 5; }
-                if (array_input[i1] == "f") { array_input[i1] = 6; }
-                if (array_input[i1] == "g") { array_input[i1] = 7; }
-                if (array_input[i1] == "h") { array_input[i1] = 8; }
-                if (array_input[i1] == "i") { array_input[i1] = 9; }
-                if (array_input[i1] == "j") { array_input[i1] = 10; }
-                if (array_input[i1] == "k") { array_input[i1] = 11; }
-                if (array_input[i1] == "l") { array_input[i1] = 12; }
-                if (array_input[i1] == "m") { array_input[i1] = 13; }
-                if (array_input[i1] == "n") { array_input[i1] = 14; }
-                if (array_input[i1] == "o") { array_input[i1] = 15; }
-                if (array_input[i1] == "p") { array_input[i1] = 16; }
-                if (array_input[i1] == "q") { array_input[i1] = 17; }
-                if (array_input[i1] == "r") { array_input[i1] = 18; }
-                if (array_input[i1] == "s") { array_input[i1] = 19; }
-                if (array_input[i1] == "t") { array_input[i1] = 20; }
-                if (array_input[i1] == "u") { array_input[i1] = 21; }
-                if (array_input[i1] == "v") { array_input[i1] = 22; }
-                if (array_input[i1] == "w") { array_input[i1] = 23; }
-                if (array_input[i1] == "x") { array_input[i1] = 24; }
-                if (array_input[i1] == "y") { array_input[i1] = 25; }
-                if (array_input[i1] == "z") { array_input[i1] = 26; }
-            }
-            var key = document.getElementById("encrypt_keys").value;
-            var key_length = key.length;
-            var input_length = input.length;
-            if (key_length > input_length) {
-                alert("Error 001: Key is longer then input!");
-                return false;
-            } else {
-                const array_key = [...key];
-                for (var i2 = 0; i2 < key.length; i2++) {
-                    if (array_key[i2] == "a") { array_key[i2] = 1; }
-                    if (array_key[i2] == "b") { array_key[i2] = 2; }
-                    if (array_key[i2] == "c") { array_key[i2] = 3; }
-                    if (array_key[i2] == "d") { array_key[i2] = 4; }
-                    if (array_key[i2] == "e") { array_key[i2] = 5; }
-                    if (array_key[i2] == "f") { array_key[i2] = 6; }
-                    if (array_key[i2] == "g") { array_key[i2] = 7; }
-                    if (array_key[i2] == "h") { array_key[i2] = 8; }
-                    if (array_key[i2] == "i") { array_key[i2] = 9; }
-                    if (array_key[i2] == "j") { array_key[i2] = 10; }
-                    if (array_key[i2] == "k") { array_key[i2] = 11; }
-                    if (array_key[i2] == "l") { array_key[i2] = 12; }
-                    if (array_key[i2] == "m") { array_key[i2] = 13; }
-                    if (array_key[i2] == "n") { array_key[i2] = 14; }
-                    if (array_key[i2] == "o") { array_key[i2] = 15; }
-                    if (array_key[i2] == "p") { array_key[i2] = 16; }
-                    if (array_key[i2] == "q") { array_key[i2] = 17; }
-                    if (array_key[i2] == "r") { array_key[i2] = 18; }
-                    if (array_key[i2] == "s") { array_key[i2] = 19; }
-                    if (array_key[i2] == "t") { array_key[i2] = 20; }
-                    if (array_key[i2] == "u") { array_key[i2] = 21; }
-                    if (array_key[i2] == "v") { array_key[i2] = 22; }
-                    if (array_key[i2] == "w") { array_key[i2] = 23; }
-                    if (array_key[i2] == "x") { array_key[i2] = 24; }
-                    if (array_key[i2] == "y") { array_key[i2] = 25; }
-                    if (array_key[i2] == "z") { array_key[i2] = 26; }
-                    console.log("Verify: " + array_key[i2]);
-                }
-                var repeat = Math.ceil(input.length / key.length);
-                const a = Array.from({ length: repeat }).fill(array_key).flat()
-                console.log('A: '+ a);
-                console.log("array_key: " + array_key);
-                for (var i3 = 0; i3 < input.length; i3++) {
-                    if (array_input[i3] + a[i3] - 1 < 27) {
-                        if (array_input[i3] + a[i3] - 1 == 1) {document.getElementById("encrypt_text").innerHTML += "a";}
-                        if (array_input[i3] + a[i3] - 1 == 2) {document.getElementById("encrypt_text").innerHTML += "b";}
-                        if (array_input[i3] + a[i3] - 1 == 3) {document.getElementById("encrypt_text").innerHTML += "c";}
-                        if (array_input[i3] + a[i3] - 1 == 4) {document.getElementById("encrypt_text").innerHTML += "d";}
-                        if (array_input[i3] + a[i3] - 1 == 5) {document.getElementById("encrypt_text").innerHTML += "e";}
-                        if (array_input[i3] + a[i3] - 1 == 6) {document.getElementById("encrypt_text").innerHTML += "f";}
-                        if (array_input[i3] + a[i3] - 1 == 7) {document.getElementById("encrypt_text").innerHTML += "g";}
-                        if (array_input[i3] + a[i3] - 1 == 8) {document.getElementById("encrypt_text").innerHTML += "h";}
-                        if (array_input[i3] + a[i3] - 1 == 9) {document.getElementById("encrypt_text").innerHTML += "i";}
-                        if (array_input[i3] + a[i3] - 1 == 10) {document.getElementById("encrypt_text").innerHTML += "j";}
-                        if (array_input[i3] + a[i3] - 1 == 11) {document.getElementById("encrypt_text").innerHTML += "k";}
-                        if (array_input[i3] + a[i3] - 1 == 12) {document.getElementById("encrypt_text").innerHTML += "l";}
-                        if (array_input[i3] + a[i3] - 1 == 13) {document.getElementById("encrypt_text").innerHTML += "m";}
-                        if (array_input[i3] + a[i3] - 1 == 14) {document.getElementById("encrypt_text").innerHTML += "n";}
-                        if (array_input[i3] + a[i3] - 1 == 15) {document.getElementById("encrypt_text").innerHTML += "o";}
-                        if (array_input[i3] + a[i3] - 1 == 16) {document.getElementById("encrypt_text").innerHTML += "p";}
-                        if (array_input[i3] + a[i3] - 1 == 17) {document.getElementById("encrypt_text").innerHTML += "q";}
-                        if (array_input[i3] + a[i3] - 1 == 18) {document.getElementById("encrypt_text").innerHTML += "r";}
-                        if (array_input[i3] + a[i3] - 1 == 19) {document.getElementById("encrypt_text").innerHTML += "s";}
-                        if (array_input[i3] + a[i3] - 1 == 20) {document.getElementById("encrypt_text").innerHTML += "t";}
-                        if (array_input[i3] + a[i3] - 1 == 21) {document.getElementById("encrypt_text").innerHTML += "u";}
-                        if (array_input[i3] + a[i3] - 1 == 22) {document.getElementById("encrypt_text").innerHTML += "v";}
-                        if (array_input[i3] + a[i3] - 1 == 23) {document.getElementById("encrypt_text").innerHTML += "w";}
-                        if (array_input[i3] + a[i3] - 1 == 24) {document.getElementById("encrypt_text").innerHTML += "x";}
-                        if (array_input[i3] + a[i3] - 1 == 25) {document.getElementById("encrypt_text").innerHTML += "y";}
-                        if (array_input[i3] + a[i3] - 1 == 26) {document.getElementById("encrypt_text").innerHTML += "z";}
-                    } else {
-                        if (array_input[i3] + a[i3] - 27 == 1) {document.getElementById("encrypt_text").innerHTML += "a";}
-                        if (array_input[i3] + a[i3] - 27 == 2) {document.getElementById("encrypt_text").innerHTML += "b";}
-                        if (array_input[i3] + a[i3] - 27 == 3) {document.getElementById("encrypt_text").innerHTML += "c";}
-                        if (array_input[i3] + a[i3] - 27 == 4) {document.getElementById("encrypt_text").innerHTML += "d";}
-                        if (array_input[i3] + a[i3] - 27 == 5) {document.getElementById("encrypt_text").innerHTML += "e";}
-                        if (array_input[i3] + a[i3] - 27 == 6) {document.getElementById("encrypt_text").innerHTML += "f";}
-                        if (array_input[i3] + a[i3] - 27 == 7) {document.getElementById("encrypt_text").innerHTML += "g";}
-                        if (array_input[i3] + a[i3] - 27 == 8) {document.getElementById("encrypt_text").innerHTML += "h";}
-                        if (array_input[i3] + a[i3] - 27 == 9) {document.getElementById("encrypt_text").innerHTML += "i";}
-                        if (array_input[i3] + a[i3] - 27 == 10) {document.getElementById("encrypt_text").innerHTML += "j";}
-                        if (array_input[i3] + a[i3] - 27 == 11) {document.getElementById("encrypt_text").innerHTML += "k";}
-                        if (array_input[i3] + a[i3] - 27 == 12) {document.getElementById("encrypt_text").innerHTML += "l";}
-                        if (array_input[i3] + a[i3] - 27 == 13) {document.getElementById("encrypt_text").innerHTML += "m";}
-                        if (array_input[i3] + a[i3] - 27 == 14) {document.getElementById("encrypt_text").innerHTML += "n";}
-                        if (array_input[i3] + a[i3] - 27 == 15) {document.getElementById("encrypt_text").innerHTML += "o";}
-                        if (array_input[i3] + a[i3] - 27 == 16) {document.getElementById("encrypt_text").innerHTML += "p";}
-                        if (array_input[i3] + a[i3] - 27 == 17) {document.getElementById("encrypt_text").innerHTML += "q";}
-                        if (array_input[i3] + a[i3] - 27 == 18) {document.getElementById("encrypt_text").innerHTML += "r";}
-                        if (array_input[i3] + a[i3] - 27 == 19) {document.getElementById("encrypt_text").innerHTML += "s";}
-                        if (array_input[i3] + a[i3] - 27 == 20) {document.getElementById("encrypt_text").innerHTML += "t";}
-                        if (array_input[i3] + a[i3] - 27 == 21) {document.getElementById("encrypt_text").innerHTML += "u";}
-                        if (array_input[i3] + a[i3] - 27 == 22) {document.getElementById("encrypt_text").innerHTML += "v";}
-                        if (array_input[i3] + a[i3] - 27 == 23) {document.getElementById("encrypt_text").innerHTML += "w";}
-                        if (array_input[i3] + a[i3] - 27 == 24) {document.getElementById("encrypt_text").innerHTML += "x";}
-                        if (array_input[i3] + a[i3] - 27 == 25) {document.getElementById("encrypt_text").innerHTML += "y";}
-                        if (array_input[i3] + a[i3] - 27 == 26) {document.getElementById("encrypt_text").innerHTML += "z";}
+            var input_ = getId("plain_text"), key_ = getId("encrypt_keys"), input = input_.value.toLowerCase(), key = key_.value.toLowerCase();
+            input_.value = input;
+            key_.value = key;
+            if (!(/[^a-z\s.,\/!@#$%^&*()\-_+=\[\]{}|\\:;'"<>~`\d]+/g.test(input)) && !(/[^a-z\s.,\/!@#$%^&*()\-_+=\[\]{}|\\:;'"<>~`\d]+/g.test(key))) {
+                getId("encrypt_text").innerHTML = ""; //Reset the output
+                var whiteSpacePos = {}; //The position of the whitespace (Will be useful later)
+                var array_input = [...input]; //Split the input to an array with each item is a character
+                for (var i1 = 0; i1 < input.length; i1++) {
+                    if (/[\s.,\/!@#$%^&*()\-_+=\[\]{}|\\:;'"<>~`\d]/g.test(array_input[i1])) {
+                        whiteSpacePos[i1] = array_input[i1]; //Set the positon and the character of whitespace
                     }
                 }
+                array_input = array_input.filter((v) => { return !(/[\s.,\/!@#$%^&*()\-_+=\[\]{}|\\:;'"<>~`\d]/g.test(v)) }); //Filter out the whitespace in the array
+                console.log(array_input)
+                for (var i1 = 0; i1 < array_input.length; i1++) {
+                    array_input[i1] = alphabetArray.indexOf(array_input[i1]) + 1 //Convert text array to number array: a = 1, b = 2, c = 3, ...
+                }
+                var key_length = key.length; //Get the length of the key
+                var input_length = input.length; //Get the length of the text
+                if (key_length > input_length) {
+                    alert("Error 001: Key is longer then input!"); //Return error if the key is longer then input
+                    return false;
+                } else {
+                    const array_key = [...key]; //Split the key to an array with each item is a character
+                    for (var i2 = 0; i2 < key.length; i2++) {
+                        array_key[i2] = alphabetArray.indexOf(array_key[i2]) + 1; //Convert text array to number array: a = 1, b = 2, c = 3, ...
+                    }
+                    var repeat = Math.ceil(input.length / key.length); //Get the number that the key need to loop
+                    const a = Array.from({ length: repeat }).fill(array_key).flat() //Create an array key that "match" the array input
+                    var finalString = "";
+                    for (var i3 = 0; i3 < array_input.length; i3++) { //Finally, the conversion part
+                        //https://upload.wikimedia.org/wikipedia/commons/9/9a/Vigen%C3%A8re_square_shading.svg
+                        if (array_input[i3] + a[i3] - 1 < 27) {
+                            finalString += alphabetArray[array_input[i3] + a[i3] - 2];
+                        } else {
+                            finalString += alphabetArray[array_input[i3] + a[i3] - 28];
+                        }
+                    }
+                    for (var i = 0; i < Object.keys(whiteSpacePos).length; i++) {
+                        finalString = finalString.substring(0, Number(Object.keys(whiteSpacePos)[i])) + whiteSpacePos[Object.keys(whiteSpacePos)[i]] + finalString.substring(Number(Object.keys(whiteSpacePos)[i]))
+                    }
+                    getId("encrypt_text").innerHTML = finalString;
+                }
+            } else {
+                alert("Error 002: There are invalid character in the input box or the key box in the Vigenere Encoder. Please try again.");
+                return false;
             }
         }
         function decrypt() {
-            document.getElementById("decrypt_text").innerHTML = "";
-            var input2 = document.getElementById("encrypted_text").value;
-            const array_input2 = [...input2];
-            for (var i1_1 = 0; i1_1 < input2.length; i1_1++)
-            {
-                if (array_input2[i1_1] == "a") { array_input2[i1_1] = 1; }
-                if (array_input2[i1_1] == "b") { array_input2[i1_1] = 2; }
-                if (array_input2[i1_1] == "c") { array_input2[i1_1] = 3; }
-                if (array_input2[i1_1] == "d") { array_input2[i1_1] = 4; }
-                if (array_input2[i1_1] == "e") { array_input2[i1_1] = 5; }
-                if (array_input2[i1_1] == "f") { array_input2[i1_1] = 6; }
-                if (array_input2[i1_1] == "g") { array_input2[i1_1] = 7; }
-                if (array_input2[i1_1] == "h") { array_input2[i1_1] = 8; }
-                if (array_input2[i1_1] == "i") { array_input2[i1_1] = 9; }
-                if (array_input2[i1_1] == "j") { array_input2[i1_1] = 10; }
-                if (array_input2[i1_1] == "k") { array_input2[i1_1] = 11; }
-                if (array_input2[i1_1] == "l") { array_input2[i1_1] = 12; }
-                if (array_input2[i1_1] == "m") { array_input2[i1_1] = 13; }
-                if (array_input2[i1_1] == "n") { array_input2[i1_1] = 14; }
-                if (array_input2[i1_1] == "o") { array_input2[i1_1] = 15; }
-                if (array_input2[i1_1] == "p") { array_input2[i1_1] = 16; }
-                if (array_input2[i1_1] == "q") { array_input2[i1_1] = 17; }
-                if (array_input2[i1_1] == "r") { array_input2[i1_1] = 18; }
-                if (array_input2[i1_1] == "s") { array_input2[i1_1] = 19; }
-                if (array_input2[i1_1] == "t") { array_input2[i1_1] = 20; }
-                if (array_input2[i1_1] == "u") { array_input2[i1_1] = 21; }
-                if (array_input2[i1_1] == "v") { array_input2[i1_1] = 22; }
-                if (array_input2[i1_1] == "w") { array_input2[i1_1] = 23; }
-                if (array_input2[i1_1] == "x") { array_input2[i1_1] = 24; }
-                if (array_input2[i1_1] == "y") { array_input2[i1_1] = 25; }
-                if (array_input2[i1_1] == "z") { array_input2[i1_1] = 26; }
-            }
-            console.log("array_input2: " + array_input2);
-            var key2 = document.getElementById("decrypt_keys").value;
-            var key2_length = key2.length;
-            var input2_length = input2.length;
-            if (key2_length > input2_length) {
-                alert("Error 001: Key is longer then input!");
-                return false;
-            } else {
-                const array_key2 = [...key2];
-                for (var i2_1 = 0; i2_1 < key2.length; i2_1++) {
-                    if (array_key2[i2_1] == "a") { array_key2[i2_1] = 1; }
-                    if (array_key2[i2_1] == "b") { array_key2[i2_1] = 2; }
-                    if (array_key2[i2_1] == "c") { array_key2[i2_1] = 3; }
-                    if (array_key2[i2_1] == "d") { array_key2[i2_1] = 4; }
-                    if (array_key2[i2_1] == "e") { array_key2[i2_1] = 5; }
-                    if (array_key2[i2_1] == "f") { array_key2[i2_1] = 6; }
-                    if (array_key2[i2_1] == "g") { array_key2[i2_1] = 7; }
-                    if (array_key2[i2_1] == "h") { array_key2[i2_1] = 8; }
-                    if (array_key2[i2_1] == "i") { array_key2[i2_1] = 9; }
-                    if (array_key2[i2_1] == "j") { array_key2[i2_1] = 10; }
-                    if (array_key2[i2_1] == "k") { array_key2[i2_1] = 11; }
-                    if (array_key2[i2_1] == "l") { array_key2[i2_1] = 12; }
-                    if (array_key2[i2_1] == "m") { array_key2[i2_1] = 13; }
-                    if (array_key2[i2_1] == "n") { array_key2[i2_1] = 14; }
-                    if (array_key2[i2_1] == "o") { array_key2[i2_1] = 15; }
-                    if (array_key2[i2_1] == "p") { array_key2[i2_1] = 16; }
-                    if (array_key2[i2_1] == "q") { array_key2[i2_1] = 17; }
-                    if (array_key2[i2_1] == "r") { array_key2[i2_1] = 18; }
-                    if (array_key2[i2_1] == "s") { array_key2[i2_1] = 19; }
-                    if (array_key2[i2_1] == "t") { array_key2[i2_1] = 20; }
-                    if (array_key2[i2_1] == "u") { array_key2[i2_1] = 21; }
-                    if (array_key2[i2_1] == "v") { array_key2[i2_1] = 22; }
-                    if (array_key2[i2_1] == "w") { array_key2[i2_1] = 23; }
-                    if (array_key2[i2_1] == "x") { array_key2[i2_1] = 24; }
-                    if (array_key2[i2_1] == "y") { array_key2[i2_1] = 25; }
-                    if (array_key2[i2_1] == "z") { array_key2[i2_1] = 26; }
-                    console.log("Verify: " + array_key2[i2_1]);
-                }
-                var repeat2 = Math.ceil(input2.length / key2.length);
-                const b = Array.from({ length: repeat2 }).fill(array_key2).flat()
-                console.log('B: '+ b);
-                console.log("array_key2: " + array_key2);
-                console.log(input2.length + '-' + repeat2);
-                for (i3_2 = 0; i3_2 < input2.length; i3_2++) {
-                    if (array_input2[i3_2] - b[i3_2] + 1 > 0) {
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 1) {document.getElementById("decrypt_text").innerHTML += "a";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 2) {document.getElementById("decrypt_text").innerHTML += "b";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 3) {document.getElementById("decrypt_text").innerHTML += "c";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 4) {document.getElementById("decrypt_text").innerHTML += "d";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 5) {document.getElementById("decrypt_text").innerHTML += "e";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 6) {document.getElementById("decrypt_text").innerHTML += "f";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 7) {document.getElementById("decrypt_text").innerHTML += "g";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 8) {document.getElementById("decrypt_text").innerHTML += "h";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 9) {document.getElementById("decrypt_text").innerHTML += "i";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 10) {document.getElementById("decrypt_text").innerHTML += "j";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 11) {document.getElementById("decrypt_text").innerHTML += "k";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 12) {document.getElementById("decrypt_text").innerHTML += "l";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 13) {document.getElementById("decrypt_text").innerHTML += "m";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 14) {document.getElementById("decrypt_text").innerHTML += "n";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 15) {document.getElementById("decrypt_text").innerHTML += "o";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 16) {document.getElementById("decrypt_text").innerHTML += "p";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 17) {document.getElementById("decrypt_text").innerHTML += "q";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 18) {document.getElementById("decrypt_text").innerHTML += "r";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 19) {document.getElementById("decrypt_text").innerHTML += "s";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 20) {document.getElementById("decrypt_text").innerHTML += "t";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 21) {document.getElementById("decrypt_text").innerHTML += "u";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 22) {document.getElementById("decrypt_text").innerHTML += "v";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 23) {document.getElementById("decrypt_text").innerHTML += "w";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 24) {document.getElementById("decrypt_text").innerHTML += "x";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 25) {document.getElementById("decrypt_text").innerHTML += "y";}
-                        if (array_input2[i3_2] - b[i3_2] + 1 == 26) {document.getElementById("decrypt_text").innerHTML += "z";}
-                    } else {
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 1) {document.getElementById("decrypt_text").innerHTML += "a";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 2) {document.getElementById("decrypt_text").innerHTML += "b";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 3) {document.getElementById("decrypt_text").innerHTML += "c";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 4) {document.getElementById("decrypt_text").innerHTML += "d";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 5) {document.getElementById("decrypt_text").innerHTML += "e";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 6) {document.getElementById("decrypt_text").innerHTML += "f";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 7) {document.getElementById("decrypt_text").innerHTML += "g";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 8) {document.getElementById("decrypt_text").innerHTML += "h";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 9) {document.getElementById("decrypt_text").innerHTML += "i";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 10) {document.getElementById("decrypt_text").innerHTML += "j";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 11) {document.getElementById("decrypt_text").innerHTML += "k";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 12) {document.getElementById("decrypt_text").innerHTML += "l";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 13) {document.getElementById("decrypt_text").innerHTML += "m";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 14) {document.getElementById("decrypt_text").innerHTML += "n";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 15) {document.getElementById("decrypt_text").innerHTML += "o";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 16) {document.getElementById("decrypt_text").innerHTML += "p";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 17) {document.getElementById("decrypt_text").innerHTML += "q";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 18) {document.getElementById("decrypt_text").innerHTML += "r";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 19) {document.getElementById("decrypt_text").innerHTML += "s";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 20) {document.getElementById("decrypt_text").innerHTML += "t";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 21) {document.getElementById("decrypt_text").innerHTML += "u";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 22) {document.getElementById("decrypt_text").innerHTML += "v";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 23) {document.getElementById("decrypt_text").innerHTML += "w";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 24) {document.getElementById("decrypt_text").innerHTML += "x";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 25) {document.getElementById("decrypt_text").innerHTML += "y";}
-                        if (array_input2[i3_2] - b[i3_2] + 27 == 26) {document.getElementById("decrypt_text").innerHTML += "z";}
+            var input2_ = getId("encrypted_text"), key2_ = getId("decrypt_keys"), input2 = input2_.value.toLowerCase(), key2 = key2_.value.toLowerCase();
+            input2_.value = input2;
+            key2_.value = key2;
+            if (!(/[^a-z\s.,\/!@#$%^&*()\-_+=\[\]{}|\\:;'"<>~`\d]/g.test(input2)) && !(/[^a-z\s.,\/!@#$%^&*()\-_+=\[\]{}|\\:;'"<>~`\d]/g.test(key2))) {
+                getId("decrypt_text").innerHTML = "";
+                var array_input2 = [...input2];
+                var whiteSpacePos1 = {}; //The position of the whitespace (Will be useful later)
+                for (var i1 = 0; i1 < input2.length; i1++) {
+                    if (/[\s.,\/!@#$%^&*()\-_+=\[\]{}|\\:;'"<>~`\d]/g.test(array_input2[i1])) {
+                        whiteSpacePos1[i1] = array_input2[i1]; //Set the positon and the character of whitespace
                     }
                 }
+                array_input2 = array_input2.filter((v) => { return !(/[\s.,\/!@#$%^&*()\-_+=\[\]{}|\\:;'"<>~`\d]/g.test(v)) }); //Filter out the whitespace in the array
+                for (var i1_1 = 0; i1_1 < array_input2.length; i1_1++) {
+                    array_input2[i1_1] = alphabetArray.indexOf(array_input2[i1_1]) + 1;
+                }
+                var key2_length = key2.length;
+                var input2_length = input2.length;
+                if (key2_length > input2_length) {
+                    alert("Error 001: Key is longer then input!");
+                    return false;
+                } else {
+                    const array_key2 = [...key2];
+                    for (var i2_1 = 0; i2_1 < key2.length; i2_1++) {
+                        array_key2[i2_1] = alphabetArray.indexOf(array_key2[i2_1]) + 1;
+                    }
+                    var repeat2 = Math.ceil(input2.length / key2.length);
+                    const b = Array.from({ length: repeat2 }).fill(array_key2).flat();
+                    var finalString1 = "";
+                    for (i3_2 = 0; i3_2 < array_input2.length; i3_2++) {
+                        if (array_input2[i3_2] - b[i3_2] + 1 > 0) {
+                            finalString1 += alphabetArray[array_input2[i3_2] - b[i3_2]];
+                        } else {
+                            finalString1 += alphabetArray[array_input2[i3_2] - b[i3_2] + 26];
+                        }
+                    }
+                    for (var i = 0; i < Object.keys(whiteSpacePos1).length; i++) {
+                        finalString1 = finalString1.substring(0, Number(Object.keys(whiteSpacePos1)[i])) + whiteSpacePos1[Object.keys(whiteSpacePos1)[i]] + finalString1.substring(Number(Object.keys(whiteSpacePos1)[i]))
+                    }
+                    getId("decrypt_text").innerHTML = finalString1;
+                }
+            } else {
+                alert("Error 003: There are invalid character in the input box or the key box in the Vigenere Decoder. Please try again.")
+                return false;
             }
         }
     </script>
