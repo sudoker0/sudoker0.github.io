@@ -218,6 +218,7 @@ function ws_2() {
     qSel(".container").style.border = "1px solid rgb(21, 21, 21)";
     qSel(".container").style.margin = "-8px";
     qSel("body").style.backgroundImage = "initial";
+    qSel("body").style.backgroundColor = "rgb(21, 21, 21)";
     getId("bg-day").setAttribute("disabled", "disabled")
     getId("bg-night").setAttribute("disabled", "disabled")
     getId("bg-sys").setAttribute("disabled", "disabled")
