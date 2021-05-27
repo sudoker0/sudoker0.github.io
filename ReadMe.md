@@ -13,8 +13,8 @@
 1. [📕 Introduction](#-introduction)
 2. [💡 About](#-about)
 3. [📖 Details](#-details)
-4. [❓ FAQ](#-faq)
-5. [📁 File information of the website's folder](#-file-information-of-the-website's-folder)
+4. [❓ FAQ](#-faq-frequently-asked-questions)
+5. [📁 File information of the website's folder](#-information-about-the-files-in-the-websites-folder)
 6. [👀 Random Stuff](#-random-stuff)
 ### 📕 Introduction
 * Ok, I have to tell the truth: This repository is not really the first ever repo that I created. I created the first one to store my game that I created using Unity but then I delete that because I still want my game private.

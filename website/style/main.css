@@ -1,3 +1,7 @@
+:root {
+  --bg: rgba(20, 20, 20, 0.850);
+  --border: 1px solid rgb(21, 21, 21);
+}
 h1, h2, h3, h4, h5, h6, p, span, a, label {
   color: white;
 }
@@ -10,8 +14,8 @@ h1, h2, h3, h4, h5, h6, p, span, a, label {
 }
 html { font-size: 100%; }
 nav.accb {
-  background-color:rgba(20, 20, 20, 0.850);
-  border: 1px solid rgba(20, 20, 20, 0.850);
+  background-color: var(--bg);
+  border: var(--border);
   opacity: 1;
   text-align: center;
   position: -webkit-sticky;
@@ -33,8 +37,8 @@ nav.accb {
 #accb_small {
   opacity: 1;
   display: none;
-  background-color:rgba(20, 20, 20, 0.850);
-  border: 1px solid rgba(20, 20, 20, 0.850);
+  background-color: var(--bg);
+  border: var(--border);
   margin-left: -8px;
   margin-right: -8px;
   text-align: left;
@@ -53,8 +57,8 @@ nav.accb {
   top: 0;
   opacity: 1;
   display: none;
-  background-color:rgba(20, 20, 20, 0.850);
-  border: 1px solid rgba(20, 20, 20, 0.850);
+  background-color: var(--bg);
+  border: var(--border);
   margin-left: -8px;
   margin-right: -8px;
   margin-top: -8px;
@@ -70,7 +74,7 @@ nav.accb {
 }
 div.container {
   margin: 20px;
-  background-color:rgba(20, 20, 20, 0.850);
+  background-color: var(--bg);
   border: 3px solid black;
   opacity: 1;
   padding: 0 20px 0 20px;

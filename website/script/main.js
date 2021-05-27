@@ -199,19 +199,11 @@ function fetchLocal() {
 }
 fetchLocal();
 function ws_1() {
-    qSel(".accb").style.backgroundColor = "rgba(20, 20, 20, 0.85)";
-    qSel(".accb").style.border = "1px solid rgb(21, 21, 21)";
-    qSel("#accb_small_").style.backgroundColor = "rgba(20, 20, 20, 0.85)";
-    qSel("#accb_small_").style.border = "1px solid rgb(21, 21, 21)";
-    qSel(".container").style.backgroundColor = "rgba(20, 20, 20, 0.85)";
+    document.documentElement.style.setProperty("--bg", "rgba(20, 20, 20, 0.85)")
     qSel(".container").style.border = "3px solid black";
     qSel(".container").style.margin = "20px";
     qSel("body").style.backgroundColor = "initial";
-    if (ls_gt("background") == "0") {
-        changeBg(true);
-    } else if (ls_gt("background") == "1") {
-        changeBg(false);
-    } else {
+    if (ls_gt("background") == "0") { changeBg(true) } else if (ls_gt("background") == "1") { changeBg(false) } else {
         if (window.matchMedia("(prefers-color-scheme: light)").matches) { changeBg(true); } else { changeBg(false);}
         window.matchMedia("(prefers-color-scheme: light)").onchange = function(e) {
             if (e.matches) { changeBg(true); } else { changeBg(false);}
@@ -222,14 +214,9 @@ function ws_1() {
     getId("bg-sys").removeAttribute("disabled")
 }
 function ws_2() {
-    qSel(".accb").style.backgroundColor = "rgb(21, 21, 21)";
-    qSel(".accb").style.border = "1px solid rgb(21, 21, 21)";
-    qSel("#accb_small_").style.backgroundColor = "rgb(21, 21, 21)";
-    qSel("#accb_small_").style.border = "1px solid rgb(21, 21, 21)";
-    qSel(".container").style.backgroundColor = "rgb(21, 21, 21)";
+    document.documentElement.style.setProperty("--bg", "rgb(21, 21, 21)")
     qSel(".container").style.border = "1px solid rgb(21, 21, 21)";
     qSel(".container").style.margin = "-8px";
-    qSel("body").style.backgroundColor = "rgb(21, 21, 21)";
     qSel("body").style.backgroundImage = "initial";
     getId("bg-day").setAttribute("disabled", "disabled")
     getId("bg-night").setAttribute("disabled", "disabled")

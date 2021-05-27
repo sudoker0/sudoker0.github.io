@@ -26,41 +26,42 @@
     </body>
     <script>
         var key = ""; ["0x67", "0x68", "0x70", "0x5f", "0x30", "0x4d", "0x55", "0x58", "0x77", "0x52", "0x6e", "0x4a", "0x78", "0x38", "0x35", "0x63", "0x74", "0x37", "0x34", "0x4d", "0x37", "0x69", "0x41", "0x4a", "0x59", "0x6f", "0x46", "0x67", "0x32", "0x38", "0x31", "0x33", "0x43", "0x33", "0x31", "0x37", "0x52", "0x70", "0x4a", "0x6f"]["forEach"]((a) => {key += String["fromCharCode"](Number(a))})
-        fetch("https://api.github.com/repos/QuanMCPC/QuanMCPC.github.io/stats/contributors", { headers: {"Authorization": key} })
-            .then(e => e.json())
-            .then(f => {
-                var commit = [], label = [], count = 1;
-                f[0].weeks.forEach((data) => {
-                    commit.push(data.c);
-                    var time = new Date(data.w * 1000);
-                    label.push(`${time.getDate()}/${time.getMonth() + 1}/${time.getFullYear()}`)
+        function fetch_() {
+            fetch("https://api.github.com/repos/QuanMCPC/QuanMCPC.github.io/stats/contributors", { headers: {"Authorization": `token ${key}`} })
+                .then(e => e.json())
+                .then(f => {
+                    if (f.message) {
+                        document.getElementById("bc").style.display = "block";
+                    } else if (!(f[0].weeks)) {
+                        console.log("Fail")
+                        setTimeout(fetch_, 2500);
+                    } else {
+                        var commit = [], label = [], count = 1;
+                        f[0].weeks.forEach((data) => {
+                            commit.push(data.c);
+                            var time = new Date(data.w * 1000);
+                            label.push(`${time.getDate()}/${time.getMonth() + 1}/${time.getFullYear()}`)
+                        })
+                        const data = {
+                            labels: label,
+                            datasets: [{
+                                label: "Website's Repository commit per weeks",
+                                backgroundColor: 'rgb(255, 99, 132)',
+                                borderColor: 'rgb(255, 99, 132)',
+                                data: commit
+                            }]
+                        };
+                        const config = {
+                            type: 'bar',
+                            data,
+                            options: {}
+                        };
+                        var myChart = new Chart(
+                            document.getElementById('myChart'),
+                            config
+                        );
+                    }
                 })
-                const data = {
-                    labels: label,
-                    datasets: [{
-                        label: "Website's Repository commit per weeks",
-                        backgroundColor: 'rgb(255, 99, 132)',
-                        borderColor: 'rgb(255, 99, 132)',
-                        data: commit
-                    }]
-                };
-                const config = {
-                    type: 'bar',
-                    data,
-                    options: {}
-                };
-                var myChart = new Chart(
-                    document.getElementById('myChart'),
-                    config
-                );
-            })
-            .catch(e => {
-                if (f.message) {
-                    document.getElementById("bc").style.display = "block";
-                } else {
-                    console.log("Fail")
-                    setTimeout(f_, 2500);
-                }
-            })
+        }
     </script>
 </html>
