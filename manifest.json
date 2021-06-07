@@ -34,7 +34,7 @@
             "url": "/home.html",
             "icons": [
                 {
-                    "src": "/website/image/home.png",
+                    "src": "/website/image/manifest/home.png",
                     "type": "image/png",
                     "sizes": "256x256"
                 }
@@ -47,7 +47,7 @@
             "url": "/credit.html",
             "icons": [
                 {
-                    "src": "/website/image/credit.png",
+                    "src": "/website/image/manifest/credit.png",
                     "type": "image/png",
                     "sizes": "256x256"
                 }
@@ -60,7 +60,7 @@
             "url": "/about.html",
             "icons": [
                 {
-                    "src": "/website/image/about.png",
+                    "src": "/website/image/manifest/about.png",
                     "type": "image/png",
                     "sizes": "256x256"
                 }
@@ -73,7 +73,20 @@
             "url": "/gallery.html",
             "icons": [
                 {
-                    "src": "/website/image/gallery.png",
+                    "src": "/website/image/manifest/gallery.png",
+                    "type": "image/png",
+                    "sizes": "256x256"
+                }
+            ]
+        },
+        {
+            "name": "Download",
+            "short_name": "Download",
+            "description": "Download stuff, that's it",
+            "url": "/download.html",
+            "icons": [
+                {
+                    "src": "/website/image/manifest/download.png",
                     "type": "image/png",
                     "sizes": "256x256"
                 }

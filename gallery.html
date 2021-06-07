@@ -54,6 +54,12 @@
                 max-width: initial;
                 margin: initial;
             }
+            .downloadlink {
+                /* display: block; */
+                border: 2px solid white;
+                /* width: 100%; */
+                /* max-width: initial !important; */
+            }
         </style>
     </head>
     <body id="temp">
@@ -201,12 +207,6 @@
                     </div>
                     <p style="text-align: center; max-width: 100%; margin-top: 1px; margin-bottom: 1px">Ctrl + &#8656; to go to the previous picture, Ctrl + &#8658; to go to the next picture</p>
                 </div>
-                <br>
-                <div style="border: 2px solid white; display: grid; justify-content: center;">
-                    <p style="max-width: initial; margin-top: 3px; margin-bottom: 3px; color: orange"><u>Download Photo Here!</u></p>
-                    <a href="/website/image/High_Quality_Backgrounds.7z" download="high_res_bg_image_pack.zip" style="max-width: initial; margin: 5px 10px 5px 10px;">[High Resolution Background Pack (Include 2 version of the background image in 4k and 8k as TGA) (.7z file) ]</a>
-                    <a href="/website/image/old_version_image.zip" download="image_pack.zip" style="max-width: initial; margin: 5px 10px 5px 10px;">[Image Pack (Include 9 photos in the gallery + 2 version of the background image as PNG) (.zip file) ]</a>
-                </div>
                 <footer style="margin-top: 15px; margin-bottom: 15px;">
                     <p style="color:white; max-width: 100%; text-align: center;">Copyright (C) 2021 Quan_MCPC. Created on: 7/17/20, this website will live <b style="color:red">forever</b></p>
                 </footer>
@@ -249,39 +249,39 @@
             function qSel(q) { return document.querySelector(q) }
             var imageArray = [
                 {
-                    "location": "/website/image/1.webp",
-                    "description": "Compact Calculator [1.15.2] [Full View]"
+                    "location": "/website/image/gallery/1.webp",
+                    "description": "Compact Calculator [1.15.2] [Outside View]"
                 },
                 {
-                    "location": "/website/image/2.webp",
+                    "location": "/website/image/gallery/2.webp",
                     "description": "Security Vault 2.0 [Outside View]"
                 },
                 {
-                    "location": "/website/image/3.webp",
+                    "location": "/website/image/gallery/3.webp",
                     "description": "Security Vault 2.0 [Inside View]"
                 },
                 {
-                    "location": "/website/image/4.webp",
+                    "location": "/website/image/gallery/4.webp",
                     "description": "The Longest Useless Machine in Minecraft [version 1.2] [Inside View]"
                 },
                 {
-                    "location": "/website/image/5.webp",
+                    "location": "/website/image/gallery/5.webp",
                     "description": "The Longest Useless Machine in Minecraft [version 1.2] [Outside View #1]"
                 },
                 {
-                    "location": "/website/image/6.webp",
+                    "location": "/website/image/gallery/6.webp",
                     "description": "The Longest Useless Machine in Minecraft [version 1.2] [Outside View #2]"
                 },
                 {
-                    "location": "/website/image/7.webp",
+                    "location": "/website/image/gallery/7.webp",
                     "description": "Printer 1.16"
                 },
                 {
-                    "location": "/website/image/8.webp",
+                    "location": "/website/image/gallery/8.webp",
                     "description": "8-Bit Decoder in Minecraft"
                 },
                 {
-                    "location": "/website/image/9.webp",
+                    "location": "/website/image/gallery/9.webp",
                     "description": "Compact Calculator [1.15.2] [Front View]"
                 }
             ]

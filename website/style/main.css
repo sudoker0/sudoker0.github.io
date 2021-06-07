@@ -80,7 +80,7 @@ div.container {
   padding: 0 20px 0 20px;
 }
 body {
-  background-image: url("/website/image/background_light.png");
+  background-image: url("/website/image/background/background_light.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -257,3 +257,44 @@ div#loadingIndicator div img {
   margin-left: auto;
   margin-right: auto;
 }
+div.collapsible {
+  border: 2px solid white;
+  display: grid;
+  grid-template-areas: "text indicator";
+  cursor: pointer;
+  margin-bottom: 10px;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+div.collapsible span {
+  grid-area: text;
+  max-width: initial;
+  margin: 10px;
+}
+div.collapsible div.indicator {
+  max-width: initial;
+  grid-area: indicator;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+}
+div.collapsible div.indicator img { margin: 0 10px 0 0 }
+div.collapsible:hover { background-color: rgba(0, 0, 0, 0.4) }
+.rotate { transform: rotate(180deg) }
+div.collapsiblecontent {
+  border: 2px solid white;
+  display: none;
+  margin-bottom: 10px;
+  margin-top: -12px !important;
+}
+div.collapsiblecontent * {
+  max-width: initial;
+  margin: 10px;
+}
+div.collapsiblecontent del, div.collapsiblecontent a { margin: 0 }
+div.collapsiblecontent span { display: block }

@@ -39,6 +39,11 @@ var name_ = [
         "name": "Gallery",
         "title": "Gallery - Where I store picture of project and stuff",
         "address": "/gallery.html"
+    },
+    {
+        "name": "Download",
+        "title": "Download - Download stuff, that's it",
+        "address": "/download.html"
     }
 ];
 //Syntax: Name / Description / Link (Space is important)
@@ -135,7 +140,7 @@ window.onload = () => {
 
 }
 function smtg() {
-    if (pathname == "/home.html" || pathname == "/home") { getId("project__").style.width = getId("project").scrollWidth + "px" }
+    //if (pathname == "/home.html" || pathname == "/home") { getId("project__").style.width = getId("project").scrollWidth + "px" }
     check()
     accb_small_isOn = false;
     getId("accb_small").style.display = "none"
@@ -168,7 +173,7 @@ window.onscroll = function() {
     }
     prevScrollpos = currentScrollPos;
 }
-function changeBg(isLight) { if (isLight) { qSel("body").style.backgroundImage = "url(\"/website/image/background_light.png\")"; } else { qSel("body").style.backgroundImage = "url(\"/website/image/background_dark.png\")"; } }
+function changeBg(isLight) { if (isLight) { qSel("body").style.backgroundImage = "url(\"/website/image/background/background_light.png\")"; } else { qSel("body").style.backgroundImage = "url(\"/website/image/background/background_dark.png\")"; } }
 function ls_gt(i) { return localStorage.getItem(i) }
 function ls_st(i, v) { localStorage.setItem(i, v) }
 var constant = 0;

@@ -29,6 +29,11 @@ var name_ = [
         "name": "Gallery",
         "title": "Gallery - Where I store picture of project and stuff",
         "address": "gallery.html"
+    },
+    {
+        "name": "Download",
+        "title": "Download - Download stuff, that's it",
+        "address": "/download.html"
     }
 ];
 var pathname = window.location.pathname;
