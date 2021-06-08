@@ -1,0 +1,938 @@
+<!--Copyright (C) 2021 QuanMCPC, icon source: Bootstrap Icon-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SOOPE (Simple and Open-Source Picture Editor)</title>
+        <style>
+            :root {
+                --hoverBgColor: #838383;
+                --activeBgColor: #727272;
+            }
+            input[type="number"], input[type="text"] {
+                border: 2px solid black;
+                border-radius: 0;
+            }
+            body { margin: 0; font-family: Arial, Helvetica, sans-serif; }
+            #access_bar {
+                top: 0;
+                position: -webkit-sticky;
+                position: sticky;
+                width: auto;
+                height: 30%;
+                background-color: #c0c0c0;
+                padding: 5px;
+                border: 2px solid black;
+                z-index: 7;
+            }
+            #access_bar > *, #toolbar > *:not(.vr), .dropdown_button, .normal > * {
+                display: inline-block;
+                margin: 0px;
+            }
+            .dropdown_content {
+                position: absolute;
+                background-color: #c0c0c0;
+                border: 1px solid black;
+                padding: 5px;
+            }
+            #dropdown_settings * { margin: 2px }
+            #toolbar {
+                display: grid;
+                grid-template-columns: repeat(11, max-content);
+                width: max-content;
+            }
+            svg {
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+            figure { padding: 5px; -webkit-user-select: none; user-select: none; margin: 0; }
+            figure:hover {
+                background-color: var(--hoverBgColor);
+                cursor: pointer;
+                margin: 0;
+            }
+            figure:hover:active {
+                background-color: var(--activeBgColor);
+            }
+            canvas {
+                margin: 5px;
+            }
+            #cursor_image, #pencil_cursor_image, #pencil_cursor_image_2 {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                pointer-events: none;
+            }
+            #dropdown_settings, #dropdown_files, #dropdown_tools, #dropdown_save, #dropdown_open {
+                display: none;
+            }
+            div#dropdown_settings_:hover div#dropdown_settings { display: block; }
+            div#dropdown_save_:hover div#dropdown_save { display: block; }
+            div#dropdown_open_:hover div#dropdown_open { display: block; }
+            div#dropdown_files_:hover div#dropdown_files { display: flex; }
+            div#dropdown_tools_:hover div#dropdown_tools { display: flex; }
+            div.vr {
+                height: 100%;
+                width: 1px;
+                border-left: 1px solid gray;
+                margin-left: 7px;
+                margin-right: 7px;
+            }
+            #about, #kbsc, #fetchFromURL {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: auto;
+                background-color: #c0c0c0;
+                border: 1px solid black;
+                padding: 5px;
+                z-index: 9;
+            }
+            #about *, #kbsc *, #fetchFromURL * { margin: 5px; }
+            #about_, #kbsc_, #fetchFromURL_ {
+                background-color: rgba(0, 0, 0, 0.8);
+                z-index: 8;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            #about__, #kbsc__, #fetchFromURL__ { display: none; }
+            #fullscreen {
+                width: 100%;
+                height: 100%;
+                background-color: black;
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: none;
+                z-index: 10;
+            }
+            #fullscreen * {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                max-width: auto;
+                max-height: 100%;
+            }
+            .lock {
+                margin: 0;
+                display: inline;
+                padding: 2px;
+            }
+            .lock:hover { background-color: #838383 }
+            .lock:hover:active { background-color: #727272 }
+            noscript {
+                background-color: rgba(255, 255, 255, 0.9);
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 20;
+            }
+            noscript * { margin: 5px; }
+            noscript p { margin: 10px; }
+            #verbose p {
+                margin-top: 0;
+                margin-bottom: 0;
+                padding: 1px;
+                background-color: rgba(66, 66, 66, 0.6);
+                color: white;
+                width: max-content;
+                font-family: 'Courier New', Courier, monospace, Consolas;
+            }
+            #verbose {
+                display: none;
+                margin: 5px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 100;
+                pointer-events: none;
+            }
+            video {
+                max-width: 100%;
+                max-height: 90%;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+            #video {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                top: 0;
+                display: block;
+                z-index: 30;
+                background-color: rgba(0, 0, 0, 0.8);
+                display: none;
+            }
+            #video__ {
+                height: 100%;
+             }
+            #button {
+                left: 50%;
+                position: absolute;
+                transform: translateX(-50%);
+            }
+            button {
+                background-color: white;
+                color: black;
+                border: 1px solid black;
+                margin: 2px;
+                border-radius: 0;
+            }
+            button * { margin: 2px }
+            h3 { margin: 2px; }
+            .noscroll { overflow: hidden; }
+        </style>
+    </head>
+    <body>
+        <noscript>
+            <hr>
+            <h2>A letter from the creator of the program</h2>
+            <hr>
+            <h3>Hello, user.</h3>
+            <p>You probally know that anyone need privacy and security (Me included), and I understand that. And you probally also know that JavaScript is dangerous if for malicious use so you have decide to turn off JavaScript all together (Or maybe you install an extension that automatically block JavaScript). And it's perfectly fine if you disable JavaScript. But you should consider that a lot (and I mean: A Lot) of website today simply can't work without JavaScript. Now that doesn't mean that you should remove the JS blocker or not block JavaScript, what I trying to say is that if you already installed a JS blocker, then only whitelist website you trust, and if you don't use one, if there's a website you suspect might be a bit sus, then it's a good idea to block the JS from that website. Although again, if the layout or stuff that is not working in the website, then maybe re-enable the JS for the website temporatily (or maybe permanently if you trust it).</p>
+            <p>Ok, let's get into the real stuff now. The program require JavaScript to work, or else, it won't work because it use JS to do stuff like: Handle drawing, saving, opening, selecting tools, ... So consider enable JavaScript for this program, then refresh the page, and I promise that there is no malicious code in this program. If you don't belive, you can check the source code on Github or the View Source page. The code is not obfuscated and no hidden function.</p>
+            <p>Sincerely, the creator of the program: QuanMCPC</p>
+            <hr>
+        </noscript>
+        <div id="verbose">
+            <p>SOOPE v1.1.4+20211505213200P7</p>
+            <p>FPS: <span id="v_fps">0</span></p>
+            <p>Cursor Position X / Y (In Canvas) (px): <span id="v_cX">0</span> / <span id="v_cY">0</span></p>
+            <p>Canvas Width / Height (px): <span id="v_width">0</span> / <span id="v_height">0</span></p>
+            <p>Pencil / Eraser Size (px): <span id="v_pSize">0</span> / <span id="v_eSize">0</span></p>
+            <p>Pencil Color: <span id="v_pColor">0</span></p>
+            <p>Is background transparent? <span id="v_bT">0</span></p>
+            <p>Is Undo/Redo enabled? <span id="v_eu">0</span></p>
+            <p>Keep aspect ratio for canvas size? <span id="v_lR">0</span></p>
+            <p>Keep aspect ratio for image size? <span id="v_lR_">0</span></p>
+            <p>Tool: <span id="v_tool">0</span></p>
+            <p>Items in the Clipboard variable: <span id="v_uic">0</span></p>
+            <p>Position of "pointer" in the Clipboard variable: <span id="v_uip">0</span></p>
+            <p>Size of the Clipboard variable (Byte): <span id="v_ual">0</span></p>
+            <p>A message have been send in DevTools</p>
+            <p>Time wasted drawing (ms): <span id="v_tWD">0</span></p>
+        </div>
+        <p id="a" style="display: none;">Test</p>
+        <div id="access_bar">
+            <div id="toolbar">
+                <div class="dropdown_bottom" id="dropdown_files_">
+                    <figure id="files">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                        </svg>
+                        <figcaption id="dropdown_files__name">Files...</figcaption>
+                    </figure>
+                    <div class="dropdown_content" id="dropdown_files" style="z-index: 2;"></div>
+                </div>
+                <div id="normal_files" class="normal">
+                    <figure onclick="newImage()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
+                        </svg>
+                        <figcaption>New</figcaption>
+                    </figure>
+                    <div id="dropdown_open_" class="dropdown_bottom" style="width: max-content">
+                        <figure>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M1 3.5A1.5 1.5 0 0 1 2.5 2h2.764c.958 0 1.76.56 2.311 1.184C7.985 3.648 8.48 4 9 4h4.5A1.5 1.5 0 0 1 15 5.5v.64c.57.265.94.876.856 1.546l-.64 5.124A2.5 2.5 0 0 1 12.733 15H3.266a2.5 2.5 0 0 1-2.481-2.19l-.64-5.124A1.5 1.5 0 0 1 1 6.14V3.5zM2 6h12v-.5a.5.5 0 0 0-.5-.5H9c-.964 0-1.71-.629-2.174-1.154C6.374 3.334 5.82 3 5.264 3H2.5a.5.5 0 0 0-.5.5V6zm-.367 1a.5.5 0 0 0-.496.562l.64 5.124A1.5 1.5 0 0 0 3.266 14h9.468a1.5 1.5 0 0 0 1.489-1.314l.64-5.124A.5.5 0 0 0 14.367 7H1.633z"/>
+                            </svg>
+                            <figcaption>Open...</figcaption>
+                        </figure>
+                        <div id="dropdown_open" class="dropdown_content" style="width: max-content">
+                            <fieldset>
+                                <legend>Open</legend>
+                                <button onclick="openImage(0)">Open normal image file</button><br>
+                                <button onclick="openImage(1)">Open Base64 encoded image text file</button><br>
+                                <button onclick="openImage(2)">Take screenshot from video file</button><br>
+                                <button onclick="openImage(3)">Fetch image from URL</button><br>
+                                <small>Tip: You can drag image file, video file or Base64</small><br>
+                                <small>encoded image text file directly to the program.</small>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div id="dropdown_save_" class="dropdown_bottom" style="width: max-content;">
+                        <figure>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z"/>
+                            </svg>
+                            <figcaption>Save...</figcaption>
+                        </figure>
+                        <div id="dropdown_save" class="dropdown_content" style="width: max-content;">
+                            <fieldset>
+                                <legend>Save</legend>
+                                <p style="margin-top: 0; margin-bottom: 0;">Data type: <small title="Not all format is supported to save as base64">(?)</small></p>
+                                <label for="png">PNG</label><input id="png" value="image/png" type="radio" name="filetype" data-extension="png" checked>
+                                <label for="jpeg">JPEG</label><input id="jpeg" value="image/jpeg" type="radio" name="filetype" data-extension="jpeg">
+                                <label for="webp">WEBP</label><input id="webp" value="image/webp" type="radio" name="filetype" data-extension="webp">
+                                <label for="jpg">JPG</label><input id="jpg" value="image/jpg" type="radio" name="filetype" data-extension="jpg"><br>
+                                <label for="ico">ICO</label><input id="ico" value="image/ico" type="radio" name="filetype" data-extension="ico">
+                                <label for="bmp">BMP</label><input id="bmp" value="image/bmp" type="radio" name="filetype" data-extension="bmp">
+                                <label for="gif">GIF</label><input id="gif" value="image/gif" type="radio" name="filetype" data-extension="gif">
+                                <label for="tif">TIF</label><input id="tif" value="image/tif" type="radio" name="filetype" data-extension="tif"><br>
+                                <button onclick="saveImage(false)">Save as picture file</button><br>
+                                <button onclick="saveImage(true)">Save as Base64 text file</button>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <figure onclick="alert('Just close the tab normally')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                        <figcaption>Close</figcaption>
+                    </figure>
+                </div>
+                <div class="vr"></div>
+                <div class="dropdown_bottom" id="dropdown_tools_">
+                    <figure id="tools">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M1 0L0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.356 3.356a1 1 0 0 0 1.414 0l1.586-1.586a1 1 0 0 0 0-1.414l-3.356-3.356a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0zm9.646 10.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708zM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11z"/>
+                        </svg>
+                        <figcaption id="dropdown_tools__name">Tools...</figcaption>
+                    </figure>
+                    <div class="dropdown_content" id="dropdown_tools" style="z-index: 2;"></div>
+                </div>
+                <div id="normal_tools" class="normal">
+                    <figure class="tool__ tool__pencil" onclick="resetAllTool(); getClass('tool__pencil')[0].style.backgroundColor = selectedBgColor; tool_ = 'pencil'; getId('pencil_cursor_image').style.display = 'block'; getId('pencil_cursor_image_2').style.display = 'block'; getId('canvas').style.cursor = 'none'; getId('pencil_cursor_image_2').style.top = getId('canvas').getBoundingClientRect().top + window.scrollY + Number(getCS(getId('canvas')).borderWidth.replace(/\D+$/g, '')) + 'px'; getId('pencil_cursor_image_2').style.left = getId('canvas').getBoundingClientRect().left + window.scrollX + Number(getCS(getId('canvas')).borderWidth.replace(/\D+$/g, '')) + 'px';">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                        </svg>
+                        <figcaption>Pencil</figcaption>
+                    </figure>
+                    <figure class="tool__ tool__eraser" onclick="resetAllTool(); getClass('tool__eraser')[0].style.backgroundColor = selectedBgColor; tool_ = 'eraser'; getId('cursor_image').style.display = 'block'; getId('cursor_image').style.top = getId('canvas').getBoundingClientRect().top + window.scrollY + Number(getCS(getId('canvas')).borderWidth.replace(/\D+$/g, '')) + 'px'; getId('cursor_image').style.left = getId('canvas').getBoundingClientRect().left + window.scrollX + Number(getCS(getId('canvas')).borderWidth.replace(/\D+$/g, '')) + 'px'; getId('canvas').style.cursor = 'none'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8.086 2.207a2 2 0 0 1 2.828 0l3.879 3.879a2 2 0 0 1 0 2.828l-5.5 5.5A2 2 0 0 1 7.879 15H5.12a2 2 0 0 1-1.414-.586l-2.5-2.5a2 2 0 0 1 0-2.828l6.879-6.879zm2.121.707a1 1 0 0 0-1.414 0L4.16 7.547l5.293 5.293 4.633-4.633a1 1 0 0 0 0-1.414l-3.879-3.879zM8.746 13.547L3.453 8.254 1.914 9.793a1 1 0 0 0 0 1.414l2.5 2.5a1 1 0 0 0 .707.293H7.88a1 1 0 0 0 .707-.293l.16-.16z"/>
+                        </svg>
+                        <figcaption>Eraser</figcaption>
+                    </figure>
+                    <figure class="tool__ tool__colorPicker" onclick="resetAllTool(); getClass('tool__colorPicker')[0].style.backgroundColor = selectedBgColor; tool_ = 'colorpicker';">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M13.354.646a1.207 1.207 0 0 0-1.708 0L8.5 3.793l-.646-.647a.5.5 0 1 0-.708.708L8.293 5l-7.147 7.146A.5.5 0 0 0 1 12.5v1.793l-.854.854a.5.5 0 1 0 .708.707L1.707 15H3.5a.5.5 0 0 0 .354-.146L11 7.707l1.146 1.147a.5.5 0 0 0 .708-.708l-.647-.646 3.147-3.146a1.207 1.207 0 0 0 0-1.708l-2-2zM2 12.707l7-7L10.293 7l-7 7H2v-1.293z"/>
+                        </svg>
+                        <figcaption>Color Picker</figcaption>
+                    </figure>
+                    <figure class="tool__" onclick="undo()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+                            <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+                        </svg>
+                        <figcaption>Undo</figcaption>
+                    </figure>
+                    <figure class="tool__" onclick="redo()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+                            <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+                        </svg>
+                        <figcaption>Redo</figcaption>
+                    </figure>
+                </div>
+                <div class="vr"></div>
+                <div class="dropdown_bottom" id="dropdown_settings_">
+                    <figure id="settings">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                            <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+                        </svg>
+                        <figcaption id="dropdown_settings__name">Settings...</figcaption>
+                    </figure>
+                    <div class="dropdown_content" id="dropdown_settings" style="z-index: 2;">
+                        <fieldset>
+                            <legend>Settings</legend>
+                            <label for="brush_size" style="color: black">Pencil Size: </label><input type="number" name="brush_size" id="brush_size" value="2" style="width: 50px"><br>
+                            <label for="eraser_size" style="color: black">Eraser Size: </label><input type="number" name="eraser_size" id="eraser_size" value="16" style="width: 50px"><br>
+                            <label for="brush_color" style="color: black">Pencil Color: </label><input type="color" name="brush_color" id="brush_color" maxlength="7" placeholder="Always start with #"><br>
+                            <label for="canvas_width" style="color: black">Canvas Width: </label><input type="number" name="canvas_width" id="canvas_width" value="640" style="width: 50px">
+                            <svg class="lock" id="lockRatio" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" onclick="lockRatio()">
+                                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
+                            </svg>
+                            <br>
+                            <label for="canvas_height" style="color: black">Canvas Height: </label><input type="number" name="canvas_height" id="canvas_height" value="480" style="width: 50px"><br>
+                            <label for="image_width" style="color: black">Image Width: </label><input type="number" name="image_width" id="image_width" value="640" style="width: 50px">
+                            <svg class="lock" id="lockRatio1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" onclick="lockRatio1()">
+                                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
+                            </svg>
+                            <br>
+                            <label for="image_height" style="color: black">Image Height: </label><input type="number" name="image_height" id="image_height" value="480" style="width: 50px"><br>
+                            <label for="backgroundTransparent" style="color: black">Make background transparent? </label><input type="checkbox" name="backgroundTransparent" id="backgroundTransparent"><br>
+                            <label for="enable_unredo">Enable Undo/Redo? <small title="On large image, the program will lag a bit if undo/redo is enabled">(?)</small></label><input type="checkbox" name="enable_unredo" id="enable_unredo" checked><br>
+                            <label for="enable_darkmode">Enable Dark Mode? </label><input type="checkbox" name="enable_darkmode" id="enable_darkmode">
+                        </fieldset>
+                    </div>
+                </div>
+                <figure id="keyboardshortcut" onclick="showKS()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M14 5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h12zM2 4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H2z"/>
+                        <path d="M13 10.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm0-2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-5 0A.25.25 0 0 1 8.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 8 8.75v-.5zm2 0a.25.25 0 0 1 .25-.25h1.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-1.5a.25.25 0 0 1-.25-.25v-.5zm1 2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-5-2A.25.25 0 0 1 6.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 6 8.75v-.5zm-2 0A.25.25 0 0 1 4.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 4 8.75v-.5zm-2 0A.25.25 0 0 1 2.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 2 8.75v-.5zm11-2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-2 0a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-2 0A.25.25 0 0 1 9.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 9 6.75v-.5zm-2 0A.25.25 0 0 1 7.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 7 6.75v-.5zm-2 0A.25.25 0 0 1 5.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 5 6.75v-.5zm-3 0A.25.25 0 0 1 2.25 6h1.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-1.5A.25.25 0 0 1 2 6.75v-.5zm0 4a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm2 0a.25.25 0 0 1 .25-.25h5.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-5.5a.25.25 0 0 1-.25-.25v-.5z"/>
+                    </svg>
+                    <figcaption>Shortcut</figcaption>
+                </figure>
+                <figure onclick="fullS()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707zm0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707zm-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707z"/>
+                    </svg>
+                    <figcaption>Full Screen</figcaption>
+                </figure>
+                <figure id="info" onclick="showAbout()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    </svg>
+                    <figcaption>About</figcaption>
+                </figure>
+            </div>
+        </div>
+        <div id="fetchFromURL__" style="display: none;" class="popup-box">
+            <div id="fetchFromURL_"></div>
+            <div id="fetchFromURL">
+                <hr>
+                <p>Please enter a valid image URL under the textbox.</p>
+                <p>(Note: Do to stuff like Cross-Origin Resource Sharing, some server might not allow website to fetch data.)</p>
+                <input type="url" name="imageURL" id="imageURL" style="border: 1px solid black; width: calc(100% - 22px)" placeholder="URL: https://example.com"><br>
+                <button onclick="fetchImageFromURL()">Fetch!</button><button onclick="getId('fetchFromURL__').style.display = 'none'">Cancel</button>
+                <hr>
+            </div>
+        </div>
+        <div id="draw_area">
+            <div class="cursor_" id="cursor_image">
+                <svg id="child_cursor_image" width="16" height="16" version="1.1" viewBox="0 0 8.4667 8.4667" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="-3.0478e-9" width="8.4667" height="8.4667" fill="#000000" stroke-width=".35857"/>
+                    <rect x=".26458" y=".26458" width="7.9375" height="7.9375" fill="#ffffff" stroke-width="1.0501"/>
+                    <path transform="scale(.26458)" d="m15 10v5h-5v2h5v5h2v-5h5v-2h-5v-5h-2z" fill="#000000"/>
+                </svg>
+            </div>
+            <div class="cursor_" id="pencil_cursor_image">
+                <svg id="child_pencil_cursor_image" width="2" height="2" version="1.1" viewBox="0 0 8.4667 8.4667" xmlns="http://www.w3.org/2000/svg">
+                    <circle id="child_pencil_cursor_image_child" cx="4.2333" cy="4.2333" r="4.2333" fill="#000000" stroke-width=".26608"/>
+                </svg>
+            </div>
+            <div class="cursor_" id="pencil_cursor_image_2">
+                <svg id="child_pencil_cursor_image_2" width="32" height="32" version="1.1" viewBox="0 0 8.4667 8.4667" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                        <path transform="scale(.26458)" d="m15 1v14h-14v2h14v14h2v-14h14v-2h-14v-14h-2z" fill="#ffffff"/>
+                        <path transform="scale(.26458)" d="m14 0v14h-14v1 2 1h14v14h1 2 1v-14h14v-1-2-1h-14v-14h-1-2-1zm1 1h2v6h-2v-6zm0 7h2v6h-2v-6zm-14 7h6v2h-6v-2zm7 0h6v2h-6v-2zm7 0h2v2h-2v-2zm3 0h6v2h-6v-2zm7 0h6v2h-6v-2zm-10 3h2v6h-2v-6zm0 7h2v6h-2v-6z" fill="#4d4d4d"/>
+                    </g>
+                </svg>
+            </div>
+            <canvas id="canvas" width="640" height="480" style="width: 640px; height: 480px; border:2px solid black; z-index: 99; background-color: white"></canvas>
+            <canvas id="canvas_" width="450" height="60" style="display: none; position: fixed; left: 0; bottom: 0; opacity: 0.8; pointer-events: none; float: left; width: 450px; height: 70px; border:2px solid black; z-index: 99; background-color: white"></canvas>
+        </div>
+        <div id="about__" class="popup-box">
+            <div id="about_"></div>
+            <div id="about">
+                <hr>
+                <h3 style="text-align: center;">SOOPE (Simple and Open-Source Online Picture Editor)</h3>
+                <hr>
+                <p>Version: 1.1.4, completed at: May 15th, 2021</p>
+                <p>Created by: QuanMCPC, Product Made In VietNam.</p>
+                <p>Language used: HTML, CSS, JS</p>
+                <p>This allow user to edit picture from the browser online (and offline if you add this file to ServiceWorker).</p>
+                <p>File has been optimized while also made it easy to read.</p>
+                <p><b style="margin-left: 0">Note: Program will sorta lag if the image is large</b></p>
+                <hr>
+                <button onclick="getId('about__').style.display = 'none'">Close</button>
+                <hr>
+            </div>
+        </div>
+        <div id="kbsc__" class="popup-box">
+            <div id="kbsc_"></div>
+            <div id="kbsc">
+                <hr>
+                <h3 style="text-align: center;">Keyboard Shortcut</h3>
+                <hr>
+                <p><kbd>Alt + N</kbd>: New image</p>
+                <p><kbd>Alt + S</kbd>: Save image (Default to PNG format)</p>
+                <p><kbd>Alt + O</kbd>: Open image</p>
+                <p><kbd>Alt + Z</kbd>: Undo</p>
+                <p><kbd>Alt + Y</kbd>: Redo</p>
+                <p><kbd>Alt + F11</kbd>: Toggle Full Screen</p>
+                <p><kbd>Ctrl + Alt + F3</kbd>: Toggle Debug Screen</p>
+                <p><kbd>[P] key</kbd>: Pencil</p>
+                <p><kbd>[E] key</kbd>: Eraser</p>
+                <p><kbd>[C] key</kbd>: Color Picker</p>
+                <hr>
+                <button onclick="getId('kbsc__').style.display = 'none'">Close</button>
+                <hr>
+            </div>
+        </div>
+        <div id="fullscreen">
+            <img src="" alt="Full screen image" id="fullscreen_">
+        </div>
+        <div id="video">
+            <div id="video__">
+                <video src="" id="video_" autoplay="autoplay" controls poster="data:image/png;base64,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"></video>
+                <div id="button">
+                    <button onclick="openImageFromVideo()"><h4>Choose current frame</h4></button><button onclick='getId("video").style.display = "none"; getId("video_").setAttribute("src", ""); document.body.classList.toggle("noscroll")'><h4>Cancel</h4></button>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        var selectedBgColor = "#999999";
+        function getId(id) { return document.getElementById(id) }
+        function getCS(e, p) { return getComputedStyle(e, p) }
+        function getClass(c) { return document.getElementsByClassName(c) }
+        function qSel(q) { return document.querySelector(q) }
+        function reloadImage(b64img, cs) {
+            var img = new Image();
+            img.onload = function() {
+                var w = img.width, h = img.height;
+                cs.setAttribute("width", w);
+                cs.setAttribute("height", h);
+                cs.style.width = w + "px";
+                cs.style.height = h + "px";
+                cs.parentElement.style.width = w + "px";
+                cs.parentElement.style.height = h + "px";
+                getId("canvas_width").value = getId("image_width").value = w;
+                getId("canvas_height").value = getId("image_height").value = h;
+                ratio = getId("canvas_width").value / getId("canvas_height").value;
+                cs.getContext("2d").clearRect(0, 0, cs.style.width, cs.style.height);
+                cs.getContext("2d").drawImage(img, 0, 0);
+            }
+            img.onerror = e => alert("Unable to parse, please make sure that the image file or the base64 encoded image text file is valid.");
+            img.src = b64img;
+        }
+        function eFS() {
+            getId("fullscreen").style.display = "none";
+            if (document.exitFullscreen) { document.exitFullscreen() } else if (document.webkitExitFullscreen) { document.webkitExitFullscreen() } else if (document.msExitFullscreen) { document.msExitFullscreen() }
+        }
+        function openFPSDisplay(o) {
+            getId("canvas_").style.display = "block";
+            getId("canvas_").style.opacity = o;
+        }
+        var tool_ = "pencil", toggleDS = false, unredo = [], unredoPos = 0, $canvas = getId("canvas"), type, id_, lockRatio_ = false, ratio = 0, lockRatio__ = false, prevX = 0, prevY = 0, currX = 0, currY = 0, ah43, startTime = performance.now(),  cAT = window.cancelAnimationFrame || window.mozCancelAnimationFrame, rAT = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+        document.body.onresize = resizeHandler
+        function startV() {
+            getId("verbose").style.display = "block";
+            var fps = 1, times = [], a, xPos = 1, oldYPos = 0, ctx = getId("canvas_").getContext("2d"), fpsLoop = function (timestamp) {
+                while (times.length > 0 && times[0] <= timestamp - 1000) { times.shift(); }
+                times.push(timestamp);
+                fps = times.length;
+                var fps_ = fps / 2;
+                getId("v_fps").innerHTML = fps + " fps"; getId("v_pColor").innerHTML = getId("brush_color").value;
+                if (xPos >= getId("canvas_").getAttribute("width")) { xPos = -5 }
+                ctx.beginPath();
+                ctx.globalCompositeOperation="source-over";
+                ctx.moveTo(xPos, getId("canvas_").getAttribute("height") - fps_);
+                ctx.fillStyle = "#ffffff"
+                ctx.fillRect(xPos + 5, 0, 1, getId("canvas_").getAttribute("height"))
+                ctx.lineTo(xPos + 1, getId("canvas_").getAttribute("height") - fps_);
+                ctx.strokeStyle = "#ff0000";
+                ctx.lineWidth = 2;
+                ctx.lineCap = 'butt';
+                ctx.stroke();
+                xPos++;
+                getId("v_cX").innerHTML = currX; getId("v_cY").innerHTML = currY;
+                getId("v_width").innerHTML = $canvas.getAttribute("width"); getId("v_height").innerHTML = $canvas.getAttribute("height");
+                getId("v_pSize").innerHTML = getId("brush_size").value; getId("v_eSize").innerHTML = getId("eraser_size").value;
+                getId("v_bT").innerHTML = getId("backgroundTransparent").checked; getId("v_eu").innerHTML = getId("enable_unredo").checked;
+                getId("v_tool").innerHTML = tool_;
+                getId("v_lR").innerHTML = lockRatio_;
+                getId("v_lR_").innerHTML = lockRatio__;
+                getId("v_uic").innerHTML = unredo.length;
+                getId("v_uip").innerHTML = unredoPos;
+                unredo.forEach((v) => { a += v.length })
+                getId("v_ual").innerHTML = a;
+                a = 0;
+                ah43 = rAT(fpsLoop);
+            }
+            ah43 = rAT(fpsLoop);
+        }
+        function stopV() { cAT(ah43); getId("verbose").style.display = "none"; }
+        function tWD_() {
+            getId("v_tWD").innerHTML = Math.round(performance.now() - startTime);
+            rAT(tWD_)
+        }
+        rAT(tWD_)
+        function resizeHandler() {
+            if (document.body.clientWidth <= 879) {
+                getId("dropdown_files_").style.display = "block";
+                var j = getId("normal_files").children.length;
+                for (var i = 0; i < j; i++) { getId("dropdown_files").appendChild(getId("normal_files").children[0]) }
+            }
+            if (document.body.clientWidth >= 880) {
+                getId("dropdown_files_").style.display = "none";
+                var j_ = getId("dropdown_files").children.length;
+                for (var i = 0; i < j_; i++) { getId("normal_files").appendChild(getId("dropdown_files").children[0]) }
+            }
+            if (document.body.clientWidth <= 724) {
+                getId("dropdown_tools_").style.display = "block";
+                var j = getId("normal_tools").children.length;
+                for (var i = 0; i < j; i++) { getId("dropdown_tools").appendChild(getId("normal_tools").children[0]) }
+            }
+            if (document.body.clientWidth >= 725) {
+                getId("dropdown_tools_").style.display = "none";
+                var j_ = getId("dropdown_tools").children.length;
+                for (var i = 0; i < j_; i++) { getId("normal_tools").appendChild(getId("dropdown_tools").children[0]) }
+            }
+        }
+        function dropHandler(e) {
+            e.preventDefault();
+            if (e.dataTransfer.items) {
+                if (e.dataTransfer.items.length > 1) { alert("Currently, SOOPE doesn't support handling multiple pictures so please only drag 1 image into the program"); } else {
+                    if (e.dataTransfer.items[0].kind === 'file') {
+                        var f = e.dataTransfer.items[0].getAsFile(), r = new FileReader(), t = e.dataTransfer.items[0].type;
+                        r.onload = e_ => { var g = e_.target.result; unredoPos = 0; if (t.indexOf("video") != -1) { getId("video").style.display = "block"; getId("video_").setAttribute("src", g); document.body.classList.toggle("noscroll"); } else { unredo = [g]; reloadImage(g, $canvas) } };
+                        if (t.indexOf("image") != -1 || t.indexOf("video") != -1) { r.readAsDataURL(f) } else
+                        if (t.indexOf("text") != -1) { r.readAsText(f) }
+                    }
+                }
+            } else {
+                if (e.dataTransfer.files.length > 1) { alert("Currently, SOOPE doesn't support handling multiple pictures so please only drag 1 image into the program"); } else {
+                    var f = e.dataTransfer.files[0].getAsFile(), r = new FileReader(), t = e.dataTransfer.files[0].type;
+                    r.onload = e_ => { var g = e_.target.result; unredoPos = 0; if (t.indexOf("video") != -1) { getId("video").style.display = "block"; getId("video_").setAttribute("src", g); document.body.classList.toggle("noscroll"); } else { unredo = [g]; reloadImage(g, $canvas) } };
+                    if (t.indexOf("image") !== -1 || t.indexOf("video") != -1) { r.readAsDataURL(f) } else
+                    if (t.indexOf("text") !== -1) { r.readAsText(f) }
+                }
+            }
+        }
+        function dragOverHandler(e) { e.preventDefault(); e.stopPropagation(); }
+        document.ondrop = dropHandler;
+        document.ondragover = dragOverHandler;
+        document.body.onkeydown = function(e) {
+            if (e.key == "z" && e.altKey) { undo() }
+            if (e.key == "y" && e.altKey) { redo() }
+            if (e.key == "n" && e.altKey) { newImage() }
+            if (e.key == "s" && e.altKey) { saveImage() }
+            if (e.key == "o" && e.altKey) { openImage() }
+            if (e.key == "F3" && e.altKey && e.ctrlKey) {
+                if (toggleDS) {
+                    stopV();
+                    getId("canvas_").style.display = "none";
+                    toggleDS = false;
+                } else {
+                    console.log("Run function: \"openFPSDisplay(<insert_opacity_from_0_to_1_here>)\"")
+                    startV();
+                    toggleDS = true;
+                }
+            }
+            if (e.key == "F11" && e.altKey) {
+                if (getId("fullscreen").style.display == "block") { eFS() } else { fullS() }
+            }
+            if (e.key == "p") {
+                resetAllTool();
+                for (var i = 0; i < getClass('tool__pencil').length; i++) {  getClass('tool__pencil')[i].style.backgroundColor = '#999999' }
+                tool_ = "pencil";
+                getId('pencil_cursor_image').style.display = 'block';
+                getId('pencil_cursor_image_2').style.display = 'block';
+                getId('canvas').style.cursor = 'none';
+            }
+            if (e.key == "e") {
+                resetAllTool();
+                for (var i = 0; i < getClass('tool__eraser').length; i++) { getClass('tool__eraser')[i].style.backgroundColor = '#999999' }
+                tool_ = "eraser";
+                getId('cursor_image').style.display = 'block';
+                getId('cursor_image').style.top = getId('canvas').getBoundingClientRect().top + window.scrollY + Number(getCS(getId('canvas')).borderWidth.replace(/\D+$/g, '')) + 'px';
+                getId('cursor_image').style.left = getId('canvas').getBoundingClientRect().left + window.scrollX + Number(getCS(getId('canvas')).borderWidth.replace(/\D+$/g, '')) + 'px';
+                getId('canvas').style.cursor = 'none';
+            }
+            if (e.key == "c") {
+                resetAllTool();
+                for (var i = 0; i < getClass('tool__colorPicker').length; i++) { getClass('tool__colorPicker')[i].style.backgroundColor = '#999999' }
+                tool_ = "colorpicker";
+            }
+        }
+        function rR(remove, mode) { if (mode) { ratio = remove ? 0 : getId("canvas_width").value / getId("canvas_height").value } else { ratio = remove ? 0 : getId("image_width").value / getId("image_height").value } }
+        function lockRatio() {
+            if (lockRatio_) {
+                lockRatio_ = false;
+                getId("lockRatio").style.backgroundColor = "";
+                getId("canvas_width").removeEventListener("input", cTFR1);
+                getId("canvas_height").removeEventListener("input", cTFR2);
+                rR(true, true);
+            } else {
+                lockRatio_ = true;
+                getId("lockRatio").style.backgroundColor = "#999999";
+                rR(false, true);
+                getId("canvas_width").addEventListener("input", cTFR1)
+                getId("canvas_height").addEventListener("input", cTFR2)
+            }
+        }
+        function lockRatio1() {
+            if (lockRatio__) {
+                lockRatio__ = false;
+                getId("lockRatio1").style.backgroundColor = "";
+                getId("image_width").removeEventListener("input", cTFR3);
+                getId("image_height").removeEventListener("input", cTFR4);
+                rR(true, false);
+            } else {
+                lockRatio__ = true;
+                getId("lockRatio1").style.backgroundColor = "#999999";
+                rR(false, false);
+                getId("image_width").addEventListener("input", cTFR3)
+                getId("image_height").addEventListener("input", cTFR4)
+            }
+        }
+        function cTFR1() { rR(false, false); getId("canvas_height").value = getId("canvas_width").value / ratio }
+        function cTFR2() { rR(false, false); getId("canvas_width").value = getId("canvas_height").value * ratio }
+        function cTFR3() { rR(false, true); getId("image_height").value = getId("image_width").value / ratio }
+        function cTFR4() { rR(false, true); getId("image_width").value = getId("image_height").value * ratio }
+        function fullS() {
+            getId("fullscreen").style.display = 'block';
+            if (getId("fullscreen").requestFullscreen) { getId("fullscreen").requestFullscreen() } else if (getId("fullscreen").webkitRequestFullscreen) { getId("fullscreen").webkitRequestFullscreen() } else if (getId("fullscreen").msRequestFullscreen) { getId("fullscreen").msRequestFullscreen() }
+            if (!getId("backgroundTransparent").checked) { getId("fullscreen_").src = canvasToImage("#ffffff", $canvas) } else { getId("fullscreen_").src = $canvas.toDataURL(type) }
+        }
+        getId("fullscreen").addEventListener("click", eFS)
+        function showKS() { getId('kbsc__').style.display = 'block' }
+        function undo() {
+            if (getId("enable_unredo").checked && unredoPos < unredo.length - 1) {
+                unredoPos++;
+                reloadImage(unredo[unredoPos], $canvas);
+            }
+        }
+        function redo() {
+            if (getId("enable_unredo").checked && unredoPos > 0) {
+                unredoPos--;
+                reloadImage(unredo[unredoPos], $canvas);
+            }
+        }
+        function showAbout() { getId("about__").style.display = "block" }
+        function canvasToImage(backgroundColor, canvas_elm) {
+            var canvas = canvas_elm, context = canvas_elm.getContext("2d"), w = canvas.width, h = canvas.height, data
+            if (backgroundColor) {
+                data = context.getImageData(0, 0, w <= 1 ? 1 : w, h <= 1 ? 1 : h);
+                var compositeOperation = context.globalCompositeOperation;
+                context.globalCompositeOperation = "destination-over";
+                context.fillStyle = backgroundColor;
+                context.fillRect(0, 0, w <= 1 ? 1 : w, h <= 1 ? 1 : h);
+            }
+            var imageData = this.canvas.toDataURL(type);
+            if (backgroundColor) {
+                context.clearRect(0, 0, w <= 1 ? 1 : w, h <= 1 ? 1 : h);
+                context.putImageData(data, 0, 0);
+                context.globalCompositeOperation = compositeOperation;
+            }
+            return imageData;
+        }
+        function resetAllTool() {
+            document.querySelectorAll(".tool__").forEach((value, key) => { value.style.backgroundColor = "" })
+            for (var i = 0; i < getClass("cursor_").length; i++) { getClass("cursor_")[i].style.display = "none" }
+            $canvas.style.cursor = "auto";
+        }
+        var memctx, xhr = new XMLHttpRequest()
+        getId("canvas_width").addEventListener("change", e => { cHIE(false); cWIE(false); })
+        getId("canvas_height").addEventListener("change", e => { cHIE(false); cWIE(false); })
+        getId("image_width").addEventListener("change", e => { cHIE(true); cWIE(true) })
+        getId("image_height").addEventListener("change", e => { cHIE(true); cWIE(true) })
+        function cHIE(scaling) {
+            memctx = canvasToImage("#ffffff", $canvas)
+            if (scaling) { getId("canvas_height").value = getId("image_height").value } else { getId("image_height").value = getId("canvas_height").value }
+            if (!!getId("canvas_height").value) {
+                $canvas.setAttribute("height", getId("canvas_height").value);
+                $canvas.style.height = getId("canvas_height").value + "px";
+            }
+            $canvas.parentElement.style.height = getId("canvas_height").value + "px";
+        }
+        function cWIE(scaling) {
+            if (scaling) { getId("canvas_width").value = getId("image_width").value } else { getId("image_width").value = getId("canvas_width").value }
+            if (!!getId("canvas_width").value) {
+                $canvas.setAttribute("width", getId("canvas_width").value)
+                $canvas.style.width = getId("canvas_width").value + "px"
+            }
+            var img = new Image();
+            img.src = memctx;
+            img.onload = function() {
+                if (scaling) { $canvas.getContext("2d").drawImage(img, 0, 0, getId("image_width").value, getId("image_height").value) } else { $canvas.getContext("2d").drawImage(img, 0, 0) }
+            }
+            $canvas.parentElement.style.width = getId("canvas_width").value + "px";
+        }
+        getId("eraser_size").addEventListener("change", (e) => {
+            getId("child_cursor_image").setAttribute("width", getId("eraser_size").value);
+            getId("child_cursor_image").setAttribute("height", getId("eraser_size").value);
+        })
+        getId("brush_size").addEventListener("change", (e) => {
+            getId("child_pencil_cursor_image").setAttribute("width", getId("brush_size").value);
+            getId("child_pencil_cursor_image").setAttribute("height", getId("brush_size").value);
+        })
+        getId("brush_color").addEventListener("input", (e) => { getId("child_pencil_cursor_image_child").setAttribute("fill", getId("brush_color").value) })
+        function newImage() { $canvas.getContext("2d").clearRect(0, 0, $canvas.getBoundingClientRect().width, $canvas.getBoundingClientRect().height) }
+        function saveImage(saveAsBase64) {
+            var link = document.createElement("a"), link_;
+            for (var i = 0; i < document.getElementsByName("filetype").length; i++) { if (document.getElementsByName("filetype")[i].checked) { type = document.getElementsByName("filetype")[i].value; id_ = document.getElementsByName("filetype")[i].getAttribute("data-extension") } }
+            for (var i = 0; i < document.getElementsByName("filetype1").length; i++) { if (document.getElementsByName("filetype1")[i].checked) { type = document.getElementsByName("filetype1")[i].value; id_ = document.getElementsByName("filetype1")[i].getAttribute("data-extension") } }
+            if (!getId("backgroundTransparent").checked) { link_ = canvasToImage("#ffffff", $canvas) } else { link_ = $canvas.toDataURL(type) }
+            if (saveAsBase64) {
+                link.download = "canvasImage.txt";
+                var a = new Blob([link_], { type: "text/plain" }), b = URL.createObjectURL(a)
+                link.href = b;
+            } else {
+                link.download = `canvasImage.${id_ == undefined ? "png" : id_}`;
+                link.href = link_;
+            }
+            link.click();
+            link.delete;
+        }
+        function openImage(mode) {
+            if (mode == 3) {
+                getId("fetchFromURL__").style.display = "block";
+            } else {
+                openFile();
+                function clickElem(elem) {
+                    var eventMouse = document.createEvent("MouseEvents");
+                    eventMouse.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                    elem.dispatchEvent(eventMouse);
+                }
+                function openFile() {
+                    readFile = function(e) {
+                        var file = e.target.files[0];
+                        if (!file) { return }
+                        var reader = new FileReader();
+                        reader.onload = function(e) { var g = e.target.result; unredoPos = 0; if (mode == 2) { getId("video").style.display = "block"; getId("video_").setAttribute("src", e.target.result); document.body.classList.toggle("noscroll"); } else { unredo = [g]; reloadImage(g, $canvas) } }
+                        if (mode == 1) { reader.readAsText(file) } else if (mode == 0 || mode == 2) { reader.readAsDataURL(file) }
+                    }
+                    fileInput = document.createElement("input");
+                    fileInput.type = 'file';
+                    fileInput.accept = mode == 1 ? 'text/plain' : mode == 0 ? 'image/*' : "video/*";
+                    fileInput.style.display = 'none';
+                    fileInput.onchange = readFile;
+                    document.body.appendChild(fileInput);
+                    clickElem(fileInput);
+                }
+            }
+        }
+        function fetchImageFromURL() {
+            fetch(getId("imageURL").value)
+                .then(e => { e.blob().then(e_ => {
+                    var outside = URL.createObjectURL(e_)
+                    reloadImage(outside, $canvas)
+                    getId("fetchFromURL__").style.display = "none";
+                })})
+                .catch(e => console.log(e))
+        }
+        function openImageFromVideo() {
+            document.body.classList.toggle("noscroll");
+            $canvas.setAttribute("width", getId("video_").videoWidth);
+            $canvas.setAttribute("height", getId("video_").videoHeight);
+            $canvas.style.width = getId("video_").videoWidth + "px";
+            $canvas.style.height = getId("video_").videoHeight + "px";
+            $canvas.parentElement.style.width = getId("video_").videoWidth + "px";
+            $canvas.parentElement.style.height = getId("video_").videoHeight + "px";
+            getId("canvas_width").value = getId("image_width").value = getId("video_").videoWidth;
+            getId("canvas_height").value = getId("image_height").value = getId("video_").videoHeight;
+            ratio = getId("canvas_width").value / getId("canvas_height").value;
+            $canvas.getContext("2d").drawImage(getId("video_"), 0, 0);
+            getId("video").style.display = "none";
+            getId("video_").setAttribute("src", "")
+            unredo = [$canvas.toDataURL(type)]
+        }
+        function rgbToHex2(r, g, b) {
+            if (r > 255 || g > 255 || b > 255) throw "Invalid color";
+            return ((r << 16) | (g << 8) | b).toString(16)
+        }
+        var hexDigits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
+        function rgb2hex(rgb) {
+            rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+            return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+        }
+        function hex(x) { return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16] }
+        document.body.onload = e => {
+            getClass('tool__pencil')[0].style.backgroundColor = '#999999'; tool_ = 'pencil'; getId('pencil_cursor_image').style.display = 'block'; getId('pencil_cursor_image_2').style.display = 'block'; getId('canvas').style.cursor = 'none';
+            resizeHandler()
+            unredo.unshift($canvas.toDataURL(type))
+            getId("eraser_size").setAttribute("max", getId("canvas_width").value >= getId("canvas_height").value ? getId("canvas_width").value : getId("canvas_height").value)
+            var flag, dot_flag = false;
+            var ctx = $canvas.getContext('2d');
+            $canvas.onmouseout = function(e) { getId("cursor_image").style.display = "none" }
+            $canvas.onmousemove = $canvas.onmousedown = $canvas.onmouseup = draw;
+            function draw(e) {
+                if (tool_ == "eraser") { getId("cursor_image").style.display = "block" }
+                prevX = currX;
+                prevY = currY;
+                currX = e.clientX - $canvas.offsetLeft - Number(getCS($canvas).borderWidth.replace(/\D+$/g, "")) + window.pageXOffset || (document.documentElement || document.body.parentNode || document.body).scrollLeft;
+                currY = e.clientY - $canvas.offsetTop - Number(getCS($canvas).borderWidth.replace(/\D+$/g, "")) + window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
+                getId("cursor_image").style.top = e.clientY - Number(getCS(getId("cursor_image")).height.replace(/\D+$/g, "")) + "px";
+                getId("cursor_image").style.left = e.clientX - Number(getCS(getId("cursor_image")).width.replace(/\D+$/g, "")) + "px";
+                getId("pencil_cursor_image").style.left = e.clientX - Number(getCS(getId("pencil_cursor_image")).width.replace(/\D+$/g, "") / 2) + "px";
+                getId("pencil_cursor_image").style.top = e.clientY - Number(getCS(getId("pencil_cursor_image")).height.replace(/\D+$/g, "") / 2) + "px";
+                getId("pencil_cursor_image_2").style.left = e.clientX - Number(getCS(getId("pencil_cursor_image_2")).width.replace(/\D+$/g, "") / 2) + "px";
+                getId("pencil_cursor_image_2").style.top = e.clientY - Number(getCS(getId("pencil_cursor_image_2")).height.replace(/\D+$/g, "") / 2) + "px";
+                if (e.type == 'mousedown') {
+                    flag = true;
+                    if (tool_ == "colorpicker") {
+                        var colorData = ctx.getImageData(currX, currY, 1, 1).data
+                        if (colorData[3] == 0) { getId("brush_color").value = "#ffffff" } else { getId("brush_color").value = rgb2hex("rgb(" + colorData[0] + "," + colorData[1] + "," + colorData[2] + ")") }
+                    }
+                }
+                document.body.addEventListener("mouseup", () => { flag = false })
+                if (e.type == 'mouseup' || e.type == 'mouseout') {
+                    flag = false;
+                    if ($canvas.toDataURL(type) != unredo[0] && getId("enable_unredo").checked) {
+                        unredo.splice(unredoPos, 0, $canvas.toDataURL(type))
+                    }
+                }
+                if (e.type == 'mousemove' || e.type == 'mousedown') {
+                    if (flag) {
+                        if (tool_ == "pencil") {
+                            ctx.beginPath();
+                            ctx.globalCompositeOperation="source-over";
+                            ctx.moveTo(prevX, prevY);
+                            ctx.lineTo(currX, currY);
+                            ctx.strokeStyle = getId("brush_color").value;
+                            ctx.lineWidth = getId("brush_size").value;
+                            ctx.lineCap = 'round';
+                            ctx.stroke();
+                        } else if (tool_ == "eraser") {
+                            ctx.globalCompositeOperation = "destination-out";
+                            ctx.fillRect(currX - (getId("eraser_size").value * 1), currY - (getId("eraser_size").value * 1), getId("eraser_size").value, getId("eraser_size").value)
+                        }
+                    }
+                }
+            }
+            document.body.onmouseup = e => {
+                if (getId("enable_unredo").checked && e.target.id == "canvas") {
+                    if (getId("canvas").toDataURL() != unredo[unredoPos - 1]) {
+                        unredo.splice(0, unredoPos);
+                        unredoPos = 0;
+                    }
+                }
+            }
+        }
+        getId("enable_darkmode").onchange = () => {
+            var i = getId("enable_darkmode").checked;
+            console.log(i)
+            qSel("body").style.backgroundColor = i ? "rgb(86, 86, 86)" : "white";
+            qSel("body").style.color = i ? "#c3c3c3" : "black";
+            getId("access_bar").style.backgroundColor = i ? "rgb(61, 61, 61)" : "rgb(192, 192, 192)";
+            document.querySelectorAll(".dropdown_content").forEach((v) => { v.style.backgroundColor = i ? "rgb(61, 61, 61)" : "rgb(192, 192, 192)" })
+            document.querySelectorAll("label").forEach((v) => { v.style.color = i ? "#c3c3c3" : "black" })
+            document.querySelector(":root").style.setProperty("--hoverBgColor", i ? "#1a1a1a" : "#838383")
+            document.querySelector(":root").style.setProperty("--activeBgColor", i ? "#151515" : "#727272")
+            selectedBgColor = i ? "#151515" : "rgb(153, 153, 153)";
+            switch (tool_) {
+                case "pencil":
+                    getClass("tool__pencil")[0].style.backgroundColor = selectedBgColor;
+                    break;
+                case "eraser":
+                    getClass("tool__eraser")[0].style.backgroundColor = selectedBgColor;
+                    break;
+                case "colorpicker":
+                    getClass("tool__colorPicker")[0].style.backgroundColor = selectedBgColor;
+                    break;
+            }
+            document.querySelectorAll(".popup-box").forEach((v) => {
+                v.children[1].style.backgroundColor = i ? "rgb(86, 86, 86)" : "#c0c0c0";
+                v.children[1].style.color = i ? "#c3c3c3" : "black";
+            })
+            document.querySelectorAll("button").forEach((v) => {
+                v.style.backgroundColor = i ? "#6c6c6c" : "white";
+                v.style.color = i ? "#d2d2d2" : "black";
+            })
+            document.querySelectorAll("input[type=\"number\"], input[type=\"text\"]").forEach((v) => {
+                v.style.backgroundColor = i ? "#6c6c6c" : "white";
+                v.style.color = i ? "#d2d2d2" : "black";
+            })
+        }
+    </script>
+</html>

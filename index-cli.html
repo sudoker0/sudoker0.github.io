@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Welcome to the 90s</title>
+        <style>
+            :root {
+                font-family: 'Courier New', Courier, monospace;
+                background-color: black;
+                color: yellow;
+                font-size: 11px;
+                padding: 5px;
+            }
+            :root * {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Website's Portal (Command-Line Interface Edition) version 1.4</p>
+        <p>Now initializing...</p>
+        <p id="userAgent">UserAgent: </p>
+        <p id="time">Time</p>
+        <p id="time">Computer/Browser information:</p>
+        <div id="info"></div>
+        <p>Press 1 to boot to normal page (auto boot after <span id="seconds_">5</span> seconds), press 2 to boot to basic HTML page, press 3 to boot to the first ever version of the website</p>
+        <p>Press the Del key to exit to the GUI Portal, Enter to stop the timer </p>
+        <p>Option? [1, 2, 3, Delete, Enter]: <span id="display_key"></span></p>
+        <div id="theRest"></div>
+    </body>
+    <script>
+        Object.keys(window.location).forEach((v) => {
+            if (typeof window.location[v] === "string") {
+                document.getElementById("info").innerHTML += `<p> - ${v}: "${window.location[v]}"</p>`;
+            }
+        })
+        var secondLeft = 5, b, blockKey = false;
+        document.getElementById("userAgent").innerHTML = `UserAgent: "${window.clientInformation.userAgent}"`;
+        document.getElementById("time").innerHTML = `Time: "${Date()}"`;
+        function print(url) {
+            var current = 0, a;
+            var newLetter = () => {
+                document.getElementById("theRest").innerHTML += ".";
+                if (current < 50) {
+                    current++;
+                    a = setTimeout(newLetter, 30);
+                } else {
+                    clearInterval(a);
+                    window.location.href = url;
+                }
+            }
+            newLetter();
+        }
+        var d;
+        function timeLoop() {
+            document.getElementById("seconds_").innerHTML = secondLeft;
+            if (secondLeft <= 0) {
+                clearInterval(d);
+            } else {
+                secondLeft--;
+                d = setTimeout(timeLoop, 1000);
+            }
+        }
+        timeLoop();
+        var b = setTimeout(() => {
+            console.log("B")
+            document.getElementById("theRest").innerHTML = `No keystroke detected, now Booting with mode: 1 `
+            print("/home.html?id=696-969-420-911");
+        }, 5000)
+        console.log(b);
+        document.onkeydown = e => {
+            console.log(blockKey);
+            if (!blockKey) {
+                document.getElementById("display_key").innerHTML = e.key;
+                var final = () => {
+                    document.getElementById("theRest").innerHTML = `Now Booting with mode: ${e.key} `
+                }
+                console.log(e.key);
+                switch (e.key) {
+                    case "1":
+                        final();
+                        clearTimeout(b);
+                        clearTimeout(d);
+                        print("/home.html?id=696-969-420-911");
+                        blockKey = true;
+                        break;
+                    case "2":
+                        final();
+                        clearTimeout(b);
+                        clearTimeout(d);
+                        print("/lite/home.html?id=696-969-420-911");
+                        blockKey = true;
+                        break;
+                    case "3":
+                        final();
+                        clearTimeout(b);
+                        clearTimeout(d);
+                        print("/old_version.html");
+                        blockKey = true;
+                        break;
+                    case "Delete":
+                        document.getElementById("theRest").innerHTML = `Returning to the GUI Portal  `;
+                        clearTimeout(b);
+                        clearTimeout(d);
+                        print("/");
+                        blockKey = true;
+                        break;
+                    case "Enter":
+                        document.getElementById("theRest").innerHTML = `The timer has been stopped `;
+                        clearTimeout(b);
+                        break;
+                    default:
+                        print("/home.html?id=696-969-420-911");
+                        clearTimeout(b);
+                        clearTimeout(d);
+                        document.getElementById("theRest").innerHTML = `Invalid key, now booting with mode: 1 `;
+                        blockKey = true;
+                        break;
+                }
+            }
+        }
+    </script>
+</html>

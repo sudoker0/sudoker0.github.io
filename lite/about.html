@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/website/style/lite.css" />
+        <script src="/website/script/lite.js" defer></script>
+        <meta charset="UTF-8" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="keywords" content="QuanMCPC, Quan_MCPC" />
+        <meta name="description" content="My personal website where I practice programming for myself and also post my stuff online." />
+        <meta name="author" content="Quan_MCPC" />
+        <meta charset="UTF-8" />
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://quanmcpc.github.io/lite/credit.html" />
+        <meta property="og:site_name" content="Quan_MCPC's Website" />
+        <meta property="og:title" content="Quan_MCPC's Website | Basic HTML | Credit" />
+        <meta property="og:description" content="My personal website where I practice programming for myself and also post my stuff online." />
+        <meta property="og:image" content="https://quanmcpc.github.io/website/image/social_preview_.png" />
+        <meta property="og:image:alt" content="Social preview image" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="theme-color" content="#a00000" />
+        <link rel="icon" href="/website/image/favicon.ico">
+        <title>QuanMCPC's Website</title>
+        <style>
+            div.container * {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 50%;
+            }
+            @media (min-width: 320px) {
+                div.container * { max-width: 100% }
+            }
+            @media (min-width: 482px) {
+                div.container * { max-width: 95% }
+            }
+            @media (min-width: 640px) {
+                div.container * { max-width: 80% }
+                th, td { padding: 5px }
+            }
+            @media (min-width: 960px) {
+                div.container * { max-width: 65% }
+                th, td { padding: 15px }
+            }
+            @media (min-width: 1100px) {
+                div.container * { max-width: 50% }
+                th, td { padding: 15px }
+            }
+            #textview {
+                max-width: initial;
+            }
+            table {
+                color: black;
+            }
+            table, th, td {
+                border: 1px solid rgb(0, 0, 0);
+            }
+            table tr {
+                background-color: rgba(235, 235, 235, 0.85);
+            }
+            table th {
+                background-color: rgba(235, 235, 235, 0.85);
+            }
+            #iframe_ {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: calc(100% - 8px);
+                height: calc(100% - 8px);
+                z-index: 30;
+                border: 4px solid gray;
+                background-color: white;
+                display: none;
+            }
+            #iframe_accbar {
+                width: 100%;
+                height: 20px;
+                background-color: gray;
+            }
+            #abcd {
+                margin: 0;
+                height: 4px;
+                background-color: gray;
+                border: 1px solid gray;
+            }
+            #iframe_accbar button {
+                height: 20px;
+                min-width: 50px;
+                border: none;
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+            #iframe_accbar button:hover {
+                background-color: rgb(180, 180, 180);
+            }
+            iframe {
+                border: none;
+                overflow: scroll;
+                height: calc(100% - 26px);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="iframe_">
+            <div id="iframe_accbar">
+                <button onclick="getId('iframe__').setAttribute('src', 'about:blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Close</button><button onclick="window.open(getId('iframe__').getAttribute('src'), '_blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Open in a new tab</button>
+            </div>
+            <hr id="abcd">
+            <iframe id="iframe__" scrolling="yes" src="about:blank" width="100%" allowfullscreen sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-modals allow-popups"></iframe>
+        </div>
+        <div id="screentoosmall">
+            <h2 style="color:red; text-align: center;">Error!</h2>
+            <p style="text-align: center;">We have detected that the width of the screen that you are using right now is too small for the website to render properly</p>
+            <p style="text-align: center;">Try to rotate the device so that the screen orientation is horizontal. Or if that didn't work either, then that mean your screen is incompatiable to view the website</p>
+        </div>
+        <noscript id="noscript_overlay">
+            <hr>
+            <h2>A letter from the creator of the website.</h2>
+            <hr>
+            <h3>Hello, user.</h3>
+            <p>You probally know that anyone need privacy and security (Me included), and I understand that. And you probally also know that JavaScript is dangerous if for malicious use so you have decide to turn off JavaScript all together (Or maybe you install an extension that automatically block JavaScript). And it's perfectly fine if you disable JavaScript. But you should consider that a lot (and I mean: A Lot) of website today simply can't work without JavaScript. Now that doesn't mean that you should remove the JS blocker or not block JavaScript, what I trying to say is that if you already installed a JS blocker, then only whitelist website you trust, and if you don't use one, if there's a website you suspect might be a bit sus, then it's a good idea to block the JS from that website. Although again, if the layout or stuff that is not working in the website, then maybe re-enable the JS for the website temporatily (or maybe permanently if you trust it).</p>
+            <p>Ok, let's get into the real stuff now. The website require JavaScript to work, or else, it won't work because it use JS to do stuff like: Render toolbar, Make the gallery control work properly, ... So consider enable JavaScript for this program, then refresh the page, and I promise that there is no malicious code in this program. If you don't belive, you can check the source code on Github or the View Source page. The code is not obfuscated and no hidden function.</p>
+            <p>Sincerely, the creator of the website: QuanMCPC</p>
+            <p>P.S: I know that this is the same NoScript message from the SOOPE. But it's so good that I decide to use it anyway.</p>
+            <hr>
+        </noscript>
+        <div id="note" style="background-color: #ffcc4a; border: 1px solid #FAD163; margin-bottom: 2px;">
+            <b><p style="margin: 2px">You are currently viewing Quan_MCPC's Website in basic HTML. <a href="/about.html">Switch to standard view.</a></p></b>
+        </div>
+        <nav id="accb" class="accb">
+            <a href="/" title="Return to main page"  style="grid-area: left_-start; width: 61px">
+                <img src="/website/image/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);">
+            </a>
+            <h3 id="accbar"></h3>
+        </nav>
+        <div id="loadingIndicator">
+            <div>
+                <img src="/website/image/logo.svg" alt="Loading Icon" width="120" height="120"><br>
+                <h2 class="loading_text" style="font-size: initial;">Loading, please wait<span>.</span><span>.</span><span>.</span></h2>
+            </div>
+        </div>
+        <main>
+            <div class="container">
+                <h1 style="color:red; text-align: center; max-width: 100%;"><b>About Website</b></h1>
+                <h2>Here are some information about the website which I rarely update the stat and just here for "some purpose"</h2>
+                <center>
+                    <a href="#" onclick="getId('textview').style.display = 'block'; getId('tableview').style.display = 'none'; getId('switchtextview').style.display = 'none'; getId('switchtableview').style.display = 'block'" id="switchtextview">[Switch to text view]</a>
+                    <a href="#" onclick="getId('textview').style.display = 'none'; getId('tableview').style.display = 'table'; getId('switchtextview').style.display = 'block'; getId('switchtableview').style.display = 'none'" id="switchtableview" style="display: none;">[Switch to table view]</a>
+                </center>
+                <div id="textview" style="display: none;">
+                    <p style="color: black">File size: [Total size: <span id="total">00,000,000</span> bytes, Default: <span id="default">00,000,000</span> bytes, <a id="hidden" onclick="location.href='lite/home.html'">Basic</a>: <span id="basic">00,000</span> bytes, Other: <span id="other">00,000,000</span> bytes] (Last updated on: <span id="lastupdateon_"></span>)</b></p>
+                    <p style="color: black">Website's age: <span id="days_from">0</span> days since when the website was created.</p>
+                    <p style="color: black">Langugaes used: HTML (HyperText Markup Language), CSS (Cascading Style Sheets), JS (JavaScript) and Python</p>
+                    <p style="color: black">Number of commits: <span id="numberofcommit"></span> (Last updated on: <span id="lastupdateon"></span>)</p>
+                    <p style="color: black">External languages use (or contain in the website): JSON (JavaScript Object Notation), XML (eXtensible Markup Language), MD (MarkDown)</p>
+                    <p style="color: black">Website's Certificate valid before: <span id="validuntil"></span> days</p>
+                    <p style="color: black">This website used to have a dark and light mode and a simple design then the website get a re-designed from August 26th 2020</p>
+                </div>
+                <table class="tg" style="table-layout: fixed;" id="tableview" style="display: block;">
+                    <colgroup>
+                        <col style="width: 203px">
+                        <col style="width: 121px">
+                        <col style="width: 329px">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td class="tg-0pky" rowspan="4">File size (Last updated on: <span id="lastupdateon_1"></span>)</td>
+                            <td class="tg-0pky">Total size</td>
+                            <td class="tg-0lax"><span id="total1">00,000,000</span> bytes</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0pky">Default</td>
+                            <td class="tg-0lax"><span id="default1">00,000,000</span> bytes</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0pky"><a id="hidden" onclick="location.href='lite/home.html'">Basic</a></td>
+                            <td class="tg-0lax"><span id="basic1">00,000</span> bytes</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0pky">Other</td>
+                            <td class="tg-0lax"><span id="other1">00,000,000</span> bytes</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0pky">Website's age</td>
+                            <td class="tg-0pky" colspan="2"><span id="days_from1">0</span> days (Since when the website was created)</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax" rowspan="4">Language used<br>(or contain in the website)</td>
+                            <td class="tg-0lax" colspan="2">HTML (HyperText Markup Language)</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax" colspan="2">CSS (Cascading Style Sheets)</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax" colspan="2">JS (JavaScript)</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax" colspan="2">Python</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax" rowspan="2">Number of commit</td>
+                            <td class="tg-0lax" colspan="2"><span id="numberofcommit1"></span> (Last updated on: <span id="lastupdateon1"></span>)</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax" colspan="2"><a href="#" onclick="oOPIIF('/other_project/commit.html')" style="max-width: initial;">Click here for a detailed graph about the number of commit</a></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax">Website's Certificate valid before</td>
+                            <td class="tg-0lax" colspan="2"><span id="validuntil1"></span> days</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax">Other Information</td>
+                            <td class="tg-0lax" colspan="2">This website used to have a dark and light mode and a simple design then the website get a re-designed from August 26th 2020</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <footer style="margin-top: 15px; margin-bottom: 15px;">
+                    <p style="color:black; text-align: center; max-width: 100%;">Copyright (C) 2021 Quan_MCPC. Created on: 7/17/20, this website will live <b style="color:red">forever</b></p>
+                </footer>
+            </div>
+        </main>
+    </body>
+    <script>
+        function getId(i) { return document.getElementById(i) }
+        function qSelAll(q) { return document.querySelectorAll(q) }
+        function qSel(q) { return document.querySelector(q) }
+        function oOPIIF(url) {
+            getId("iframe__").setAttribute("src", url + `?nocache=${Math.round(Math.random() * 1000000)}`);
+            getId("iframe_").style.display = "block";
+            document.getElementsByTagName("body")[0].style.overflow = "hidden";
+        }
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+        function readTextFile(file, callback) {
+            var rawFile = new XMLHttpRequest();
+            rawFile.overrideMimeType("application/json");
+            rawFile.open("GET", file, true);
+            rawFile.onreadystatechange = function() {
+                if (rawFile.readyState === 4 && rawFile.status == "200") {
+                    callback(rawFile.responseText);
+                }
+            }
+            rawFile.send(null);
+        }
+        readTextFile("/website_data.json", function (text) {
+            var data = JSON.parse(text), total = data.filesize.total,
+                default_1 = data.filesize.default, basic = data.filesize.basic, other = data.filesize.other,
+                numberofcommit = data.numberofcommit,
+                lastupdateon = data.lastupdateon, lastupdateon1 = data.filesize.lastupdateon;
+            getId("total").innerHTML = getId("total1").innerHTML = total;
+            getId("default").innerHTML = getId("default1").innerHTML = default_1;
+            getId("basic").innerHTML = getId("basic1").innerHTML = basic;
+            getId("other").innerHTML = getId("other1").innerHTML = other;
+            var utcTime = 0, failed = 0;
+            function fetch_() {
+                var key = ""; ["0x67", "0x68", "0x70", "0x5f", "0x30", "0x4d", "0x55", "0x58", "0x77", "0x52", "0x6e", "0x4a", "0x78", "0x38", "0x35", "0x63", "0x74", "0x37", "0x34", "0x4d", "0x37", "0x69", "0x41", "0x4a", "0x59", "0x6f", "0x46", "0x67", "0x32", "0x38", "0x31", "0x33", "0x43", "0x33", "0x31", "0x37", "0x52", "0x70", "0x4a", "0x6f"]["forEach"]((a) => {key += String["fromCharCode"](Number(a))})
+                fetch(`https://api.github.com/repos/QuanMCPC/QuanMCPC.github.io/stats/contributors?nocache=${Math.round(Math.random() * 1000000)}`, { headers: { "accept": "application/vnd.github.v3+json", "Authorization": `token ${key}` } })
+                    .then(e => e.json())
+                    .then(e_ => {
+                        if (e_.message) {
+                            getId("numberofcommit").innerHTML = getId("numberofcommit1").innerHTML = "Failed to get data from GitHub API, this maybe due to number of request exceeded for your current IP. Please see the number of commit on: https://github.com/QuanMCPC/QuanMCPC.github.io"
+                        } else if (!(e_[0].weeks)) {
+                            getId("numberofcommit").innerHTML = getId("numberofcommit1").innerHTML = "Re-fetching, please wait..."
+                            setTimeout(fetch_, 2000);
+                        } else {
+                            utcTime = e_[0].weeks[e_[0].weeks.length - 1].w
+                            var d_ = new Date(utcTime * 1000)
+                            getId("lastupdateon").innerHTML = d_.toUTCString(); getId("lastupdateon1").innerHTML = d_.toUTCString()
+                            getId("numberofcommit").innerHTML = e_[0].total;
+                            getId("numberofcommit1").innerHTML = e_[0].total;
+                        }
+                    })
+            }
+            fetch_()
+            getId("lastupdateon_").innerHTML = lastupdateon1; getId("lastupdateon_1").innerHTML = lastupdateon1;
+        })
+        function date_check() {
+            var date1 = new Date("07/17/2020"), date2 = new Date(), date3 = new Date("4/14/2022"),
+                DInTime = date2.getTime() - date1.getTime(), DInTime1 = date3.getTime() - date2.getTime(),
+                DInDays = Math.round(DInTime / (1000 * 3600 * 24)), DInDays1 = Math.round(DInTime1 / (1000 * 3600 * 24));
+            getId("days_from").innerHTML = getId("days_from1").innerHTML = DInDays;
+            getId("validuntil").innerHTML = getId("validuntil1").innerHTML = DInDays1;
+        }
+        date_check()
+        getId('switchtableview').style.display = 'none'
+    </script>
+</html>

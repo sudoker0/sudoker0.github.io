@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/website/style/lite.css" />
+        <script src="/website/script/lite.js" defer></script>
+        <meta charset="UTF-8" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="keywords" content="QuanMCPC, Quan_MCPC" />
+        <meta name="description" content="My personal website where I practice programming for myself and also post my stuff online." />
+        <meta name="author" content="Quan_MCPC" />
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://quanmcpc.github.io/lite/credit.html" />
+        <meta property="og:site_name" content="Quan_MCPC's Website" />
+        <meta property="og:title" content="Quan_MCPC's Website | Basic HTML | Credit" />
+        <meta property="og:description" content="My personal website where I practice programming for myself and also post my stuff online." />
+        <meta property="og:image" content="https://quanmcpc.github.io/website/image/social_preview_.png" />
+        <meta property="og:image:alt" content="Social preview image" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="theme-color" content="#a00000" />
+        <link rel="icon" href="/website/image/favicon.ico" />
+        <title>QuanMCPC's Website</title>
+        <style>
+            @media (min-width: 375px) {
+                 #button_list {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(calc(33% - 17px), 1fr));
+                }
+            }
+            #left:hover, #right:hover {
+                cursor: pointer;
+                background-color:rgba(0, 0, 0, 0.4);
+                -webkit-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            #overlay_ h1 {
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                color: white;
+            }
+            @media (max-width: 374px) {
+                #button_list * {
+                    text-align: center !important;
+                }
+            }
+            #overlay_:hover {
+                cursor: zoom-in;
+            }
+            div#button_list *, div#button_list {
+                max-width: initial;
+                margin: initial;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="screentoosmall">
+            <h2 style="color:red; text-align: center;">Error!</h2>
+            <p style="text-align: center;">We have detected that the width of the screen that you are using right now is too small for the website to render properly</p>
+            <p style="text-align: center;">Try to rotate the device so that the screen orientation is horizontal. Or if that didn't work either, then that mean your screen is incompatiable to view the website</p>
+        </div>
+        <noscript id="noscript_overlay">
+            <hr>
+            <h2>A letter from the creator of the website.</h2>
+            <hr>
+            <h3>Hello, user.</h3>
+            <p>You probally know that anyone need privacy and security (Me included), and I understand that. And you probally also know that JavaScript is dangerous if for malicious use so you have decide to turn off JavaScript all together (Or maybe you install an extension that automatically block JavaScript). And it's perfectly fine if you disable JavaScript. But you should consider that a lot (and I mean: A Lot) of website today simply can't work without JavaScript. Now that doesn't mean that you should remove the JS blocker or not block JavaScript, what I trying to say is that if you already installed a JS blocker, then only whitelist website you trust, and if you don't use one, if there's a website you suspect might be a bit sus, then it's a good idea to block the JS from that website. Although again, if the layout or stuff that is not working in the website, then maybe re-enable the JS for the website temporatily (or maybe permanently if you trust it).</p>
+            <p>Ok, let's get into the real stuff now. The website require JavaScript to work, or else, it won't work because it use JS to do stuff like: Render toolbar, Make the gallery control work properly, ... So consider enable JavaScript for this program, then refresh the page, and I promise that there is no malicious code in this program. If you don't belive, you can check the source code on Github or the View Source page. The code is not obfuscated and no hidden function.</p>
+            <p>Sincerely, the creator of the website: QuanMCPC</p>
+            <p>P.S: I know that this is the same NoScript message from the SOOPE. But it's so good that I decide to use it anyway.</p>
+            <hr>
+        </noscript>
+        <div id="note" style="background-color: #ffcc4a; border: 1px solid #FAD163; margin-bottom: 2px;">
+            <b><p style="margin: 2px">You are currently viewing Quan_MCPC's Website in basic HTML. <a href="/gallery.html">Switch to standard view.</a></p></b>
+        </div>
+        <nav id="accb" class="accb">
+            <a href="/" title="Return to main page" style="grid-area: left_-start; width: 61px">
+                <img src="/website/image/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);">
+            </a>
+            <h3 id="accbar"></h3>
+        </nav>
+        <div id="loadingIndicator">
+            <div>
+                <img src="/website/image/logo.svg" alt="Loading Icon" width="120" height="120"><br>
+                <h2 class="loading_text" style="font-size: initial;">Loading, please wait<span>.</span><span>.</span><span>.</span></h2\>
+            </div>
+        </div>
+        <main>
+            <div class="container">
+                <h1 style="color: red; text-align: center">Gallery</h1>
+                <div id="picture" style="border: 2px solid rgb(0, 0, 0); position: relative;">
+                    <div id="loading_svg" style="max-width: 100%; position: relative;">
+                        <div id="overlay_" style="max-width: 100%; position: absolute; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); opacity: 1">
+                            <h1 id="loading_text">Loading...</h1>
+                            <a id="cancel_image" href="javascript:void(0)" onclick="cancelImageLoading()" style="position: absolute; bottom: 0; width: 100%; text-align: center; max-width: 100%; color: white;">Cancel image loading.</a>
+                        </div>
+                        <img id="image__" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTM2NiIgaGVpZ2h0PSI3MDUiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDM2MS40MiAxODYuNTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8cmVjdCB3aWR0aD0iMzYxLjQyIiBoZWlnaHQ9IjE4Ni41MyIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIuMjY2MTEiLz4KIDx0ZXh0IHRyYW5zZm9ybT0ic2NhbGUoMS4wNTcxIC45NDU5NSkiIHg9IjE2OS42OTQ2NyIgeT0iMTAyLjY0NDA3IiBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTEuNDcycHgiIHN0cm9rZS13aWR0aD0iLjEzMzMyIiB0ZXh0LWFsaWduPSJjZW50ZXIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJsaW5lLWhlaWdodDoxLjI1IiB4bWw6c3BhY2U9InByZXNlcnZlIj48dHNwYW4geD0iMTY5LjY5NDY3IiB5PSIxMDIuNjQ0MDciIHRleHQtYWxpZ249ImNlbnRlciI+Tm8gSW1hZ2U8L3RzcGFuPjx0c3BhbiB4PSIxNjkuNjk0NjciIHk9IjExNi45ODM4MyIgdGV4dC1hbGlnbj0iY2VudGVyIj4xMzY2IHggNzA1PC90c3Bhbj48L3RleHQ+Cjwvc3ZnPgo=" alt="Compact Calculator [1.15.2] [Full View]" style="max-width: 100%; margin-left: auto; margin-right: auto; display: block;">
+                    </div>
+                    <figcaption id="pic_caption" style="color: black; max-width: 100%; text-align: center;"></figcaption>
+                    <div id="button_list">
+                        <div id="left" style="border: 2px solid rgb(0, 0, 0); margin: 10px 5px 5px 5px;" tabindex="0" role="button">
+                            <h3 style="text-align: left; margin: 10px 0 10px 5px; max-width: 100%; color: black;">&laquo; Previous</h3>
+                        </div>
+                        <div id="middle" style="border: 2px solid rgb(0, 0, 0); margin: 10px 5px 5px 5px;">
+                            <h3 style="text-align: center; margin: 10px 0 10px 5px; max-width: 100%; color: black;" id="description_">Page 1 / 9</h3>
+                        </div>
+                        <div id="right" style="border: 2px solid rgb(0, 0, 0); margin: 10px 5px 5px 5px;" tabindex="0" role="button">
+                            <h3 style="text-align: right; margin: 10px 5px 10px 0; max-width: 100%; color: black;">Next &raquo;</h3>
+                        </div>
+                    </div>
+                    <p style="color: black; text-align: center; max-width: 100%; margin-top: 1px; margin-bottom: 1px">Ctrl + &#8656; to go to the previous picture, Ctrl + &#8658; to go to the next picture</p>
+                </div>
+                <!-- <center><a href="/website/image/old_version_image.zip" download="image_pack.zip" style="color: black; margin-top: 20px">[Download image pack as a ZIP]</a></center> -->
+                <br>
+                <div style="border: 2px solid black; display: grid; justify-content: center;">
+                    <p style="max-width: initial; margin-top: 3px; margin-bottom: 3px; color: orange"><u>Download Photo Here!</u></p>
+                    <a href="/website/image/High_Quality_Backgrounds.7z" download="high_res_bg_image_pack.zip" style="max-width: initial; margin: 5px 10px 5px 10px;">[High Resolution Background Pack (Include 2 version of the background image in 4k and 8k as TGA) (.7z file) ]</a>
+                    <a href="/website/image/old_version_image.zip" download="image_pack.zip" style="max-width: initial; margin: 5px 10px 5px 10px;">[Image Pack (Include 9 photos in the gallery + 2 version of the background image as PNG) (.zip file) ]</a>
+                </div>
+                <footer style="margin-top: 15px; margin-bottom: 15px;">
+                    <p style="color:rgb(0, 0, 0); max-width: 100%; text-align: center;">Copyright (C) 2021 Quan_MCPC. Created on: 7/17/20, this website will live <b style="color:rgb(200, 0, 0)">forever</b></p>
+                </footer>
+            </div>
+        </main>
+    </body>
+    <script>
+        function getId(i) { return document.getElementById(i) }
+        function qSelAll(q) { return document.querySelectorAll(q) }
+        function qSel(q) { return document.querySelector(q) }
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+        var imageArray = [
+            {
+                "location": "/website/image/gallery/1.webp",
+                "description": "Compact Calculator [1.15.2] [Outside View]"
+            },
+            {
+                "location": "/website/image/gallery/2.webp",
+                "description": "Security Vault 2.0 [Outside View]"
+            },
+            {
+                "location": "/website/image/gallery/3.webp",
+                "description": "Security Vault 2.0 [Inside View]"
+            },
+            {
+                "location": "/website/image/gallery/4.webp",
+                "description": "The Longest Useless Machine in Minecraft [version 1.2] [Inside View]"
+            },
+            {
+                "location": "/website/image/gallery/5.webp",
+                "description": "The Longest Useless Machine in Minecraft [version 1.2] [Outside View #1]"
+            },
+            {
+                "location": "/website/image/gallery/6.webp",
+                "description": "The Longest Useless Machine in Minecraft [version 1.2] [Outside View #2]"
+            },
+            {
+                "location": "/website/image/gallery/7.webp",
+                "description": "Printer 1.16"
+            },
+            {
+                "location": "/website/image/gallery/8.webp",
+                "description": "8-Bit Decoder in Minecraft"
+            },
+            {
+                "location": "/website/image/gallery/9.webp",
+                "description": "Compact Calculator [1.15.2] [Front View]"
+            }
+        ]
+        var imagePos = 0;
+        var doneLoading = true
+        var left_ = getId("left")
+        var right_ = getId("right")
+        left_.onclick = e => { left() }
+        right_.onclick = e => { right() }
+        left_.onkeydown = event => { if (event.code == "Space" || event.code == "Enter") { left() } }
+        right_.onkeydown = event => { if (event.code == "Space" || event.code == "Enter") { right() } }
+        document.onkeyup = e => { if (e.key == "ArrowLeft" && e.ctrlKey) { left() } else if (e.key = "ArrowRight" && e.ctrlKey) { right() } }
+        function left() { if (imagePos > 0) { --imagePos; reloadImage(); } }
+        function right() { if (imagePos < imageArray.length - 1) { ++imagePos; reloadImage(); } }
+        function reloadImage() {
+            if (imagePos <= 0) {
+                left_.style.pointerEvents = "none"
+                left_.firstElementChild.style.color = "#999999"
+            } else if (imagePos >= imageArray.length - 1){
+                right_.style.pointerEvents = "none"
+                right_.firstElementChild.style.color = "#999999"
+            } else if (imagePos > 0) {
+                left_.firstElementChild.style.color = "black"
+                right_.firstElementChild.style.color = "black"
+                left_.style.pointerEvents = ""
+                right_.style.pointerEvents = ""
+            } else if (imagePos < imageArray.length - 1) {
+                left_.firstElementChild.style.color = "black"
+                right_.firstElementChild.style.color = "black"
+                left_.style.pointerEvents = ""
+                right_.style.pointerEvents = ""
+            }
+            doneLoading = false;
+            getId("cancel_image").style.display = "block"
+            getId("overlay_").style.opacity = 1
+            getId("image__").setAttribute("src", imageArray[imagePos].location)
+            getId("description_").innerHTML = `Page ${imagePos + 1} / ${imageArray.length}`
+            getId("pic_caption").innerHTML = imageArray[imagePos].description
+            getId("image__").setAttribute("alt", imageArray[imagePos].description)
+        }
+        reloadImage()
+        getId("image__").onload = () => { getId("overlay_").style.opacity = 0; getId("cancel_image").style.display = "none"; doneLoading = true }
+        getId("overlay_").onclick = () => {if (doneLoading) { window.open(imageArray[imagePos].location, "_blank") }}
+        function cancelImageLoading() {
+            getId("image__").setAttribute("src", 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTM2NiIgaGVpZ2h0PSI3MDUiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDM2MS40MiAxODYuNTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8cmVjdCB3aWR0aD0iMzYxLjQyIiBoZWlnaHQ9IjE4Ni41MyIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIuMjY2MTEiLz4KIDx0ZXh0IHRyYW5zZm9ybT0ic2NhbGUoMS4wNTcxIC45NDU5NSkiIHg9IjE2OS42OTQ2NyIgeT0iMTAyLjY0NDA3IiBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTEuNDcycHgiIHN0cm9rZS13aWR0aD0iLjEzMzMyIiB0ZXh0LWFsaWduPSJjZW50ZXIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJsaW5lLWhlaWdodDoxLjI1IiB4bWw6c3BhY2U9InByZXNlcnZlIj48dHNwYW4geD0iMTY5LjY5NDY3IiB5PSIxMDIuNjQ0MDciIHRleHQtYWxpZ249ImNlbnRlciI+Tm8gSW1hZ2U8L3RzcGFuPjx0c3BhbiB4PSIxNjkuNjk0NjciIHk9IjExNi45ODM4MyIgdGV4dC1hbGlnbj0iY2VudGVyIj4xMzY2IHggNzA1PC90c3Bhbj48L3RleHQ+Cjwvc3ZnPgo=')
+            getId("overlay_").style.opacity = 0
+            getId("cancel_image").style.display = "block"
+        }
+    </script>
+    <script src="/website/script/main.js"></script>
+    <script src="/index.js?ver=1202"></script>
+</html>

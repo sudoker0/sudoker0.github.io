@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="/index.js?ver=1202"></script>
+        <title>Message Encryption and Decryption v2.0</title>
+        <style>
+            :root { font-family: 'Courier New', Courier, monospace; }
+            div.endecrypt {
+                display: grid;
+                grid-template-areas:
+                    'plain encrypt'
+                    'control control';
+                grid-template-columns: 1fr 1fr;
+            }
+            div.endecrypt_inout {
+                grid-area: plain;
+            }
+            div.endecrypt_outin {
+                grid-area: encrypt;
+            }
+            div.endecrypt_control {
+                display: grid;
+                place-items: center;
+            }
+        </style>
+    </head>
+    <body>
+        <!--Encryption Part-->
+        <fieldset>
+            <legend>Vigenere Encoder</legend>
+            <div class="endecrypt">
+                <div class="endecrypt_inout">
+                    <p>Plain Text</p>
+                    <textarea onkeyup="validate_textarea1()" name="textarea" id="plain_text" style="resize: vertical; width: 95%; min-height: 300px;"></textarea>
+                </div>
+                <div class="endecrypt_outin">
+                    <p>Output Text (Encrypted Text)</p>
+                    <textarea id="encrypt_text" readonly style="resize: vertical; width: 95%; min-height: 300px;"></textarea>
+                </div>
+            </div>
+            <div class="endecrypt_control">
+                <div>
+                    <label for="input">Key: </label><input name="input" onkeyup="validate_input1()" id="encrypt_keys">
+                    <button onclick="encrypt()">Encrypt Message</button>
+                    <input id="inputFileNameToSaveAs">
+                    <button onclick="saveOutputToFile()">Save Encrypted Text to File</button>
+                </div>
+            </div>
+        </fieldset>
+        <!--Decryption Part-->
+        <fieldset>
+            <legend>Vigenere Decoder</legend>
+            <div class="endecrypt">
+                <div class="endecrypt_inout">
+                    <p>Encrypted Text</p>
+                    <textarea name="textarea" onkeyup="validate_textarea()" id="encrypted_text" style="resize: vertical; width: 95%; min-height: 300px;"></textarea>
+                </div>
+                <div class="endecrypt_outin">
+                    <p>Output Text (Decrypted Text)</p>
+                    <textarea id="decrypt_text" readonly style="resize: vertical; width: 95%; min-height: 300px;"></textarea>
+                </div>
+            </div>
+            <div class="endecrypt_control">
+                <div>
+                    <label for="input">Key: </label><input name="input" onkeyup="validate_input()" id="decrypt_keys">
+                    <button onclick="decrypt()">Decrypt Message</button>
+                    <input type="file" id="fileToLoad">
+                    <button onclick="loadFile()">Load TXT</button>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Information</legend>
+            <p>Copyright (C) 2021 Quan_MCPC</p>
+            <p>214 lines of code, work for character that is not capital letter, and other special character</p>
+            <p>Here's the Regex that check for valid character for your nerds out there: /[^a-z\s.,\/!@#$%^&*()\-_+=\[\]{}|\\:;'"<>~`\d]+/g</p>
+        </fieldset>
+    </body>
+    <script>
+        function getId(id) { return document.getElementById(id) }
+        function saveOutputToFile() {
+            var tTS = getId("encrypt_text").value, tTSAB = new Blob([tTS], {type:"text/plain"}), tTSAU = window.URL.createObjectURL(tTSAB), fNTSA = getId("inputFileNameToSaveAs").value, dL = document.createElement("a");
+            dL.download = fNTSA;
+            dL.innerHTML = "Download File";
+            dL.href = tTSAU;
+            dL.onclick = destroyClickedElement;
+            dL.style.display = "none";
+            document.body.appendChild(dL);
+            dL.click();
+        }
+        function destroyClickedElement(event) { document.body.removeChild(event.target); }
+        function loadFile() {
+            var fileToLoad = getId("fileToLoad").files[0], fileReader = new FileReader();
+            fileReader.onload = function(fileLoadedEvent) {
+                var textFromFileLoaded = fileLoadedEvent.target.result;
+                getId("encrypted_text").value = textFromFileLoaded;
+            };
+            fileReader.readAsText(fileToLoad, "UTF-8");
+        }
+        function validate_textarea1() {
+            var textarea_element = getId("plain_text");
+            textarea_element.value = textarea_element.value.replace(/[^a-z\s.,\/!@#$%^&*()\-_+=\[\]{}|\\:;'"<>~`\d]+/g, '');
+        }
+        function validate_input1() {
+            var input_element = getId("encrypt_keys");
+            input_element.value = input_element.value.replace(/[^a-z]+/g, '');
+        }
+        function validate_textarea() {
+            var textarea_element1 = getId("encrypted_text");
+            textarea_element1.value = textarea_element1.value.replace(/[^a-z\s.,\/!@#$%^&*()\-_+=\[\]{}|\\:;'"<>~`\d]+/g, '');
+        }
+        function validate_input() {
+            var input_element1 = getId("decrypt_keys");
+            input_element1.value = input_element1.value.replace(/[^a-z]+/g, '');
+        }
+        const alphabetArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+        function encrypt() {
+            var input_ = getId("plain_text"), key_ = getId("encrypt_keys"), input = input_.value.toLowerCase(), key = key_.value.toLowerCase();
+            input_.value = input;
+            key_.value = key;
+            if (!(/[^a-z\s.,\/!@#$%^&*()\-_+=\[\]{}|\\:;'"<>~`\d]+/g.test(input)) && !(/[^a-z\s.,\/!@#$%^&*()\-_+=\[\]{}|\\:;'"<>~`\d]+/g.test(key))) {
+                getId("encrypt_text").innerHTML = ""; //Reset the output
+                var whiteSpacePos = {}; //The position of the whitespace (Will be useful later)
+                var array_input = [...input]; //Split the input to an array with each item is a character
+                for (var i1 = 0; i1 < input.length; i1++) {
+                    if (/[\s.,\/!@#$%^&*()\-_+=\[\]{}|\\:;'"<>~`\d]/g.test(array_input[i1])) {
+                        whiteSpacePos[i1] = array_input[i1]; //Set the positon and the character of whitespace
+                    }
+                }
+                array_input = array_input.filter((v) => { return !(/[\s.,\/!@#$%^&*()\-_+=\[\]{}|\\:;'"<>~`\d]/g.test(v)) }); //Filter out the whitespace in the array
+                console.log(array_input)
+                for (var i1 = 0; i1 < array_input.length; i1++) {
+                    array_input[i1] = alphabetArray.indexOf(array_input[i1]) + 1 //Convert text array to number array: a = 1, b = 2, c = 3, ...
+                }
+                var key_length = key.length; //Get the length of the key
+                var input_length = input.length; //Get the length of the text
+                if (key_length > input_length) {
+                    alert("Error 001: Key is longer then input!"); //Return error if the key is longer then input
+                    return false;
+                } else {
+                    const array_key = [...key]; //Split the key to an array with each item is a character
+                    for (var i2 = 0; i2 < key.length; i2++) {
+                        array_key[i2] = alphabetArray.indexOf(array_key[i2]) + 1; //Convert text array to number array: a = 1, b = 2, c = 3, ...
+                    }
+                    var repeat = Math.ceil(input.length / key.length); //Get the number that the key need to loop
+                    const a = Array.from({ length: repeat }).fill(array_key).flat() //Create an array key that "match" the array input
+                    var finalString = "";
+                    for (var i3 = 0; i3 < array_input.length; i3++) { //Finally, the conversion part
+                        //https://upload.wikimedia.org/wikipedia/commons/9/9a/Vigen%C3%A8re_square_shading.svg
+                        if (array_input[i3] + a[i3] - 1 < 27) {
+                            finalString += alphabetArray[array_input[i3] + a[i3] - 2];
+                        } else {
+                            finalString += alphabetArray[array_input[i3] + a[i3] - 28];
+                        }
+                    }
+                    for (var i = 0; i < Object.keys(whiteSpacePos).length; i++) {
+                        finalString = finalString.substring(0, Number(Object.keys(whiteSpacePos)[i])) + whiteSpacePos[Object.keys(whiteSpacePos)[i]] + finalString.substring(Number(Object.keys(whiteSpacePos)[i]))
+                    }
+                    getId("encrypt_text").innerHTML = finalString;
+                }
+            } else {
+                alert("Error 002: There are invalid character in the input box or the key box in the Vigenere Encoder. Please try again.");
+                return false;
+            }
+        }
+        function decrypt() {
+            var input2_ = getId("encrypted_text"), key2_ = getId("decrypt_keys"), input2 = input2_.value.toLowerCase(), key2 = key2_.value.toLowerCase();
+            input2_.value = input2;
+            key2_.value = key2;
+            if (!(/[^a-z\s.,\/!@#$%^&*()\-_+=\[\]{}|\\:;'"<>~`\d]/g.test(input2)) && !(/[^a-z\s.,\/!@#$%^&*()\-_+=\[\]{}|\\:;'"<>~`\d]/g.test(key2))) {
+                getId("decrypt_text").innerHTML = "";
+                var array_input2 = [...input2];
+                var whiteSpacePos1 = {}; //The position of the whitespace (Will be useful later)
+                for (var i1 = 0; i1 < input2.length; i1++) {
+                    if (/[\s.,\/!@#$%^&*()\-_+=\[\]{}|\\:;'"<>~`\d]/g.test(array_input2[i1])) {
+                        whiteSpacePos1[i1] = array_input2[i1]; //Set the positon and the character of whitespace
+                    }
+                }
+                array_input2 = array_input2.filter((v) => { return !(/[\s.,\/!@#$%^&*()\-_+=\[\]{}|\\:;'"<>~`\d]/g.test(v)) }); //Filter out the whitespace in the array
+                for (var i1_1 = 0; i1_1 < array_input2.length; i1_1++) {
+                    array_input2[i1_1] = alphabetArray.indexOf(array_input2[i1_1]) + 1;
+                }
+                var key2_length = key2.length;
+                var input2_length = input2.length;
+                if (key2_length > input2_length) {
+                    alert("Error 001: Key is longer then input!");
+                    return false;
+                } else {
+                    const array_key2 = [...key2];
+                    for (var i2_1 = 0; i2_1 < key2.length; i2_1++) {
+                        array_key2[i2_1] = alphabetArray.indexOf(array_key2[i2_1]) + 1;
+                    }
+                    var repeat2 = Math.ceil(input2.length / key2.length);
+                    const b = Array.from({ length: repeat2 }).fill(array_key2).flat();
+                    var finalString1 = "";
+                    for (i3_2 = 0; i3_2 < array_input2.length; i3_2++) {
+                        if (array_input2[i3_2] - b[i3_2] + 1 > 0) {
+                            finalString1 += alphabetArray[array_input2[i3_2] - b[i3_2]];
+                        } else {
+                            finalString1 += alphabetArray[array_input2[i3_2] - b[i3_2] + 26];
+                        }
+                    }
+                    for (var i = 0; i < Object.keys(whiteSpacePos1).length; i++) {
+                        finalString1 = finalString1.substring(0, Number(Object.keys(whiteSpacePos1)[i])) + whiteSpacePos1[Object.keys(whiteSpacePos1)[i]] + finalString1.substring(Number(Object.keys(whiteSpacePos1)[i]))
+                    }
+                    getId("decrypt_text").innerHTML = finalString1;
+                }
+            } else {
+                alert("Error 003: There are invalid character in the input box or the key box in the Vigenere Decoder. Please try again.")
+                return false;
+            }
+        }
+    </script>
+</html>

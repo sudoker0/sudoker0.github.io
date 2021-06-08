@@ -1,0 +1,6 @@
+file_size.json will contain: total, default, basic and other
+
+total: The total size of all file
+default: Include: Credit, Home, How, Other_Project, About and the website folder
+basic: Include: lite folder
+other: Include: Other files/folder that are not in the default and basic group

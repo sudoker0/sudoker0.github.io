@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="/index.js?ver=1202"></script>
+        <title>Guess the Number Game</title>
+        <script>
+           var counter = 0, start = 0, n1 = 0;
+        </script>
+    </head>
+    <body>
+        <style>input:focus { outline:none; } textarea:focus { outline:none; }</style>
+        <center>
+            <h1>Guess The Number Game</h1>
+            <textarea id="result" rows="25" cols="75" readonly style="resize: none; overflow-y: hidden;" placeholder="Console_Output"></textarea><br>
+            <label for="input">Input: </label>
+            <input type="text" id="input" name="input"></input>
+            <button onclick="submit()">Insert</button>
+            <button onclick="now()">Start</button>
+            <button onclick="no()">End</button>
+            <label>Timer: </label><label id="minutes">00</label>:<label id="seconds">00</label>
+        </center>
+        <p>Copyright (C) 2021 Quan_MCPC. This game and the source code are free to download, copy, modify and publish. Just remember to include my copyright.</p>
+        <h4>Source Code: <a rel="noreferrer" href="https://github.com/QuanMCPC/QuanMCPC.github.io/edit/master/other_project/numberguessgame.html">https://github.com/QuanMCPC/QuanMCPC.github.io/edit/master/other_project/numberguessgame.html</a></h4>
+        <script>
+           var textarea = document.getElementById('result');
+           setInterval(function(){ textarea.scrollTop = textarea.scrollHeight; }, 50);
+           document.getElementById("result").value += 'Initializing...\nWelcome to my Guess The Number Game!\nTo beat the game, you must guess the correct number from 10000 to 99999\nTo start the game, press Start\n(Press Enter to insert value, Press Esc to clear the input box)\n(Press F4 to start the game, F7 to end the game)\n';
+            var minutesLabel = document.getElementById("minutes"), secondsLabel = document.getElementById("seconds"), totalSeconds = 0, timerVar = setInterval(setTime, 1000);
+            function setTime() {
+                if (start == 1) {
+                    ++totalSeconds;
+                    secondsLabel.innerHTML = pad(totalSeconds % 60);
+                    minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+                }
+            }
+            function pad(val) {
+                if (start == 1) {
+                    var valString = val + "";
+                    if (valString.length < 2) { return "0" + valString; } else { return valString; }
+                }
+            }
+            function now() {
+                if (n1 == 0) {
+                    totalSeconds = 0;
+                    document.getElementById("input").value = '';
+                    counter = 0;
+                    document.getElementById("result").value += 'The game has started! A new number has been generated!\n';
+                    rnumber = Math.floor(10000 + Math.random() * 90000);
+                    start = n1 = 1;
+                }
+            }
+            function no() {
+                document.getElementById("input").value = '';
+                document.getElementById("result").value += 'The game has been ended by a user!\n';
+                start = totalSeconds = n1 = 0;
+            }
+            function submit() {
+                counter = counter + 1;
+                if (start == 1) {
+                    var input_user = document.getElementById("input").value;
+                    if (input_user < rnumber) {
+                        document.getElementById("result").value += 'Your number was: ' + input_user + '\n';
+                        document.getElementById("result").value += 'The number that you enter is lower then the number the game generated.\n';
+                        document.getElementById("input").value = '';
+                    }
+                    if (input_user > rnumber) {
+                        document.getElementById("result").value += 'Your number was: ' + input_user + '\n';
+                        document.getElementById("result").value += 'The number that you enter is higher then the number the game generated.\n';
+                        document.getElementById("input").value = '';
+                    }
+                    if (input_user == rnumber) {
+                        document.getElementById("input").value = '';
+                        var m = document.getElementById("minutes").innerHTML ,s = document.getElementById("seconds").innerHTML;
+                        document.getElementById("result").value += 'Your number was: ' + input_user + '\n';
+                        document.getElementById("result").value += 'You guessed the number!!!\n';
+                        document.getElementById("result").value += 'The number was: ' + rnumber + ' and the number that you enter is: ' + input_user + '\n';
+                        document.getElementById("result").value += 'It takes you: ' + m + ' minutes and ' + s + ' seconds and ' + counter + ' tries to beat the game' + '\n';
+                        document.getElementById("result").value += 'The game has ended!\n';
+                        document.getElementById("result").value += '===================END===================\n';
+                        start = 0;
+                        n1 = 0;
+                    }
+                } else { document.getElementById("result").value += 'Please press Start to start the game.\n'; }
+            }
+            document.onkeyup = function(event) {
+                if (event.key == "Enter" || event.keyCode == 13) {
+                    submit();
+                    document.getElementById("input").value = "";
+                } else if (event.key == "Escape" || event.keyCode == 27) {
+                    document.getElementById("input").value = ""
+                } else if (event.key == "F4" || event.keyCode == 115) {
+                    now();
+                } else if (event.key == "F7" || event.keyCode == 118) {
+                    no();
+                }
+            }
+        </script>
+    </body>
+</html>
+<!-- 100th line! -->
