@@ -173,7 +173,7 @@ window.onscroll = function() {
     }
     prevScrollpos = currentScrollPos;
 }
-function changeBg(isLight) { if (isLight) { qSel("body").style.backgroundImage = "url(\"/website/image/background/background_light.png\")"; } else { qSel("body").style.backgroundImage = "url(\"/website/image/background/background_dark.png\")"; } }
+function changeBg(isLight) { if (isLight) { qSel("body").style.backgroundImage = "url(\"/website/image/background/background_light.webp\")"; } else { qSel("body").style.backgroundImage = "url(\"/website/image/background/background_dark.webp\")"; } }
 function ls_gt(i) { return localStorage.getItem(i) }
 function ls_st(i, v) { localStorage.setItem(i, v) }
 var constant = 0;
