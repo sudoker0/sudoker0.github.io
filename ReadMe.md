@@ -9,7 +9,9 @@
 </p>
 
 ## Welcome to my first ever repository and also my first ever website (And also my favourite repository) in GitHub.
+
 ### Important Note: The domain `https://quanmcpc.site` is privately funded and not by me funded.
+
 ### 📋 Index
 1. [📕 Introduction](#-introduction)
 2. [💡 About](#-about)
