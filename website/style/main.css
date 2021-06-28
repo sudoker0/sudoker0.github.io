@@ -80,7 +80,7 @@ div.container {
   padding: 0 20px 0 20px;
 }
 body {
-  background-image: url("/website/image/background/background_light.webp");
+  background-image: url("/website/image/background/background_light.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;

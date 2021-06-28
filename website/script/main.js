@@ -76,6 +76,18 @@ function gPBName(name, url) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
+/**
+ * Check if the current browser support WebP
+ * @returns {Boolean}
+ */
+function webpSupport() {
+    var elem = document.createElement('canvas');
+    if (!!(elem.getContext && elem.getContext('2d'))) {
+        return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
+    } else {
+        return false;
+    }
+}
 function rString(l) {
     var r = [], c = 'XLft#w!g03OK^h$5osJkvxI9VN(zecY1HTy8}rniRCj@S7m,UbPd%{a2lFEWqM)Q*&G4A6BDuZ.p', cL = c.length;
     for ( var i = 0; i < l; i++ ) { r.push(c.charAt(Math.floor(Math.random() * cL))) }
@@ -173,7 +185,7 @@ window.onscroll = function() {
     }
     prevScrollpos = currentScrollPos;
 }
-function changeBg(isLight) { if (isLight) { qSel("body").style.backgroundImage = "url(\"/website/image/background/background_light.webp\")"; } else { qSel("body").style.backgroundImage = "url(\"/website/image/background/background_dark.webp\")"; } }
+function changeBg(isLight) { if (isLight) { qSel("body").style.backgroundImage = "url(\"/website/image/background/background_light.png\")"; } else { qSel("body").style.backgroundImage = "url(\"/website/image/background/background_dark.png\")"; } }
 function ls_gt(i) { return localStorage.getItem(i) }
 function ls_st(i, v) { localStorage.setItem(i, v) }
 var constant = 0;
