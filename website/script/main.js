@@ -171,6 +171,7 @@ var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
     getId("accb_small").style.display = "none"
     accb_small_isOn = false;
+    /*
     var currentScrollPos = window.pageYOffset;
     if (prevScrollpos > currentScrollPos) {
         // getId("accb").style.top = "0";
@@ -184,6 +185,7 @@ window.onscroll = function() {
         getId("accb_small_").style.transform = "translateY(-100%)";
     }
     prevScrollpos = currentScrollPos;
+    */
 }
 function changeBg(isLight) { if (isLight) { qSel("body").style.backgroundImage = "url(\"/website/image/background/background_light.png\")"; } else { qSel("body").style.backgroundImage = "url(\"/website/image/background/background_dark.png\")"; } }
 function ls_gt(i) { return localStorage.getItem(i) }
