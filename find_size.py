@@ -1,43 +1,54 @@
-# A Python script to automate the changing file info.
+# A Python script to automate the changing of file info.
+# I Don't really Care about shrinking the file size down.
+# Copyright (C) 2021 Quan_MCPC, license under MIT license.
+
 import os, re, json
 from datetime import date
-default_size = lite_size = total_size = 0
-start_path = "."
-default = {
-    "file": [
-        "about.html",
-        "credit.html",
-        "home.html",
-        "gallery.html"
-    ],
-    "folder": [
-        "./other_project"
-    ]
-}
-lite = "./lite"
-for path, dirs, files in os.walk(start_path):
-    for f in files:
-        fp = os.path.join(path, f)
-        total_size += os.path.getsize(fp)
-for i in default["file"]:
-    default_size += os.path.getsize(i)
-for i in default["folder"]:
-    for path, dirs, files in os.walk(i):
+# Get the total size of folder in [path]
+def sizeOfFolder(path = "."):
+    print("Calculating the total size of folder: " + os.path.abspath(path))
+    fp = ""; lite_size = 0
+    for path, dirs, files in os.walk(path):
         for f in files:
             fp = os.path.join(path, f)
-            default_size += os.path.getsize(fp)
-for path, dirs, files in os.walk(lite):
-    for f in files:
-        fp = os.path.join(path, f)
-        lite_size += os.path.getsize(fp)
+            lite_size += os.path.getsize(fp)
+    print("Total size: " + str(lite_size))
+    return lite_size
+
+# Get the total size for each file listed in the [pathgroup] array
+def totalSizeOfEachFile(pathgroup = []):
+    sizegroup = 0
+    for path in pathgroup:
+        print("Get size of path: " + path)
+        sizegroup += os.path.getsize(path)
+    print("Total size: " + str(sizegroup))
+    return sizegroup
+
+# Format the input number as size string (123456789 => 123,456,789)
+def formatFileSize(sizestring = 0): return re.sub(r"(?!^)(?=(?:\d{3})+(?:\.|$))", ",", str(sizestring))
+
+# Variable Here
+total_size = sizeOfFolder()
+standard_src_code_size = totalSizeOfEachFile(["./about.html", "./credit.html", "./download.html", "./gallery.html", "./home.html"])
+basic_src_code_size = sizeOfFolder("./basic")
+assets_size = sizeOfFolder("./website")
+archive_size = sizeOfFolder("./archive")
+other_project_size = sizeOfFolder("./other_project")
+
+# JSON data here
 data = {
     "filesize": {
-        "lastupdateon": date.today().strftime("%m/%d/%Y"),
-        "total": re.sub(r"(?!^)(?=(?:\d{3})+(?:\.|$))", ",", str(total_size)),
-        "default": re.sub(r"(?!^)(?=(?:\d{3})+(?:\.|$))", ",", str(default_size)),
-        "basic": re.sub(r"(?!^)(?=(?:\d{3})+(?:\.|$))", ",", str(lite_size)),
-        "other": re.sub(r"(?!^)(?=(?:\d{3})+(?:\.|$))", ",", str(total_size - default_size - lite_size))
+        "lastupdateon": date.today().strftime("%Y-%m-%d"),
+        "total": formatFileSize(total_size),
+        "standard_src_code": formatFileSize(standard_src_code_size),
+        "basic_src_code": formatFileSize(basic_src_code_size),
+        "assets": formatFileSize(assets_size),
+        "archive": formatFileSize(archive_size),
+        "other_project": formatFileSize(other_project_size),
+        "other": formatFileSize(standard_src_code_size + basic_src_code_size + assets_size + archive_size + other_project_size)
     }
 }
+
+# Dump the JSON data to a file (with indent ofcourse)
 with open("website_data.json", "w") as outfile:
     json.dump(data, outfile, indent=4)
