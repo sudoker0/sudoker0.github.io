@@ -8,32 +8,84 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <title>Website's Repository commit stat</title>
         <style>
+            body { background-color: rgb(230, 230, 230); }
             div#parent {
                 max-width: 70%;
                 max-height: auto;
                 margin-left: auto;
                 margin-right: auto;
+                padding-bottom: 1.5em;
+            }
+            div#rateLimit {
+                width: 100%;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                background-color: rgb(75, 75, 75);
+                color: white;
+            }
+            div#rateLimit_indicator {
+                background-color: orange;
+                width: 100%;
+                height: 1.5em;
+                position: static;
+                transition: width 1s;
+            }
+            div#rateLimit_content {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                padding-left: 10px;
+                text-overflow: ellipsis;
+                width: 100%;
+                overflow: hidden;
+                white-space: nowrap;
             }
         </style>
     </head>
     <body>
         <h1 style="text-align: center;">Website's Repository commit per weeks</h1>
         <p style="text-align: center;">External library: Chart.js; Data gathered from GitHub API</p>
+        <p style="text-align: center;" id="info"></p>
         <div id="parent">
-            <p style="text-align: center; display: none;" id="bc">Failed to get data from GitHub API, this maybe due to number of request exceeded for your current IP. Please see the number of commit on: https://github.com/QuanMCPC/QuanMCPC.github.io</p>
+            <div style="display: flex; justify-content: center;">
+                <button onclick="fetch_(); console.log(this.parentElement.style.display = 'none')" style="background-color: green; border: none; color: white;"><h3>Click here to get data</h3></button>
+            </div>
             <canvas id="myChart"></canvas>
+        </div>
+        <div id="rateLimit">
+            <div id="rateLimit_content">Waiting for input...</div>
+            <div id="rateLimit_indicator"></div>
         </div>
     </body>
     <script>
         var key = ""; ["0x67", "0x68", "0x70", "0x5f", "0x30", "0x4d", "0x55", "0x58", "0x77", "0x52", "0x6e", "0x4a", "0x78", "0x38", "0x35", "0x63", "0x74", "0x37", "0x34", "0x4d", "0x37", "0x69", "0x41", "0x4a", "0x59", "0x6f", "0x46", "0x67", "0x32", "0x38", "0x31", "0x33", "0x43", "0x33", "0x31", "0x37", "0x52", "0x70", "0x4a", "0x6f"]["forEach"]((a) => {key += String["fromCharCode"](Number(a))})
+        function getId(id) { return document.getElementById(id) };
         function fetch_() {
+            getId("rateLimit_content").innerHTML = "Getting data from GitHub...";
             fetch("https://api.github.com/repos/QuanMCPC/QuanMCPC.github.io/stats/contributors", { headers: {"Authorization": `token ${key}`} })
                 .then(e => e.json())
                 .then(f => {
+                    fetch("https://api.github.com/rate_limit", { headers: {"Authorization": `token ${key}`} })
+                        .then(e => e.json())
+                        .then(f => {
+                            var date = new Date(0);
+                            date.setUTCSeconds(f.resources.core.reset)
+                            getId("rateLimit_content").innerHTML = `Rate Limit: ${f.resources.core.used} / ${f.resources.core.limit}; Reset on: ${date}.`
+                            getId("rateLimit_indicator").style.width = `${(f.resources.core.used / f.resources.core.limit) * 100}%`
+                            if ((f.resources.core.used / f.resources.core.limit) * 100 > 90) {
+                                getId("rateLimit_indicator").style.backgroundColor = "red"
+                            } else if ((f.resources.core.used / f.resources.core.limit) * 100 > 50) {
+                                getId("rateLimit_indicator").style.backgroundColor = "orange"
+                            } else {
+                                getId("rateLimit_indicator").style.backgroundColor = "green"
+                            }
+                        })
                     if (f.message) {
-                        document.getElementById("bc").style.display = "block";
+                        //getId("rateLimit_content").innerHTML = `Failed to get data from GitHub API, this maybe due to number of request exceeded for your current IP. Please see the number of commit on: https://github.com/QuanMCPC/QuanMCPC.github.io`;
+                        getId("rateLimit_indicator").style.backgroundColor = "red"
                     } else if (!(f[0].weeks)) {
-                        console.log("Fail")
+                        getId("rateLimit_content").innerHTML = `Re-Fetching...`;
                         setTimeout(fetch_, 2500);
                     } else {
                         var commit = [], label = [], count = 1;
@@ -57,7 +109,7 @@
                             options: {}
                         };
                         var myChart = new Chart(
-                            document.getElementById('myChart'),
+                            getId('myChart'),
                             config
                         );
                     }
