@@ -29,9 +29,4 @@
         <path id="7_" transform="scale(.26459)" d="m0 432v60 20h80v-20h-60v-60h-20z"/>
         <rect id="8_" y="51.86" width="5.2918" height="31.751" stroke-width=".37419"/>
     </g>
-    <script>
-        <![CDATA[
-            alert("Hello")
-        ]]>
-    </script>
 </svg>
