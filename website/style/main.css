@@ -28,6 +28,7 @@ nav.accb {
   grid-template-columns: 1fr 5fr;
   transition: transform 0.3s;
   transform: translateY(0%);
+  z-index: 10;
 }
 #accbar {
   grid-area: right_-start;
@@ -187,10 +188,14 @@ div#sp_actual {
   border: 2px solid white;
   margin-bottom: 5px;
 }
-div#settingspage ul {list-style: none;}
-div#settingspage li::before {content: "• ";color: white;}
-div#settingspage li li::before {content: "▪ ";color: white;}
-div#settingspage li li li::before {content: "▫ ";color: white;}
+ul {list-style: none;}
+li::before {content: "• "; }
+li li::before {content: "▪ "; }
+li li li::before {content: "▫ "; }
+li {
+  max-width: 100% !important;
+  color: white;
+}
 @media (max-width: 319px) { #screentoosmall { display: block; } }
 @media (min-width: 320px) {
   body { font-size: 0.75rem; }
@@ -200,6 +205,7 @@ div#settingspage li li li::before {content: "▫ ";color: white;}
   #screentoosmall { display: none; }
   div#sp_actual * { margin-top: 3px; margin-bottom: 3px; }
   div#settingspage span { margin-top: initial; margin-bottom: initial; }
+  ul { margin-left: 5px }
 }
 @media (min-width: 482px) {
   body { font-size: 0.75rem; }
@@ -208,6 +214,7 @@ div#settingspage li li li::before {content: "▫ ";color: white;}
   div.container *, div#settingspage * { max-width: 95% }
   div#sp_actual * { margin-top: 5px; margin-bottom: 5px; }
   div#settingspage span { margin-top: initial; margin-bottom: initial; }
+  ul { margin-left: 10px }
 }
 @media (max-width: 639px) {
   #accb_small_ { display: grid; }
@@ -299,3 +306,7 @@ div.collapsiblecontent * {
 }
 div.collapsiblecontent del, div.collapsiblecontent a { margin: 0 }
 div.collapsiblecontent span { display: block }
+#loading_redstone_dust {
+  width: 120px;
+  height: 120px;
+}
