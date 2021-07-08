@@ -6,19 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Archive Download</title>
         <style>
-            * {
-                font-family: 'Courier New', Courier, monospace;
-            }
-            tr#title {
-                text-align: left;
-            }
+            * { font-family: 'Courier New', Courier, monospace; }
+            tr#title { text-align: left; }
         </style>
     </head>
     <body>
         <h2>Archive Download</h2>
         <h3>Download file that I might never fucking use.</h3>
         <span id="luo"></span>
-        <p>If you feel like this is too ugly, you can just <a href="/download.html?id=696-420-911-666">Click here</a> and it will redirect you back to the download page.</p>
+        <p>The file listing is created from a Python file, which is <a href="/get_file_info_for_archive.py" download="get_file_info_for_archive.py">this file</a>.</p>
         <hr>
         <table id="display" style="border-spacing: 10px;">
             <thead>
@@ -26,10 +22,13 @@
                     <th>File Name</th>
                     <th>Size</th>
                     <th>Last Modified</th>
-                    <th>IsDirectory?</th>
                 </tr>
             </thead>
-            <tbody id="main_content"></tbody>
+            <tbody id="main_content">
+                <td>[root] <a href="/">/</a></td>
+                <td>I Don't Know,</td>
+                <td>Can you tell me?</td>
+            </tbody>
         </table>
     </body>
     <script>
@@ -43,7 +42,6 @@
                                 filename = document.createElement("td"),
                                 filesize = document.createElement("td"),
                                 modtime = document.createElement("td"),
-                                isdir = document.createElement("td"),
                                 link = document.createElement("a")
                             link.innerHTML = v.filename;
                             link.download = v.filename;
@@ -51,12 +49,10 @@
                             filename.append(link);
                             filesize.innerHTML = v.filesize;
                             modtime.innerHTML = v.mod_time;
-                            isdir.innerHTML = v.isdir;
                             document.getElementById("luo").innerHTML = `Last updated on: ${e_.last_updated_on}`
                             row.append(filename)
                             row.append(filesize)
                             row.append(modtime)
-                            row.append(isdir)
                             document.getElementById("main_content").append(row);
                         })
                     }
