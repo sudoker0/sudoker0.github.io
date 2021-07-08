@@ -19,11 +19,11 @@
         <meta property="og:site_name" content="Quan_MCPC's Website" />
         <meta property="og:title" content="Quan_MCPC's Website | About" />
         <meta property="og:description" content="My personal website where I practice programming for myself and also post my stuff online." />
-        <meta property="og:image" content="https://quanmcpc.github.io/website/image/social_preview_.png" />
+        <meta property="og:image" content="https://quanmcpc.github.io/website/image/social_preview.png" />
         <meta property="og:image:alt" content="Social preview image" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="theme-color" content="#a00000" />
-        <link rel="icon" href="website/image/favicon.ico" />
+        <link rel="icon" href="website/image/logo/favicon.ico" />
         <title>QuanMCPC's Website</title>
         <style>
             table {
@@ -106,7 +106,7 @@
     <body>
         <div id="iframe_">
             <div id="iframe_accbar">
-                <button onclick="getId('iframe__').setAttribute('src', 'about:blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Close</button><button onclick="window.open(getId('iframe__').getAttribute('src'), '_blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Open in a new tab</button>
+                <button onclick="getId('iframe__').setAttribute('src', 'about:blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'" style="background-color: #EFEFEF">Close</button><button onclick="window.open(getId('iframe__').getAttribute('src'), '_blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'" style="background-color: #EFEFEF">Open in a new tab</button>
             </div>
             <hr id="abcd">
             <iframe title="A place to display my project" id="iframe__" scrolling="yes" src="about:blank" width="100%" allowfullscreen sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-modals allow-popups"></iframe>
@@ -127,14 +127,14 @@
         </noscript>
         <nav class="accb nt" style="width: auto; height: auto;" id="accb">
             <a href="/" title="Return to main page"  style="grid-area: left_-start; width: 61px">
-                <img src="/website/image/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);">
+                <img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);">
             </a>
-            <!-- <img src="/website/image/logo.png" alt="Redstone" style="width: 61px; position: absolute; top: 50%; transform: translateY(-50%); left: 1px;"> -->
+            <!-- <img src="/website/image/logo/logo.png" alt="Redstone" style="width: 61px; position: absolute; top: 50%; transform: translateY(-50%); left: 1px;"> -->
             <h3 id="accbar"></h3>
         </nav>
         <nav id="accb_small_" class="nt" style="z-index: 10">
             <a href="/" title="Return to main page"  style="grid-area: left__-start; width: 61px">
-                <img src="/website/image/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);">
+                <img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);">
             </a>
             <h3 id="accb_small_a">
                 <a onclick="accb_small()" style="cursor: pointer; margin-right: 4px;">
@@ -154,7 +154,7 @@
         </div>
         <div id="loadingIndicator">
             <div>
-                <img src="/website/image/redstone_dust_icon__.svg" srcset="/website/image/redstone_dust_icon__.svg, /website/image/loading.gif" alt="Loading Icon"><br>
+                <img id="loading_redstone_dust" src="/website/image/logo/redstone_dust_icon.svg" srcset="/website/image/logo/redstone_dust_icon.svg, /website/image/logo/loading.gif" alt="Loading Icon"><br>
                 <span style="font-size: initial;">Loading, please wait</span>
             </div>
         </div>
@@ -162,46 +162,66 @@
             <div class="container">
                 <h1 style="color:red; text-align: center; max-width: 100%;"><b>About Website</b></h1>
                 <h2>Here are some information about the website which I rarely update the stat and just here for "some purpose"</h2>
-                <center>
+                <div style="text-align: center;">
                     <a href="#" onclick="getId('textview').style.display = 'block'; getId('tableview').style.display = 'none'; getId('switchtextview').style.display = 'none'; getId('switchtableview').style.display = 'block'" id="switchtextview">[Switch to text view]</a>
                     <a href="#" onclick="getId('textview').style.display = 'none'; getId('tableview').style.display = 'table'; getId('switchtextview').style.display = 'block'; getId('switchtableview').style.display = 'none'" id="switchtableview" style="display: none;">[Switch to table view]</a>
-                </center>
+                </div>
                 <div id="textview" style="display: none;">
-                    <p>File size: [Total size: <span id="total">00,000,000</span> bytes, Default: <span id="default">00,000,000</span> bytes, <a id="hidden" onclick="location.href='lite/home.html'">Basic</a>: <span id="basic">00,000</span> bytes, Other: <span id="other">00,000,000</span> bytes] (Last updated on: <span id="lastupdateon_"></span>)</b></p>
-                    <p>Website's age: <span id="days_from">0</span> days since when the website was created.</p>
+                    <p>File size:</p>
+                    <ul>
+                        <li>Total size: <span class="total_size">0</span> bytes</li>
+                        <li>Standard Version Src. Code: <span class="standard_ver_src_code_size">0</span> bytes</li>
+                        <li>Basic Version Src. Code: <span class="basic_ver_src_code_size">0</span> bytes</li>
+                        <li>Assets (Image, Font, ...): <span class="assets_size">0</span> bytes</li>
+                        <li>Archive: <span class="archive_size">0</span> bytes</li>
+                        <li>Other Project: <span class="other_project_size">0</span> bytes</li>
+                        <li>Other: <span class="other_size">0</span> bytes</li>
+                        <li>Last updated on: <span class="lastupdateon"></span></li>
+                    </ul>
+                    <p>Website's age: <span class="days_from">0</span> days since when the website was created.</p>
                     <p>Langugaes used: HTML (HyperText Markup Language), CSS (Cascading Style Sheets), JS (JavaScript) and Python</p>
-                    <p>Number of commits: <span id="numberofcommit"></span> (Last updated on: <span id="lastupdateon"></span>)</p>
-                    <p>External languages use (or contain in the website): JSON (JavaScript Object Notation), XML (eXtensible Markup Language), MD (MarkDown)</p>
-                    <p>Website's Certificate valid before: <span id="validuntil"></span> days</p>
+                    <p>Number of commits: <span class="numberofcommit"></span> (Last updated on: <span class="lastupdateon1"></span>)</p>
                     <p>This website used to have a dark and light mode and a simple design then the website get a re-designed from August 26th 2020</p>
                 </div>
                 <table class="tg" style="table-layout: fixed;" id="tableview" style="display: block;">
                     <colgroup>
-                        <col style="width: 203px">
-                        <col style="width: 121px">
-                        <col style="width: 329px">
+                        <col style="width: 163px">
+                        <col style="width: 171px">
+                        <col style="width: 309px">
                     </colgroup>
                     <tbody>
                         <tr>
-                            <td class="tg-0pky" rowspan="4">File size (Last updated on: <span id="lastupdateon_1"></span>)</td>
+                            <td class="tg-0pky" rowspan="7">File size (Last updated on: <span class="lastupdateon"></span>)</td>
                             <td class="tg-0pky">Total size</td>
-                            <td class="tg-0lax"><span id="total1">00,000,000</span> bytes</td>
+                            <td class="tg-0lax"><span class="total_size">0</span> bytes</td>
                         </tr>
                         <tr>
-                            <td class="tg-0pky">Default</td>
-                            <td class="tg-0lax"><span id="default1">00,000,000</span> bytes</td>
+                            <td class="tg-0pky">Standard Version Src. Code</td>
+                            <td class="tg-0lax"><span class="standard_ver_src_code_size">0</span> bytes</td>
                         </tr>
                         <tr>
-                            <td class="tg-0pky"><a id="hidden" onclick="location.href='lite/home.html'">Basic</a></td>
-                            <td class="tg-0lax"><span id="basic1">00,000</span> bytes</td>
+                            <td class="tg-0pky">Basic Version Src. Code</td>
+                            <td class="tg-0lax"><span class="basic_ver_src_code_size">0</span> bytes</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0pky">Assets (Image, Font, ...)</td>
+                            <td class="tg-0lax"><span class="assets_size">0</span> bytes</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0pky">Archive</td>
+                            <td class="tg-0lax"><span class="archive_size">0</span> bytes</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0pky">Other Project</td>
+                            <td class="tg-0lax"><span class="other_project_size">0</span> bytes</td>
                         </tr>
                         <tr>
                             <td class="tg-0pky">Other</td>
-                            <td class="tg-0lax"><span id="other1">00,000,000</span> bytes</td>
+                            <td class="tg-0lax"><span class="other_size">0</span> bytes</td>
                         </tr>
                         <tr>
                             <td class="tg-0pky">Website's age</td>
-                            <td class="tg-0pky" colspan="2"><span id="days_from1">0</span> days (Since when the website was created)</td>
+                            <td class="tg-0pky" colspan="2"><span class="days_from">0</span> days (Since when the website was created)</td>
                         </tr>
                         <tr>
                             <td class="tg-0lax" rowspan="4">Language used<br>(or contain in the website)</td>
@@ -218,14 +238,10 @@
                         </tr>
                         <tr>
                             <td class="tg-0lax" rowspan="2">Number of commit</td>
-                            <td class="tg-0lax" colspan="2"><span id="numberofcommit1"></span> (Last updated on: <span id="lastupdateon1"></span>)</td>
+                            <td class="tg-0lax" colspan="2"><span class="numberofcommit"></span> (Last updated on: <span class="lastupdateon1"></span>)</td>
                         </tr>
                         <tr>
                             <td class="tg-0lax" colspan="2"><a href="#" onclick="oOPIIF('/other_project/commit.html')" style="max-width: initial;">Click here for a detailed graph about the number of commit</a></td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0lax">Website's Certificate valid before</td>
-                            <td class="tg-0lax" colspan="2"><span id="validuntil1"></span> days</td>
                         </tr>
                         <tr>
                             <td class="tg-0lax">Other Information</td>
@@ -274,61 +290,49 @@
         function getId(i) { return document.getElementById(i) }
         function qSelAll(q) { return document.querySelectorAll(q) }
         function qSel(q) { return document.querySelector(q) }
+        function innerHTMLClass(clas, text) { document.querySelectorAll(`.${clas}`).forEach((elem) => { elem.innerHTML = text }) }
         function oOPIIF(url) {
             getId("iframe__").setAttribute("src", url + `?nocache=${Math.round(Math.random() * 1000000)}`);
             getId("iframe_").style.display = "block";
             document.getElementsByTagName("body")[0].style.overflow = "hidden";
         }
-        function readTextFile(file, callback) {
-            var rawFile = new XMLHttpRequest();
-            rawFile.overrideMimeType("application/json");
-            rawFile.open("GET", file, true);
-            rawFile.onreadystatechange = function() {
-                if (rawFile.readyState === 4 && rawFile.status == "200") {
-                    callback(rawFile.responseText);
+        fetch("/website_data.json")
+            .then(e => e.json())
+            .then(data => {
+                innerHTMLClass("total_size", data.filesize.total);
+                innerHTMLClass("standard_ver_src_code_size", data.filesize.standard_src_code);
+                innerHTMLClass("basic_ver_src_code_size", data.filesize.basic_src_code);
+                innerHTMLClass("assets_size", data.filesize.assets);
+                innerHTMLClass("archive_size", data.filesize.archive);
+                innerHTMLClass("other_project_size", data.filesize.other_project);
+                innerHTMLClass("other_size", data.filesize.other);
+                innerHTMLClass("lastupdateon", data.filesize.lastupdateon);
+                var utcTime = 0, failed = 0;
+                function fetch_() {
+                    var key = ""; ["0x67", "0x68", "0x70", "0x5f", "0x30", "0x4d", "0x55", "0x58", "0x77", "0x52", "0x6e", "0x4a", "0x78", "0x38", "0x35", "0x63", "0x74", "0x37", "0x34", "0x4d", "0x37", "0x69", "0x41", "0x4a", "0x59", "0x6f", "0x46", "0x67", "0x32", "0x38", "0x31", "0x33", "0x43", "0x33", "0x31", "0x37", "0x52", "0x70", "0x4a", "0x6f"]["forEach"]((a) => {key += String["fromCharCode"](Number(a))})
+                    fetch(`https://api.github.com/repos/QuanMCPC/QuanMCPC.github.io/stats/contributors?nocache=${Math.round(Math.random() * 1000000)}`, { headers: { "accept": "application/vnd.github.v3+json", "Authorization": `token ${key}` } })
+                        .then(e => e.json())
+                        .then(e_ => {
+                            if (e_.message) {
+                                innerHTMLClass("numberofcommit", "Failed to get data from GitHub API, this maybe due to number of request exceeded for your current IP. Please see the number of commit on: https://github.com/QuanMCPC/QuanMCPC.github.io")
+                            } else if (!(e_[0].weeks)) {
+                                innerHTMLClass("numberofcommit", "Re-fetching, please wait...")
+                                setTimeout(fetch_, 2000);
+                            } else {
+                                utcTime = e_[0].weeks[e_[0].weeks.length - 1].w
+                                var d_ = new Date(utcTime * 1000)
+                                innerHTMLClass("lastupdateon1", d_.toUTCString());
+                                innerHTMLClass("numberofcommit", e_[0].total);
+                            }
+                        })
                 }
-            }
-            rawFile.send(null);
-        }
-        readTextFile("website_data.json", function (text) {
-            var data = JSON.parse(text), total = data.filesize.total,
-                default_1 = data.filesize.default, basic = data.filesize.basic, other = data.filesize.other,
-                numberofcommit = data.numberofcommit,
-                lastupdateon = data.lastupdateon, lastupdateon1 = data.filesize.lastupdateon;
-            getId("total").innerHTML = getId("total1").innerHTML = total;
-            getId("default").innerHTML = getId("default1").innerHTML = default_1;
-            getId("basic").innerHTML = getId("basic1").innerHTML = basic;
-            getId("other").innerHTML = getId("other1").innerHTML = other;
-            var utcTime = 0, failed = 0;
-            function fetch_() {
-                var key = ""; ["0x67", "0x68", "0x70", "0x5f", "0x30", "0x4d", "0x55", "0x58", "0x77", "0x52", "0x6e", "0x4a", "0x78", "0x38", "0x35", "0x63", "0x74", "0x37", "0x34", "0x4d", "0x37", "0x69", "0x41", "0x4a", "0x59", "0x6f", "0x46", "0x67", "0x32", "0x38", "0x31", "0x33", "0x43", "0x33", "0x31", "0x37", "0x52", "0x70", "0x4a", "0x6f"]["forEach"]((a) => {key += String["fromCharCode"](Number(a))})
-                fetch(`https://api.github.com/repos/QuanMCPC/QuanMCPC.github.io/stats/contributors?nocache=${Math.round(Math.random() * 1000000)}`, { headers: { "accept": "application/vnd.github.v3+json", "Authorization": `token ${key}` } })
-                    .then(e => e.json())
-                    .then(e_ => {
-                        if (e_.message) {
-                            getId("numberofcommit").innerHTML = getId("numberofcommit1").innerHTML = "Failed to get data from GitHub API, this maybe due to number of request exceeded for your current IP. Please see the number of commit on: https://github.com/QuanMCPC/QuanMCPC.github.io"
-                        } else if (!(e_[0].weeks)) {
-                            getId("numberofcommit").innerHTML = getId("numberofcommit1").innerHTML = "Re-fetching, please wait..."
-                            setTimeout(fetch_, 2000);
-                        } else {
-                            utcTime = e_[0].weeks[e_[0].weeks.length - 1].w
-                            var d_ = new Date(utcTime * 1000)
-                            getId("lastupdateon").innerHTML = d_.toUTCString();
-                            getId("lastupdateon1").innerHTML = d_.toUTCString();
-                            getId("numberofcommit").innerHTML = e_[0].total;
-                            getId("numberofcommit1").innerHTML = e_[0].total;
-                        }
-                    })
-            }
-            fetch_();
-            getId("lastupdateon_").innerHTML = lastupdateon1; getId("lastupdateon_1").innerHTML = lastupdateon1;
-        })
+                fetch_();
+            })
         function date_check() {
-            var date1 = new Date("07/17/2020"), date2 = new Date(), date3 = new Date("4/14/2022"),
-                DInTime = date2.getTime() - date1.getTime(), DInTime1 = date3.getTime() - date2.getTime(),
-                DInDays = Math.round(DInTime / (1000 * 3600 * 24)), DInDays1 = Math.round(DInTime1 / (1000 * 3600 * 24));
-            getId("days_from").innerHTML = getId("days_from1").innerHTML = DInDays;
-            getId("validuntil").innerHTML = getId("validuntil1").innerHTML = DInDays1;
+            var date1 = new Date("07/17/2020"), date2 = new Date()
+                DInTime = date2.getTime() - date1.getTime()
+                DInDays = Math.round(DInTime / (1000 * 3600 * 24))
+            innerHTMLClass("days_from", DInDays)
         }
         date_check()
         getId('switchtableview').style.display = 'none'
