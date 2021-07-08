@@ -1,4 +1,5 @@
 //@ts-check/
+window.onerror = (_, s, l ,c, err) => { if (!somethingCrash) { somethingCrash = true; function a() {return document.createElement("p")}; var errordiv = document.createElement("div"); errordiv.id = "errorscreen"; errordiv.style.backgroundColor = "#000000"; errordiv.style.color = "#ffffff"; errordiv.style.whiteSpace = "pre"; errordiv.style.position = "fixed"; errordiv.style.top = "0"; errordiv.style.left = "0"; errordiv.style.zIndex = "10000"; errordiv.style.padding = "5px"; var text1 = a(), text2 = a(), text3 = a(), text4 = a(); text1.innerHTML = "An error has occurred so the website has been halted to prevent further damage, please reload page."; text2.innerHTML = `Details: \n${err.stack}`; text3.innerHTML = `Source: ${s}`; text4.innerHTML = `Error happened at: Cols${c},Lines${l}`; text1.style.margin = "0 5px 0 5px"; text2.style.margin = "0 5px 0 5px"; text3.style.margin = "0 5px 0 5px"; text4.style.margin = "0 5px 0 5px"; errordiv.append(text1); errordiv.append(text2); errordiv.append(text3); errordiv.append(text4); document.body.append(errordiv); document.body.style.pointerEvents = "none"; document.body.style.overflow = "hidden"; document.body.style.userSelect = "none" } }
 function getId(i) { return document.getElementById(i) }
 function qSelAll(q) { return document.querySelectorAll(q) }
 function gPBN(name, url) {
@@ -13,27 +14,27 @@ var name_ = [
     {
         "name": "Home",
         "title": "Home - The main page of the website",
-        "address": "home.html"
+        "address": "/basic/home.html"
     },
     {
         "name": "Credit",
         "title": "Credit - All of the stuff and people that created this website will be listed here",
-        "address": "credit.html"
+        "address": "/basic/credit.html"
     },
     {
         "name": "About Website",
         "title": "About Website - Information about my website",
-        "address": "about.html"
+        "address": "/basic/about.html"
     },
     {
         "name": "Gallery",
         "title": "Gallery - Where I store picture of project and stuff",
-        "address": "gallery.html"
+        "address": "/basic/gallery.html"
     },
     {
         "name": "Download",
         "title": "Download - Download stuff, that's it",
-        "address": "/download.html"
+        "address": "/basic/download.html"
     }
 ];
 var pathname = window.location.pathname;
@@ -51,10 +52,15 @@ name_.forEach(function (list, index) {
     document.getElementById("accbar").appendChild(anchor);
 });
 function smtg() {
-    if (pathname == "/lite/home.html" || pathname == "/lite/home") { getId("project__").style.width = getId("project").scrollWidth + "px" }
+    if (pathname == "/basic/home.html" || pathname == "/basic/home") { getId("project__").style.width = getId("project").scrollWidth + "px" }
 }
-window.onload = () => {
+var somethingCrash = false;
+document.addEventListener("DOMContentLoaded", () => {
     smtg();
+    console.log("Trigger");
+    if (typeof SVGRect !== 'undefined') {} else {
+        setAttrClass("website_logo", "src", "/website/image/logo/logo.png")
+    }
     setTimeout(() => {
         getId("loadingIndicator").style.opacity = "0";
         getId("loadingIndicator").style.pointerEvents = "none"
@@ -69,4 +75,4 @@ window.onload = () => {
             }, 500)
         })
     })
-}
+})
