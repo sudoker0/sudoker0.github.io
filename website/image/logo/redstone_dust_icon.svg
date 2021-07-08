@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" version="1.1" viewBox="0 0 135.47 135.47" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <animate attributeName="fill" begin="-1.5" dur="1.5s" repeatCount="indefinite" values="#111;#999" xlink:href="#1_"/>
+    <animate attributeName="fill" begin="-1.3125" dur="1.5s" repeatCount="indefinite" values="#111;#999" xlink:href="#2_"/>
+    <animate attributeName="fill" begin="-1.125" dur="1.5s" repeatCount="indefinite" values="#111;#999" xlink:href="#3_"/>
+    <animate attributeName="fill" begin="-0.9375" dur="1.5s" repeatCount="indefinite" values="#111;#999" xlink:href="#4_"/>
+    <animate attributeName="fill" begin="-0.75" dur="1.5s" repeatCount="indefinite" values="#111;#999" xlink:href="#5_"/>
+    <animate attributeName="fill" begin="-0.5625" dur="1.5s" repeatCount="indefinite" values="#111;#999" xlink:href="#6_"/>
+    <animate attributeName="fill" begin="-0.375" dur="1.5s" repeatCount="indefinite" values="#111;#999" xlink:href="#7_"/>
+    <animate attributeName="fill" begin="-0.1875" dur="1.5s" repeatCount="indefinite" values="#111;#999" xlink:href="#8_"/>
+    <path d="m62.442 38.629v5.2917h-5.2917v5.2917h-5.2917v5.2917h-5.2917v5.2917h-5.2917v5.2917h-5.2917v15.875h5.2917v5.2917h5.2917v5.2917h10.583v5.2917h21.167v-5.2917h10.583v-5.2917h5.2917v-5.2917h5.2917v-15.875h-5.2917v-5.2917h-5.2917v-5.2917h-5.2917v-5.2917h-5.2917v-5.2917h-5.2917v-5.2917z" fill="#3b0000" stroke-width=".47413"/>
+    <g transform="matrix(.26458 0 0 .26458 35.983 35.983)">
+        <path d="m100 10v20h40v-20zm40 20v20h20v-20zm20 20v20h20v-20zm20 20v20h20v-20zm20 20v20h20v-20zm20 20v60h20v-60zm0 60h-20v20h20zm-20 20h-40v20h40zm-40 20h-80v20h80zm-80 0v-20h-40v20zm-40-20v-20h-20v20zm-20-20v-60h-20v60zm0-60h20v-20h-20zm20-20h20v-20h-20zm20-20h20v-20h-20zm20-20h20v-20h-20z" fill="#2d0000"/>
+        <path d="m100 30v40h-40v20h-20v40h20v20h20v40h40v-20h20v-40h-20v-20h20v-40h-20v-20h20v-20zm-40 120h-20v20h20zm-20 0v-20h-20v20zm40-40h20v20h-20z" fill="#720000"/>
+        <path d="m140 50v140h-60v20h80v-20h20v-20h40v-60h-60v-20h20v-20h-20v-20zm-60 140v-20h-40v20zm-40-20v-20h-20v20zm140-40h20v20h-20z" fill="#490000"/>
+        <path d="m80 50v20h20v-20zm100 40v20h20v-20zm-160 20v20h20v-20zm100 0v20h20v-20zm-60 40v20h20v-20zm120 20v20h20v-20z" fill="#ff0000"/>
+        <path d="m160 90v20h20v-20zm20 40v20h20v-20zm-60 40v20h20v-20z" fill="#360000"/>
+        <path d="m120 50v20h20v-20zm-40 60v20h20v-20zm-40 20v20h20v-20z" fill="#540000"/>
+    </g>
+    <path id="llv" d="m97.367 105.04h1.9844c2.3813 0 3.9688 0 5.5563-0.39687 1.5875-0.39688 3.175-1.5875 4.3656-3.175s1.5875-3.175 1.9844-5.1594c0.39689-1.9844 0.39689-5.5562 0.39689-10.319 0-3.5719 0-5.9531 0.39687-7.9375 0.39688-1.9844 1.1906-3.9688 2.3813-5.1594 1.1906-1.1906 2.7782-1.9844 5.1594-1.9844v-6.35c-2.3813 0-3.9688-0.79375-5.1594-1.9844-1.1906-1.1906-1.9844-3.175-2.3813-5.1594-0.39687-1.9844-0.39687-4.3656-0.39687-7.9375 0-4.7625 0-8.3344-0.39689-10.319-0.39687-1.9844-0.79375-3.5719-1.9844-5.1594s-2.7781-2.7781-4.3656-3.175-3.175-0.39688-5.5563-0.39688h-1.9844v5.9531h1.1906c2.7781 0 4.3657 0.39688 5.1594 1.1906 1.1906 1.1906 1.5875 1.5875 1.5875 2.7781v9.9219c0 5.9531 0.79375 9.9219 1.9844 12.303 1.1906 2.3812 3.5719 3.9688 5.9532 5.1594-2.3813 1.1906-4.7625 2.7781-5.9532 5.1594-1.1906 2.3812-1.9844 6.35-1.9844 12.303v9.9219c0 1.1906-0.39688 1.5875-1.5875 2.7781-0.79375 0.79375-2.3813 1.1906-5.1594 1.1906h-1.1906z" fill="#d60000" stroke-width=".39688"/>
+    <use transform="matrix(-1 0 0 1 135.47 1.3333e-6)" width="260" height="1030" xlink:href="#llv"/>
+    <g fill="#999999">
+        <path id="1_" transform="scale(.26459)" d="m0 0v20 60h20v-60h60v-20h-80z"/>
+        <rect id="2_" x="51.86" width="31.751" height="5.2918" stroke-width=".32406"/>
+        <path id="3_" transform="scale(.26459)" d="m432 0v20h60v60h20v-60-20h-80z"/>
+        <rect id="4_" x="130.18" y="51.86" width="5.2918" height="31.751" stroke-width=".37419"/>
+        <path id="5_" transform="scale(.26459)" d="m492 432v60h-60v20h80v-20-60h-20z"/>
+        <rect id="6_" x="51.86" y="130.18" width="31.751" height="5.2918" stroke-width=".32406"/>
+        <path id="7_" transform="scale(.26459)" d="m0 432v60 20h80v-20h-60v-60h-20z"/>
+        <rect id="8_" y="51.86" width="5.2918" height="31.751" stroke-width=".37419"/>
+    </g>
+    <script>
+        <![CDATA[
+            alert("Hello")
+        ]]>
+    </script>
+</svg>
