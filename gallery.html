@@ -19,11 +19,11 @@
         <meta property="og:site_name" content="Quan_MCPC's Website" />
         <meta property="og:title" content="Quan_MCPC's Website | Gallery" />
         <meta property="og:description" content="My personal website where I practice programming for myself and also post my stuff online." />
-        <meta property="og:image" content="https://quanmcpc.github.io/website/image/social_preview_.png" />
+        <meta property="og:image" content="https://quanmcpc.github.io/website/image/social_preview.png" />
         <meta property="og:image:alt" content="Social preview image" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="theme-color" content="#a00000" />
-        <link rel="icon" href="website/image/favicon.ico" />
+        <link rel="icon" href="website/image/logo/favicon.ico" />
         <title>QuanMCPC's Website</title>
         <style>
             svg#github_link:hover, svg#plannetminecraft_link:hover {
@@ -45,7 +45,7 @@
                 }
             }
             @media (min-width: 375px) {
-                 #button_list {
+                #button_list {
                     display: grid;
                     grid-template-columns: repeat(auto-fit, minmax(calc(33% - 17px), 1fr));
                 }
@@ -79,14 +79,14 @@
         </noscript>
         <nav class="accb nt" style="width: auto; height: auto; z-index: 15" id="accb">
             <a href="/" title="Return to main page"  style="grid-area: left_-start; width: 61px">
-                <img src="/website/image/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);">
+                <img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);">
             </a>
-            <!-- <img src="/website/image/logo.png" alt="Redstone" style="width: 61px; position: absolute; top: 50%; transform: translateY(-50%); left: 1px;"> -->
+            <!-- <img src="/website/image/logo/logo.png" alt="Redstone" style="width: 61px; position: absolute; top: 50%; transform: translateY(-50%); left: 1px;"> -->
             <h3 id="accbar"></h3>
         </nav>
         <nav id="accb_small_" class="nt" style="z-index: 15">
             <a href="/" title="Return to main page"  style="grid-area: left__-start; width: 61px">
-                <img src="/website/image/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);">
+                <img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);">
             </a>
             <h3 id="accb_small_a">
                 <a onclick="accb_small()" style="cursor: pointer; margin-right: 4px;">
@@ -106,7 +106,7 @@
         </div>
         <div id="loadingIndicator">
             <div>
-                <img src="/website/image/redstone_dust_icon__.svg" srcset="/website/image/redstone_dust_icon__.svg, /website/image/loading.gif" alt="Loading Icon"><br>
+                <img id="loading_redstone_dust" src="/website/image/logo/redstone_dust_icon.svg" srcset="/website/image/logo/redstone_dust_icon.svg, /website/image/logo/loading.gif" alt="Loading Icon"><br>
                 <span style="font-size: initial;">Loading, please wait</span>
             </div>
         </div>
