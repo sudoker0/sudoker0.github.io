@@ -4,7 +4,7 @@
         <script src="/index.js?ver=1202"></script>
         <title>Guess the Number Game</title>
         <script>
-           var counter = 0, start = 0, n1 = 0;
+            var counter = 0, start = 0, n1 = 0;
         </script>
     </head>
     <body>
@@ -22,9 +22,9 @@
         <p>Copyright (C) 2021 Quan_MCPC. This game and the source code are free to download, copy, modify and publish. Just remember to include my copyright.</p>
         <h4>Source Code: <a rel="noreferrer" href="https://github.com/QuanMCPC/QuanMCPC.github.io/edit/master/other_project/numberguessgame.html">https://github.com/QuanMCPC/QuanMCPC.github.io/edit/master/other_project/numberguessgame.html</a></h4>
         <script>
-           var textarea = document.getElementById('result');
-           setInterval(function(){ textarea.scrollTop = textarea.scrollHeight; }, 50);
-           document.getElementById("result").value += 'Initializing...\nWelcome to my Guess The Number Game!\nTo beat the game, you must guess the correct number from 10000 to 99999\nTo start the game, press Start\n(Press Enter to insert value, Press Esc to clear the input box)\n(Press F4 to start the game, F7 to end the game)\n';
+            var textarea = document.getElementById('result');
+            setInterval(function(){ textarea.scrollTop = textarea.scrollHeight; }, 50);
+            document.getElementById("result").value += 'Initializing...\nWelcome to my Guess The Number Game!\nTo beat the game, you must guess the correct number from 10000 to 99999\nTo start the game, press Start\n(Press Enter to insert value, Press Esc to clear the input box)\n(Press F4 to start the game, F7 to end the game)\n';
             var minutesLabel = document.getElementById("minutes"), secondsLabel = document.getElementById("seconds"), totalSeconds = 0, timerVar = setInterval(setTime, 1000);
             function setTime() {
                 if (start == 1) {
