@@ -19,15 +19,15 @@
         <meta property="og:site_name" content="Quan_MCPC's Website" />
         <meta property="og:title" content="Quan_MCPC's Website | Basic HTML | Credit" />
         <meta property="og:description" content="My personal website where I practice programming for myself and also post my stuff online." />
-        <meta property="og:image" content="https://quanmcpc.github.io/website/image/social_preview_.png" />
+        <meta property="og:image" content="https://quanmcpc.github.io/website/image/social_preview.png" />
         <meta property="og:image:alt" content="Social preview image" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="theme-color" content="#a00000" />
-        <link rel="icon" href="/website/image/favicon.ico" />
+        <link rel="icon" href="/website/image/logo/favicon.ico" />
         <title>QuanMCPC's Website</title>
         <style>
             @media (min-width: 375px) {
-                 #button_list {
+                #button_list {
                     display: grid;
                     grid-template-columns: repeat(auto-fit, minmax(calc(33% - 17px), 1fr));
                 }
@@ -84,13 +84,13 @@
         </div>
         <nav id="accb" class="accb">
             <a href="/" title="Return to main page" style="grid-area: left_-start; width: 61px">
-                <img src="/website/image/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);">
+                <img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);">
             </a>
             <h3 id="accbar"></h3>
         </nav>
         <div id="loadingIndicator">
             <div>
-                <img src="/website/image/logo.svg" alt="Loading Icon" width="120" height="120"><br>
+                <img class="website_logo" src="/website/image/logo/logo.svg" alt="Loading Icon" width="120" height="120"><br>
                 <h2 class="loading_text" style="font-size: initial;">Loading, please wait<span>.</span><span>.</span><span>.</span></h2\>
             </div>
         </div>
@@ -118,13 +118,6 @@
                         </div>
                     </div>
                     <p style="color: black; text-align: center; max-width: 100%; margin-top: 1px; margin-bottom: 1px">Ctrl + &#8656; to go to the previous picture, Ctrl + &#8658; to go to the next picture</p>
-                </div>
-                <!-- <center><a href="/website/image/old_version_image.zip" download="image_pack.zip" style="color: black; margin-top: 20px">[Download image pack as a ZIP]</a></center> -->
-                <br>
-                <div style="border: 2px solid black; display: grid; justify-content: center;">
-                    <p style="max-width: initial; margin-top: 3px; margin-bottom: 3px; color: orange"><u>Download Photo Here!</u></p>
-                    <a href="/website/image/High_Quality_Backgrounds.7z" download="high_res_bg_image_pack.zip" style="max-width: initial; margin: 5px 10px 5px 10px;">[High Resolution Background Pack (Include 2 version of the background image in 4k and 8k as TGA) (.7z file) ]</a>
-                    <a href="/website/image/old_version_image.zip" download="image_pack.zip" style="max-width: initial; margin: 5px 10px 5px 10px;">[Image Pack (Include 9 photos in the gallery + 2 version of the background image as PNG) (.zip file) ]</a>
                 </div>
                 <footer style="margin-top: 15px; margin-bottom: 15px;">
                     <p style="color:rgb(0, 0, 0); max-width: 100%; text-align: center;">Copyright (C) 2021 Quan_MCPC. Created on: 7/16/20, this website will live <b style="color:rgb(200, 0, 0)">forever</b></p>
@@ -234,6 +227,5 @@
             getId("cancel_image").style.display = "block"
         }
     </script>
-    <script src="/website/script/main.js"></script>
     <script src="/index.js?ver=1202"></script>
 </html>
