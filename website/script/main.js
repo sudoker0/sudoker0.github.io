@@ -1,5 +1,6 @@
 //@QuanMCPC
 //@ts-check/
+window.onerror = (_, s, l ,c, err) => { if (!somethingCrash) { somethingCrash = true; function a() {return document.createElement("p")}; var errordiv = document.createElement("div"); errordiv.id = "errorscreen"; errordiv.style.backgroundColor = "#000000"; errordiv.style.color = "#ffffff"; errordiv.style.whiteSpace = "pre"; errordiv.style.position = "fixed"; errordiv.style.top = "0"; errordiv.style.left = "0"; errordiv.style.zIndex = "10000"; errordiv.style.padding = "5px"; var text1 = a(), text2 = a(), text3 = a(), text4 = a(); text1.innerHTML = "An error has occurred so the website has been halted to prevent further damage, please reload page."; text2.innerHTML = `Details: \n${err.stack}`; text3.innerHTML = `Source: ${s}`; text4.innerHTML = `Error happened at: Cols${c},Lines${l}`; text1.style.margin = "0 5px 0 5px"; text2.style.margin = "0 5px 0 5px"; text3.style.margin = "0 5px 0 5px"; text4.style.margin = "0 5px 0 5px"; errordiv.append(text1); errordiv.append(text2); errordiv.append(text3); errordiv.append(text4); document.body.append(errordiv); document.body.style.pointerEvents = "none"; document.body.style.overflow = "hidden"; document.body.style.userSelect = "none" } }
 /**
  * Short for: document.getElementById
  * @param {string} i The Id of the element
@@ -111,10 +112,6 @@ function check() {
             var lChar = Math.round(Math.random() * document.body.innerHTML.length), char = rString(Math.floor(charStart));
             document.body.innerHTML = document.body.innerHTML.substring(0, lChar) + char + document.body.innerHTML.substring(lChar + Math.floor(charStart));
             charStart =  charStart <= 32 ? charStart + 0.1 : charStart;
-            // if (document.body.querySelectorAll("*").length <= 2) {
-            //     clearInterval(c);
-            //     document.body.innerHTML += `<div style="max-length: 70%; color: white; background-color: black; border: 2px solid white; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 10px; position: fixed;">An error has occurred in the root of the website, so we have to suspend your current session.<br>A dump of the current session will be created and allow you to download. You can continue with the current session but it's not recommended by <button onclick="c = setInterval(d, 750)">click here</button>.</div>`;
-            // }
         }
         var c = setInterval(d, 10)
     }
@@ -149,10 +146,9 @@ window.onload = () => {
             }, 500)
         })
     })
-
 }
+var somethingCrash = false;
 function smtg() {
-    //if (pathname == "/home.html" || pathname == "/home") { getId("project__").style.width = getId("project").scrollWidth + "px" }
     check()
     accb_small_isOn = false;
     getId("accb_small").style.display = "none"
@@ -171,36 +167,43 @@ var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
     getId("accb_small").style.display = "none"
     accb_small_isOn = false;
-    /*
-    var currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-        // getId("accb").style.top = "0";
-        // getId("accb_small_").style.top = "0";
-        getId("accb").style.transform = "translateY(0%)";
-        getId("accb_small_").style.transform = "translateY(0%)";
-    } else {
-        // getId("accb").style.top = "-" + getId("accb").offsetHeight + "px";
-        // getId("accb_small_").style.top = "-" + getId("accb_small_").offsetHeight + "px";
-        getId("accb").style.transform = "translateY(-100%)";
-        getId("accb_small_").style.transform = "translateY(-100%)";
-    }
-    prevScrollpos = currentScrollPos;
-    */
 }
 function changeBg(isLight) { if (isLight) { qSel("body").style.backgroundImage = "url(\"/website/image/background/background_light.png\")"; } else { qSel("body").style.backgroundImage = "url(\"/website/image/background/background_dark.png\")"; } }
+/**
+ * Basically localStorage.getItem
+ * @param {String} i - The name of the item
+ * @returns {String} The content of the item
+ */
 function ls_gt(i) { return localStorage.getItem(i) }
+/**
+ * Basically localStorage.setItem
+ * @param {string} i The name of the item
+ * @param {any} v The value of the item
+ */
 function ls_st(i, v) { localStorage.setItem(i, v) }
 var constant = 0;
-/*
-    Background: Light (0)/Dark(1)/BasedOnSystemPreferences(2)
-    Theme: Default (0)/Minimal(1)
-*/
+function setAttrClass(clas, name, attr) { document.querySelectorAll(`.${clas}`).forEach((elem) => { elem.setAttribute(name, attr) }) }
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Fired!")
+    if (typeof SVGAnimateElement !== 'undefined') {} else {
+        getId("loading_redstone_dust").setAttribute('src', '/website/image/logo/loading.gif')
+    }
+    if (typeof SVGRect !== 'undefined') {} else {
+        setAttrClass("website_logo", "src", "/website/image/logo/logo.png")
+    }
     document.querySelectorAll('.nt').forEach((v) => {
         v.classList.remove("nt");
     })
 });
+function dropShadow() {
+    if (scrollY > 5 && localStorage.getItem("theme") == "1") {
+        getId("accb").style.boxShadow = "0px 7px 8px rgb(15 15 15)";
+        getId("accb_small_").style.boxShadow = "0px 7px 8px rgb(15 15 15)";
+    } else {
+        getId("accb").style.boxShadow = "none";
+        getId("accb_small_").style.boxShadow = "none";
+    }
+}
+document.onscroll = (_) => { dropShadow(); }
 function fetchLocal() {
     if (ls_gt("background") && ls_gt("theme")) {
         document.getElementById("bg_control").getElementsByTagName("li")[Number(ls_gt("background"))].childNodes[0].setAttribute("checked", "checked")
@@ -269,5 +272,5 @@ getId("bg-sys").onchange = () => {
         constant = 0
     }
 }
-getId("wslook-default").onchange = () => { ws_1(); ls_st("theme", 0); }
-getId("wslook-minimal").onchange = () => { ws_2(); ls_st("theme", 1); }
+getId("wslook-default").onchange = () => { ws_1(); ls_st("theme", 0); dropShadow(); }
+getId("wslook-minimal").onchange = () => { ws_2(); ls_st("theme", 1); dropShadow(); }
