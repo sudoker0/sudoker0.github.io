@@ -19,11 +19,11 @@
         <meta property="og:site_name" content="Quan_MCPC's Website" />
         <meta property="og:title" content="Quan_MCPC's Website | Home" />
         <meta property="og:description" content="My personal website where I practice programming for myself and also post my stuff online." />
-        <meta property="og:image" content="/website/image/social_preview_.png" />
+        <meta property="og:image" content="/website/image/social_preview.png" />
         <meta property="og:image:alt" content="Social preview image" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="theme-color" content="#a00000" />
-        <link rel="icon" href="website/image/favicon.ico" />
+        <link rel="icon" href="website/image/logo/favicon.ico" />
         <title>QuanMCPC's Website</title>
         <style>
             .social_link:hover {
@@ -49,21 +49,6 @@
             }
             div#project h4 {
                 margin: 10px;
-            }
-            ul {
-                list-style: none;
-            }
-            li::before {
-                content: "• ";
-                color: white;
-            }
-            li li::before {
-                content: "▪ ";
-                color: white;
-            }
-            li li li::before {
-                content: "▫ ";
-                color: white;
             }
             @media (min-width: 320px) {
                 div#project *, div#sp_actual * { margin-top: 3px; margin-bottom: 3px; }
@@ -126,6 +111,7 @@
                 height: calc(100% - 26px);
             }
             div#project a { margin: 0; }
+            div#external_link_image svg { display: inline-block; }
         </style>
     </head>
     <body id="temp" onload="check1()">
@@ -152,13 +138,13 @@
         </noscript>
         <nav class="accb nt" style="width: auto; height: auto;" id="accb">
             <a href="/" title="Return to main page"  style="grid-area: left_-start; width: 61px">
-                <img src="/website/image/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);">
+                <img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);">
             </a>
             <h3 id="accbar"></h3>
         </nav>
         <nav id="accb_small_" class="nt" style="z-index: 10">
             <a href="/" title="Return to main page"  style="grid-area: left__-start; width: 61px">
-                <img src="/website/image/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);" id="image__">
+                <img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);" id="image__">
             </a>
             <h3 id="accb_small_a">
                 <a onclick="accb_small()" style="cursor: pointer; margin-right: 4px;">
@@ -178,7 +164,7 @@
         </div>
         <div id="loadingIndicator">
             <div>
-                <img src="/website/image/redstone_dust_icon__.svg" srcset="/website/image/redstone_dust_icon__.svg, /website/image/loading.gif" alt="Loading Icon"><br>
+                <img id="loading_redstone_dust" src="/website/image/logo/redstone_dust_icon.svg" alt="Loading Icon"><br>
                 <span style="font-size: initial;">Loading, please wait</span>
             </div>
         </div>
@@ -189,10 +175,10 @@
                 <h2>Even though this is a personal website, I made the website look more like a business website or commercial website for no reason ;)</h2>
                 <h3 style="color: rgb(0, 255, 0); text-align: center">Social link</h3>
                 <div id="social_link">
-                    <center>
+                    <div id="external_link_image" style="text-align: center;">
                         <!--
                             GitHub SVG: https://github.com/logos
-                            Plannet Minecraft SVG: Created from scratch using the logo image of the website (The globe part)
+                            Plannet Minecraft SVG: Created from scratch using the logo image of the website (The globe part) (Original PNG image that allow me to create the SVG image from https://planetminecraft.com)
                             GitLab SVG: https://about.gitlab.com/press/press-kit/
                             Discord SVG: https://discord.com/branding
                         -->
@@ -210,40 +196,29 @@
                                 </g>
                             </g>
                         </svg>
-                        <svg name="external_link" class="social_link" id="plannetminecraft_link" width="64" height="64" version="1.1" viewBox="0 0 16.933 16.933" xmlns="http://www.w3.org/2000/svg" data-slink="https://www.planetminecraft.com/member/quan_mcpc/" tabindex="0" alt="PlannetMinecraft icon">
+                        <svg name="external_link" class="social_link" id="plannetminecraft_link" width="56" height="58" version="1.1" viewBox="0 0 14.817 15.346" xmlns="http://www.w3.org/2000/svg" data-slink="https://www.planetminecraft.com/member/quan_mcpc/" tabindex="0" alt="PlannetMinecraft icon">
                             <g>
-                                <path d="m6.0772 0.8v1.0583h4.7626v-1.0583zm-5.0272 4.7625v4.7625h1.3229v-4.7625zm1.3229 4.7625v2.3812h1.0584v-2.3812zm1.0584 2.3812v1.3229h2.6459v-1.3229zm2.6459 1.3229v1.3229h2.6459v-0.52917h-0.52918v-0.52917h-0.26459v-0.26458zm7.1439-3.7042v2.3812h1.3229v-1.8521h-0.26459v-0.26458h-0.26459v-0.26458zm0 2.3812h-2.3813v1.3229h2.3813zm-2.3813 1.3229h-0.79377v0.26458h-0.26459v0.79375h-0.26459v0.26458h1.3229z" fill="#014e96"/>
-                                <path d="m3.4313 1.8583v1.0583h2.6459v-1.0583zm0 1.0583h-1.0584v2.6458h1.0584zm7.4085-1.0583v1.0583h2.3813v-1.0583zm2.3813 1.0583v2.6458h1.3229v-2.6458zm1.3229 2.6458v4.7625h1.3229v-4.7625zm0 4.7625h-0.52918v0.26458h0.26459v0.26458h0.26459v-0.26458zm-2.3813 0v1.3229h-1.3229v1.0583h2.3813v-2.3812zm-4.2334 3.7042v0.26458h0.26459v0.52917h0.52918v0.52917h0.79377v-0.26458h0.26459v-0.79375h0.52918v-0.26458z" fill="#2a5401"/>
-                                <path d="m14.015 5.5625v2.3812h-0.79377v1.3229h0.52918v1.0583h0.79377v-4.7625z" fill="#448001"/>
-                                <rect x="4.7542" y="4.2396" width="2.3813" height="2.3812" fill="#fff"/>
-                            </g>
-                            <g fill="#6ec310">
-                                <path d="m3.4313 4.2396v2.3812h-1.0584v3.4396h1.0584v0.26458h1.3229v-0.52917h-0.52918v-0.26458h-0.52918v-0.79375h0.26459v-0.26458h0.79377v0.26458h0.26459v0.26458h0.26459v-1.0583h0.52918v-1.3229h-1.0584v-2.3812z"/>
-                                <path d="m4.7542 2.9167v1.3229h2.1167v-0.52917h-0.26459v-0.26458h0.26459v-0.52917h-0.26459zm2.6459 0v0.52917h0.79377v-0.52917zm-0.26459 1.5875v0.52917h0.26459v-0.52917zm0.26459 0.52917v0.52917h0.52918v-0.26458h-0.26459v-0.26458z"/>
-                                <rect x="6.0772" y="10.854" width="2.3813" height=".79375"/>
-                            </g>
-                            <g>
-                                <path d="m6.0772 1.8583v1.0583h0.79377v-0.26458h0.52918v0.26458h3.4397v-1.0583h-2.6459zm-2.6459 1.0583v1.3229h1.3229v-1.3229zm-1.0584 2.6458v1.0583h1.0584v-1.0583zm1.0584 4.7625v0.26458h0.79377v0.52917h0.79377v0.26458h0.26459v0.26458h0.79377v-0.26458h-0.52918v-0.26458h-0.26459v-0.52917h-0.52918v-0.26458zm2.6459 1.3229v1.0583h3.9688v-1.0583z" fill="#57b10f"/>
-                                <path d="m6.0772 12.706v0.79375h1.0584v0.52917h3.7043v-1.3229z" fill="#448001"/>
-                                <path d="m11.369 2.9167v0.79375h0.79377v0.52917h0.79377v1.0583h0.26459v-2.3812z" fill="#448001"/>
-                                <path d="m13.221 5.5625v2.3812h0.79377v-2.3812zm0 3.7042v1.0583h0.52918v-1.0583zm-7.1439 4.2333v0.52917h1.0584v-0.52917z" fill="#0d74d3"/>
-                                <rect x="3.4313" y="11.648" width="1.3229" height="1.0583" fill="#0d74d3"/>
-                            </g>
-                            <g fill="#278eed">
-                                <path d="m10.84 2.9167v2.6458h2.3813v-0.26458h-0.26459v-1.0583h-0.79377v-0.52917h-0.79377v-0.79375zm1.3229 3.7042v3.7042h1.0584v-3.7042zm0 3.7042h-1.3229v1.3229h1.3229zm-1.3229 1.3229h-0.79377v1.0583h0.79377z"/>
-                                <path d="m3.4313 10.59v1.0583h1.3229v1.0583h1.3229v-1.0583h-0.79377v-0.26458h-0.26459v-0.26458h-0.79377v-0.52917z"/>
-                                <path d="m4.7542 10.325v0.26458h0.52918v0.52917h0.26459v0.26458h0.52918v-1.0583z"/>
-                                <rect x="2.3729" y="10.06" width="1.0584" height=".26458"/>
-                                <rect x="6.871" y="2.6521" width=".52918" height=".26458"/>
-                            </g>
-                                <rect x="6.0772" y="13.5" width="1.0584" height=".52917" fill-opacity="0"/>
-                            <g>
-                                <path d="m8.4585 2.9167v3.7042h-1.3229v1.3229h-1.8521v1.0583h-0.26459v-0.26458h-0.26459v-0.26458h-0.79377v0.26458h-0.26459v0.79375h0.52918v0.26458h0.52918v0.52917h1.3229v-1.0583h2.3813v-1.3229h1.3229v-1.3229h1.0584v2.6458h-1.0584v1.0583h-1.3229v1.3229h2.3813v-1.3229h1.3229v-3.7042h1.0584v-1.0583h-3.4397v-2.6458z" fill="#2e95f4"/>
-                                <path d="m6.871 2.9167v0.52917h-0.26459v0.26458h0.26459v0.52917h0.26459v0.26458h0.26459v0.52917h0.26459v0.26458h0.26459v0.26458h-0.52918v-0.52917h-0.26459v1.5875h1.3229v-3.7042h-0.26459v0.52917h-0.79377v-0.52917zm2.9105 3.7042v1.3229h-1.3229v1.3229h-2.3813v1.5875h2.3813v-0.52917h1.3229v-1.0583h1.0584v-2.6458z" fill="#4ba8ff"/>
-                                <rect x="9.7814" y="2.9167" width="1.0584" height="2.6458" fill="#4ba8ff"/>
-                                <rect x="5.8126" y="6.6208" width="1.3229" height="1.3229" fill="#57aaff"/>
-                                <path d="m1.05 10.325v0.52917h0.26459v0.26458h0.26459v0.26458h0.52918v1.8521h0.26459v0.26458h0.26459v0.26458h0.52918v0.52917h0.26459v0.26458h0.26459v0.26458h0.26459v0.26458h1.8521v0.52917h0.26459v0.26458h0.26459v0.26458h4.2334v-0.26458h0.26459v-0.26458h0.26459v-0.52917h1.5875v-0.26458h0.26459v-0.26458h0.26459v-0.26458h0.26459v-0.52917h0.79377v-0.26458h0.26459v-0.26458h0.26459v-2.3812h-0.26459v1.8521h-1.3229v1.3229h-2.3813v1.3229h-4.7626v-1.3229h-2.6459v-1.3229h-1.0584v-2.3812z" fill="#012647"/>
-                                <path d="m14.544 10.325v0.52917h0.26459v0.52917h0.52918v-0.26458h0.26459v-0.26458h0.26459v-0.52917z" fill="#132e2f"/>
+                                <path d="m5.0271 0v1.0583h-2.6458v1.0583h-1.0583v2.6458h-1.3229v5.2917h0.26458v0.26458h0.26458v0.26458h0.52917v1.8521h0.26458v0.26458h0.26458v0.26458h0.52917v0.52917h0.26458v0.26458h0.26458v0.26459h0.26458v0.26458h1.8521v0.52917h0.26458v0.26458h0.26458v0.26458h4.2333v-0.26458h0.26458v-0.26458h0.26458v-0.52917h1.5875v-0.26458h0.26458v-0.26459h0.26458v-0.26458h0.26458v-0.52917h0.79375v-0.26458h0.26458v-0.26458h0.26458v-1.8521h0.52917v-0.26458h0.26458v-0.26458h0.26458v-5.2917h-1.3229v-2.6458h-1.3229v-1.0583h-2.3812v-1.0583z" fill="#2b696e" stroke-width="1.0985"/>
+                                <path d="m5.0271 0v1.0583h-2.6458v1.0583h-1.0583v2.6458h-1.3229v5.2917h0.26458v0.26458h0.26458v0.26458h0.52917v1.8521h0.26458v0.26458h0.26458v0.26458h0.52917v0.52917h0.26458v0.26458h0.26458v0.26458h0.26458v0.26458h1.8521v0.52917h0.26458v0.26458h0.26458v0.26458h4.2333v-0.26458h0.26458v-0.26458h0.26458v-0.52917h1.5875v-0.26458h0.26458v-0.26458h0.26458v-0.26458h0.26458v-0.52917h0.79375v-0.26458h0.26458v-0.26458h0.26458v-1.8521h0.52917v-0.26458h0.26458v-0.26458h0.26458v-5.2917h-1.3229v-2.6458h-1.3229v-1.0583h-2.3812v-1.0583z" fill="#2b696e" stroke-width="1.0985"/>
+                                <g stroke-width=".26458">
+                                    <path d="m5.0271 0v1.0583h4.7625v-1.0583zm-5.0271 4.7625v4.7625h1.3229v-4.7625zm1.3229 4.7625v2.3813h1.0583v-2.3813z" fill="#0157a9"/>
+                                    <path d="m0 9.525v0.52917h0.26458v0.26458h0.26458v0.26458h0.52917v1.8521h0.26458v0.26458h0.26458v0.26458h0.52917v0.52917h0.26458v0.26458h0.26458v0.26459h0.26458v0.26458h1.8521v0.52917h0.26458v0.26458h0.26458v0.26458h4.2333v-0.26458h0.26458v-0.26458h0.26458v-0.52917h1.5875v-0.26458h0.26458v-0.26459h0.26458v-0.26458h0.26458v-0.52917h0.79375v-0.26458h0.26458v-0.26458h0.26458v-2.3812h-0.26458v1.8521h-1.3229v1.3229h-2.3812v1.3229h-4.7625v-1.3229h-2.6458v-1.3229h-1.0583v-2.3813z" fill="#012647"/>
+                                    <path d="m2.3812 1.0583v1.0583h2.6458v-1.0583zm0 1.0583h-1.0583v2.6458h1.0583zm7.4083-1.0583v1.0583h2.3812v-1.0583zm2.3812 1.0583v2.6458h1.3229v-2.6458zm1.3229 2.6458v4.7625h1.3229v-4.7625zm0 4.7625h-0.52917v0.26458h0.26458v0.26459h0.26458v-0.26459zm-6.6146 3.7042v0.26458h0.26458v0.52917h0.52917v0.52916h0.79375v-0.26458h0.26458v-0.79375h0.26458v-0.26458z" fill="#2a5401"/>
+                                    <path d="m3.7042 2.1167v1.3229h2.1167v-0.52917h-0.26458v-0.26458h0.26458v-0.52917h-0.26458zm0 1.3229h-1.3229v2.3812h-1.0583v3.4396h1.0583v0.26458h1.3229v-0.52917h-0.52917v-0.26458h-0.52917v-0.79375h0.26458v-0.26458h0.79375v0.26458h0.26458v0.26458h0.26458v-1.0583h0.52917v-1.3229h-1.0583zm2.6458-1.3229v0.52917h0.79375v-0.52917zm-0.26458 1.5875v0.52917h0.26458v-0.52917zm0.26458 0.52917v0.52917h0.52917v-0.26458h-0.26458v-0.26458zm-1.3229 5.8208v0.79375h2.3812v-0.79375z" fill="#6ec310"/>
+                                    <path d="m5.0271 1.0583v1.0583h0.79375v-0.26458h0.52917v0.26458h0.79375v-0.52917h0.26458v-0.52917h-0.26458zm-2.6458 1.0583v1.3229h1.3229v-1.3229zm-1.0583 2.6458v1.0583h1.0583v-1.0583zm1.0583 4.7625v0.26458h0.79375v0.52917h0.79375v0.26458h0.26458v0.26459h0.79375v-0.26459h-0.52917v-0.26458h-0.26458v-0.52917h-0.52917v-0.26458zm2.6458 1.3229v1.0583h3.9688v-1.0583z" fill="#57b10f"/>
+                                    <path d="m10.319 2.1167v0.79375h0.79375v0.52917h0.79375v1.0583h0.26458v-2.3812zm2.6458 2.6458v2.3812h-0.79375v1.3229h0.52917v1.0583h0.79375v-4.7625zm-7.9375 7.1437v0.79375h1.0583v0.52917h3.7042v-1.3229z" fill="#448001"/>
+                                    <path d="m13.494 9.525v0.52917h0.26458v0.52916h0.52917v-0.26458h0.26458v-0.26458h0.26458v-0.52917z" fill="#132e2f"/>
+                                    <path d="m12.171 9.525v2.3813h1.3229v-1.8521h-0.26458v-0.26459h-0.26458v-0.26458zm0 2.3813h-2.3812v1.3229h2.3812zm-2.3812 1.3229h-0.79375v0.26458h-0.26458v0.79375h-0.26458v0.26458h1.3229v-1.0583zm-7.4083-1.3229v1.3229h2.6458v-1.3229zm2.6458 1.3229v1.3229h2.6458v-0.52916h-0.52917v-0.52917h-0.26458v-0.26458z" fill="#014e96"/>
+                                    <path d="m7.4083 1.0583v0.52917h-0.26458v0.52917h2.6458v-1.0583zm2.3812 1.0583v2.6458h1.3229v4.7625h1.0583v-5.0271h-0.26458v-1.0583h-0.79375v-0.52917h-0.79375v-0.79375zm1.3229 7.4083h-1.3229v1.3229h1.3229zm-1.3229 1.3229h-0.79375v1.0583h0.79375zm-3.9688-8.9958v0.26458h0.52917v-0.26458zm-4.4979 7.4083v0.26458h1.0583v-0.26458zm2.3812 0.26458v0.26458h0.52917v0.52917h0.26458v0.26458h0.52917v-1.0583zm-1.3229 0.26458v1.0583h1.3229v1.0583h1.3229v-1.0583h-0.79375v-0.26459h-0.26458v-0.26458h-0.79375v-0.52917z" fill="#278eed"/>
+                                    <path d="m12.171 4.7625v2.3812h0.79375v-2.3812zm0 3.7042v1.0583h0.52917v-1.0583zm0 1.0583h-1.0583v1.3229h-1.3229v1.0583h2.3812zm-9.7896 1.3229v1.0583h1.3229v-1.0583zm2.6458 1.8521v0.52917h1.0583v-0.52917z" fill="#0d74d3"/>
+                                    <path d="m7.4083 2.1167v3.7042h-1.3229v1.3229h-1.8521v1.0583h-0.26458v-0.26458h-0.26458v-0.26458h-0.79375v0.26458h-0.26458v0.79375h0.52917v0.26458h0.52917v0.52917h1.3229v-1.0583h2.3812v-1.3229h1.3229v-1.3229h1.0583v2.6458h1.3229v-3.7042h-2.3812v-2.6458zm2.3812 6.35h-1.0583v1.0583h1.0583zm-1.0583 1.0583h-1.3229v1.3229h1.3229z" fill="#3da2ff"/>
+                                    <path d="m8.7312 2.1167v2.6458h1.0583v-2.6458zm0 3.7042v1.3229h-1.3229v1.3229h-2.3812v1.5875h2.3812v-0.52917h1.3229v-1.0583h1.0583v-2.6458z" fill="#4ba8ff"/>
+                                    <rect x="8.7313" y="9.525" width="1.0583" height="1.3229" fill="#2e95f4"/>
+                                    <rect x="9.7896" y="8.4667" width="1.3229" height="1.0583" fill="#2e95f4"/>
+                                    <rect x="3.7042" y="3.4396" width="2.3812" height="2.3812" fill="#ffffff"/>
+                                    <path d="m5.8208 2.1167v0.52917h-0.26458v0.26458h0.26458v0.52917h0.26458v0.26458h0.26458v0.52917h0.26458v0.26458h0.26458v0.26458h-0.52917v-0.52917h-0.26458v1.5875h1.3229v-3.7042h-0.26458v0.52917h-0.79375v-0.52917zm0.26458 3.7042h-1.3229v1.3229h1.3229z" fill="#57aaff"/>
+                                    <rect x="11.112" y="4.7625" width="1.0583" height="1.0583" fill="#3198f7"/>
+                                </g>
                             </g>
                         </svg>
                         <svg name="external_link" class="social_link" id="gitlab_link" width="64" height="64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 586 559" style="enable-background:new 0 0 586 559;" xml:space="preserve" data-slink="https://gitlab.com/QuanMCPC" tabindex="0" alt="GitLab icon">
@@ -306,7 +281,7 @@
                             <path class="st0" d="M104.4 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1.1-6.1-4.5-11.1-10.2-11.1zM140.9 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.5-11.1-10.2-11.1z"/>
                             <path class="st0" d="M189.5 20h-134C44.2 20 35 29.2 35 40.6v135.2c0 11.4 9.2 20.6 20.5 20.6h113.4l-5.3-18.5 12.8 11.9 12.1 11.2 21.5 19V40.6c0-11.4-9.2-20.6-20.5-20.6zm-38.6 130.6s-3.6-4.3-6.6-8.1c13.1-3.7 18.1-11.9 18.1-11.9-4.1 2.7-8 4.6-11.5 5.9-5 2.1-9.8 3.5-14.5 4.3-9.6 1.8-18.4 1.3-25.9-.1-5.7-1.1-10.6-2.7-14.7-4.3-2.3-.9-4.8-2-7.3-3.4-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.3-1.8-1-2.8-1.7-2.8-1.7s4.8 8 17.5 11.8c-3 3.8-6.7 8.3-6.7 8.3-22.1-.7-30.5-15.2-30.5-15.2 0-32.2 14.4-58.3 14.4-58.3 14.4-10.8 28.1-10.5 28.1-10.5l1 1.2c-18 5.2-26.3 13.1-26.3 13.1s2.2-1.2 5.9-2.9c10.7-4.7 19.2-6 22.7-6.3.6-.1 1.1-.2 1.7-.2 6.1-.8 13-1 20.2-.2 9.5 1.1 19.7 3.9 30.1 9.6 0 0-7.9-7.5-24.9-12.7l1.4-1.6s13.7-.3 28.1 10.5c0 0 14.4 26.1 14.4 58.3 0 0-8.5 14.5-30.6 15.2z"/>
                         </svg>
-                    </center>
+                    </div>
                 </div>
                 <h3 style="color: rgb(0, 255, 0); text-align: center">Project</h3>
                 <!-- Other Project START -->
