@@ -38,28 +38,28 @@
             table th {
                 background-color: rgba(20, 20, 20, 0.850);
             }
-            div.container * {
+            div.container > * {
                 max-width: 50%;
                 margin-left: auto;
                 margin-right: auto;
             }
             @media (min-width: 320px) {
-                div.container * { max-width: 100% }
+                div.container > * { max-width: 100% }
                 th, td { padding: 5px }
             }
             @media (min-width: 482px) {
-                div.container * { max-width: 95% }
+                div.container > * { max-width: 95% }
                 th, td { padding: 15px }
             }
             @media (min-width: 640px) {
-                div.container * { max-width: 80% }
+                div.container > * { max-width: 80% }
                 th, td { padding: 15px }
             }
             @media (min-width: 960px) {
-                div.container * { max-width: 65% }
+                div.container > * { max-width: 65% }
             }
             @media (min-width: 1100px) {
-                div.container * { max-width: 50% }
+                div.container > * { max-width: 50% }
             }
             #textview {
                 max-width: initial;
@@ -160,7 +160,7 @@
         </div>
         <main>
             <div class="container">
-                <h1 style="color:red; text-align: center; max-width: 100%;"><b>About Website</b></h1>
+                <h1 style="color:red; text-align: center;"><b>About Website</b></h1>
                 <h2>Here are some information about the website which I rarely update the stat and just here for "some purpose"</h2>
                 <div style="text-align: center;">
                     <a href="#" onclick="getId('textview').style.display = 'block'; getId('tableview').style.display = 'none'; getId('switchtextview').style.display = 'none'; getId('switchtableview').style.display = 'block'" id="switchtextview">[Switch to text view]</a>
@@ -250,7 +250,7 @@
                     </tbody>
                 </table>
                 <footer style="margin-top: 15px; margin-bottom: 15px;">
-                    <p style="color:white; text-align: center; max-width: 100%;">Copyright (C) 2021 Quan_MCPC. Created on: 7/16/20, this website will live <b style="color:red">forever</b></p>
+                    <p style="color:white; text-align: center;">Copyright (C) 2021 Quan_MCPC. Created on: 7/16/20, this website will live <b style="color:red">forever</b></p>
                 </footer>
             </div>
             <div id="settings" onkeydown="if (event.code == 'Space' || event.code == 'Enter') { getId('settingspage').style.opacity = '1'; getId('settingspage').style.pointerEvents = 'initial'; }" onclick="getId('settingspage').style.opacity = '1'; getId('settingspage').style.pointerEvents = 'initial';" tabindex="0" role="button">

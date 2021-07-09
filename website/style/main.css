@@ -122,7 +122,7 @@ body {
   z-index: -1;
   display: none;
 }
-div.container *, div#settingspage * {
+div.container > *, div#settingspage > * {
   max-width: 50%;
   margin-left: auto;
   margin-right: auto;
@@ -167,7 +167,6 @@ div#settingspage {
   transition: opacity 0.5s ease;
 }
 div#spb_inside button {
-  max-width: 100%;
   height: 30px;
   background-color: rgb(90, 90, 90);
   border: none;
@@ -179,7 +178,6 @@ div#settingspage div#sp_button button:hover {
   background-color: rgb(75, 75, 75);
 }
 div#spb_inside {
-  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -193,7 +191,6 @@ li::before {content: "• "; }
 li li::before {content: "▪ "; }
 li li li::before {content: "▫ "; }
 li {
-  max-width: 100% !important;
   color: white;
 }
 @media (max-width: 319px) { #screentoosmall { display: block; } }
@@ -201,7 +198,7 @@ li {
   body { font-size: 0.75rem; }
   #accbar a { margin-left: 5px; margin-right: 5px; }
   #accb_small, #accb_small_ p { font-size: 1.5em }
-  div.container *, div#settingspage * { max-width: 95% }
+  div.container > *, div#settingspage > * { max-width: 95% }
   #screentoosmall { display: none; }
   div#sp_actual * { margin-top: 3px; margin-bottom: 3px; }
   div#settingspage span { margin-top: initial; margin-bottom: initial; }
@@ -211,7 +208,7 @@ li {
   body { font-size: 0.75rem; }
   #accbar a { margin-left: 7px; margin-right: 7px; }
   #accb_small, #accb_small_ p { font-size: 1.4em }
-  div.container *, div#settingspage * { max-width: 95% }
+  div.container > *, div#settingspage > * { max-width: 95% }
   div#sp_actual * { margin-top: 5px; margin-bottom: 5px; }
   div#settingspage span { margin-top: initial; margin-bottom: initial; }
   ul { margin-left: 10px }
@@ -224,7 +221,7 @@ li {
   body { font-size: 0.81rem; }
   #accbar a { margin-left: 9px; margin-right: 9px; }
   #accb_small, #accb_small_ p { font-size: 1.3em }
-  div.container *, div#settingspage * { max-width: 80% }
+  div.container > *, div#settingspage > * { max-width: 80% }
   #accb_small_ { display: none; }
   nav.accb { display: grid; }
 }
@@ -232,13 +229,13 @@ li {
   body { font-size: 1rem; }
   #accbar a { margin-left: 11px; margin-right: 11px; }
   #accb_small, #accb_small_ p { font-size: 1.2em }
-  div.container *, div#settingspage * { max-width: 65% }
+  div.container > *, div#settingspage > * { max-width: 65% }
 }
 @media (min-width: 1100px) {
   body { font-size: 1rem; }
   #accbar a { margin-left: 13px; margin-right: 13px; }
   #accb_small, #accb_small_ p { font-size: 1.1em }
-  div.container *, div#settingspage * { max-width: 50% }
+  div.container > *, div#settingspage > * { max-width: 50% }
 }
 div#sp_actual * {
   margin-left: initial;
