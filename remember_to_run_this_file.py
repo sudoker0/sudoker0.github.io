@@ -13,22 +13,22 @@ from datetime import date
 
 # Get the total size of folder in [path]
 def sizeOfFolder(path = "."):
-    print("Calculating the total size of folder: " + os.path.abspath(path))
+    # print("Calculating the total size of folder: " + os.path.abspath(path))
     fp = ""; lite_size = 0
     for path, dirs, files in os.walk(path):
         for f in files:
             fp = os.path.join(path, f)
             lite_size += os.path.getsize(fp)
-    print("Total size: " + str(lite_size))
+    # print("Total size: " + str(lite_size))
     return lite_size
 
 # Get the total size for each file listed in the [pathgroup] array
 def totalSizeOfEachFile(pathgroup = []):
     sizegroup = 0
     for path in pathgroup:
-        print("Get size of path: " + path)
+        # print("Get size of path: " + path)
         sizegroup += os.path.getsize(path)
-    print("Total size: " + str(sizegroup))
+    # print("Total size: " + str(sizegroup))
     return sizegroup
 
 # Format the input number as size string (123456789 => 123,456,789)
@@ -84,7 +84,7 @@ data = {
     "last_updated_on": date.today().strftime("%Y-%m-%d"),
     "list": listing
 }
-print(data)
+# print(data)
 with open(start_path + "/file_listing.json", "w") as outfile: #Dump metadata listing to JSON file
     json.dump(data, outfile, indent=4)
 
@@ -100,19 +100,19 @@ import json
 from subprocess import Popen, PIPE
 import subprocess
 
-command_to_execute = ["git1", "log", "--pretty=format:\"%h;%cn;%cd;%s\""]
+command_to_execute = ["git", "log", "--pretty=format:\"%h;%cn;%cd;%s\""]
 
 # Run the git command
 process = Popen(command_to_execute, stdout=PIPE, shell=True)
 
 # Get the output and error
 (output, err) = process.communicate()
-count = 0; json_data = []
+count = 0; json_data = {"last_update_on": date.today().strftime("%Y-%m-%d"), "data": []}
 # Loop through each line (which contain the hash, committer name, date and the commit message)
 for items in output.decode("utf-8").split("\n"):
     # Split the line to indivitual stuff like hash, etc. for ease ofuse
     item = items[1:-1].split(";")
-    json_data.append({"hash": item[0], "committer": item[1], "commit_date": item[2], "message": item[3]})
+    json_data["data"].append({"hash": item[0], "committer": item[1], "commit_date": item[2], "message": item[3]})
 
 # Export data to a file
 with open("./commit_data.json", "w") as outfile:
@@ -174,9 +174,9 @@ def getJSONData(path, ext):
     #return {"extension": ext, "numoffile": NumberOfFile(path, ext), "size": Size, "percent": (Size / TotalSize * 100)}
     return "*" + ext + " | " + str(round((Size / TotalSize * 100), 2)) + "% | " + str(NumberOfFile(path, ext)) + " files | " + str(formatFileSize(Size)) + " bytes"
 
-print(getJSONData(".", "*"))
-for ext in getAllExtension("."):
-    print(getJSONData(".", ext))
+# print(getJSONData(".", "*"))
+# for ext in getAllExtension("."):
+#     print(getJSONData(".", ext))
 
 # with open("ReadMe.md", "r", encoding="utf8") as md:
 #     mdLines = md.readlines()
