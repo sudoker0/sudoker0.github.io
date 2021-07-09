@@ -174,9 +174,9 @@ def getJSONData(path, ext):
     #return {"extension": ext, "numoffile": NumberOfFile(path, ext), "size": Size, "percent": (Size / TotalSize * 100)}
     return "*" + ext + " | " + str(round((Size / TotalSize * 100), 2)) + "% | " + str(NumberOfFile(path, ext)) + " files | " + str(formatFileSize(Size)) + " bytes"
 
-# print(getJSONData(".", "*"))
-# for ext in getAllExtension("."):
-#     print(getJSONData(".", ext))
+print(getJSONData(".", "*"))
+for ext in getAllExtension("."):
+    print(getJSONData(".", ext))
 
 # with open("ReadMe.md", "r", encoding="utf8") as md:
 #     mdLines = md.readlines()
