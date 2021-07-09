@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Commit Table</title>
+        <style>
+            body { font-family: 'Courier New', Courier, monospace; font-weight: 300; }
+            table {
+                color: black;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            table, th, td {
+                border: 1px solid rgb(0, 0, 0);
+            }
+            th, td { padding: 10px }
+        </style>
+    </head>
+    <body>
+        <h2>A listing of all the website's commit with details</h2>
+        <p>The file listing is created from a Python file, which is <a href="/remember_to_run_this_file.py" download="remember_to_run_this_file.py">this file</a>.</p>
+        <p>Download the Commit Table data as JSON <a href="/commit_data.json" download="commit_data.json">here</a></p>
+        <span id="luo"></span>
+        <table class="tg" style="table-layout: fixed;" id="tableview" style="display: block;">
+            <tbody>
+                <tr id="header">
+                    <th>Commit #</th>
+                    <th>Commit Hash</th>
+                    <th>Committer</th>
+                    <th>Commit Date</th>
+                    <th>Commit Message</th>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+    <script>
+        function getId(id) { return document.getElementById(id) };
+        fetch("/commit_data.json")
+            .then(e => e.json())
+            .then(e => {
+                getId("luo").innerHTML = `Last updated on: ${e.last_update_on}`
+                e.data.forEach((value, index) => {
+                    getId("header").insertAdjacentHTML("afterend", `<tr><td>${e.data.length - index}</td> <td>${value.hash}</td><td>${value.committer}</td><td>${value.commit_date}</td><td>${value.message}</td></tr>`)
+                })
+            })
+    </script>
+</html>
