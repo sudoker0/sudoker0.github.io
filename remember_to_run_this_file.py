@@ -2,16 +2,19 @@
 # Because I do not want to run like 4 command just to update stuff
 # Copyright (C) 2021 Quan_MCPC, license under MIT license.
 
+import os, re, json
+from datetime import date, time
+import time
+from subprocess import Popen, PIPE
+
 # ----------------------[find_size.py]---------------------- #
 
 # A Python script to automate the changing of file info.
 # I Don't really Care about shrinking the file size down.
 # Copyright (C) 2021 Quan_MCPC, license under MIT license.
 
-import os, re, json
-from datetime import date
-
 # Get the total size of folder in [path]
+print("Now running \"find_size.py\"")
 def sizeOfFolder(path = "."):
     # print("Calculating the total size of folder: " + os.path.abspath(path))
     fp = ""; lite_size = 0
@@ -64,8 +67,9 @@ with open("website_data.json", "w") as outfile:
 
 # --------------[get_file_info_for_archive.py]-------------- #
 
-import os, json, time # Import important stuff
-from datetime import date
+# import os, json, time # Import important stuff
+# from datetime import date
+print("Now running \"get_file_info_for_archive.py\"")
 start_path = "./archive" # The path to get metadata
 total_size = 0
 listing = []
@@ -96,12 +100,11 @@ with open(start_path + "/file_listing.json", "w") as outfile: #Dump metadata lis
 # I Don't really Care about shrinking the file size down.
 # Copyright (C) 2021 Quan_MCPC, license under MIT license.
 
-import json
-from subprocess import Popen, PIPE
-import subprocess
-
+# import json
+# from subprocess import Popen, PIPE
+# import subprocess
+print("Now running \"commit.py\"")
 command_to_execute = ["git", "log", "--pretty=format:\"%h;%cn;%cd;%s\""]
-
 # Run the git command
 process = Popen(command_to_execute, stdout=PIPE, shell=True)
 
@@ -121,10 +124,12 @@ exit_code = process.wait()
 
 # ------------------------[commit.py]----------------------- #
 
-# ------------------[update-file_table.py]------------------ #
+# ------------------[update_file_table.py]------------------ #
 
-import os, re
-from time import sleep
+# import os, re
+# from time import sleep
+
+print("Now running \"update_file_table.py\"")
 
 def FolderSize(path = "."):
     fp = ""; lite_size = 0
@@ -163,6 +168,7 @@ def getAllExtension(path = "."):
             ext = os.path.splitext(os.path.join(path, f))
             if (ext[1] not in extension_list):
                 extension_list.append(ext[1])
+    extension_list.sort()
     return extension_list
 
 def formatFileSize(sizestring = 0): return re.sub(r"(?!^)(?=(?:\d{3})+(?:\.|$))", ",", str(sizestring))
@@ -171,43 +177,17 @@ TotalSize = FolderSize()
 
 def getJSONData(path, ext):
     Size = SizeOfFile(path, ext)
-    #return {"extension": ext, "numoffile": NumberOfFile(path, ext), "size": Size, "percent": (Size / TotalSize * 100)}
-    return "*" + ext + " | " + str(round((Size / TotalSize * 100), 2)) + "% | " + str(NumberOfFile(path, ext)) + " files | " + str(formatFileSize(Size)) + " bytes"
+    return "\\*" + ext + " | " + str(round((Size / TotalSize * 100), 2)) + "% | " + str(NumberOfFile(path, ext)) + " files | " + str(formatFileSize(Size)) + " bytes"
 
-print(getJSONData(".", "*"))
+text = ""
+text += getJSONData(".", "*")
 for ext in getAllExtension("."):
-    print(getJSONData(".", ext))
-
-# with open("ReadMe.md", "r", encoding="utf8") as md:
-#     mdLines = md.readlines()
-
-# lineCount = 0
-# result = []
-# start_deleting = False
-# for line in mdLines:
-#     lineCount += 1
-#     if line == "<!--python_data_stop-->\n": start_deleting = False
-#     if start_deleting:
-#         print("Deleted line: " + str(lineCount))
-#         result.append(mdLines.pop(lineCount))
-#     if line == "<!--python_data_start-->\n": start_deleting = True
-
-# for read in mdLines: print(read)
-# for result in mdLines: print(result)
-
-# data_start_index = mdLines.index("<!--python_data_start-->\n") + 1 + 2
-# while(data_start_index < len(mdLines)):
-#     if (mdLines[data_start_index] == "<!--python_data_stop-->\n"):
-#         print("Done")
-#         break
-#     else:
-#         print(mdLines[data_start_index])
-#         data_start_index += 1
-# for line in mdLines:
-#     if line == "<!--python_data_start-->\n":
-
-# with open('ReadMe.md', encoding="utf8") as f:
-#     for line in f:
-#         print(f)
+    text += "\n" + getJSONData(".", ext)
+with open("ReadMe.md", "r", encoding="utf8") as markdown:
+    markdownContent = markdown.read()
+    oldselector = re.compile("<!--python_data_start-->.*<!--python_data_stop-->", re.DOTALL)
+    newmd = re.sub(oldselector, "<!--python_data_start-->\nFile Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)\n----------------|--------------------- |-----------------|--------------------------\n" + text + "\n> Last updated on: " + date.today().strftime("%Y-%m-%d") + "\n<!--python_data_stop-->", markdownContent)
+with open("ReadMe.md", "w", encoding="utf-8") as markdown:
+    markdown.write(newmd)
 
 # ------------------[update-file_table.py]------------------ #
