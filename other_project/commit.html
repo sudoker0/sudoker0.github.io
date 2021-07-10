@@ -46,6 +46,7 @@
     <body>
         <h1 style="text-align: center;">Website's Repository commit per weeks</h1>
         <p style="text-align: center;">External library: Chart.js; Data gathered from GitHub API</p>
+        <p style="text-align: center;">Number of commit as of "<span id="lastUpdate">null</span>" from GitHub API is <span id="numOfCommit">0</span></p>
         <p style="text-align: center;" id="info"></p>
         <div id="parent">
             <div style="display: flex; justify-content: center;">
@@ -81,6 +82,10 @@
                                 getId("rateLimit_indicator").style.backgroundColor = "green"
                             }
                         })
+                    utcTime = f[0].weeks[f[0].weeks.length - 1].w
+                    var d_ = new Date(utcTime * 1000)
+                    getId("numOfCommit").innerHTML = f[0].total
+                    getId("lastUpdate").innerHTML = d_.toUTCString()
                     if (f.message) {
                         //getId("rateLimit_content").innerHTML = `Failed to get data from GitHub API, this maybe due to number of request exceeded for your current IP. Please see the number of commit on: https://github.com/QuanMCPC/QuanMCPC.github.io`;
                         getId("rateLimit_indicator").style.backgroundColor = "red"
