@@ -1,8 +1,9 @@
+#!/usr/bin/python
 # This is a compilation of all the Python script put into one place
 # Because I do not want to run like 4 command just to update stuff
 # Copyright (C) 2021 Quan_MCPC, license under MIT license.
 
-import os, re, json
+import os, re, json, sys
 from datetime import date, time
 import time
 from subprocess import Popen, PIPE
@@ -14,24 +15,29 @@ from subprocess import Popen, PIPE
 # Copyright (C) 2021 Quan_MCPC, license under MIT license.
 
 # Get the total size of folder in [path]
-print("Now running \"find_size.py\"")
+argument = sys.argv
+def log(mes):
+    if len(argument) > 1:
+        if argument[1] == "--verbose": print(mes)
+
+log("Now running \"find_size.py\"")
 def sizeOfFolder(path = "."):
-    # print("Calculating the total size of folder: " + os.path.abspath(path))
+    log(f"Calculating the total size of folder: {os.path.abspath(path)}")
     fp = ""; lite_size = 0
     for path, dirs, files in os.walk(path):
         for f in files:
             fp = os.path.join(path, f)
             lite_size += os.path.getsize(fp)
-    # print("Total size: " + str(lite_size))
+    log(f"Total size: {str(lite_size)}")
     return lite_size
 
 # Get the total size for each file listed in the [pathgroup] array
 def totalSizeOfEachFile(pathgroup = []):
     sizegroup = 0
     for path in pathgroup:
-        # print("Get size of path: " + path)
+        log(f"Get size of path: {path}")
         sizegroup += os.path.getsize(path)
-    # print("Total size: " + str(sizegroup))
+    log(f"Total size: {str(sizegroup)}")
     return sizegroup
 
 # Format the input number as size string (123456789 => 123,456,789)
@@ -69,7 +75,7 @@ with open("website_data.json", "w") as outfile:
 
 # import os, json, time # Import important stuff
 # from datetime import date
-print("Now running \"get_file_info_for_archive.py\"")
+log("Now running \"get_file_info_for_archive.py\"")
 start_path = "./archive" # The path to get metadata
 total_size = 0
 listing = []
@@ -81,14 +87,16 @@ for path, dirs, files in os.walk(start_path):
         mtime = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(os.path.getmtime(f))) + " (GMT +7)" #Last modification time
         #isdir_ = os.path.isdir(f) #Is it a directory?
         #listing.append({"filename": f1, "filesize": fs, "mod_time": mtime, "isdir": isdir_})
-        listing.append({"filename": f1, "filesize": fs, "mod_time": mtime})
+        direc = {"filename": f1, "filesize": fs, "mod_time": mtime}
+        log(direc)
+        listing.append(direc)
 
 data = {
     "type": "dir_listing",
     "last_updated_on": date.today().strftime("%Y-%m-%d"),
     "list": listing
 }
-# print(data)
+# log(data)
 with open(start_path + "/file_listing.json", "w") as outfile: #Dump metadata listing to JSON file
     json.dump(data, outfile, indent=4)
 
@@ -103,7 +111,7 @@ with open(start_path + "/file_listing.json", "w") as outfile: #Dump metadata lis
 # import json
 # from subprocess import Popen, PIPE
 # import subprocess
-print("Now running \"commit.py\"")
+log("Now running \"commit.py\"")
 command_to_execute = ["git", "log", "--pretty=format:\"%h;%cn;%cd;%s\""]
 # Run the git command
 process = Popen(command_to_execute, stdout=PIPE, shell=True)
@@ -114,6 +122,7 @@ count = 0; json_data = {"last_update_on": date.today().strftime("%Y-%m-%d"), "da
 # Loop through each line (which contain the hash, committer name, date and the commit message)
 for items in output.decode("utf-8").split("\n"):
     # Split the line to indivitual stuff like hash, etc. for ease ofuse
+    log(items)
     item = items[1:-1].split(";")
     json_data["data"].append({"hash": item[0], "committer": item[1], "commit_date": item[2], "message": item[3]})
 
@@ -129,39 +138,40 @@ exit_code = process.wait()
 # import os, re
 # from time import sleep
 
-print("Now running \"update_file_table.py\"")
+log("Now running \"update_file_table.py\"")
 
 def FolderSize(path = "."):
+    log(f"Calculating the total size of folder: {os.path.abspath(path)}")
     fp = ""; lite_size = 0
     for path, _, files in os.walk(path):
         for f in files:
             fp = os.path.join(path, f)
             lite_size += os.path.getsize(fp)
+    log(f"Total size: {str(lite_size)}")
     return lite_size
 
 def NumberOfFile(path, ext):
+    log(f"Calculating the number of file in folder: {os.path.abspath(path)} with extension: {ext}")
     counter = 0
     for path, _, files in os.walk(path):
         for f in files:
             l = len(f.split("."))
-            if (ext == "*"): counter += 1
-            elif ext == "" and l == 1: counter += 1
-            elif f.endswith(ext) and l >= 2 and ext != "": counter += 1
+            if (ext == "*") or (ext == "" and l == 1) or (f.endswith(ext) and l >= 2 and ext != ""): counter += 1
+    log(f"Total file with extension: {str(counter)}")
     return counter
 
 def SizeOfFile(path, ext):
+    log(f"Calculating the size of file with extension: {ext} in {os.path.abspath(path)}")
     counter = 0
     for path, _, files in os.walk(path):
         for f in files:
-            if (ext == "*"):
+            if (ext == "*") or (ext == "" and len(f.split(".")) == 1) or (f.endswith(ext) and len(f.split(".")) >= 2 and ext != ""):
                 counter += os.path.getsize(os.path.join(path, f))
-            elif ext == "" and len(f.split(".")) == 1:
-                counter += os.path.getsize(os.path.join(path, f))
-            elif f.endswith(ext) and len(f.split(".")) >= 2 and ext != "":
-                counter += os.path.getsize(os.path.join(path, f))
+    log(f"Total size of all file with extension: {ext} is {counter}")
     return counter
 
 def getAllExtension(path = "."):
+    log(f"Getting all file extension in {path}")
     extension_list = []
     for path, _, files in os.walk(path):
         for f in files:
@@ -169,6 +179,7 @@ def getAllExtension(path = "."):
             if (ext[1] not in extension_list):
                 extension_list.append(ext[1])
     extension_list.sort()
+    log(extension_list)
     return extension_list
 
 def formatFileSize(sizestring = 0): return re.sub(r"(?!^)(?=(?:\d{3})+(?:\.|$))", ",", str(sizestring))
@@ -177,7 +188,7 @@ TotalSize = FolderSize()
 
 def getJSONData(path, ext):
     Size = SizeOfFile(path, ext)
-    return "\\*" + ext + " | " + str(round((Size / TotalSize * 100), 2)) + "% | " + str(NumberOfFile(path, ext)) + " files | " + str(formatFileSize(Size)) + " bytes"
+    return f"\\*{ext} | {str(round((Size / TotalSize * 100), 2))}% | {str(NumberOfFile(path, ext))} files | {str(formatFileSize(Size))} bytes"
 
 text = ""
 text += getJSONData(".", "*")
@@ -186,7 +197,7 @@ for ext in getAllExtension("."):
 with open("ReadMe.md", "r", encoding="utf8") as markdown:
     markdownContent = markdown.read()
     oldselector = re.compile("<!--python_data_start-->.*<!--python_data_stop-->", re.DOTALL)
-    newmd = re.sub(oldselector, "<!--python_data_start-->\nFile Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)\n----------------|--------------------- |-----------------|--------------------------\n" + text + "\n> Last updated on: " + date.today().strftime("%Y-%m-%d") + "\n<!--python_data_stop-->", markdownContent)
+    newmd = re.sub(oldselector, f"<!--python_data_start-->\nFile Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)\n----------------|--------------------- |-----------------|--------------------------\n{text}\n> Last updated on: {date.today().strftime('%Y-%m-%d')}\n<!--python_data_stop-->", markdownContent)
 with open("ReadMe.md", "w", encoding="utf-8") as markdown:
     markdown.write(newmd)
 
