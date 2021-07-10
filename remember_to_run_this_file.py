@@ -1,4 +1,3 @@
-#!/usr/bin/python
 # This is a compilation of all the Python script put into one place
 # Because I do not want to run like 4 command just to update stuff
 # Copyright (C) 2021 Quan_MCPC, license under MIT license.
