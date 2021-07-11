@@ -126,7 +126,7 @@ for items in output.decode("utf-8").split("\n"):
     # Split the line to indivitual stuff like hash, etc. for ease ofuse
     log(items)
     item = items[1:-1].split(";")
-    json_data["data"].append({"hash": item[0], "committer": item[1], "commit_date": item[2], "message": item[3]})
+    json_data["data"].append({"hash": item[0], "committer": item[1], "commit_date": int(item[2]), "message": item[3]})
 
 # Export data to a file
 with open("./commit_data.json", "w") as outfile:
