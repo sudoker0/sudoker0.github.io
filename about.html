@@ -329,7 +329,7 @@
                         .then(e => e.json())
                         .then(e => {
                             innerHTMLClass("lastupdateon1", e.last_update_on);
-                            innerHTMLClass("numberofcommit", e.data.length + 1);
+                            innerHTMLClass("numberofcommit", e.data.length);
                         })
                 }
                 fetch_();
