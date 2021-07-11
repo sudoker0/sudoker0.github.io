@@ -111,7 +111,7 @@ with open(start_path + "/file_listing.json", "w") as outfile: #Dump metadata lis
 # from subprocess import Popen, PIPE
 # import subprocess
 log("Now running \"commit.py\"")
-command_to_execute = ["git", "log", "--pretty=format:\"%h;%cn;%cd;%s\""]
+command_to_execute = ["git", "log", "--pretty=format:\"%h;%cn;%cd;%s\"", "--date=unix"]
 # Run the git command
 if sys.platform == "linux" or sys.platform == "linux2"or sys.platform == "darwin": enableShell = Flase
 elif sys.platform == "win32": enableShell = True
