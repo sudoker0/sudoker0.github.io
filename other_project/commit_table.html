@@ -43,7 +43,8 @@
             .then(e => {
                 getId("luo").innerHTML = `Last updated on: ${e.last_update_on}`
                 e.data.forEach((value, index) => {
-                    getId("header").insertAdjacentHTML("afterend", `<tr><td>${e.data.length - index}</td> <td>${value.hash}</td><td>${value.committer}</td><td>${value.commit_date}</td><td>${value.message}</td></tr>`)
+                    var date = new Date(parseFloat(value.commit_date) * 1000)
+                    getId("header").insertAdjacentHTML("afterend", `<tr><td>${e.data.length - index}</td> <td>${value.hash}</td><td>${value.committer}</td><td>${date.toString().replace(/\s\(.+\)/g, "")}</td><td>${value.message}</td></tr>`)
                 })
             })
     </script>
