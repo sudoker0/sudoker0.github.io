@@ -204,3 +204,41 @@ with open("ReadMe.md", "w", encoding="utf-8") as markdown:
     markdown.write(newmd)
 
 # ------------------[update-file_table.py]------------------ #
+
+# ---------------------[commit_maybe.py]-------------------- #
+# import os, re, json, sys
+# from datetime import date, time
+# import time
+# from subprocess import Popen, PIPE
+
+# argument = sys.argv
+# def log(mes):
+#     if len(argument) > 1:
+#         if argument[1] == "--verbose": print(mes)
+# log("\n========================================\nNow running \"commit.py\"\n")
+# command_to_execute = ["git", "log", "--pretty=format:\"Commit: %h;%cn;%cd;%s\"", "--date=unix", "--name-status"]
+# # Run the git command
+# if sys.platform == "linux" or sys.platform == "linux2"or sys.platform == "darwin": enableShell = Flase
+# elif sys.platform == "win32": enableShell = True
+
+# process = Popen(command_to_execute, stdout=PIPE, shell=enableShell)
+
+# # Get the output and error
+# (output, err) = process.communicate()
+# count = 0; json_data = {"last_update_on": date.today().strftime("%Y-%m-%d"), "data": []}
+# # Loop through each line (which contain the hash, committer name, date and the commit message)
+# # print(output.decode("utf-8").split("\"Commit"))
+# # print(output.decode("utf-8").split("\"Commit: "))
+# for items in output.decode("utf-8").split("\"Commit: "):
+#     # print(f"{count}: {items}")
+#     header = items.split('\n')[0][0:-1]
+#     header_data = header.split(";")
+#     if len(header_data) >= 4:
+#         affected_file = []
+#         for item in items.split("\n")[1: -2]:
+#             affected_file.append(item)
+#         json_data["data"].append({"hash": header_data[0], "committer": header_data[1], "commit_date": int(header_data[2]), "message": header_data[3], "affected_file": affected_file})
+# with open("./commit_data111.json", "w") as outfile:
+#     json.dump(json_data, outfile, indent=4)
+# exit_code = process.wait()
+# ---------------------[commit_maybe.py]-------------------- #
