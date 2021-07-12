@@ -7,6 +7,7 @@ from datetime import date, time
 import time
 from subprocess import Popen, PIPE
 
+argument = sys.argv
 def log(mes):
     if len(argument) > 1:
         if argument[1] == "--verbose": print(mes)
@@ -18,7 +19,6 @@ def log(mes):
 # Copyright (C) 2021 Quan_MCPC, license under MIT license.
 
 # Get the total size of folder in [path]
-argument = sys.argv
 log("\n========================================\nNow running \"find_size.py\"\n")
 def sizeOfFolder(path = "."):
     log(f"Calculating the total size of folder: {os.path.abspath(path)}")
