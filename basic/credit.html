@@ -29,13 +29,14 @@
         <style>
             .first_level { padding-left: 50px }
             .second_level { padding-left: 100px }
+            div#project span { margin: 0 }
             @media (min-width: 320px) {
-                div#project *:not(span) { margin-top: 3px; margin-bottom: 3px; }
+                div#project * { margin-top: 3px; margin-bottom: 3px; }
                 .first_level { padding-left: 10px }
                 .second_level { padding-left: 20px }
             }
             @media (min-width: 482px) {
-                div#project *:not(span) { margin-top: 5px; margin-bottom: 5px; }
+                div#project * { margin-top: 5px; margin-bottom: 5px; }
                 .first_level { padding-left: 20px }
                 .second_level { padding-left: 40px }
             }

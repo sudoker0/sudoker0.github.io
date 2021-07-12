@@ -34,35 +34,13 @@
                 margin-right: auto;
                 display: block
             }
-            #project * :not(span):not(del) {
-                margin: 5px
-            }
-            div#project span { margin-right: 5px; }
-            #project ul {
-                margin-left: 20px;
-                padding-left: 5px;
-                margin-top: 0;
-            }
-            #project li {
-                margin-top: 7px;
-                margin-bottom: 7px;
-            }
-            div#project h4 {
-                margin: 10px;
-            }
             @media (min-width: 320px) {
-                div#project *, div#sp_actual * { margin-top: 3px; margin-bottom: 3px; }
-                div#project ul { margin-left: 5px }
+                div#sp_actual * { margin-top: 3px; margin-bottom: 3px; }
                 span { margin-top: initial; margin-bottom: initial; }
             }
             @media (min-width: 482px) {
-                div#project *, div#sp_actual * { margin-top: 5px; margin-bottom: 5px; }
-                div#project ul { margin-left: 10px }
+                div#sp_actual * { margin-top: 5px; margin-bottom: 5px; }
                 span { margin-top: initial; margin-bottom: initial; }
-            }
-            div#project *, div#project_ * {
-                max-width: initial;
-                margin: initial;
             }
             div#sp_actual * {
                 margin-left: initial;
@@ -72,7 +50,7 @@
             del {
                 margin: 0
             }
-            #iframe_ {
+            div#iframe_ {
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -83,25 +61,26 @@
                 background-color: white;
                 display: none;
             }
-            #iframe_accbar {
+            div#iframe_accbar {
                 width: 100%;
                 height: 20px;
                 background-color: gray;
             }
-            #abcd {
+            div#iframe_ hr {
                 margin: 0;
                 height: 4px;
                 background-color: gray;
                 border: 1px solid gray;
             }
-            #iframe_accbar button {
+            div#iframe_accbar button {
                 height: 20px;
                 min-width: 50px;
                 border: none;
                 margin-left: 5px;
                 margin-right: 5px;
+                background-color: #EFEFEF;
             }
-            #iframe_accbar button:hover {
+            div#iframe_accbar button:hover {
                 background-color: rgb(180, 180, 180);
             }
             iframe {
@@ -118,9 +97,9 @@
     <body id="temp" onload="check1()">
         <div id="iframe_">
             <div id="iframe_accbar">
-                <button onclick="getId('iframe__').setAttribute('src', 'about:blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'" style="background-color: #EFEFEF">Close</button><button onclick="window.open(getId('iframe__').getAttribute('src'), '_blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'" style="background-color: #EFEFEF">Open in a new tab</button>
+                <button onclick="getId('iframe__').setAttribute('src', 'about:blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Close</button><button onclick="window.open(getId('iframe__').getAttribute('src'), '_blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Open in a new tab</button>
             </div>
-            <hr id="abcd">
+            <hr>
             <iframe title="A place to display my project" id="iframe__" scrolling="yes" src="about:blank" width="100%" allowfullscreen sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-modals allow-popups" style="overflow-y: scroll;"></iframe>
         </div>
         <div id="secret_image">

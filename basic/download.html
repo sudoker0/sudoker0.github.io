@@ -29,16 +29,17 @@
             .social_link:hover {
                 cursor: pointer;
             }
-            #project * :not(span):not(del) {
+            div#project * {
                 margin: 5px
             }
+            div#project span, div#project del { margin: initial; }
             div#project span { margin-right: 5px; }
-            #project ul {
+            div#project ul {
                 margin-left: 20px;
                 padding-left: 5px;
                 margin-top: 0;
             }
-            #project li {
+            div#project li {
                 margin-top: 7px;
                 margin-bottom: 7px;
             }
@@ -69,7 +70,7 @@
                 max-width: initial;
                 margin: initial;
             }
-            #iframe_ {
+            div#iframe_ {
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -80,25 +81,25 @@
                 background-color: white;
                 display: none;
             }
-            #iframe_accbar {
+            div#iframe_accbar {
                 width: 100%;
                 height: 20px;
                 background-color: gray;
             }
-            #abcd {
+            div#iframe_ hr {
                 margin: 0;
                 height: 4px;
                 background-color: gray;
                 border: 1px solid gray;
             }
-            #iframe_accbar button {
+            div#iframe_accbar button {
                 height: 20px;
                 min-width: 50px;
                 border: none;
                 margin-left: 5px;
                 margin-right: 5px;
             }
-            #iframe_accbar button:hover {
+            div#iframe_accbar button:hover {
                 background-color: rgb(180, 180, 180);
             }
             iframe {
@@ -111,12 +112,12 @@
                 margin: 5px
             }
             div#project span { margin-right: 5px; }
-            #project ul {
+            div#project ul {
                 margin-left: 20px;
                 padding-left: 5px;
                 margin-top: 0;
             }
-            #project li {
+            div#project li {
                 margin-top: 7px;
                 margin-bottom: 7px;
             }
@@ -173,7 +174,7 @@
                 <h3>Hey! I see you want to download some file here, probally you come here because you see the "Download" link on the menu bar. And so because you're already here, I'm gonna give you two path for you to choose</h3>
                 <h3>If you want challanges or want to go with "Do It Yourself" style then you can go to the source code of this page on <a href="https://github.com/QuanMCPC/QuanMCPC.github.io" style="overflow-wrap: break-word;">https://github.com/QuanMCPC/QuanMCPC.github.io</a></h3>
                 <h3>Or if you want to go with "The Easy Way" style, then here are the download link to those file that you can <abbr title="Of course, there's no problem of downloading any file in the repository :)">"Legally"</abbr>  download.</h3>
-                <div id="project" style="border: 2px solid black; overflow-x: auto; white-space: nowrap;">
+                <div id="project" style="border: 2px solid; overflow-x: auto; white-space: nowrap;">
                     <ul>
                         <li>
                             <span>High Quality Screenshots (PNG version, 7z file)</span>

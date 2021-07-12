@@ -29,23 +29,23 @@
             svg#github_link:hover, svg#plannetminecraft_link:hover {
                 cursor: pointer;
             }
-            #left:hover, #right:hover {
+            div#left:hover, div#right:hover {
                 cursor: pointer;
                 background-color:rgba(0, 0, 0, 0.4);
                 -webkit-user-select: none;
                 -ms-user-select: none;
                 user-select: none;
             }
-            #overlay_:hover {
+            div#overlay_:hover {
                 cursor: zoom-in;
             }
             @media (max-width: 374px) {
-                #button_list * {
+                div#button_list * {
                     text-align: center !important;
                 }
             }
             @media (min-width: 375px) {
-                #button_list {
+                div#button_list {
                     display: grid;
                     grid-template-columns: repeat(auto-fit, minmax(calc(33% - 17px), 1fr));
                 }
@@ -53,12 +53,6 @@
             div#button_list *, div#button_list {
                 max-width: initial;
                 margin: initial;
-            }
-            .downloadlink {
-                /* display: block; */
-                border: 2px solid white;
-                /* width: 100%; */
-                /* max-width: initial !important; */
             }
         </style>
     </head>

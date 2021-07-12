@@ -90,6 +90,7 @@
                 border: none;
                 margin-left: 5px;
                 margin-right: 5px;
+                background-color: #EFEFEF;
             }
             #iframe_accbar button:hover {
                 background-color: rgb(180, 180, 180);
@@ -104,7 +105,7 @@
     <body>
         <div id="iframe_">
             <div id="iframe_accbar">
-                <button onclick="getId('iframe__').setAttribute('src', 'about:blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'" style="background-color: #EFEFEF">Close</button><button onclick="window.open(getId('iframe__').getAttribute('src'), '_blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'" style="background-color: #EFEFEF">Open in a new tab</button>
+                <button onclick="getId('iframe__').setAttribute('src', 'about:blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Close</button><button onclick="window.open(getId('iframe__').getAttribute('src'), '_blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Open in a new tab</button>
             </div>
             <hr id="abcd">
             <iframe id="iframe__" scrolling="yes" src="about:blank" width="100%" allowfullscreen sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-modals allow-popups"></iframe>
