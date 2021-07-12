@@ -7,6 +7,10 @@ from datetime import date, time
 import time
 from subprocess import Popen, PIPE
 
+def log(mes):
+    if len(argument) > 1:
+        if argument[1] == "--verbose": print(mes)
+
 # ----------------------[find_size.py]---------------------- #
 
 # A Python script to automate the changing of file info.
@@ -15,11 +19,7 @@ from subprocess import Popen, PIPE
 
 # Get the total size of folder in [path]
 argument = sys.argv
-def log(mes):
-    if len(argument) > 1:
-        if argument[1] == "--verbose": print(mes)
-
-log("Now running \"find_size.py\"")
+log("\n========================================\nNow running \"find_size.py\"\n")
 def sizeOfFolder(path = "."):
     log(f"Calculating the total size of folder: {os.path.abspath(path)}")
     fp = ""; lite_size = 0
@@ -74,7 +74,7 @@ with open("website_data.json", "w") as outfile:
 
 # import os, json, time # Import important stuff
 # from datetime import date
-log("Now running \"get_file_info_for_archive.py\"")
+log("\n========================================\nNow running \"get_file_info_for_archive.py\"\n")
 start_path = "./archive" # The path to get metadata
 total_size = 0
 listing = []
@@ -110,7 +110,7 @@ with open(start_path + "/file_listing.json", "w") as outfile: #Dump metadata lis
 # import json
 # from subprocess import Popen, PIPE
 # import subprocess
-log("Now running \"commit.py\"")
+log("\n========================================\nNow running \"commit.py\"\n")
 command_to_execute = ["git", "log", "--pretty=format:\"%h;%cn;%cd;%s\"", "--date=unix"]
 # Run the git command
 if sys.platform == "linux" or sys.platform == "linux2"or sys.platform == "darwin": enableShell = Flase
@@ -140,7 +140,7 @@ exit_code = process.wait()
 # import os, re
 # from time import sleep
 
-log("Now running \"update_file_table.py\"")
+log("\n========================================\nNow running \"update_file_table.py\"\n")
 
 def FolderSize(path = "."):
     log(f"Calculating the total size of folder: {os.path.abspath(path)}")
