@@ -8,13 +8,13 @@
     },
     "icons": [
         {
-            "src": "/website/image/logo.svg",
+            "src": "/website/image/logo/logo.svg",
             "type": "image/svg+xml",
             "sizes": "512x512",
             "purpose": "maskable any"
         },
         {
-            "src": "/website/image/logo.png",
+            "src": "/website/image/logo/logo.png",
             "type": "image/png",
             "sizes": "512x512",
             "purpose": "maskable any"
@@ -24,8 +24,9 @@
     "background_color": "#a00000",
     "scope": "/",
     "theme_color": "#a00000",
-    "description": "My website in a installable web app",
+    "description": "My website as a installable web app",
     "display": "standalone",
+    "orientation": "any",
     "shortcuts": [
         {
             "name": "Home",
