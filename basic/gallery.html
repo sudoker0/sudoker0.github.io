@@ -187,8 +187,8 @@
         var right_ = getId("right")
         left_.onclick = e => { left() }
         right_.onclick = e => { right() }
-        left_.onkeydown = event => { if (event.code == "Space" || event.code == "Enter") { left() } }
-        right_.onkeydown = event => { if (event.code == "Space" || event.code == "Enter") { right() } }
+        left_.onkeydown = event => { if (event.code == "Enter") { left() } }
+        right_.onkeydown = event => { if (event.code == "Enter") { right() } }
         document.onkeyup = e => { if (e.key == "ArrowLeft" && e.ctrlKey) { left() } else if (e.key = "ArrowRight" && e.ctrlKey) { right() } }
         function left() { if (imagePos > 0) { --imagePos; reloadImage(); } }
         function right() { if (imagePos < imageArray.length - 1) { ++imagePos; reloadImage(); } }
