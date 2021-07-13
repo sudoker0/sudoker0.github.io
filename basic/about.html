@@ -2,7 +2,6 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" href="/website/style/lite.css" />
-        <script src="/website/script/lite.js" defer></script>
         <meta charset="UTF-8" />
         <link rel="manifest" href="/manifest.json" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -253,7 +252,7 @@
             document.getElementsByTagName("body")[0].style.overflow = "hidden";
         }
         fetch("/website_data.json")
-            .then(e => e.json())
+        .then(e => e.json())
             .then(data => {
                 innerHTMLClass("total_size", data.filesize.total);
                 innerHTMLClass("standard_ver_src_code_size", data.filesize.standard_src_code);
@@ -266,21 +265,22 @@
                 var utcTime = 0, failed = 0;
                 function fetch_() {
                     fetch(`/commit_data.json?nocache=${Math.round(Math.random() * 100000)}`)
-                        .then(e => e.json())
+                    .then(e => e.json())
                         .then(e => {
                             innerHTMLClass("lastupdateon1", e.last_update_on);
                             innerHTMLClass("numberofcommit", e.data.length);
                         })
-                }
-                fetch_();
+                    }
+                    fetch_();
             })
-        function date_check() {
+            function date_check() {
             var date1 = new Date("07/17/2020"), date2 = new Date()
-                DInTime = date2.getTime() - date1.getTime()
+            DInTime = date2.getTime() - date1.getTime()
                 DInDays = Math.round(DInTime / (1000 * 3600 * 24))
-            innerHTMLClass("days_from", DInDays)
-        }
+                innerHTMLClass("days_from", DInDays)
+            }
         date_check()
         getId('switchtableview').style.display = 'none'
     </script>
+    <script src="/website/script/lite.js"></script>
 </html>
