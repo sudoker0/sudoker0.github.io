@@ -224,7 +224,6 @@ function ws_1() {
     document.documentElement.style.setProperty("--bg", "rgba(20, 20, 20, 0.85)")
     qSel(".container").style.border = "3px solid black";
     qSel(".container").style.margin = "20px";
-    qSel("body").style.backgroundColor = "initial";
     if (ls_gt("background") == "0") { changeBg(true) } else if (ls_gt("background") == "1") { changeBg(false) } else {
         if (window.matchMedia("(prefers-color-scheme: light)").matches) { changeBg(true); } else { changeBg(false);}
         window.matchMedia("(prefers-color-scheme: light)").onchange = function(e) {
@@ -240,7 +239,6 @@ function ws_2() {
     qSel(".container").style.border = "1px solid rgb(21, 21, 21)";
     qSel(".container").style.margin = "-8px";
     qSel("body").style.backgroundImage = "initial";
-    qSel("body").style.backgroundColor = "rgb(21, 21, 21)";
     getId("bg-day").setAttribute("disabled", "disabled")
     getId("bg-night").setAttribute("disabled", "disabled")
     getId("bg-sys").setAttribute("disabled", "disabled")
