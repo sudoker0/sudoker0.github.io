@@ -262,6 +262,7 @@ div#loadingIndicator div img {
   margin-left: auto;
   margin-right: auto;
 }
+div#loadingIndicator div { text-align: center; }
 div.collapsible {
   border: 2px solid white;
   display: grid;
