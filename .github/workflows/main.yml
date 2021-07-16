@@ -22,7 +22,7 @@ jobs:
         uses: actions/setup-python@v2.2.2
         
       - name: Run the data changing script
-        run: python3 remember_to_run_this_file.py
+        run: python3 remember_to_run_this_file.py --
         
       - name: Setup credential for commit
 #         run: |
