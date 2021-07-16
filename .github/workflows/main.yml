@@ -20,10 +20,10 @@ jobs:
 
       - name: Setup Python
         uses: actions/setup-python@v2.2.2
-        
+
       - name: Run the data changing script
         run: python3 remember_to_run_this_file.py --verbose
-        
+
       - name: Setup credential for commit
 #         run: |
 #           git config --local user.name "QuanMCPC"
@@ -35,13 +35,13 @@ jobs:
         run: |
           git config --local user.name "QuanMCPC"
           git config --local user.email "60545346+QuanMCPC@users.noreply.github.com"
-      
+
       - name: Staged file for commit
         run: git add .
-        
+
       - name: Commit file
         run: git commit -m "Update website's information"
-        
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
