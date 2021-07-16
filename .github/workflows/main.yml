@@ -1,0 +1,44 @@
+
+name: Update Website Information
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Initial setup
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v2.2.2
+        
+      - name: Run the data changing script
+        run: python3 remember_to_run_this_file.py
+        
+      - name: Setup credential for commit
+        run: |
+          git config --local user.name "QuanMCPC"
+          git config --local user.email "60545346+QuanMCPC@users.noreply.github.com"
+          git config --local user.signingkey "63A5CCA675A833DE"
+          git config --local commit.gpgsign "true"
+      
+      - name: Staged file for commit
+        run: git add .
+        
+      - name: Commit file
+        run: git commit -m "Update website's information"
+        
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
