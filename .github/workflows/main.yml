@@ -30,7 +30,7 @@ jobs:
           git config --local user.email "60545346+QuanMCPC@users.noreply.github.com"
           git config --local user.signingkey "63A5CCA675A833DE"
           git config --local commit.gpgsign "true"
-          git config --global gpg.program gpg
+          git config --local gpg.program gpg
       
       - name: Staged file for commit
         run: git add .
