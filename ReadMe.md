@@ -1,6 +1,6 @@
 <h1 style="text-align: center"></h1>
 
-![QuanMCPC's Website](https://quanmcpc.github.io/website/image/social_preview_.png)
+![QuanMCPC's Website](https://quanmcpc.github.io/website/image/social_preview.png)
 
 <p align="center">
     <a href="https://quanmcpc.github.io">
@@ -41,8 +41,10 @@
         - A table show information like the file size, number of commit, ...
     - Gallery: Show a list of picture, this page contain:
         - A UI to nagivate and see the picture
-- *: There are some page like: Loading page, lite version of the page that I did not mention. That's because most people will access the main version of the website (unless your Internet is slow). But I will still mention some of those:
-    - Lite version:
+    - Download: Download stuff, that's it, and this page contain:
+        - A list of downloadable file.
+- *: There are some page like: Loading page, basic HTML version of the page that I did not mention. That's because most people will access the main version of the website (unless your Internet is slow). But I will still mention some of those:
+    - Basic HTML version:
         - No custom font
         - Basic styling
         - Can be access through the loading page
@@ -65,42 +67,41 @@
 - If GitHub support PHP or other language, will I ever use those language to write my website?
     - **Maybe**, but I will probably prefer to stay on HTML, mainly because that mean I have to learn a new language and adapt all of the difference syntax and other things too
 ### 📁 Information about the files in the website's folder
+<!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-(Every file)    | 100%                 | 243 files       | 43,008,519 bytes
-*.7z            | ~0%                  | 1 file          | 8,955 bytes
-*.cache         | 0.1%                 | 1 file          | 32,577 bytes
-*.config        | 0.2%                 | 1 file          | 83,595 bytes
-*.css           | ~0%                  | 3 files         | 6,538 bytes
-*.exe           | 11.5%                | 1 file          | 4,957,184 bytes
-*.gif           | ~0%                  | 3 files         | 1,640 bytes
-*.gitattributes | ~0%                  | 1 file          | 68 bytes
-*.gitignore     | ~0%                  | 1 file          | 9 bytes
-*.html          | 2.4%                 | 46 files        | 567,665 bytes
-*.ico           | ~0%                  | 2 files         | 4,026 bytes
-*.idx           | 0.3%                 | 1 file          | 120,044 bytes
-*.js            | 1.4%                 | 24 files        | 124,057 bytes
-*.json          | ~0%                  | 6 files         | 4,074 bytes
-*.md            | ~0%                  | 2 files         | 7,879 bytes
-*.pack          | 49.7%                | 1 file          | 21,383,145 bytes
-*.pem           | ~0%                  | 2 files         | 3,310 bytes
-*.png           | 23.2%                | 27 files        | 8,170,883 bytes
-*.py            | ~0%                  | 1 file          | 1,437 bytes
-*.sample        | ~0%                  | 12 files        | 19,260 bytes
-*.sqlite        | 0.3%                 | 1 file          | 90,112 bytes
-*.suo           | 0.2%                 | 1 file          | 56,320 bytes
-*.svg           | ~0%                  | 3 files         | 6,668 bytes
-*.ttf           | 1.9%                 | 4 files         | 653,688 bytes
-*.txt           | ~0%                  | 6 files         | 288 bytes
-*.webp          | 2.1%                 | 10 files        | 705,448 bytes
-*.xml           | ~0%                  | 4 files         | 1,223 bytes
-*.zip           | 4.2%                 | 1 file          | 4,350,166 bytes
-(No Extension)  | 0.7%                 | 76 files        | 1,648,310 bytes
-> Last updated on: 04/18/2021
-
-[Download the table as HTML in a zip file (Style is not the same)](https://drive.google.com/u/0/uc?id=1nvijtp61EX7gtisnjHCAEBkfgQKs-zTh&export=download)
+\** | 100.0% | 559 files | 242,668,176 bytes
+\* | 9.99% | 402 files | 24,232,806 bytes
+\*.7z | 31.21% | 7 files | 75,728,105 bytes
+\*.cache | 0.02% | 1 files | 39,649 bytes
+\*.config | 0.03% | 1 files | 83,595 bytes
+\*.css | 0.0% | 3 files | 11,647 bytes
+\*.exe | 2.04% | 1 files | 4,957,184 bytes
+\*.gif | 0.0% | 1 files | 10,498 bytes
+\*.html | 0.27% | 31 files | 648,911 bytes
+\*.ico | 0.0% | 1 files | 10,091 bytes
+\*.idx | 0.06% | 1 files | 135,528 bytes
+\*.js | 0.05% | 10 files | 133,357 bytes
+\*.json | 0.07% | 9 files | 176,842 bytes
+\*.md | 0.0% | 1 files | 7,664 bytes
+\*.pack | 44.03% | 1 files | 106,841,155 bytes
+\*.pem | 0.0% | 2 files | 3,310 bytes
+\*.png | 4.06% | 31 files | 9,861,439 bytes
+\*.py | 0.0% | 1 files | 10,460 bytes
+\*.sample | 0.01% | 12 files | 19,260 bytes
+\*.sqlite | 0.04% | 1 files | 90,112 bytes
+\*.svg | 0.0% | 5 files | 10,273 bytes
+\*.ttf | 0.27% | 4 files | 653,688 bytes
+\*.txt | 0.0% | 1 files | 288 bytes
+\*.webp | 1.54% | 9 files | 3,745,400 bytes
+\*.xml | 0.0% | 2 files | 1,421 bytes
+\*.yml | 0.0% | 1 files | 890 bytes
+\*.zip | 6.26% | 17 files | 15,198,182 bytes
+> Last updated on: 2021-07-16
+<!--python_data_stop-->
+[Download the table as HTML in a zip file (Style is not the same) (This is kept for historical purposes only and the data is no longer being updated)](https://drive.google.com/u/0/uc?id=1nvijtp61EX7gtisnjHCAEBkfgQKs-zTh&export=download)
 > You might ask: How do I able to get all of the file extensions, the number of file and other info?
-> Using WinDirStat [https://windirstat.net/](https://windirstat.net/)
+> Using ~~WinDirStat [https://windirstat.net/](https://windirstat.net/)~~ the Python script I've written (which is named: remember_to_run_this_file.py)
 ### 👀 Random Stuff
 > JavaScript Loop Code
 ```JavaScript
