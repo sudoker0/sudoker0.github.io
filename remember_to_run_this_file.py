@@ -113,7 +113,7 @@ with open(start_path + "/file_listing.json", "w") as outfile: #Dump metadata lis
 log("\n========================================\nNow running \"commit.py\"\n")
 command_to_execute = ["git", "log", "--pretty=format:\"%h;%cn;%cd;%s\"", "--date=unix"]
 # Run the git command
-if sys.platform == "linux" or sys.platform == "linux2"or sys.platform == "darwin": enableShell = Flase
+if sys.platform == "linux" or sys.platform == "linux2"or sys.platform == "darwin": enableShell = False
 elif sys.platform == "win32": enableShell = True
 
 process = Popen(command_to_execute, stdout=PIPE, shell=enableShell)
