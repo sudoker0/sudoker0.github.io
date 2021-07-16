@@ -2,6 +2,18 @@
     "last_update_on": "2021-07-16",
     "data": [
         {
+            "hash": "92372b8",
+            "committer": "QuanMCPC",
+            "commit_date": 1626433948,
+            "message": "Introducing: Dark Mode for the Index.HTML page!"
+        },
+        {
+            "hash": "37b95cf",
+            "committer": "QuanMCPC",
+            "commit_date": 1626431448,
+            "message": "Updated website's information"
+        },
+        {
             "hash": "741dfb4",
             "committer": "QuanMCPC",
             "commit_date": 1626431418,

@@ -70,20 +70,20 @@
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\** | 100.0% | 1827 files | 385,671,484 bytes
-\* | 6.36% | 518 files | 24,513,886 bytes
-\*.7z | 19.64% | 7 files | 75,728,105 bytes
+\** | 100.0% | 1837 files | 385,712,318 bytes
+\* | 6.37% | 528 files | 24,555,727 bytes
+\*.7z | 19.63% | 7 files | 75,728,105 bytes
 \*.cache | 0.01% | 1 files | 39,649 bytes
 \*.config | 0.02% | 1 files | 83,595 bytes
 \*.css | 0.0% | 3 files | 11,647 bytes
 \*.exe | 1.29% | 1 files | 4,957,184 bytes
 \*.gif | 0.0% | 1 files | 10,498 bytes
-\*.glb | 23.56% | 2 files | 90,854,536 bytes
-\*.html | 0.17% | 32 files | 649,504 bytes
+\*.glb | 23.55% | 2 files | 90,854,536 bytes
+\*.html | 0.17% | 32 files | 648,101 bytes
 \*.ico | 0.03% | 1 files | 101,976 bytes
 \*.idx | 0.04% | 1 files | 135,528 bytes
 \*.js | 4.82% | 1092 files | 18,583,861 bytes
-\*.json | 0.94% | 25 files | 3,613,004 bytes
+\*.json | 0.94% | 25 files | 3,613,400 bytes
 \*.md | 0.0% | 6 files | 14,301 bytes
 \*.mtl | 0.0% | 1 files | 8,051 bytes
 \*.obj | 6.04% | 1 files | 23,287,809 bytes
