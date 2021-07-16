@@ -2,6 +2,18 @@
     "last_update_on": "2021-07-16",
     "data": [
         {
+            "hash": "f3acc8b",
+            "committer": "QuanMCPC",
+            "commit_date": 1626423044,
+            "message": "Clear some whitespaces"
+        },
+        {
+            "hash": "3546a71",
+            "committer": "QuanMCPC",
+            "commit_date": 1626422870,
+            "message": "Update website's information"
+        },
+        {
             "hash": "c32efe1",
             "committer": "QuanMCPC",
             "commit_date": 1626422832,
