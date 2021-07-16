@@ -70,7 +70,7 @@
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\** | 100.0% | 165 files | 226,214,339 bytes
+\** | 100.0% | 165 files | 226,216,451 bytes
 \* | 0.01% | 12 files | 15,478 bytes
 \*.7z | 33.48% | 7 files | 75,728,105 bytes
 \*.config | 0.04% | 1 files | 82,580 bytes
@@ -78,11 +78,11 @@ File Extensions | Percentages of Bytes | Number of files | File/Folder size (Byt
 \*.gif | 0.0% | 1 files | 10,498 bytes
 \*.html | 0.27% | 30 files | 621,277 bytes
 \*.ico | 0.05% | 1 files | 101,976 bytes
-\*.idx | 0.06% | 1 files | 146,868 bytes
+\*.idx | 0.07% | 1 files | 147,204 bytes
 \*.js | 0.06% | 10 files | 132,407 bytes
-\*.json | 0.08% | 9 files | 172,930 bytes
+\*.json | 0.08% | 9 files | 173,279 bytes
 \*.md | 0.0% | 1 files | 7,404 bytes
-\*.pack | 52.84% | 1 files | 119,530,713 bytes
+\*.pack | 52.84% | 1 files | 119,532,133 bytes
 \*.png | 4.36% | 31 files | 9,861,439 bytes
 \*.py | 0.0% | 1 files | 10,217 bytes
 \*.sample | 0.01% | 13 files | 23,442 bytes
@@ -92,7 +92,7 @@ File Extensions | Percentages of Bytes | Number of files | File/Folder size (Byt
 \*.txt | 0.0% | 1 files | 283 bytes
 \*.webp | 1.66% | 9 files | 3,745,400 bytes
 \*.xml | 0.0% | 1 files | 1,236 bytes
-\*.yml | 0.0% | 2 files | 2,249 bytes
+\*.yml | 0.0% | 2 files | 2,256 bytes
 \*.zip | 6.72% | 17 files | 15,198,182 bytes
 > Last updated on: 2021-07-16
 <!--python_data_stop-->
