@@ -1,6 +1,36 @@
 {
-    "last_update_on": "2021-07-16",
+    "last_update_on": "2021-07-17",
     "data": [
+        {
+            "hash": "a043484",
+            "committer": "QuanMCPC",
+            "commit_date": 1626492612,
+            "message": "Archived the first version and the page that load the first version"
+        },
+        {
+            "hash": "c73da75",
+            "committer": "QuanMCPC",
+            "commit_date": 1626492595,
+            "message": "When click on \"Load the first version of the website\" now go to https://quan215.github.io/"
+        },
+        {
+            "hash": "0c85d4a",
+            "committer": "QuanMCPC",
+            "commit_date": 1626492562,
+            "message": "Go to https://quan215.github.io/ for the first version of the website"
+        },
+        {
+            "hash": "7f07330",
+            "committer": "QuanMCPC",
+            "commit_date": 1626434129,
+            "message": "Changed website's information"
+        },
+        {
+            "hash": "59368fe",
+            "committer": "QuanMCPC",
+            "commit_date": 1626434119,
+            "message": "Remove unnesseary CSS rules"
+        },
         {
             "hash": "92372b8",
             "committer": "QuanMCPC",
