@@ -1,6 +1,18 @@
 {
-    "last_update_on": "2021-07-17",
+    "last_update_on": "2021-07-18",
     "data": [
+        {
+            "hash": "0670ccf",
+            "committer": "QuanMCPC",
+            "commit_date": 1626586152,
+            "message": "Added a new project (Guess The Programming Language) (Written in Python, text-based game)"
+        },
+        {
+            "hash": "eced9c0",
+            "committer": "QuanMCPC",
+            "commit_date": 1626492650,
+            "message": "Update website's information"
+        },
         {
             "hash": "a043484",
             "committer": "QuanMCPC",
