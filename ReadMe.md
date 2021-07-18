@@ -70,37 +70,30 @@
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\** | 100.0% | 1872 files | 392,330,384 bytes
-\* | 8.02% | 573 files | 31,473,349 bytes
-\*.7z | 21.03% | 9 files | 82,488,928 bytes
-\*.cache | 0.01% | 1 files | 39,649 bytes
-\*.config | 0.02% | 1 files | 83,595 bytes
-\*.css | 0.0% | 3 files | 11,647 bytes
-\*.exe | 1.26% | 1 files | 4,957,184 bytes
+\** | 100.0% | 205 files | 233,338,178 bytes
+\* | 0.04% | 57 files | 92,263 bytes
+\*.7z | 35.35% | 9 files | 82,488,928 bytes
+\*.config | 0.04% | 1 files | 82,580 bytes
+\*.css | 0.0% | 3 files | 11,167 bytes
 \*.gif | 0.0% | 1 files | 10,498 bytes
-\*.glb | 23.16% | 2 files | 90,854,536 bytes
-\*.html | 0.16% | 28 files | 642,831 bytes
-\*.ico | 0.03% | 1 files | 101,976 bytes
-\*.idx | 0.03% | 1 files | 135,528 bytes
-\*.js | 4.74% | 1092 files | 18,583,861 bytes
-\*.json | 0.92% | 25 files | 3,615,582 bytes
-\*.md | 0.0% | 6 files | 14,301 bytes
-\*.mtl | 0.0% | 1 files | 8,051 bytes
-\*.obj | 5.94% | 1 files | 23,287,809 bytes
-\*.pack | 27.23% | 1 files | 106,841,155 bytes
-\*.pem | 0.0% | 2 files | 3,310 bytes
-\*.png | 0.9% | 25 files | 3,528,212 bytes
-\*.py | 0.01% | 2 files | 19,822 bytes
-\*.sample | 0.0% | 12 files | 19,260 bytes
-\*.sqlite | 0.02% | 1 files | 90,112 bytes
-\*.svg | 0.0% | 5 files | 10,273 bytes
-\*.ttf | 0.17% | 5 files | 671,756 bytes
-\*.txt | 0.0% | 2 files | 980 bytes
-\*.wasm | 1.44% | 7 files | 5,633,654 bytes
-\*.webp | 0.95% | 9 files | 3,745,400 bytes
-\*.xml | 0.0% | 2 files | 1,421 bytes
-\*.yml | 0.0% | 2 files | 2,321 bytes
-\*.zip | 3.87% | 17 files | 15,198,182 bytes
+\*.html | 0.26% | 26 files | 614,805 bytes
+\*.ico | 0.04% | 1 files | 101,976 bytes
+\*.idx | 0.07% | 4 files | 154,928 bytes
+\*.js | 0.06% | 10 files | 132,407 bytes
+\*.json | 0.08% | 9 files | 178,098 bytes
+\*.md | 0.0% | 1 files | 7,404 bytes
+\*.pack | 54.37% | 4 files | 126,869,560 bytes
+\*.png | 1.2% | 22 files | 2,794,787 bytes
+\*.py | 0.01% | 2 files | 22,183 bytes
+\*.sample | 0.01% | 12 files | 18,787 bytes
+\*.sqlite | 0.04% | 1 files | 90,112 bytes
+\*.svg | 0.0% | 5 files | 10,270 bytes
+\*.ttf | 0.28% | 4 files | 653,688 bytes
+\*.txt | 0.0% | 1 files | 283 bytes
+\*.webp | 1.61% | 9 files | 3,745,400 bytes
+\*.xml | 0.0% | 1 files | 1,236 bytes
+\*.yml | 0.0% | 2 files | 2,218 bytes
+\*.zip | 6.51% | 17 files | 15,198,182 bytes
 > Last updated on: 2021-07-18
 <!--python_data_stop-->
 [Download the table as HTML in a zip file (Style is not the same) (This is kept for historical purposes only and the data is no longer being updated)](https://drive.google.com/u/0/uc?id=1nvijtp61EX7gtisnjHCAEBkfgQKs-zTh&export=download)
