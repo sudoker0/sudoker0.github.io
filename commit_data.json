@@ -2,6 +2,18 @@
     "last_update_on": "2021-07-18",
     "data": [
         {
+            "hash": "6b8b569",
+            "committer": "GitHub",
+            "commit_date": 1626588590,
+            "message": "Create LICENSE"
+        },
+        {
+            "hash": "06a439a",
+            "committer": "QuanMCPC",
+            "commit_date": 1626586202,
+            "message": "Update website's information"
+        },
+        {
             "hash": "0670ccf",
             "committer": "QuanMCPC",
             "commit_date": 1626586152,
