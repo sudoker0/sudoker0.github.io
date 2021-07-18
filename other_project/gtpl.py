@@ -1,4 +1,4 @@
-# Guess The Programming Language v0.1 (Written in Python)
+# Guess The Programming Language v0.2 (Written in Python)
 # Created by QuanMCPC (https://quanmcpc.site/), licensed under MIT license
 # Inspired from https://guessthiscode.com/
 
@@ -14,6 +14,17 @@ import random
 import time
 import base64
 from sys import exit
+
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
 
 # Since there are many programming languages out there, we only gonna select languages that we can
 # actually use to write program. The "true_language" variable under will become important later
@@ -139,7 +150,8 @@ def game():
                         point += 50
                         print(f"Correct! The programming language of the code above was {lang}\nYou've earned +50 points, which makes your current point: {point}!\n")
                         # Do the person want to continue?
-                        if (input("Do you want to continue? [Yes / No] > ").lower() == "yes"):
+                        should_continue = input("Do you want to continue? [Yes (You can also press the Enter key instead) / No] > ").lower()
+                        if (should_continue == "yes" or should_continue == ""):
                             # Nice
                             list_count += 1
                             question_count += 1
@@ -154,7 +166,8 @@ def game():
                         # Oof, the person has answered incorrectly
                         print(f"Incorrect! The programming language of the code above was {lang}\nYour current point is {point}!")
                         # Do the person want to restart?
-                        if (input("Do you want to start over? [Yes / No] > ").lower() == "yes"):
+                        should_restart = input("Do you want to start over? [Yes (You can also press the Enter key instead) / No] > ").lower()
+                        if (should_restart == "yes" or should_restart == ""):
                             # Reset the point and restart
                             question_count = 0
                             point = 0
@@ -174,16 +187,16 @@ def game():
 # Print the intro text
 print(
     (
-        "=============================================\n"
+        f"{bcolors.OKGREEN}=============================================\n"
         "Guess The Programming Language v0.1\n"
         "Are you ready to guess some programming language?\n"
         "If you're, enter Yes! If you're not, enter No or gibberish\n"
-        "=============================================\n"
+        f"=============================================\n{bcolors.ENDC}"
     )
 )
 # Does the user want to start the game?
-o = input("[Yes / No] > ")
-if (o.lower() == "yes"):
+o = input("[Yes (You can also press the Enter key instead) / No] > ").lower()
+if (o == "yes" or o == ""):
     # Yay!
     print("Initializing stuff...")
     game()
