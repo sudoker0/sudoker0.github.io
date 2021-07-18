@@ -2,6 +2,24 @@
     "last_update_on": "2021-07-18",
     "data": [
         {
+            "hash": "43d0911",
+            "committer": "QuanMCPC",
+            "commit_date": 1626611204,
+            "message": "Added an option to enable color"
+        },
+        {
+            "hash": "affcc33",
+            "committer": "QuanMCPC",
+            "commit_date": 1626608017,
+            "message": "That one indent"
+        },
+        {
+            "hash": "1d6e78b",
+            "committer": "QuanMCPC",
+            "commit_date": 1626598603,
+            "message": "Update website's information"
+        },
+        {
             "hash": "ccb60f2",
             "committer": "QuanMCPC",
             "commit_date": 1626597628,
