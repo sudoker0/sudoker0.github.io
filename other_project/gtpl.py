@@ -242,7 +242,6 @@ def main(argv):
             clearConsole = True
         if "-m" in argv or "--moveOnAfterCorrectGuess" in argv:
             # Move on after correct guesses flag
-            print("MoveOn")
             moveOnAfterCorrectGuess = True
 
     # Print the intro text
