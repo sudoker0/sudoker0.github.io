@@ -70,8 +70,8 @@
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\** | 100.0% | 205 files | 233,338,178 bytes
-\* | 0.04% | 57 files | 92,263 bytes
+\** | 100.0% | 212 files | 233,368,755 bytes
+\* | 0.05% | 64 files | 122,658 bytes
 \*.7z | 35.35% | 9 files | 82,488,928 bytes
 \*.config | 0.04% | 1 files | 82,580 bytes
 \*.css | 0.0% | 3 files | 11,167 bytes
@@ -80,9 +80,9 @@ File Extensions | Percentages of Bytes | Number of files | File/Folder size (Byt
 \*.ico | 0.04% | 1 files | 101,976 bytes
 \*.idx | 0.07% | 4 files | 154,928 bytes
 \*.js | 0.06% | 10 files | 132,407 bytes
-\*.json | 0.08% | 9 files | 178,098 bytes
+\*.json | 0.08% | 9 files | 178,280 bytes
 \*.md | 0.0% | 1 files | 7,404 bytes
-\*.pack | 54.37% | 4 files | 126,869,560 bytes
+\*.pack | 54.36% | 4 files | 126,869,560 bytes
 \*.png | 1.2% | 22 files | 2,794,787 bytes
 \*.py | 0.01% | 2 files | 22,183 bytes
 \*.sample | 0.01% | 12 files | 18,787 bytes
@@ -90,7 +90,7 @@ File Extensions | Percentages of Bytes | Number of files | File/Folder size (Byt
 \*.svg | 0.0% | 5 files | 10,270 bytes
 \*.ttf | 0.28% | 4 files | 653,688 bytes
 \*.txt | 0.0% | 1 files | 283 bytes
-\*.webp | 1.61% | 9 files | 3,745,400 bytes
+\*.webp | 1.6% | 9 files | 3,745,400 bytes
 \*.xml | 0.0% | 1 files | 1,236 bytes
 \*.yml | 0.0% | 2 files | 2,218 bytes
 \*.zip | 6.51% | 17 files | 15,198,182 bytes
