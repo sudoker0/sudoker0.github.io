@@ -221,7 +221,9 @@ def game():
 def main(argv):
     global clearConsole
     global moveOnAfterCorrectGuess
+    # Arguments check
     if "-h" in argv or "--help" in argv:
+        # Help flag
         cprint(
             (
                 "=============================================\n"
@@ -235,9 +237,11 @@ def main(argv):
         )
         exit()
     else:
-        if "-c" in argv or "--clearConsole" in argv:
+        if "-c" in argv or "--clearConsole" in argv:\
+            # Clear console flag
             clearConsole = True
         if "-m" in argv or "--moveOnAfterCorrectGuess" in argv:
+            # Move on after correct guesses flag
             print("MoveOn")
             moveOnAfterCorrectGuess = True
 
