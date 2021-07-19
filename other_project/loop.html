@@ -18,13 +18,14 @@
             <p id="data2" style="margin: 0 10px 0 0"></p>
             <button onclick="localStorage.clear(); window.location.reload(true)">Data not loaded correctly? Click here to reset!</button>
         </div>
-        <p style="margin: 1em 0 1em 0">Update data every: <input type="number" style="width: 70px;" value="2" id="refreshAfter"> second <button onclick="localStorage.clear(); localStorage.setItem('refreshAfterStore', document.getElementById('refreshAfter').value); window.location.reload(true)">Apply (Will requite reset)!</button></p>
+        <p style="margin: 1em 0 1em 0">Update data every: <input type="number" style="width: 70px;" value="2" id="refreshAfter"> second <button onclick="localStorage.clear(); localStorage.setItem('refreshAfterStore', document.getElementById('refreshAfter').value); window.location.reload(true)">Apply (Will requite a reset)!</button></p>
         <canvas id="myChart" height="145" width="400"></canvas>
     </body>
     <script>
         // var data1 = []
         // var data2 = []
-        document.getElementById("refreshAfter").value = Number(localStorage.getItem("refreshAfterStore") != null ? localStorage.getItem("refreshAfterStore") : 1)
+        var refreshAfter_Number = Number(localStorage.getItem("refreshAfterStore") != null ? localStorage.getItem("refreshAfterStore") : 1)
+        document.getElementById("refreshAfter").value = refreshAfter_Number
         console.log(localStorage.getItem("clicks") != null)
         var data1 = localStorage.getItem("clicks") != null ? localStorage.getItem("clicks").split(",").map((v) => { return Number(v) }) : []
         var data2 = localStorage.getItem("clicksadded") != null ? localStorage.getItem("clicksadded").split(",").map((v) => { return Number(v) }) : []
@@ -104,10 +105,11 @@
                     }
                     small = large
                     large = Number(e.value)
-                    data2.push(Number(e.value) - small > 100000 ? 0 : Number(e.value) - small)
+                    var data2_date = Number(e.value) - small > 100000 ? 0 : Number(e.value) - small
+                    data2.push(data2_date)
                     dateStamp = `${dateTime.getUTCDate()} / ${dateTime.getUTCMonth() + 1} / ${dateTime.getUTCFullYear()} (UTC Time)`
                     document.getElementById("data").innerHTML = `The graph below showed the number of clicks on https://api.countapi.xyz/get/amongus-s.us/clicks as of ${dateStamp}`
-                    document.getElementById("data2").innerHTML = `Number of clicks currently is: ${e.value}`
+                    document.getElementById("data2").innerHTML = `Number of clicks currently is: ${e.value} and the estimated CPS is: ${data2_date / refreshAfter_Number} CPS / s`
                     data1.push(e.value)
                     timestamp.push(time)
                     localStorage.setItem("clicks", data1.toString())
