@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.1/dist/chart.min.js"></script>
+        <style>
+            body, html {
+                font-family: 'Courier New', Courier, monospace;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="data"></p>
+        <p id="data2"></p>
+        <canvas id="myChart" height="150" width="400"></canvas>
+    </body>
+    <script>
+        var data1 = []
+        var timestamp = []
+        var dateStamp = ""
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: timestamp,
+                datasets: [{
+                    label: `# of clicks on https://api.countapi.xyz/hit/amongus-s.us/clicks`,
+                    data: data1,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                    ],
+                }]
+            },
+            options: {
+                animation: {
+                    duration: 0
+                }
+            }
+        });
+        setInterval(() => {
+            fetch("https://api.countapi.xyz/hit/amongus-s.us/clicks")
+                .then(e => e.json())
+                .then(e => {
+                    if (data1.length >= 50) {
+                        data1.shift();
+                        timestamp.shift();
+                        myChart.update();
+                    }
+                    var dateTime = new Date();
+                    var time = `${dateTime.getUTCHours()}:${dateTime.getUTCMinutes()}:${dateTime.getUTCSeconds()}`
+                    dateStamp = `${dateTime.getUTCDate()} / ${dateTime.getUTCMonth() + 1} / ${dateTime.getUTCFullYear()} (UTC Time)`
+                    document.getElementById("data").innerHTML = `The graph below showed the number of clicks on https://api.countapi.xyz/hit/amongus-s.us/clicks as of ${dateStamp}`
+                    document.getElementById("data2").innerHTML = `Number of clicks currently is: ${e.value}`
+                    data1.push(e.value)
+                    timestamp.push(time)
+                    myChart.update()
+                })
+        }, 1000)
+    </script>
+</html>
