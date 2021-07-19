@@ -14,13 +14,17 @@
     </head>
     <body>
         <p id="data"></p>
-        <p id="data2"></p>
-        <button onclick="localStorage.clear(); window.location.reload(true)">Data not loaded correctly? Click here to reset!</button>
+        <div style="display: flex">
+            <p id="data2" style="margin: 0 10px 0 0"></p>
+            <button onclick="localStorage.clear(); window.location.reload(true)">Data not loaded correctly? Click here to reset!</button>
+        </div>
+        <p style="margin: 1em 0 1em 0">Update data every: <input type="number" style="width: 70px;" value="2" id="refreshAfter"> second <button onclick="localStorage.clear(); localStorage.setItem('refreshAfterStore', document.getElementById('refreshAfter').value); window.location.reload(true)">Apply (Will requite reset)!</button></p>
         <canvas id="myChart" height="145" width="400"></canvas>
     </body>
     <script>
         // var data1 = []
         // var data2 = []
+        document.getElementById("refreshAfter").value = Number(localStorage.getItem("refreshAfterStore") != null ? localStorage.getItem("refreshAfterStore") : 1)
         console.log(localStorage.getItem("clicks") != null)
         var data1 = localStorage.getItem("clicks") != null ? localStorage.getItem("clicks").split(",").map((v) => { return Number(v) }) : []
         var data2 = localStorage.getItem("clicksadded") != null ? localStorage.getItem("clicksadded").split(",").map((v) => { return Number(v) }) : []
@@ -111,6 +115,6 @@
                     localStorage.setItem("timestamp", timestamp.toString())
                     myChart.update()
                 })
-        }, 1000)
+        }, Number(localStorage.getItem("refreshAfterStore") != null ? localStorage.getItem("refreshAfterStore") : 1) * 1000)
     </script>
 </html>
