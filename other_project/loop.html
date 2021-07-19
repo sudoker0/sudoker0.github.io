@@ -15,50 +15,100 @@
     <body>
         <p id="data"></p>
         <p id="data2"></p>
-        <canvas id="myChart" height="150" width="400"></canvas>
+        <button onclick="localStorage.clear(); window.location.reload(true)">Data not loaded correctly? Click here to reset!</button>
+        <canvas id="myChart" height="145" width="400"></canvas>
     </body>
     <script>
-        var data1 = []
-        var timestamp = []
+        // var data1 = []
+        // var data2 = []
+        console.log(localStorage.getItem("clicks") != null)
+        var data1 = localStorage.getItem("clicks") != null ? localStorage.getItem("clicks").split(",").map((v) => { return Number(v) }) : []
+        var data2 = localStorage.getItem("clicksadded") != null ? localStorage.getItem("clicksadded").split(",").map((v) => { return Number(v) }) : []
+        var data3 = []
+        var timestamp = localStorage.getItem("timestamp") != null ? localStorage.getItem("timestamp").split(",") : []
         var dateStamp = ""
+        var large = data1.length <= 0 ? 0 : data1[data1.length - 1]
+        var small = 0
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: timestamp,
-                datasets: [{
-                    label: `# of clicks on https://api.countapi.xyz/hit/amongus-s.us/clicks`,
-                    data: data1,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                    ],
-                }]
+                datasets: [
+                    {
+                        label: `# of clicks on https://api.countapi.xyz/hit/amongus-s.us/clicks`,
+                        data: data1,
+                        backgroundColor: [
+                            'rgba(200, 0, 0, 1)',
+                        ],
+                        borderColor: [
+                            'rgba(200, 0, 0, 1)',
+                        ],
+                        yAxisID: 'y',
+                    },
+                    {
+                        label: `# of clicks added based on previous # of clicks`,
+                        data: data2,
+                        backgroundColor: [
+                            'rgba(0, 200, 0, 1)',
+                        ],
+                        borderColor: [
+                            'rgba(0, 200, 0, 1)',
+                        ],
+                        yAxisID: 'y1',
+                    }
+                ]
             },
             options: {
                 animation: {
                     duration: 0
-                }
+                },
+                stacked: false,
+                scales: {
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        // grid line settings
+                        grid: {
+                            drawOnChartArea: false, // only want the grid lines for one axis to show up
+                        },
+                    },
+                },
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                },
             }
         });
         setInterval(() => {
             fetch("https://api.countapi.xyz/hit/amongus-s.us/clicks")
                 .then(e => e.json())
                 .then(e => {
+                    var dateTime = new Date();
+                    var time = `${dateTime.getUTCHours()}:${dateTime.getUTCMinutes()}:${dateTime.getUTCSeconds()}`
                     if (data1.length >= 50) {
                         data1.shift();
                         timestamp.shift();
+                        data2.shift();
                         myChart.update();
                     }
-                    var dateTime = new Date();
-                    var time = `${dateTime.getUTCHours()}:${dateTime.getUTCMinutes()}:${dateTime.getUTCSeconds()}`
+                    small = large
+                    large = Number(e.value)
+                    data2.push(Number(e.value) - small > 100000 ? 0 : Number(e.value) - small)
                     dateStamp = `${dateTime.getUTCDate()} / ${dateTime.getUTCMonth() + 1} / ${dateTime.getUTCFullYear()} (UTC Time)`
                     document.getElementById("data").innerHTML = `The graph below showed the number of clicks on https://api.countapi.xyz/hit/amongus-s.us/clicks as of ${dateStamp}`
                     document.getElementById("data2").innerHTML = `Number of clicks currently is: ${e.value}`
                     data1.push(e.value)
                     timestamp.push(time)
+                    localStorage.setItem("clicks", data1.toString())
+                    localStorage.setItem("clicksadded", data2.toString())
+                    localStorage.setItem("timestamp", timestamp.toString())
                     myChart.update()
                 })
         }, 1000)
