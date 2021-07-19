@@ -40,7 +40,7 @@
                 labels: timestamp,
                 datasets: [
                     {
-                        label: `# of clicks on https://api.countapi.xyz/hit/amongus-s.us/clicks`,
+                        label: `# of clicks on https://api.countapi.xyz/get/amongus-s.us/clicks`,
                         data: data1,
                         backgroundColor: [
                             'rgba(200, 0, 0, 1)',
@@ -91,7 +91,7 @@
             }
         });
         setInterval(() => {
-            fetch("https://api.countapi.xyz/hit/amongus-s.us/clicks")
+            fetch("https://api.countapi.xyz/get/amongus-s.us/clicks")
                 .then(e => e.json())
                 .then(e => {
                     var dateTime = new Date();
