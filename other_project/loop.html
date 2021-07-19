@@ -106,7 +106,7 @@
                     large = Number(e.value)
                     data2.push(Number(e.value) - small > 100000 ? 0 : Number(e.value) - small)
                     dateStamp = `${dateTime.getUTCDate()} / ${dateTime.getUTCMonth() + 1} / ${dateTime.getUTCFullYear()} (UTC Time)`
-                    document.getElementById("data").innerHTML = `The graph below showed the number of clicks on https://api.countapi.xyz/hit/amongus-s.us/clicks as of ${dateStamp}`
+                    document.getElementById("data").innerHTML = `The graph below showed the number of clicks on https://api.countapi.xyz/get/amongus-s.us/clicks as of ${dateStamp}`
                     document.getElementById("data2").innerHTML = `Number of clicks currently is: ${e.value}`
                     data1.push(e.value)
                     timestamp.push(time)
