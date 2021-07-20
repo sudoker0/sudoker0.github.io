@@ -1,4 +1,5 @@
-# Guess The Programming Language v0.4 (Written in Python)
+__ver__ = 0.5
+# Guess The Programming Language v0.5 (Written in Python)
 # Created by QuanMCPC (https://quanmcpc.site/), licensed under MIT license
 # Inspired from https://guessthiscode.com/
 
@@ -23,13 +24,16 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-
 # Load a bunch of important module
-import random
-import time
-import base64
-from sys import exit
-import sys
+try:
+    import random
+    import time
+    import base64
+    from sys import exit
+    import sys
+except ModuleNotFoundError as e:
+    print(f"[ERROR]: Cannot find important module: \"{e.name}\", this can be due to old Python version.")
+    exit()
 
 # Colors
 class bcolors:
@@ -37,7 +41,7 @@ class bcolors:
     OKBLUE = '\033[94m'
     OKCYAN = '\033[96m'
     OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
+    WARNING = '\33[33m'
     FAIL = '\033[91m'
     ENDC = '\033[0m'
     BOLD = '\033[1m'
@@ -45,31 +49,28 @@ class bcolors:
 
 # Log message with colors
 def log(message, color: bool):
-    if color:
-        print(f"{bcolors.OKBLUE}[LOG]: {message}{bcolors.ENDC}")
-    else:
-        print(f"[LOG]: {message}")
+    if color: print(f"{bcolors.OKBLUE}[LOG]: {message}{bcolors.ENDC}")
+    else: print(f"[LOG]: {message}")
 
 # Print error with colors
 def error(message, color: bool):
-    if color:
-        print(f"{bcolors.FAIL}[ERROR]: {message}{bcolors.ENDC}")
-    else:
-        print(f"[ERROR]: {message}")
+    if color: print(f"{bcolors.FAIL}[ERROR]: {message}{bcolors.ENDC}")
+    else: print(f"[ERROR]: {message}")
+
+# Print warning with colors
+def warning(message, color: bool):
+    if color: print(f"{bcolors.WARNING}[WARNING]: {message}{bcolors.ENDC}")
+    else: print(f"[WARNING]: {message}")
 
 # Print text with colors
 def cprint(message, color: bool):
-    if color:
-        print(f"{bcolors.OKGREEN}{message}{bcolors.ENDC}")
-    else:
-        print(message)
+    if color: print(f"{bcolors.OKGREEN}{message}{bcolors.ENDC}")
+    else: print(message)
 
 # Waiting for input with colors
 def cinput(message, color: bool):
-    if color:
-        return input(f"{bcolors.OKCYAN}{message}{bcolors.ENDC}")
-    else:
-        return input(message)
+    if color: return input(f"{bcolors.OKCYAN}{message}{bcolors.ENDC}")
+    else: return input(message)
 
 # Some variable declaration
 code_list = []
@@ -77,6 +78,7 @@ list_count = 0
 question_count = 0
 point = 0
 header = {"Authorization": f"token {base64.b64decode(b'Z2hwX1d5czM2ZjBWaFhqaVFpa1B6S1Z2cWR0RXZpRDVTVjRReDNCbw==').decode('utf-8')}"}
+# startTime = 0
 clearConsole = False
 moveOnAfterCorrectGuess = False
 allowColor = False
@@ -84,9 +86,19 @@ allowColor = False
 # Attempt to import the "requests" module
 try:
     import requests
-except ModuleNotFoundError:
-    error("This game cannot continue because this require the \"requests\" module!\nInstall the module using:\n - \"pip install requests\"\nor\n - \"conda install requests\"", allowColor)
-    exit()
+    # from pypresence import Presence
+    # import discord_rpc
+except ModuleNotFoundError as e:
+    if e.name == "pypresence":
+        warning(f"\"{e.name}\" cannot be loaded. Even through the package is not required for the game to run, it's recommend to install the package for the fullest experience.\n", allowColor)
+    else:
+        error(f"This game cannot continue because this require the \"{e.name}\" module!\nTry install the module using:\n - \"pip install {e.name}\"\nor\n - \"conda install {e.name}\"", allowColor)
+        exit()
+# try:
+#     import requests
+# except ModuleNotFoundError:
+#     error("This game cannot continue because this require the \"requests\" module!\nInstall the module using:\n - \"pip install requests\"\nor\n - \"conda install requests\"", allowColor)
+#     exit()
 
 # Since there are many programming languages out there, we only gonna select languages that we can
 # actually use to write program. The "true_language" variable under will become important later
@@ -276,17 +288,38 @@ def game():
                     error("Invalid answer (Valid answer have to be a number > 0 and number < 6)", allowColor)
                     continue
 
+# def UpdateDiscordRPC(client_id: str, rounds_num: int, points_num: int):
+#     RPC = Presence(client_id) #867008888712462396
+#     RPC.connect()
+#     RPC.update(
+#         details=f"Rounds: {rounds_num}, Points: {points_num}",
+#         state="Trying to guess the language...",
+#         start=startTime,
+#         large_text=f"Guess The Programming Language v{__ver__}",
+#         buttons=[
+#             {
+#                 "label": "GitHub link",
+#                 "url": "https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/gtpl.py"
+#             },
+#             {
+#                 "label": "My Website",
+#                 "url": "https://quanmcpc.site"
+#             }
+#         ]
+#     )
+
 def main(argv):
     global clearConsole
     global allowColor
     global moveOnAfterCorrectGuess
+    global startTime
     # Arguments check
     if "-h" in argv or "--help" in argv:
         # Help flag
         cprint(
             (
                 "=============================================\n"
-                "GTPL v0.4 - Help Page\n"
+                f"GTPL v{__ver__} - Help Page\n"
                 "Usage: gtpl.py [-h | --help] OR gtpl.py [-c | --clearConsole] [-m | --moveOnAfterCorrectGuess]\n"
                 "-h | --help                    : Display this help page\n"
                 "-c | --clearConsole            : Clear the console after each guesses\n"
@@ -306,11 +339,13 @@ def main(argv):
         if "-a" in argv or "--allowColor" in argv:
             allowColor = True
 
+    startTime = int(time.time())
+    # def caller(): UpdateDiscordRPC("***", question_count, point)
     # Print the intro text
     cprint(
         (
             "=============================================\n"
-            "Guess The Programming Language v0.4\n"
+            f"Guess The Programming Language v{__ver__}\n"
             "Are you ready to guess some programming language?\n"
             "If you're, enter Yes! If you're not, enter No or gibberish\n"
             "Also, for more settings, enter \"gtpl -h\" for the help page\n"
