@@ -1,6 +1,28 @@
-# Guess The Programming Language v0.3 (Written in Python)
+# Guess The Programming Language v0.4 (Written in Python)
 # Created by QuanMCPC (https://quanmcpc.site/), licensed under MIT license
 # Inspired from https://guessthiscode.com/
+
+# MIT License
+
+# Copyright (c) 2021 QuanMCPC
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
 
 # Load a bunch of important module
 import random
@@ -63,7 +85,7 @@ allowColor = False
 try:
     import requests
 except ModuleNotFoundError:
-    error("Error, this game cannot continue because this require the \"requests\" module!\nInstall the module using:\n - \"pip install requests\"\nor\n - \"conda install requests\"", allowColor)
+    error("This game cannot continue because this require the \"requests\" module!\nInstall the module using:\n - \"pip install requests\"\nor\n - \"conda install requests\"", allowColor)
     exit()
 
 # Since there are many programming languages out there, we only gonna select languages that we can
@@ -102,7 +124,7 @@ def randomLanguageList(trueLanguage: str, listOfLanguage: list, lenOfTheList: in
             if truePos == count:
                 if trueLanguage in listOfLanguage: list_lang.append(trueLanguage)
                 else:
-                    error(f"Error, the language {trueLanguage} that you specify does not exist in the listOfLanguage list (CaSe SeNSiTiVe does matter btw)", allowColor)
+                    error(f"The language {trueLanguage} that you specify does not exist in the listOfLanguage list (CaSe SeNSiTiVe does matter btw)", allowColor)
                     return []
             else:
                 ranChoice = str(random.choice(listOfLanguage))
@@ -120,6 +142,7 @@ def game():
     global code_list
     global list_count
     global question_count
+    global allowColor
     global point
     # This is for some purpose
     while True:
@@ -133,7 +156,7 @@ def game():
         if (int(rate_limit_response.json()["resources"]["core"]["remaining"]) <= 0):
             # You don't have any more access! Oof
             time_string = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(int(rate_limit_response.json()["resources"]["core"]["reset"])))
-            error(f"Error, the game can no longer get data from GitHub API due to rate limit.\nYou should be able to run the game again on {time_string}", allowColor)
+            error(f"The game can no longer get data from GitHub API due to rate limit.\nYou should be able to run the game again on {time_string}", allowColor)
         else:
             # Yay, you still have access
             # Has the cache been used up?
@@ -207,10 +230,10 @@ def game():
                     # Get the correct language name
                     lang = option["list"][whereCorrectLang]
                     # Check if user has answered correctly
-                    if (user_option == whereCorrectLang + 1):
+                    if user_option == whereCorrectLang + 1:
                         # Yay, the person has answered correctly, please add 50 points to the player!
                         point += 50
-                        cprint(f"Correct! The programming language of the code above was {lang}\nYou've earned +50 points, which makes your current point: {point}!\n", allowColor)
+                        cprint(f"{bcolors.OKBLUE}Correct!{bcolors.OKGREEN} The programming language of the code above was {lang}\nYou've earned +50 points, which makes your current point: {point}!\n", allowColor)
                         if moveOnAfterCorrectGuess:
                             list_count += 1
                             question_count += 1
@@ -229,9 +252,11 @@ def game():
                             cprint("Thank you for spending your time for playing this game!", allowColor)
                             cprint("=============================================", allowColor)
                             exit(69)
+                    elif user_option < 1 or user_option > 5:
+                        raise ValueError
                     else:
                         # Oof, the person has answered incorrectly
-                        cprint(f"Incorrect! The programming language of the code above was {lang}\nYour current point is {point}!", allowColor)
+                        cprint(f"{bcolors.FAIL}Incorrect!{bcolors.OKGREEN} The programming language of the code above was {lang}\nYour current point is {point}!", allowColor)
                         # Do the person want to restart?
                         should_restart = cinput("Do you want to start over? [Yes (You can also press the Enter key instead) / No] > ", allowColor).lower()
                         if (should_restart == "yes" or should_restart == ""):
@@ -248,11 +273,12 @@ def game():
                             exit(420)
                 except ValueError:
                     # That's not a valid answer
-                    error("Error, invalid answer (Valid answer have to be a number)", allowColor)
+                    error("Invalid answer (Valid answer have to be a number > 0 and number < 6)", allowColor)
                     continue
 
 def main(argv):
     global clearConsole
+    global allowColor
     global moveOnAfterCorrectGuess
     # Arguments check
     if "-h" in argv or "--help" in argv:
@@ -260,29 +286,31 @@ def main(argv):
         cprint(
             (
                 "=============================================\n"
-                "GTPL v0.3  - Help Page\n"
+                "GTPL v0.4 - Help Page\n"
                 "Usage: gtpl.py [-h | --help] OR gtpl.py [-c | --clearConsole] [-m | --moveOnAfterCorrectGuess]\n"
-                "-h | --help : Display this help page\n"
-                "-c | --clearConsole : Clear the console after each guesses\n"
+                "-h | --help                    : Display this help page\n"
+                "-c | --clearConsole            : Clear the console after each guesses\n"
                 "-m | --moveOnAfterCorrectGuess : After each corrected guesses, move on to the next round\n"
-                "-a | --allowColor: Enable color highlighting"
+                "-a | --allowColor              : Enable color highlighting\n"
                 "=============================================\n"
             ), allowColor
         )
         exit()
     else:
-        if "-c" in argv or "--clearConsole" in argv:\
+        if "-c" in argv or "--clearConsole" in argv:
             # Clear console flag
             clearConsole = True
         if "-m" in argv or "--moveOnAfterCorrectGuess" in argv:
             # Move on after correct guesses flag
             moveOnAfterCorrectGuess = True
+        if "-a" in argv or "--allowColor" in argv:
+            allowColor = True
 
     # Print the intro text
     cprint(
         (
             "=============================================\n"
-            "Guess The Programming Language v0.3\n"
+            "Guess The Programming Language v0.4\n"
             "Are you ready to guess some programming language?\n"
             "If you're, enter Yes! If you're not, enter No or gibberish\n"
             "Also, for more settings, enter \"gtpl -h\" for the help page\n"
