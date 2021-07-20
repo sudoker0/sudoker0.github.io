@@ -245,7 +245,10 @@ def game():
                     if user_option == whereCorrectLang + 1:
                         # Yay, the person has answered correctly, please add 50 points to the player!
                         point += 50
-                        cprint(f"{bcolors.OKBLUE}Correct!{bcolors.OKGREEN} The programming language of the code above was {lang}\nYou've earned +50 points, which makes your current point: {point}!\n", allowColor)
+                        if allowColor:
+                            cprint(f"{bcolors.OKBLUE}Correct!{bcolors.OKGREEN} The programming language of the code above was {lang}\nYou've earned +50 points, which makes your current point: {point}!\n", allowColor)
+                        else:
+                            print(f"Correct! The programming language of the code above was {lang}\nYou've earned +50 points, which makes your current point: {point}!\n")
                         if moveOnAfterCorrectGuess:
                             list_count += 1
                             question_count += 1
@@ -268,7 +271,10 @@ def game():
                         raise ValueError
                     else:
                         # Oof, the person has answered incorrectly
-                        cprint(f"{bcolors.FAIL}Incorrect!{bcolors.OKGREEN} The programming language of the code above was {lang}\nYour current point is {point}!", allowColor)
+                        if allowColor:
+                            cprint(f"{bcolors.FAIL}Incorrect!{bcolors.OKGREEN} The programming language of the code above was {lang}\nYour current point is {point}!", allowColor)
+                        else:
+                            print(f"Incorrect! The programming language of the code above was {lang}\nYour current point is {point}!")
                         # Do the person want to restart?
                         should_restart = cinput("Do you want to start over? [Yes (You can also press the Enter key instead) / No] > ", allowColor).lower()
                         if (should_restart == "yes" or should_restart == ""):
