@@ -4,22 +4,38 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
         <title>Document</title>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.1/dist/chart.min.js"></script>
         <style>
             body, html {
-                font-family: 'Courier New', Courier, monospace;
+                /* font-family: 'Courier New', Courier, monospace; */
+                font-family: 'Raleway', sans-serif;
+                color: #FBFBFB;
+                background-color: #111111;
+            }
+            button, input[type="number"] {
+                background-color: #111111;
+                color: #FBFBFB;
+                border: 2px solid white;
+                border-radius: 0;
+            }
+            button:hover {
+                background-color: #333333;
             }
         </style>
     </head>
     <body>
-        <p id="data"></p>
+        <h2>Some Graph <sup style="display: inline-block; transform: rotate(180deg)">&copy;</sup> v0.5, created by QuanMCPC</h3>
+        <p id="data">The graph below showed the number of clicks on https://api.countapi.xyz/get/amongus-s.us/clicks as of 31 / 12 / 1999 (UTC Time)</p>
         <div style="display: flex">
-            <p id="data2" style="margin: 0 10px 0 0"></p>
+            <p id="data2" style="margin: 0 10px 0 0">Number of clicks currently is: Infinite and the estimated CPS is: Infinite CPS / s</p>
             <button onclick="localStorage.clear(); window.location.reload(true)">Data not loaded correctly? Click here to reset!</button>
         </div>
         <p style="margin: 1em 0 1em 0">Update data every: <input type="number" style="width: 70px;" value="2" id="refreshAfter"> second <button onclick="localStorage.clear(); localStorage.setItem('refreshAfterStore', document.getElementById('refreshAfter').value); window.location.reload(true)">Apply (Will requite a reset)!</button></p>
-        <canvas id="myChart" height="145" width="400"></canvas>
+        <canvas id="myChart" height="120s"></canvas>
     </body>
     <script>
         // var data1 = []
@@ -118,5 +134,9 @@
                     myChart.update()
                 })
         }, Number(localStorage.getItem("refreshAfterStore") != null ? localStorage.getItem("refreshAfterStore") : 1) * 1000)
+        Chart.defaults.color = "#FBFBFB"
+        Chart.defaults.borderColor = "#fff"
+        myChart.update()
+        console.log(Chart.defaults)
     </script>
 </html>
