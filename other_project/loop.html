@@ -25,6 +25,12 @@
             button:hover {
                 background-color: #333333;
             }
+            fieldset {
+                border: 2px solid white
+            }
+            fieldset button {
+                margin-right: 10px;
+            }
         </style>
     </head>
     <body>
@@ -35,7 +41,13 @@
             <button onclick="localStorage.clear(); window.location.reload(true)">Data not loaded correctly? Click here to reset!</button>
         </div>
         <p style="margin: 1em 0 1em 0">Update data every: <input type="number" style="width: 70px;" value="2" id="refreshAfter"> second <button onclick="localStorage.clear(); localStorage.setItem('refreshAfterStore', document.getElementById('refreshAfter').value); window.location.reload(true)">Apply (Will requite a reset)!</button></p>
-        <canvas id="myChart" height="120s"></canvas>
+        <canvas id="myChart" height="120"></canvas>
+        <fieldset>
+            <legend>Capture</legend>
+            <button onclick="startCapture()">Start Capturing</button><button onclick="stopCapture()">Stop Capturing / Dump Capturing Data</button><button onclick="eraseData()">Erase Capturing Data</button>
+            <p id="status">Status: </p>
+            <p id="status2">Number of item captured:</p>
+        </fieldset>
     </body>
     <script>
         // var data1 = []
@@ -43,12 +55,14 @@
         var refreshAfter_Number = Number(localStorage.getItem("refreshAfterStore") != null ? localStorage.getItem("refreshAfterStore") : 1)
         document.getElementById("refreshAfter").value = refreshAfter_Number
         console.log(localStorage.getItem("clicks") != null)
-        var data1 = localStorage.getItem("clicks") != null ? localStorage.getItem("clicks").split(",").map((v) => { return Number(v) }) : []
-        var data2 = localStorage.getItem("clicksadded") != null ? localStorage.getItem("clicksadded").split(",").map((v) => { return Number(v) }) : []
+        var clicksArray = localStorage.getItem("clicks") != null ? localStorage.getItem("clicks").split(",").map((v) => { return Number(v) }) : []
+        var clicksAddedArray = localStorage.getItem("clicksadded") != null ? localStorage.getItem("clicksadded").split(",").map((v) => { return Number(v) }) : []
         var data3 = []
+        var captureSnapshot = "TIMESTAMP,CLICKS,CLICKSADDED,CPS"
         var timestamp = localStorage.getItem("timestamp") != null ? localStorage.getItem("timestamp").split(",") : []
         var dateStamp = ""
-        var large = data1.length <= 0 ? 0 : data1[data1.length - 1]
+        var startSnapshot = false;
+        var large = clicksArray.length <= 0 ? 0 : clicksArray[clicksArray.length - 1]
         var small = 0
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
@@ -58,7 +72,7 @@
                 datasets: [
                     {
                         label: `# of clicks on https://api.countapi.xyz/get/amongus-s.us/clicks`,
-                        data: data1,
+                        data: clicksArray,
                         backgroundColor: [
                             'rgba(200, 0, 0, 1)',
                         ],
@@ -69,7 +83,7 @@
                     },
                     {
                         label: `# of clicks added based on previous # of clicks`,
-                        data: data2,
+                        data: clicksAddedArray,
                         backgroundColor: [
                             'rgba(0, 200, 0, 1)',
                         ],
@@ -105,6 +119,16 @@
                     mode: 'index',
                     intersect: false,
                 },
+                // plugins: {
+                //     title: {
+                //         display: true,
+                //         text: 'Custom Chart Title',
+                //         padding: {
+                //             top: 10,
+                //             bottom: 10
+                //         }
+                //     }
+                // }
             }
         });
         setInterval(() => {
@@ -112,25 +136,30 @@
                 .then(e => e.json())
                 .then(e => {
                     var dateTime = new Date();
+                    var unixTime = Math.round(parseFloat(new Date().getTime()) / 1000)
                     var time = `${dateTime.getUTCHours()}:${dateTime.getUTCMinutes()}:${dateTime.getUTCSeconds()}`
-                    if (data1.length >= 50) {
-                        data1.shift();
+                    if (clicksArray.length >= 50) {
+                        clicksArray.shift();
                         timestamp.shift();
-                        data2.shift();
+                        clicksAddedArray.shift();
                         myChart.update();
                     }
                     small = large
                     large = Number(e.value)
                     var data2_date = Number(e.value) - small > 100000 ? 0 : Number(e.value) - small
-                    data2.push(data2_date)
+                    clicksAddedArray.push(data2_date)
                     dateStamp = `${dateTime.getUTCDate()} / ${dateTime.getUTCMonth() + 1} / ${dateTime.getUTCFullYear()} (UTC Time)`
                     document.getElementById("data").innerHTML = `The graph below showed the number of clicks on https://api.countapi.xyz/get/amongus-s.us/clicks as of ${dateStamp}`
                     document.getElementById("data2").innerHTML = `Number of clicks currently is: ${e.value} and the estimated CPS is: ${data2_date / refreshAfter_Number} CPS / s`
-                    data1.push(e.value)
+                    clicksArray.push(e.value)
                     timestamp.push(time)
-                    localStorage.setItem("clicks", data1.toString())
-                    localStorage.setItem("clicksadded", data2.toString())
+                    localStorage.setItem("clicks", clicksArray.toString())
+                    localStorage.setItem("clicksadded", clicksAddedArray.toString())
                     localStorage.setItem("timestamp", timestamp.toString())
+                    if (startSnapshot) {
+                        captureSnapshot += `\n${unixTime},${e.value},${data2_date},${data2_date / refreshAfter_Number}`
+                        document.getElementById("status2").innerHTML = `Number of item captured: ${captureSnapshot.split(/\n/gm).length - 1}`
+                    }
                     myChart.update()
                 })
         }, Number(localStorage.getItem("refreshAfterStore") != null ? localStorage.getItem("refreshAfterStore") : 1) * 1000)
@@ -138,5 +167,31 @@
         Chart.defaults.borderColor = "#fff"
         myChart.update()
         console.log(Chart.defaults)
+        function startCapture() {
+            if (captureSnapshot == "TIMESTAMP,CLICKS,CLICKSADDED,CPS") {
+                document.getElementById("status").innerHTML = `Status: Capturing data starting from ${new Date().toUTCString()}`
+                startSnapshot = true
+            } else {
+                alert("Please erase the current captured data before start capturing data.")
+            }
+        }
+        function stopCapture() {
+            function destroyClickedElement(event) { document.body.removeChild(event.target); }
+            startSnapshot = false
+            document.getElementById("status").innerHTML = `Status: Stopped capturing data, please wait a little bit and you will be able to download the CSV data (You can click the button again to download the file again)`
+            var textToSaveAsBlob = new Blob([captureSnapshot], {type:"text/plain"});
+            var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+            var downloadLink = document.createElement("a");
+            downloadLink.download = `data.csv`;
+            downloadLink.href = textToSaveAsURL;
+            downloadLink.onclick = destroyClickedElement;
+            downloadLink.style.display = "none";
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+        }
+        function eraseData() {
+            captureSnapshot = "TIMESTAMP,CLICKS,CLICKSADDED,CPS"
+            document.getElementById("status").innerHTML = `Status: Captured data has been erased`
+        }
     </script>
 </html>
