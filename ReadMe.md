@@ -70,38 +70,34 @@
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\** | 100.0% | 1917 files | 392,465,853 bytes
-\* | 8.05% | 618 files | 31,602,378 bytes
-\*.7z | 21.02% | 9 files | 82,488,928 bytes
-\*.cache | 0.01% | 1 files | 39,649 bytes
-\*.config | 0.02% | 1 files | 83,595 bytes
+\** | 100.0% | 820 files | 258,203,543 bytes
+\* | 12.27% | 667 files | 31,683,555 bytes
+\*.7z | 35.14% | 11 files | 90,742,047 bytes
+\*.cache | 0.02% | 1 files | 39,649 bytes
+\*.config | 0.03% | 1 files | 83,595 bytes
 \*.css | 0.0% | 3 files | 11,647 bytes
-\*.exe | 1.26% | 1 files | 4,957,184 bytes
+\*.exe | 1.92% | 1 files | 4,957,184 bytes
 \*.gif | 0.0% | 1 files | 10,498 bytes
-\*.glb | 23.15% | 2 files | 90,854,536 bytes
-\*.html | 0.16% | 28 files | 642,831 bytes
-\*.ico | 0.03% | 1 files | 101,976 bytes
-\*.idx | 0.03% | 1 files | 135,528 bytes
-\*.js | 4.74% | 1092 files | 18,583,861 bytes
-\*.json | 0.92% | 25 files | 3,617,229 bytes
-\*.md | 0.0% | 6 files | 14,301 bytes
-\*.mtl | 0.0% | 1 files | 8,051 bytes
-\*.obj | 5.93% | 1 files | 23,287,809 bytes
-\*.pack | 27.22% | 1 files | 106,841,155 bytes
+\*.html | 0.25% | 29 files | 656,777 bytes
+\*.ico | 0.04% | 1 files | 101,976 bytes
+\*.idx | 0.05% | 1 files | 135,528 bytes
+\*.js | 0.05% | 11 files | 141,185 bytes
+\*.json | 0.07% | 9 files | 187,087 bytes
+\*.md | 0.0% | 1 files | 7,852 bytes
+\*.pack | 41.38% | 1 files | 106,841,155 bytes
 \*.pem | 0.0% | 2 files | 3,310 bytes
-\*.png | 0.9% | 25 files | 3,528,212 bytes
-\*.py | 0.01% | 2 files | 24,615 bytes
-\*.sample | 0.0% | 12 files | 19,260 bytes
-\*.sqlite | 0.02% | 1 files | 90,112 bytes
+\*.png | 1.08% | 22 files | 2,794,787 bytes
+\*.py | 0.01% | 2 files | 28,312 bytes
+\*.sample | 0.01% | 12 files | 19,260 bytes
+\*.sqlite | 0.03% | 1 files | 90,112 bytes
 \*.svg | 0.0% | 5 files | 10,273 bytes
-\*.ttf | 0.17% | 5 files | 671,756 bytes
-\*.txt | 0.0% | 2 files | 980 bytes
-\*.wasm | 1.44% | 7 files | 5,633,654 bytes
-\*.webp | 0.95% | 9 files | 3,745,400 bytes
+\*.ttf | 0.25% | 4 files | 653,688 bytes
+\*.txt | 0.0% | 1 files | 288 bytes
+\*.webp | 1.45% | 9 files | 3,745,400 bytes
 \*.xml | 0.0% | 2 files | 1,421 bytes
 \*.yml | 0.0% | 2 files | 2,321 bytes
-\*.zip | 3.87% | 17 files | 15,198,182 bytes
-> Last updated on: 2021-07-18
+\*.zip | 5.89% | 17 files | 15,198,182 bytes
+> Last updated on: 2021-07-22
 <!--python_data_stop-->
 [Download the table as HTML in a zip file (Style is not the same) (This is kept for historical purposes only and the data is no longer being updated)](https://drive.google.com/u/0/uc?id=1nvijtp61EX7gtisnjHCAEBkfgQKs-zTh&export=download)
 > You might ask: How do I able to get all of the file extensions, the number of file and other info?

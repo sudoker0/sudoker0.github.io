@@ -1,6 +1,78 @@
 {
-    "last_update_on": "2021-07-18",
+    "last_update_on": "2021-07-22",
     "data": [
+        {
+            "hash": "ace7fe1",
+            "committer": "QuanMCPC",
+            "commit_date": 1626847616,
+            "message": "Allow people to record stuff"
+        },
+        {
+            "hash": "ffcaab1",
+            "committer": "QuanMCPC",
+            "commit_date": 1626791051,
+            "message": "Smol change"
+        },
+        {
+            "hash": "a749021",
+            "committer": "QuanMCPC",
+            "commit_date": 1626790931,
+            "message": "Some more update (Version 0.5)"
+        },
+        {
+            "hash": "530fadc",
+            "committer": "QuanMCPC",
+            "commit_date": 1626768396,
+            "message": "Some update to the GTPL game"
+        },
+        {
+            "hash": "70bb29f",
+            "committer": "QuanMCPC",
+            "commit_date": 1626757668,
+            "message": "Make the graph dark mode"
+        },
+        {
+            "hash": "207717e",
+            "committer": "QuanMCPC",
+            "commit_date": 1626706399,
+            "message": "Added an estimated CPS counter"
+        },
+        {
+            "hash": "b77fbe3",
+            "committer": "QuanMCPC",
+            "commit_date": 1626689495,
+            "message": "Some change"
+        },
+        {
+            "hash": "572b6a1",
+            "committer": "QuanMCPC",
+            "commit_date": 1626689278,
+            "message": "Updated version"
+        },
+        {
+            "hash": "ab459e9",
+            "committer": "QuanMCPC",
+            "commit_date": 1626684616,
+            "message": "Allow person to set the duration of refetch"
+        },
+        {
+            "hash": "c95cb36",
+            "committer": "QuanMCPC",
+            "commit_date": 1626682984,
+            "message": "Update the project"
+        },
+        {
+            "hash": "bdfdf30",
+            "committer": "QuanMCPC",
+            "commit_date": 1626662422,
+            "message": "For reason"
+        },
+        {
+            "hash": "5aba9de",
+            "committer": "QuanMCPC",
+            "commit_date": 1626611511,
+            "message": "Update website's information"
+        },
         {
             "hash": "43d0911",
             "committer": "QuanMCPC",
