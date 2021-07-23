@@ -69,13 +69,24 @@ name_.forEach(function (list, index) {
  * @param {string} url The URL that you want to use (Optional)
  * @returns String
  */
-function gPBName(name, url) {
+function gPBName(name, url = window.location.href) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, '\\$&');
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
     if (!results) return null;
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+function setWebConf(dataChangeName, dataChangeData) {
+    var data = JSON.parse(localStorage.getItem("website_settings"))
+    // var dataTemplate = !!data ? data : {"antialiasing":true,"background":0,"theme":0,"backgroundURL":"","advanced_background":{"backgroundAttachment":"fixed","backgroundBlendMode":"initial","backgroundClip":"initial","backgroundOrigin":"initial","backgroundPosition":"center center","backgroundRepeat":"no-repeat","backgroundSize":"initial"}}
+    var dataTemplate = !!data ? data : {"antialiasing":true,"background":0,"theme":0,"backgroundURL":""}
+    if (dataChangeName != "initdata") { dataTemplate[dataChangeName] = dataChangeData }
+    localStorage.setItem("website_settings", JSON.stringify(dataTemplate))
+}
+function getWebConf(dataName) {
+    var returnedData = JSON.parse(localStorage.getItem("website_settings"))
+    if (dataName == "*") { return returnedData } else { return returnedData[dataName] }
 }
 /**
  * Check if the current browser support WebP
@@ -129,23 +140,33 @@ document.addEventListener("click", function(evt) {
     getId("accb_small").style.display = "none";
     accb_small_isOn = false;
 });
+function fetchLocal() {
+    getId("bg_control").querySelectorAll("li")[getWebConf("background")].querySelector("input[type='radio']").setAttribute("checked", "checked")
+    getId("theme_control").querySelectorAll("li")[getWebConf("theme")].querySelector("input[type='radio']").setAttribute("checked", "checked")
+    if (Number(getWebConf("theme")) == 0) { ws_1() } else { ws_2() }
+}
 window.onresize = smtg;
 window.onload = () => {
     smtg();
     setTimeout(() => {
-        getId("loadingIndicator").style.opacity = 0;
+        getId("loadingIndicator").style.opacity = "0";
         getId("loadingIndicator").style.pointerEvents = "none"
     }, 500);
     document.querySelectorAll("h3#accbar a, h3#accbar_small a").forEach((v) => {
         v.addEventListener("click", e => {
             e.preventDefault();
-            getId("loadingIndicator").style.opacity = 1;
+            getId("loadingIndicator").style.opacity = "1";
             getId("loadingIndicator").style.pointerEvents = "initial";
             setTimeout(() => {
                 window.location.href = e.target.href;
             }, 500)
         })
     })
+    // Object.keys(getWebConf("advanced_background")).forEach((value) => {
+    //     document.body.style[value] = getWebConf("advanced_background")[value]
+    // })
+    if (!getWebConf("*")) { setWebConf("initdata") }
+    fetchLocal();
 }
 var somethingCrash = false;
 function smtg() {
@@ -168,7 +189,22 @@ window.onscroll = function() {
     getId("accb_small").style.display = "none"
     accb_small_isOn = false;
 }
-function changeBg(isLight) { if (isLight) { qSel("body").style.backgroundImage = "url(\"/website/image/background/background_light.png\")"; } else { qSel("body").style.backgroundImage = "url(\"/website/image/background/background_dark.png\")"; } }
+function changeBg(mode) {
+    function noCustomBackground() { getId("bg-custom-upload-file").setAttribute("disabled", "disabled") }
+    switch (mode) {
+        case 0:
+            qSel("body").style.backgroundImage = "url(\"/website/image/background/background_light.png\")";
+            noCustomBackground()
+            break;
+        case 1:
+            qSel("body").style.backgroundImage = "url(\"/website/image/background/background_dark.png\")";
+            noCustomBackground()
+            break;
+        case 3:
+            qSel("body").style.backgroundImage = `url("${getWebConf("backgroundURL")}")`
+            getId("bg-custom-upload-file").removeAttribute("disabled")
+    }
+}
 /**
  * Basically localStorage.getItem
  * @param {String} i - The name of the item
@@ -204,71 +240,116 @@ function dropShadow() {
     }
 }
 document.onscroll = (_) => { dropShadow(); }
-function fetchLocal() {
-    if (ls_gt("background") && ls_gt("theme")) {
-        document.getElementById("bg_control").getElementsByTagName("li")[Number(ls_gt("background"))].childNodes[0].setAttribute("checked", "checked")
-        document.getElementById("theme_control").getElementsByTagName("li")[Number(ls_gt("theme"))].childNodes[0].setAttribute("checked", "checked")
-        if (ls_gt("theme") == "0") {
-            ws_1()
-        } else {
-            ws_2()
-        }
-    } else {
-        ls_st("background", "0");
-        ls_st("theme", "0");
-        fetchLocal();
-    }
-}
-fetchLocal();
 function ws_1() {
     document.documentElement.style.setProperty("--bg", "rgba(20, 20, 20, 0.85)")
     qSel(".container").style.border = "3px solid black";
     qSel(".container").style.margin = "20px";
-    if (ls_gt("background") == "0") { changeBg(true) } else if (ls_gt("background") == "1") { changeBg(false) } else {
-        if (window.matchMedia("(prefers-color-scheme: light)").matches) { changeBg(true); } else { changeBg(false);}
+    if (getWebConf("background") == 0) { changeBg(0) }
+    else if (getWebConf("background") == 1) { changeBg(1) }
+    else if (getWebConf("background") == 2) {
+        if (window.matchMedia("(prefers-color-scheme: light)").matches) { changeBg(0); } else { changeBg(1);}
         window.matchMedia("(prefers-color-scheme: light)").onchange = function(e) {
-            if (e.matches) { changeBg(true); } else { changeBg(false);}
+            if (e.matches) { changeBg(0); } else { changeBg(1);}
         }
+    } else {
+        changeBg(3)
     }
-    getId("bg-day").removeAttribute("disabled")
-    getId("bg-night").removeAttribute("disabled")
-    getId("bg-sys").removeAttribute("disabled")
+    getId("bg_control").querySelectorAll("input, textarea").forEach(function(elem) { elem.removeAttribute("disabled") })
 }
 function ws_2() {
     document.documentElement.style.setProperty("--bg", "rgb(21, 21, 21)")
     qSel(".container").style.border = "1px solid rgb(21, 21, 21)";
     qSel(".container").style.margin = "-8px";
     qSel("body").style.backgroundImage = "initial";
-    getId("bg-day").setAttribute("disabled", "disabled")
-    getId("bg-night").setAttribute("disabled", "disabled")
-    getId("bg-sys").setAttribute("disabled", "disabled")
+    // qSelAll("[name='bgstyle']").forEach(function(elem) { elem.setAttribute("disabled", "disabled") })
+    getId("bg_control").querySelectorAll("input, textarea").forEach(function(elem) { elem.setAttribute("disabled", "disabled") })
 }
-getId("bg-night").onchange = () => {
+function backgroundEasterEgg() {
     constant = constant + 0.5
-    changeBg(false);
-    ls_st("background", "1");
     if (constant >= 15) {
         alert("Hey! Who keep changing the day?")
         constant = 0
     }
 }
-getId("bg-day").onchange = () => {
-    constant = constant + 0.5
-    changeBg(true);
-    ls_st("background", "0");
-    if (constant >= 15) {
-        alert("Hey! Who keep changing the day?")
-        constant = 0
+qSelAll("[name='bgstyle']").forEach(function (elem) {
+    elem.onclick = (ev) => {
+        console.log(ev.target.id)
+        switch(ev.target.id) {
+            case "bg-night":
+                changeBg(1);
+                setWebConf("background", 1)
+                break;
+            case "bg-day":
+                changeBg(0);
+                setWebConf("background", 0)
+                break;
+            case "bg-sys":
+                if (window.matchMedia("(prefers-color-scheme: light)").matches) { changeBg(0); } else { changeBg(1);}
+                setWebConf("background", 2)
+                break;
+            case "bg-custom":
+                changeBg(3);
+                setWebConf("background", 3)
+                break;
+        }
+        backgroundEasterEgg();
+    }
+})
+getId("wslook-default").onchange = () => { ws_1(); setWebConf("theme", 0); dropShadow(); }
+getId("wslook-minimal").onchange = () => { ws_2(); setWebConf("theme", 1); dropShadow(); }
+/**
+ * Open file
+ * @returns {Promise<string | ArrayBuffer>}
+ */
+function openFile() {
+    return new Promise((resolve, reject) => {
+        function clickElem(elem) {
+            var eventMouse = document.createEvent("MouseEvents");
+            eventMouse.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+            elem.dispatchEvent(eventMouse);
+        }
+        var readFile = function(e) {
+            var file = e.target.files[0];
+            if (!file) { return }
+            var reader = new FileReader();
+            reader.onerror = function(e) { reject(e.target.error) }
+            reader.onload = function(e) { resolve(e.target.result) }
+            reader.readAsDataURL(file)
+        }
+        var fileInput = document.createElement("input");
+        fileInput.type = 'file';
+        fileInput.accept = 'image/*';
+        fileInput.style.display = 'none';
+        fileInput.onchange = readFile;
+        document.body.appendChild(fileInput);
+        clickElem(fileInput);
+    })
+}
+getId("bg-custom-upload-file").onclick = (e) => {
+    openFile()
+        .then((result) => {
+            qSel("body").style.backgroundImage = `url(${result})`
+            setWebConf("backgroundURL", result)
+            setWebConf("theme", 0);
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+}
+getId("bg-antialiasing").onchange = (e) => {
+    if (e.target.checked) {
+        document.body.style.imageRendering = "initial"
+        setWebConf("antialiasing", true)
+    } else {
+        document.body.style.imageRendering = "pixelated"
+        setWebConf("antialiasing", false)
     }
 }
-getId("bg-sys").onchange = () => {
-    constant = constant + 0.5
-    if (window.matchMedia("(prefers-color-scheme: light)").matches) { changeBg(true); } else { changeBg(false);}
-    ls_st("background", "2");
-    if (constant >= 15) {
-        alert("Hey! Who keep changing the day?")
-        constant = 0
-    }
-}
-getId("wslook-default").onchange = () => { ws_1(); ls_st("theme", 0); dropShadow(); }
-getId("wslook-minimal").onchange = () => { ws_2(); ls_st("theme", 1); dropShadow(); }
+// qSelAll("select.bg-config")
+//     .forEach((elem) => {
+//         elem.onchange = (e) => {
+//             setWebConf(qSel(`label[for=${e.target.id}]`).getAttribute("data-cssvalue"), e.target.value)
+//             console.log(e.target.value, qSel(`label[for=${e.target.id}]`).getAttribute("data-cssvalue"))
+//             document.body.style[qSel(`label[for=${e.target.id}]`).getAttribute("data-cssvalue")] = e.target.value
+//         }
+//     })

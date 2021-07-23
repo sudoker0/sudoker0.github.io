@@ -12,7 +12,7 @@ h1, h2, h3, h4, h5, h6, p, span, a, label {
   -moz-transition: none !important;
   -ms-transition: none !important;
 }
-html { font-size: 100%; }
+html, body { font-size: 100%; image-rendering: pixelated; }
 nav.accb {
   background-color: var(--bg);
   border: var(--border);
@@ -81,7 +81,7 @@ div.container {
   padding: 0 20px 0 20px;
 }
 body {
-  background-image: url("/website/image/background/background_light.png");
+  /* background-image: url("/website/image/background/background_light.png"); */
   background-color: rgb(21, 21, 21);
   background-repeat: no-repeat;
   background-size: cover;
@@ -166,6 +166,7 @@ div#settingspage {
   height: 100%;
   background-color: rgba(15, 15, 15, 0.8);
   transition: opacity 0.5s ease;
+  overflow-y: auto;
 }
 div#spb_inside button {
   height: 30px;
@@ -308,4 +309,8 @@ div.collapsiblecontent span { display: block }
 #loading_redstone_dust {
   width: 120px;
   height: 120px;
+}
+textarea {
+  background-color: rgb(16, 16, 16);
+  color: white;
 }
