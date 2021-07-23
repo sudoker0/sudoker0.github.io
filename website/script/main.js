@@ -231,7 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 });
 function dropShadow() {
-    if (scrollY > 5 && localStorage.getItem("theme") == "1") {
+    if (scrollY > 5 && getWebConf("theme") == 1) {
         getId("accb").style.boxShadow = "0px 7px 8px rgb(15 15 15)";
         getId("accb_small_").style.boxShadow = "0px 7px 8px rgb(15 15 15)";
     } else {
