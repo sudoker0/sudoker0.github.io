@@ -91,7 +91,7 @@
                 <h3>Hey! I see you want to download some file here, probally you come here because you see the "Download" link on the menu bar. And so because you're already here, I'm gonna give you two path for you to choose</h3>
                 <h3>If you want challanges or want to go with "Do It Yourself" style then you can go to the source code of this page on <a href="https://github.com/QuanMCPC/QuanMCPC.github.io" style="word-break: break-all; -ms-word-break: break-all;">https://github.com/QuanMCPC/QuanMCPC.github.io</a></h3>
                 <h3>Or if you want to go with "The Easy Way" style, then here are the download link to those file that you can <abbr title="Of course, there's no problem of downloading any file in the repository :)">"Legally"</abbr>  download.</h3>
-                <div class="collapsible" tabindex="0">
+                <div class="collapsible" tabindex="0" role="button">
                     <span>High Quality Screenshots (PNG version, 7z file)</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                 </div>
@@ -99,7 +99,7 @@
                     <span>Description: A collection of screenshots in 4k and 8k avaliable in .png and .tga format</span>
                     <span>Download Link (.tga version): <a href="/website/image/download/ScreenShots_HighQuality_tga.7z" download="ScreenShots_HighQuality_tga.7z">[Click Here]</a></span>
                 </div>
-                <div class="collapsible" tabindex="0">
+                <div class="collapsible" tabindex="0" role="button">
                     <span>High Quality Backgrounds (TGA version, 7z file)</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                 </div>
@@ -107,7 +107,7 @@
                     <span>Description: A collection of backgrounds in 4k and 8k avaliable in .tga format</span>
                     <span>Download Link: <a href="/website/image/download/High_Quality_Backgrounds.7z" download="High_Quality_Backgrounds.7z">[Click Here]</a></span>
                 </div>
-                <div class="collapsible" tabindex="0">
+                <div class="collapsible" tabindex="0" role="button">
                     <span>Nornal Quality Screenshots (PNG version, Zip file)</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                 </div>
@@ -115,7 +115,7 @@
                     <span>Description: A collection of screenshots and background in 1366x768 avaliable in .png format</span>
                     <span>Download Link: <a href="/website/image/download/current_image_png.zip" download="current_image_png.zip">[Click Here]</a></span>
                 </div>
-                <div class="collapsible" tabindex="0">
+                <div class="collapsible" tabindex="0" role="button">
                     <span>Old Screenshots (PNG version, Zip file)</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                 </div>
@@ -123,7 +123,7 @@
                     <span>Description: A collection of the old screenshots and background in 1366x768 avaliable in .png format</span>
                     <span>Download Link (.png version): <a href="/website/image/download/old_image.zip" download="old_image.zip">[Click Here]</a></span>
                 </div>
-                <div class="collapsible" tabindex="0">
+                <div class="collapsible" tabindex="0" role="button">
                     <span>Coords of the screenshots</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                 </div>
@@ -131,7 +131,7 @@
                     <span>Description: Coordinates of all the screenshots in YAML format</span>
                     <span>Download Link: <a href="/website/image/download/data-to-get-screenshot.yml" download="data-to-get-screenshot.yml">[Click Here]</a></span>
                 </div>
-                <div class="collapsible" tabindex="0">
+                <div class="collapsible" tabindex="0" role="button">
                     <span>For additional "legally" downloadable files, check out the archive page at</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                 </div>
@@ -159,6 +159,13 @@
                                 <li><input type="radio" name="bgstyle" id="bg-day"><label for="bg-day"> Day time</label></li>
                                 <li><input type="radio" name="bgstyle" id="bg-night"><label for="bg-night"> Night time</label></li>
                                 <li><input type="radio" name="bgstyle" id="bg-sys"><label for="bg-sys"> Based on system preferences</label></li>
+                                <li>
+                                    <input type="radio" name="bgstyle" id="bg-custom"><label for="bg-custom"> Custom image</label>
+                                    <ul id="bg-custom-image-setting">
+                                        <li><label for="bg-custom-upload-file">Upload image file: </label><button id="bg-custom-upload-file">Click here!</button></li>
+                                    </ul>
+                                </li>
+                                <li><input type="checkbox" name="bg-antialiasing" id="bg-antialiasing" checked><label for="bg-antialiasing"> Anti-Aliasing?</label></li>
                             </ul>
                         </li>
                         <li>
@@ -168,13 +175,6 @@
                                 <li><input type="radio" name="wslook" id="wslook-minimal"><label for="wslook-minimal"> Minimalist</label></li>
                             </ul>
                         </li>
-                        <li>
-                            <input type="radio" name="bgstyle" id="bg-custom"><label for="bg-custom"> Custom image</label>
-                            <ul id="bg-custom-image-setting">
-                                <li><label for="bg-custom-upload-file">Upload image file: </label><button id="bg-custom-upload-file">Click here!</button></li>
-                            </ul>
-                        </li>
-                        <li><input type="checkbox" name="bg-antialiasing" id="bg-antialiasing" checked><label for="bg-antialiasing"> Anti-Aliasing?</label></li>
                     </ul>
                 </div>
                 <div id="sp_button">
