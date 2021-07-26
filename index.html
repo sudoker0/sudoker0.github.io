@@ -203,12 +203,8 @@
                     document.getElementById("yes").style.display = "none";
                 }
                 sessionStorage.setItem("access_granted", 1)
-                if (getParameterByName("sv_cheat") >= 1 || getParameterByName("debug") >= 1 || getParameterByName("hack") >= 1) {
-                    window.location.replace("ban.html");
-                }
-                if (localStorage.getItem("ls") == "927") {
-                    window.location.replace("ban.html");
-                }
+                if (getParameterByName("sv_cheat") >= 1 || getParameterByName("debug") >= 1 || getParameterByName("hack") >= 1) { window.location.replace("ban.html"); }
+                if (localStorage.getItem("ls") == "927") { window.location.replace("ban.html"); }
                 if (!(typeof SVGRect != "undefined")) document.getElementById("loadImg1").setAttribute("src", "/website/image/logo/loading.gif")
             }
             let deferredPrompt;
