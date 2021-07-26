@@ -27,30 +27,32 @@
         <link rel="apple-touch-icon" href="/website/image/logo/logo.png">
         <title>QuanMCPC's Website</title>
         <style>
-            .first_level { padding-left: 50px }
-            .second_level { padding-left: 100px }
+            .first_level { padding-left: 25px; color: green; }
+            .second_level { padding-left: 50px }
             @media (min-width: 320px) {
                 div#project *:not(span) { margin-top: 3px; margin-bottom: 3px; }
-                .first_level { padding-left: 10px }
-                .second_level { padding-left: 20px }
+                .first_level { padding-left: 5px }
+                .second_level { padding-left: 10px }
             }
             @media (min-width: 482px) {
                 div#project *:not(span) { margin-top: 5px; margin-bottom: 5px; }
+                .first_level { padding-left: 10px }
+                .second_level { padding-left: 20px }
+            }
+            @media (min-width: 640px) {
+                .first_level { padding-left: 15px }
+                .second_level { padding-left: 30px }
+            }
+            @media (min-width: 960px) {
                 .first_level { padding-left: 20px }
                 .second_level { padding-left: 40px }
             }
-            @media (min-width: 640px) {
-                .first_level { padding-left: 30px }
-                .second_level { padding-left: 60px }
-            }
-            @media (min-width: 960px) {
-                .first_level { padding-left: 40px }
-                .second_level { padding-left: 80px }
-            }
             @media (min-width: 1100px) {
-                .first_level { padding-left: 50px }
-                .second_level { padding-left: 100px }
+                .first_level { padding-left: 25px }
+                .second_level { padding-left: 50px }
             }
+            .div_orange h3 { color: orange; }
+            .div_red h3 { color: red; }
         </style>
     </head>
     <body>
@@ -105,23 +107,29 @@
             <div class="container">
                 <h1 style="color: red; text-align: center;">Credit</h1>
                 <h2>Here are the tools that I have used to make the website. Of course, none of the brands/buisnesses below is sponsoring me or even affiliate with me and this website.</h2>
-                <h2 style="color: green;" class="first_level">Tool:</h2>
-                <h3 style="color: orange;" class="second_level">Visual Studio Code (to write html file) <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noopener noreferrer" href="https://code.visualstudio.com/">[Download here]</a></h3>
-                <h3 style="color: orange;" class="second_level">Microsoft Edge (The Chromium version) (to test the website) <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noopener noreferrer" href="https://www.microsoft.com/en-us/edge/">[Download here]</a></h3>
-                <h3 style="color: orange;" class="second_level">GitHub Desktop (before: to upload file, now: to check history of repository) <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noopener noreferrer" href="https://desktop.github.com/">[Download here]</a></h3>
-                <h3 style="color: orange;" class="second_level">Git (to upload file) <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noopener noreferrer" href="https://git-scm.com/">[Download here]</a></h3>
-                <h3 style="color: orange;" class="second_level">Inkscape (to draw SVG graphics) <a target="_blank" rel="noreferrer noopener" href="https://inkscape.org/" target="_blank" rel="noopener noreferrer">[Download here]</a></h3>
-                <h3 style="color: orange;" class="second_level">GIMP (to edit image) <a target="_blank" rel="noreferrer noopener" href="https://www.gimp.org/" target="_blank" rel="noopener noreferrer">[Download here]</a></h3>
-                <h2 style="color: green;" class="first_level">Website that have helped me a lot:</h2>
-                <h3 style="color: red;" class="second_level">GitHub <a target="_blank" rel="noreferrer noopener" href="https://github.com">[github.com]</a></h3>
-                <h3 style="color: red;" class="second_level">StackOverFlow <a target="_blank" rel="noreferrer noopener" href="https://stackoverflow.com">[stackoverflow.com]</a></h3>
-                <h3 style="color: red;" class="second_level">W3Schools <a target="_blank" rel="noreferrer noopener" href="https://w3schools.com">[w3schools.com]</a></h3>
-                <h3 style="color: red;" class="second_level">MDN Web Docs (before: Mozilla Developer Network) <a target="_blank" rel="noreferrer noopener" href="https://developer.mozilla.org">[developer.mozilla.org]</a></h3>
-                <h3 style="color: red;" class="second_level">Google <a target="_blank" rel="noreferrer noopener" href="https://google.com">[google.com]</a></h3>
-                <h3 style="color: red;" class="second_level">Youtube <a target="_blank" rel="noreferrer noopener" href="https://youtube.com">[youtube.com]</a></h3>
-                <h2 style="color: green;" class="first_level">A special thanks for:</h2>
-                <h3 style="color: red;" class="second_level">My Brain and Computer</h3>
-                <h3 style="color: yellow;" class="second_level">For writing the website</h3>
+                <h2 class="first_level">Tool:</h2>
+                <div class="div_orange">
+                    <h3 class="second_level">Visual Studio Code (to write html file) <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noopener noreferrer" href="https://code.visualstudio.com/">[Download here]</a></h3>
+                    <h3 class="second_level">Microsoft Edge (The Chromium version) (to test the website) <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noopener noreferrer" href="https://www.microsoft.com/en-us/edge/">[Download here]</a></h3>
+                    <h3 class="second_level">GitHub Desktop (before: to upload file, now: to check history of repository) <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noopener noreferrer" href="https://desktop.github.com/">[Download here]</a></h3>
+                    <h3 class="second_level">Git (to upload file) <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noopener noreferrer" href="https://git-scm.com/">[Download here]</a></h3>
+                    <h3 class="second_level">Inkscape (to draw SVG graphics) <a target="_blank" rel="noreferrer noopener" href="https://inkscape.org/" target="_blank" rel="noopener noreferrer">[Download here]</a></h3>
+                    <h3 class="second_level">GIMP (to edit image) <a target="_blank" rel="noreferrer noopener" href="https://www.gimp.org/" target="_blank" rel="noopener noreferrer">[Download here]</a></h3>
+                </div>
+                <h2 class="first_level">Website that have helped me a lot:</h2>
+                <div class="div_red">
+                    <h3 class="second_level">GitHub <a target="_blank" rel="noreferrer noopener" href="https://github.com">[github.com]</a></h3>
+                    <h3 class="second_level">StackOverFlow <a target="_blank" rel="noreferrer noopener" href="https://stackoverflow.com">[stackoverflow.com]</a></h3>
+                    <h3 class="second_level">W3Schools <a target="_blank" rel="noreferrer noopener" href="https://w3schools.com">[w3schools.com]</a></h3>
+                    <h3 class="second_level">MDN Web Docs (before: Mozilla Developer Network) <a target="_blank" rel="noreferrer noopener" href="https://developer.mozilla.org">[developer.mozilla.org]</a></h3>
+                    <h3 class="second_level">Google <a target="_blank" rel="noreferrer noopener" href="https://google.com">[google.com]</a></h3>
+                    <h3 class="second_level">Youtube <a target="_blank" rel="noreferrer noopener" href="https://youtube.com">[youtube.com]</a></h3>
+                </div>
+                <h2 class="first_level">A special thanks for:</h2>
+                <div>
+                    <h3 style="color: red;" class="second_level">My Brain and Computer</h3>
+                    <h3 style="color: yellow;" class="second_level">For writing the website</h3>
+                </div>
                 <footer style="margin-top: 15px; margin-bottom: 15px;">
                     <p style="color:white; text-align: center;">Copyright (C) 2021 Quan_MCPC. Created on: 7/16/20, this website will live <b style="color:red">forever</b></p>
                 </footer>
