@@ -1,6 +1,36 @@
 {
-    "last_update_on": "2021-07-23",
+    "last_update_on": "2021-07-26",
     "data": [
+        {
+            "hash": "73480c7",
+            "committer": "QuanMCPC",
+            "commit_date": 1627298553,
+            "message": "Maybe a bit cleaner stuff??"
+        },
+        {
+            "hash": "047ed18",
+            "committer": "QuanMCPC",
+            "commit_date": 1627283151,
+            "message": "something"
+        },
+        {
+            "hash": "8e84345",
+            "committer": "QuanMCPC",
+            "commit_date": 1627100738,
+            "message": "Some uh fix"
+        },
+        {
+            "hash": "7385526",
+            "committer": "QuanMCPC",
+            "commit_date": 1627012304,
+            "message": "Quik fix"
+        },
+        {
+            "hash": "610c097",
+            "committer": "QuanMCPC",
+            "commit_date": 1627011096,
+            "message": "Update website's information"
+        },
         {
             "hash": "5715480",
             "committer": "QuanMCPC",
