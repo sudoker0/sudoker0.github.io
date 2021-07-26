@@ -1,4 +1,4 @@
-#accb {
+nav#accb {
   border: 2px solid black;
   width: calc(100% - 4px);
   display: grid;
@@ -10,6 +10,19 @@
   position: sticky;
   top: 2px;
   background-color: #ffffff;
+}
+nav#accb > a {
+  grid-area: left_-start; width: 61px;
+}
+nav#accb img {
+  max-width: calc(100% - 2px);
+  max-height: calc(100% - 2px);
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 1px;
 }
 body {
   margin: 2px;
@@ -91,17 +104,6 @@ li li li::before {content: "▫ "; }
   margin-left: auto;
   margin-right: auto;
 }
-#screentoosmall {
-  position: fixed;
-  display: none;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 110;
-  cursor: not-allowed;
-  background-color: white;
-}
 div#loadingIndicator {
   position: fixed;
   top: 0;
@@ -134,3 +136,30 @@ div#loadingIndicator div img {
   0%, 100% { opacity: 0; }
   50% { opacity: 1; }
 }
+div.container > h1 { color: red; text-align: center; }
+div#loadingIndicator div, footer p, div#screentoosmall *, nav.accb { text-align: center; }
+footer b { color: red; }
+footer {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+div#screentoosmall {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 110;
+  cursor: not-allowed;
+  overflow-y: auto;
+}
+div#screentoosmall h2 { color: red; }
+div#note {
+  background-color: #ffcc4a;
+  border: 1px solid #FAD163;
+  margin-bottom: 2px;
+}
+div#note p { margin: 2px; }
+h2.loading_text { font-size: initial; }

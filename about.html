@@ -29,6 +29,7 @@
         <style>
             table {
                 color: white;
+                table-layout: fixed;
             }
             table, th, td {
                 border: 1px solid rgb(175, 175, 175);
@@ -92,14 +93,13 @@
                 margin-right: 5px;
                 background-color: #EFEFEF;
             }
-            div#iframe_accbar button:hover {
-                background-color: rgb(180, 180, 180);
-            }
+            div#iframe_accbar button:hover { background-color: rgb(180, 180, 180); }
             iframe {
                 border: none;
                 overflow: scroll;
                 height: calc(100% - 26px);
             }
+            div#textview { display: none; }
         </style>
     </head>
     <body>
@@ -124,48 +124,40 @@
             <p>P.S: I know that this is the same NoScript message from the SOOPE. But it's so good that I decide to use it anyway.</p>
             <hr>
         </noscript>
-        <nav class="accb nt" style="width: auto; height: auto;" id="accb">
-            <a href="/" title="Return to main page"  style="grid-area: left_-start; width: 61px">
-                <img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);">
-            </a>
+        <nav class="accb nt" id="accb">
+            <a href="/" title="Return to main page"><img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo"></a>
             <!-- <img src="/website/image/logo/logo.png" alt="Redstone" style="width: 61px; position: absolute; top: 50%; transform: translateY(-50%); left: 1px;"> -->
             <h3 id="accbar"></h3>
         </nav>
-        <nav id="accb_small_" class="nt" style="z-index: 10">
-            <a href="/" title="Return to main page"  style="grid-area: left__-start; width: 61px">
-                <img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);">
-            </a>
+        <nav id="accb_small_" class="nt">
+            <a href="/" title="Return to main page"> <img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo"> </a>
             <h3 id="accb_small_a">
-                <a onclick="accb_small()" style="cursor: pointer; margin-right: 4px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16" style="max-width: 100%; max-height: 100%">
-                        <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                    </svg>
-                </a>
+                <a onclick="accb_small()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg></a>
             </h3>
         </nav>
-        <nav id="accb_small" style="z-index: 10">
+        <nav id="accb_small">
             <h3 id="accbar_small"></h3>
         </nav>
         <div id="screentoosmall">
-            <h2 style="color:red; text-align: center;">Error!</h2>
-            <p style="text-align: center;">We have detected that the width of the screen that you are using right now is too small for the website to render properly</p>
-            <p style="text-align: center;">Try to rotate the device so that the screen orientation is horizontal. Or if that didn't work either, then that mean your screen is incompatiable to view the website</p>
+            <h2>Error!</h2>
+            <p>We have detected that the width of the screen that you are using right now is too small for the website to render properly</p>
+            <p>Try to rotate the device so that the screen orientation is horizontal. Or if that didn't work either, then that mean your screen is incompatiable to view the website</p>
         </div>
         <div id="loadingIndicator">
             <div>
                 <img id="loading_redstone_dust" src="/website/image/logo/redstone_dust_icon.svg" srcset="/website/image/logo/redstone_dust_icon.svg, /website/image/logo/loading.gif" alt="Loading Icon"><br>
-                <span style="font-size: initial;">Loading, please wait</span>
+                <span>Loading, please wait</span>
             </div>
         </div>
         <main>
             <div class="container">
-                <h1 style="color:red; text-align: center;"><b>About Website</b></h1>
+                <h1><b>About Website</b></h1>
                 <h2>Here are some information about the website which I rarely update the stat and just here for "some purpose"</h2>
                 <div style="text-align: center;">
                     <a href="#" onclick="getId('textview').style.display = 'block'; getId('tableview').style.display = 'none'; getId('switchtextview').style.display = 'none'; getId('switchtableview').style.display = 'block'" id="switchtextview">[Switch to text view]</a>
                     <a href="#" onclick="getId('textview').style.display = 'none'; getId('tableview').style.display = 'table'; getId('switchtextview').style.display = 'block'; getId('switchtableview').style.display = 'none'" id="switchtableview" style="display: none;">[Switch to table view]</a>
                 </div>
-                <div id="textview" style="display: none;">
+                <div id="textview">
                     <p>File size:</p>
                     <ul>
                         <li>Total size: <span class="total_size">0</span> bytes</li>
@@ -182,7 +174,7 @@
                     <p>Number of commits: <span class="numberofcommit"></span> (Last updated on: <span class="lastupdateon1"></span>, fetch from local commit data and update by the author)</p>
                     <p>This website used to have a dark and light mode and a simple design then the website get a re-designed from August 26th 2020</p>
                 </div>
-                <table class="tg" style="table-layout: fixed;" id="tableview" style="display: block;">
+                <table class="tg" id="tableview" style="display: block;">
                     <colgroup>
                         <col style="width: 163px">
                         <col style="width: 171px">
@@ -251,8 +243,8 @@
                         </tr>
                     </tbody>
                 </table>
-                <footer style="margin-top: 15px; margin-bottom: 15px;">
-                    <p style="color:white; text-align: center;">Copyright (C) 2021 Quan_MCPC. Created on: 7/16/20, this website will live <b style="color:red">forever</b></p>
+                <footer>
+                    <p>Copyright (C) 2021 Quan_MCPC. Created on: 7/16/20, this website will live <b>forever</b></p>
                 </footer>
             </div>
             <div id="settings" onkeydown="if (event.code == 'Enter') { this.click(); }" onclick="getId('settingspage').style.opacity = '1'; getId('settingspage').style.pointerEvents = 'initial';" tabindex="0" role="button">
@@ -262,7 +254,7 @@
                 </svg>
             </div>
             <div id="settingspage" class="nt">
-                <h1 style="color: red; text-align: center;">Settings</h1>
+                <h1>Settings</h1>
                 <div id="sp_actual">
                     <ul>
                         <li>

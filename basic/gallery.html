@@ -53,20 +53,43 @@
                     text-align: center !important;
                 }
             }
-            div#overlay_:hover {
-                cursor: zoom-in;
-            }
+            div#overlay_:hover { cursor: zoom-in; }
             div#button_list *, div#button_list {
                 max-width: initial;
-                margin: initial;
             }
+            div#picture {
+                border: 2px solid;
+                position: relative;
+            }
+            div#loading_svg { position: relative; }
+            div#overlay_ {
+                position: absolute;
+                width: 100%; height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                opacity: 1
+            }
+            figcaption { text-align: center; }
+            p#note { text-align: center; margin-top: 1px; margin-bottom: 1px; }
+            img#image__ {
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+            div.imageButton {
+                border: 2px solid black;
+                margin: 10px 5px 5px 5px;
+            }
+            div#left h3 { text-align: left; margin: 10px 0 10px 5px; }
+            div#middle h3 { text-align: center; margin: 10px 0 10px 5px; }
+            div#right h3 { text-align: right; margin: 10px 5px 10px 0; }
         </style>
     </head>
     <body>
         <div id="screentoosmall">
-            <h2 style="color:red; text-align: center;">Error!</h2>
-            <p style="text-align: center;">We have detected that the width of the screen that you are using right now is too small for the website to render properly</p>
-            <p style="text-align: center;">Try to rotate the device so that the screen orientation is horizontal. Or if that didn't work either, then that mean your screen is incompatiable to view the website</p>
+            <h2>Error!</h2>
+            <p>We have detected that the width of the screen that you are using right now is too small for the website to render properly</p>
+            <p>Try to rotate the device so that the screen orientation is horizontal. Or if that didn't work either, then that mean your screen is incompatiable to view the website</p>
         </div>
         <noscript id="noscript_overlay">
             <hr>
@@ -79,48 +102,48 @@
             <p>P.S: I know that this is the same NoScript message from the SOOPE. But it's so good that I decide to use it anyway.</p>
             <hr>
         </noscript>
-        <div id="note" style="background-color: #ffcc4a; border: 1px solid #FAD163; margin-bottom: 2px;">
-            <b><p style="margin: 2px">You are currently viewing Quan_MCPC's Website in basic HTML. <a href="/gallery.html">Switch to standard view.</a></p></b>
+        <div id="note">
+            <b><p>You are currently viewing Quan_MCPC's Website in basic HTML. <a href="/credit.html">Switch to standard view.</a></p></b>
         </div>
         <nav id="accb" class="accb">
-            <a href="/" title="Return to main page" style="grid-area: left_-start; width: 61px">
-                <img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);">
+            <a href="/" title="Return to main page">
+                <img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo">
             </a>
             <h3 id="accbar"></h3>
         </nav>
         <div id="loadingIndicator">
             <div>
                 <img class="website_logo" src="/website/image/logo/logo.svg" alt="Loading Icon" width="120" height="120"><br>
-                <h2 class="loading_text" style="font-size: initial;">Loading, please wait<span>.</span><span>.</span><span>.</span></h2\>
+                <h2 class="loading_text">Loading, please wait<span>.</span><span>.</span><span>.</span></h2>
             </div>
         </div>
         <main>
             <div class="container">
-                <h1 style="color: red; text-align: center">Gallery</h1>
-                <div id="picture" style="border: 2px solid; position: relative;">
-                    <div id="loading_svg" style="position: relative;">
-                        <div id="overlay_" style="position: absolute; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); opacity: 1">
+                <h1>Gallery</h1>
+                <div id="picture">
+                    <div id="loading_svg">
+                        <div id="overlay_">
                             <h1 id="loading_text">Loading...</h1>
                             <a id="cancel_image" href="javascript:void(0)" onclick="cancelImageLoading()" style="position: absolute; bottom: 0; width: 100%; text-align: center; color: white;">Cancel image loading.</a>
                         </div>
-                        <img id="image__" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTM2NiIgaGVpZ2h0PSI3MDUiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDM2MS40MiAxODYuNTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8cmVjdCB3aWR0aD0iMzYxLjQyIiBoZWlnaHQ9IjE4Ni41MyIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIuMjY2MTEiLz4KIDx0ZXh0IHRyYW5zZm9ybT0ic2NhbGUoMS4wNTcxIC45NDU5NSkiIHg9IjE2OS42OTQ2NyIgeT0iMTAyLjY0NDA3IiBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTEuNDcycHgiIHN0cm9rZS13aWR0aD0iLjEzMzMyIiB0ZXh0LWFsaWduPSJjZW50ZXIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJsaW5lLWhlaWdodDoxLjI1IiB4bWw6c3BhY2U9InByZXNlcnZlIj48dHNwYW4geD0iMTY5LjY5NDY3IiB5PSIxMDIuNjQ0MDciIHRleHQtYWxpZ249ImNlbnRlciI+Tm8gSW1hZ2U8L3RzcGFuPjx0c3BhbiB4PSIxNjkuNjk0NjciIHk9IjExNi45ODM4MyIgdGV4dC1hbGlnbj0iY2VudGVyIj4xMzY2IHggNzA1PC90c3Bhbj48L3RleHQ+Cjwvc3ZnPgo=" alt="Compact Calculator [1.15.2] [Full View]" style="max-width: 100%; margin-left: auto; margin-right: auto; display: block;">
+                        <img id="image__" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTM2NiIgaGVpZ2h0PSI3MDUiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDM2MS40MiAxODYuNTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8cmVjdCB3aWR0aD0iMzYxLjQyIiBoZWlnaHQ9IjE4Ni41MyIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIuMjY2MTEiLz4KIDx0ZXh0IHRyYW5zZm9ybT0ic2NhbGUoMS4wNTcxIC45NDU5NSkiIHg9IjE2OS42OTQ2NyIgeT0iMTAyLjY0NDA3IiBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTEuNDcycHgiIHN0cm9rZS13aWR0aD0iLjEzMzMyIiB0ZXh0LWFsaWduPSJjZW50ZXIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJsaW5lLWhlaWdodDoxLjI1IiB4bWw6c3BhY2U9InByZXNlcnZlIj48dHNwYW4geD0iMTY5LjY5NDY3IiB5PSIxMDIuNjQ0MDciIHRleHQtYWxpZ249ImNlbnRlciI+Tm8gSW1hZ2U8L3RzcGFuPjx0c3BhbiB4PSIxNjkuNjk0NjciIHk9IjExNi45ODM4MyIgdGV4dC1hbGlnbj0iY2VudGVyIj4xMzY2IHggNzA1PC90c3Bhbj48L3RleHQ+Cjwvc3ZnPgo=" alt="Compact Calculator [1.15.2] [Full View]">
                     </div>
-                    <figcaption id="pic_caption" style="text-align: center;"></figcaption>
+                    <figcaption id="pic_caption"></figcaption>
                     <div id="button_list">
-                        <div id="left" style="border: 2px solid; margin: 10px 5px 5px 5px;" tabindex="0" role="button">
-                            <h3 style="text-align: left; margin: 10px 0 10px 5px;">&laquo; Previous</h3>
+                        <div id="left" class="imageButton" tabindex="0" role="button">
+                            <h3>&laquo; Previous</h3>
                         </div>
-                        <div id="middle" style="border: 2px solid; margin: 10px 5px 5px 5px;">
-                            <h3 style="text-align: center; margin: 10px 0 10px 5px;" id="description_">Page 1 / 9</h3>
+                        <div id="middle" class="imageButton">
+                            <h3 id="description_">Page 1 / 9</h3>
                         </div>
-                        <div id="right" style="border: 2px solid; margin: 10px 5px 5px 5px;" tabindex="0" role="button">
-                            <h3 style="text-align: right; margin: 10px 5px 10px 0;">Next &raquo;</h3>
+                        <div id="right" class="imageButton" tabindex="0" role="button">
+                            <h3>Next &raquo;</h3>
                         </div>
                     </div>
-                    <p style="text-align: center; margin-top: 1px; margin-bottom: 1px">Ctrl + &#8656; to go to the previous picture, Ctrl + &#8658; to go to the next picture</p>
+                    <p id="note">Ctrl + &#8656; to go to the previous picture, Ctrl + &#8658; to go to the next picture</p>
                 </div>
-                <footer style="margin-top: 15px; margin-bottom: 15px;">
-                    <p style="text-align: center;">Copyright (C) 2021 Quan_MCPC. Created on: 7/16/20, this website will live <b style="color:rgb(200, 0, 0)">forever</b></p>
+                <footer>
+                    <p>Copyright (C) 2021 Quan_MCPC. Created on: 7/16/20, this website will live <b style="color:rgb(200, 0, 0)">forever</b></p>
                 </footer>
             </div>
         </main>

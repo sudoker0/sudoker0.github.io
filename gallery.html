@@ -53,8 +53,49 @@
             }
             div#button_list *, div#button_list {
                 max-width: initial;
-                margin: initial;
             }
+            div#picture { border: 2px solid white; position: relative; }
+            div#loading_svg { position: relative; }
+            div#overlay_ {
+                position: absolute;
+                width: 100%; height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                transition: 0.4s;
+                opacity: 1;
+            }
+            div#overlay_ svg {
+                margin: auto;
+                background: rgba(255, 255, 255, 0);
+                display: block;
+                shape-rendering: auto;
+                z-index: 3;
+                position: absolute;
+                top: 50%; left: 50%;
+                transform: translate(-50%, -50%);
+                width: 50%; height: 50%
+            }
+            a#cancel_image {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                max-width: 100%;
+                text-align: center;
+            }
+            img#image__ {
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+            figcaption { color: white; text-align: center; }
+            div.imageButton {
+                border: 2px solid white;
+                margin: 10px 5px 5px 5px;
+            }
+            div#left h3 { text-align: left; margin: 10px 0 10px 5px; }
+            div#middle h3 { text-align: center; margin: 10px 0 10px 5px; }
+            div#right h3 { text-align: right; margin: 10px 5px 10px 0; }
+            p#note { text-align: center; margin-top: 1px; margin-bottom: 1px; }
         </style>
     </head>
     <body id="temp">
@@ -72,46 +113,38 @@
             <p>P.S: I know that this is the same NoScript message from the SOOPE. But it's so good that I decide to use it anyway.</p>
             <hr>
         </noscript>
-        <nav class="accb nt" style="width: auto; height: auto; z-index: 15" id="accb">
-            <a href="/" title="Return to main page"  style="grid-area: left_-start; width: 61px">
-                <img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);">
-            </a>
+        <nav class="accb nt" id="accb">
+            <a href="/" title="Return to main page"><img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo"></a>
             <!-- <img src="/website/image/logo/logo.png" alt="Redstone" style="width: 61px; position: absolute; top: 50%; transform: translateY(-50%); left: 1px;"> -->
             <h3 id="accbar"></h3>
         </nav>
-        <nav id="accb_small_" class="nt" style="z-index: 15">
-            <a href="/" title="Return to main page"  style="grid-area: left__-start; width: 61px">
-                <img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);">
-            </a>
+        <nav id="accb_small_" class="nt">
+            <a href="/" title="Return to main page"> <img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo"> </a>
             <h3 id="accb_small_a">
-                <a onclick="accb_small()" style="cursor: pointer; margin-right: 4px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16" style="max-width: 100%; max-height: 100%">
-                        <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                    </svg>
-                </a>
+                <a onclick="accb_small()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg></a>
             </h3>
         </nav>
-        <nav id="accb_small" style="z-index: 15">
+        <nav id="accb_small">
             <h3 id="accbar_small"></h3>
         </nav>
         <div id="screentoosmall">
-            <h2 style="color:red; text-align: center;">Error!</h2>
-            <p style="text-align: center;">We have detected that the width of the screen that you are using right now is too small for the website to render properly</p>
-            <p style="text-align: center;">Try to rotate the device so that the screen orientation is horizontal. Or if that didn't work either, then that mean your screen is incompatiable to view the website</p>
+            <h2>Error!</h2>
+            <p>We have detected that the width of the screen that you are using right now is too small for the website to render properly</p>
+            <p>Try to rotate the device so that the screen orientation is horizontal. Or if that didn't work either, then that mean your screen is incompatiable to view the website</p>
         </div>
         <div id="loadingIndicator">
             <div>
                 <img id="loading_redstone_dust" src="/website/image/logo/redstone_dust_icon.svg" srcset="/website/image/logo/redstone_dust_icon.svg, /website/image/logo/loading.gif" alt="Loading Icon"><br>
-                <span style="font-size: initial;">Loading, please wait</span>
+                <span>Loading, please wait</span>
             </div>
         </div>
         <main>
             <div class="container">
-                <h1 style="color: red; text-align: center">Gallery</h1>
-                <div id="picture" style="border: 2px solid white; position: relative;">
-                    <div id="loading_svg" style="position: relative;">
-                        <div id="overlay_" style="position: absolute; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); transition: 0.4s; opacity: 1">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: rgba(255, 255, 255, 0); display: block; shape-rendering: auto; z-index: 3; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50%; height: 50%" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                <h1>Gallery</h1>
+                <div id="picture">
+                    <div id="loading_svg">
+                        <div id="overlay_">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
                                 <g transform="rotate(0 50 50)">
                                     <rect x="47.5" y="24" rx="0" ry="0" width="5" height="12" fill="#cecece">
                                         <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.9285714285714286s" repeatCount="indefinite"></animate>
@@ -184,26 +217,26 @@
                                 </g>
                             <!-- [ldio] generated by https://loading.io/ -->
                             </svg>
-                            <a id="cancel_image" href="javascript:void(0)" onclick="cancelImageLoading()" style="position: absolute; bottom: 0; width: 100%; text-align: center; max-width: 100%;">Cancel image loading.</a>
+                            <a id="cancel_image" href="javascript:void(0)" onclick="cancelImageLoading()">Cancel image loading.</a>
                         </div>
-                        <img id="image__" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTM2NiIgaGVpZ2h0PSI3MDUiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDM2MS40MiAxODYuNTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8cmVjdCB3aWR0aD0iMzYxLjQyIiBoZWlnaHQ9IjE4Ni41MyIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIuMjY2MTEiLz4KIDx0ZXh0IHRyYW5zZm9ybT0ic2NhbGUoMS4wNTcxIC45NDU5NSkiIHg9IjE2OS42OTQ2NyIgeT0iMTAyLjY0NDA3IiBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTEuNDcycHgiIHN0cm9rZS13aWR0aD0iLjEzMzMyIiB0ZXh0LWFsaWduPSJjZW50ZXIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJsaW5lLWhlaWdodDoxLjI1IiB4bWw6c3BhY2U9InByZXNlcnZlIj48dHNwYW4geD0iMTY5LjY5NDY3IiB5PSIxMDIuNjQ0MDciIHRleHQtYWxpZ249ImNlbnRlciI+Tm8gSW1hZ2U8L3RzcGFuPjx0c3BhbiB4PSIxNjkuNjk0NjciIHk9IjExNi45ODM4MyIgdGV4dC1hbGlnbj0iY2VudGVyIj4xMzY2IHggNzA1PC90c3Bhbj48L3RleHQ+Cjwvc3ZnPgo=" alt="Compact Calculator [1.15.2] [Full View]" style="max-width: 100%; margin-left: auto; margin-right: auto; display: block;">
+                        <img id="image__" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTM2NiIgaGVpZ2h0PSI3MDUiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDM2MS40MiAxODYuNTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8cmVjdCB3aWR0aD0iMzYxLjQyIiBoZWlnaHQ9IjE4Ni41MyIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIuMjY2MTEiLz4KIDx0ZXh0IHRyYW5zZm9ybT0ic2NhbGUoMS4wNTcxIC45NDU5NSkiIHg9IjE2OS42OTQ2NyIgeT0iMTAyLjY0NDA3IiBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTEuNDcycHgiIHN0cm9rZS13aWR0aD0iLjEzMzMyIiB0ZXh0LWFsaWduPSJjZW50ZXIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJsaW5lLWhlaWdodDoxLjI1IiB4bWw6c3BhY2U9InByZXNlcnZlIj48dHNwYW4geD0iMTY5LjY5NDY3IiB5PSIxMDIuNjQ0MDciIHRleHQtYWxpZ249ImNlbnRlciI+Tm8gSW1hZ2U8L3RzcGFuPjx0c3BhbiB4PSIxNjkuNjk0NjciIHk9IjExNi45ODM4MyIgdGV4dC1hbGlnbj0iY2VudGVyIj4xMzY2IHggNzA1PC90c3Bhbj48L3RleHQ+Cjwvc3ZnPgo=" alt="Compact Calculator [1.15.2] [Full View]">
                     </div>
-                    <figcaption id="pic_caption" style="color: white; text-align: center;"></figcaption>
+                    <figcaption id="pic_caption"></figcaption>
                     <div id="button_list">
-                        <div id="left" style="border: 2px solid white; margin: 10px 5px 5px 5px;" tabindex="0" role="button">
-                            <h3 style="text-align: left; margin: 10px 0 10px 5px;">&laquo; Previous</h3>
+                        <div class="imageButton" id="left" tabindex="0" role="button">
+                            <h3>&laquo; Previous</h3>
                         </div>
-                        <div id="middle" style="border: 2px solid white; margin: 10px 5px 5px 5px;">
-                            <h3 style="text-align: center; margin: 10px 0 10px 5px;" id="description_">Page 1 / 9</h3>
+                        <div class="imageButton" id="middle">
+                            <h3 id="description_">Page 1 / 9</h3>
                         </div>
-                        <div id="right" style="border: 2px solid white; margin: 10px 5px 5px 5px;" tabindex="0" role="button">
-                            <h3 style="text-align: right; margin: 10px 5px 10px 0;">Next &raquo;</h3>
+                        <div class="imageButton" id="right" tabindex="0" role="button">
+                            <h3>Next &raquo;</h3>
                         </div>
                     </div>
-                    <p style="text-align: center; margin-top: 1px; margin-bottom: 1px">Ctrl + &#8656; to go to the previous picture, Ctrl + &#8658; to go to the next picture</p>
+                    <p id="note">Ctrl + &#8656; to go to the previous picture, Ctrl + &#8658; to go to the next picture</p>
                 </div>
-                <footer style="margin-top: 15px; margin-bottom: 15px;">
-                    <p style="color:white; text-align: center;">Copyright (C) 2021 Quan_MCPC. Created on: 7/16/20, this website will live <b style="color:red">forever</b></p>
+                <footer>
+                    <p>Copyright (C) 2021 Quan_MCPC. Created on: 7/16/20, this website will live <b>forever</b></p>
                 </footer>
             </div>
             <div id="settings" onkeydown="if (event.code == 'Enter') { this.click(); }" onclick="getId('settingspage').style.opacity = '1'; getId('settingspage').style.pointerEvents = 'initial';" tabindex="0" role="button">
@@ -213,7 +246,7 @@
                 </svg>
             </div>
             <div id="settingspage" class="nt">
-                <h1 style="color: red; text-align: center;">Settings</h1>
+                <h1>Settings</h1>
                 <div id="sp_actual">
                     <ul>
                         <li>

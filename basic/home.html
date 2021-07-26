@@ -10,7 +10,6 @@
         <meta name="keywords" content="QuanMCPC, Quan_MCPC" />
         <meta name="description" content="My personal website where I practice programming for myself and also post my stuff online." />
         <meta name="author" content="Quan_MCPC" />
-        <meta charset="UTF-8" />
         <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
         <meta http-equiv="Pragma" content="no-cache" />
         <meta http-equiv="Expires" content="0" />
@@ -99,6 +98,26 @@
             div#project a { margin: 0; }
             div#external_link_image a { display: inline-block; margin: 0 5px 0 5px; vertical-align: middle; }
             div#external_link_image svg { vertical-align: bottom; }
+            h3.showoff { color: rgb(0, 128, 0); text-align: center; }
+            div#project {
+                border: 2px solid black;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            div#project_ {
+                overflow-x: scroll;
+                border: 2px solid black;
+            }
+            nav#accb img {
+                width: auto;
+                height: auto;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 1px;
+                max-width: calc(100% - 2px);
+                max-height: calc(100% - 2px);
+            }
         </style>
     </head>
     <body onload="check1()">
@@ -110,9 +129,9 @@
             <iframe id="iframe__" scrolling="yes" src="about:blank" width="100%" allowfullscreen sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-modals allow-popups"></iframe>
         </div>
         <div id="screentoosmall">
-            <h2 style="color:red; text-align: center;">Error!</h2>
-            <p style="text-align: center;">We have detected that the width of the screen that you are using right now is too small for the website to render properly</p>
-            <p style="text-align: center;">Try to rotate the device so that the screen orientation is horizontal. Or if that didn't work either, then that mean your screen is incompatiable to view the website</p>
+            <h2>Error!</h2>
+            <p>We have detected that the width of the screen that you are using right now is too small for the website to render properly</p>
+            <p>Try to rotate the device so that the screen orientation is horizontal. Or if that didn't work either, then that mean your screen is incompatiable to view the website</p>
         </div>
         <noscript id="noscript_overlay">
             <hr>
@@ -125,27 +144,27 @@
             <p>P.S: I know that this is the same NoScript message from the SOOPE. But it's so good that I decide to use it anyway.</p>
             <hr>
         </noscript>
-        <div id="note" style="background-color: #ffcc4a; border: 1px solid #FAD163; margin-bottom: 2px;">
-            <b><p style="margin: 2px">You are currently viewing Quan_MCPC's Website in basic HTML. <a href="/home.html">Switch to standard view.</a></p></b>
+        <div id="note">
+            <b><p>You are currently viewing Quan_MCPC's Website in basic HTML. <a href="/home.html">Switch to standard view.</a></p></b>
         </div>
         <nav id="accb" class="accb">
-            <a href="/" title="Return to main page"  style="grid-area: left_-start; width: 61px">
-                <img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo" style="width: auto; height: auto; position: absolute; top: 50%; transform: translateY(-50%); left: 1px; max-width: calc(100% - 2px) ; max-height: calc(100% - 2px);">
+            <a href="/" title="Return to main page">
+                <img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo">
             </a>
             <h3 id="accbar"></h3>
         </nav>
         <div id="loadingIndicator">
             <div>
                 <img class="website_logo" src="/website/image/logo/logo.svg" alt="Loading Icon" width="120" height="120"><br>
-                <h3 class="loading_text" style="font-size: initial;">Loading, please wait<span>.</span><span>.</span><span>.</span></h3>
+                <h2 class="loading_text">Loading, please wait<span>.</span><span>.</span><span>.</span></h2>
             </div>
         </div>
         <main>
             <div class="container">
-                <h1 style="color:rgb(255, 0, 0); text-align: center;"><b>Student. Developer. Gamer.</b></h1>
+                <h1><b>Student. Developer. Gamer.</b></h1>
                 <h2>Hello! My name is Quan, a student, a small developer and a gamer. I'm currently living at Vietnam and HTML, CSS, JS, C# and Java are the five programming language I'm good at, well, good as in junior/amateur level that is.</h2>
                 <h2>Even though this is a personal website, I made the website to look kind of like a business website or commercial website for no reason at all ;)</h2>
-                <h3 style="color: rgb(0, 128, 0); text-align: center">Social link</h3>
+                <h3 class="showoff">Social link</h3>
                 <div id="social_link">
                     <div id="external_link_image" style="text-align: center;">
                         <a href="https://github.com/QuanMCPC">
@@ -248,11 +267,11 @@
                         </a>
                     </>
                 </div>
-                <h3 style="color: rgb(0, 128, 0); text-align: center">Project</h3>
-                <div id="project_" style="overflow-x: scroll; border: 2px solid black;">
+                <h3 class="showoff">Project</h3>
+                <div id="project_">
                     <div id="project__" style="height: 0.1px"></div>
                 </div>
-                <div id="project" style="border: 2px solid black; overflow-x: auto; white-space: nowrap;">
+                <div id="project">
                     <h4>Here's a list of my project</h4>
                     <ul>
                         <li>
@@ -430,8 +449,8 @@
                         </li>
                     </ul>
                 </div>
-                <footer style="margin-top: 15px; margin-bottom: 15px;">
-                    <p style="text-align: center;">Copyright (C) 2021 Quan_MCPC. Created on: 7/16/20, this website will live <b style="color:rgb(225, 0, 0)">forever</b></p>
+                <footer>
+                    <p>Copyright (C) 2021 Quan_MCPC. Created on: 7/16/20, this website will live <b style="color:rgb(225, 0, 0)">forever</b></p>
                 </footer>
             </div>
         </main>
