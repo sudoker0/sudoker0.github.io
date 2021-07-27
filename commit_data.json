@@ -1,6 +1,18 @@
 {
-    "last_update_on": "2021-07-26",
+    "last_update_on": "2021-07-27",
     "data": [
+        {
+            "hash": "359f468",
+            "committer": "QuanMCPC",
+            "commit_date": 1627380914,
+            "message": "Added \"Website I owned\" section"
+        },
+        {
+            "hash": "d6a3f68",
+            "committer": "QuanMCPC",
+            "commit_date": 1627318068,
+            "message": "Update website's information"
+        },
         {
             "hash": "b570a56",
             "committer": "QuanMCPC",
