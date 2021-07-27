@@ -52,7 +52,7 @@ name_.forEach(function (list, index) {
     document.getElementById("accbar").appendChild(anchor);
 });
 function smtg() {
-    if (pathname == "/basic/home.html" || pathname == "/basic/home") { getId("project__").style.width = getId("project").scrollWidth + "px" }
+    // if (pathname == "/basic/home.html" || pathname == "/basic/home") { getId("project__").style.width = getId("project").scrollWidth + "px" }
 }
 var somethingCrash = false;
 document.addEventListener("DOMContentLoaded", () => {

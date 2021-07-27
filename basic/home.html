@@ -28,32 +28,32 @@
             .social_link:hover {
                 cursor: pointer;
             }
-            div#project * :not(span):not(del) {
+            div.project * :not(span):not(del) {
                 margin: 5px
             }
-            div#project del, div#project span { margin: initial; }
-            div#project span { margin-right: 5px; }
-            div#project ul {
+            div.project del, div.project span { margin: initial; }
+            div.project span { margin-right: 5px; }
+            div.project ul {
                 margin-left: 20px;
                 padding-left: 5px;
                 margin-top: 0;
             }
-            div#project li {
+            div.project li {
                 margin-top: 7px;
                 margin-bottom: 7px;
             }
-            div#project h4 {
+            div.project h4 {
                 margin: 10px;
             }
             @media (min-width: 320px) {
-                div#project *:not(span) { margin-top: 3px; margin-bottom: 3px; }
-                div#project ul { margin-left: 5px }
+                div.project *:not(span) { margin-top: 3px; margin-bottom: 3px; }
+                div.project ul { margin-left: 5px }
             }
             @media (min-width: 482px) {
-                div#project *:not(span) { margin-top: 5px; margin-bottom: 5px; }
-                div#project ul { margin-left: 10px }
+                div.project *:not(span) { margin-top: 5px; margin-bottom: 5px; }
+                div.project ul { margin-left: 10px }
             }
-            div#project *, div#project_ * {
+            div.project */*, div#project_ **/ {
                 max-width: initial;
                 margin: initial;
             }
@@ -95,19 +95,19 @@
                 overflow: scroll;
                 height: calc(100% - 26px);
             }
-            div#project a { margin: 0; }
+            div.project a { margin: 0; }
             div#external_link_image a { display: inline-block; margin: 0 5px 0 5px; vertical-align: middle; }
             div#external_link_image svg { vertical-align: bottom; }
             h3.showoff { color: rgb(0, 128, 0); text-align: center; }
-            div#project {
+            div.project {
                 border: 2px solid black;
                 overflow-x: auto;
                 white-space: nowrap;
             }
-            div#project_ {
+            /* div#project_ {
                 overflow-x: scroll;
                 border: 2px solid black;
-            }
+            } */
             nav#accb img {
                 width: auto;
                 height: auto;
@@ -120,7 +120,8 @@
             }
         </style>
     </head>
-    <body onload="check1()">
+    <!-- <body onload="check1()"> -->
+    <body>
         <div id="iframe_">
             <div id="iframe_accbar">
                 <button onclick="getId('iframe__').setAttribute('src', 'about:blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Close</button><button onclick="window.open(getId('iframe__').getAttribute('src'), '_blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Open in a new tab</button>
@@ -268,10 +269,10 @@
                     </>
                 </div>
                 <h3 class="showoff">Project</h3>
-                <div id="project_">
+                <!-- <div id="project_">
                     <div id="project__" style="height: 0.1px"></div>
-                </div>
-                <div id="project">
+                </div> -->
+                <div class="project">
                     <h4>Here's a list of my project</h4>
                     <ul>
                         <li>
@@ -300,21 +301,6 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <span>Experiment ID: OldWeb:</span>
-                                    <ul>
-                                        <li><span>Link: <a target="_blank" rel="noreferrer noopener" href="http://oldquanmcpc.html-5.me/">[Click here]</a></span></li>
-                                        <li><span>External link: <a href="/other_project/oldweb.zip" download="oldweb.zip">[Click here to download the source]</a></span></li>
-                                        <li>
-                                            <span>Note: The project is also served using GitLab page, here's the: </span>
-                                            <ul>
-                                                <li><span>Link: <a target="_blank" rel="noreferrer noopener" href="https://quanmcpc.gitlab.io">[Click here]</a> and</span></li>
-                                                <li><span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://gitlab.com/QuanMCPC/quanmcpc.gitlab.io">[Click here]</a></span></li>
-                                            </ul>
-                                        </li>
-                                        <li><span>Description: Created as an experiment to make the website compatible with most version of a lot of browsers.</span></li>
-                                    </ul>
-                                </li>
-                                <li>
                                     <span>Edit:</span>
                                     <ul>
                                         <li><span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/Edit">[Click here]</a></span></li>
@@ -326,6 +312,33 @@
                                     <ul>
                                         <li><span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/Guess-The-Number-Game/">[Click here]</a></span></li>
                                         <li><span>Description: My second game written in C# and based on the <a href="#" data-address="/other_project/numberguessgame.html" onclick="oOPIIF(this.getAttribute('data-address'))">NumberGuessingGame</a></span></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span>MyFirstGame:</span>
+                                    <ul>
+                                        <li><span>Source code: Lost in time</span></li>
+                                        <li>
+                                            <span>Link: </span>
+                                            <ul>
+                                                <li><span>Version 1.0 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1hkj_x7mDC4jV9oz3j8nxyWrB3tjDA0Py&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.0 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=10mPjRaw9HUV7aWz01x_h6E195QtAxDim&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.1 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1c-uA6DiDiSSDBOLWh-YRN1PoG5Bg-HYt&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.1 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1cXx4IZLxzOAR1YvjwCQQV4RJVRQv4Qj2&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.2 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1HEGj9377joBw73VL5dheAdSlI2dYuXXf&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.2 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1WvzufDhLfLhSmeYboybzHKcE3K6mi-s2&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.3 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1EOIoMX8dJ97tyZ22XAXLSHNRZ54YtmXs&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.3 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1tDGNNfBw-6QgA8OC_Fc_WQBGEGuvRQvs&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.4 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1i2s_QccxxsXi-tjuZjFDspkzM1rsiinN&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.4 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1rBOSjmIM5o-HQfKVLndYbTHtx01aI1CC&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.5 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1tQ6_wyipfWmBXuD1Dx3OW3Nmgs0abEiC&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.5 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1q5bxU_c1Nk6j3Gk6Iz7PyDNxsvPuYkqQ&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.6 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=14PJZptSA0MxZ9cCXWWJhttmlSJBapBfj&export=download">[Click here]</a></span></li>
+                                                <li><span>Version 1.6 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1s8TcS9_kn_OOqF37PmWUfu4LMhl9X0o7&export=download">[Click here]</a></span></li>
+                                                <li><span>Link to all version inside of an ISO file: <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1sj2Uin_mRP0ipujgeWyR7B81frscRykn&export=download">[Click here]</a></span></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>Description: One of my very first game and also my last game written in Unity</span></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -418,33 +431,35 @@
                                         <li><span>Description: A text editor that work in your browser.</span></li>
                                     </ul>
                                 </li>
-                                <li>
-                                    <span>MyFirstGame:</span>
-                                    <ul>
-                                        <li><span>Source code: Lost in time</span></li>
-                                        <li>
-                                            <span>Link: </span>
-                                            <ul>
-                                                <li><span>Version 1.0 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1hkj_x7mDC4jV9oz3j8nxyWrB3tjDA0Py&export=download">[Click here]</a></span></li>
-                                                <li><span>Version 1.0 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=10mPjRaw9HUV7aWz01x_h6E195QtAxDim&export=download">[Click here]</a></span></li>
-                                                <li><span>Version 1.1 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1c-uA6DiDiSSDBOLWh-YRN1PoG5Bg-HYt&export=download">[Click here]</a></span></li>
-                                                <li><span>Version 1.1 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1cXx4IZLxzOAR1YvjwCQQV4RJVRQv4Qj2&export=download">[Click here]</a></span></li>
-                                                <li><span>Version 1.2 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1HEGj9377joBw73VL5dheAdSlI2dYuXXf&export=download">[Click here]</a></span></li>
-                                                <li><span>Version 1.2 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1WvzufDhLfLhSmeYboybzHKcE3K6mi-s2&export=download">[Click here]</a></span></li>
-                                                <li><span>Version 1.3 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1EOIoMX8dJ97tyZ22XAXLSHNRZ54YtmXs&export=download">[Click here]</a></span></li>
-                                                <li><span>Version 1.3 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1tDGNNfBw-6QgA8OC_Fc_WQBGEGuvRQvs&export=download">[Click here]</a></span></li>
-                                                <li><span>Version 1.4 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1i2s_QccxxsXi-tjuZjFDspkzM1rsiinN&export=download">[Click here]</a></span></li>
-                                                <li><span>Version 1.4 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1rBOSjmIM5o-HQfKVLndYbTHtx01aI1CC&export=download">[Click here]</a></span></li>
-                                                <li><span>Version 1.5 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1tQ6_wyipfWmBXuD1Dx3OW3Nmgs0abEiC&export=download">[Click here]</a></span></li>
-                                                <li><span>Version 1.5 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1q5bxU_c1Nk6j3Gk6Iz7PyDNxsvPuYkqQ&export=download">[Click here]</a></span></li>
-                                                <li><span>Version 1.6 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=14PJZptSA0MxZ9cCXWWJhttmlSJBapBfj&export=download">[Click here]</a></span></li>
-                                                <li><span>Version 1.6 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1s8TcS9_kn_OOqF37PmWUfu4LMhl9X0o7&export=download">[Click here]</a></span></li>
-                                                <li><span>Link to all version inside of an ISO file: <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1sj2Uin_mRP0ipujgeWyR7B81frscRykn&export=download">[Click here]</a></span></li>
-                                            </ul>
-                                        </li>
-                                        <li><span>Description: One of my very first game and also my last game written in Unity</span></li>
-                                    </ul>
-                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <h3 class="showoff">Website I owned</h3>
+                <div class="project">
+                    <ul>
+                        <li>
+                            <span>Where I post blog</span>
+                            <ul>
+                                <li><span>Link: <a target="_blank" href="https://quanmcpc-blog.github.io/">[Click here]</a></span></li>
+                                <li><span>Source code: <a target="_blank" href="https://github.com/quanmcpc-blog/quanmcpc-blog.github.io">[Click here]</a></span></li>
+                                <li><span>Description: Where I'll post blog about me and maybe the website.</span></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>First version of my website (50% basic HTML, 50% nostalgia)</span>
+                            <ul>
+                                <li><span>Link: <a target="_blank" href="https://quanmcpc-blog.github.io/">[Click here]</a></span></li>
+                                <li><span>Source code: <a target="_blank" href="https://github.com/quanmcpc-blog/quanmcpc-blog.github.io">[Click here]</a></span></li>
+                                <li><span>Description: Where I'll post blog about me and maybe the website.</span></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>Very browser-compatible version of the website (Coded with Windows XP and efford)</span>
+                            <ul>
+                                <li><span>Link: <a target="_blank" href="https://quanmcpc.gitlab.io/">[Click here]</a></span></li>
+                                <li><span>Source code: <a target="_blank" href="https://gitlab.com/QuanMCPC/quanmcpc.gitlab.io">[Click here]</a></span></li>
+                                <li><span>Description: This is a version of the webite which is designed to be very compatible with a lot of browser version.</span></li>
                             </ul>
                         </li>
                     </ul>
@@ -473,7 +488,7 @@
             document.getElementsByTagName("body")[0].style.overflow = "hidden";
         }
         console.log(window.innerWidth, window.outerHeight, window.innerWidth, window.innerHeight)
-        function check1() { getId("project__").style.width = getId("project").scrollWidth + "px" }
+        // function check1() { getId("project__").style.width = getId("project").scrollWidth + "px" }
     </script>
     <script src="/website/script/lite.js"></script>
 </html>
