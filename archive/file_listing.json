@@ -1,6 +1,6 @@
 {
     "type": "dir_listing",
-    "last_updated_on": "2021-07-27",
+    "last_updated_on": "2021-07-29",
     "list": [
         {
             "filename": "a.7z",
@@ -15,7 +15,7 @@
         {
             "filename": "file_listing.json",
             "filesize": 4176,
-            "mod_time": "2021-07-29 19:41:59 (GMT +7)"
+            "mod_time": "2021-07-29 19:59:18 (GMT +7)"
         },
         {
             "filename": "GIMP_Project_File.zip",
@@ -81,11 +81,6 @@
             "filename": "Redstone_NoTransparent.zip",
             "filesize": 1544,
             "mod_time": "2021-06-11 20:02:27 (GMT +7)"
-        },
-        {
-            "filename": "remember_to_run_this_file.zip",
-            "filesize": 3027,
-            "mod_time": "2021-07-29 19:41:45 (GMT +7)"
         },
         {
             "filename": "secret_stuff.mkcert.exe.7z",
