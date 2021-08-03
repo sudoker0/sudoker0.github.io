@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            canvas {
+                border: 2px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Just a Captcha test</h1>
+        <canvas width="400" height="120"></canvas>
+        <br>
+        <button onclick="generateCaptcha()">Re-generate captcha</button>
+        <button onclick="randomize()">Randomize captcha</button>
+        <br>
+        <label for="input">Please input what you see in the box: </label>
+        <input type="text" name="input" id="input" maxlength="8">
+        <br>
+        <button onclick="submit()">Submit</button>
+        <script>
+            var attempt = 5;
+            function captcha_string(length = 8) {
+                var result = '';
+                var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
+                var charactersLength = characters.length;
+                for ( var i = 0; i < length; i++ ) { result += characters.charAt(Math.floor(Math.random() * charactersLength)); }
+                return result;
+            }
+            function getRndInteger(min, max) { return Math.floor(Math.random() * (max - min + 1) ) + min; }
+            function generateCaptcha() {
+                var canvas = document.querySelector("canvas"),
+                    string = captcha_string(8),
+                    ctx = canvas.getContext("2d"),
+                    posX = 0, posY = 0, rotate = 0,
+                    color = [
+                        "Name", "IndianRed", "LightCoral", "Salmon", "DarkSalmon", "LightSalmon", "Crimson", "Red", "FireBrick", "DarkRed", "Name",
+                        "Pink", "LightPink", "HotPink", "DeepPink", "MediumVioletRed", "PaleVioletRed", "Name", "LightSalmon", "Coral", "Tomato", "OrangeRed",
+                        "DarkOrange", "Orange", "Name", "Gold", "Yellow", "Moccasin", "PeachPuff",
+                        "PaleGoldenrod", "Khaki", "DarkKhaki", "Name", "Lavender", "Thistle", "Plum", "Violet", "Orchid", "Fuchsia", "Magenta",
+                        "MediumOrchid", "MediumPurple", "RebeccaPurple", "BlueViolet", "DarkViolet", "DarkOrchid", "DarkMagenta", "Purple", "Indigo", "SlateBlue", "DarkSlateBlue",
+                        "MediumSlateBlue", "Name", "GreenYellow", "Chartreuse", "LawnGreen", "Lime", "LimeGreen", "PaleGreen", "LightGreen", "MediumSpringGreen", "SpringGreen",
+                        "MediumSeaGreen", "SeaGreen", "ForestGreen", "Green", "DarkGreen", "YellowGreen", "OliveDrab", "Olive", "DarkOliveGreen", "MediumAquamarine", "DarkSeaGreen",
+                        "LightSeaGreen", "DarkCyan", "Teal", "Name", "Aqua", "Cyan", "PaleTurquoise", "Aquamarine", "Turquoise", "MediumTurquoise", "DarkTurquoise",
+                        "CadetBlue", "SteelBlue", "LightSteelBlue", "PowderBlue", "LightBlue", "SkyBlue", "LightSkyBlue", "DeepSkyBlue", "DodgerBlue", "CornflowerBlue", "MediumSlateBlue",
+                        "RoyalBlue", "Blue", "MediumBlue", "DarkBlue", "Navy", "MidnightBlue", "Name", "Wheat", "BurlyWood", "Tan", "RosyBrown",
+                        "SandyBrown", "Goldenrod", "DarkGoldenrod", "Peru", "Chocolate", "SaddleBrown", "Sienna", "Brown", "Maroon", "Name", "Name",
+                        "Gainsboro", "LightGray", "Silver", "DarkGray", "Gray", "DimGray", "LightSlateGray", "SlateGray", "DarkSlateGray", "Black"
+                    ],
+                    textStyle = ["bold", "italic", "normal"],
+                    fontStyle = ["Arial", "Times New Roman", "Courier New", "Helvetica", "Palatino", "Garamond", "Bookman", "Avant Garde"];
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (var letter of [...string]) {
+                    ctx.fillStyle = color[getRndInteger(0, color.length - 1)]
+                    ctx.font = `${textStyle[getRndInteger(0, textStyle.length - 1)]} ${getRndInteger(25, 50)}px ${fontStyle[getRndInteger(0, fontStyle.length - 1)]}`
+                    posX += getRndInteger(35, 50);
+                    posY = getRndInteger(50, 80) - 20;
+                    ctx.translate(0, 0);
+                    ctx.save()
+                    ctx.setTransform(1, 0.1, (Math.random() * (0.6 - -0.3) + -0.3), 1, 0, 0);
+                    ctx.fillText(letter, posX, posY);
+                    ctx.restore()
+                }
+                for (var i = 0; i < 3; i++) {
+                    ctx.beginPath();
+                    ctx.moveTo(getRndInteger(0, 20), getRndInteger(0, canvas.height));
+                    ctx.lineTo(getRndInteger(canvas.width - 50, canvas.width), getRndInteger(0, canvas.height));
+                    ctx.strokeStyle = color[getRndInteger(0, color.length - 1)]
+                    ctx.lineWidth = 2
+                    ctx.stroke();
+                }
+                sessionStorage.setItem("kii", string)
+            }
+            generateCaptcha();
+            function submit() {
+                if (attempt <= 0) { alert("You've answered incorrectly too many times. I gonna crash now"); setTimeout(() => { while(true) { console.log("Crash!") } }, 100) } else {
+                    if (document.getElementById("input").value == sessionStorage.getItem("kii")) {
+                        alert("Hooray!")
+                    } else {
+                        attempt--;
+                        alert(`Oops, that's wrong. Please try again. Also you have only ${attempt} tries left.`);
+                    }
+                }
+            }
+            function randomize() {
+                var a = setInterval(generateCaptcha, 100)
+                setTimeout(() => { clearInterval(a) }, getRndInteger(2000, 6000))
+            }
+        </script>
+    </body>
+</html>
