@@ -70,34 +70,33 @@
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\** | 100.0% | 194 files | 256,964,051 bytes
-\* | 4.18% | 41 files | 10,751,367 bytes
-\*.7z | 35.31% | 11 files | 90,742,047 bytes
-\*.cache | 0.02% | 1 files | 43,589 bytes
+\** | 100.0% | 194 files | 246,205,544 bytes
+\* | 0.04% | 42 files | 96,138 bytes
+\*.7z | 36.86% | 11 files | 90,742,047 bytes
 \*.config | 0.03% | 1 files | 83,595 bytes
 \*.css | 0.01% | 3 files | 13,287 bytes
-\*.exe | 1.93% | 1 files | 4,957,184 bytes
+\*.exe | 2.01% | 1 files | 4,957,184 bytes
 \*.gif | 0.0% | 1 files | 10,498 bytes
-\*.html | 0.26% | 29 files | 668,832 bytes
+\*.html | 0.27% | 30 files | 663,150 bytes
 \*.ico | 0.04% | 1 files | 101,976 bytes
-\*.idx | 0.06% | 1 files | 156,864 bytes
-\*.js | 0.06% | 11 files | 145,100 bytes
-\*.json | 0.07% | 9 files | 190,965 bytes
-\*.md | 0.0% | 1 files | 7,671 bytes
-\*.pack | 49.22% | 1 files | 126,487,268 bytes
+\*.idx | 0.06% | 1 files | 156,612 bytes
+\*.js | 0.06% | 10 files | 138,394 bytes
+\*.json | 0.08% | 9 files | 192,372 bytes
+\*.md | 0.0% | 1 files | 7,623 bytes
+\*.pack | 51.35% | 1 files | 126,434,756 bytes
 \*.pem | 0.0% | 2 files | 3,310 bytes
-\*.png | 1.09% | 22 files | 2,794,787 bytes
+\*.png | 1.14% | 22 files | 2,794,787 bytes
 \*.py | 0.01% | 2 files | 28,312 bytes
-\*.sample | 0.01% | 12 files | 19,260 bytes
+\*.sample | 0.01% | 13 files | 23,442 bytes
 \*.sqlite | 0.04% | 1 files | 90,112 bytes
-\*.svg | 0.0% | 5 files | 10,273 bytes
-\*.ttf | 0.25% | 4 files | 653,688 bytes
+\*.svg | 0.0% | 5 files | 10,342 bytes
+\*.ttf | 0.27% | 4 files | 653,688 bytes
 \*.txt | 0.0% | 1 files | 288 bytes
-\*.webp | 1.46% | 9 files | 3,745,400 bytes
-\*.xml | 0.0% | 2 files | 1,421 bytes
+\*.webp | 1.52% | 9 files | 3,745,400 bytes
+\*.xml | 0.0% | 1 files | 1,274 bytes
 \*.yml | 0.0% | 2 files | 2,321 bytes
-\*.zip | 5.91% | 17 files | 15,198,182 bytes
-> Last updated on: 2021-07-29
+\*.zip | 6.17% | 17 files | 15,198,182 bytes
+> Last updated on: 2021-08-04
 <!--python_data_stop-->
 [Download the table as HTML in a zip file (Style is not the same) (This is kept for historical purposes only and the data is no longer being updated)](https://drive.google.com/u/0/uc?id=1nvijtp61EX7gtisnjHCAEBkfgQKs-zTh&export=download)
 > You might ask: How do I able to get all of the file extensions, the number of file and other info?
