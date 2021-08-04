@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>aqua.flv</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: 'Courier New', Courier, monospace;
+            }
+            canvas {
+                position: fixed;
+                top: 0; left: 0;
+            }
+            div#update {
+                position: fixed;
+                top: 0; left: 0;
+                background-color: red;
+                color: white;
+                display: none;
+            }
+            div#update p {
+                margin: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="update">
+            <!-- <p>Window resized, now updating canvas...</p> -->
+        </div>
+        <canvas width="800" height="600"></canvas>
+    </body>
+    <script>
+        function* count() {
+            var num = 0
+            while (true) {
+                yield num++;
+            }
+        }
+        var canvas = document.querySelector("canvas"),
+            ctx = canvas.getContext("2d"),
+            _count = count(),
+            shouldBeep = false;
+        function getRndInteger(min, max) { return Math.floor(Math.random() * (max - min + 1) ) + min; }
+        function beep(vol, freq, duration, type){
+            var a = new AudioContext(),
+                v = a.createOscillator(),
+                u = a.createGain();
+            v.connect(u);
+            v.frequency.value = freq;
+            //@ts-ignore
+            v.type = type
+            u.connect(a.destination);
+            u.gain.value = vol * 0.01;
+            v.start(a.currentTime);
+            v.stop(a.currentTime + duration * 0.001);
+        }
+        function canvasResize() {
+            canvas.width = window.innerWidth
+            canvas.height = window.innerHeight
+        }
+        function titleString(length = 8) {
+            var result = '';
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var charactersLength = characters.length;
+            for ( var i = 0; i < length; i++ ) { result += characters.charAt(Math.floor(Math.random() * charactersLength)); }
+            return result;
+        }
+        window.onresize = canvasResize
+        window.onload = () => {
+            canvasResize();
+            document.title = `aqua.flv - ${titleString(9)}`;
+            if (typeof AudioContext == "function" || typeof AudioContext == "object") {
+                shouldBeep = true;
+            } else {
+                console.log("Oops, look like this browser can't play the beautiful beep sound. Consider upgrading your browser.")
+            }
+            if (confirm("Are you ready to experience the best thing in the world?")) {
+                setInterval(wt, 1000)
+            } else {
+                alert("Nvm then")
+            }
+        }
+        function wt() {
+            var width = canvas.width,
+                height = canvas.height,
+                blue_over_red = Math.random() >= 0.99 ? true : false,
+                red_rect = () => {
+                    ctx.fillStyle = "red"
+                    ctx.fillRect(getRndInteger(0, width), getRndInteger(0, height), getRndInteger(0, width), getRndInteger(0, height))
+                },
+                slideCount = _count.next().value,
+                fontSize = 15;
+
+            console.log(blue_over_red)
+            ctx.clearRect(0, 0, width, height)
+            if (blue_over_red) red_rect()
+            ctx.fillStyle = "blue"
+            ctx.fillRect(getRndInteger(0, width), getRndInteger(0, height), getRndInteger(0, width), getRndInteger(0, height))
+            if (!blue_over_red) red_rect()
+
+            ctx.fillStyle = "black"
+            ctx.font = `bold ${fontSize}px Courier New`
+            var text = `aqua.flv - Slide ${slideCount}`,
+                textWidth = ctx.measureText(text).width,
+                textHeight = fontSize
+            ctx.fillText(`aqua.flv - Slide ${slideCount}`, 10, height - textHeight)
+            if (shouldBeep) { beep(20, getRndInteger(1000, 3000), 1000, "sine") }
+        }
+        // setInterval(wt, 1000)
+    </script>
+</html>
