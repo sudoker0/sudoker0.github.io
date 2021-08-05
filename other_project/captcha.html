@@ -26,7 +26,7 @@
             var attempt = 5;
             function captcha_string(length = 8) {
                 var result = '';
-                var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
+                var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#%$&';
                 var charactersLength = characters.length;
                 for ( var i = 0; i < length; i++ ) { result += characters.charAt(Math.floor(Math.random() * charactersLength)); }
                 return result;
@@ -38,25 +38,17 @@
                     ctx = canvas.getContext("2d"),
                     posX = 0, posY = 0, rotate = 0,
                     color = [
-                        "Name", "IndianRed", "LightCoral", "Salmon", "DarkSalmon", "LightSalmon", "Crimson", "Red", "FireBrick", "DarkRed", "Name",
-                        "Pink", "LightPink", "HotPink", "DeepPink", "MediumVioletRed", "PaleVioletRed", "Name", "LightSalmon", "Coral", "Tomato", "OrangeRed",
-                        "DarkOrange", "Orange", "Name", "Gold", "Yellow", "Moccasin", "PeachPuff",
-                        "PaleGoldenrod", "Khaki", "DarkKhaki", "Name", "Lavender", "Thistle", "Plum", "Violet", "Orchid", "Fuchsia", "Magenta",
-                        "MediumOrchid", "MediumPurple", "RebeccaPurple", "BlueViolet", "DarkViolet", "DarkOrchid", "DarkMagenta", "Purple", "Indigo", "SlateBlue", "DarkSlateBlue",
-                        "MediumSlateBlue", "Name", "GreenYellow", "Chartreuse", "LawnGreen", "Lime", "LimeGreen", "PaleGreen", "LightGreen", "MediumSpringGreen", "SpringGreen",
-                        "MediumSeaGreen", "SeaGreen", "ForestGreen", "Green", "DarkGreen", "YellowGreen", "OliveDrab", "Olive", "DarkOliveGreen", "MediumAquamarine", "DarkSeaGreen",
-                        "LightSeaGreen", "DarkCyan", "Teal", "Name", "Aqua", "Cyan", "PaleTurquoise", "Aquamarine", "Turquoise", "MediumTurquoise", "DarkTurquoise",
-                        "CadetBlue", "SteelBlue", "LightSteelBlue", "PowderBlue", "LightBlue", "SkyBlue", "LightSkyBlue", "DeepSkyBlue", "DodgerBlue", "CornflowerBlue", "MediumSlateBlue",
-                        "RoyalBlue", "Blue", "MediumBlue", "DarkBlue", "Navy", "MidnightBlue", "Name", "Wheat", "BurlyWood", "Tan", "RosyBrown",
-                        "SandyBrown", "Goldenrod", "DarkGoldenrod", "Peru", "Chocolate", "SaddleBrown", "Sienna", "Brown", "Maroon", "Name", "Name",
-                        "Gainsboro", "LightGray", "Silver", "DarkGray", "Gray", "DimGray", "LightSlateGray", "SlateGray", "DarkSlateGray", "Black"
+                        "Black", "LightGray", "Red", "Lime",
+                        "Blue", "Yellow", "Cyan", "Magenta",
+                        "Silver", "Gray", "Maroon", "Olive",
+                        "Green", "Purple", "Teal", "Navy"
                     ],
-                    textStyle = ["bold", "italic", "normal"],
-                    fontStyle = ["Arial", "Times New Roman", "Courier New", "Helvetica", "Palatino", "Garamond", "Bookman", "Avant Garde"];
+                    textStyle = ["bold", "italic", "normal"];
+                    // fontStyle = ["Arial", "Times New Roman", "Courier New", "Helvetica", "Palatino", "Garamond", "Bookman", "Avant Garde"];
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 for (var letter of [...string]) {
                     ctx.fillStyle = color[getRndInteger(0, color.length - 1)]
-                    ctx.font = `${textStyle[getRndInteger(0, textStyle.length - 1)]} ${getRndInteger(25, 50)}px ${fontStyle[getRndInteger(0, fontStyle.length - 1)]}`
+                    ctx.font = `${textStyle[getRndInteger(0, textStyle.length - 1)]} ${getRndInteger(40, 50)}px Courier New` //\${fontStyle[getRndInteger(0, fontStyle.length - 1)]}
                     posX += getRndInteger(35, 50);
                     posY = getRndInteger(50, 80) - 20;
                     ctx.translate(0, 0);
