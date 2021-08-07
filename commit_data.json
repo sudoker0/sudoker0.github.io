@@ -1,6 +1,30 @@
 {
-    "last_update_on": "2021-08-04",
+    "last_update_on": "2021-08-07",
     "data": [
+        {
+            "hash": "a1be94f",
+            "committer": "QuanMCPC",
+            "commit_date": 1628314828,
+            "message": "Improved the navigation bar: Set fixed width and height for the logo. Also some more smol improvement"
+        },
+        {
+            "hash": "e706e2e",
+            "committer": "QuanMCPC",
+            "commit_date": 1628246657,
+            "message": "Attempt to improve stuff like accessibility"
+        },
+        {
+            "hash": "a4ad83a",
+            "committer": "QuanMCPC",
+            "commit_date": 1628130948,
+            "message": "update"
+        },
+        {
+            "hash": "944d5f5",
+            "committer": "QuanMCPC",
+            "commit_date": 1628055155,
+            "message": "Update website's information"
+        },
         {
             "hash": "a334457",
             "committer": "QuanMCPC",

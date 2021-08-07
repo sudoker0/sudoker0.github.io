@@ -1,12 +1,12 @@
 {
     "filesize": {
-        "lastupdateon": "2021-08-04",
-        "total": "246,205,544",
-        "standard_src_code": "148,073",
-        "basic_src_code": "109,456",
-        "assets": "83,072,382",
+        "lastupdateon": "2021-08-07",
+        "total": "246,360,046",
+        "standard_src_code": "148,838",
+        "basic_src_code": "109,451",
+        "assets": "83,071,959",
         "archive": "20,634,802",
-        "other_project": "1,827,313",
-        "other": "105,792,026"
+        "other_project": "1,825,750",
+        "other": "105,790,800"
     }
 }
