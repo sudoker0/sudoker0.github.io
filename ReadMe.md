@@ -127,7 +127,8 @@ for( ; ; ) {
 > MCPC in my username is acronym and it can mean a lot of things:
 ```nim
  - MineCraft for Personal Computer (The correct one)
- - May Center around Piece of Crap (When something break)
+ - May Center around Piece of Crap (When something's a bit broke)
+ - My Cock is Pissed-off from Coding (When something really broke)
  - Might Code for Poor Coder (When something work)
 ```
 ***
