@@ -143,6 +143,12 @@ document.addEventListener("click", function(evt) {
 function fetchLocal() {
     getId("bg_control").querySelectorAll("li")[getWebConf("background")].querySelector("input[type='radio']").setAttribute("checked", "checked")
     getId("theme_control").querySelectorAll("li")[getWebConf("theme")].querySelector("input[type='radio']").setAttribute("checked", "checked")
+    document.body.style.imageRendering = getWebConf("antialiasing") ? "auto" : "pixelated"
+    if (getWebConf("antialiasing")) {
+        getId("bg-antialiasing").setAttribute("checked", "true");
+    } else {
+        getId("bg-antialiasing").removeAttribute("checked")
+    }
     if (Number(getWebConf("theme")) == 0) { ws_1() } else { ws_2() }
 }
 window.onresize = smtg;
@@ -338,7 +344,7 @@ getId("bg-custom-upload-file").onclick = (e) => {
 }
 getId("bg-antialiasing").onchange = (e) => {
     if (e.target.checked) {
-        document.body.style.imageRendering = "initial"
+        document.body.style.imageRendering = "auto"
         setWebConf("antialiasing", true)
     } else {
         document.body.style.imageRendering = "pixelated"
