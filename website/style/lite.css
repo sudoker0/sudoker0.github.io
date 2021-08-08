@@ -13,6 +13,7 @@ nav#accb {
 }
 nav#accb > a {
   grid-area: left_-start;
+  width: 60px;
 }
 nav#accb img {
   width: 60px;
