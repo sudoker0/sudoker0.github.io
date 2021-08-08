@@ -1,6 +1,24 @@
 {
-    "last_update_on": "2021-08-07",
+    "last_update_on": "2021-08-08",
     "data": [
+        {
+            "hash": "b64d1f8",
+            "committer": "QuanMCPC",
+            "commit_date": 1628397288,
+            "message": "Make the image in social link section darker on hover"
+        },
+        {
+            "hash": "7ec9daa",
+            "committer": "QuanMCPC",
+            "commit_date": 1628355026,
+            "message": "Add another meaing to the MCPC name"
+        },
+        {
+            "hash": "3a1c64f",
+            "committer": "QuanMCPC",
+            "commit_date": 1628314859,
+            "message": "Update website's information"
+        },
         {
             "hash": "a1be94f",
             "committer": "QuanMCPC",
