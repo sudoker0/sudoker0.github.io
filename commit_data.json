@@ -1,6 +1,24 @@
 {
-    "last_update_on": "2021-08-08",
+    "last_update_on": "2021-08-09",
     "data": [
+        {
+            "hash": "40c2e4e",
+            "committer": "QuanMCPC",
+            "commit_date": 1628526062,
+            "message": "Some change"
+        },
+        {
+            "hash": "80f74dd",
+            "committer": "QuanMCPC",
+            "commit_date": 1628526039,
+            "message": "Make the NoScript message on the z-index of 10000"
+        },
+        {
+            "hash": "0cc48b4",
+            "committer": "QuanMCPC",
+            "commit_date": 1628404203,
+            "message": "Update website's information"
+        },
         {
             "hash": "016ba06",
             "committer": "QuanMCPC",
