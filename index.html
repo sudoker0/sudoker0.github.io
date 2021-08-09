@@ -141,7 +141,6 @@
             button1.onclick = function() {window.location.href = 'home.html?id='+ dateTime +''}; button2.onclick = function() {window.location.href = 'basic/home.html?id='+ dateTime +''};
             button1.appendChild(button1_att_);
             button2.appendChild(button2_att_);
-            document.getElementById("button_").appendChild(button1); document.getElementById("button_").appendChild(button2)
             document.getElementById("button_").appendChild(button1)
             document.getElementById("button_").appendChild(button2)
             var i = 0;
@@ -156,21 +155,10 @@
                     document.getElementById("loadImg1").style.display = "block";
                 }
             }
-            function webpSupport() {
-                var elem = document.createElement('canvas');
-                if (!!(elem.getContext && elem.getContext('2d'))) {
-                    return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
-                } else {
-                    return false;
-                }
-            }
             function yes() {
                 window.mobileCkeck_ = false;
                 move();
                 document.getElementById("warning").style.display = "none";
-            }
-            function no() {
-                alert("You know you can just close the browser tab of the app itself, right?")
             }
             document.onreadystatechange = e => {
                 switch (document.readyState) {
