@@ -70,20 +70,20 @@
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\** | 100.0% | 318 files | 247,595,135 bytes
-\* | 0.2% | 148 files | 497,902 bytes
-\*.7z | 36.65% | 11 files | 90,742,047 bytes
+\** | 100.0% | 326 files | 247,606,599 bytes
+\* | 0.22% | 159 files | 542,760 bytes
+\*.7z | 36.65% | 12 files | 90,751,038 bytes
 \*.config | 0.03% | 1 files | 83,595 bytes
 \*.css | 0.03% | 6 files | 74,656 bytes
 \*.exe | 2.0% | 1 files | 4,957,184 bytes
 \*.gif | 0.0% | 1 files | 10,498 bytes
-\*.html | 0.29% | 35 files | 708,941 bytes
+\*.html | 0.27% | 31 files | 666,029 bytes
 \*.ico | 0.04% | 1 files | 101,976 bytes
 \*.idx | 0.06% | 1 files | 156,612 bytes
 \*.js | 0.4% | 14 files | 979,214 bytes
-\*.json | 0.08% | 9 files | 195,428 bytes
-\*.md | 0.0% | 1 files | 7,700 bytes
-\*.pack | 51.07% | 1 files | 126,434,756 bytes
+\*.json | 0.08% | 9 files | 195,956 bytes
+\*.md | 0.0% | 1 files | 7,699 bytes
+\*.pack | 51.06% | 1 files | 126,434,756 bytes
 \*.pem | 0.0% | 2 files | 3,310 bytes
 \*.png | 1.14% | 28 files | 2,831,501 bytes
 \*.py | 0.01% | 2 files | 28,312 bytes
@@ -96,7 +96,7 @@ File Extensions | Percentages of Bytes | Number of files | File/Folder size (Byt
 \*.xml | 0.0% | 1 files | 1,274 bytes
 \*.yml | 0.0% | 2 files | 2,321 bytes
 \*.zip | 6.14% | 17 files | 15,198,182 bytes
-> Last updated on: 2021-08-09
+> Last updated on: 2021-08-11
 <!--python_data_stop-->
 [Download the table as HTML in a zip file (Style is not the same) (This is kept for historical purposes only and the data is no longer being updated)](https://drive.google.com/u/0/uc?id=1nvijtp61EX7gtisnjHCAEBkfgQKs-zTh&export=download)
 > You might ask: How do I able to get all of the file extensions, the number of file and other info?
