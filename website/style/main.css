@@ -2,6 +2,22 @@
   --bg: rgba(20, 20, 20, 0.850);
   --border: 1px solid rgb(21, 21, 21);
 }
+@supports (color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+@supports not (color-scheme: dark) {
+  ::-webkit-scrollbar {
+    background-color: #424242;
+    width: 17px;
+    height: 17px;
+  }
+  ::-webkit-scrollbar-thumb { background-color: #686868; }
+  ::-webkit-scrollbar-thumb:hover { background-color: #7B7B7B; }
+  ::-webkit-scrollbar-corner { background-color: rgb(29, 29, 29); }
+  ::-webkit-resizer { background-color: rgb(29, 29, 29); }
+}
 h1, h2, h3, h4, h5, h6, p, span, a, label {
   color: white;
 }
