@@ -1,6 +1,30 @@
 {
-    "last_update_on": "2021-08-11",
+    "last_update_on": "2021-08-13",
     "data": [
+        {
+            "hash": "321034a",
+            "committer": "QuanMCPC",
+            "commit_date": 1628850856,
+            "message": "Some change"
+        },
+        {
+            "hash": "8623f0f",
+            "committer": "QuanMCPC",
+            "commit_date": 1628850839,
+            "message": "Some update"
+        },
+        {
+            "hash": "3463a7d",
+            "committer": "QuanMCPC",
+            "commit_date": 1628834860,
+            "message": "Just discover the color-scheme property in css"
+        },
+        {
+            "hash": "20ae8e0",
+            "committer": "QuanMCPC",
+            "commit_date": 1628683796,
+            "message": "Update website's information"
+        },
         {
             "hash": "e6c0a6e",
             "committer": "QuanMCPC",
