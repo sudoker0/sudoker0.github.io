@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>WCOS</title>
+        <style>
+            * {
+                font-family: 'Courier New', Courier, monospace;
+            }
+            body {
+                background-color: black;
+                color: white;
+                margin: 0;
+                overflow: none;
+                position: fixed;
+                left: 0; top: 0;
+                width: 100%;
+                height: 100%;
+                cursor: none;
+            }
+            div#cursor {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            div#writearea {
+                position: absolute;
+                top: 0;
+                left: 0;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+                -webkit-touch-callout: none;
+                -o-user-select: none;
+                -moz-user-select: none;
+                user-select: none;
+                /* cursor: text; */
+                white-space: nowrap;
+            }
+            div#cursor {
+                pointer-events: none;
+            }
+            .black_cursor { color: black }
+            div#writearea span { white-space: pre; }
+            div#console {
+                width: calc(100% - 16px);
+                height: calc(100% - 16px);
+                position: relative;
+                top: 0; left: 0;
+                overflow: hidden;
+                margin: 8px;
+            }
+            div#contextMenu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                background-color: white;
+                color: black;
+                display: none;
+                /* box-shadow: 12px 12px rgba(255, 255, 255, 60%); */
+            }
+            div#contextMenu p {
+                margin: 5px;
+                padding: 2px;
+                user-select: none;
+            }
+            div#contextMenu hr { border: 1px solid black; margin: 0 8px; background-color: black; }
+            div#contextMenu p:hover {
+                background-color: black;
+                color: white;
+            }
+            div#movableCursor {
+                position: fixed;
+                top: 8px;
+                left: 8px;
+                /* height: 1em;
+                width: 0.5em; */
+                background-color: rgb(128, 128, 128);
+                pointer-events: none;
+                display: none;
+            }
+            span#FOR_DEV_ONLY {
+                position: fixed;
+                top: 0;
+                left: 0;
+                /* display: none; */
+                pointer-events: none;
+                opacity: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="console">
+            <span id="FOR_DEV_ONLY">T</span>
+            <div id="writearea"></div>
+            <div id="cursor" style="cursor: default;">_</div>
+            <div id="contextMenu">
+                <p>Paste from Clipboard</p>
+                <hr>
+                <p>Test1</p>
+            </div>
+            <div id="movableCursor"></div>
+        </div>
+    </body>
+    <script>
+        var
+            textdata = getId("FOR_DEV_ONLY").getBoundingClientRect(),
+            cols = 0, oldCols = 0,
+            rows = 0, oldRows = 0,
+            insMode = false,
+            inputCount = 0,
+            command = [],
+            commandPos = 0,
+            enableInput = false,
+            contextMenuOpen = false,
+            screenMoveMode = false,
+            receiveInput = false,
+            input_variable = "",
+            variable = [],
+            regex_testStr = /(^\"[^\"]*[^\"]\"$)|(^\'[^\']*[^\']\'$)|(^\`[^\`]*[^\`]\`$)/,
+            regex_testNum = /^[+-]?(\d+\.?\d*|\.\d+)$/,
+            regex_testBool = /true|false/,
+            regex_removeStrIndi = /(((^\")|(^\')|(^\`))(.*)((\"$)|(\'$)|(\`$)))/g,
+            cursorBlink = setInterval(() => { getId("cursor").classList.toggle("black_cursor") }, 100),
+            command_cache = [],
+            settings = {
+                delay: 1,
+                command_cache_limit: 200
+            },
+            commandList = [
+                {
+                    "name": "help",
+                    "description": "Display this help message and can also list certain command",
+                    "syntax": "help(command?: string)"
+                },
+                {
+                    "name": "print",
+                    "description": "Print stuff to console",
+                    "syntax": "print(text: string | number)"
+                },
+                {
+                    "name": "var",
+                    "description": "Set variable",
+                    "syntax": "var(name: string, value: any)"
+                },
+                {
+                    "name": "input",
+                    "description": "Get input of user and put it into a variable (exist or non-exist) (Variable will always be string)",
+                    "syntax": "input(setvar: string, prompt?: string)"
+                },
+                {
+                    "name": "open",
+                    "description": "Open a webpage",
+                    "syntax": "open(link: string, on?: \"current_window\" | \"new_window\")"
+                },
+                {
+                    "name": "info",
+                    "description": "Info about the console",
+                    "syntax": "info()"
+                }
+            ]
+        getId("writearea").innerHTML += `<div class="newline"><span>&#8203;</span></div>`;
+        function getClass(clas) { return document.getElementsByClassName(clas) }
+        function getId(id) { return document.getElementById(id) }
+        function getCharInRow(row) { return getId("writearea").querySelectorAll("div.newline")[row].querySelectorAll("*") }
+        function insertLetter(char) {
+            if (insMode && getCharInRow(rows).length > cols + 1 && rows < getClass("newline").length) {
+                getClass("newline")[rows].querySelectorAll("*")[cols].innerHTML = char
+            } else {
+                var newItem = document.createElement("span"), newTextNode = document.createTextNode(char);
+                newItem.appendChild(newTextNode);
+                getClass("newline")[rows].querySelectorAll("*")[cols].insertAdjacentElement("beforebegin", newItem);
+            }
+            cols++;
+        }
+        function rmStrIndi(str) { return str?.replace(regex_removeStrIndi, "$6") }
+        function enableMoveScreen() {
+            if (!screenMoveMode) {
+                screenMoveMode = true
+                oldCols = cols;
+                oldRows = rows;
+            }
+            getId("cursor").innerHTML = insMode ? "▄" : "█"
+        }
+        function disableMoveScreen() {
+            if (screenMoveMode) {
+                cols = oldCols;
+                rows = oldRows;
+                screenMoveMode = false;
+            }
+            getId("cursor").innerHTML = insMode ? "▄" : "_"
+        }
+        function insertPrompt() {
+            insertNewLine();
+            return insertString("> ", settings.delay)
+        }
+        function insertNewLine() {
+            return new Promise((resolve, reject) => {
+                getId("writearea").querySelectorAll("div.newline")[rows].insertAdjacentHTML("afterend", `<div class="newline"><span>&#8203;</span></div>`)
+                // if (cols < getCharInRow(rows).length - 1) {
+                    // ...
+                // } else {
+                    rows++;
+                    cols = 0;
+                // }
+                updateCursor(); updateScroll();
+                resolve("Yay!");
+            })
+        }
+        function contextMenuCommand(command) {
+            switch(command) {
+                case "opendevtool":
+                    break;
+            }
+        }
+        function varStrWithStr(str) {
+            str = str.replace(/{@(.+?)}/g, function(match, $1, __, ___, ____) {
+                for (const value of variable) {
+                    if (value.name == `@${$1}`) {
+                        return rmStrIndi(value.value);
+                    } else {
+                        return $1
+                    }
+                }
+            })
+            return str;
+        }
+        async function console_print(string, delay = 0) {
+            await insertString(string, delay)
+            await insertPrompt();
+            enableInput = true;
+        }
+        document.addEventListener("contextmenu", (e) => {
+            if (!contextMenuOpen) {
+                e.preventDefault();
+                getId("contextMenu").style.display = "block"
+                // getId("contextMenu").style.top = textdata.height * Math.floor(e.clientY / textdata.height) + 8 + "px";
+                getId("contextMenu").style.left = e.x + "px";
+                getId("contextMenu").style.top = e.y + "px";
+                contextMenuOpen = true
+            } else {
+                getId("contextMenu").style.display = "none"
+                contextMenuOpen = false
+            }
+        })
+        document.addEventListener("mouseup", (e) => {
+            switch(e.button) {
+                case 0:
+                    getId("contextMenu").style.display = "none"
+                    contextMenuOpen = false
+                    break;
+                // case 1:
+                //     break;
+                // case 2:
+                //     break;
+            }
+        })
+        window.onresize = updateScroll
+        document.addEventListener("keydown", (e) => {
+            if (enableInput) {
+                switch(e.key) {
+                    case "Enter":
+                        if (receiveInput) {
+                            var commandS = command.join("");
+                            variable = variable.filter((value) => { if (value.name != `@${input_variable}`) { return value } })
+                            variable.push({
+                                "name": `@${rmStrIndi(input_variable)}`,
+                                "value": `"${commandS}"`,
+                                "type": "string"
+                            })
+                            insertPrompt().then(() => { enableInput = true; });
+                            receiveInput = false;
+                            command = []
+                            commandPos = 0
+                            inputCount = 0
+                            break;
+                        }
+                        enableInput = false;
+                        var total_func = {
+                            command: "",
+                            args: {}
+                        }
+                        function containAllowedParam(param) {
+                            var result = [];
+                            Object.keys(total_func.args).forEach((v) => { if (param.indexOf(v) <= -1) { result.push(v) } });
+                            result = result.filter(s => s.trim() != "")
+                            if (result.length > 0) { console_print(`Error! The following args: "${result.join(", ")}" are not valid args. Please re-check all of your args.`, settings.delay); }
+                            return result.length <= 0;
+                        }
+                        var inputed_command = command
+                            .join("")
+                            .replace(/\s+/g,' ')
+                            .trim()
+                            .replace(/(^\w+)\s*(\(.*\))$/gm, (m, p1, p2, o, str) => {
+                                total_func.command = p1;
+                                var arg = p2.substring(1, p2.length - 1).split(/\s*,\s*/g);
+                                arg.forEach((v) => {
+                                    var args = v.split(/\s*=\s*/g);
+                                    total_func.args[args[0]] = args[1]
+                                })
+                                return p1 + p2;
+                            })
+                        if (command_cache.length >= 200) { command_cache.shift(); }
+                        command_cache.push(inputed_command)
+                        insertNewLine();
+                        /**
+                         * TODO: Code here
+                         */
+                        switch (total_func.command) {
+                            case "help":
+                                if (!containAllowedParam(["command"])) {} else if (
+                                    regex_testStr.test(total_func.args["command"]) ||
+                                    total_func.args["command"] == undefined
+                                ) {
+                                    (async () => {
+                                        var _command = rmStrIndi(total_func.args["command"]);
+                                        commandList.sort((v1, v2) => {
+                                            if (v1.name < v2.name) { return -1 }
+                                            else if (v1.name > v2.name) { return 1 }
+                                            else { return 0 }
+                                        })
+                                        await insertString(`=====================`, settings.delay)
+                                        await insertNewLine();
+                                        await insertString(`WCOS v1.0 - Help page`, settings.delay)
+                                        await insertNewLine();
+                                        await insertString(`---------------------`, settings.delay)
+                                        for (const value of commandList) {
+                                            if (_command == undefined || _command.toLowerCase() == value.name) {
+                                                await insertNewLine();
+                                                await insertString(`Command: ${value.name}`, settings.delay)
+                                                await insertNewLine();
+                                                await insertString(`Syntax: ${value.syntax}`, settings.delay)
+                                                await insertNewLine();
+                                                await insertString(`Description: ${value.description}`, settings.delay)
+                                                await insertNewLine();
+                                                await insertString(`---------------------`, settings.delay)
+                                            }
+                                        }
+                                        await insertNewLine();
+                                        await insertString(`=====================`, settings.delay)
+                                        await insertPrompt();
+                                        enableInput = true;
+                                    })();
+                                } else {
+                                    console_print("Error! Something has gone wrong with your args. Please re-check all of your args.", settings.delay);
+                                }
+                                break;
+                            case "print":
+                                if (!containAllowedParam(["text"])) {} else if (regex_testStr.test(total_func.args["text"])) {
+                                    // var _text = total_func.args["text"]
+                                    var _text = varStrWithStr(total_func.args["text"].trim())
+                                    console_print(rmStrIndi(_text), settings.delay)
+                                } else {
+                                    console_print("Error! Something has gone wrong with your args. Please re-check all of your args.", settings.delay)
+                                }
+                                break;
+                            case "var":
+                                if (!containAllowedParam(["name", "value"])) {} else if (
+                                    regex_testStr.test(total_func.args["name"]) &&
+                                    (
+                                        regex_testStr.test(total_func.args["value"]) ||
+                                        regex_testNum.test(total_func.args["value"]) ||
+                                        regex_testBool.test(total_func.args["value"])
+                                    )
+                                ) {
+                                    var type = ""
+                                    if (regex_testStr.test(total_func.args["value"])) { type = "string"
+                                    } else if (regex_testNum.test(total_func.args["value"])) { type = "number"
+                                    } else if (regex_testBool.test(total_func.args["value"])) { type = "boolean"
+                                    } else { console_print(`Error! Inputed value is not a valid type.`, 1); break; }
+                                    variable = variable.filter((value) => { if (value.name != rmStrIndi(total_func.args["name"])) { return value } })
+                                    variable.push({
+                                        "name": `@${rmStrIndi(total_func.args["name"])}`,
+                                        "value": total_func.args["value"],
+                                        "type": type
+                                    })
+                                    insertPrompt().then(() => { enableInput = true; });
+                                } else {
+                                    console_print("Error! Something has gone wrong with your args. Please re-check all of your args.", settings.delay);
+                                }
+                                break;
+                            case "input":
+                                // total_func.args["prompt"]
+                                // total_func.args["setvar"]
+                                if (!containAllowedParam(["prompt", "setvar"])) {} else if (
+                                    regex_testStr.test(total_func.args["setvar"]) &&
+                                    (
+                                        total_func.args["prompt"] == undefined ||
+                                        regex_testStr.test(total_func.args["prompt"])
+                                    )
+                                ) {
+                                    insertString(!!total_func.args["prompt"] ? rmStrIndi(total_func.args["prompt"]) : "", settings.delay)
+                                        .then(() => {
+                                            enableInput = true;
+                                            receiveInput = true;
+                                            input_variable = total_func.args["setvar"];
+                                        })
+                                } else {
+                                    console_print("Error! Something has gone wrong with your args. Please re-check all of your args.", settings.delay);
+                                }
+                                break;
+                            case "open":
+                                if (!containAllowedParam(["link", "on"])) {} else if (
+                                    regex_testStr.test(total_func.args["link"]) &&
+                                    (
+                                        total_func.args["on"] == undefined ||
+                                        (
+                                            regex_testStr.test(total_func.args["on"]) &&
+                                            ["\"current_window\"", "\"new_window\""].indexOf(total_func.args["on"] > -1)
+                                        )
+                                    )
+                                ) {
+                                    if (total_func.args["on"] == undefined || total_func.args["on"] == "\"new_window\"") {
+                                        Object.assign(document.createElement('a'), {
+                                            target: '_blank',
+                                            href: rmStrIndi(total_func.args["link"]),
+                                        }).click();
+                                        insertPrompt().then(() => { enableInput = true; });
+                                    }
+                                    else if (total_func.args["on"] == "\"current_window\"") { window.location.href = rmStrIndi(total_func.args["link"]) }
+                                } else {
+                                    console_print("Error! Something has gone wrong with your args. Please re-check all of your args.", settings.delay);
+                                }
+                                break;
+                            case "info":
+                                if (!containAllowedParam([])) {} else {
+                                    async function getStuff() {
+                                        var uA = navigator.userAgent
+                                        var browser =
+                                            (uA.indexOf("Opera")!=-1 || uA.indexOf("OPR")!=-1)
+                                                ? "Opera":
+                                            (uA.indexOf("Chrome")!=-1)
+                                                ? "Chrome (Or Chromium browser)":
+                                            (uA.indexOf("Safari")!=-1)
+                                                ? "Safari":
+                                            (uA.indexOf("Firefox")!=-1)
+                                                ? "Firefox":
+                                            (uA.indexOf("MSIE")!=-1 || (!!document.documentMode==true))
+                                                ? "Internet Explorer" : "Unknown"
+                                        const e = await fetch(window.location.href)
+                                        const e_text = await e.text();
+                                        const fileSize = e_text.length;
+                                        await insertString("=====================", settings.delay)
+                                        await insertNewLine()
+                                        await insertString("Some information about WCOS", settings.delay)
+                                        await insertNewLine()
+                                        await insertString("---------------------", settings.delay)
+                                        await insertNewLine()
+                                        await insertString(`Size: ${fileSize} bytes and going up.`, settings.delay)
+                                        await insertNewLine()
+                                        await insertString(`Current Browser: ${browser} (${navigator.vendor}) [${uA}]`, settings.delay)
+                                        await insertNewLine()
+                                        await insertString(`Console size: ${window.innerWidth}x${window.innerHeight}`, settings.delay)
+                                        await insertNewLine()
+                                        await insertString(`Screen size & color depth: ${screen.width}x${screen.height}x${screen.colorDepth}`, settings.delay)
+                                        await insertNewLine()
+                                        await insertString(`Current platform: ${navigator.platform}`, settings.delay)
+                                        await insertNewLine()
+                                        await insertString("---------------------", settings.delay)
+                                        await insertNewLine()
+                                        await insertString("=====================", settings.delay)
+                                        await insertPrompt()
+                                        enableInput = true;
+                                    }
+                                    getStuff();
+                                }
+                                break;
+                            default:
+                                console_print(`"${inputed_command}" is not a valid function.`, settings.delay)
+                                break;
+                        }
+                        // insertPrompt().then(() => {
+                        //     enableInput = true;
+                        // });
+                        command = []
+                        commandPos = 0
+                        inputCount = 0
+                        break;
+                    case "Backspace":
+                        var b = getCharInRow(rows);
+                        if (getId("writearea").querySelectorAll("*").length > 1 && inputCount > 0 && commandPos > 0 && !(cols == 0 && rows == 0)) {
+                            if (b.length > 1) { //User is deleting a line
+                                if (cols <= 0 && getCharInRow(rows).length > 1) {
+                                    //...
+                                } else {
+                                    b[cols - 1].remove()
+                                    cols--;
+                                }
+                            } else {
+                                // ...
+                            }
+                            command.splice(commandPos - 1, 1);
+                            commandPos--;
+                            inputCount--;
+                        }
+                        break;
+                    case "ArrowLeft":
+                        e.preventDefault();
+                        if (e.ctrlKey) {
+                            enableMoveScreen();
+                            if (cols >= 1) { cols--; }
+                            else if (rows > 0) { --rows; cols = getCharInRow(rows).length - 1; }
+                        } else {
+                            disableMoveScreen();
+                            if (cols >= 1 && commandPos > 0) { cols--; }
+                            else if (rows > 0 && commandPos > 0) { --rows; cols = getCharInRow(rows).length - 1; }
+                            if (commandPos > 0) commandPos--;
+                        }
+                        break;
+                    case "ArrowRight":
+                        e.preventDefault();
+                        if (e.ctrlKey) {
+                            enableMoveScreen();
+                            if (getCharInRow(rows).length > cols + 1 && rows < getClass("newline").length) { cols++; }
+                            else if (rows < getClass("newline").length - 1) { ++rows; cols = 0; }
+                        } else {
+                            disableMoveScreen();
+                            if (getCharInRow(rows).length > cols + 1 && rows < getClass("newline").length && commandPos < command.length) { cols++; }
+                            else if (rows < getClass("newline").length - 1 && commandPos < command.length) { ++rows; cols = 0; }
+                            if (commandPos < command.length) commandPos++;
+                        }
+                        break;
+                    case "ArrowUp":
+                        if (e.ctrlKey) {
+                            enableMoveScreen();
+                            if (rows > 0) {
+                                if (cols > getCharInRow(rows - 1).length - 1) { cols = getCharInRow(rows - 1).length - 1 }
+                                rows--;
+                            }
+                        } else { disableMoveScreen(); }
+                        break;
+                    case "ArrowDown":
+                        if (e.ctrlKey) {
+                            enableMoveScreen();
+                            if (rows < getId("writearea").querySelectorAll("div.newline").length - 1) {
+                                if (cols > getCharInRow(rows + 1).length - 1) { cols = getCharInRow(rows + 1).length - 1 }
+                                rows++;
+                            }
+                        } else { disableMoveScreen(); }
+                        break;
+                    case "Home":
+                        cols = 2
+                        commandPos = 0
+                        break;
+                    case "End":
+                        cols = getClass("newline")[rows].innerText.length - 1
+                        commandPos = command.length
+                        break;
+                    case "Insert":
+                        insMode = insMode ? false : true
+                        getId("cursor").innerHTML = insMode ? "▄" : "_";
+                        break;
+                    default:
+                        if ((e.key.length === 1) && !screenMoveMode) {
+                            insertLetter(e.key);
+                            command.splice(commandPos, insMode ? 1 : 0, e.key)
+                            inputCount++;
+                            commandPos++;
+                        }
+                        break;
+                }
+                console.log(`Cols: ${cols} | Rows: ${rows} | Input Count: ${inputCount} | Command Pos: ${commandPos} | Insert Mode: ${insMode} | Command: ${JSON.stringify(command)}`)
+                updateCursor(); updateScroll();
+            }
+        })
+        function updateCursor() {
+            getId("cursor").style.top = `${parseFloat(getComputedStyle(getId("cursor")).height) * parseFloat(rows)}px`
+            getId("cursor").style.left = parseFloat(getComputedStyle(getId("cursor")).width) * parseFloat(cols) + "px"
+            var element = document.getElementById("writearea");
+            document.body.scrollTop = element.scrollHeight;
+        }
+        function updateScroll() {
+            var element = document.getElementById("console");
+            getId("console").scrollTop = getId("console").scrollTop - getId("console").offsetHeight + getId("cursor").getBoundingClientRect().y + 11
+            element.scrollLeft =
+                getId("cursor").offsetLeft < document.body.offsetWidth - parseFloat(getComputedStyle(getId("cursor")).width) - 16
+                    ? 0
+                    :   getId("cursor").offsetLeft -
+                        document.body.offsetWidth +
+                        parseFloat(getComputedStyle(getId("cursor")).width) + 16;
+        }
+        function insertString(char, delay = 0) {
+            return new Promise((resolve, reject) => {
+                if (delay <= 0) {
+                    for (var i in [...char]) { insertLetter([...char][i]); updateCursor(); updateScroll(); }
+                    resolve("Yay");
+                } else {
+                    var i = 0
+                    var int = setInterval(() => {
+                        insertLetter([...char][i] == undefined ? "" : [...char][i]); updateCursor(); updateScroll();
+                        i++;
+                        if (i < char.length) {
+                        } else {
+                            resolve("Yay")
+                            clearInterval(int)
+                        }
+                    }, delay)
+                }
+            })
+        }
+        // function initScreen(width, height) {
+        // ...
+        // }
+        // function replaceChar(x, y, char) {
+        // ...
+        // }
+        window.onload = async () => {
+            getId("movableCursor").style.width = textdata.width + "px";
+            getId("movableCursor").style.height = textdata.height + "px";
+            await insertString("Welcome to WCOS (Web Console OS), a better version of WTOS.", settings.delay)
+            var _ = new Date();
+            await insertNewLine();
+            await insertString(`Startup Time is ${_.getMonth() + 1} / ${_.getDate()} / ${_.getFullYear()} @ ${_.getHours()} : ${_.getMinutes()} : ${_.getSeconds()}`, settings.delay)
+            await insertNewLine();
+            await insertString("For a list of avaliable function, type \"help()\"", settings.delay);
+            await insertPrompt();
+            enableInput = true;
+        }
+        document.addEventListener("mousemove", (ev) => {
+            getId("movableCursor").style.display = "block";
+            // getId("movableCursor").style.top = textdata.height * Math.floor(ev.clientY / textdata.height) + 8 + "px";
+            getId("movableCursor").style.left = ev.clientX + "px";
+            getId("movableCursor").style.top = ev.clientY + "px";
+        })
+        document.addEventListener("mouseleave", (ev) => { getId("movableCursor").style.display = "none"; })
+    </script>
+</html>
