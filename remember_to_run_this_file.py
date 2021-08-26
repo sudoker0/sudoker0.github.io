@@ -205,6 +205,29 @@ with open("ReadMe.md", "w", encoding="utf-8") as markdown:
 
 # ------------------[update-file_table.py]------------------ #
 
+# # ----------------------[make_tree.py]-----------------------#
+# import os
+# import json
+
+# log("\n========================================\nNow running \"make_tree.py\"\n")
+
+# ignored_dir = [
+#     ".git"
+# ]
+
+# def path_to_dict(path):
+#     d = {"name": os.path.basename(path)}
+#     if os.path.isdir(path):
+#         d['type'] = "directory"
+#         d['children'] = [path_to_dict(os.path.join(path,x)) for x in os.listdir(path)]
+#     else:
+#         d['type'] = "file"
+#     return d
+
+# with open("./directory_listing.json", "w") as outfile:
+#     json.dump(path_to_dict("."), outfile, indent=4)
+# # ----------------------[make_tree.py]-----------------------#
+
 # ---------------------[commit_maybe.py]-------------------- #
 # import os, re, json, sys
 # from datetime import date, time

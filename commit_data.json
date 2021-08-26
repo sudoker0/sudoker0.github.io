@@ -1,6 +1,54 @@
 {
-    "last_update_on": "2021-08-13",
+    "last_update_on": "2021-08-26",
     "data": [
+        {
+            "hash": "d68ac62",
+            "committer": "QuanMCPC",
+            "commit_date": 1629981186,
+            "message": "Some update"
+        },
+        {
+            "hash": "bb00d13",
+            "committer": "QuanMCPC",
+            "commit_date": 1629979201,
+            "message": "some more test"
+        },
+        {
+            "hash": "3a437fb",
+            "committer": "QuanMCPC",
+            "commit_date": 1629979090,
+            "message": "more chage"
+        },
+        {
+            "hash": "edc24da",
+            "committer": "QuanMCPC",
+            "commit_date": 1629978948,
+            "message": "some change"
+        },
+        {
+            "hash": "c7f1f31",
+            "committer": "QuanMCPC",
+            "commit_date": 1629972027,
+            "message": "Some commit"
+        },
+        {
+            "hash": "ae85fb5",
+            "committer": "QuanMCPC",
+            "commit_date": 1629971553,
+            "message": "Coming soon page and some change"
+        },
+        {
+            "hash": "911cb73",
+            "committer": "QuanMCPC",
+            "commit_date": 1629474164,
+            "message": "Created an Operating System"
+        },
+        {
+            "hash": "b2a3e9f",
+            "committer": "QuanMCPC",
+            "commit_date": 1628850900,
+            "message": "Update website's information"
+        },
         {
             "hash": "321034a",
             "committer": "QuanMCPC",
