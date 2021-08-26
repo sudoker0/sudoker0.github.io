@@ -45,7 +45,7 @@
             }
             div#setting div { margin-left: 1.35em; }
             div#settings div * {  margin: 2px; }
-            input#lineWidth { width: 40px; }
+            input#lineWidth, input#color { width: 50px; }
             canvas {
                 position: fixed;
                 top: 0; left: 0;
@@ -71,6 +71,21 @@
             }
             div#show span { font-size: small; }
             div#show:hover { cursor: pointer; }
+            button {
+                background-color: #e5e5e5;
+                border: 1px solid black;
+                padding: 2px 4px;
+                border-radius: 0;
+            }
+            button:hover {
+                background-color: #c0c0c0;
+                cursor: pointer;
+            }
+            input {
+                background-color: #e5e5e5;
+                border: 1px solid black;
+                border-radius: 0;
+            }
         </style>
     </head>
     <body>
