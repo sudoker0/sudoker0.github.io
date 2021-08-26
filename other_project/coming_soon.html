@@ -99,7 +99,7 @@
             <p>Also, since you're here, you can draw in this webpage directly using your mouse!</p>
         </div>
         <div id="setting">
-            <div id="show"><span>Open/Close</span></div>
+            <div id="show" role="button" tabindex="0"><span>Open/Close</span></div>
             <div>
                 <label for="color">Color of pencil: </label><input type="color" name="color" id="color" value="#000000">
                 <br>
@@ -110,7 +110,7 @@
             </div>
         </div>
         <div id="watermark">
-            <p>Created by QuanMCPC</p>
+            <p>By QuanMCPC</p>
         </div>
     </body>
     <script>
@@ -138,10 +138,17 @@
             canvas.height = window.innerHeight;
         }
         function setPosition(e) { pos.x = e.type.includes("mouse") ? e.clientX : e.touches[0].pageX; pos.y = e.type.includes("mouse") ? e.clientY : e.touches[0].pageY; }
-        document.getElementById("show").onclick = (e) => {
-            document.getElementById("setting").style.transform = menuClose ? "translateX(0px)" : "translateX(calc(100% - 1.1em))";
+        function openCloseMenu() {
+            document.getElementById("setting").style.transform = menuClose ? "translateX(0px)" : "translateX(calc(100% - 1em - 2px))";
             menuClose = menuClose ? false : true;
         }
+        document.getElementById("show").onkeydown = (e) => {
+            if (e.key == "Enter") {
+                e.preventDefault();
+                openCloseMenu();
+            }
+        }
+        document.getElementById("show").onclick = openCloseMenu
         function downloadImg() {
             var a = document.createElement("a");
             a.download = "image.png"
