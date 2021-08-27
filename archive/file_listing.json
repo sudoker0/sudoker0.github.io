@@ -19,8 +19,8 @@
         },
         {
             "filename": "file_listing.json",
-            "filesize": 4172,
-            "mod_time": "2021-08-27 11:56:59 (GMT +7)"
+            "filesize": 4490,
+            "mod_time": "2021-08-27 13:11:54 (GMT +7)"
         },
         {
             "filename": "get_file_info_for_archive.py",
@@ -101,6 +101,11 @@
             "filename": "secret_stuff.mkcert.exe.7z",
             "filesize": 7776194,
             "mod_time": "2021-07-30 17:08:12 (GMT +7)"
+        },
+        {
+            "filename": "signature.7z",
+            "filesize": 2496,
+            "mod_time": "2021-08-27 13:40:14 (GMT +7)"
         },
         {
             "filename": "social_preview_image.7z",

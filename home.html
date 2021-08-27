@@ -3,7 +3,6 @@
     <head>
         <meta charset="UTF-8" />
         <link rel="stylesheet" type="text/css" href="/website/style/main.css?v=1" />
-        <link rel="stylesheet" type="text/css" href="/website/style/all.css?v=1" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -98,7 +97,8 @@
             h3.showoff { color: rgb(0, 255, 0); text-align: center; }
         </style>
     </head>
-    <body id="temp" onload="check1()">
+    <body>
+        <button id="list_dir">&rightarrow; Get access to directory listing here! &leftarrow;</button>
         <div id="iframe_">
             <div id="iframe_accbar">
                 <button onclick="getId('iframe__').setAttribute('src', 'about:blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Close</button><button onclick="window.open(getId('iframe__').getAttribute('src'), '_blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Open in a new tab</button>

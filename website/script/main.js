@@ -367,3 +367,4 @@ getId("bg-antialiasing").onchange = (e) => {
 //             document.body.style[qSel(`label[for=${e.target.id}]`).getAttribute("data-cssvalue")] = e.target.value
 //         }
 //     })
+getId("list_dir").onclick = (_) => { window.location.href = "/dir_listing.html" }

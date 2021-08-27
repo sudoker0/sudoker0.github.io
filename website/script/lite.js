@@ -76,3 +76,4 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     })
 })
+getId("list_dir").onclick = (_) => { window.location.href = "/dir_listing.html" }

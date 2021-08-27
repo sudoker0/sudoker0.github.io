@@ -98,7 +98,7 @@ File Extensions | Percentages of Bytes | Number of files | File/Folder size (Byt
 <!--python_data_stop-->
 [Download the table as HTML in a zip file (Style is not the same) (This is kept for historical purposes only and the data is no longer being updated)](https://drive.google.com/u/0/uc?id=1nvijtp61EX7gtisnjHCAEBkfgQKs-zTh&export=download)
 > You might ask: How do I able to get all of the file extensions, the number of file and other info?
-> Using ~~WinDirStat [https://windirstat.net/](https://windirstat.net/)~~ the Python script I've written (which is named: remember_to_run_this_file.py)
+> Using ~~WinDirStat [https://windirstat.net/](https://windirstat.net/)~~ the Python script I've written (which is named: ~~remember_to_run_this_file.py~~)
 ### 👀 Random Stuff
 > JavaScript Loop Code
 ```JavaScript

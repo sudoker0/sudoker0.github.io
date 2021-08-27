@@ -18,6 +18,31 @@
   ::-webkit-scrollbar-corner { background-color: rgb(29, 29, 29); }
   ::-webkit-resizer { background-color: rgb(29, 29, 29); }
 }
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  src: url(/website/font/Raleway-Medium.ttf);
+  font-display: fallback;
+}
+* {
+  font-family: Raleway;
+  font-weight: 500;
+}
+button:hover { cursor: pointer; }
+button#list_dir {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+}
+button#list_dir:focus { pointer-events: all; opacity: 1; }
+*:focus {
+  outline: 3px solid red !important;
+  transition: outline 0.1s;
+}
 h1, h2, h3, h4, h5, h6, p, span, a, label {
   color: white;
 }

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" type="text/css" href="/website/style/all.css" />
         <script src="/index.js?ver=1202" defer></script>
         <link rel="manifest" href="/manifest.json" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -27,8 +26,21 @@
         <link rel="shortcut icon" href="/website/image/logo/favicon.ico" />
         <link rel="apple-touch-icon" href="/website/image/logo/logo.png">
         <style>
-            html, body {
+            @font-face {
+                font-family: 'Raleway';
+                font-style: normal;
+                font-weight: 600;
+                src: url(/website/font/Raleway-Medium.ttf);
+                font-display: fallback;
+            }
+            * {
                 overflow: hidden;
+                font-family: Raleway;
+                font-weight: 500;
+            }
+            *:focus {
+                outline: 3px solid red !important;
+                transition: outline 0.1s;
             }
             .center-screen {
                 display: flex;
@@ -128,9 +140,10 @@
                         </svg>
                     </div>
                     <h3>Welcome visitor! Where do you want to go?</h3>
-                    <div id="button_"></div>
+                    <div id="button_">
+                        <button id="yes">Install website</button>
+                    </div>
                     <!-- <button onclick="window.open('https:\/\/quan215.github.io/', '_blank')">Load the first version of the website</button> -->
-                    <button id="yes">Install website</button>
                 </div>
             </div>
         </main>
@@ -141,8 +154,8 @@
             button1.onclick = function() {window.location.href = 'home.html?id='+ dateTime +''}; button2.onclick = function() {window.location.href = 'basic/home.html?id='+ dateTime +''};
             button1.appendChild(button1_att_);
             button2.appendChild(button2_att_);
-            document.getElementById("button_").appendChild(button1)
-            document.getElementById("button_").appendChild(button2)
+            document.getElementById("button_").prepend(button2)
+            document.getElementById("button_").prepend(button1)
             var i = 0;
             var pause = false;
             window.mobileCkeck_ = mobileCkeck();

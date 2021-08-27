@@ -1,3 +1,14 @@
+button:hover { cursor: pointer; }
+button#list_dir {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+}
+button#list_dir:focus { pointer-events: all; opacity: 1; }
+*:focus { outline: 3px solid red !important; }
 nav#accb {
   border: 2px solid black;
   width: calc(100% - 4px);
