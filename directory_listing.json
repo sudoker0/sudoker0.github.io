@@ -3,27 +3,123 @@
     "type": "directory",
     "children": [
         {
-            "name": ".disable.github",
-            "type": "directory",
-            "children": [
-                {
-                    "name": "workflows",
-                    "type": "directory",
-                    "children": [
-                        {
-                            "name": "main.yml",
-                            "type": "file"
-                        }
-                    ]
-                }
-            ]
+            "name": "sitemap.xml",
+            "type": "file"
+        },
+        {
+            "name": "index.js",
+            "type": "file"
+        },
+        {
+            "name": "index-cli.html",
+            "type": "file"
+        },
+        {
+            "name": "directory_listing.json",
+            "type": "file"
         },
         {
             "name": ".gitattributes",
             "type": "file"
         },
         {
-            "name": ".gitignore",
+            "name": "commit_data.json",
+            "type": "file"
+        },
+        {
+            "name": "other_project",
+            "type": "directory",
+            "children": [
+                {
+                    "name": "Vigenere_Cipher.html",
+                    "type": "file"
+                },
+                {
+                    "name": "gtpl.py",
+                    "type": "file"
+                },
+                {
+                    "name": "texteditor_html.html",
+                    "type": "file"
+                },
+                {
+                    "name": "MSDOS.html",
+                    "type": "file"
+                },
+                {
+                    "name": "numberguessgame.html",
+                    "type": "file"
+                },
+                {
+                    "name": "soope.html",
+                    "type": "file"
+                },
+                {
+                    "name": "message_en_de.html",
+                    "type": "file"
+                },
+                {
+                    "name": "coming_soon.html",
+                    "type": "file"
+                },
+                {
+                    "name": "captcha.html",
+                    "type": "file"
+                },
+                {
+                    "name": "commit.html",
+                    "type": "file"
+                },
+                {
+                    "name": "Edit_For_Other_Website.js",
+                    "type": "file"
+                },
+                {
+                    "name": "texteditor_basic.html",
+                    "type": "file"
+                },
+                {
+                    "name": "webdriver_torso.html",
+                    "type": "file"
+                },
+                {
+                    "name": "console.html",
+                    "type": "file"
+                },
+                {
+                    "name": "dist",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "Edit_For_Other_Website.dev.js",
+                            "type": "file"
+                        },
+                        {
+                            "name": "Edit_For_Other_Website.commercial.dev.js",
+                            "type": "file"
+                        }
+                    ]
+                },
+                {
+                    "name": "commit_table.html",
+                    "type": "file"
+                },
+                {
+                    "name": "loop.html",
+                    "type": "file"
+                },
+                {
+                    "name": "oldweb.zip",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "CNAME",
+            "type": "file"
+        },
+        {
+            "name": "LICENSE",
             "type": "file"
         },
         {
@@ -35,19 +131,17 @@
                     "type": "file"
                 },
                 {
+                    "name": "slnx.sqlite",
+                    "type": "file"
+                },
+                {
+                    "name": "VSWorkspaceState.json",
+                    "type": "file"
+                },
+                {
                     "name": "QuanMCPC.github.io",
                     "type": "directory",
                     "children": [
-                        {
-                            "name": "config",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "applicationhost.config",
-                                    "type": "file"
-                                }
-                            ]
-                        },
                         {
                             "name": "v16",
                             "type": "directory",
@@ -57,18 +151,204 @@
                                     "type": "file"
                                 }
                             ]
+                        },
+                        {
+                            "name": "config",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "applicationhost.config",
+                                    "type": "file"
+                                }
+                            ]
                         }
                     ]
-                },
+                }
+            ]
+        },
+        {
+            "name": "credit.html",
+            "type": "file"
+        },
+        {
+            "name": ".gitignore",
+            "type": "file"
+        },
+        {
+            "name": "archive",
+            "type": "directory",
+            "children": [
                 {
-                    "name": "slnx.sqlite",
+                    "name": "Unused_image.zip",
                     "type": "file"
                 },
                 {
-                    "name": "VSWorkspaceState.json",
+                    "name": "more_old_image.7z",
+                    "type": "file"
+                },
+                {
+                    "name": "Redstone_NoTransparent.zip",
+                    "type": "file"
+                },
+                {
+                    "name": "stuff.png",
+                    "type": "file"
+                },
+                {
+                    "name": "old_serviceworker.zip",
+                    "type": "file"
+                },
+                {
+                    "name": "GIMP_Project_File.zip",
+                    "type": "file"
+                },
+                {
+                    "name": "svg_icon.zip",
+                    "type": "file"
+                },
+                {
+                    "name": "ReadMe.WTOS.zip",
+                    "type": "file"
+                },
+                {
+                    "name": "unused_section_of_website.zip",
+                    "type": "file"
+                },
+                {
+                    "name": "secret_stuff.mkcert.exe.7z",
+                    "type": "file"
+                },
+                {
+                    "name": "image.zip",
+                    "type": "file"
+                },
+                {
+                    "name": "template.zip",
+                    "type": "file"
+                },
+                {
+                    "name": "Attempt_To_Create_A_OS.7z",
+                    "type": "file"
+                },
+                {
+                    "name": "Redstone_Animation.zip",
+                    "type": "file"
+                },
+                {
+                    "name": "social_preview_image.7z",
+                    "type": "file"
+                },
+                {
+                    "name": "a.7z",
+                    "type": "file"
+                },
+                {
+                    "name": "old_background.zip",
+                    "type": "file"
+                },
+                {
+                    "name": "wtos_old_icon.zip",
+                    "type": "file"
+                },
+                {
+                    "name": "old_version.7z",
+                    "type": "file"
+                },
+                {
+                    "name": "file_listing.json",
+                    "type": "file"
+                },
+                {
+                    "name": "useless_project.7z",
+                    "type": "file"
+                },
+                {
+                    "name": "ban_warning.zip",
+                    "type": "file"
+                },
+                {
+                    "name": "how_to_write_file_size.json.txt",
+                    "type": "file"
+                },
+                {
+                    "name": "old.7z",
+                    "type": "file"
+                },
+                {
+                    "name": "lite.old.zip",
+                    "type": "file"
+                },
+                {
+                    "name": "index.html",
                     "type": "file"
                 }
             ]
+        },
+        {
+            "name": "manifest.json",
+            "type": "file"
+        },
+        {
+            "name": "google0d0804a11aec577f.html",
+            "type": "file"
+        },
+        {
+            "name": "404.html",
+            "type": "file"
+        },
+        {
+            "name": "home.html",
+            "type": "file"
+        },
+        {
+            "name": "sw.js",
+            "type": "file"
+        },
+        {
+            "name": "ReadMe.md",
+            "type": "file"
+        },
+        {
+            "name": "basic",
+            "type": "directory",
+            "children": [
+                {
+                    "name": "credit.html",
+                    "type": "file"
+                },
+                {
+                    "name": "home.html",
+                    "type": "file"
+                },
+                {
+                    "name": "about.html",
+                    "type": "file"
+                },
+                {
+                    "name": "download.html",
+                    "type": "file"
+                },
+                {
+                    "name": "gallery.html",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "about.html",
+            "type": "file"
+        },
+        {
+            "name": "website_data.json",
+            "type": "file"
+        },
+        {
+            "name": "dir_listing.html",
+            "type": "file"
+        },
+        {
+            "name": "signature.html",
+            "type": "file"
         },
         {
             "name": ".vscode",
@@ -79,295 +359,21 @@
                     "type": "file"
                 },
                 {
-                    "name": "launch.json",
-                    "type": "file"
-                },
-                {
                     "name": "settings.json",
                     "type": "file"
-                }
-            ]
-        },
-        {
-            "name": "404.html",
-            "type": "file"
-        },
-        {
-            "name": "about.html",
-            "type": "file"
-        },
-        {
-            "name": "archive",
-            "type": "directory",
-            "children": [
-                {
-                    "name": "a.7z",
-                    "type": "file"
                 },
                 {
-                    "name": "Attempt_To_Create_A_OS.7z",
-                    "type": "file"
-                },
-                {
-                    "name": "ban_warning.zip",
-                    "type": "file"
-                },
-                {
-                    "name": "file_listing.json",
-                    "type": "file"
-                },
-                {
-                    "name": "GIMP_Project_File.zip",
-                    "type": "file"
-                },
-                {
-                    "name": "how_to_write_file_size.json.txt",
-                    "type": "file"
-                },
-                {
-                    "name": "image.zip",
-                    "type": "file"
-                },
-                {
-                    "name": "index.html",
-                    "type": "file"
-                },
-                {
-                    "name": "lite.old.zip",
-                    "type": "file"
-                },
-                {
-                    "name": "more_old_image.7z",
-                    "type": "file"
-                },
-                {
-                    "name": "old.7z",
-                    "type": "file"
-                },
-                {
-                    "name": "old_background.zip",
-                    "type": "file"
-                },
-                {
-                    "name": "old_serviceworker.zip",
-                    "type": "file"
-                },
-                {
-                    "name": "old_version.7z",
-                    "type": "file"
-                },
-                {
-                    "name": "ReadMe.WTOS.zip",
-                    "type": "file"
-                },
-                {
-                    "name": "Redstone_Animation.zip",
-                    "type": "file"
-                },
-                {
-                    "name": "Redstone_NoTransparent.zip",
-                    "type": "file"
-                },
-                {
-                    "name": "secret_stuff.mkcert.exe.7z",
-                    "type": "file"
-                },
-                {
-                    "name": "social_preview_image.7z",
-                    "type": "file"
-                },
-                {
-                    "name": "stuff.png",
-                    "type": "file"
-                },
-                {
-                    "name": "svg_icon.zip",
-                    "type": "file"
-                },
-                {
-                    "name": "template.zip",
-                    "type": "file"
-                },
-                {
-                    "name": "Unused_image.zip",
-                    "type": "file"
-                },
-                {
-                    "name": "unused_section_of_website.zip",
-                    "type": "file"
-                },
-                {
-                    "name": "useless_project.7z",
-                    "type": "file"
-                },
-                {
-                    "name": "wtos_old_icon.zip",
+                    "name": "launch.json",
                     "type": "file"
                 }
             ]
         },
         {
-            "name": "basic",
-            "type": "directory",
-            "children": [
-                {
-                    "name": "about.html",
-                    "type": "file"
-                },
-                {
-                    "name": "credit.html",
-                    "type": "file"
-                },
-                {
-                    "name": "download.html",
-                    "type": "file"
-                },
-                {
-                    "name": "gallery.html",
-                    "type": "file"
-                },
-                {
-                    "name": "home.html",
-                    "type": "file"
-                }
-            ]
-        },
-        {
-            "name": "CNAME",
+            "name": "download.html",
             "type": "file"
         },
         {
-            "name": "commit_data.json",
-            "type": "file"
-        },
-        {
-            "name": "credit.html",
-            "type": "file"
-        },
-        {
-            "name": "dev_only",
-            "type": "directory",
-            "children": [
-                {
-                    "name": "127.0.0.1-key.pem",
-                    "type": "file"
-                },
-                {
-                    "name": "127.0.0.1.pem",
-                    "type": "file"
-                },
-                {
-                    "name": "logo-dnd",
-                    "type": "directory",
-                    "children": [
-                        {
-                            "name": "external",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "jquery",
-                                    "type": "directory",
-                                    "children": [
-                                        {
-                                            "name": "jquery.js",
-                                            "type": "file"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "name": "images",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "ui-icons_444444_256x240.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "ui-icons_555555_256x240.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "ui-icons_777620_256x240.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "ui-icons_777777_256x240.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "ui-icons_cc0000_256x240.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "ui-icons_ffffff_256x240.png",
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "index.html",
-                            "type": "file"
-                        },
-                        {
-                            "name": "index.js",
-                            "type": "file"
-                        },
-                        {
-                            "name": "jquery-ui.min.css",
-                            "type": "file"
-                        },
-                        {
-                            "name": "jquery-ui.min.js",
-                            "type": "file"
-                        },
-                        {
-                            "name": "jquery-ui.structure.min.css",
-                            "type": "file"
-                        },
-                        {
-                            "name": "jquery-ui.theme.min.css",
-                            "type": "file"
-                        },
-                        {
-                            "name": "jquery.js",
-                            "type": "file"
-                        }
-                    ]
-                },
-                {
-                    "name": "logo-dnd.7z",
-                    "type": "file"
-                },
-                {
-                    "name": "loop.html",
-                    "type": "file"
-                },
-                {
-                    "name": "mkcert.exe",
-                    "type": "file"
-                },
-                {
-                    "name": "modern.7z",
-                    "type": "file"
-                },
-                {
-                    "name": "test.html",
-                    "type": "file"
-                },
-                {
-                    "name": "test.js",
-                    "type": "file"
-                }
-            ]
-        },
-        {
-            "name": "directory_listing.json",
-            "type": "file"
-        },
-        {
-            "name": "dir_listing.html",
+            "name": "offline.html",
             "type": "file"
         },
         {
@@ -385,135 +391,27 @@
             ]
         },
         {
-            "name": "download.html",
-            "type": "file"
-        },
-        {
-            "name": "gallery.html",
-            "type": "file"
-        },
-        {
-            "name": "google0d0804a11aec577f.html",
-            "type": "file"
-        },
-        {
-            "name": "home.html",
-            "type": "file"
-        },
-        {
-            "name": "index-cli.html",
-            "type": "file"
-        },
-        {
-            "name": "index.html",
-            "type": "file"
-        },
-        {
-            "name": "index.js",
-            "type": "file"
-        },
-        {
-            "name": "LICENSE",
-            "type": "file"
-        },
-        {
-            "name": "manifest.json",
-            "type": "file"
-        },
-        {
-            "name": "offline.html",
-            "type": "file"
-        },
-        {
-            "name": "other_project",
+            "name": ".github",
             "type": "directory",
             "children": [
                 {
-                    "name": "captcha.html",
-                    "type": "file"
-                },
-                {
-                    "name": "coming_soon.html",
-                    "type": "file"
-                },
-                {
-                    "name": "commit.html",
-                    "type": "file"
-                },
-                {
-                    "name": "commit_table.html",
-                    "type": "file"
-                },
-                {
-                    "name": "console.html",
-                    "type": "file"
-                },
-                {
-                    "name": "dist",
+                    "name": "workflows",
                     "type": "directory",
                     "children": [
                         {
-                            "name": "Edit_For_Other_Website.commercial.dev.js",
+                            "name": "FOR_GITHUB_ACTION_ONLY.py",
                             "type": "file"
                         },
                         {
-                            "name": "Edit_For_Other_Website.dev.js",
+                            "name": "main.yml",
                             "type": "file"
                         }
                     ]
-                },
-                {
-                    "name": "Edit_For_Other_Website.js",
-                    "type": "file"
-                },
-                {
-                    "name": "gtpl.py",
-                    "type": "file"
-                },
-                {
-                    "name": "loop.html",
-                    "type": "file"
-                },
-                {
-                    "name": "message_en_de.html",
-                    "type": "file"
-                },
-                {
-                    "name": "MSDOS.html",
-                    "type": "file"
-                },
-                {
-                    "name": "numberguessgame.html",
-                    "type": "file"
-                },
-                {
-                    "name": "oldweb.zip",
-                    "type": "file"
-                },
-                {
-                    "name": "soope.html",
-                    "type": "file"
-                },
-                {
-                    "name": "texteditor_basic.html",
-                    "type": "file"
-                },
-                {
-                    "name": "texteditor_html.html",
-                    "type": "file"
-                },
-                {
-                    "name": "Vigenere_Cipher.html",
-                    "type": "file"
-                },
-                {
-                    "name": "webdriver_torso.html",
-                    "type": "file"
                 }
             ]
         },
         {
-            "name": "ReadMe.md",
+            "name": "gallery.html",
             "type": "file"
         },
         {
@@ -521,15 +419,7 @@
             "type": "file"
         },
         {
-            "name": "signature.html",
-            "type": "file"
-        },
-        {
-            "name": "sitemap.xml",
-            "type": "file"
-        },
-        {
-            "name": "sw.js",
+            "name": "index.html",
             "type": "file"
         },
         {
@@ -545,219 +435,15 @@
                             "type": "file"
                         },
                         {
-                            "name": "Raleway-Light.ttf",
-                            "type": "file"
-                        },
-                        {
                             "name": "Raleway-Medium.ttf",
                             "type": "file"
                         },
                         {
+                            "name": "Raleway-Light.ttf",
+                            "type": "file"
+                        },
+                        {
                             "name": "Raleway-SemiBold.ttf",
-                            "type": "file"
-                        }
-                    ]
-                },
-                {
-                    "name": "image",
-                    "type": "directory",
-                    "children": [
-                        {
-                            "name": "arrow.svg",
-                            "type": "file"
-                        },
-                        {
-                            "name": "background",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "background_dark.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "background_light.png",
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "download",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "current_image_png.zip",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "data-to-get-screenshot.yml",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "High_Quality_Backgrounds.7z",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "old_image.zip",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "ScreenShots_HighQuality_tga.7z",
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "gallery",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "1.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "1.webp",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "2.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "2.webp",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "3.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "3.webp",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "4.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "4.webp",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "5.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "5.webp",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "6.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "6.webp",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "7.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "7.webp",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "8.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "8.webp",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "9.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "9.webp",
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "logo",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "favicon.ico",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "loading.gif",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "logo.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "logo.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "redstone_dust_icon.svg",
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "logo_long.svg",
-                            "type": "file"
-                        },
-                        {
-                            "name": "manifest",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "about.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "credit.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "download.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "gallery.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "home.png",
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "Redstone.png",
-                            "type": "file"
-                        },
-                        {
-                            "name": "Redstone.svg",
-                            "type": "file"
-                        },
-                        {
-                            "name": "secret_.png",
-                            "type": "file"
-                        },
-                        {
-                            "name": "social_preview.png",
-                            "type": "file"
-                        },
-                        {
-                            "name": "sus_.png",
                             "type": "file"
                         }
                     ]
@@ -777,9 +463,217 @@
                     ]
                 },
                 {
+                    "name": "image",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "manifest",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "gallery.png",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "about.png",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "home.png",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "credit.png",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "download.png",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "download",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "High_Quality_Backgrounds.7z",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "old_image.zip",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "data-to-get-screenshot.yml",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "current_image_png.zip",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "ScreenShots_HighQuality_tga.7z",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "logo",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "logo.svg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "redstone_dust_icon.svg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "favicon.ico",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "logo.png",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "loading.gif",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "gallery",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "8.png",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "6.webp",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "1.webp",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "8.webp",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "2.png",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "3.webp",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "1.png",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "7.webp",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "9.png",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "3.png",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "7.png",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "6.png",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "4.webp",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "5.webp",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "9.webp",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "4.png",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "5.png",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "2.webp",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "logo_long.svg",
+                            "type": "file"
+                        },
+                        {
+                            "name": "arrow.svg",
+                            "type": "file"
+                        },
+                        {
+                            "name": "sus_.png",
+                            "type": "file"
+                        },
+                        {
+                            "name": "background",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "background_dark.png",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "background_light.png",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "secret_.png",
+                            "type": "file"
+                        },
+                        {
+                            "name": "Redstone.svg",
+                            "type": "file"
+                        },
+                        {
+                            "name": "social_preview.png",
+                            "type": "file"
+                        },
+                        {
+                            "name": "Redstone.png",
+                            "type": "file"
+                        }
+                    ]
+                },
+                {
                     "name": "style",
                     "type": "directory",
                     "children": [
+                        {
+                            "name": "main.css",
+                            "type": "file"
+                        },
                         {
                             "name": "all.css",
                             "type": "file"
@@ -787,18 +681,10 @@
                         {
                             "name": "lite.css",
                             "type": "file"
-                        },
-                        {
-                            "name": "main.css",
-                            "type": "file"
                         }
                     ]
                 }
             ]
-        },
-        {
-            "name": "website_data.json",
-            "type": "file"
         }
     ]
 }
