@@ -83,7 +83,7 @@
             })
         }
         (() => {
-            fetch("/directory_listing.json")
+            fetch("/website/json/directory_listing.json")
                 .then(e => e.json())
                 .then(e => {
                     read(e, "dir_list");

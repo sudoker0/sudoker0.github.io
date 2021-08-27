@@ -67,7 +67,7 @@ data = {
 }
 
 # Dump the JSON data to a file (with indent ofcourse)
-with open("website_data.json", "w") as outfile:
+with open("./website/json/website_data.json", "w") as outfile:
     json.dump(data, outfile, indent=4)
 
 # ----------------------[find_size.py]---------------------- #
@@ -100,7 +100,7 @@ for items in output.decode("utf-8").split("\n"):
     json_data["data"].append({"hash": item[0], "committer": item[1], "commit_date": int(item[2]), "message": item[3]})
 
 # Export data to a file
-with open("./commit_data.json", "w") as outfile:
+with open("./website/json/commit_data.json", "w") as outfile:
     json.dump(json_data, outfile, indent=4)
 exit_code = process.wait()
 
@@ -197,7 +197,7 @@ def path_to_dict(path):
         d['type'] = "file"
     return d
 
-with open("./directory_listing.json", "w") as outfile:
+with open("./website/json/directory_listing.json", "w") as outfile:
     json.dump(path_to_dict("."), outfile, indent=4)
 # ----------------------[make_tree.py]-----------------------#
 

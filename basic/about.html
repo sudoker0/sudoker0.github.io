@@ -256,7 +256,7 @@
             getId("iframe_").style.display = "block";
             document.getElementsByTagName("body")[0].style.overflow = "hidden";
         }
-        fetch("/website_data.json")
+        fetch("/website/json/website_data.json")
         .then(e => e.json())
             .then(data => {
                 innerHTMLClass("total_size", data.filesize.total);
@@ -269,7 +269,7 @@
                 innerHTMLClass("lastupdateon", data.filesize.lastupdateon);
                 var utcTime = 0, failed = 0;
                 function fetch_() {
-                    fetch(`/commit_data.json?nocache=${Math.round(Math.random() * 100000)}`)
+                    fetch(`/website/json/commit_data.json?nocache=${Math.round(Math.random() * 100000)}`)
                     .then(e => e.json())
                         .then(e => {
                             innerHTMLClass("lastupdateon1", e.last_update_on);
