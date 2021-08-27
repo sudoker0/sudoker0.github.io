@@ -11,10 +11,6 @@
             "type": "file"
         },
         {
-            "name": "index-cli.html",
-            "type": "file"
-        },
-        {
             "name": ".gitattributes",
             "type": "file"
         },
@@ -183,6 +179,10 @@
                     "type": "file"
                 },
                 {
+                    "name": "index-cli.7z",
+                    "type": "file"
+                },
+                {
                     "name": "stuff.png",
                     "type": "file"
                 },
@@ -232,6 +232,10 @@
                 },
                 {
                     "name": "a.7z",
+                    "type": "file"
+                },
+                {
+                    "name": "get_file_info_for_archive.py",
                     "type": "file"
                 },
                 {
