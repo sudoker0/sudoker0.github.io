@@ -415,10 +415,6 @@
             "type": "file"
         },
         {
-            "name": "remember_to_run_this_file.py",
-            "type": "file"
-        },
-        {
             "name": "index.html",
             "type": "file"
         },
