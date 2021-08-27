@@ -70,23 +70,23 @@
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\** | 100.0% | 246 files | 247,320,670 bytes
-\* | 0.09% | 75 files | 218,464 bytes
+\** | 100.0% | 255 files | 247,364,881 bytes
+\* | 0.1% | 83 files | 254,937 bytes
 \*.7z | 36.69% | 12 files | 90,751,038 bytes
 \*.config | 0.03% | 1 files | 83,595 bytes
 \*.css | 0.03% | 6 files | 74,647 bytes
 \*.exe | 2.0% | 1 files | 4,957,184 bytes
 \*.gif | 0.0% | 1 files | 10,498 bytes
-\*.html | 0.29% | 34 files | 705,542 bytes
+\*.html | 0.29% | 35 files | 709,269 bytes
 \*.ico | 0.04% | 1 files | 101,976 bytes
 \*.idx | 0.06% | 1 files | 160,756 bytes
-\*.js | 0.4% | 15 files | 983,734 bytes
-\*.json | 0.08% | 9 files | 198,116 bytes
-\*.md | 0.0% | 1 files | 7,697 bytes
-\*.pack | 51.12% | 1 files | 126,422,105 bytes
+\*.js | 0.39% | 14 files | 960,309 bytes
+\*.json | 0.09% | 10 files | 225,562 bytes
+\*.md | 0.0% | 1 files | 7,699 bytes
+\*.pack | 51.11% | 1 files | 126,422,105 bytes
 \*.pem | 0.0% | 2 files | 3,310 bytes
 \*.png | 1.14% | 28 files | 2,831,501 bytes
-\*.py | 0.01% | 2 files | 29,004 bytes
+\*.py | 0.01% | 2 files | 29,049 bytes
 \*.sample | 0.01% | 13 files | 23,442 bytes
 \*.sqlite | 0.04% | 1 files | 90,112 bytes
 \*.svg | 0.0% | 5 files | 10,342 bytes
@@ -95,8 +95,8 @@ File Extensions | Percentages of Bytes | Number of files | File/Folder size (Byt
 \*.webp | 1.51% | 9 files | 3,745,400 bytes
 \*.xml | 0.0% | 1 files | 1,274 bytes
 \*.yml | 0.0% | 2 files | 2,321 bytes
-\*.zip | 6.15% | 17 files | 15,198,182 bytes
-> Last updated on: 2021-08-26
+\*.zip | 6.14% | 17 files | 15,198,182 bytes
+> Last updated on: 2021-08-27
 <!--python_data_stop-->
 [Download the table as HTML in a zip file (Style is not the same) (This is kept for historical purposes only and the data is no longer being updated)](https://drive.google.com/u/0/uc?id=1nvijtp61EX7gtisnjHCAEBkfgQKs-zTh&export=download)
 > You might ask: How do I able to get all of the file extensions, the number of file and other info?

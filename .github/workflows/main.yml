@@ -22,7 +22,7 @@ jobs:
         uses: actions/setup-python@v2.2.2
 
       - name: Run the data changing script
-        run: python3 remember_to_run_this_file.py --verbose
+        run: python3 .github/workflows/FOR_GITHUB_ACTION_ONLY.py --verbose
 
       - name: Setup credential for commit
 #         run: |

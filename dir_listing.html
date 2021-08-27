@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Directory Listing</title>
+        <style>
+            * { font-family: 'Courier New', Courier, monospace; }
+            ul {
+                padding: 0;
+                margin: 0;
+                list-style-type: none;
+                position: relative;
+            }
+            li {
+                list-style-type: none;
+                border-left: 2px solid #000;
+                margin-left: 1.5em;
+            }
+            li div {
+                padding-left: 1.5em;
+                position: relative;
+            }
+            li div::before {
+                content:'';
+                position: absolute;
+                top: 0;
+                left: -2px;
+                bottom: 50%;
+                width: 0.9em;
+                border: 2px solid #000;
+                border-top: 0 none transparent;
+                border-right: 0 none transparent;
+            }
+            ul > li:last-child {
+                border-left: 2px solid transparent;
+            }
+            h1, h2, h3, h4, h5, h6, p { margin: 12px 0; }
+            .dir { color: #E00000; }
+            .file { color: blue; }
+            ul#dir_list *, .dir, .file {
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Directory Listing</h2>
+        <h3>Show all file/folder that are in the website, which can contain: Unlisted file in Other Project, Hidden or "Ignored" file.</h3>
+        <p>The file listing is created from a Python file, which is <a href="/remember_to_run_this_file.py" download="remember_to_run_this_file.py">this file</a>.</p>
+        <p>Note: <span class="file">Green</span> mean it's a file, <span class="dir">Red</span> mean it's a directory</p>
+        <span class="dir">/ (Root)</span>
+        <ul id="dir_list"></ul>
+    </body>
+    <script>
+        var count = 0
+        function read(data, id) {
+            console.log(data)
+            data.children.forEach((value) => {
+                if (value.type == "file") {
+                    var li = document.createElement("li"),
+                        div = document.createElement("div");
+                    div.innerHTML = value.name;
+                    div.classList.add("file")
+                    li.append(div);
+                    document.getElementById(id).append(li);
+                    console.log(`File: ${value.name}`)
+                } else if (value.type == "directory") {
+                    var li = document.createElement("li"),
+                        div = document.createElement("div"),
+                        ul = document.createElement("ul");
+                    div.innerHTML = value.name;
+                    div.classList.add("dir")
+                    ul.id = `dir_count-${count}`
+                    count++;
+                    li.append(div);
+                    li.append(ul)
+                    document.getElementById(id).append(li);
+                    console.log(`Folder: ${value.name}`)
+                    read(value, `dir_count-${count - 1}`);
+                }
+                console.log(value)
+            })
+        }
+        (() => {
+            fetch("/directory_listing.json")
+                .then(e => e.json())
+                .then(e => {
+                    read(e, "dir_list");
+                })
+        })()
+    </script>
+</html>

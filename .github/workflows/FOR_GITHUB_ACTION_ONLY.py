@@ -12,6 +12,8 @@ def log(mes):
     if len(argument) > 1:
         if argument[1] == "--verbose": print(mes)
 
+os.chdir(os.getcwd())
+
 # ----------------------[find_size.py]---------------------- #
 
 # A Python script to automate the changing of file info.
