@@ -15,15 +15,7 @@
             "type": "file"
         },
         {
-            "name": "directory_listing.json",
-            "type": "file"
-        },
-        {
             "name": ".gitattributes",
-            "type": "file"
-        },
-        {
-            "name": "commit_data.json",
             "type": "file"
         },
         {
@@ -339,10 +331,6 @@
             "type": "file"
         },
         {
-            "name": "website_data.json",
-            "type": "file"
-        },
-        {
             "name": "dir_listing.html",
             "type": "file"
         },
@@ -422,6 +410,24 @@
             "name": "website",
             "type": "directory",
             "children": [
+                {
+                    "name": "json",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "directory_listing.json",
+                            "type": "file"
+                        },
+                        {
+                            "name": "commit_data.json",
+                            "type": "file"
+                        },
+                        {
+                            "name": "website_data.json",
+                            "type": "file"
+                        }
+                    ]
+                },
                 {
                     "name": "font",
                     "type": "directory",
