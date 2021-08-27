@@ -180,7 +180,7 @@
                 if (!results[2]) return '';
                 return decodeURIComponent(results[2].replace(/\+/g, ' '));
             }
-            window.onkeydown = (e) => { if (e.key == "C" && e.shiftKey && e.altKey) { window.location.href = "/index-cli.html" } }
+            // window.onkeydown = (e) => { if (e.key == "C" && e.shiftKey && e.altKey) { window.location.href = "/index-cli.html" } }
             function move(e) {
                 console.log(e);
                 if (window.matchMedia('(display-mode: standalone)').matches || navigator.standalone || window.matchMedia('(display-mode: minimal-ui)').matches) {

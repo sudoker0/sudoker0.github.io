@@ -20,7 +20,12 @@
         {
             "filename": "file_listing.json",
             "filesize": 4172,
-            "mod_time": "2021-08-27 11:50:13 (GMT +7)"
+            "mod_time": "2021-08-27 11:56:59 (GMT +7)"
+        },
+        {
+            "filename": "get_file_info_for_archive.py",
+            "filesize": 1346,
+            "mod_time": "2021-08-27 13:11:53 (GMT +7)"
         },
         {
             "filename": "GIMP_Project_File.zip",
@@ -36,6 +41,11 @@
             "filename": "image.zip",
             "filesize": 1901,
             "mod_time": "2021-07-30 17:08:12 (GMT +7)"
+        },
+        {
+            "filename": "index-cli.7z",
+            "filesize": 1524,
+            "mod_time": "2021-08-27 13:09:53 (GMT +7)"
         },
         {
             "filename": "index.html",
