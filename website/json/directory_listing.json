@@ -75,24 +75,6 @@
             ]
         },
         {
-            "name": ".vscode",
-            "type": "directory",
-            "children": [
-                {
-                    "name": "c_cpp_properties.json",
-                    "type": "file"
-                },
-                {
-                    "name": "launch.json",
-                    "type": "file"
-                },
-                {
-                    "name": "settings.json",
-                    "type": "file"
-                }
-            ]
-        },
-        {
             "name": "404.html",
             "type": "file"
         },
@@ -198,6 +180,10 @@
                 },
                 {
                     "name": "secret_stuff.mkcert.exe.7z",
+                    "type": "file"
+                },
+                {
+                    "name": "signature.7z",
                     "type": "file"
                 },
                 {
@@ -397,10 +383,6 @@
                     "type": "file"
                 }
             ]
-        },
-        {
-            "name": "signature.html",
-            "type": "file"
         },
         {
             "name": "sitemap.xml",
@@ -676,10 +658,6 @@
                     "name": "style",
                     "type": "directory",
                     "children": [
-                        {
-                            "name": "all.css",
-                            "type": "file"
-                        },
                         {
                             "name": "lite.css",
                             "type": "file"
