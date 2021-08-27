@@ -192,7 +192,7 @@ def path_to_dict(path):
         # if path in ignored_dir:
         print(path)
         d['type'] = "directory"
-        d['children'] = [path_to_dict(os.path.join(path, x)) for x in os.listdir(path) if x not in ignored_dir]
+        d['children'] = [path_to_dict(os.path.join(path, x)) for x in os.listdir(path).sort() if x not in ignored_dir]
     else:
         d['type'] = "file"
     return d
