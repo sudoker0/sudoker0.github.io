@@ -8,7 +8,7 @@ button#list_dir {
   pointer-events: none;
 }
 button#list_dir:focus { pointer-events: all; opacity: 1; }
-*:focus { outline: 3px solid red !important; }
+*:focus-visible { outline: 3px solid red !important; }
 nav#accb {
   border: 2px solid black;
   width: calc(100% - 4px);
