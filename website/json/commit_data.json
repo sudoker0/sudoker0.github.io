@@ -1,6 +1,18 @@
 {
-    "last_update_on": "2021-08-27",
+    "last_update_on": "2021-08-29",
     "data": [
+        {
+            "hash": "e43b1ce",
+            "committer": "QuanMCPC",
+            "commit_date": 1630206136,
+            "message": "Some change"
+        },
+        {
+            "hash": "c3299c3",
+            "committer": "QuanMCPC",
+            "commit_date": 1630072659,
+            "message": "Update website's information"
+        },
         {
             "hash": "751d833",
             "committer": "QuanMCPC",
