@@ -39,14 +39,14 @@ button#list_dir {
   pointer-events: none;
 }
 button#list_dir:focus { pointer-events: all; opacity: 1; }
-*:focus-visible {
+/* *:focus-visible {
   outline: 3px solid red !important;
   transition: outline 0.1s;
 }
 *:focus:not(:focus-visible) {
-  outline: auto;
+  outline: auto !important;
   transition: none;
-}
+} */
 h1, h2, h3, h4, h5, h6, p, span, a, label {
   color: white;
 }
