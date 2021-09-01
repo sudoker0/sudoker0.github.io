@@ -210,7 +210,9 @@ div#settings:hover {
   cursor: pointer;
 }
 div#settingspage {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   opacity: 0;
   pointer-events: none;
   position: fixed;
@@ -220,27 +222,44 @@ div#settingspage {
   width: 100%;
   height: 100%;
   background-color: rgba(15, 15, 15, 0.8);
-  transition: opacity 0.5s ease;
+  transition: opacity 0.4s ease;
   overflow-y: auto;
 }
-div#spb_inside button {
-  height: 30px;
-  background-color: rgb(90, 90, 90);
-  border: none;
-  color: white;
-  margin-left: 5px;
-  margin-right: 5px;
-}
-div#settingspage button:hover { background-color: rgb(75, 75, 75); }
-div#settingspage h1 { color: red; text-align: center; }
+div#spb_inside button { background-color: red; }
+div#spb_inside button:hover { background-color: rgb(194, 0, 0); }
+div#settingspage h2 { text-align: center; }
 div#spb_inside {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  margin: 0 !important;
 }
 div#sp_actual {
+  background-color: rgb(15, 15, 15);
   border: 2px solid white;
-  margin-bottom: 5px;
+  padding: 10px;
+  width: 100%;
+}
+div.button_selection {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+div.button_selection button, button.sp_btn {
+  border: none;
+  border-radius: 0%;
+  min-height: 2em;
+  margin: 0 !important;
+  padding: 5px;
+}
+div.button_selection button.selected {
+  background-color: rgb(200, 200, 200);
+  color: rgb(0, 0, 0);
+}
+div.button_selection button:hover { background-color: rgb(75, 75, 75); }
+div.button_selection button.selected:hover { background-color: rgb(150, 150, 150); }
+input[type="checkbox"] {
+  vertical-align:middle;
 }
 ul {list-style: none;}
 li::before {content: "• "; }
@@ -310,7 +329,7 @@ div#loadingIndicator {
   justify-content: center;
   background-color: rgba(0,0,0,0.8);
   opacity: 1;
-  transition: opacity .5s;
+  transition: opacity 0.4s;
 }
 div#loadingIndicator span { font-size: initial; }
 div#loadingIndicator img {

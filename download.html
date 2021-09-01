@@ -142,35 +142,24 @@
                 </svg>
             </div>
             <div id="settingspage" class="nt">
-                <h1>Settings</h1>
                 <div id="sp_actual">
-                    <ul>
-                        <li>
-                            <span>Background style:</span>
-                            <ul id="bg_control">
-                                <li><input type="radio" name="bgstyle" id="bg-day"><label for="bg-day"> Day time</label></li>
-                                <li><input type="radio" name="bgstyle" id="bg-night"><label for="bg-night"> Night time</label></li>
-                                <li><input type="radio" name="bgstyle" id="bg-sys"><label for="bg-sys"> Based on system preferences</label></li>
-                                <li>
-                                    <input type="radio" name="bgstyle" id="bg-custom"><label for="bg-custom"> Custom image</label>
-                                    <ul id="bg-custom-image-setting">
-                                        <li><label for="bg-custom-upload-file">Upload image file: </label><button id="bg-custom-upload-file">Click here!</button></li>
-                                    </ul>
-                                </li>
-                                <li><input type="checkbox" name="bg-antialiasing" id="bg-antialiasing" checked><label for="bg-antialiasing"> Anti-Aliasing?</label></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <span>Website's look:</span>
-                            <ul id="theme_control">
-                                <li><input type="radio" name="wslook" id="wslook-default"><label for="wslook-default"> Default</label></li>
-                                <li><input type="radio" name="wslook" id="wslook-minimal"><label for="wslook-minimal"> Minimalist</label></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div id="sp_button">
-                    <div id="spb_inside"><button onclick="getId('settingspage').style.opacity = '0'; getId('settingspage').style.pointerEvents = 'none';">Cancel</button></div>
+                    <h2>Settings</h2>
+                    <p>Background style:</p>
+                    <div id="sp_background" class="button_selection">
+                        <button class="bg-style" id="bg-day">Day Time</button>
+                        <button class="bg-style" id="bg-night">Night Time</button>
+                        <button class="bg-style" id="bg-sys">Based on system preferences</button>
+                        <button class="bg-style" id="bg-custom">Custom Background</button>
+                    </div>
+                    <label for="bg-antialiasing">Enable Anti-Aliasing? </label><input type="checkbox" name="bg-antialiasing" id="bg-antialiasing">
+                    <p>Website's look:</p>
+                    <div id="sp_look" class="button_selection">
+                        <button id="wslook-default" class="web-look">Default</button>
+                        <button id="wslook-minimal" class="web-look">Minimalist</button>
+                    </div>
+                    <div id="sp_button">
+                        <div id="spb_inside"><button onclick="getId('settingspage').style.opacity = '0'; getId('settingspage').style.pointerEvents = 'none';" class="sp_btn">Cancel</button></div>
+                    </div>
                 </div>
             </div>
         </main>

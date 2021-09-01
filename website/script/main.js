@@ -1,6 +1,6 @@
 //@QuanMCPC
 //@ts-check/
-window.onerror = (_, s, l ,c, err) => { if (!somethingCrash) { somethingCrash = true; function a() {return document.createElement("p")}; var errordiv = document.createElement("div"); errordiv.id = "errorscreen"; errordiv.style.backgroundColor = "#000000"; errordiv.style.color = "#ffffff"; errordiv.style.whiteSpace = "pre"; errordiv.style.position = "fixed"; errordiv.style.top = "0"; errordiv.style.left = "0"; errordiv.style.zIndex = "10000"; errordiv.style.padding = "5px"; var text1 = a(), text2 = a(), text3 = a(), text4 = a(); text1.innerHTML = "An error has occurred so the website has been halted to prevent further damage, please reload page."; text2.innerHTML = `Details: \n${err.stack}`; text3.innerHTML = `Source: ${s}`; text4.innerHTML = `Error happened at: Cols${c},Lines${l}`; text1.style.margin = "0 5px 0 5px"; text2.style.margin = "0 5px 0 5px"; text3.style.margin = "0 5px 0 5px"; text4.style.margin = "0 5px 0 5px"; errordiv.append(text1); errordiv.append(text2); errordiv.append(text3); errordiv.append(text4); document.body.append(errordiv); document.body.style.pointerEvents = "none"; document.body.style.overflow = "hidden"; document.body.style.userSelect = "none" } }
+// window.onerror = (_, s, l ,c, err) => { if (!somethingCrash) { somethingCrash = true; function a() {return document.createElement("p")}; var errordiv = document.createElement("div"); errordiv.id = "errorscreen"; errordiv.style.backgroundColor = "#000000"; errordiv.style.color = "#ffffff"; errordiv.style.whiteSpace = "pre"; errordiv.style.position = "fixed"; errordiv.style.top = "0"; errordiv.style.left = "0"; errordiv.style.zIndex = "10000"; errordiv.style.padding = "5px"; var text1 = a(), text2 = a(), text3 = a(), text4 = a(); text1.innerHTML = "An error has occurred so the website has been halted to prevent further damage, please reload page."; text2.innerHTML = `Details: \n${err.stack}`; text3.innerHTML = `Source: ${s}`; text4.innerHTML = `Error happened at: Cols${c},Lines${l}`; text1.style.margin = "0 5px 0 5px"; text2.style.margin = "0 5px 0 5px"; text3.style.margin = "0 5px 0 5px"; text4.style.margin = "0 5px 0 5px"; errordiv.append(text1); errordiv.append(text2); errordiv.append(text3); errordiv.append(text4); document.body.append(errordiv); document.body.style.pointerEvents = "none"; document.body.style.overflow = "hidden"; document.body.style.userSelect = "none" } }
 /**
  * Short for: document.getElementById
  * @param {string} i The Id of the element
@@ -48,7 +48,7 @@ var name_ = [
     }
 ];
 //Syntax: Name / Description / Link (Space is important)
-name_.forEach(function (list, index) {
+name_.forEach(function (list, _) {
     var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000),
         anchor = document.createElement("a"), anchor_text = document.createTextNode(list.name),
         anchor2 = document.createElement("a"), anchor2_text = document.createTextNode(list.name),
@@ -149,8 +149,8 @@ document.addEventListener("click", function(evt) {
     accb_small_isOn = false;
 });
 function fetchLocal() {
-    getId("bg_control").querySelectorAll("li")[getWebConf("background")].querySelector("input[type='radio']").setAttribute("checked", "checked")
-    getId("theme_control").querySelectorAll("li")[getWebConf("theme")].querySelector("input[type='radio']").setAttribute("checked", "checked")
+    getId("sp_background").querySelectorAll("button")[getWebConf("background")].classList.add("selected")
+    getId("sp_look").querySelectorAll("button")[getWebConf("theme")].classList.add("selected")
     document.body.style.imageRendering = getWebConf("antialiasing") ? "auto" : "pixelated"
     if (getWebConf("antialiasing")) {
         getId("bg-antialiasing").setAttribute("checked", "true");
@@ -204,7 +204,7 @@ window.onscroll = function() {
     accb_small_isOn = false;
 }
 function changeBg(mode) {
-    function noCustomBackground() { getId("bg-custom-upload-file").setAttribute("disabled", "disabled") }
+    function noCustomBackground() { /*getId("bg-custom-upload-file").setAttribute("disabled", "disabled")*/ }
     switch (mode) {
         case 0:
             qSel("body").style.backgroundImage = "url(\"/website/image/background/background_light.png\")";
@@ -216,7 +216,6 @@ function changeBg(mode) {
             break;
         case 3:
             qSel("body").style.backgroundImage = `url("${getWebConf("backgroundURL")}")`
-            getId("bg-custom-upload-file").removeAttribute("disabled")
     }
 }
 /**
@@ -258,6 +257,7 @@ function ws_1() {
     document.documentElement.style.setProperty("--bg", "rgba(20, 20, 20, 0.85)")
     qSel(".container").style.border = "3px solid black";
     qSel(".container").style.margin = "20px";
+    getId("wslook-default").classList.add("selected");
     if (getWebConf("background") == 0) { changeBg(0) }
     else if (getWebConf("background") == 1) { changeBg(1) }
     else if (getWebConf("background") == 2) {
@@ -268,15 +268,16 @@ function ws_1() {
     } else {
         changeBg(3)
     }
-    getId("bg_control").querySelectorAll("input, textarea").forEach(function(elem) { elem.removeAttribute("disabled") })
+    // getId("bg_control").querySelectorAll("input, textarea").forEach(function(elem) { elem.removeAttribute("disabled") })
 }
 function ws_2() {
     document.documentElement.style.setProperty("--bg", "rgb(21, 21, 21)")
     qSel(".container").style.border = "1px solid rgb(21, 21, 21)";
     qSel(".container").style.margin = "-8px";
     qSel("body").style.backgroundImage = "initial";
+    getId("wslook-minimal").classList.add("selected");
     // qSelAll("[name='bgstyle']").forEach(function(elem) { elem.setAttribute("disabled", "disabled") })
-    getId("bg_control").querySelectorAll("input, textarea").forEach(function(elem) { elem.setAttribute("disabled", "disabled") })
+    // getId("bg_control").querySelectorAll("input, textarea").forEach(function(elem) { elem.setAttribute("disabled", "disabled") })
 }
 function backgroundEasterEgg() {
     constant = constant + 0.5
@@ -285,32 +286,47 @@ function backgroundEasterEgg() {
         constant = 0
     }
 }
-qSelAll("[name='bgstyle']").forEach(function (elem) {
+qSelAll("button.bg-style").forEach(function (elem) {
     elem.onclick = (ev) => {
-        console.log(ev.target.id)
+        qSelAll("button.bg-style").forEach(e => e.classList.remove("selected"))
         switch(ev.target.id) {
             case "bg-night":
                 changeBg(1);
-                setWebConf("background", 1)
+                setWebConf("background", 1);
+                getId("bg-night").classList.add("selected");
                 break;
             case "bg-day":
                 changeBg(0);
                 setWebConf("background", 0)
+                getId("bg-day").classList.add("selected");
                 break;
             case "bg-sys":
                 if (window.matchMedia("(prefers-color-scheme: light)").matches) { changeBg(0); } else { changeBg(1);}
                 setWebConf("background", 2)
+                getId("bg-sys").classList.add("selected");
                 break;
             case "bg-custom":
                 changeBg(3);
                 setWebConf("background", 3)
+                getId("bg-custom").classList.add("selected");
+                if (confirm("Do you want to select a new custom background?")) {
+                    openFile().then((e) => {
+                        qSel("body").style.backgroundImage = `url(${e})`
+                        setWebConf("backgroundURL", e)
+                        setWebConf("theme", 0);
+                    })
+                }
                 break;
         }
         backgroundEasterEgg();
     }
 })
-getId("wslook-default").onchange = () => { ws_1(); setWebConf("theme", 0); dropShadow(); }
-getId("wslook-minimal").onchange = () => { ws_2(); setWebConf("theme", 1); dropShadow(); }
+function ws_shared() {
+    dropShadow();
+    qSelAll("button.web-look").forEach((e) => { e.classList.remove("selected"); })
+}
+getId("wslook-default").onclick = () => { ws_shared(); ws_1(); setWebConf("theme", 0); }
+getId("wslook-minimal").onclick = () => { ws_shared(); ws_2(); setWebConf("theme", 1); }
 /**
  * Open file
  * @returns {Promise<string | ArrayBuffer>}
@@ -339,17 +355,17 @@ function openFile() {
         clickElem(fileInput);
     })
 }
-getId("bg-custom-upload-file").onclick = (e) => {
-    openFile()
-        .then((result) => {
-            qSel("body").style.backgroundImage = `url(${result})`
-            setWebConf("backgroundURL", result)
-            setWebConf("theme", 0);
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-}
+// getId("bg-custom-upload-file").onclick = (e) => {
+//     openFile()
+//         .then((result) => {
+//             qSel("body").style.backgroundImage = `url(${result})`
+//             setWebConf("backgroundURL", result)
+//             setWebConf("theme", 0);
+//         })
+//         .catch((error) => {
+//             console.log(error)
+//         })
+// }
 getId("bg-antialiasing").onchange = (e) => {
     if (e.target.checked) {
         document.body.style.imageRendering = "auto"
@@ -359,12 +375,4 @@ getId("bg-antialiasing").onchange = (e) => {
         setWebConf("antialiasing", false)
     }
 }
-// qSelAll("select.bg-config")
-//     .forEach((elem) => {
-//         elem.onchange = (e) => {
-//             setWebConf(qSel(`label[for=${e.target.id}]`).getAttribute("data-cssvalue"), e.target.value)
-//             console.log(e.target.value, qSel(`label[for=${e.target.id}]`).getAttribute("data-cssvalue"))
-//             document.body.style[qSel(`label[for=${e.target.id}]`).getAttribute("data-cssvalue")] = e.target.value
-//         }
-//     })
 getId("list_dir").onclick = (_) => { window.location.href = "/dir_listing.html" }
