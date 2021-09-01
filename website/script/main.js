@@ -269,6 +269,7 @@ function ws_1() {
         changeBg(3)
     }
     // getId("bg_control").querySelectorAll("input, textarea").forEach(function(elem) { elem.removeAttribute("disabled") })
+    getId("sp_background").querySelectorAll("button").forEach(v => v.removeAttribute("disabled"))
 }
 function ws_2() {
     document.documentElement.style.setProperty("--bg", "rgb(21, 21, 21)")
@@ -276,6 +277,7 @@ function ws_2() {
     qSel(".container").style.margin = "-8px";
     qSel("body").style.backgroundImage = "initial";
     getId("wslook-minimal").classList.add("selected");
+    getId("sp_background").querySelectorAll("button").forEach(v => v.setAttribute("disabled", "disabled"))
     // qSelAll("[name='bgstyle']").forEach(function(elem) { elem.setAttribute("disabled", "disabled") })
     // getId("bg_control").querySelectorAll("input, textarea").forEach(function(elem) { elem.setAttribute("disabled", "disabled") })
 }

@@ -391,13 +391,4 @@ footer {
   margin-top: 15px;
   margin-bottom: 15px;
 }
-button#bg-custom-upload-file {
-  background-color: rgb(75, 75, 75);
-  color: white;
-  border: none;
-}
-button#bg-custom-upload-file:disabled,
-button#bg-custom-upload-file:disabled:hover {
-  background-color: rgb(30, 30, 30);
-  color: rgb(200, 200, 200);
-}
+button:disabled { background-color: rgb(64, 64, 64) !important; }
