@@ -242,6 +242,7 @@ div#sp_actual {
 }
 div.button_selection {
   display: grid;
+  grid-gap: 5px;
   gap: 5px;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
@@ -251,6 +252,8 @@ div.button_selection button, button.sp_btn {
   min-height: 2em;
   margin: 0 !important;
   padding: 5px;
+  background-color: rgb(48, 48, 48);
+  color: white;
 }
 div.button_selection button.selected {
   background-color: rgb(200, 200, 200);
@@ -391,4 +394,4 @@ footer {
   margin-top: 15px;
   margin-bottom: 15px;
 }
-button:disabled { background-color: rgb(64, 64, 64); }
+button:disabled { background-color: rgb(64, 64, 64) !important; color: rgb(160, 160, 160) !important; }
