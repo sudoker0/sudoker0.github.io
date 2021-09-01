@@ -1,6 +1,24 @@
 {
-    "last_update_on": "2021-08-29",
+    "last_update_on": "2021-09-01",
     "data": [
+        {
+            "hash": "36fc8a4",
+            "committer": "QuanMCPC",
+            "commit_date": 1630508525,
+            "message": "Change the fonts back to Raleway"
+        },
+        {
+            "hash": "df8de30",
+            "committer": "QuanMCPC",
+            "commit_date": 1630508500,
+            "message": "Re-designed the Settings page"
+        },
+        {
+            "hash": "633f1da",
+            "committer": "QuanMCPC",
+            "commit_date": 1630206180,
+            "message": "Update website's information"
+        },
         {
             "hash": "e43b1ce",
             "committer": "QuanMCPC",
