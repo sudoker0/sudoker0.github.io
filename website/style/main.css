@@ -391,4 +391,4 @@ footer {
   margin-top: 15px;
   margin-bottom: 15px;
 }
-button:disabled { background-color: rgb(64, 64, 64) !important; }
+button:disabled { background-color: rgb(64, 64, 64); }
