@@ -5,9 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
         <title>Website's Repository commit stat</title>
         <style>
             body { background-color: rgb(230, 230, 230); }
+            * {
+                font-family: 'Raleway', sans-serif;
+            }
             div#parent {
                 max-width: 100%;
                 max-height: auto;
@@ -118,7 +122,7 @@
                         );
                     }
                 })
-                .catch((v) => { fetch_() })
+                .catch((v) => { setTimeout(fetch_, 3000) })
         }
     </script>
 </html>
