@@ -268,8 +268,8 @@ function ws_1() {
     } else {
         changeBg(3)
     }
-    // getId("bg_control").querySelectorAll("input, textarea").forEach(function(elem) { elem.removeAttribute("disabled") })
     getId("sp_background").querySelectorAll("button").forEach(v => v.removeAttribute("disabled"))
+    getId("bg-antialiasing").removeAttribute("disabled")
 }
 function ws_2() {
     document.documentElement.style.setProperty("--bg", "rgb(21, 21, 21)")
@@ -278,8 +278,7 @@ function ws_2() {
     qSel("body").style.backgroundImage = "initial";
     getId("wslook-minimal").classList.add("selected");
     getId("sp_background").querySelectorAll("button").forEach(v => v.setAttribute("disabled", "disabled"))
-    // qSelAll("[name='bgstyle']").forEach(function(elem) { elem.setAttribute("disabled", "disabled") })
-    // getId("bg_control").querySelectorAll("input, textarea").forEach(function(elem) { elem.setAttribute("disabled", "disabled") })
+    getId("bg-antialiasing").setAttribute("disabled", "disabled")
 }
 function backgroundEasterEgg() {
     constant = constant + 0.5
