@@ -145,17 +145,19 @@ function check() {
     if (gPBName("id") == "rotate") { document.body.style.animation = "rotate_ 5s ease"; }
     if (gPBName("id") == "rotate-inf") { document.body.style.animation = "rotate_ 5s ease infinite"; }
 }
+function closeSettings() { getId('settingspage').style.opacity = '0'; getId('settingspage').style.pointerEvents = 'none' }
 document.addEventListener("click", function(evt) {
-    var flyoutElement = getId('accb_small'),
-        targetElement = evt.target,
-        flyoutElement_2 = getId("accb_small_")
+    var fE = getId('accb_small'),
+        fE_2 = getId("accb_small_"),
+        tE = evt.target;
     do {
-        if (targetElement == flyoutElement || targetElement == flyoutElement_2) { return; }
-        targetElement = targetElement.parentNode;
-    } while (targetElement);
+        if (tE == fE || tE == fE_2) { return; }
+        tE = tE.parentNode;
+    } while (tE);
     getId("accb_small").style.display = "none";
     accb_small_isOn = false;
 });
+getId("settingspage").onclick = (e) => { if (!(getId("sp_actual").contains(e.target))) { closeSettings(); } }
 function fetchLocal() {
     getId("sp_background").querySelectorAll("button")[getWebConf("background")].classList.add("selected")
     getId("sp_look").querySelectorAll("button")[getWebConf("theme")].classList.add("selected")
