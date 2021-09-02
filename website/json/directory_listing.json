@@ -179,6 +179,10 @@
                     "type": "file"
                 },
                 {
+                    "name": "panorama.7z",
+                    "type": "file"
+                },
+                {
                     "name": "secret_stuff.mkcert.exe.7z",
                     "type": "file"
                 },
