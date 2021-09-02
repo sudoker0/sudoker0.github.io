@@ -70,19 +70,19 @@
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\** | 100.0% | 162 files | 322,669,821 bytes
+\** | 100.0% | 162 files | 322,480,882 bytes
 \* | 0.01% | 13 files | 16,281 bytes
-\*.7z | 36.6% | 14 files | 118,101,451 bytes
+\*.7z | 36.62% | 14 files | 118,101,451 bytes
 \*.config | 0.03% | 1 files | 82,580 bytes
 \*.css | 0.0% | 2 files | 13,719 bytes
 \*.gif | 0.0% | 1 files | 10,498 bytes
-\*.html | 0.21% | 30 files | 674,806 bytes
+\*.html | 0.21% | 30 files | 674,157 bytes
 \*.ico | 0.03% | 1 files | 101,976 bytes
-\*.idx | 0.05% | 1 files | 173,692 bytes
-\*.js | 0.04% | 9 files | 115,344 bytes
-\*.json | 0.07% | 7 files | 226,610 bytes
-\*.md | 0.0% | 1 files | 7,488 bytes
-\*.pack | 55.95% | 1 files | 180,540,748 bytes
+\*.idx | 0.05% | 1 files | 174,280 bytes
+\*.js | 0.04% | 9 files | 115,468 bytes
+\*.json | 0.07% | 7 files | 225,755 bytes
+\*.md | 0.0% | 1 files | 7,483 bytes
+\*.pack | 55.93% | 1 files | 180,352,606 bytes
 \*.png | 0.87% | 22 files | 2,794,787 bytes
 \*.py | 0.01% | 3 files | 28,600 bytes
 \*.sample | 0.01% | 13 files | 23,442 bytes

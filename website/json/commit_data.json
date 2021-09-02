@@ -2,6 +2,24 @@
     "last_update_on": "2021-09-02",
     "data": [
         {
+            "hash": "462cea5",
+            "committer": "QuanMCPC",
+            "commit_date": 1630584891,
+            "message": "Merge branch 'master' of https://github.com/QuanMCPC/QuanMCPC.github.io"
+        },
+        {
+            "hash": "f1ea590",
+            "committer": "QuanMCPC",
+            "commit_date": 1630584881,
+            "message": "Make it so that the settings dialog close when click outside (Request from @TruthyCode)"
+        },
+        {
+            "hash": "078f802",
+            "committer": "QuanMCPC",
+            "commit_date": 1630571188,
+            "message": "Update website's information"
+        },
+        {
             "hash": "232aeaf",
             "committer": "QuanMCPC",
             "commit_date": 1630571158,
