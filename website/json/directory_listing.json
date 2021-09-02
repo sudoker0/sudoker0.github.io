@@ -273,6 +273,54 @@
             "type": "file"
         },
         {
+            "name": "for_demo_might_delete",
+            "type": "directory",
+            "children": [
+                {
+                    "name": "panorama",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "OrbitControls.js",
+                            "type": "file"
+                        },
+                        {
+                            "name": "behind.png",
+                            "type": "file"
+                        },
+                        {
+                            "name": "bottom.png",
+                            "type": "file"
+                        },
+                        {
+                            "name": "front.png",
+                            "type": "file"
+                        },
+                        {
+                            "name": "index.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "left.png",
+                            "type": "file"
+                        },
+                        {
+                            "name": "right.png",
+                            "type": "file"
+                        },
+                        {
+                            "name": "three.js",
+                            "type": "file"
+                        },
+                        {
+                            "name": "top.png",
+                            "type": "file"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "gallery.html",
             "type": "file"
         },
