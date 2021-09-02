@@ -70,30 +70,30 @@
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\** | 100.0% | 170 files | 306,623,969 bytes
-\* | 0.01% | 13 files | 17,216 bytes
-\*.7z | 32.71% | 13 files | 100,301,716 bytes
+\** | 100.0% | 162 files | 322,669,821 bytes
+\* | 0.01% | 13 files | 16,281 bytes
+\*.7z | 36.6% | 14 files | 118,101,451 bytes
 \*.config | 0.03% | 1 files | 82,580 bytes
 \*.css | 0.0% | 2 files | 13,719 bytes
 \*.gif | 0.0% | 1 files | 10,498 bytes
-\*.html | 0.22% | 31 files | 676,526 bytes
+\*.html | 0.21% | 30 files | 674,806 bytes
 \*.ico | 0.03% | 1 files | 101,976 bytes
-\*.idx | 0.06% | 1 files | 173,300 bytes
-\*.js | 0.43% | 11 files | 1,307,167 bytes
-\*.json | 0.07% | 7 files | 225,883 bytes
-\*.md | 0.0% | 1 files | 7,489 bytes
-\*.pack | 53.07% | 1 files | 162,732,715 bytes
-\*.png | 6.9% | 28 files | 21,163,343 bytes
+\*.idx | 0.05% | 1 files | 173,692 bytes
+\*.js | 0.04% | 9 files | 115,344 bytes
+\*.json | 0.07% | 7 files | 226,610 bytes
+\*.md | 0.0% | 1 files | 7,488 bytes
+\*.pack | 55.95% | 1 files | 180,540,748 bytes
+\*.png | 0.87% | 22 files | 2,794,787 bytes
 \*.py | 0.01% | 3 files | 28,600 bytes
 \*.sample | 0.01% | 13 files | 23,442 bytes
 \*.sqlite | 0.03% | 1 files | 90,112 bytes
 \*.svg | 0.0% | 5 files | 10,270 bytes
-\*.ttf | 0.21% | 4 files | 653,688 bytes
+\*.ttf | 0.2% | 4 files | 653,688 bytes
 \*.txt | 0.0% | 1 files | 283 bytes
-\*.webp | 1.22% | 9 files | 3,745,400 bytes
+\*.webp | 1.16% | 9 files | 3,745,400 bytes
 \*.xml | 0.0% | 1 files | 1,236 bytes
 \*.yml | 0.0% | 2 files | 2,233 bytes
-\*.zip | 4.96% | 17 files | 15,198,182 bytes
+\*.zip | 4.71% | 17 files | 15,198,182 bytes
 > Last updated on: 2021-09-02
 <!--python_data_stop-->
 [Download the table as HTML in a zip file (Style is not the same) (This is kept for historical purposes only and the data is no longer being updated)](https://drive.google.com/u/0/uc?id=1nvijtp61EX7gtisnjHCAEBkfgQKs-zTh&export=download)
