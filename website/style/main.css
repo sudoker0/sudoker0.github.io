@@ -124,8 +124,14 @@ h3#accb_small_a {
   display: flex;
   justify-content: flex-end;
 }
-h3#accb_small_a a { cursor: pointer; margin-right: 4px; }
-h3#accb_small_a a svg { max-width: 100%; max-height: 100%; vertical-align: bottom; }
+h3#accb_small_a button {
+  cursor: pointer;
+  margin-right: 4px;
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+h3#accb_small_a button svg { max-width: 100%; max-height: 100%; vertical-align: bottom; }
 div.container {
   margin: 20px;
   background-color: var(--bg);
