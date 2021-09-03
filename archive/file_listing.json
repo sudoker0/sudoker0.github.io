@@ -19,8 +19,8 @@
         },
         {
             "filename": "file_listing.json",
-            "filesize": 4953,
-            "mod_time": "2021-09-02 15:25:38 (GMT +7)"
+            "filesize": 5113,
+            "mod_time": "2021-09-03 12:14:38 (GMT +7)"
         },
         {
             "filename": "get_file_info_for_archive.py",
@@ -86,11 +86,6 @@
             "filename": "panorama.7z",
             "filesize": 17799735,
             "mod_time": "2021-09-02 15:25:08 (GMT +7)"
-        },
-        {
-            "filename": "panorama_nolib.7z",
-            "filesize": 14646242,
-            "mod_time": "2021-09-03 11:17:49 (GMT +7)"
         },
         {
             "filename": "panorama_old.7z",
