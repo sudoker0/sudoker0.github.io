@@ -19,8 +19,8 @@
         },
         {
             "filename": "file_listing.json",
-            "filesize": 5113,
-            "mod_time": "2021-09-03 12:14:38 (GMT +7)"
+            "filesize": 4953,
+            "mod_time": "2021-09-03 12:24:54 (GMT +7)"
         },
         {
             "filename": "get_file_info_for_archive.py",
@@ -31,6 +31,11 @@
             "filename": "GIMP_Project_File.zip",
             "filesize": 1143543,
             "mod_time": "2021-07-30 17:08:12 (GMT +7)"
+        },
+        {
+            "filename": "high_quality_skybox.7z",
+            "filesize": 37034994,
+            "mod_time": "2021-09-03 15:57:43 (GMT +7)"
         },
         {
             "filename": "how_to_write_file_size.json.txt",
