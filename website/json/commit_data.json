@@ -1,6 +1,24 @@
 {
-    "last_update_on": "2021-09-02",
+    "last_update_on": "2021-09-03",
     "data": [
+        {
+            "hash": "52b70cf",
+            "committer": "QuanMCPC",
+            "commit_date": 1630642736,
+            "message": "Merge branch 'master' of https://github.com/QuanMCPC/QuanMCPC.github.io"
+        },
+        {
+            "hash": "dc9b607",
+            "committer": "QuanMCPC",
+            "commit_date": 1630642717,
+            "message": "Panorama (without ThreeJS but limited function)"
+        },
+        {
+            "hash": "60ffa43",
+            "committer": "QuanMCPC",
+            "commit_date": 1630584923,
+            "message": "Update website's information"
+        },
         {
             "hash": "462cea5",
             "committer": "QuanMCPC",

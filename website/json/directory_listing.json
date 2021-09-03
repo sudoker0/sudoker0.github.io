@@ -183,6 +183,10 @@
                     "type": "file"
                 },
                 {
+                    "name": "panorama_nolib.7z",
+                    "type": "file"
+                },
+                {
                     "name": "panorama_old.7z",
                     "type": "file"
                 },
