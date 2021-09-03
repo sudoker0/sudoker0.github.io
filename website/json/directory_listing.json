@@ -183,10 +183,6 @@
                     "type": "file"
                 },
                 {
-                    "name": "panorama_nolib.7z",
-                    "type": "file"
-                },
-                {
                     "name": "panorama_old.7z",
                     "type": "file"
                 },
@@ -377,6 +373,40 @@
                 {
                     "name": "oldweb.zip",
                     "type": "file"
+                },
+                {
+                    "name": "panorama",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "behind.png",
+                            "type": "file"
+                        },
+                        {
+                            "name": "bottom.png",
+                            "type": "file"
+                        },
+                        {
+                            "name": "front.png",
+                            "type": "file"
+                        },
+                        {
+                            "name": "index.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "left.png",
+                            "type": "file"
+                        },
+                        {
+                            "name": "right.png",
+                            "type": "file"
+                        },
+                        {
+                            "name": "top.png",
+                            "type": "file"
+                        }
+                    ]
                 },
                 {
                     "name": "soope.html",
