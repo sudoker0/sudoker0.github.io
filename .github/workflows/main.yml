@@ -25,13 +25,6 @@ jobs:
         run: python3 .github/workflows/FOR_GITHUB_ACTION_ONLY.py --verbose
 
       - name: Setup credential for commit
-#         run: |
-#           git config --local user.name "QuanMCPC"
-#           git config --local user.email "60545346+QuanMCPC@users.noreply.github.com"
-#           git config --local user.signingkey "63A5CCA675A833DE"
-#           git config --local commit.gpgsign "true"
-#           git config --local gpg.program "gpg2"
-#           echo "test" | gpg2 --clearsign
         run: |
           git config --local user.name "QuanMCPC"
           git config --local user.email "60545346+QuanMCPC@users.noreply.github.com"
