@@ -139,6 +139,10 @@
                     "type": "file"
                 },
                 {
+                    "name": "high_quality_skybox.7z",
+                    "type": "file"
+                },
+                {
                     "name": "how_to_write_file_size.json.txt",
                     "type": "file"
                 },
