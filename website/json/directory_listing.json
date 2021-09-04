@@ -447,19 +447,7 @@
                     "type": "directory",
                     "children": [
                         {
-                            "name": "Raleway-ExtraLight.ttf",
-                            "type": "file"
-                        },
-                        {
-                            "name": "Raleway-Light.ttf",
-                            "type": "file"
-                        },
-                        {
                             "name": "Raleway-Medium.ttf",
-                            "type": "file"
-                        },
-                        {
-                            "name": "Raleway-SemiBold.ttf",
                             "type": "file"
                         }
                     ]
