@@ -70,30 +70,30 @@
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\** | 100.0% | 171 files | 426,613,884 bytes
+\** | 100.0% | 171 files | 419,507,887 bytes
 \* | 0.0% | 13 files | 17,170 bytes
-\*.7z | 36.36% | 15 files | 155,136,445 bytes
+\*.7z | 36.98% | 15 files | 155,136,445 bytes
 \*.config | 0.02% | 1 files | 82,580 bytes
 \*.css | 0.01% | 4 files | 24,462 bytes
 \*.gif | 0.0% | 1 files | 10,498 bytes
-\*.html | 0.16% | 31 files | 697,915 bytes
+\*.html | 0.17% | 31 files | 697,915 bytes
 \*.ico | 0.02% | 1 files | 101,976 bytes
-\*.idx | 0.04% | 1 files | 178,984 bytes
+\*.idx | 0.04% | 1 files | 179,516 bytes
 \*.js | 0.03% | 11 files | 130,378 bytes
-\*.json | 0.05% | 7 files | 232,448 bytes
+\*.json | 0.06% | 7 files | 233,022 bytes
 \*.md | 0.0% | 1 files | 7,487 bytes
-\*.pack | 54.67% | 1 files | 233,217,725 bytes
-\*.png | 4.09% | 28 files | 17,456,639 bytes
+\*.pack | 56.46% | 1 files | 236,865,096 bytes
+\*.png | 1.6% | 28 files | 6,702,165 bytes
 \*.py | 0.01% | 3 files | 28,600 bytes
 \*.sample | 0.01% | 13 files | 23,442 bytes
 \*.sqlite | 0.02% | 1 files | 90,112 bytes
 \*.svg | 0.0% | 5 files | 10,270 bytes
 \*.ttf | 0.04% | 1 files | 163,392 bytes
 \*.txt | 0.0% | 1 files | 283 bytes
-\*.webp | 0.88% | 9 files | 3,745,400 bytes
+\*.webp | 0.89% | 9 files | 3,745,400 bytes
 \*.xml | 0.0% | 1 files | 1,236 bytes
 \*.yml | 0.0% | 2 files | 1,865 bytes
-\*.zip | 3.56% | 17 files | 15,198,182 bytes
+\*.zip | 3.62% | 17 files | 15,198,182 bytes
 > Last updated on: 2021-09-04
 <!--python_data_stop-->
 [Download the table as HTML in a zip file (Style is not the same) (This is kept for historical purposes only and the data is no longer being updated)](https://drive.google.com/u/0/uc?id=1nvijtp61EX7gtisnjHCAEBkfgQKs-zTh&export=download)
