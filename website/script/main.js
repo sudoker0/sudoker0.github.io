@@ -19,6 +19,18 @@ function qSelAll(q) { return document.querySelectorAll(q) }
  * @returns Element
  */
 function qSel(q) { return document.querySelector(q) }
+/**
+ * Basically localStorage.getItem
+ * @param {String} i - The name of the item
+ * @returns {String} The content of the item
+ */
+function ls_gt(i) { return localStorage.getItem(i) }
+/**
+  * Basically localStorage.setItem
+  * @param {string} i The name of the item
+  * @param {any} v The value of the item
+  */
+function ls_st(i, v) { localStorage.setItem(i, v) }
 var pathname = window.location.pathname, accb_small_isOn;
 var name_ = [
     {
@@ -123,12 +135,7 @@ function rString(l) {
 }
 function check() {
     getId("accb_small").style.top = getId("accb_small_").style.width
-    if (Number(gPBName("sv_cheat")) >= 1 || Number(gPBName("debug")) >= 1 || Number(gPBName("hack")) >= 1) {
-        window.location.replace("ban.html");
-    }
-    if (localStorage.getItem("ls") == "927") {
-        window.location.replace("ban.html");
-    }
+    if (Number(gPBName("sv_cheat")) >= 1 || Number(gPBName("debug")) >= 1 || Number(gPBName("hack")) >= 1 || ls_gt("ls") == "927") { window.location.replace("ban.html") }
     if (gPBName("secret") == "true" || gPBName("id") == "secret") {
         getId("secret_image").style.display = "block"
         document.getElementsByTagName("body")[0].style.backgroundImage = "url(website/image/sus_.png)"
@@ -217,32 +224,17 @@ window.onscroll = function() {
  * @param {number} mode
  */
 function changeBg(mode) {
-    function noCustomBackground() { /*getId("bg-custom-upload-file").setAttribute("disabled", "disabled")*/ }
     switch (mode) {
         case 0:
             qSel("body").style.backgroundImage = "url(\"/website/image/background/background_light.png\")";
-            noCustomBackground()
             break;
         case 1:
             qSel("body").style.backgroundImage = "url(\"/website/image/background/background_dark.png\")";
-            noCustomBackground()
             break;
         case 3:
             qSel("body").style.backgroundImage = `url("${getWebConf("backgroundURL")}")`
     }
 }
-/**
- * Basically localStorage.getItem
- * @param {String} i - The name of the item
- * @returns {String} The content of the item
- */
-function ls_gt(i) { return localStorage.getItem(i) }
-/**
- * Basically localStorage.setItem
- * @param {string} i The name of the item
- * @param {any} v The value of the item
- */
-function ls_st(i, v) { localStorage.setItem(i, v) }
 var constant = 0;
 /**
  * @param {string} clas
