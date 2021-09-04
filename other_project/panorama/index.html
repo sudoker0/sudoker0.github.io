@@ -356,8 +356,9 @@
             var cameraYRotationRadians = degToRad(0);
             var spinCamera = true;
             var then = 0;
+            var isDragging = false;
             requestAnimationFrame(drawScene);
-            // For mouse movement
+            // For handling mouse movement
             /*
             var oldPos = {x: 0, y: 0}, pos = {x: 0, y: 0};
             document.querySelector("canvas").onmousedown = () => { isDragging = true }
@@ -375,8 +376,20 @@
                 }
             }
             */
+            // -------- More defined variable
+            var times = [], fps = 0, delay = performance.now();
+            // --------
             function drawScene(time, _y = 0) {
-                time *= 0.001; _y *= 0.001;
+                // -------- Get the FPS
+                const now = performance.now();
+                while (times.length > 0 && times[0] <= now - 1000) {
+                    times.shift();
+                }
+                times.push(now);
+                fps = times.length;
+                // --------
+                time *= 0.001;
+                _y *= 0.001;
                 var deltaTime = time - then;
                 then = time;
                 resizeCanvasToDisplaySize(gl.canvas);
@@ -387,12 +400,13 @@
                 gl.useProgram(program);
                 gl.enableVertexAttribArray(positionLocation);
                 gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+                // -------- Defined variable
                 var size = 2, type = gl.FLOAT, normalize = false, stride = 0, offset = 0, speed = 0.3;
+                // --------
                 gl.vertexAttribPointer(positionLocation, size, type, normalize, stride, offset);
                 var aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
                 var projectionMatrix = perspective(fieldOfViewRadians, aspect, 1, 2000);
-                var cameraPosition = [Math.cos(time * speed), _y, Math.sin(time * speed)];
-                document.getElementById("debug").innerHTML = JSON.stringify({"cameraPosition": cameraPosition}, null, 4);
+                var cameraPosition = [Math.cos(time * speed), _y * speed, Math.sin(time * speed)];
                 var target = [0, 0, 0], up = [0, 1, 0];
                 var cameraMatrix = lookAt(cameraPosition, target, up);
                 var viewMatrix = inverse(cameraMatrix);
@@ -404,10 +418,15 @@
                 gl.uniformMatrix4fv(
                     viewDirectionProjectionInverseLocation, false,
                     viewDirectionProjectionInverseMatrix);
-                gl.uniform1i(skyboxLocation, 0);
+                    gl.uniform1i(skyboxLocation, 0);
                 gl.depthFunc(gl.LEQUAL);
                 gl.drawArrays(gl.TRIANGLES, 0, 1 * 6);
-                // Comment below line for mouse movement
+                // -------- Draw the debug info
+                var laterDelay = performance.now();
+                document.getElementById("debug").innerHTML = JSON.stringify({"cameraPosition": cameraPosition, "fps": fps, "memoryUsed": performance.memory?.usedJSHeapSize / 1048576, "delay": laterDelay - delay}, null, 2);
+                delay = laterDelay;
+                // --------
+                // Comment the below line for mouse movement instead
                 requestAnimationFrame(drawScene);
             }
         }
