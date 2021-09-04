@@ -695,7 +695,15 @@
                             "type": "file"
                         },
                         {
+                            "name": "lite.min.js",
+                            "type": "file"
+                        },
+                        {
                             "name": "main.js",
+                            "type": "file"
+                        },
+                        {
+                            "name": "main.min.js",
                             "type": "file"
                         }
                     ]
@@ -709,7 +717,15 @@
                             "type": "file"
                         },
                         {
+                            "name": "lite.min.css",
+                            "type": "file"
+                        },
+                        {
                             "name": "main.css",
+                            "type": "file"
+                        },
+                        {
+                            "name": "main.min.css",
                             "type": "file"
                         }
                     ]

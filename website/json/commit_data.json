@@ -2,6 +2,24 @@
     "last_update_on": "2021-09-04",
     "data": [
         {
+            "hash": "6aeaaa9",
+            "committer": "QuanMCPC",
+            "commit_date": 1630757105,
+            "message": "Merge branch 'master' of https://github.com/QuanMCPC/QuanMCPC.github.io"
+        },
+        {
+            "hash": "973ba73",
+            "committer": "QuanMCPC",
+            "commit_date": 1630757090,
+            "message": "Added Minified JS and CSS file"
+        },
+        {
+            "hash": "b4786f2",
+            "committer": "QuanMCPC",
+            "commit_date": 1630727150,
+            "message": "Update website's information"
+        },
+        {
             "hash": "920da72",
             "committer": "QuanMCPC",
             "commit_date": 1630727102,
