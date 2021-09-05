@@ -187,6 +187,10 @@
                     "type": "file"
                 },
                 {
+                    "name": "panorama_og_image.7z",
+                    "type": "file"
+                },
+                {
                     "name": "panorama_old.7z",
                     "type": "file"
                 },
