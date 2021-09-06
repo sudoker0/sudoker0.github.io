@@ -92,12 +92,25 @@ nav#accb img, nav#accb_small_ img {
   height: 60px;
   vertical-align: bottom;
 }
-#accbar {
+h3#accbar {
   grid-area: right_-start;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
+a.nav_bar_link, a.nav_bar_link { position: relative }
+a.nav_bar_link::after {
+  position: absolute;
+  width: 0%; height: 1px;
+  content: '';
+  left: 0; right: 0;
+  color: #000;
+  background-color: white;
+  left: 0; bottom: -3px;
+  transition: width 0.2s, bottom 0.2s;
+}
+a.nav_bar_link:hover::after { width: 100% }
+a.nav_bar_link:active::after { bottom: -6px; }
 nav#accb_small {
   opacity: 1;
   display: none;
@@ -280,7 +293,7 @@ li {
 @media (max-width: 319px) { div#screentoosmall { display: block; } }
 @media (min-width: 320px) {
   body { font-size: 0.75rem; }
-  #accbar a { margin-left: 5px; margin-right: 5px; }
+  h3#accbar a { margin-left: 5px; margin-right: 5px; }
   #accb_small, #accb_small_ p { font-size: 1.5em }
   div.container > *, div#settingspage > * { max-width: 95% }
   div#screentoosmall { display: none; }
@@ -290,7 +303,7 @@ li {
 }
 @media (min-width: 482px) {
   body { font-size: 0.75rem; }
-  #accbar a { margin-left: 7px; margin-right: 7px; }
+  h3#accbar a { margin-left: 7px; margin-right: 7px; }
   #accb_small, #accb_small_ p { font-size: 1.4em }
   div.container > *, div#settingspage > * { max-width: 95% }
   div#sp_actual * { margin-top: 5px; margin-bottom: 5px; }
@@ -303,7 +316,7 @@ li {
 }
 @media (min-width: 640px) {
   body { font-size: 0.81rem; }
-  #accbar a { margin-left: 9px; margin-right: 9px; }
+  h3#accbar a { margin-left: 9px; margin-right: 9px; }
   #accb_small, #accb_small_ p { font-size: 1.3em }
   div.container > *, div#settingspage > * { max-width: 80% }
   nav#accb_small_ { display: none; }
@@ -311,13 +324,13 @@ li {
 }
 @media (min-width: 960px) {
   body { font-size: 1rem; }
-  #accbar a { margin-left: 11px; margin-right: 11px; }
+  h3#accbar a { margin-left: 11px; margin-right: 11px; }
   #accb_small, #accb_small_ p { font-size: 1.2em }
   div.container > *, div#settingspage > * { max-width: 65% }
 }
 @media (min-width: 1100px) {
   body { font-size: 1rem; }
-  #accbar a { margin-left: 13px; margin-right: 13px; }
+  h3#accbar a { margin-left: 13px; margin-right: 13px; }
   #accb_small, #accb_small_ p { font-size: 1.1em }
   div.container > *, div#settingspage > * { max-width: 50% }
 }

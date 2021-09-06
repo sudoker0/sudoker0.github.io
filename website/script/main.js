@@ -68,9 +68,11 @@ name_.forEach(function (list, _) {
     anchor.appendChild(anchor_text);
     anchor.title = list.title;
     anchor.href = list.address + "?id=" + dateTime;
+    anchor.classList.add("nav_bar_link")
     anchor2.appendChild(anchor2_text);
     anchor2.title = list.title;
     anchor2.href = list.address + "?id=" + dateTime;
+    anchor2.classList.add("nav_bar_link")
     getId("accbar_small").appendChild(anchor2)
     getId("accbar_small").appendChild(anchor3)
     getId("accbar").appendChild(anchor);
