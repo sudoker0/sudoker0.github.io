@@ -1,6 +1,18 @@
 {
-    "last_update_on": "2021-09-05",
+    "last_update_on": "2021-09-06",
     "data": [
+        {
+            "hash": "c93f527",
+            "committer": "QuanMCPC",
+            "commit_date": 1630915838,
+            "message": "Add styles and animation to the navigation link"
+        },
+        {
+            "hash": "8312932",
+            "committer": "QuanMCPC",
+            "commit_date": 1630828638,
+            "message": "Update website's information"
+        },
         {
             "hash": "36ce476",
             "committer": "QuanMCPC",
