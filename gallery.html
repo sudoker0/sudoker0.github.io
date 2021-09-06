@@ -40,18 +40,20 @@
                 cursor: zoom-in;
             }
             @media (max-width: 374px) {
-                div#button_list * {
-                    text-align: center !important;
+                div.imgBtnBg h3 {
+                    left: 50% !important;
+                    transform: translateX(-50%) !important;
                 }
             }
             @media (min-width: 375px) {
                 div#button_list {
-                    display: grid;
                     grid-template-columns: repeat(auto-fit, minmax(calc(33% - 17px), 1fr));
                 }
             }
-            div#button_list *, div#button_list {
+            div#button_list {
+                display: grid;
                 max-width: initial;
+                grid-auto-rows: 1fr;
             }
             div#picture { border: 2px solid white; position: relative; }
             div#loading_svg { position: relative; }
@@ -96,10 +98,13 @@
                 position: absolute;
                 display: block;
                 top: 0;
+                margin: 10px 0;
+                mix-blend-mode: difference;
+                width: fit-content;
             }
-            div#left div.imgBtnBg h3 { margin: 10px 0 10px 5px; mix-blend-mode: difference; left: 5px; }
+            div#left div.imgBtnBg h3 { left: 5px; }
             div#middle h3 { text-align: center; margin: 10px 0 10px 5px; }
-            div#right div.imgBtnBg h3 { margin: 10px 5px 10px 0; mix-blend-mode: difference; right: 5px; }
+            div#right div.imgBtnBg h3 { right: 5px; }
             p#note { text-align: center; margin-top: 1px; margin-bottom: 1px; }
             div#imageZoomer {
                 position: fixed;
