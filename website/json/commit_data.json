@@ -2,6 +2,18 @@
     "last_update_on": "2021-09-06",
     "data": [
         {
+            "hash": "d5c67f6",
+            "committer": "QuanMCPC",
+            "commit_date": 1630924437,
+            "message": "Update to the buttom in Gallery page"
+        },
+        {
+            "hash": "0a06825",
+            "committer": "QuanMCPC",
+            "commit_date": 1630915898,
+            "message": "Update website's information"
+        },
+        {
             "hash": "c93f527",
             "committer": "QuanMCPC",
             "commit_date": 1630915838,
