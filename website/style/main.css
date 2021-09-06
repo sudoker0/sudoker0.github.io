@@ -112,8 +112,9 @@ a.nav_bar_link::after {
 a.nav_bar_link:hover::after { width: 100% }
 a.nav_bar_link:active::after { bottom: -6px; }
 nav#accb_small {
+  transition: clip-path 0.3s;
   opacity: 1;
-  display: none;
+  display: block;
   background-color: var(--bg);
   border: var(--border);
   margin-left: -8px;
@@ -349,7 +350,7 @@ div#loadingIndicator {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(16, 16, 16, 0.8);
   opacity: 1;
   transition: opacity 0.4s;
 }

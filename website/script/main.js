@@ -163,7 +163,7 @@ document.addEventListener("click", function(evt) {
         if (tE == fE || tE == fE_2) { return; }
         tE = tE.parentNode;
     } while (tE);
-    getId("accb_small").style.display = "none";
+    getId("accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0% 0%)";
     accb_small_isOn = false;
 });
 getId("settingspage").onclick = (e) => { if (!(getId("sp_actual").contains(e.target))) { closeSettings(); } }
@@ -205,21 +205,23 @@ var somethingCrash = false;
 function smtg() {
     check()
     accb_small_isOn = false;
-    getId("accb_small").style.display = "none"
+    getId("accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0% 0%)";
 }
 accb_small_isOn = false;
 function accb_small() {
     if (accb_small_isOn) {
-        getId("accb_small").style.display = "none";
+        // getId("accb_small").style.display = "none";
+        getId("accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0% 0%)";
         accb_small_isOn = false;
     } else {
-        getId("accb_small").style.display = "block";
+        // getId("accb_small").style.display = "block";
+        getId("accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 100%, 0% 100%)";
         accb_small_isOn = true;
     }
 }
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
-    getId("accb_small").style.display = "none"
+    getId("accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0% 0%)";
     accb_small_isOn = false;
 }
 /**
