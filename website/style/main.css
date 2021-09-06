@@ -113,6 +113,7 @@ a.nav_bar_link:hover::after { width: 100% }
 a.nav_bar_link:active::after { bottom: -6px; }
 nav#accb_small {
   transition: clip-path 0.3s;
+  clip-path: polygon(0px 0px, 100% 0px, 100% 0%, 0% 0%);
   opacity: 1;
   display: block;
   background-color: var(--bg);
