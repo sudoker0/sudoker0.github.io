@@ -2,6 +2,24 @@
     "last_update_on": "2021-09-07",
     "data": [
         {
+            "hash": "e041229",
+            "committer": "QuanMCPC",
+            "commit_date": 1630995781,
+            "message": "Merge branch 'master' of https://github.com/QuanMCPC/QuanMCPC.github.io"
+        },
+        {
+            "hash": "a4c55b1",
+            "committer": "QuanMCPC",
+            "commit_date": 1630995769,
+            "message": "Some more animation at settings page and loading page"
+        },
+        {
+            "hash": "487af94",
+            "committer": "QuanMCPC",
+            "commit_date": 1630989319,
+            "message": "Update website's information"
+        },
+        {
             "hash": "04367b2",
             "committer": "QuanMCPC",
             "commit_date": 1630989290,
