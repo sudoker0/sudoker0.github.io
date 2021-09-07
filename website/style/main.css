@@ -87,7 +87,7 @@ nav#accb_small_ > a {
   grid-area: left__-start;
   width: 60px;
 }
-nav#accb img, nav#accb_small_ img {
+img.website_logo {
   width: 60px;
   height: 60px;
   vertical-align: bottom;
