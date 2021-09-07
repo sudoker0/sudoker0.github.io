@@ -256,6 +256,8 @@ div#spb_inside {
   margin: 0 !important;
 }
 div#sp_actual {
+  transform: scale(0.5);
+  transition: transform 0.4s;
   background-color: rgb(15, 15, 15);
   border: 2px solid white;
   padding: 10px;
@@ -355,6 +357,9 @@ div#loadingIndicator {
   opacity: 1;
   transition: opacity 0.4s;
 }
+div#loadingIndicator div {
+  transition: transform 0.4s;
+}
 div#loadingIndicator span { font-size: initial; }
 div#loadingIndicator img {
   background-color: white;
@@ -416,3 +421,7 @@ footer {
   margin-bottom: 15px;
 }
 button:disabled { background-color: rgb(64, 64, 64) !important; color: rgb(160, 160, 160) !important; }
+div#settingspage.spOpened { opacity: 1; pointer-events: initial; }
+div#settingspage.spOpened div#sp_actual { transform: scale(1); }
+div#loadingIndicator.lIClosed { opacity: 0; pointer-events: none; }
+div#loadingIndicator.lIClosed div { transform: scale(0.5); }
