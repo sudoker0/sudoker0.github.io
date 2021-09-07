@@ -2,6 +2,24 @@
     "last_update_on": "2021-09-07",
     "data": [
         {
+            "hash": "a253ee7",
+            "committer": "QuanMCPC",
+            "commit_date": 1631018609,
+            "message": "Merge branch 'master' of https://github.com/QuanMCPC/QuanMCPC.github.io"
+        },
+        {
+            "hash": "adc342a",
+            "committer": "QuanMCPC",
+            "commit_date": 1631011747,
+            "message": "Some change to the Gallery image zoomer"
+        },
+        {
+            "hash": "37494c3",
+            "committer": "QuanMCPC",
+            "commit_date": 1630995993,
+            "message": "Update website's information"
+        },
+        {
             "hash": "cc410ab",
             "committer": "QuanMCPC",
             "commit_date": 1630995962,
