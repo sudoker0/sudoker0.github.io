@@ -425,3 +425,5 @@ div.spOpened { opacity: 1 !important; pointer-events: initial !important; }
 div.spOpened > * { transform: scale(1) !important; }
 div#loadingIndicator.lIClosed { opacity: 0; pointer-events: none; }
 div#loadingIndicator.lIClosed div { transform: scale(0.5); }
+nav.logo_rotate.navbar > a { background-color: white; clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); }
+nav.logo_rotate.navbar > a > img { animation: rotate_ 1s infinite linear; }

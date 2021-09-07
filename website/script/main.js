@@ -181,6 +181,7 @@ function fetchLocal() {
 window.onresize = smtg;
 window.onload = () => {
     smtg();
+    setTimeout(() => { qSelAll("nav.navbar").forEach(e => { e.classList.add("logo_rotate") }) }, Math.random() * (4.5e+6 - 3.6e+6) + 3.6e+6)
     setTimeout(() => {
         getId("loadingIndicator").classList.add("lIClosed");
     }, 500);
@@ -381,3 +382,13 @@ getId("bg-antialiasing").onchange = (e) => {
     }
 }
 getId("list_dir").onclick = (_) => { window.location.href = "/dir_listing.html" }
+/** @type { NodeListOf<HTMLAnchorElement> } */
+var logo_a = qSelAll("nav#accb > a, nav#accb_small_ > a");
+logo_a.forEach(e => {
+    e.onmousemove = (ev) => {
+        qSelAll("nav.navbar").forEach(e => {
+            if (ev.ctrlKey && ev.shiftKey) { e.classList.add("logo_rotate") }
+            else { e.classList.remove("logo_rotate") }
+        })
+    }
+})
