@@ -2,6 +2,24 @@
     "last_update_on": "2021-09-06",
     "data": [
         {
+            "hash": "0eac85f",
+            "committer": "QuanMCPC",
+            "commit_date": 1630931466,
+            "message": "Merge branch 'master' of https://github.com/QuanMCPC/QuanMCPC.github.io"
+        },
+        {
+            "hash": "534634d",
+            "committer": "QuanMCPC",
+            "commit_date": 1630931453,
+            "message": "Fix issues with the button in Gallery when switching to mobile"
+        },
+        {
+            "hash": "cf5549f",
+            "committer": "QuanMCPC",
+            "commit_date": 1630929389,
+            "message": "Update website's information"
+        },
+        {
             "hash": "03e29c8",
             "committer": "QuanMCPC",
             "commit_date": 1630929318,
