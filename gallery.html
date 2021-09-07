@@ -116,7 +116,7 @@
                 justify-content: center;
                 opacity: 0;
                 pointer-events: none;
-                transition: opacity 0.5s;
+                transition: opacity 0.4s;
                 overflow: auto;
             }
             div#imageZoomer img {
@@ -155,6 +155,10 @@
                 height: 100%;
                 background-color: white;
                 transition: width 0.3s;
+            }
+            img#image_zoom {
+                transition: transform 0.4s;
+                transform: scale(0.5);
             }
         </style>
     </head>
@@ -435,13 +439,11 @@
                     getId("imageZoomer_text").innerHTML = `<p>${imageArray[imagePos].description}</p>`
                     getId("image_zoom").setAttribute("src", imageArray[imagePos].location + (webpSupport() ? ".webp" : ".png"))
                     getId("image_zoom").setAttribute("alt", imageArray[imagePos].description)
-                    getId("imageZoomer").style.opacity = "1"
-                    getId("imageZoomer").style.pointerEvents = "all"
+                    getId("imageZoomer").classList.add("spOpened");
                 }
             }
             function closeImageOverlay() {
-                getId("imageZoomer").style.opacity = "0"
-                getId("imageZoomer").style.pointerEvents = "none"
+                getId("imageZoomer").classList.remove("spOpened");
             }
             function cancelImageLoading() {
                 getId("image__").setAttribute("src", 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTM2NiIgaGVpZ2h0PSI3MDUiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDM2MS40MiAxODYuNTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8cmVjdCB3aWR0aD0iMzYxLjQyIiBoZWlnaHQ9IjE4Ni41MyIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIuMjY2MTEiLz4KIDx0ZXh0IHRyYW5zZm9ybT0ic2NhbGUoMS4wNTcxIC45NDU5NSkiIHg9IjE2OS42OTQ2NyIgeT0iMTAyLjY0NDA3IiBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTEuNDcycHgiIHN0cm9rZS13aWR0aD0iLjEzMzMyIiB0ZXh0LWFsaWduPSJjZW50ZXIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJsaW5lLWhlaWdodDoxLjI1IiB4bWw6c3BhY2U9InByZXNlcnZlIj48dHNwYW4geD0iMTY5LjY5NDY3IiB5PSIxMDIuNjQ0MDciIHRleHQtYWxpZ249ImNlbnRlciI+Tm8gSW1hZ2U8L3RzcGFuPjx0c3BhbiB4PSIxNjkuNjk0NjciIHk9IjExNi45ODM4MyIgdGV4dC1hbGlnbj0iY2VudGVyIj4xMzY2IHggNzA1PC90c3Bhbj48L3RleHQ+Cjwvc3ZnPgo=')

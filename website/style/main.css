@@ -421,7 +421,7 @@ footer {
   margin-bottom: 15px;
 }
 button:disabled { background-color: rgb(64, 64, 64) !important; color: rgb(160, 160, 160) !important; }
-div#settingspage.spOpened { opacity: 1; pointer-events: initial; }
-div#settingspage.spOpened div#sp_actual { transform: scale(1); }
+div.spOpened { opacity: 1 !important; pointer-events: initial !important; }
+div.spOpened > * { transform: scale(1) !important; }
 div#loadingIndicator.lIClosed { opacity: 0; pointer-events: none; }
 div#loadingIndicator.lIClosed div { transform: scale(0.5); }
