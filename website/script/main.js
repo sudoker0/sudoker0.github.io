@@ -2,35 +2,41 @@
 //@ts-check/
 // window.onerror = (_, s, l ,c, err) => { if (!somethingCrash) { somethingCrash = true; function a() {return document.createElement("p")}; var errordiv = document.createElement("div"); errordiv.id = "errorscreen"; errordiv.style.backgroundColor = "#000000"; errordiv.style.color = "#ffffff"; errordiv.style.whiteSpace = "pre"; errordiv.style.position = "fixed"; errordiv.style.top = "0"; errordiv.style.left = "0"; errordiv.style.zIndex = "10000"; errordiv.style.padding = "5px"; var text1 = a(), text2 = a(), text3 = a(), text4 = a(); text1.innerHTML = "An error has occurred so the website has been halted to prevent further damage, please reload page."; text2.innerHTML = `Details: \n${err.stack}`; text3.innerHTML = `Source: ${s}`; text4.innerHTML = `Error happened at: Cols${c},Lines${l}`; text1.style.margin = "0 5px 0 5px"; text2.style.margin = "0 5px 0 5px"; text3.style.margin = "0 5px 0 5px"; text4.style.margin = "0 5px 0 5px"; errordiv.append(text1); errordiv.append(text2); errordiv.append(text3); errordiv.append(text4); document.body.append(errordiv); document.body.style.pointerEvents = "none"; document.body.style.overflow = "hidden"; document.body.style.userSelect = "none" } }
 /**
- * Short for: document.getElementById
+ * Short for: `document.getElementById`
  * @param {string} i The Id of the element
  * @returns HTMLELement
  */
 function getId(i) { return document.getElementById(i) }
 /**
- * Short for: document.querySelectorAll
+ * Short for: `document.querySelectorAll`
  * @param {string} q The selector
  * @returns NodeListOf<Element>
  */
 function qSelAll(q) { return document.querySelectorAll(q) }
 /**
- * Short for: document.querySelector
+ * Short for: `document.querySelector`
  * @param {string} q The selector
- * @returns Element
+ * @returns {HTMLElement}
  */
 function qSel(q) { return document.querySelector(q) }
 /**
- * Basically localStorage.getItem
+ * Basically `localStorage.getItem`
  * @param {String} i - The name of the item
  * @returns {String} The content of the item
  */
 function ls_gt(i) { return localStorage.getItem(i) }
 /**
-  * Basically localStorage.setItem
+  * Basically `localStorage.setItem`
   * @param {string} i The name of the item
   * @param {any} v The value of the item
   */
 function ls_st(i, v) { localStorage.setItem(i, v) }
+/**
+ * Basically `document.documentElement.style.setProperty`
+ * @param {string} p - The variable name
+ * @param {string} v - The value
+ */
+function setCSSVar(p, v) { document.documentElement.style.setProperty(p, v) }
 var pathname = window.location.pathname, accb_small_isOn;
 var name_ = [
     {
@@ -140,7 +146,7 @@ function check() {
     if (Number(gPBName("sv_cheat")) >= 1 || Number(gPBName("debug")) >= 1 || Number(gPBName("hack")) >= 1 || ls_gt("ls") == "927") { window.location.replace("ban.html") }
     if (gPBName("secret") == "true" || gPBName("id") == "secret") {
         getId("secret_image").style.display = "block"
-        document.getElementsByTagName("body")[0].style.backgroundImage = "url(website/image/sus_.png)"
+        setCSSVar("--bg-img", "url(website/image/sus_.png)")
     }
     if (gPBName("id") == "entropy") {
         var charStart = 1;
@@ -176,7 +182,9 @@ function fetchLocal() {
     } else {
         getId("bg-antialiasing").removeAttribute("checked")
     }
-    if (Number(getWebConf("theme")) == 0) { ws_1() } else { ws_2() }
+    getId("bg-opacity-slider").value = getWebConf("imageBrightness")
+    var _ = Number(getWebConf("theme"));
+    if (_ == 0) { ws_1() } else if (_ == 1) { ws_2() } else if (_ == 2) { ws_3() }
 }
 window.onresize = smtg;
 window.onload = () => {
@@ -195,9 +203,9 @@ window.onload = () => {
         })
     })
     // Object.keys(getWebConf("advanced_background")).forEach((value) => {
-    //     document.body.style[value] = getWebConf("advanced_background")[value]
-    // })
-    if (!getWebConf("*")) { setWebConf("initdata") }
+        //     document.body.style[value] = getWebConf("advanced_background")[value]
+        // })
+        if (!getWebConf("*")) { setWebConf("initdata") }
     fetchLocal();
 }
 var somethingCrash = false;
@@ -229,13 +237,14 @@ window.onscroll = function() {
 function changeBg(mode) {
     switch (mode) {
         case 0:
-            qSel("body").style.backgroundImage = "url(\"/website/image/background/background_light.png\")";
+            setCSSVar("--bg-img", "url(\"/website/image/background/background_light.png\")");
             break;
         case 1:
-            qSel("body").style.backgroundImage = "url(\"/website/image/background/background_dark.png\")";
+            setCSSVar("--bg-img", "url(\"/website/image/background/background_dark.png\")");
             break;
         case 3:
-            qSel("body").style.backgroundImage = `url("${getWebConf("backgroundURL")}")`
+            setCSSVar("--bg-img", `url("${getWebConf("backgroundURL")}")`);
+            break;
     }
 }
 var constant = 0;
@@ -265,12 +274,22 @@ function dropShadow() {
         getId("accb_small_").style.boxShadow = "none";
     }
 }
-document.onscroll = (_) => { dropShadow(); }
-function ws_1() {
-    document.documentElement.style.setProperty("--bg", "rgba(20, 20, 20, 0.85)")
-    qSel(".container").style.border = "3px solid black";
-    qSel(".container").style.margin = "20px";
-    getId("wslook-default").classList.add("selected");
+function changeOpacity() {
+    if (getWebConf("theme") == 2) {
+        if (scrollY > 32) {
+            getId("accb").style.backgroundColor = "rgb(16, 16, 16)";
+            getId("accb_small_").style.backgroundColor = "rgb(16, 16, 16)";
+        } else {
+            getId("accb").style.backgroundColor = "transparent";
+            getId("accb_small_").style.backgroundColor = "transparent";
+        }
+    } else {
+        getId("accb").style.backgroundColor = "";
+        getId("accb_small_").style.backgroundColor = "";
+    }
+}
+document.onscroll = (_) => { dropShadow(); changeOpacity(); }
+function changeBackground() {
     if (getWebConf("background") == 0) { changeBg(0) }
     else if (getWebConf("background") == 1) { changeBg(1) }
     else if (getWebConf("background") == 2) {
@@ -281,17 +300,38 @@ function ws_1() {
     } else {
         changeBg(3)
     }
-    getId("sp_background").querySelectorAll("button").forEach(v => v.removeAttribute("disabled"))
-    getId("bg-antialiasing").removeAttribute("disabled")
+}
+function bgOpacity() { document.body.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, ${getId("bg-opacity-slider").value / 100}), rgba(0, 0, 0, ${getId("bg-opacity-slider").value / 100})), var(--bg-img)`; getId("wsl-bgonly-only-current").innerHTML = getId("bg-opacity-slider").value; setWebConf("imageBrightness", getId("bg-opacity-slider").value) }
+function ws_1() {
+    setCSSVar("--bg", "rgba(20, 20, 20, 0.85)")
+    qSel(".container").style.border = "3px solid black";
+    qSel(".container").style.margin = "20px";
+    getId("wslook-default").classList.add("selected");
+    qSelAll("div.special_stuff").forEach(v => v.style.display = "none")
+    getId("wsl-default-only").style.display = "block"
+    bgOpacity();
+    changeBackground();
 }
 function ws_2() {
-    document.documentElement.style.setProperty("--bg", "rgb(21, 21, 21)")
+    setCSSVar("--bg", "rgb(21, 21, 21)")
     qSel(".container").style.border = "1px solid rgb(21, 21, 21)";
     qSel(".container").style.margin = "0";
-    qSel("body").style.backgroundImage = "initial";
+    setCSSVar("--bg-img", "initial");
     getId("wslook-minimal").classList.add("selected");
-    getId("sp_background").querySelectorAll("button").forEach(v => v.setAttribute("disabled", "disabled"))
-    getId("bg-antialiasing").setAttribute("disabled", "disabled")
+    qSelAll("div.special_stuff").forEach(v => v.style.display = "none")
+}
+function ws_3() {
+    changeBackground();
+    bgOpacity();
+    setCSSVar("--bg", "transparent");
+    setCSSVar("--border", "none");
+    qSel("div.container").style.border = "none";
+    qSel("div.container").style.margin = "20px 0";
+    qSel("nav.navbar").style.boxShadow = "none";
+    getId("wslook-bgonly").classList.add("selected");
+    qSelAll("div.special_stuff").forEach(v => v.style.display = "none")
+    getId("wsl-default-only").style.display = "block"
+    // getId("wsl-bgonly-only").style.display = "block"
 }
 function backgroundEasterEgg() {
     constant = constant + 0.5
@@ -300,6 +340,8 @@ function backgroundEasterEgg() {
         constant = 0
     }
 }
+getId("bg-opacity-slider").onchange = bgOpacity
+// getId("bg-opacity-slider").oninput = ws_3_bgOpacity
 qSelAll("button.bg-style").forEach(function (elem) {
     elem.onclick = (ev) => {
         qSelAll("button.bg-style").forEach(e => e.classList.remove("selected"))
@@ -325,7 +367,7 @@ qSelAll("button.bg-style").forEach(function (elem) {
                 getId("bg-custom").classList.add("selected");
                 if (confirm("Do you want to select a new custom background?")) {
                     openFile().then((e) => {
-                        qSel("body").style.backgroundImage = `url(${e})`
+                        setCSSVar("--bg-img", `url(${e})`);
                         setWebConf("backgroundURL", e)
                         setWebConf("theme", 0);
                     })
@@ -337,10 +379,12 @@ qSelAll("button.bg-style").forEach(function (elem) {
 })
 function ws_shared() {
     dropShadow();
+    changeOpacity();
     qSelAll("button.web-look").forEach((e) => { e.classList.remove("selected"); })
 }
-getId("wslook-default").onclick = () => { ws_shared(); ws_1(); setWebConf("theme", 0); }
-getId("wslook-minimal").onclick = () => { ws_shared(); ws_2(); setWebConf("theme", 1); }
+getId("wslook-default").onclick = () => { setWebConf("theme", 0); ws_shared(); ws_1(); }
+getId("wslook-minimal").onclick = () => { setWebConf("theme", 1); ws_shared(); ws_2(); }
+getId("wslook-bgonly").onclick = () => { setWebConf("theme", 2); ws_shared(); ws_3(); }
 /**
  * Open file
  * @returns {Promise<string | ArrayBuffer>}

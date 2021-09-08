@@ -556,19 +556,27 @@
             <div id="settingspage" class="nt">
                 <div id="sp_actual">
                     <h2>Settings</h2>
-                    <p>Background style:</p>
-                    <div id="sp_background" class="button_selection">
-                        <button class="bg-style" id="bg-day">Day Time</button>
-                        <button class="bg-style" id="bg-night">Night Time</button>
-                        <button class="bg-style" id="bg-sys">Based on system preferences</button>
-                        <button class="bg-style" id="bg-custom">Custom Background</button>
-                    </div>
-                    <label for="bg-antialiasing">Enable Anti-Aliasing? </label><input type="checkbox" name="bg-antialiasing" id="bg-antialiasing">
                     <p>Website's look:</p>
                     <div id="sp_look" class="button_selection">
                         <button id="wslook-default" class="web-look">Default</button>
                         <button id="wslook-minimal" class="web-look">Minimalist</button>
+                        <button id="wslook-bgonly" class="web-look">Background Only</button>
                     </div>
+                    <div id="wsl-default-only" class="special_stuff">
+                        <p>Background style:</p>
+                        <div id="sp_background" class="button_selection">
+                            <button class="bg-style" id="bg-day">Day Time</button>
+                            <button class="bg-style" id="bg-night">Night Time</button>
+                            <button class="bg-style" id="bg-sys">Based on system preferences</button>
+                            <button class="bg-style" id="bg-custom">Custom Background</button>
+                        </div>
+                        <label for="bg-antialiasing">Enable Anti-Aliasing? </label><input type="checkbox" name="bg-antialiasing" id="bg-antialiasing">
+                        <p>Background's Brightness (!Opacity) (Currently is: <span id="wsl-bgonly-only-current">0</span> ):</p>
+                        <div id="sp_bgopacity">
+                            <input type="range" name="bg-opacity-slider" id="bg-opacity-slider" class="custom_slider" min="0" max="100" value="50">
+                        </div>
+                    </div>
+                    <!-- <div id="wsl-bgonly-only" class="special_stuff"></div> -->
                     <div id="sp_button">
                         <div id="spb_inside"><button onclick="closeSettings()" class="sp_btn">Close</button></div>
                     </div>
