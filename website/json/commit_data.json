@@ -2,6 +2,30 @@
     "last_update_on": "2021-09-07",
     "data": [
         {
+            "hash": "7c318cb",
+            "committer": "QuanMCPC",
+            "commit_date": 1631023796,
+            "message": "Maybe"
+        },
+        {
+            "hash": "9396666",
+            "committer": "QuanMCPC",
+            "commit_date": 1631023760,
+            "message": "Admitting that there's easter egg in the website"
+        },
+        {
+            "hash": "4e8fd3d",
+            "committer": "QuanMCPC",
+            "commit_date": 1631023462,
+            "message": "Some change"
+        },
+        {
+            "hash": "a581a23",
+            "committer": "QuanMCPC",
+            "commit_date": 1631018642,
+            "message": "Update website's information"
+        },
+        {
             "hash": "a253ee7",
             "committer": "QuanMCPC",
             "commit_date": 1631018609,
