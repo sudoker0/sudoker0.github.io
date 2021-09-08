@@ -64,9 +64,6 @@ html, body { font-size: 100%; image-rendering: pixelated; }
 nav.navbar {
   position: -webkit-sticky;
   position: sticky;
-  margin-left: -8px;
-  margin-right: -8px;
-  margin-top: -8px;
   opacity: 1;
   top: 0px;
   background-color: var(--bg);
@@ -118,8 +115,6 @@ nav#accb_small {
   display: block;
   background-color: var(--bg);
   border: var(--border);
-  margin-left: -8px;
-  margin-right: -8px;
   text-align: left;
   padding-left: 10px;
   position: fixed;
@@ -161,6 +156,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
+  margin: 0;
 }
 noscript#noscript_overlay {
   position: fixed;

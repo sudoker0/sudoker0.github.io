@@ -287,7 +287,7 @@ function ws_1() {
 function ws_2() {
     document.documentElement.style.setProperty("--bg", "rgb(21, 21, 21)")
     qSel(".container").style.border = "1px solid rgb(21, 21, 21)";
-    qSel(".container").style.margin = "-8px";
+    qSel(".container").style.margin = "0";
     qSel("body").style.backgroundImage = "initial";
     getId("wslook-minimal").classList.add("selected");
     getId("sp_background").querySelectorAll("button").forEach(v => v.setAttribute("disabled", "disabled"))
