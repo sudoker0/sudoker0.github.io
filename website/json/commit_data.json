@@ -2,6 +2,24 @@
     "last_update_on": "2021-09-08",
     "data": [
         {
+            "hash": "64ad2ae",
+            "committer": "QuanMCPC",
+            "commit_date": 1631108832,
+            "message": "Merge branch 'master' of https://github.com/QuanMCPC/QuanMCPC.github.io"
+        },
+        {
+            "hash": "ffcb883",
+            "committer": "QuanMCPC",
+            "commit_date": 1631108770,
+            "message": "Added a \"background only\" website look and a background image brightness slider"
+        },
+        {
+            "hash": "e643faf",
+            "committer": "QuanMCPC",
+            "commit_date": 1631087508,
+            "message": "Update website's information"
+        },
+        {
             "hash": "171d154",
             "committer": "QuanMCPC",
             "commit_date": 1631087476,
