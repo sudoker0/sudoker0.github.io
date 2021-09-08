@@ -42,7 +42,7 @@
     - Gallery: Show a list of picture, this page contain:
         - A UI to nagivate and see the picture
     - Download: Download stuff, that's it, and this page contain:
-        - A list of downloadable file.
+        - A list for downloadable file.
 - *: There are some page like: Loading page, basic HTML version of the page that I did not mention. That's because most people will access the main version of the website (unless your Internet is slow). But I will still mention some of those:
     - Basic HTML version:
         - No custom font
@@ -54,15 +54,15 @@
             - One redirect to the main version
             - One redirect to the lite version
             - One redirect to the first ever version of my website
-    - First version:
-        - Very basic (only contain 4kb of html file, 6mb of image)
-        - Almost no styling
+    - ~~First version:~~ (This part of the website has been moved to [https://quan215.github.io](https://quan215.github.io))
+        - ~~Very basic (only contain 4kb of html file, 6mb of image)~~
+        - ~~Almost no styling~~
 ### ❓ FAQ (Frequently Asked Questions)
 - Will I ever stop working on the website?
     - **Maybe**, I mean I have other thing in life to do, for example: Go to school, playing with my friend and other things. But because this is one of my greatest thing I ever created, it might take very long.
 - Will I ever purchase your own domain and build your website on that?
-    - **Yes**, in the far future. Because I am currently a student, I do not have money to purchase my own domain and even if I can then I think it's a waste of money. I mean like my website is for fun and never for actual business or something, beside I already got a free domain so why purchase a domain?
-- Have I ever encounter a problem while making the website?
+    - **Yes**, in the far future. Because I am currently a student, I do not have money to purchase my own domain and even if I can then I think it's a waste of money (But not really because domain now only cost like 2 to 3 dollar at minimum). I mean like my website is for fun and never for actual business or something, beside I already got a free domain so why purchase a domain? (Probally to make my website more noticable.)
+- Have I ever encounter a problem when making the website?
     - **Yes**, I have. When I add or change something, there will always be problem and if there is, I will search on the Internet to find a solution. And just because you search things up on the Internet, it doesn't mean you not good. Even the smart people out there still have to read book and search thing up for the solution.
 - If GitHub support PHP or other language, will I ever use those language to write my website?
     - **Maybe**, but I will probably prefer to stay on HTML, mainly because that mean I have to learn a new language and adapt all of the difference syntax and other things too
