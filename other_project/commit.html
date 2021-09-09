@@ -5,18 +5,20 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
         <title>Website's Repository commit stat</title>
         <style>
-            body { background-color: rgb(230, 230, 230); }
+            body { background-color: rgb(32, 32, 32); color: white; }
             * {
-                font-family: 'Raleway', sans-serif;
+                font-family: 'Inconsolata', monospace;
+                color-scheme: dark;
             }
             div#parent {
-                max-width: 100%;
-                max-height: auto;
-                margin-left: auto;
-                margin-right: auto;
+                margin: 0 10px;
+                width: calc(100% - 20px);
+                height: calc(100% - 1.5em);
+                position: fixed;
+                top: 0; left: 0;
                 padding-bottom: 1.5em;
             }
             div#rateLimit {
@@ -24,11 +26,11 @@
                 position: fixed;
                 bottom: 0;
                 left: 0;
-                background-color: rgb(75, 75, 75);
+                background-color: rgb(48, 48, 48);
                 color: white;
             }
             div#rateLimit_indicator {
-                background-color: orange;
+                background-color: #000099;
                 width: 100%;
                 height: 1.5em;
                 position: static;
@@ -44,16 +46,59 @@
                 overflow: hidden;
                 white-space: nowrap;
             }
+            div#parent div button {
+                border: none;
+                border-radius: 0;
+                min-height: 2em;
+                margin: 0!important;
+                padding: 5px;
+                background-color: #5c5c5c;
+                color: #fff;
+            }
+            div#parent div {
+                display: flex;
+                justify-content: center;
+                margin: 10px;
+            }
+            div#parent div button:hover { cursor: pointer }
+            div#parent div h3 { margin: 10px }
+            div#alert {
+                position: fixed;
+                top: 0; left: 0;
+                width: 100%;
+                height: 1.5em;
+                background-color: rgba(255, 0, 0, 0.4);
+                z-index: 10;
+                display: none;
+                opacity: 0.3;
+            }
+            div#alert:hover { opacity: 1; }
+            div#alert p {
+                margin: 0 10px;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                text-overflow: ellipsis;
+                width: 100%;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+            @media(max-width: 800px) {
+                div#alert { display: block; }
+            }
         </style>
     </head>
     <body>
-        <h1 style="text-align: center;">Website's Repository commit per weeks</h1>
+        <!-- <h1 style="text-align: center;">Website's Repository commit per weeks</h1>
         <p style="text-align: center;">External library: Chart.js; Data gathered from GitHub API</p>
         <p style="text-align: center;">Number of commit as of "<span id="lastUpdate">null</span>" from GitHub API is <span id="numOfCommit">0</span></p>
-        <p style="text-align: center;" id="info"></p>
+        <p style="text-align: center;" id="info"></p> -->
+        <div id="alert">
+            <p>Warning: Width smaller then 800px might cause the fonts to get squashed.</p>
+        </div>
         <div id="parent">
-            <div style="display: flex; justify-content: center;">
-                <button onclick="fetch_(); console.log(this.parentElement.style.display = 'none')" style="background-color: green; border: none; color: white;"><h3>Click here to get data</h3></button>
+            <div>
+                <button onclick="fetch_(); console.log(this.parentElement.style.display = 'none')"><h3>Click here to get data</h3></button>
             </div>
             <canvas id="myChart"></canvas>
         </div>
@@ -87,8 +132,12 @@
                         })
                     utcTime = f[0].weeks[f[0].weeks.length - 1].w
                     var d_ = new Date(utcTime * 1000)
-                    getId("numOfCommit").innerHTML = f[0].total
-                    getId("lastUpdate").innerHTML = d_.toUTCString()
+                    var additions = 0, deletions = 0;
+                    f[0].weeks.forEach(v => {
+                        additions += v.a;
+                        deletions += v.d;
+                    })
+                    var info_text = `As of ${d_.toUTCString()}, the total number of commits/additions/deletions are: ${f[0].total} / ${additions} / ${deletions}`
                     if (f.message) {
                         //getId("rateLimit_content").innerHTML = `Failed to get data from GitHub API, this maybe due to number of request exceeded for your current IP. Please see the number of commit on: https://github.com/QuanMCPC/QuanMCPC.github.io`;
                         getId("rateLimit_indicator").style.backgroundColor = "red"
@@ -96,26 +145,90 @@
                         getId("rateLimit_content").innerHTML = `Re-Fetching...`;
                         setTimeout(fetch_, 2500);
                     } else {
-                        var commit = [], label = [], count = 1;
+                        var commit = [], additions = [], deletions = [], label = [], count = 1;
                         f[0].weeks.forEach((data) => {
                             commit.push(data.c);
+                            additions.push(data.a);
+                            deletions.push(data.d);
                             var time = new Date(data.w * 1000);
                             label.push(`${time.getDate()}/${time.getMonth() + 1}/${time.getFullYear()}`)
                         })
                         const data = {
                             labels: label,
-                            datasets: [{
-                                label: "Website's Repository commit per weeks",
-                                backgroundColor: 'rgb(255, 99, 132)',
-                                borderColor: 'rgb(255, 99, 132)',
-                                data: commit
-                            }]
+                            datasets: [
+                                {
+                                    type: "line",
+                                    label: "Additions",
+                                    backgroundColor: 'rgb(0, 180, 0)',
+                                    borderColor: 'rgb(0, 180, 0)',
+                                    data: additions,
+                                    yAxisID: 'y1',
+                                },
+                                {
+                                    type: "line",
+                                    label: "Deletions",
+                                    backgroundColor: 'rgb(180, 0, 0)',
+                                    borderColor: 'rgb(180, 0, 0)',
+                                    data: deletions,
+                                    yAxisID: 'y1',
+                                },
+                                {
+                                    type: "bar",
+                                    label: "Commits",
+                                    backgroundColor: 'rgb(190, 190, 0)',
+                                    borderColor: 'rgb(190, 190, 0)',
+                                    data: commit,
+                                    yAxisID: 'y',
+                                },
+                            ]
                         };
                         const config = {
-                            type: 'bar',
                             data,
-                            options: {}
+                            options: {
+                                maintainAspectRatio: false,
+                                responsive: true,
+                                stacked: true,
+                                scales: {
+                                    y: {
+                                        type: 'linear',
+                                        display: true,
+                                        position: 'left',
+                                    },
+                                    y1: {
+                                        type: 'linear',
+                                        display: true,
+                                        position: 'right',
+                                        grid: {
+                                            drawOnChartArea: false,
+                                        },
+                                    },
+                                },
+                                interaction: {
+                                    mode: 'index',
+                                    intersect: false,
+                                },
+                                plugins: {
+                                    title: {
+                                        display: true,
+                                        text: "Information about the website's repository (commits, additions and deletions)",
+                                        font: {
+                                            size: 20,
+                                            family: "'Inconsolata', monospace"
+                                        }
+                                    },
+                                    subtitle: {
+                                        display: true,
+                                        text: info_text,
+                                        font: {
+                                            size: 16,
+                                            family: "'Inconsolata', monospace"
+                                        }
+                                    }
+                                }
+                            },
                         };
+                        Chart.defaults.borderColor = "rgb(80, 80, 80)";
+                        Chart.defaults.color = "rgb(200, 200, 200)"
                         var myChart = new Chart(
                             getId('myChart'),
                             config
