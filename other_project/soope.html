@@ -84,7 +84,7 @@
                 margin-right: 7px;
             }
             #about, #kbsc, #fetchFromURL {
-                position: absolute;
+                position: fixed;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
@@ -100,7 +100,7 @@
                 z-index: 8;
                 width: 100%;
                 height: 100%;
-                position: absolute;
+                position: fixed;
                 top: 0;
                 left: 0;
             }
@@ -167,7 +167,7 @@
                 display: block;
             }
             #video {
-                position: absolute;
+                position: fixed;
                 height: 100%;
                 width: 100%;
                 top: 0;
@@ -178,7 +178,7 @@
             }
             #video__ {
                 height: 100%;
-             }
+            }
             #button {
                 left: 50%;
                 position: absolute;
@@ -208,7 +208,7 @@
             <hr>
         </noscript>
         <div id="verbose">
-            <p>SOOPE v1.1.4+20211505213200P7</p>
+            <p>SOOPE v1.1.5+20211009212700P7</p>
             <p>FPS: <span id="v_fps">0</span></p>
             <p>Cursor Position X / Y (In Canvas) (px): <span id="v_cX">0</span> / <span id="v_cY">0</span></p>
             <p>Canvas Width / Height (px): <span id="v_width">0</span> / <span id="v_height">0</span></p>
@@ -435,12 +435,12 @@
                 <hr>
                 <h3 style="text-align: center;">SOOPE (Simple and Open-Source Online Picture Editor)</h3>
                 <hr>
-                <p>Version: 1.1.4, completed at: May 15th, 2021</p>
+                <p>Version: 1.1.5, compiled at: Sep 10th, 2021</p>
                 <p>Created by: QuanMCPC, Product Made In VietNam.</p>
-                <p>Language used: HTML, CSS, JS</p>
+                <p>Language used: HTML, CSS, JS.</p>
                 <p>This allow user to edit picture from the browser online (and offline if you add this file to ServiceWorker).</p>
-                <p>File has been optimized while also made it easy to read.</p>
-                <p><b style="margin-left: 0">Note: Program will sorta lag if the image is large</b></p>
+                <p>File has been optimized while also made it easy to inspect.</p>
+                <p><b style="margin-left: 0">Note: Program may lag if the image is large</b></p>
                 <hr>
                 <button onclick="getId('about__').style.display = 'none'">Close</button>
                 <hr>
@@ -905,6 +905,7 @@
             qSel("body").style.backgroundColor = i ? "rgb(86, 86, 86)" : "white";
             qSel("body").style.color = i ? "#c3c3c3" : "black";
             getId("access_bar").style.backgroundColor = i ? "rgb(61, 61, 61)" : "rgb(192, 192, 192)";
+            document.querySelector("html").style.colorScheme = i ? "dark" : "light";
             document.querySelectorAll(".dropdown_content").forEach((v) => { v.style.backgroundColor = i ? "rgb(61, 61, 61)" : "rgb(192, 192, 192)" })
             document.querySelectorAll("label").forEach((v) => { v.style.color = i ? "#c3c3c3" : "black" })
             document.querySelector(":root").style.setProperty("--hoverBgColor", i ? "#1a1a1a" : "#838383")
