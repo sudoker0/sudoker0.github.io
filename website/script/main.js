@@ -218,19 +218,17 @@ accb_small_isOn = false;
 function accb_small() {
     if (accb_small_isOn) {
         // getId("accb_small").style.display = "none";
+        getId("accb_small_").style.backgroundColor = scrollY > 32 ? "rgb(16, 16, 16)" : "transparent"
         getId("accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0% 0%)";
         accb_small_isOn = false;
     } else {
         // getId("accb_small").style.display = "block";
+        getId("accb_small_").style.backgroundColor = "rgb(16, 16, 16)"
         getId("accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 100%, 0% 100%)";
         accb_small_isOn = true;
     }
 }
 var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-    getId("accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0% 0%)";
-    accb_small_isOn = false;
-}
 /**
  * @param {number} mode
  */
@@ -288,7 +286,11 @@ function changeOpacity() {
         getId("accb_small_").style.backgroundColor = "";
     }
 }
-document.onscroll = (_) => { dropShadow(); changeOpacity(); }
+document.onscroll = (_) => {
+    dropShadow(); changeOpacity();
+    getId("accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0% 0%)";
+    accb_small_isOn = false;
+}
 function changeBackground() {
     if (getWebConf("background") == 0) { changeBg(0) }
     else if (getWebConf("background") == 1) { changeBg(1) }
@@ -331,6 +333,7 @@ function ws_3() {
     getId("wslook-bgonly").classList.add("selected");
     qSelAll("div.special_stuff").forEach(v => v.style.display = "none")
     getId("wsl-default-only").style.display = "block"
+    getId("accb_small").style.backgroundColor = "rgb(16, 16, 16)"
     // getId("wsl-bgonly-only").style.display = "block"
 }
 function backgroundEasterEgg() {
