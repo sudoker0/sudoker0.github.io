@@ -218,12 +218,12 @@ accb_small_isOn = false;
 function accb_small() {
     if (accb_small_isOn) {
         // getId("accb_small").style.display = "none";
-        getId("accb_small_").style.backgroundColor = scrollY > 32 ? "rgb(16, 16, 16)" : "transparent"
+        if (getWebConf("theme") == "2") getId("accb_small_").style.backgroundColor = scrollY > 32 ? "rgba(20, 20, 20, 0.85)" : "transparent"
         getId("accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0% 0%)";
         accb_small_isOn = false;
     } else {
         // getId("accb_small").style.display = "block";
-        getId("accb_small_").style.backgroundColor = "rgb(16, 16, 16)"
+        if (getWebConf("theme") == "2") getId("accb_small_").style.backgroundColor = "rgba(20, 20, 20, 0.85)"
         getId("accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 100%, 0% 100%)";
         accb_small_isOn = true;
     }
@@ -273,10 +273,10 @@ function dropShadow() {
     }
 }
 function changeOpacity() {
-    if (getWebConf("theme") == 2) {
+    if (getWebConf("theme") == "2") {
         if (scrollY > 32) {
-            getId("accb").style.backgroundColor = "rgb(16, 16, 16)";
-            getId("accb_small_").style.backgroundColor = "rgb(16, 16, 16)";
+            getId("accb").style.backgroundColor = "rgba(20, 20, 20, 0.85)";
+            getId("accb_small_").style.backgroundColor = "rgba(20, 20, 20, 0.85)";
         } else {
             getId("accb").style.backgroundColor = "transparent";
             getId("accb_small_").style.backgroundColor = "transparent";
@@ -333,7 +333,7 @@ function ws_3() {
     getId("wslook-bgonly").classList.add("selected");
     qSelAll("div.special_stuff").forEach(v => v.style.display = "none")
     getId("wsl-default-only").style.display = "block"
-    getId("accb_small").style.backgroundColor = "rgb(16, 16, 16)"
+    getId("accb_small").style.backgroundColor = "rgba(20, 20, 20, 0.85)"
     // getId("wsl-bgonly-only").style.display = "block"
 }
 function backgroundEasterEgg() {
