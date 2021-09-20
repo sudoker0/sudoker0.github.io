@@ -91,6 +91,10 @@
             "type": "file"
         },
         {
+            "name": "a.html",
+            "type": "file"
+        },
+        {
             "name": "about.html",
             "type": "file"
         },
@@ -294,6 +298,10 @@
         },
         {
             "name": "home.html",
+            "type": "file"
+        },
+        {
+            "name": "howmanylinesofcodeisthere.py",
             "type": "file"
         },
         {
