@@ -110,7 +110,7 @@
         <button id="list_dir">&rightarrow; Get access to directory listing here! &leftarrow;</button>
         <div id="iframe_">
             <div id="iframe_accbar">
-                <button onclick="getId('iframe__').setAttribute('src', 'about:blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Close</button><button onclick="window.open(getId('iframe__').getAttribute('src'), '_blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Open in a new tab</button>
+                <button onclick="sel('#iframe__').setAttribute('src', 'about:blank'); sel('#iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Close</button><button onclick="window.open(sel('#iframe__').getAttribute('src'), '_blank'); sel('#iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Open in a new tab</button>
             </div>
             <hr id="abcd">
             <iframe id="iframe__" scrolling="yes" src="about:blank" width="100%" allowfullscreen sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-modals allow-popups"></iframe>
@@ -152,8 +152,8 @@
                 <h2>Here are some information about the website which I rarely update the stat and just here for "some purpose"</h2>
                 <h2>Note that all information about file and folder is "calculated" from GitHub storage so it won't exactly be the same (but should be 90% accurate) for any local copy of this website.</h2>
                 <div style="text-align: center;">
-                    <a href="#" onclick="getId('textview').style.display = 'block'; getId('tableview').style.display = 'none'; getId('switchtextview').style.display = 'none'; getId('switchtableview').style.display = 'block'" id="switchtextview">[Switch to text view]</a>
-                    <a href="#" onclick="getId('textview').style.display = 'none'; getId('tableview').style.display = 'table'; getId('switchtextview').style.display = 'block'; getId('switchtableview').style.display = 'none'" id="switchtableview" style="display: none;">[Switch to table view]</a>
+                    <a href="#" onclick="sel('#textview').style.display = 'block'; sel('#tableview').style.display = 'none'; sel('#switchtextview').style.display = 'none'; sel('#switchtableview').style.display = 'block'" id="switchtextview">[Switch to text view]</a>
+                    <a href="#" onclick="sel('#textview').style.display = 'none'; sel('#tableview').style.display = 'table'; sel('#switchtextview').style.display = 'block'; sel('#switchtableview').style.display = 'none'" id="switchtableview" style="display: none;">[Switch to table view]</a>
                 </div>
                 <div id="textview">
                     <p>File size:</p>
@@ -248,13 +248,12 @@
         </main>
     </body>
     <script>
-        function getId(i) { return document.getElementById(i) }
-        function qSelAll(q) { return document.querySelectorAll(q) }
-        function qSel(q) { return document.querySelector(q) }
+        function selAll(q) { return document.querySelectorAll(q) }
+        function sel(q) { return document.querySelector(q) }
         function innerHTMLClass(clas, text) { document.querySelectorAll(`.${clas}`).forEach((elem) => { elem.innerHTML = text }) }
         function oOPIIF(url) {
-            getId("iframe__").setAttribute("src", url + `?nocache=${Math.round(Math.random() * 1000000)}`);
-            getId("iframe_").style.display = "block";
+            sel("#iframe__").setAttribute("src", url + `?nocache=${Math.round(Math.random() * 1000000)}`);
+            sel("#iframe_").style.display = "block";
             document.getElementsByTagName("body")[0].style.overflow = "hidden";
         }
         fetch("/website/json/website_data.json")
@@ -286,7 +285,7 @@
                 innerHTMLClass("days_from", DInDays)
             }
         date_check()
-        getId('switchtableview').style.display = 'none'
+        sel('#switchtableview').style.display = 'none'
     </script>
     <script src="/website/script/lite.min.js"></script>
 </html>

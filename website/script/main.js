@@ -2,23 +2,91 @@
 //@ts-check/
 // window.onerror = (_, s, l ,c, err) => { if (!somethingCrash) { somethingCrash = true; function a() {return document.createElement("p")}; var errordiv = document.createElement("div"); errordiv.id = "errorscreen"; errordiv.style.backgroundColor = "#000000"; errordiv.style.color = "#ffffff"; errordiv.style.whiteSpace = "pre"; errordiv.style.position = "fixed"; errordiv.style.top = "0"; errordiv.style.left = "0"; errordiv.style.zIndex = "10000"; errordiv.style.padding = "5px"; var text1 = a(), text2 = a(), text3 = a(), text4 = a(); text1.innerHTML = "An error has occurred so the website has been halted to prevent further damage, please reload page."; text2.innerHTML = `Details: \n${err.stack}`; text3.innerHTML = `Source: ${s}`; text4.innerHTML = `Error happened at: Cols${c},Lines${l}`; text1.style.margin = "0 5px 0 5px"; text2.style.margin = "0 5px 0 5px"; text3.style.margin = "0 5px 0 5px"; text4.style.margin = "0 5px 0 5px"; errordiv.append(text1); errordiv.append(text2); errordiv.append(text3); errordiv.append(text4); document.body.append(errordiv); document.body.style.pointerEvents = "none"; document.body.style.overflow = "hidden"; document.body.style.userSelect = "none" } }
 /**
- * Short for: `document.getElementById`
- * @param {string} i The Id of the element
- * @returns HTMLELement
- */
-function getId(i) { return document.getElementById(i) }
-/**
  * Short for: `document.querySelectorAll`
  * @param {string} q The selector
  * @returns NodeListOf<Element>
  */
-function qSelAll(q) { return document.querySelectorAll(q) }
+function selAll(q) { return document.querySelectorAll(q) }
 /**
  * Short for: `document.querySelector`
  * @param {string} q The selector
  * @returns {HTMLElement}
  */
-function qSel(q) { return document.querySelector(q) }
+function sel(q) { return document.querySelector(q) }
+/**
+ * A copy of JQuery
+ * @param {string} selector - CSS selector
+ */
+function q(selector) {
+    class qElement extends Array {
+        /**
+         * Get or Set an CSS property
+         * @param {string} name - The name of the CSS property
+         * @param {string} property - The value that you want to change (empty string for Get instead)
+         * @returns {string[] | qElement} Return the current element if using the Set mode
+         */
+        css(name, property = "") {
+            var value = []
+            this.forEach((/** @type {HTMLElement} */v) => {
+                if (property == "") {
+                    value.push(v.style[name])
+                } else {
+                    v.style[name] = property
+                }
+            })
+            return value.length == 0 ? this : value
+        }
+        /**
+         * Only run on document ready
+         * @param {() => null} cb - Callback function
+         * @returns {qElement} Return the current element
+         */
+        ready(cb) {
+            const isReady = this.some(e => {
+                return e.readyState != null && e.readyState != "loading"
+            })
+            if (isReady) { cb() } else { this.on("DOMContentLoaded", cb) }
+            return this
+        }
+        /**
+         * On something
+         * @param {string | string[]} ev - The event or multiple events
+         * @param {(elm: HTMLElement) => any | string} cbOrSelector - Return function for event or selector string
+         * @param {(elm: HTMLElement) => any} cb - Return function if the second param is selector string
+         * @returns {qElement} Return the current element
+         */
+        on(ev, cbOrSelector, cb) {
+            if (typeof cbOrSelector == "function") {
+                this.forEach((/** @type {HTMLElement} */e) => {
+                    if (typeof ev == "string") { e.addEventListener(ev, cbOrSelector) }
+                    else { ev.forEach(v => { e.addEventListener(v, cbOrSelector) }) }
+                })
+            } else {
+                this.forEach((/** @type {HTMLElement} */e) => {
+                    if (typeof ev == "string") {
+                        e.addEventListener(ev, (/** @type {Event} */elm) => {
+                            if (elm.target.matches(cbOrSelector)) cb(e)
+                        })
+                    }
+                    else {
+                        ev.forEach(v => {
+                            e.addEventListener(v, (/** @type {Event} */elm) => {
+                                if (elm.target.matches(cbOrSelector)) cb(e)
+                            })
+                        })
+                    }
+                })
+            }
+            return this
+        }
+    }
+    const STRICT_MODE = true
+    if (typeof selector == "string" || selector instanceof String) {
+        return new qElement(...document.querySelectorAll(selector))
+    } else {
+        return new qElement(selector)
+    }
+}
 /**
  * Basically `localStorage.getItem`
  * @param {String} i - The name of the item
@@ -79,9 +147,9 @@ name_.forEach(function (list, _) {
     anchor2.title = list.title;
     anchor2.href = list.address + "?id=" + dateTime;
     anchor2.classList.add("nav_bar_link")
-    getId("accbar_small").appendChild(anchor2)
-    getId("accbar_small").appendChild(anchor3)
-    getId("accbar").appendChild(anchor);
+    sel("#accbar_small").appendChild(anchor2)
+    sel("#accbar_small").appendChild(anchor3)
+    sel("#accbar").appendChild(anchor);
 });
 /**
  * Get the value of a field in a URL
@@ -142,10 +210,10 @@ function rString(l) {
     return r.join("");
 }
 function check() {
-    getId("accb_small").style.top = getId("accb_small_").style.width
+    sel("#accb_small").style.top = sel("#accb_small_").style.width
     if (Number(gPBName("sv_cheat")) >= 1 || Number(gPBName("debug")) >= 1 || Number(gPBName("hack")) >= 1 || ls_gt("ls") == "927") { window.location.replace("ban.html") }
     if (gPBName("secret") == "true" || gPBName("id") == "secret") {
-        getId("secret_image").style.display = "block"
+        sel("#secret_image").style.display = "block"
         setCSSVar("--bg-img", "url(website/image/sus_.png)")
     }
     if (gPBName("id") == "entropy") {
@@ -160,43 +228,43 @@ function check() {
     if (gPBName("id") == "rotate") { document.body.style.animation = "rotate_ 5s ease"; }
     if (gPBName("id") == "rotate-inf") { document.body.style.animation = "rotate_ 5s ease infinite"; }
 }
-function closeSettings() { getId('settingspage').classList.remove('spOpened') }
+function closeSettings() { sel("#settingspage").classList.remove('spOpened') }
 document.addEventListener("click", function(evt) {
-    var fE = getId('accb_small'),
-        fE_2 = getId("accb_small_"),
+    var fE = sel("#accb_small"),
+        fE_2 = sel("#accb_small_"),
         tE = evt.target;
     do {
         if (tE == fE || tE == fE_2) { return; }
         tE = tE.parentNode;
     } while (tE);
-    getId("accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0% 0%)";
+    sel("#accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0% 0%)";
     accb_small_isOn = false;
 });
-getId("settingspage").onclick = (e) => { if (!(getId("sp_actual").contains(e.target))) { closeSettings(); } }
+sel("#settingspage").onclick = (e) => { if (!(sel("#sp_actual").contains(e.target))) { closeSettings(); } }
 function fetchLocal() {
-    getId("sp_background").querySelectorAll("button")[getWebConf("background")].classList.add("selected")
-    getId("sp_look").querySelectorAll("button")[getWebConf("theme")].classList.add("selected")
+    sel("#sp_background").querySelectorAll("button")[getWebConf("background")].classList.add("selected")
+    sel("#sp_look").querySelectorAll("button")[getWebConf("theme")].classList.add("selected")
     document.body.style.imageRendering = getWebConf("antialiasing") ? "auto" : "pixelated"
     if (getWebConf("antialiasing")) {
-        getId("bg-antialiasing").setAttribute("checked", "true");
+        sel("#bg-antialiasing").setAttribute("checked", "true");
     } else {
-        getId("bg-antialiasing").removeAttribute("checked")
+        sel("#bg-antialiasing").removeAttribute("checked")
     }
-    getId("bg-opacity-slider").value = getWebConf("imageBrightness")
+    sel("#bg-opacity-slider").value = getWebConf("imageBrightness")
     var _ = Number(getWebConf("theme"));
     if (_ == 0) { ws_1() } else if (_ == 1) { ws_2() } else if (_ == 2) { ws_3() }
 }
 window.onresize = smtg;
 window.onload = () => {
     smtg();
-    setTimeout(() => { qSelAll("nav.navbar").forEach(e => { e.classList.add("logo_rotate") }) }, Math.random() * (4.5e+6 - 3.6e+6) + 3.6e+6)
+    setTimeout(() => { selAll("nav.navbar").forEach(e => { e.classList.add("logo_rotate") }) }, Math.random() * (4.5e+6 - 3.6e+6) + 3.6e+6)
     setTimeout(() => {
-        getId("loadingIndicator").classList.add("lIClosed");
+        sel("#loadingIndicator").classList.add("lIClosed");
     }, 500);
     document.querySelectorAll("h3#accbar a, h3#accbar_small a").forEach((v) => {
         v.addEventListener("click", e => {
             e.preventDefault();
-            getId("loadingIndicator").classList.remove("lIClosed");
+            sel("#loadingIndicator").classList.remove("lIClosed");
             setTimeout(() => {
                 window.location.href = e.target.href;
             }, 500)
@@ -212,19 +280,19 @@ var somethingCrash = false;
 function smtg() {
     check()
     accb_small_isOn = false;
-    getId("accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0% 0%)";
+    sel("#accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0% 0%)";
 }
 accb_small_isOn = false;
 function accb_small() {
     if (accb_small_isOn) {
-        // getId("accb_small").style.display = "none";
-        if (getWebConf("theme") == "2") getId("accb_small_").style.backgroundColor = scrollY > 32 ? "rgba(20, 20, 20, 0.85)" : "transparent"
-        getId("accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0% 0%)";
+        // sel("#accb_small").style.display = "none";
+        if (getWebConf("theme") == "2") sel("#accb_small_").style.backgroundColor = scrollY > 32 ? "rgba(20, 20, 20, 0.85)" : "transparent"
+        sel("#accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0% 0%)";
         accb_small_isOn = false;
     } else {
-        // getId("accb_small").style.display = "block";
-        if (getWebConf("theme") == "2") getId("accb_small_").style.backgroundColor = "rgba(20, 20, 20, 0.85)"
-        getId("accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 100%, 0% 100%)";
+        // sel("#accb_small").style.display = "block";
+        if (getWebConf("theme") == "2") sel("#accb_small_").style.backgroundColor = "rgba(20, 20, 20, 0.85)"
+        sel("#accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 100%, 0% 100%)";
         accb_small_isOn = true;
     }
 }
@@ -254,7 +322,7 @@ var constant = 0;
 function setAttrClass(clas, name, attr) { document.querySelectorAll(`.${clas}`).forEach((elem) => { elem.setAttribute(name, attr) }) }
 document.addEventListener("DOMContentLoaded", () => {
     if (typeof SVGAnimateElement !== 'undefined') {} else {
-        getId("loading_redstone_dust").setAttribute('src', '/website/image/logo/loading.gif')
+        sel("#loading_redstone_dust").setAttribute('src', '/website/image/logo/loading.gif')
     }
     if (typeof SVGRect !== 'undefined') {} else {
         setAttrClass("website_logo", "src", "/website/image/logo/logo.png")
@@ -265,30 +333,30 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 function dropShadow() {
     if (scrollY > 5 && getWebConf("theme") == 1) {
-        getId("accb").style.boxShadow = "0px 7px 8px rgb(15 15 15)";
-        getId("accb_small_").style.boxShadow = "0px 7px 8px rgb(15 15 15)";
+        sel("#accb").style.boxShadow = "0px 7px 8px rgb(15 15 15)";
+        sel("#accb_small_").style.boxShadow = "0px 7px 8px rgb(15 15 15)";
     } else {
-        getId("accb").style.boxShadow = "none";
-        getId("accb_small_").style.boxShadow = "none";
+        sel("#accb").style.boxShadow = "none";
+        sel("#accb_small_").style.boxShadow = "none";
     }
 }
 function changeOpacity() {
     if (getWebConf("theme") == "2") {
         if (scrollY > 32) {
-            getId("accb").style.backgroundColor = "rgba(20, 20, 20, 0.85)";
-            getId("accb_small_").style.backgroundColor = "rgba(20, 20, 20, 0.85)";
+            sel("#accb").style.backgroundColor = "rgba(20, 20, 20, 0.85)";
+            sel("#accb_small_").style.backgroundColor = "rgba(20, 20, 20, 0.85)";
         } else {
-            getId("accb").style.backgroundColor = "transparent";
-            getId("accb_small_").style.backgroundColor = "transparent";
+            sel("#accb").style.backgroundColor = "transparent";
+            sel("#accb_small_").style.backgroundColor = "transparent";
         }
     } else {
-        getId("accb").style.backgroundColor = "";
-        getId("accb_small_").style.backgroundColor = "";
+        sel("#accb").style.backgroundColor = "";
+        sel("#accb_small_").style.backgroundColor = "";
     }
 }
 document.onscroll = (_) => {
     dropShadow(); changeOpacity();
-    getId("accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0% 0%)";
+    sel("#accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0% 0%)";
     accb_small_isOn = false;
 }
 function changeBackground() {
@@ -303,38 +371,38 @@ function changeBackground() {
         changeBg(3)
     }
 }
-function bgOpacity() { document.body.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, ${getId("bg-opacity-slider").value / 100}), rgba(0, 0, 0, ${getId("bg-opacity-slider").value / 100})), var(--bg-img)`; getId("wsl-bgonly-only-current").innerHTML = getId("bg-opacity-slider").value; setWebConf("imageBrightness", getId("bg-opacity-slider").value) }
+function bgOpacity() { document.body.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, ${sel("#bg-opacity-slider").value / 100}), rgba(0, 0, 0, ${sel("#bg-opacity-slider").value / 100})), var(--bg-img)`; sel("#wsl-bgonly-only-current").innerHTML = sel("#bg-opacity-slider").value; setWebConf("imageBrightness", sel("#bg-opacity-slider").value) }
 function ws_1() {
     setCSSVar("--bg", "rgba(20, 20, 20, 0.85)")
-    qSel(".container").style.border = "3px solid black";
-    qSel(".container").style.margin = "20px";
-    getId("wslook-default").classList.add("selected");
-    qSelAll("div.special_stuff").forEach(v => v.style.display = "none")
-    getId("wsl-default-only").style.display = "block"
+    sel(".container").style.border = "3px solid black";
+    sel(".container").style.margin = "20px";
+    sel("#wslook-default").classList.add("selected");
+    selAll("div.special_stuff").forEach(v => v.style.display = "none")
+    sel("#wsl-default-only").style.display = "block"
     bgOpacity();
     changeBackground();
 }
 function ws_2() {
     setCSSVar("--bg", "rgb(21, 21, 21)")
-    qSel(".container").style.border = "1px solid rgb(21, 21, 21)";
-    qSel(".container").style.margin = "0";
+    sel(".container").style.border = "1px solid rgb(21, 21, 21)";
+    sel(".container").style.margin = "0";
     setCSSVar("--bg-img", "initial");
-    getId("wslook-minimal").classList.add("selected");
-    qSelAll("div.special_stuff").forEach(v => v.style.display = "none")
+    sel("#wslook-minimal").classList.add("selected");
+    selAll("div.special_stuff").forEach(v => v.style.display = "none")
 }
 function ws_3() {
     changeBackground();
     bgOpacity();
     setCSSVar("--bg", "transparent");
     setCSSVar("--border", "none");
-    qSel("div.container").style.border = "none";
-    qSel("div.container").style.margin = "20px 0";
-    qSel("nav.navbar").style.boxShadow = "none";
-    getId("wslook-bgonly").classList.add("selected");
-    qSelAll("div.special_stuff").forEach(v => v.style.display = "none")
-    getId("wsl-default-only").style.display = "block"
-    getId("accb_small").style.backgroundColor = "rgba(20, 20, 20, 0.85)"
-    // getId("wsl-bgonly-only").style.display = "block"
+    sel("div.container").style.border = "none";
+    sel("div.container").style.margin = "20px 0";
+    sel("nav.navbar").style.boxShadow = "none";
+    sel("#wslook-bgonly").classList.add("selected");
+    selAll("div.special_stuff").forEach(v => v.style.display = "none")
+    sel("#wsl-default-only").style.display = "block"
+    sel("#accb_small").style.backgroundColor = "rgba(20, 20, 20, 0.85)"
+    // sel("#wsl-bgonly-only").style.display = "block"
 }
 function backgroundEasterEgg() {
     constant = constant + 0.5
@@ -343,31 +411,31 @@ function backgroundEasterEgg() {
         constant = 0
     }
 }
-getId("bg-opacity-slider").onchange = bgOpacity
-// getId("bg-opacity-slider").oninput = ws_3_bgOpacity
-qSelAll("button.bg-style").forEach(function (elem) {
+sel("#bg-opacity-slider").onchange = bgOpacity
+// sel("#bg-opacity-slider").oninput = ws_3_bgOpacity
+selAll("button.bg-style").forEach(function (elem) {
     elem.onclick = (ev) => {
-        qSelAll("button.bg-style").forEach(e => e.classList.remove("selected"))
+        selAll("button.bg-style").forEach(e => e.classList.remove("selected"))
         switch(ev.target.id) {
             case "bg-night":
                 changeBg(1);
                 setWebConf("background", 1);
-                getId("bg-night").classList.add("selected");
+                sel("#bg-night").classList.add("selected");
                 break;
             case "bg-day":
                 changeBg(0);
                 setWebConf("background", 0)
-                getId("bg-day").classList.add("selected");
+                sel("#bg-day").classList.add("selected");
                 break;
             case "bg-sys":
                 if (window.matchMedia("(prefers-color-scheme: light)").matches) { changeBg(0); } else { changeBg(1);}
                 setWebConf("background", 2)
-                getId("bg-sys").classList.add("selected");
+                sel("#bg-sys").classList.add("selected");
                 break;
             case "bg-custom":
                 changeBg(3);
                 setWebConf("background", 3)
-                getId("bg-custom").classList.add("selected");
+                sel("#bg-custom").classList.add("selected");
                 if (confirm("Do you want to select a new custom background?")) {
                     openFile().then((e) => {
                         setCSSVar("--bg-img", `url(${e})`);
@@ -383,11 +451,11 @@ qSelAll("button.bg-style").forEach(function (elem) {
 function ws_shared() {
     dropShadow();
     changeOpacity();
-    qSelAll("button.web-look").forEach((e) => { e.classList.remove("selected"); })
+    selAll("button.web-look").forEach((e) => { e.classList.remove("selected"); })
 }
-getId("wslook-default").onclick = () => { setWebConf("theme", 0); ws_shared(); ws_1(); }
-getId("wslook-minimal").onclick = () => { setWebConf("theme", 1); ws_shared(); ws_2(); }
-getId("wslook-bgonly").onclick = () => { setWebConf("theme", 2); ws_shared(); ws_3(); }
+sel("#wslook-default").onclick = () => { setWebConf("theme", 0); ws_shared(); ws_1(); }
+sel("#wslook-minimal").onclick = () => { setWebConf("theme", 1); ws_shared(); ws_2(); }
+sel("#wslook-bgonly").onclick = () => { setWebConf("theme", 2); ws_shared(); ws_3(); }
 /**
  * Open file
  * @returns {Promise<string | ArrayBuffer>}
@@ -419,7 +487,7 @@ function openFile() {
         clickElem(fileInput);
     })
 }
-getId("bg-antialiasing").onchange = (e) => {
+sel("#bg-antialiasing").onchange = (e) => {
     if (e.target.checked) {
         document.body.style.imageRendering = "auto"
         setWebConf("antialiasing", true)
@@ -428,12 +496,12 @@ getId("bg-antialiasing").onchange = (e) => {
         setWebConf("antialiasing", false)
     }
 }
-getId("list_dir").onclick = (_) => { window.location.href = "/dir_listing.html" }
+sel("#list_dir").onclick = (_) => { window.location.href = "/dir_listing.html" }
 /** @type { NodeListOf<HTMLAnchorElement> } */
-var logo_a = qSelAll("nav#accb > a, nav#accb_small_ > a");
+var logo_a = selAll("nav#accb > a, nav#accb_small_ > a");
 logo_a.forEach(e => {
     e.onmousemove = (ev) => {
-        qSelAll("nav.navbar").forEach(e => {
+        selAll("nav.navbar").forEach(e => {
             if (ev.ctrlKey && ev.shiftKey) { e.classList.add("logo_rotate") }
             else { e.classList.remove("logo_rotate") }
         })

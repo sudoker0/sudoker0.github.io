@@ -117,7 +117,7 @@
         <button id="list_dir">&rightarrow; Get access to directory listing here! &leftarrow;</button>
         <div id="iframe_">
             <div id="iframe_accbar">
-                <button onclick="getId('iframe__').setAttribute('src', 'about:blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Close</button><button onclick="window.open(getId('iframe__').getAttribute('src'), '_blank'); getId('iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Open in a new tab</button>
+                <button onclick="sel('#iframe__').setAttribute('src', 'about:blank'); sel('#iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Close</button><button onclick="window.open(sel('#iframe__').getAttribute('src'), '_blank'); sel('#iframe_').style.display = 'none'; document.getElementsByTagName('body')[0].style.overflow = 'initial'">Open in a new tab</button>
             </div>
             <hr>
             <iframe id="iframe__" scrolling="yes" src="about:blank" width="100%" allowfullscreen sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-modals allow-popups"></iframe>
@@ -488,9 +488,8 @@
         </main>
     </body>
     <script>
-        function getId(i) { return document.getElementById(i) }
-        function qSelAll(q) { return document.querySelectorAll(q) }
-        function qSel(q) { return document.querySelector(q) }
+        function selAll(q) { return document.querySelectorAll(q) }
+        function sel(q) { return document.querySelector(q) }
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;
             name = name.replace(/[\[\]]/g, '\\$&');
@@ -500,12 +499,12 @@
             return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
         function oOPIIF(url) {
-            getId("iframe__").setAttribute("src", url + `?nocache=${Math.round(Math.random() * 1000000)}`);
-            getId("iframe_").style.display = "block";
+            sel("#iframe__").setAttribute("src", url + `?nocache=${Math.round(Math.random() * 1000000)}`);
+            sel("#iframe_").style.display = "block";
             document.getElementsByTagName("body")[0].style.overflow = "hidden";
         }
         console.log(window.innerWidth, window.outerHeight, window.innerWidth, window.innerHeight)
-        // function check1() { getId("project__").style.width = getId("project").scrollWidth + "px" }
+        // function check1() { sel("#project__").style.width = sel("#project").scrollWidth + "px" }
     </script>
     <script src="/website/script/lite.min.js"></script>
 </html>

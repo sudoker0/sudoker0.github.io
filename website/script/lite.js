@@ -1,6 +1,11 @@
 //@ts-check/
 window.onerror = (_, s, l ,c, err) => { if (!somethingCrash) { somethingCrash = true; function a() {return document.createElement("p")}; var errordiv = document.createElement("div"); errordiv.id = "errorscreen"; errordiv.style.backgroundColor = "#000000"; errordiv.style.color = "#ffffff"; errordiv.style.whiteSpace = "pre"; errordiv.style.position = "fixed"; errordiv.style.top = "0"; errordiv.style.left = "0"; errordiv.style.zIndex = "10000"; errordiv.style.padding = "5px"; var text1 = a(), text2 = a(), text3 = a(), text4 = a(); text1.innerHTML = "An error has occurred so the website has been halted to prevent further damage, please reload page."; text2.innerHTML = `Details: \n${err.stack}`; text3.innerHTML = `Source: ${s}`; text4.innerHTML = `Error happened at: Cols${c},Lines${l}`; text1.style.margin = "0 5px 0 5px"; text2.style.margin = "0 5px 0 5px"; text3.style.margin = "0 5px 0 5px"; text4.style.margin = "0 5px 0 5px"; errordiv.append(text1); errordiv.append(text2); errordiv.append(text3); errordiv.append(text4); document.body.append(errordiv); document.body.style.pointerEvents = "none"; document.body.style.overflow = "hidden"; document.body.style.userSelect = "none" } }
-function getId(i) { return document.getElementById(i) }
+/**
+ * Short for: `document.querySelector`
+ * @param {string} q The selector
+ * @returns {HTMLElement}
+ */
+function sel(q) { return document.querySelector(q) }
 function qSelAll(q) { return document.querySelectorAll(q) }
 function gPBN(name, url) {
     if (!url) url = window.location.href;
@@ -52,7 +57,7 @@ name_.forEach(function (list, index) {
     document.getElementById("accbar").appendChild(anchor);
 });
 function smtg() {
-    // if (pathname == "/basic/home.html" || pathname == "/basic/home") { getId("project__").style.width = getId("project").scrollWidth + "px" }
+    // if (pathname == "/basic/home.html" || pathname == "/basic/home") { sel("#project__").style.width = sel("#project").scrollWidth + "px" }
 }
 var somethingCrash = false;
 document.addEventListener("DOMContentLoaded", () => {
@@ -62,18 +67,18 @@ document.addEventListener("DOMContentLoaded", () => {
         setAttrClass("website_logo", "src", "/website/image/logo/logo.png")
     }
     setTimeout(() => {
-        getId("loadingIndicator").style.opacity = "0";
-        getId("loadingIndicator").style.pointerEvents = "none"
+        sel("#loadingIndicator").style.opacity = "0";
+        sel("#loadingIndicator").style.pointerEvents = "none"
     }, 500);
     document.querySelectorAll("h3#accbar a, h3#accbar_small a").forEach((v) => {
         v.addEventListener("click", e => {
             e.preventDefault();
-            getId("loadingIndicator").style.opacity = "1";
-            getId("loadingIndicator").style.pointerEvents = "initial";
+            sel("#loadingIndicator").style.opacity = "1";
+            sel("#loadingIndicator").style.pointerEvents = "initial";
             setTimeout(() => {
                 window.location.href = e.target.href;
             }, 500)
         })
     })
 })
-getId("list_dir").onclick = (_) => { window.location.href = "/dir_listing.html" }
+sel("#list_dir").onclick = (_) => { window.location.href = "/dir_listing.html" }
