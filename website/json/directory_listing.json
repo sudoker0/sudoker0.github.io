@@ -301,10 +301,6 @@
             "type": "file"
         },
         {
-            "name": "howmanylinesofcodeisthere.py",
-            "type": "file"
-        },
-        {
             "name": "index.html",
             "type": "file"
         },
