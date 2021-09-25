@@ -382,14 +382,6 @@
             var times = [], fps = 0, delay = performance.now();
             // --------
             function drawScene(time, _y = 0) {
-                // -------- Get the FPS
-                const now = performance.now();
-                while (times.length > 0 && times[0] <= now - 1000) {
-                    times.shift();
-                }
-                times.push(now);
-                fps = times.length;
-                // --------
                 time *= 0.001;
                 _y *= 0.001;
                 var deltaTime = time - then;
@@ -423,14 +415,22 @@
                     gl.uniform1i(skyboxLocation, 0);
                 gl.depthFunc(gl.LEQUAL);
                 gl.drawArrays(gl.TRIANGLES, 0, 1 * 6);
-                // -------- Draw the debug info
-                var laterDelay = performance.now();
-                document.getElementById("debug").innerHTML = JSON.stringify({"cameraPosition": cameraPosition, "fps": fps, "memoryUsed": performance.memory?.usedJSHeapSize / 1048576, "delay": laterDelay - delay}, null, 2);
-                delay = laterDelay;
-                // --------
                 // Comment the below line for mouse movement instead
                 requestAnimationFrame(drawScene);
             }
+            function debug_screen() {
+                const now = performance.now();
+                while (times.length > 0 && times[0] <= now - 1000) {
+                    times.shift();
+                }
+                times.push(now);
+                fps = times.length;
+                var laterDelay = performance.now();
+                document.getElementById("debug").innerHTML = JSON.stringify({"fps": fps, "memoryUsed": performance.memory?.usedJSHeapSize / 1048576, "delay": laterDelay - delay}, null, 2);
+                delay = laterDelay;
+                requestAnimationFrame(debug_screen)
+            }
+            requestAnimationFrame(debug_screen)
         }
         function setGeometry(gl) {
             var positions = new Float32Array(
