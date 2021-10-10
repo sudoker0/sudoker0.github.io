@@ -34,52 +34,53 @@ function ls_st(i, v) { localStorage.setItem(i, v) }
  * @param {string} v - The value
  */
 function setCSSVar(p, v) { document.documentElement.style.setProperty(p, v) }
-var pathname = window.location.pathname, accb_small_isOn;
-var name_ = [
-    {
-        "name": "Home",
-        "title": "Home - The main page of the website",
-        "address": "/home.html"
-    },
-    {
-        "name": "Credit",
-        "title": "Credit - All of the stuff and people that created this website will be listed here",
-        "address": "/credit.html"
-    },
-    {
-        "name": "About Website",
-        "title": "About Website - Information about my website",
-        "address": "/about.html"
-    },
-    {
-        "name": "Gallery",
-        "title": "Gallery - Where I store picture of project and stuff",
-        "address": "/gallery.html"
-    },
-    {
-        "name": "Download",
-        "title": "Download - Download stuff, that's it",
-        "address": "/download.html"
-    }
-];
-//Syntax: Name / Description / Link (Space is important)
-name_.forEach(function (list, _) {
-    var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000),
-        anchor = document.createElement("a"), anchor_text = document.createTextNode(list.name),
-        anchor2 = document.createElement("a"), anchor2_text = document.createTextNode(list.name),
-        anchor3 = document.createElement("br");
-    anchor.appendChild(anchor_text);
-    anchor.title = list.title;
-    anchor.href = list.address + "?id=" + dateTime;
-    anchor.classList.add("nav_bar_link")
-    anchor2.appendChild(anchor2_text);
-    anchor2.title = list.title;
-    anchor2.href = list.address + "?id=" + dateTime;
-    anchor2.classList.add("nav_bar_link")
-    sel("#accbar_small").appendChild(anchor2)
-    sel("#accbar_small").appendChild(anchor3)
-    sel("#accbar").appendChild(anchor);
-});
+var pathname = window.location.pathname, accb_small_isOn = false;
+document.querySelectorAll("h3#accbar a").forEach((v) => { document.querySelector("h3#accbar_small").append(v.cloneNode(true)) })
+// var name_ = [
+//     {
+//         "name": "Home",
+//         "title": "Home - The main page of the website",
+//         "address": "/home.html"
+//     },
+//     {
+//         "name": "Credit",
+//         "title": "Credit - All of the stuff and people that created this website will be listed here",
+//         "address": "/credit.html"
+//     },
+//     {
+//         "name": "About Website",
+//         "title": "About Website - Information about my website",
+//         "address": "/about.html"
+//     },
+//     {
+//         "name": "Gallery",
+//         "title": "Gallery - Where I store picture of project and stuff",
+//         "address": "/gallery.html"
+//     },
+//     {
+//         "name": "Download",
+//         "title": "Download - Download stuff, that's it",
+//         "address": "/download.html"
+//     }
+// ];
+// //Syntax: Name / Description / Link (Space is important)
+// name_.forEach(function (list, _) {
+//     var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000),
+//         anchor = document.createElement("a"), anchor_text = document.createTextNode(list.name),
+//         anchor2 = document.createElement("a"), anchor2_text = document.createTextNode(list.name),
+//         anchor3 = document.createElement("br");
+//     anchor.appendChild(anchor_text);
+//     anchor.title = list.title;
+//     anchor.href = list.address + "?id=" + dateTime;
+//     anchor.classList.add("nav_bar_link")
+//     anchor2.appendChild(anchor2_text);
+//     anchor2.title = list.title;
+//     anchor2.href = list.address + "?id=" + dateTime;
+//     anchor2.classList.add("nav_bar_link")
+//     sel("#accbar_small").appendChild(anchor2)
+//     sel("#accbar_small").appendChild(anchor3)
+//     sel("#accbar").appendChild(anchor);
+// });
 /**
  * Get the value of a field in a URL
  * @param {string} name The field that you want to get the value
@@ -139,7 +140,7 @@ function rString(l) {
     return r.join("");
 }
 function check() {
-    sel("#accb_small").style.top = sel("#accb_small_").style.width
+    // sel("#accb_small").style.top = sel("#accb_small_").style.width
     if (Number(gPBName("sv_cheat")) >= 1 || Number(gPBName("debug")) >= 1 || Number(gPBName("hack")) >= 1 || ls_gt("ls") == "927") { window.location.replace("ban.html") }
     if (gPBName("secret") == "true" || gPBName("id") == "secret") {
         sel("#secret_image").style.display = "block"
@@ -159,11 +160,10 @@ function check() {
 }
 function closeSettings() { sel("#settingspage").classList.remove('spOpened') }
 document.addEventListener("click", function(evt) {
-    var fE = sel("#accb_small"),
-        fE_2 = sel("#accb_small_"),
+    var fE = sel("#accbar"),
         tE = evt.target;
     do {
-        if (tE == fE || tE == fE_2) { return; }
+        if (tE == fE) { return; }
         tE = tE.parentNode;
     } while (tE);
     sel("#accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0% 0%)";
@@ -215,12 +215,12 @@ accb_small_isOn = false;
 function accb_small() {
     if (accb_small_isOn) {
         // sel("#accb_small").style.display = "none";
-        if (getWebConf("theme") == "2") sel("#accb_small_").style.backgroundColor = scrollY > 32 ? "rgba(20, 20, 20, 0.85)" : "transparent"
+        // if (getWebConf("theme") == "2") sel("#accb_small_").style.backgroundColor = scrollY > 32 ? "rgba(20, 20, 20, 0.85)" : "transparent"
         sel("#accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0% 0%)";
         accb_small_isOn = false;
     } else {
         // sel("#accb_small").style.display = "block";
-        if (getWebConf("theme") == "2") sel("#accb_small_").style.backgroundColor = "rgba(20, 20, 20, 0.85)"
+        // if (getWebConf("theme") == "2") sel("#accb_small_").style.backgroundColor = "rgba(20, 20, 20, 0.85)"
         sel("#accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 100%, 0% 100%)";
         accb_small_isOn = true;
     }
@@ -263,24 +263,24 @@ document.addEventListener("DOMContentLoaded", () => {
 function dropShadow() {
     if (scrollY > 5 && getWebConf("theme") == 1) {
         sel("#accb").style.boxShadow = "0px 7px 8px rgb(15 15 15)";
-        sel("#accb_small_").style.boxShadow = "0px 7px 8px rgb(15 15 15)";
+        // sel("#accb_small_").style.boxShadow = "0px 7px 8px rgb(15 15 15)";
     } else {
         sel("#accb").style.boxShadow = "none";
-        sel("#accb_small_").style.boxShadow = "none";
+        // sel("#accb_small_").style.boxShadow = "none";
     }
 }
 function changeOpacity() {
     if (getWebConf("theme") == "2") {
         if (scrollY > 32) {
             sel("#accb").style.backgroundColor = "rgba(20, 20, 20, 0.85)";
-            sel("#accb_small_").style.backgroundColor = "rgba(20, 20, 20, 0.85)";
+            // sel("#accb_small_").style.backgroundColor = "rgba(20, 20, 20, 0.85)";
         } else {
             sel("#accb").style.backgroundColor = "transparent";
-            sel("#accb_small_").style.backgroundColor = "transparent";
+            // sel("#accb_small_").style.backgroundColor = "transparent";
         }
     } else {
         sel("#accb").style.backgroundColor = "";
-        sel("#accb_small_").style.backgroundColor = "";
+        // sel("#accb_small_").style.backgroundColor = "";
     }
 }
 document.onscroll = (_) => {
@@ -427,7 +427,7 @@ sel("#bg-antialiasing").onchange = (e) => {
 }
 sel("#list_dir").onclick = (_) => { window.location.href = "/dir_listing.html" }
 /** @type { NodeListOf<HTMLAnchorElement> } */
-var logo_a = selAll("nav#accb > a, nav#accb_small_ > a");
+var logo_a = selAll("nav#accb > a");
 logo_a.forEach(e => {
     e.onmousemove = (ev) => {
         selAll("nav.navbar").forEach(e => {

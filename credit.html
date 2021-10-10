@@ -56,30 +56,25 @@
         </style>
     </head>
     <body>
+        <noscript id="noscript_overlay">
+            <div id="noscript_text">
+                <p>This website work best with JavaScript enabled!</p>
+            </div>
+            <style>@media(max-width: 639px){button#accbar_small_open{display: none}h3#accbar a{display: block}}div#loadingIndicator,div#settings{display:none}</style>
+        </noscript>
         <button id="list_dir">&rightarrow; Get access to directory listing here! &leftarrow;</button>
         <div id="secret_image">
             <img src="website/image/secret_.png" alt="Secret image UwU">
         </div>
-        <noscript id="noscript_overlay">
-            <hr>
-            <h2>A letter from the creator of the website.</h2>
-            <hr>
-            <h3>Hello, user.</h3>
-            <p>You probally know that anyone need privacy and security (Me included), and I understand that. And you probally also know that JavaScript is dangerous if for malicious use so you have decide to turn off JavaScript all together (Or maybe you install an extension that automatically block JavaScript). And it's perfectly fine if you disable JavaScript. But you should consider that a lot (and I mean: A Lot) of website today simply can't work without JavaScript. Now that doesn't mean that you should remove the JS blocker or not block JavaScript, what I trying to say is that if you already installed a JS blocker, then only whitelist website you trust, and if you don't use one, if there's a website you suspect might be a bit sus, then it's a good idea to block the JS from that website. Although again, if the layout or stuff that is not working in the website, then maybe re-enable the JS for the website temporatily (or maybe permanently if you trust it).</p>
-            <p>Ok, let's get into the real stuff now. The website require JavaScript to work, or else, it won't work because it use JS to do stuff like: Render toolbar, Make the gallery control work properly, ... So consider enable JavaScript for this program, then refresh the page, and I promise that there is no malicious code in this program. If you don't belive, you can check the source code on Github or the View Source page. The code is not obfuscated and no hidden function.</p>
-            <p>Sincerely, the creator of the website: QuanMCPC</p>
-            <p>P.S: I know that this is the same NoScript message from the SOOPE. But it's so good that I decide to use it anyway.</p>
-            <hr>
-        </noscript>
         <nav class="accb nt navbar" id="accb">
             <a href="/" title="Return to main page"><img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo"></a>
-            <!-- <img src="/website/image/logo/logo.png" alt="Redstone" style="width: 61px; position: absolute; top: 50%; transform: translateY(-50%); left: 1px;"> -->
-            <h3 id="accbar"></h3>
-        </nav>
-        <nav id="accb_small_" class="nt navbar">
-            <a href="/" title="Return to main page"> <img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo"> </a>
-            <h3 id="accb_small_a">
-                <button onclick="accb_small()" aria-label="Click here for more website link"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ffffff" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg></button>
+            <h3 id="accbar">
+                <button id="accbar_small_open" onclick="accb_small()" aria-label="Click here for more website link"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ffffff" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg></button>
+                <a href="/home.html">Home</a>
+                <a href="/credit.html">Credit</a>
+                <a href="/about.html">About Website</a>
+                <a href="/gallery.html">Gallery</a>
+                <a href="/download.html">Download</a>
             </h3>
         </nav>
         <nav id="accb_small">

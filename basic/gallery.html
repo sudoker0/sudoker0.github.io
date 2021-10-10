@@ -123,9 +123,8 @@
                 left: 0;
                 pointer-events: none;
             }
-            div#imageZoomer_text p {
-                text-align: center;
-            }
+            div#imageZoomer_text p { text-align: center; }
+            div.container > :nth-child(2) { overflow: auto; display: block; border: 2px solid black; padding: 8px; }
         </style>
     </head>
     <body>
@@ -135,16 +134,11 @@
             <p>We have detected that the width of the screen that you are using right now is too small for the website to render properly</p>
             <p>Try to rotate the device so that the screen orientation is horizontal. Or if that didn't work either, then that mean your screen is incompatiable to view the website</p>
         </div>
-        <noscript id="noscript_overlay">
-            <hr>
-            <h2>A letter from the creator of the website.</h2>
-            <hr>
-            <h3>Hello, user.</h3>
-            <p>You probally know that anyone need privacy and security (Me included), and I understand that. And you probally also know that JavaScript is dangerous if for malicious use so you have decide to turn off JavaScript all together (Or maybe you install an extension that automatically block JavaScript). And it's perfectly fine if you disable JavaScript. But you should consider that a lot (and I mean: A Lot) of website today simply can't work without JavaScript. Now that doesn't mean that you should remove the JS blocker or not block JavaScript, what I trying to say is that if you already installed a JS blocker, then only whitelist website you trust, and if you don't use one, if there's a website you suspect might be a bit sus, then it's a good idea to block the JS from that website. Although again, if the layout or stuff that is not working in the website, then maybe re-enable the JS for the website temporatily (or maybe permanently if you trust it).</p>
-            <p>Ok, let's get into the real stuff now. The website require JavaScript to work, or else, it won't work because it use JS to do stuff like: Render toolbar, Make the gallery control work properly, ... So consider enable JavaScript for this program, then refresh the page, and I promise that there is no malicious code in this program. If you don't belive, you can check the source code on Github or the View Source page. The code is not obfuscated and no hidden function.</p>
-            <p>Sincerely, the creator of the website: QuanMCPC</p>
-            <p>P.S: I know that this is the same NoScript message from the SOOPE. But it's so good that I decide to use it anyway.</p>
-            <hr>
+        <noscript>
+            <div id="noscript_text">
+                <p>This website work best with JavaScript enabled!</p>
+            </div>
+            <style>@media(max-width: 639px){h3#accbar a{display: block}}div#loadingIndicator{display:none}</style>
         </noscript>
         <div id="note">
             <b><p>You are currently viewing Quan_MCPC's Website in basic HTML. <a href="/credit.html">Switch to standard view.</a></p></b>
@@ -153,7 +147,13 @@
             <a href="/" title="Return to main page">
                 <img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo">
             </a>
-            <h3 id="accbar"></h3>
+            <h3 id="accbar">
+                <a href="/basic/home.html">Home</a>
+                <a href="/basic/credit.html">Credit</a>
+                <a href="/basic/about.html">About Website</a>
+                <a href="/basic/gallery.html">Gallery</a>
+                <a href="/basic/download.html">Download</a>
+            </h3>
         </nav>
         <div id="loadingIndicator">
             <div>
@@ -164,6 +164,37 @@
         <main>
             <div class="container">
                 <h1>Gallery</h1>
+                <noscript>
+                    <h2>Fallback Image Viewer (Scroll horizontal to view more part of the img)</h2>
+                    <hr>
+                    <img src="/website/image/gallery/1.webp" alt="Compact Calculator [1.15.2] [Outside View]">
+                    <p>Compact Calculator [1.15.2] [Outside View]</p>
+                    <hr>
+                    <img src="/website/image/gallery/2.webp" alt="Security Vault 2.0 [Outside View]">
+                    <p>Security Vault 2.0 [Outside View]</p>
+                    <hr>
+                    <img src="/website/image/gallery/3.webp" alt="Security Vault 2.0 [Inside View]">
+                    <p>Security Vault 2.0 [Inside View]</p>
+                    <hr>
+                    <img src="/website/image/gallery/4.webp" alt="The Longest Useless Machine in Minecraft [version 1.2] [Inside View]">
+                    <p>The Longest Useless Machine in Minecraft [version 1.2] [Inside View]</p>
+                    <hr>
+                    <img src="/website/image/gallery/5.webp" alt="The Longest Useless Machine in Minecraft [version 1.2] [Outside View #1]">
+                    <p>The Longest Useless Machine in Minecraft [version 1.2] [Outside View #1]</p>
+                    <hr>
+                    <img src="/website/image/gallery/6.webp" alt="The Longest Useless Machine in Minecraft [version 1.2] [Outside View #2]">
+                    <p>The Longest Useless Machine in Minecraft [version 1.2] [Outside View #2]</p>
+                    <hr>
+                    <img src="/website/image/gallery/7.webp" alt="Printer 1.16">
+                    <p>Printer 1.16</p>
+                    <hr>
+                    <img src="/website/image/gallery/8.webp" alt="8-Bit Decoder in Minecraft">
+                    <p>8-Bit Decoder in Minecraft</p>
+                    <hr>
+                    <img src="/website/image/gallery/9.webp" alt="Compact Calculator [1.15.2] [Front View]">
+                    <p>Compact Calculator [1.15.2] [Front View]</p>
+                    <hr>
+                </noscript>
                 <div id="picture">
                     <div id="loading_svg">
                         <div id="overlay_">

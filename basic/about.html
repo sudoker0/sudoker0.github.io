@@ -104,6 +104,7 @@
                 height: calc(100% - 26px);
             }
             div#textview { display: none; }
+            div.container > :nth-child(2) { display: block; }
         </style>
     </head>
     <body>
@@ -120,16 +121,11 @@
             <p>We have detected that the width of the screen that you are using right now is too small for the website to render properly</p>
             <p>Try to rotate the device so that the screen orientation is horizontal. Or if that didn't work either, then that mean your screen is incompatiable to view the website</p>
         </div>
-        <noscript id="noscript_overlay">
-            <hr>
-            <h2>A letter from the creator of the website.</h2>
-            <hr>
-            <h3>Hello, user.</h3>
-            <p>You probally know that anyone need privacy and security (Me included), and I understand that. And you probally also know that JavaScript is dangerous if for malicious use so you have decide to turn off JavaScript all together (Or maybe you install an extension that automatically block JavaScript). And it's perfectly fine if you disable JavaScript. But you should consider that a lot (and I mean: A Lot) of website today simply can't work without JavaScript. Now that doesn't mean that you should remove the JS blocker or not block JavaScript, what I trying to say is that if you already installed a JS blocker, then only whitelist website you trust, and if you don't use one, if there's a website you suspect might be a bit sus, then it's a good idea to block the JS from that website. Although again, if the layout or stuff that is not working in the website, then maybe re-enable the JS for the website temporatily (or maybe permanently if you trust it).</p>
-            <p>Ok, let's get into the real stuff now. The website require JavaScript to work, or else, it won't work because it use JS to do stuff like: Render toolbar, Make the gallery control work properly, ... So consider enable JavaScript for this program, then refresh the page, and I promise that there is no malicious code in this program. If you don't belive, you can check the source code on Github or the View Source page. The code is not obfuscated and no hidden function.</p>
-            <p>Sincerely, the creator of the website: QuanMCPC</p>
-            <p>P.S: I know that this is the same NoScript message from the SOOPE. But it's so good that I decide to use it anyway.</p>
-            <hr>
+        <noscript>
+            <div id="noscript_text">
+                <p>This website work best with JavaScript enabled!</p>
+            </div>
+            <style>@media(max-width: 639px){h3#accbar a{display: block}}div#loadingIndicator{display:none}</style>
         </noscript>
         <div id="note">
             <b><p>You are currently viewing Quan_MCPC's Website in basic HTML. <a href="/credit.html">Switch to standard view.</a></p></b>
@@ -138,7 +134,13 @@
             <a href="/" title="Return to main page">
                 <img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo">
             </a>
-            <h3 id="accbar"></h3>
+            <h3 id="accbar">
+                <a href="/basic/home.html">Home</a>
+                <a href="/basic/credit.html">Credit</a>
+                <a href="/basic/about.html">About Website</a>
+                <a href="/basic/gallery.html">Gallery</a>
+                <a href="/basic/download.html">Download</a>
+            </h3>
         </nav>
         <div id="loadingIndicator">
             <div>
@@ -149,6 +151,12 @@
         <main>
             <div class="container">
                 <h1><b>About Website</b></h1>
+                <noscript>
+                    <hr>
+                    <h2>Note: This is a really JavaScript depended page so if you want to view the information, enable JavaScript.</h2>
+                    <h2>Although you can directly read the JSON data, including: <a href="/website/json/website_data.json">[The Website Data]</a> and <a href="/website/json/commit_data.json">[Commit Data]</a></h2>
+                    <hr>
+                </noscript>
                 <h2>Here are some information about the website which I rarely update the stat and just here for "some purpose"</h2>
                 <h2>Note that all information about file and folder is "calculated" from GitHub storage so it won't exactly be the same (but should be 90% accurate) for any local copy of this website.</h2>
                 <div style="text-align: center;">

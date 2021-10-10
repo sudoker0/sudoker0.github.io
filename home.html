@@ -99,6 +99,12 @@
         </style>
     </head>
     <body>
+        <noscript>
+            <div id="noscript_text">
+                <p>This website work best with JavaScript enabled!</p>
+            </div>
+            <style>@media(max-width: 639px){button#accbar_small_open{display: none}h3#accbar a{display: block}}div#loadingIndicator,div#settings{display:none}</style>
+        </noscript>
         <button id="list_dir">&rightarrow; Get access to directory listing here! &leftarrow;</button>
         <div id="iframe_">
             <div id="iframe_accbar">
@@ -110,26 +116,15 @@
         <div id="secret_image">
             <img src="website/image/secret_.png" alt="Secret image UwU">
         </div>
-        <noscript id="noscript_overlay">
-            <hr>
-            <h2>A letter from the creator of the website.</h2>
-            <hr>
-            <h3>Hello, user.</h3>
-            <p>You probally know that anyone need privacy and security (Me included), and I understand that. And you probally also know that JavaScript is dangerous if for malicious use so you have decide to turn off JavaScript all together (Or maybe you install an extension that automatically block JavaScript). And it's perfectly fine if you disable JavaScript. But you should consider that a lot (and I mean: A Lot) of website today simply can't work without JavaScript. Now that doesn't mean that you should remove the JS blocker or not block JavaScript, what I trying to say is that if you already installed a JS blocker, then only whitelist website you trust, and if you don't use one, if there's a website you suspect might be a bit sus, then it's a good idea to block the JS from that website. Although again, if the layout or stuff that is not working in the website, then maybe re-enable the JS for the website temporatily (or maybe permanently if you trust it).</p>
-            <p>Ok, let's get into the real stuff now. The website require JavaScript to work, or else, it won't work because it use JS to do stuff like: Render toolbar, Make the gallery control work properly, ... So consider enable JavaScript for this program, then refresh the page, and I promise that there is no malicious code in this program. If you don't belive, you can check the source code on Github or the View Source page. The code is not obfuscated and no hidden function.</p>
-            <p>Sincerely, the creator of the website: QuanMCPC</p>
-            <p>P.S: I know that this is the same NoScript message from the SOOPE. But it's so good that I decide to use it anyway.</p>
-            <hr>
-        </noscript>
         <nav class="accb nt navbar" id="accb">
             <a href="/" title="Return to main page"><img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo"></a>
-            <!-- <img src="/website/image/logo/logo.png" alt="Redstone" style="width: 61px; position: absolute; top: 50%; transform: translateY(-50%); left: 1px;"> -->
-            <h3 id="accbar"></h3>
-        </nav>
-        <nav id="accb_small_" class="nt navbar">
-            <a href="/" title="Return to main page"> <img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo"> </a>
-            <h3 id="accb_small_a">
-                <button onclick="accb_small()" aria-label="Click here for more website link"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ffffff" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg></button>
+            <h3 id="accbar">
+                <button id="accbar_small_open" onclick="accb_small()" aria-label="Click here for more website link"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ffffff" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg></button>
+                <a href="/home.html">Home</a>
+                <a href="/credit.html">Credit</a>
+                <a href="/about.html">About Website</a>
+                <a href="/gallery.html">Gallery</a>
+                <a href="/download.html">Download</a>
             </h3>
         </nav>
         <nav id="accb_small">
@@ -149,8 +144,8 @@
         <main>
             <div class="container">
                 <h1><b>Student. Developer. Gamer.</b></h1>
-                <h2>Hello! My name is Quan, a student, a small developer and a gamer. I'm currently living at Vietnam and HTML, CSS, JS, C# and Java are the five programming language I'm good at, well, good as in junior/amateur level that is.</h2>
-                <h2>Even though this is a personal website, I made the website to look kind of like a business website or commercial website for no reason at all ;) Also, this website has a bunch of easter egg in it, so if you have free time, maybe try and find some or all of them.</h2>
+                <h2>Hello! My name is Quan, a student, a small developer and a gamer. I'm currently living at Vietnam and HTML, CSS, JS, C# and Python are some of programming languages that I'm good at.</h2>
+                <h2>This website has a bunch of easter egg in it, so that if you have free time, you can try and find some or all of them (If you want).</h2>
                 <h3 class="showoff">Social link</h3>
                 <div id="social_link">
                     <div id="external_link_image" style="text-align: center;">
@@ -265,56 +260,63 @@
                 </div>
                 <h3 class="showoff">Project</h3>
                 <!-- Other Project START -->
-                <div class="collapsible" tabindex="0" role="button">
+                <input type="checkbox" name="cb1" id="cb1" class="collapsible_cb">
+                <label class="collapsible" tabindex="0" for="cb1">
                     <span>Other Project</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                </div>
+                </label>
                 <div class="collapsiblecontent">
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb1-0" id="cb1-0" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb1-0">
                         <span>Guess The Programming Language (Written in Python, text-based game)</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Link: <a href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/gtpl.py" target="_blank" rel="noreferrer noopener">[Click here]</a></span>
                         <span>Download: <a href="/other_project/gtpl.py" download="gtpl.py" target="_blank" rel="noreferrer noopener">[Click here]</a></span>
                         <span>Description: Guess The Programming Language written in Python, it's a text-based game and it's my first ever Python game I've written.</span>
                     </div>
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb1-1" id="cb1-1" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb1-1">
                         <span>Windows Forms App 2.0 Unofficial</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Link: <a href="https://github.com/QuanMCPC/Windows-Forms-App-2.0-Unofficial" target="_blank" rel="noreferrer noopener">[Click here]</a></span>
                         <span>Description: Just a bit more modern look of the Windows Forms App</span>
                     </div>
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb1-2" id="cb1-2" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb1-2">
                         <span>Experiment ID: [redacted]</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Link: <a href="https://drive.google.com/file/d/1yGh0FskgCf5--X0SSPb86pXzQ4Nv1JIj/view" target="_blank" rel="noreferrer noopener">[<del>Don't</del> Click here]</a></span>
                         <span>Description: This #$!@ filE conTa1nS @$%!!$ tHaT wi1l al10w yoU t0 *&@*$![redacted]</span>
                     </div>
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb1-3" id="cb1-3" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb1-3">
                         <span>Edit (Edit Document In Terminal)</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/Edit">[Click here]</a></span>
                         <span>Description: Started as a small program in <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/console.html">console</a>, it's now a native program that in executable in Windows and Linux</span>
                     </div>
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb1-4" id="cb1-4" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb1-4">
                         <span>Guess the number Game</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/Guess-The-Number-Game/">[Click here]</a></span>
                         <span>Description: My second game written in C# and based on the <a href="#" data-address="/other_project/numberguessgame.html" onclick="oOPIIF(this.getAttribute('data-address'))">NumberGuessingGame</a></span>
                     </div>
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb1-5" id="cb1-5" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb1-5">
                         <span>MyFirstGame</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Source code: Lost in time</span>
                         <span>Link: </span>
@@ -338,55 +340,62 @@
                 </div>
                 <!-- Other Project END-->
                 <!-- Minecraft Project START -->
-                <div class="collapsible" tabindex="0" role="button">
+                <input type="checkbox" name="cb2" id="cb2" class="collapsible_cb">
+                <label class="collapsible" tabindex="0" for="cb2">
                     <span>Minecraft Project</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                </div>
+                </label>
                 <div class="collapsiblecontent">
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb2-1" id="cb2-1" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb2-1">
                         <span>8-bit Decoder</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Link: <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/8-bit-decoder-in-minecraft/">[Click here]</a></span>
                         <span>Description: Convert binary to character from A to Z, 0 to 9 in ASCII</span>
                     </div>
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb2-2" id="cb2-2" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb2-2">
                         <span>Compact Calculator (1.15.2)</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Link: <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/compact-calculator-1-15-2/">[Click here]</a></span>
                         <span>Description: A fully working calculator that can do basic calculation in Minecraft using command block</span>
                     </div>
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb2-3" id="cb2-3" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb2-3">
                         <span>The Longest Useless Machine in Minecraft (version 1.0)</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Link: <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-0/">[Click here]</a></span>
                         <span>Description: My next big project in Minecraft that serve no purpose</span>
                     </div>
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb2-4" id="cb2-4" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb2-4">
                         <span>The Longest Useless Machine in Minecraft (version 1.<del>1</del>2)</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Link: <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-1/">[Click here]</a></span>
                         <span>Description: An upgraded version of the 1.0 version</span>
                     </div>
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb2-5" id="cb2-5" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb2-5">
                         <span>Printer 1.16</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Link: <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/printer-1-16/">[Click here]</a></span>
                         <span>Description: A "sort of working" printer that is inspired by Mumbo Jumbo.</span>
                     </div>
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb2-6" id="cb2-6" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb2-6">
                         <span>Security Vault 2.0</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Link: <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/security-vault-2-0/">[Click here]</a></span>
                         <span>Description: A very large vault to store and hide valuables</span>
@@ -394,31 +403,35 @@
                 </div>
                 <!-- Minecraft Project STOP -->
                 <!-- JavaScript Project START -->
-                <div class="collapsible" tabindex="0" role="button">
+                <input type="checkbox" name="cb3" id="cb3" class="collapsible_cb">
+                <label class="collapsible" tabindex="0" for="cb3">
                     <span>JavaScript Project</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                </div>
+                </label>
                 <div class="collapsiblecontent">
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb3-1" id="cb3-1" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb3-1">
                         <span>Edit for other website</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/JavaScript-Project/blob/master/Edit_For_Other_Website.js">[Click here]</a></span>
                         <span>Description: Allow other people to use edit in their website</span>
                     </div>
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb3-2" id="cb3-2" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb3-2">
                         <span>Random picture generator</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/JavaScript-Project/blob/master/random-picture.js">[Click here]</a></span>
                         <span>Description: Create picture with "randomness"</span>
                     </div>
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb3-3" id="cb3-3" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb3-3">
                         <span>UnderJScript</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/JavaScript-Project/blob/master/underjscript.js">[Click here]</a></span>
                         <span>Description: A small JavaScript library that add some function that I can get</span>
@@ -426,87 +439,97 @@
                 </div>
                 <!-- JavaScript Project END -->
                 <!-- Page Project START -->
-                <div class="collapsible" tabindex="0" role="button">
+                <input type="checkbox" name="cb4" id="cb4" class="collapsible_cb">
+                <label class="collapsible" tabindex="0" for="cb4">
                     <span>HTML Page Project</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                </div>
+                </label>
                 <div class="collapsiblecontent">
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb4-1" id="cb4-1" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb4-1">
                         <span>Panorama Demo</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/panorama/index.html">[Click here]</a></span>
                         <span>Link: <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/panorama/index.html">[Click here]</a></span>
                         <span>Description: If I ever set a background (and I might in the future) as a panorama, this would be it (And this doesn't use any external library!).</span>
                     </div>
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb4-2" id="cb4-2" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb4-2">
                         <span>SOOPE (Simple and Open-Source Online Picture Editor)</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/soope.html">[Click here]</a></span>
                         <span>Link: <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/soope.html">[Click here]</a></span>
                         <span>Description: A simple and open source picture editor for edit picture on browser and more.</span>
                     </div>
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb4-3" id="cb4-3" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb4-3">
                         <span>Console</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/console.html">[Click here]</a></span>
                         <span>Link: <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/console.html">[Click here]</a></span>
                         <span>Description: My very first large HTML project which is my first CLI OS in HTML.</span>
                     </div>
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb4-4" id="cb4-4" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb4-4">
                         <span>Vigenere Cipher</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/Vigenere_Cipher.html">[Click here]</a></span>
                         <span>Link: <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/Vigenere_Cipher.html">[Click here]</a></span>
                         <span>Description: It's an Vigenere cipther but very limited<small title="Input only accept normal character, no number, space, etc.">(?)</small></span>
                     </div>
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb4-5" id="cb4-5" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb4-5">
                         <span>Basic message encrptor and decrptor</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/message_en_de.html">[Click here]</a></span>
                         <span>Link: <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/message_en_de.html">[Click here]</a></span>
                         <span>Description: A very, Very basic message encryptor and decrytor that just replace each character to the pre-set 4 random character</span>
                     </div>
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb4-6" id="cb4-6" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb4-6">
                         <span>Guess the number game</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/numberguessgame.html">[Click here]</a></span>
                         <span>Link: <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/numberguessgame.html">[Click here]</a></span>
                         <span>Description: A game where you have to guess the correct number, that's it.</span>
                     </div>
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb4-7" id="cb4-7" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb4-7">
                         <span>Text editor (Lite and Full version)</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/texteditor_basic.html">[Click here for lite version]</a> <a rel="noopener noreferrer" target="_blank" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/texteditor_html.html">[Click here for full version]</a></span>
                         <span>Link: <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/texteditor_basic.html">[Click here for lite version]</a> <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/texteditor_html.html">[Click here for full version]</a></span>
                         <span>Description: A text editor that work in your browser.</span>
                     </div>
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb4-8" id="cb4-8" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb4-8">
                         <span>Webdriver Torso's video stream</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/webdriver_torso.html">[Click here]</a></span>
                         <span>Link: <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/webdriver_torso.html">[Click here]</a></span>
                         <span>Description: Show to user a stream of image that have the same style as a Webdriver Torso's video.</span>
                     </div>
-                    <div class="collapsible" tabindex="0" role="button">
+                    <input type="checkbox" name="cb4-9" id="cb4-9" class="collapsible_cb">
+                    <label class="collapsible" tabindex="0" for="cb4-9">
                         <span>Simple Captcha</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </div>
+                    </label>
                     <div class="collapsiblecontent">
                         <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/captcha.html">[Click here]</a></span>
                         <span>Link: <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/captcha.html">[Click here]</a></span>
@@ -516,37 +539,41 @@
                 <!-- Page Project END -->
                 <!-- Website I Owned START -->
                 <h3 class="showoff">Website I owned</h3>
-                <div class="collapsible" tabindex="0" role="button">
+                <input type="checkbox" name="cb5-1" id="cb5-1" class="collapsible_cb">
+                <label class="collapsible" tabindex="0" for="cb5-1">
                     <span>My Carrd Website</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                </div>
+                </label>
                 <div class="collapsiblecontent">
                     <span>Link: <a rel="noopener noreferrer" target="_blank" href="https://quanmcpc.carrd.co/">[Click here]</a></span>
                     <span>Source code: Not Avaliable</span>
                     <span>Description: First attempt at drag and drop website.</span>
                 </div>
-                <div class="collapsible" tabindex="0" role="button">
+                <input type="checkbox" name="cb5-2" id="cb5-2" class="collapsible_cb">
+                <label class="collapsible" tabindex="0" for="cb5-2">
                     <span>Where I post blog</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                </div>
+                </label>
                 <div class="collapsiblecontent">
                     <span>Link: <a rel="noopener noreferrer" target="_blank" href="https://quanmcpc-blogsite.github.io/">[Click here]</a></span>
                     <span>Source code: <a rel="noopener noreferrer" target="_blank" href="https://github.com/quanmcpc-blogsite/quanmcpc-blogsite.github.io">[Click here]</a></span>
                     <span>Description: Where I'll post blog about me and maybe the website.</span>
                 </div>
-                <div class="collapsible" tabindex="0" role="button">
+                <input type="checkbox" name="cb5-3" id="cb5-3" class="collapsible_cb">
+                <label class="collapsible" tabindex="0" for="cb5-3">
                     <span>First version of my website (50% basic HTML, 50% nostalgia)</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                </div>
+                </label>
                 <div class="collapsiblecontent">
                     <span>Link: <a rel="noopener noreferrer" target="_blank" href="https://quan215.github.io/">[Click here]</a></span>
                     <span>Source code: <a rel="noopener noreferrer" target="_blank" href="https://github.com/Quan215/Quan215.github.io">[Click here]</a></span>
                     <span>Description: This is the first version of my website, even with the original domain. Please note that the website is really basic, like really basic.</span>
                 </div>
-                <div class="collapsible" tabindex="0" role="button">
+                <input type="checkbox" name="cb5-4" id="cb5-4" class="collapsible_cb">
+                <label class="collapsible" tabindex="0" for="cb5-4">
                     <span>Very browser-compatible version of the website (Coded with Windows XP and efford)</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                </div>
+                </label>
                 <div class="collapsiblecontent">
                     <span>Link: <a rel="noopener noreferrer" target="_blank" href="https://quanmcpc.gitlab.io/">[Click here]</a></span>
                     <span>Source code: <a rel="noopener noreferrer" target="_blank" href="https://gitlab.com/QuanMCPC/quanmcpc.gitlab.io">[Click here]</a></span>
@@ -595,22 +622,6 @@
         </main>
     </body>
     <script>
-        document.querySelectorAll("div.collapsible").forEach((v) => {
-            v.onclick = e => {
-                console.log(e);
-                var vn = v.nextElementSibling;
-                if (vn.style.display == "block") {
-                    vn.style.display = "none"
-                    vn.querySelectorAll("div.collapsiblecontent").forEach((v_) => { v_.style.display = "none"; })
-                    vn.querySelectorAll("div.collapsible").forEach((v_) => { v_.querySelectorAll("img")[0].classList.remove("rotate") })
-                    v.querySelectorAll("img")[0].classList.remove("rotate")
-                } else {
-                    vn.style.display = "block"
-                    v.querySelectorAll("img")[0].classList.add("rotate")
-                }
-            }
-            v.onkeydown = function(e) {if (event.code == 'Enter') { v.click(); }}
-        })
         function selAll(q) { return document.querySelectorAll(q) }
         function sel(q) { return document.querySelector(q) }
         var constant = 0;

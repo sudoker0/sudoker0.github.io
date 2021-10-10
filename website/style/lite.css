@@ -172,3 +172,10 @@ div#note {
 }
 div#note p { margin: 2px; }
 h2.loading_text { font-size: initial; }
+div#noscript_text {
+  background-color: rgb(255, 0, 0, 0.5);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+div#noscript_text > * { margin: 8px; font-weight: bold; }

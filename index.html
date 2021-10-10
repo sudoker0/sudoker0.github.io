@@ -71,7 +71,7 @@
             a:hover {
                 color: rgb(255, 0, 0);
             }
-            .center-screen button, .center-screen a {
+            .center-screen a {
                 margin: 5px 0 5px 0;
                 font-size: 1.05rem;
                 border: none;
@@ -80,15 +80,11 @@
                 background-color: rgb(90, 90, 90);
                 display: block;
                 cursor: pointer;
-                width: 100%;
+                width: calc(100% - 20px);
+                text-decoration: none;
             }
-            .center-screen button:hover, .center-screen a:hover {
+            .center-screen a:hover {
                 background-color: rgb(75, 75, 75);
-            }
-            @media (max-width: 960px) {
-                .center-screen button {
-                    padding: 10px;
-                }
             }
             #signature {
                 stroke-dasharray: 251.1;
@@ -114,20 +110,21 @@
                 background-color: white;
             }
             body { background-color: #151515; color: white; }
+            div#noscript_text {
+                background-color: rgb(255, 0, 0, 0.5);
+                position: fixed;
+                bottom: 0;
+                left: 0;
+            }
+            div#noscript_text > * { margin: 8px; }
         </style>
         <title>QuanMCPC's Website</title>
     </head>
     <body onload="move(event)">
-        <noscript id="noscript_overlay">
-            <hr>
-            <h2>A letter from the creator of the website.</h2>
-            <hr>
-            <h3>Hello, user.</h3>
-            <p>You probally know that anyone need privacy and security (Me included), and I understand that. And you probally also know that JavaScript is dangerous if for malicious use so you have decide to turn off JavaScript all together (Or maybe you install an extension that automatically block JavaScript). And it's perfectly fine if you disable JavaScript. But you should consider that a lot (and I mean: A Lot) of website today simply can't work without JavaScript. Now that doesn't mean that you should remove the JS blocker or not block JavaScript, what I trying to say is that if you already installed a JS blocker, then only whitelist website you trust, and if you don't use one, if there's a website you suspect might be a bit sus, then it's a good idea to block the JS from that website. Although again, if the layout or stuff that is not working in the website, then maybe re-enable the JS for the website temporatily (or maybe permanently if you trust it).</p>
-            <p>Ok, let's get into the real stuff now. The website require JavaScript to work, or else, it won't work because it use JS to do stuff like: Render toolbar, Make the gallery control work properly, ... So consider enable JavaScript for this program, then refresh the page, and I promise that there is no malicious code in this program. If you don't belive, you can check the source code on Github or the View Source page. The code is not obfuscated and no hidden function.</p>
-            <p>Sincerely, the creator of the website: QuanMCPC</p>
-            <p>P.S: I know that this is the same NoScript message from the SOOPE. But it's so good that I decide to use it anyway.</p>
-            <hr>
+        <noscript>
+            <div id="noscript_text">
+                <p>This website work best with JavaScript enabled!</p>
+            </div>
         </noscript>
         <main>
             <div class="center-screen">
@@ -140,21 +137,14 @@
                     </div>
                     <h3>Welcome visitor! Where do you want to go?</h3>
                     <div id="button_">
+                        <a href="./home.html">Load standard view</a>
+                        <a href="./basic/home.html">Load basic HTML view (For Slow Connection)</a>
                         <button id="yes">Install website</button>
                     </div>
-                    <!-- <button onclick="window.open('https:\/\/quan215.github.io/', '_blank')">Load the first version of the website</button> -->
                 </div>
             </div>
         </main>
         <script>
-            var dateTime = Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 1000);
-            var button1 = document.createElement("button"), button1_att_ = document.createTextNode("Load standard view"),
-                button2 = document.createElement("button"), button2_att_ = document.createTextNode("Load basic HTML view (For Slow Connection)")
-            button1.onclick = function() {window.location.href = 'home.html?id='+ dateTime +''}; button2.onclick = function() {window.location.href = 'basic/home.html?id='+ dateTime +''};
-            button1.appendChild(button1_att_);
-            button2.appendChild(button2_att_);
-            document.getElementById("button_").prepend(button2)
-            document.getElementById("button_").prepend(button1)
             var i = 0;
             var pause = false;
             window.mobileCkeck_ = mobileCkeck();
