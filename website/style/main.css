@@ -27,7 +27,7 @@
   font-display: fallback;
 }
 * {
-  font-family: Raleway;
+  font-family: "Raleway", Arial, Helvetica, sans-serif;
   font-weight: 500;
 }
 button:hover { cursor: pointer; }
