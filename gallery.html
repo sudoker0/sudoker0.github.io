@@ -161,14 +161,11 @@
                 transition: transform 0.4s;
                 transform: scale(0.5);
             }
-            div.container > :nth-child(2) { overflow: auto; display: block; border: 2px solid white; padding: 8px; }
         </style>
     </head>
     <body>
         <noscript>
-            <div id="noscript_text">
-                <p>This website work best with JavaScript enabled!</p>
-            </div>
+            <div id="noscript_text"><p>This website work best with JavaScript enabled!</p></div>
             <style>@media(max-width: 639px){button#accbar_small_open{display: none}h3#accbar a{display: block}}div#loadingIndicator,div#settings{display:none}</style>
         </noscript>
         <button id="list_dir">&rightarrow; Get access to directory listing here! &leftarrow;</button>
@@ -203,37 +200,45 @@
         <main>
             <div class="container">
                 <h1>Gallery</h1>
-                <noscript>
-                    <h2>Fallback Image Viewer (Scroll horizontal to view more part of the img)</h2>
-                    <hr>
-                    <img src="/website/image/gallery/1.webp" alt="Compact Calculator [1.15.2] [Outside View]">
-                    <p>Compact Calculator [1.15.2] [Outside View]</p>
-                    <hr>
-                    <img src="/website/image/gallery/2.webp" alt="Security Vault 2.0 [Outside View]">
-                    <p>Security Vault 2.0 [Outside View]</p>
-                    <hr>
-                    <img src="/website/image/gallery/3.webp" alt="Security Vault 2.0 [Inside View]">
-                    <p>Security Vault 2.0 [Inside View]</p>
-                    <hr>
-                    <img src="/website/image/gallery/4.webp" alt="The Longest Useless Machine in Minecraft [version 1.2] [Inside View]">
-                    <p>The Longest Useless Machine in Minecraft [version 1.2] [Inside View]</p>
-                    <hr>
-                    <img src="/website/image/gallery/5.webp" alt="The Longest Useless Machine in Minecraft [version 1.2] [Outside View #1]">
-                    <p>The Longest Useless Machine in Minecraft [version 1.2] [Outside View #1]</p>
-                    <hr>
-                    <img src="/website/image/gallery/6.webp" alt="The Longest Useless Machine in Minecraft [version 1.2] [Outside View #2]">
-                    <p>The Longest Useless Machine in Minecraft [version 1.2] [Outside View #2]</p>
-                    <hr>
-                    <img src="/website/image/gallery/7.webp" alt="Printer 1.16">
-                    <p>Printer 1.16</p>
-                    <hr>
-                    <img src="/website/image/gallery/8.webp" alt="8-Bit Decoder in Minecraft">
-                    <p>8-Bit Decoder in Minecraft</p>
-                    <hr>
-                    <img src="/website/image/gallery/9.webp" alt="Compact Calculator [1.15.2] [Front View]">
-                    <p>Compact Calculator [1.15.2] [Front View]</p>
-                    <hr>
-                </noscript>
+                <div id="fallback_img_wrapper">
+                    <noscript>
+                        <style>
+                            div#picture { display: none; }
+                            div#fallback_img_wrapper > * { display: block; }
+                            div#fallback_img_viewer { border: 2px solid white; }
+                            div#fallback_img_viewer hr { border: 1px solid white; }
+                            div#fallback_img_viewer p {
+                                text-align: center;
+                                margin: 8px;
+                            }
+                            div#fallback_img_viewer * {
+                                width: 100%;
+                                display: block;
+                            }
+                        </style>
+                        <div id="fallback_img_viewer">
+                            <p><u>Fallback Image Viewer</u></p><hr>
+                            <img src="/website/image/gallery/1.webp" alt="Compact Calculator [1.15.2] [Outside View]">
+                            <p>Compact Calculator [1.15.2] [Outside View]</p><hr>
+                            <img src="/website/image/gallery/2.webp" alt="Security Vault 2.0 [Outside View]">
+                            <p>Security Vault 2.0 [Outside View]</p><hr>
+                            <img src="/website/image/gallery/3.webp" alt="Security Vault 2.0 [Inside View]">
+                            <p>Security Vault 2.0 [Inside View]</p><hr>
+                            <img src="/website/image/gallery/4.webp" alt="The Longest Useless Machine in Minecraft [version 1.2] [Inside View]">
+                            <p>The Longest Useless Machine in Minecraft [version 1.2] [Inside View]</p><hr>
+                            <img src="/website/image/gallery/5.webp" alt="The Longest Useless Machine in Minecraft [version 1.2] [Outside View #1]">
+                            <p>The Longest Useless Machine in Minecraft [version 1.2] [Outside View #1]</p><hr>
+                            <img src="/website/image/gallery/6.webp" alt="The Longest Useless Machine in Minecraft [version 1.2] [Outside View #2]">
+                            <p>The Longest Useless Machine in Minecraft [version 1.2] [Outside View #2]</p><hr>
+                            <img src="/website/image/gallery/7.webp" alt="Printer 1.16">
+                            <p>Printer 1.16</p><hr>
+                            <img src="/website/image/gallery/8.webp" alt="8-Bit Decoder in Minecraft">
+                            <p>8-Bit Decoder in Minecraft</p><hr>
+                            <img src="/website/image/gallery/9.webp" alt="Compact Calculator [1.15.2] [Front View]">
+                            <p>Compact Calculator [1.15.2] [Front View]</p>
+                        </div>
+                    </noscript>
+                </div>
                 <div id="picture">
                     <div id="loading_svg">
                         <div id="overlay_">
