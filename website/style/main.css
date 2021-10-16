@@ -391,6 +391,7 @@ label.collapsible {
   grid-template-areas: "text indicator";
   cursor: pointer;
   margin-bottom: 10px;
+  transition: all 0.1s;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
   -khtml-user-select: none;
@@ -412,7 +413,8 @@ label.collapsible div.indicator {
   margin: 0;
 }
 label.collapsible div.indicator img { margin: 0 10px 0 0 }
-label.collapsible:hover { background-color: rgba(0, 0, 0, 0.4) }
+label.collapsible:hover { background-color: white; }
+label.collapsible:hover > * { filter: invert(1); }
 .rotate { transform: rotate(180deg) }
 div.collapsiblecontent {
   border: 2px solid white;

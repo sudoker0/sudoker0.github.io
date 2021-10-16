@@ -27,30 +27,10 @@
         <link rel="apple-touch-icon" href="/website/image/logo/logo.png">
         <title>QuanMCPC's Website</title>
         <style>
-            svg#github_link:hover, svg#plannetminecraft_link:hover {
-                cursor: pointer;
-            }
-            div#left:hover > div.imgBtnBg, div#right:hover > div.imgBtnBg {
-                cursor: pointer;
-                width: 100%;
-                -webkit-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-            }
-            div#overlay_:hover {
-                cursor: zoom-in;
-            }
-            @media (max-width: 374px) {
-                div.imgBtnBg h3 {
-                    left: 50% !important;
-                    transform: translateX(-50%) !important;
-                }
-            }
-            @media (min-width: 375px) {
-                div#button_list {
-                    grid-template-columns: repeat(auto-fit, minmax(calc(33% - 17px), 1fr));
-                }
-            }
+            svg#github_link:hover, svg#plannetminecraft_link:hover { cursor: pointer; }
+            div#overlay_:hover { cursor: zoom-in; }
+            @media (max-width: 374px) { div.imageButton h3 { text-align: center !important; margin-left: 0 !important; margin-right: 0 !important; } }
+            @media (min-width: 375px) { div#button_list { grid-template-columns: repeat(auto-fit, minmax(calc(33% - 17px), 1fr)); } }
             div#button_list {
                 display: grid;
                 max-width: initial;
@@ -94,18 +74,24 @@
                 border: 2px solid white;
                 margin: 10px 5px 5px 5px;
                 position: relative;
+                transition: all 0.1s;
+                -webkit-user-select: none;
+                -webkit-touch-callout: none;
+                -khtml-user-select: none;
+                -ms-user-select: none;
+                -moz-user-select: none;
+                user-select: none;
             }
-            div.imgBtnBg h3 {
-                position: absolute;
+            div.imageButton h3 {
                 display: block;
-                top: 0;
                 margin: 10px 0;
-                mix-blend-mode: difference;
-                width: fit-content;
+                width: 100%;
             }
-            div#left div.imgBtnBg h3 { left: 5px; }
+            div#left:hover, div#right:hover { background-color: white; cursor: pointer; }
+            div#left:hover > *, div#right:hover > * { filter: invert(1); }
+            div#right h3 { text-align: right; margin-left: -10px; }
+            div#left h3 { margin-left: 10px; }
             div#middle h3 { text-align: center; margin: 10px 0 10px 5px; }
-            div#right div.imgBtnBg h3 { right: 5px; }
             p#note { text-align: center; margin-top: 1px; margin-bottom: 1px; }
             div#imageZoomer {
                 position: fixed;
@@ -150,12 +136,6 @@
             }
             div#imageZoomer_text p {
                 text-align: center;
-            }
-            div.imgBtnBg {
-                width: 0;
-                height: 100%;
-                background-color: white;
-                transition: width 0.3s;
             }
             img#image_zoom {
                 transition: transform 0.4s;
@@ -322,17 +302,13 @@
                     <figcaption id="pic_caption"></figcaption>
                     <div id="button_list">
                         <div class="imageButton" id="left" tabindex="0" role="button">
-                            <div class="imgBtnBg">
-                                <h3>&laquo; Previous</h3>
-                            </div>
+                            <h3>&laquo; Previous</h3>
                         </div>
                         <div class="imageButton" id="middle">
                             <h3 id="description_">Page 1 / 9</h3>
                         </div>
                         <div class="imageButton" id="right" tabindex="0" role="button">
-                            <div class="imgBtnBg">
-                                <h3>Next &raquo;</h3>
-                            </div>
+                            <h3>Next &raquo;</h3>
                         </div>
                     </div>
                     <div id="imageZoomer">
