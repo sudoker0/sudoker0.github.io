@@ -228,11 +228,11 @@ div#settings {
   border: 2px solid white;
   transition: all 0.1s ease;
 }
-div#settings:hover {
+div#settings:hover, div#settings:focus {
   cursor: pointer;
   background-color: white;
 }
-div#settings:hover > * { filter: invert(1); }
+div#settings:hover > *, div#settings:focus > * { filter: invert(1); }
 div#settingspage {
   display: flex;
   justify-content: center;
