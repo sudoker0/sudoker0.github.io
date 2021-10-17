@@ -225,12 +225,14 @@ div#settings {
   z-index: 100;
   background-color: rgba(31, 31, 31, 0.8);
   padding: 5px;
-  border: 2px solid black;
+  border: 2px solid white;
+  transition: all 0.1s ease;
 }
 div#settings:hover {
-  background-color: rgba(15, 15, 15, 0.8);
   cursor: pointer;
+  background-color: white;
 }
+div#settings:hover > * { filter: invert(1); }
 div#settingspage {
   display: flex;
   justify-content: center;
@@ -383,6 +385,8 @@ input.collapsible_cb {
   opacity: 0;
   z-index: -100;
 }
+input.collapsible_cb:focus + label, input.collapsible_cb:hover + label { background-color: white; }
+input.collapsible_cb:focus + label > *, input.collapsible_cb:hover + label > * { filter: invert(1); }
 input.collapsible_cb:checked + label + div.collapsiblecontent { display: block; }
 input.collapsible_cb:checked + label div img { transform: rotate(180deg); }
 label.collapsible {
@@ -391,7 +395,7 @@ label.collapsible {
   grid-template-areas: "text indicator";
   cursor: pointer;
   margin-bottom: 10px;
-  transition: all 0.1s;
+  transition: all 0.1s ease;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
   -khtml-user-select: none;
@@ -413,8 +417,6 @@ label.collapsible div.indicator {
   margin: 0;
 }
 label.collapsible div.indicator img { margin: 0 10px 0 0 }
-label.collapsible:hover { background-color: white; }
-label.collapsible:hover > * { filter: invert(1); }
 .rotate { transform: rotate(180deg) }
 div.collapsiblecontent {
   border: 2px solid white;

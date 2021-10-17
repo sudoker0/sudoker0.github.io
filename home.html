@@ -30,6 +30,10 @@
             /* .social_link:hover {
                 cursor: pointer;
             } */
+            :root {
+                --bs: 2px;
+                --bc: white;
+            }
             div#social_link {
                 margin-left: auto;
                 margin-right: auto;
@@ -92,9 +96,25 @@
                 height: calc(100% - 26px);
             }
             div#project a { margin: 0; }
-            div#external_link_image a { display: inline-block; margin: 0 5px 0 5px; vertical-align: middle; }
+            div#external_link_image a {
+                padding: 5px;
+                display: inline-block;
+                vertical-align: middle;
+                background-repeat: no-repeat;
+                background-image:
+                    linear-gradient(to right, var(--bc) 100%, var(--bc) 100%),
+                    linear-gradient(to bottom, var(--bc) 100%, var(--bc) 100%),
+                    linear-gradient(to right, var(--bc) 100%, var(--bc) 100%),
+                    linear-gradient(to bottom, var(--bc) 100%, var(--bc) 100%);
+                background-size: 0 var(--bs), var(--bs) 0, 0 var(--bs), var(--bs) 0;
+                background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+                transition: background-size 0.4s ease;
+            }
+            div#external_link_image a:hover, div#external_link_image a:focus {
+                outline: none;
+                background-size: 100% var(--bs), var(--bs) 100%, 100% var(--bs), var(--bs) 100%;
+            }
             div#external_link_image svg { max-width: 100%; vertical-align: bottom; }
-            div#external_link_image a:hover svg { filter: brightness(0.75); }
             h3.showoff { color: rgb(0, 255, 0); text-align: center; }
         </style>
     </head>
@@ -259,13 +279,13 @@
                 <h3 class="showoff">Project</h3>
                 <!-- Other Project START -->
                 <input type="checkbox" name="cb1" id="cb1" class="collapsible_cb">
-                <label class="collapsible" tabindex="0" for="cb1">
+                <label class="collapsible" for="cb1">
                     <span>Other Project</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                 </label>
                 <div class="collapsiblecontent">
                     <input type="checkbox" name="cb1-0" id="cb1-0" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb1-0">
+                    <label class="collapsible" for="cb1-0">
                         <span>Guess The Programming Language (Written in Python, text-based game)</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -275,7 +295,7 @@
                         <span>Description: Guess The Programming Language written in Python, it's a text-based game and it's my first ever Python game I've written.</span>
                     </div>
                     <input type="checkbox" name="cb1-1" id="cb1-1" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb1-1">
+                    <label class="collapsible" for="cb1-1">
                         <span>Windows Forms App 2.0 Unofficial</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -284,7 +304,7 @@
                         <span>Description: Just a bit more modern look of the Windows Forms App</span>
                     </div>
                     <input type="checkbox" name="cb1-2" id="cb1-2" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb1-2">
+                    <label class="collapsible" for="cb1-2">
                         <span>Experiment ID: [redacted]</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -293,7 +313,7 @@
                         <span>Description: This #$!@ filE conTa1nS @$%!!$ tHaT wi1l al10w yoU t0 *&@*$![redacted]</span>
                     </div>
                     <input type="checkbox" name="cb1-3" id="cb1-3" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb1-3">
+                    <label class="collapsible" for="cb1-3">
                         <span>Edit (Edit Document In Terminal)</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -302,7 +322,7 @@
                         <span>Description: Started as a small program in <a href="#" onclick="oOPIIF(this.getAttribute('data-address'))" data-address="/other_project/console.html">console</a>, it's now a native program that in executable in Windows and Linux</span>
                     </div>
                     <input type="checkbox" name="cb1-4" id="cb1-4" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb1-4">
+                    <label class="collapsible" for="cb1-4">
                         <span>Guess the number Game</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -311,7 +331,7 @@
                         <span>Description: My second game written in C# and based on the <a href="#" data-address="/other_project/numberguessgame.html" onclick="oOPIIF(this.getAttribute('data-address'))">NumberGuessingGame</a></span>
                     </div>
                     <input type="checkbox" name="cb1-5" id="cb1-5" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb1-5">
+                    <label class="collapsible" for="cb1-5">
                         <span>MyFirstGame</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -339,13 +359,13 @@
                 <!-- Other Project END-->
                 <!-- Minecraft Project START -->
                 <input type="checkbox" name="cb2" id="cb2" class="collapsible_cb">
-                <label class="collapsible" tabindex="0" for="cb2">
+                <label class="collapsible" for="cb2">
                     <span>Minecraft Project</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                 </label>
                 <div class="collapsiblecontent">
                     <input type="checkbox" name="cb2-1" id="cb2-1" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb2-1">
+                    <label class="collapsible" for="cb2-1">
                         <span>8-bit Decoder</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -354,7 +374,7 @@
                         <span>Description: Convert binary to character from A to Z, 0 to 9 in ASCII</span>
                     </div>
                     <input type="checkbox" name="cb2-2" id="cb2-2" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb2-2">
+                    <label class="collapsible" for="cb2-2">
                         <span>Compact Calculator (1.15.2)</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -363,7 +383,7 @@
                         <span>Description: A fully working calculator that can do basic calculation in Minecraft using command block</span>
                     </div>
                     <input type="checkbox" name="cb2-3" id="cb2-3" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb2-3">
+                    <label class="collapsible" for="cb2-3">
                         <span>The Longest Useless Machine in Minecraft (version 1.0)</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -372,7 +392,7 @@
                         <span>Description: My next big project in Minecraft that serve no purpose</span>
                     </div>
                     <input type="checkbox" name="cb2-4" id="cb2-4" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb2-4">
+                    <label class="collapsible" for="cb2-4">
                         <span>The Longest Useless Machine in Minecraft (version 1.<del>1</del>2)</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -381,7 +401,7 @@
                         <span>Description: An upgraded version of the 1.0 version</span>
                     </div>
                     <input type="checkbox" name="cb2-5" id="cb2-5" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb2-5">
+                    <label class="collapsible" for="cb2-5">
                         <span>Printer 1.16</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -390,7 +410,7 @@
                         <span>Description: A "sort of working" printer that is inspired by Mumbo Jumbo.</span>
                     </div>
                     <input type="checkbox" name="cb2-6" id="cb2-6" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb2-6">
+                    <label class="collapsible" for="cb2-6">
                         <span>Security Vault 2.0</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -402,13 +422,13 @@
                 <!-- Minecraft Project STOP -->
                 <!-- JavaScript Project START -->
                 <input type="checkbox" name="cb3" id="cb3" class="collapsible_cb">
-                <label class="collapsible" tabindex="0" for="cb3">
+                <label class="collapsible" for="cb3">
                     <span>JavaScript Project</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                 </label>
                 <div class="collapsiblecontent">
                     <input type="checkbox" name="cb3-1" id="cb3-1" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb3-1">
+                    <label class="collapsible" for="cb3-1">
                         <span>Edit for other website</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -417,7 +437,7 @@
                         <span>Description: Allow other people to use edit in their website</span>
                     </div>
                     <input type="checkbox" name="cb3-2" id="cb3-2" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb3-2">
+                    <label class="collapsible" for="cb3-2">
                         <span>Random picture generator</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -426,7 +446,7 @@
                         <span>Description: Create picture with "randomness"</span>
                     </div>
                     <input type="checkbox" name="cb3-3" id="cb3-3" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb3-3">
+                    <label class="collapsible" for="cb3-3">
                         <span>UnderJScript</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -438,13 +458,13 @@
                 <!-- JavaScript Project END -->
                 <!-- Page Project START -->
                 <input type="checkbox" name="cb4" id="cb4" class="collapsible_cb">
-                <label class="collapsible" tabindex="0" for="cb4">
+                <label class="collapsible" for="cb4">
                     <span>HTML Page Project</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                 </label>
                 <div class="collapsiblecontent">
                     <input type="checkbox" name="cb4-1" id="cb4-1" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb4-1">
+                    <label class="collapsible" for="cb4-1">
                         <span>Panorama Demo</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -454,7 +474,7 @@
                         <span>Description: If I ever set a background (and I might in the future) as a panorama, this would be it (And this doesn't use any external library!).</span>
                     </div>
                     <input type="checkbox" name="cb4-2" id="cb4-2" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb4-2">
+                    <label class="collapsible" for="cb4-2">
                         <span>SOOPE (Simple and Open-Source Online Picture Editor)</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -464,7 +484,7 @@
                         <span>Description: A simple and open source picture editor for edit picture on browser and more.</span>
                     </div>
                     <input type="checkbox" name="cb4-3" id="cb4-3" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb4-3">
+                    <label class="collapsible" for="cb4-3">
                         <span>Console</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -474,7 +494,7 @@
                         <span>Description: My very first large HTML project which is my first CLI OS in HTML.</span>
                     </div>
                     <input type="checkbox" name="cb4-4" id="cb4-4" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb4-4">
+                    <label class="collapsible" for="cb4-4">
                         <span>Vigenere Cipher</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -484,7 +504,7 @@
                         <span>Description: It's an Vigenere cipther but very limited<small title="Input only accept normal character, no number, space, etc.">(?)</small></span>
                     </div>
                     <input type="checkbox" name="cb4-5" id="cb4-5" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb4-5">
+                    <label class="collapsible" for="cb4-5">
                         <span>Basic message encrptor and decrptor</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -494,7 +514,7 @@
                         <span>Description: A very, Very basic message encryptor and decrytor that just replace each character to the pre-set 4 random character</span>
                     </div>
                     <input type="checkbox" name="cb4-6" id="cb4-6" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb4-6">
+                    <label class="collapsible" for="cb4-6">
                         <span>Guess the number game</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -504,7 +524,7 @@
                         <span>Description: A game where you have to guess the correct number, that's it.</span>
                     </div>
                     <input type="checkbox" name="cb4-7" id="cb4-7" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb4-7">
+                    <label class="collapsible" for="cb4-7">
                         <span>Text editor (Lite and Full version)</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -514,7 +534,7 @@
                         <span>Description: A text editor that work in your browser.</span>
                     </div>
                     <input type="checkbox" name="cb4-8" id="cb4-8" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb4-8">
+                    <label class="collapsible" for="cb4-8">
                         <span>Webdriver Torso's video stream</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -524,7 +544,7 @@
                         <span>Description: Show to user a stream of image that have the same style as a Webdriver Torso's video.</span>
                     </div>
                     <input type="checkbox" name="cb4-9" id="cb4-9" class="collapsible_cb">
-                    <label class="collapsible" tabindex="0" for="cb4-9">
+                    <label class="collapsible" for="cb4-9">
                         <span>Simple Captcha</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -538,7 +558,7 @@
                 <!-- Website I Owned START -->
                 <h3 class="showoff">Website I owned</h3>
                 <input type="checkbox" name="cb5-1" id="cb5-1" class="collapsible_cb">
-                <label class="collapsible" tabindex="0" for="cb5-1">
+                <label class="collapsible" for="cb5-1">
                     <span>My Carrd Website</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                 </label>
@@ -548,7 +568,7 @@
                     <span>Description: First attempt at drag and drop website.</span>
                 </div>
                 <input type="checkbox" name="cb5-2" id="cb5-2" class="collapsible_cb">
-                <label class="collapsible" tabindex="0" for="cb5-2">
+                <label class="collapsible" for="cb5-2">
                     <span>Where I post blog</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                 </label>
@@ -558,7 +578,7 @@
                     <span>Description: Where I'll post blog about me and maybe the website.</span>
                 </div>
                 <input type="checkbox" name="cb5-3" id="cb5-3" class="collapsible_cb">
-                <label class="collapsible" tabindex="0" for="cb5-3">
+                <label class="collapsible" for="cb5-3">
                     <span>First version of my website (50% basic HTML, 50% nostalgia)</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                 </label>
@@ -568,7 +588,7 @@
                     <span>Description: This is the first version of my website, even with the original domain. Please note that the website is really basic, like really basic.</span>
                 </div>
                 <input type="checkbox" name="cb5-4" id="cb5-4" class="collapsible_cb">
-                <label class="collapsible" tabindex="0" for="cb5-4">
+                <label class="collapsible" for="cb5-4">
                     <span>Very browser-compatible version of the website (Coded with Windows XP and efford)</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                 </label>
