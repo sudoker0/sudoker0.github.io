@@ -192,14 +192,14 @@ ignored_dir = [
     ".git"
 ]
 
-def path_to_dict(path):
+def path_to_dict(path, recursion:bool = False):
     print(path)
-    d = {"name": os.path.basename(path)}
+    d = {"name": os.path.basename(path)} if recursion else {"NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically", "name": os.path.basename(path)}
     if os.path.isdir(path):
         # if path in ignored_dir:
         print(path)
         d['type'] = "directory"
-        d['children'] = [path_to_dict(os.path.join(path, x)) for x in sorted(os.listdir(path)) if x not in ignored_dir]
+        d['children'] = [path_to_dict(os.path.join(path, x), True) for x in sorted(os.listdir(path)) if x not in ignored_dir]
     else:
         d['type'] = "file"
     return d
