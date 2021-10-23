@@ -70,21 +70,21 @@
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\** | 100.0% | 172 files | 445,988,322 bytes
-\* | 0.0% | 13 files | 17,266 bytes
-\*.7z | 35.64% | 16 files | 158,965,963 bytes
+\** | 100.0% | 190 files | 446,792,542 bytes
+\* | 0.0% | 13 files | 19,349 bytes
+\*.7z | 35.58% | 16 files | 158,965,963 bytes
 \*.config | 0.02% | 1 files | 82,580 bytes
-\*.css | 0.01% | 4 files | 29,249 bytes
+\*.css | 0.01% | 5 files | 29,972 bytes
 \*.gif | 0.0% | 1 files | 10,498 bytes
-\*.html | 0.16% | 31 files | 698,984 bytes
+\*.html | 0.16% | 37 files | 719,634 bytes
 \*.ico | 0.02% | 1 files | 101,976 bytes
-\*.idx | 0.04% | 1 files | 196,876 bytes
-\*.js | 0.03% | 11 files | 132,242 bytes
-\*.json | 0.06% | 7 files | 250,636 bytes
+\*.idx | 0.04% | 1 files | 197,968 bytes
+\*.js | 0.01% | 8 files | 42,941 bytes
+\*.json | 0.06% | 7 files | 251,216 bytes
 \*.md | 0.0% | 1 files | 7,720 bytes
-\*.pack | 58.05% | 1 files | 258,884,240 bytes
-\*.png | 1.63% | 28 files | 7,290,915 bytes
-\*.py | 0.01% | 3 files | 28,600 bytes
+\*.pack | 58.14% | 1 files | 259,773,676 bytes
+\*.png | 1.93% | 42 files | 8,607,492 bytes
+\*.py | 0.01% | 3 files | 28,785 bytes
 \*.sample | 0.01% | 13 files | 23,442 bytes
 \*.sqlite | 0.02% | 1 files | 90,112 bytes
 \*.svg | 0.0% | 5 files | 10,270 bytes
@@ -92,9 +92,9 @@ File Extensions | Percentages of Bytes | Number of files | File/Folder size (Byt
 \*.txt | 0.0% | 1 files | 283 bytes
 \*.webp | 0.84% | 9 files | 3,745,400 bytes
 \*.xml | 0.0% | 1 files | 1,236 bytes
-\*.yml | 0.0% | 2 files | 1,865 bytes
-\*.zip | 3.41% | 17 files | 15,198,182 bytes
-> Last updated on: 2021-10-17
+\*.yml | 0.0% | 3 files | 2,013 bytes
+\*.zip | 3.1% | 16 files | 13,860,229 bytes
+> Last updated on: 2021-10-23
 <!--python_data_stop-->
 [Download the table as HTML in a zip file (Style is not the same) (This is kept for historical purposes only and the data is no longer being updated)](https://drive.google.com/u/0/uc?id=1nvijtp61EX7gtisnjHCAEBkfgQKs-zTh&export=download)
 > You might ask: How do I able to get all of the file extensions, the number of file and other info?
