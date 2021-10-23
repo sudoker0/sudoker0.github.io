@@ -54,6 +54,7 @@ other_project_size = sizeOfFolder("./other_project")
 
 # JSON data here
 data = {
+    "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
     "filesize": {
         "lastupdateon": date.today().strftime("%Y-%m-%d"),
         "total": formatFileSize(total_size),
@@ -91,7 +92,12 @@ process = Popen(command_to_execute, stdout=PIPE, shell=enableShell)
 
 # Get the output and error
 (output, err) = process.communicate()
-count = 0; json_data = {"last_update_on": date.today().strftime("%Y-%m-%d"), "data": []}
+count = 0
+json_data = {
+    "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
+    "last_update_on": date.today().strftime("%Y-%m-%d"),
+    "data": []
+}
 # Loop through each line (which contain the hash, committer name, date and the commit message)
 for items in output.decode("utf-8").split("\n"):
     # Split the line to indivitual stuff like hash, etc. for ease ofuse
