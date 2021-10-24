@@ -3,6 +3,18 @@
     "last_update_on": "2021-10-24",
     "data": [
         {
+            "hash": "932886f",
+            "committer": "QuanMCPC",
+            "commit_date": 1635065473,
+            "message": "Some change to make the website work better in Safari"
+        },
+        {
+            "hash": "9c76d10",
+            "committer": "QuanMCPC",
+            "commit_date": 1635054542,
+            "message": "Update website's information"
+        },
+        {
             "hash": "b7750bc",
             "committer": "QuanMCPC",
             "commit_date": 1635054494,
