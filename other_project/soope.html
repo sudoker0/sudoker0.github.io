@@ -534,17 +534,17 @@
                 ctx.lineCap = 'butt';
                 ctx.stroke();
                 xPos++;
-                getId("v_cX").innerHTML = currX; getId("v_cY").innerHTML = currY;
-                getId("v_width").innerHTML = $canvas.getAttribute("width"); getId("v_height").innerHTML = $canvas.getAttribute("height");
-                getId("v_pSize").innerHTML = getId("brush_size").value; getId("v_eSize").innerHTML = getId("eraser_size").value;
-                getId("v_bT").innerHTML = getId("backgroundTransparent").checked; getId("v_eu").innerHTML = getId("enable_unredo").checked;
-                getId("v_tool").innerHTML = tool_;
-                getId("v_lR").innerHTML = lockRatio_;
-                getId("v_lR_").innerHTML = lockRatio__;
-                getId("v_uic").innerHTML = unredo.length;
-                getId("v_uip").innerHTML = unredoPos;
+                getId("v_cX").innerText = currX; getId("v_cY").innerHTML = currY;
+                getId("v_width").innerText = $canvas.getAttribute("width"); getId("v_height").innerHTML = $canvas.getAttribute("height");
+                getId("v_pSize").innerText = getId("brush_size").value; getId("v_eSize").innerHTML = getId("eraser_size").value;
+                getId("v_bT").innerText = getId("backgroundTransparent").checked; getId("v_eu").innerHTML = getId("enable_unredo").checked;
+                getId("v_tool").innerText = tool_;
+                getId("v_lR").innerText = lockRatio_;
+                getId("v_lR_").innerText = lockRatio__;
+                getId("v_uic").innerText = unredo.length;
+                getId("v_uip").innerText = unredoPos;
                 unredo.forEach((v) => { a += v.length })
-                getId("v_ual").innerHTML = a;
+                getId("v_ual").innerText = a;
                 a = 0;
                 ah43 = rAT(fpsLoop);
             }

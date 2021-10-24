@@ -1211,8 +1211,8 @@
             function intro() {
                 login = new Date();
                 if (localStorage.getItem("ls") == "927") {
-                    document.getElementById("output").innerHTML += "The console has been disabled by your Administrator\r\n";
-                    document.getElementById("output").innerHTML += "Ask the Admin to re-enable the console\r\n";
+                    document.getElementById("output").value += "The console has been disabled by your Administrator\r\n";
+                    document.getElementById("output").value += "Ask the Admin to re-enable the console\r\n";
                     var c = document.getElementById("command");
                     var c_att = document.createAttribute("readonly");
                     c.setAttributeNode(c_att);
@@ -1261,16 +1261,16 @@
                 m = n.getMonth() + 1;
                 d = n.getDate();
                 if (getParameterByName("nowelcome") == null || getParameterByName("nowelcome") == "" || getParameterByName("nowelcome") == "0" || getParameterByName("nowelcome") >= "2") {
-                    document.getElementById("output").innerHTML += "Welcome to WTOS v1.2 (Web-Terminal Operating System) [1.2.12.110420_Revision1]\r\n";
-                    document.getElementById("output").innerHTML += "This is a VERY BASIC Operating System that can only execute a certain command like a linux terminal.\r\n";
-                    document.getElementById("output").innerHTML += "Copyright (C) 2021 Quan_MCPC\r\n";
-                    document.getElementById("output").innerHTML += "To get started, type [help] with no bracket\r\n";
-                    document.getElementById("output").innerHTML += "Current date: " + d + "/" + m + "/" + y + " (This is in DD/MM/YYYY format)\r\n";
-                    document.getElementById("output").innerHTML += "\r\n";
+                    document.getElementById("output").value += "Welcome to WTOS v1.2 (Web-Terminal Operating System) [1.2.12.110420_Revision1]\r\n";
+                    document.getElementById("output").value += "This is a VERY BASIC Operating System that can only execute a certain command like a linux terminal.\r\n";
+                    document.getElementById("output").value += "Copyright (C) 2021 Quan_MCPC\r\n";
+                    document.getElementById("output").value += "To get started, type [help] with no bracket\r\n";
+                    document.getElementById("output").value += "Current date: " + d + "/" + m + "/" + y + " (This is in DD/MM/YYYY format)\r\n";
+                    document.getElementById("output").value += "\r\n";
                 } else {}
                 if (localStorage.getItem("welcome_content_set") == 1) {
-                    document.getElementById("output").innerHTML += localStorage.getItem("welcome_content");
-                    document.getElementById("output").innerHTML += "\r\n";
+                    document.getElementById("output").value += localStorage.getItem("welcome_content");
+                    document.getElementById("output").value += "\r\n";
                 }
                 if (getParameterByName("command") == null) {} else {
                     document.getElementById("command").value = getParameterByName("command");
@@ -1339,227 +1339,227 @@
                 console.log(a)
                 var a_length = a.length;
                 if (window.console_output) {
-                    document.getElementById("output").innerHTML += "> " + document.getElementById("command").value + "\r\n";
+                    document.getElementById("output").value += "> " + document.getElementById("command").value + "\r\n";
                 }
                 a[0] = a[0].toLowerCase();
                 if (a[0] == "help") { //Command "help"
                     if (!a[1] == '') {
                         if (!isNaN(a[1])) {
                             if (a[1] == "1") { //Page 1
-                                document.getElementById("output").innerHTML += "----------Offical Help Page----------\r\n";
-                                document.getElementById("output").innerHTML += "You are viewing page: 1/5\r\n";
-                                document.getElementById("output").innerHTML += "<>: Forced, []: Optional\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "hello: Say Hello\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: hello <name: string>\r\n";
-                                document.getElementById("output").innerHTML += "Example: hello User 1234\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "goodbye/bye: Say Goodbye\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: goodbye/bye <name: string>\r\n";
-                                document.getElementById("output").innerHTML += "Example: goodbye test, bye User 1234\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "calc/calculate: Make calculation\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: Type {calc/calculate -help} to get the full help of this command\r\n";
-                                document.getElementById("output").innerHTML += "Example: calc 53 + 21, calculate 52 ** 2\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "clear/cls: Clear the console output\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: clear/cls\r\n";
-                                document.getElementById("output").innerHTML += "Example: clear/cls\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "date: Show the current date\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: date\r\n";
-                                document.getElementById("output").innerHTML += "Example: date\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "help: Show the help page\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: help [page number: number]\r\n";
-                                document.getElementById("output").innerHTML += "Example: help 1\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "----------Offical Help Page----------\r\n";
+                                document.getElementById("output").value += "You are viewing page: 1/5\r\n";
+                                document.getElementById("output").value += "<>: Forced, []: Optional\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "hello: Say Hello\r\n";
+                                document.getElementById("output").value += "Syntax: hello <name: string>\r\n";
+                                document.getElementById("output").value += "Example: hello User 1234\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "goodbye/bye: Say Goodbye\r\n";
+                                document.getElementById("output").value += "Syntax: goodbye/bye <name: string>\r\n";
+                                document.getElementById("output").value += "Example: goodbye test, bye User 1234\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "calc/calculate: Make calculation\r\n";
+                                document.getElementById("output").value += "Syntax: Type {calc/calculate -help} to get the full help of this command\r\n";
+                                document.getElementById("output").value += "Example: calc 53 + 21, calculate 52 ** 2\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "clear/cls: Clear the console output\r\n";
+                                document.getElementById("output").value += "Syntax: clear/cls\r\n";
+                                document.getElementById("output").value += "Example: clear/cls\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "date: Show the current date\r\n";
+                                document.getElementById("output").value += "Syntax: date\r\n";
+                                document.getElementById("output").value += "Example: date\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "help: Show the help page\r\n";
+                                document.getElementById("output").value += "Syntax: help [page number: number]\r\n";
+                                document.getElementById("output").value += "Example: help 1\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
                                 return false;
                             }
                             if (a[1] == "2") { //Page 2
-                                document.getElementById("output").innerHTML += "----------Offical Help Page----------\r\n";
-                                document.getElementById("output").innerHTML += "You are viewing page: 2/5\r\n";
-                                document.getElementById("output").innerHTML += "<>: Forced, []: Optional\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "crash: Crash the console (Client side)\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: crash\r\n";
-                                document.getElementById("output").innerHTML += "Example: crash\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "whoami: Print the current level of the user\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: whoami\r\n";
-                                document.getElementById("output").innerHTML += "Example: whoami\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "print: Print the text the user enter\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: print <sentence: string>\r\n";
-                                document.getElementById("output").innerHTML += "Example: print Hello World!\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "random: Print random number, string\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: Type {random -help} to get the full help of this command\r\n";
-                                document.getElementById("output").innerHTML += "Example: random -uc 5\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "time: Show the current time\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: time\r\n";
-                                document.getElementById("output").innerHTML += "Example: time\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "intro: Show the intro text that always print in bootup\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: intro\r\n";
-                                document.getElementById("output").innerHTML += "Example: intro\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "----------Offical Help Page----------\r\n";
+                                document.getElementById("output").value += "You are viewing page: 2/5\r\n";
+                                document.getElementById("output").value += "<>: Forced, []: Optional\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "crash: Crash the console (Client side)\r\n";
+                                document.getElementById("output").value += "Syntax: crash\r\n";
+                                document.getElementById("output").value += "Example: crash\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "whoami: Print the current level of the user\r\n";
+                                document.getElementById("output").value += "Syntax: whoami\r\n";
+                                document.getElementById("output").value += "Example: whoami\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "print: Print the text the user enter\r\n";
+                                document.getElementById("output").value += "Syntax: print <sentence: string>\r\n";
+                                document.getElementById("output").value += "Example: print Hello World!\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "random: Print random number, string\r\n";
+                                document.getElementById("output").value += "Syntax: Type {random -help} to get the full help of this command\r\n";
+                                document.getElementById("output").value += "Example: random -uc 5\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "time: Show the current time\r\n";
+                                document.getElementById("output").value += "Syntax: time\r\n";
+                                document.getElementById("output").value += "Example: time\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "intro: Show the intro text that always print in bootup\r\n";
+                                document.getElementById("output").value += "Syntax: intro\r\n";
+                                document.getElementById("output").value += "Example: intro\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
                                 return false;
                             }
                             if (a[1] == "3") {
-                                document.getElementById("output").innerHTML += "----------Offical Help Page----------\r\n";
-                                document.getElementById("output").innerHTML += "You are viewing page: 3/5\r\n";
-                                document.getElementById("output").innerHTML += "<>: Forced, []: Optional\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "log_command/lc: Show the last 20 command entered by the user [REMOVED]\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: log_command/lc\r\n";
-                                document.getElementById("output").innerHTML += "Example: log_command/lc\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "about: Show the console info\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: about\r\n";
-                                document.getElementById("output").innerHTML += "Example: about\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "ver: Show the version of console\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: ver\r\n";
-                                document.getElementById("output").innerHTML += "Example: ver\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "timer: Like it said, it's a timer.\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: timer <number of seconds to countdown: number>\r\n";
-                                document.getElementById("output").innerHTML += "Example: timer 120\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "stopwatch: Like it said, it's a stopwatch\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: Type {stopwatch -help} to get the full help of this command\r\n";
-                                document.getElementById("output").innerHTML += "Example: stopwatch -n\r\n"
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "save_console_output/sco [REMOVED]: Save the console output into a file\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: save_console_output/sco [filename.extension: string]\r\n";
-                                document.getElementById("output").innerHTML += "Example: save_console_output/sco test.txt\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "----------Offical Help Page----------\r\n";
+                                document.getElementById("output").value += "You are viewing page: 3/5\r\n";
+                                document.getElementById("output").value += "<>: Forced, []: Optional\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "log_command/lc: Show the last 20 command entered by the user [REMOVED]\r\n";
+                                document.getElementById("output").value += "Syntax: log_command/lc\r\n";
+                                document.getElementById("output").value += "Example: log_command/lc\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "about: Show the console info\r\n";
+                                document.getElementById("output").value += "Syntax: about\r\n";
+                                document.getElementById("output").value += "Example: about\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "ver: Show the version of console\r\n";
+                                document.getElementById("output").value += "Syntax: ver\r\n";
+                                document.getElementById("output").value += "Example: ver\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "timer: Like it said, it's a timer.\r\n";
+                                document.getElementById("output").value += "Syntax: timer <number of seconds to countdown: number>\r\n";
+                                document.getElementById("output").value += "Example: timer 120\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "stopwatch: Like it said, it's a stopwatch\r\n";
+                                document.getElementById("output").value += "Syntax: Type {stopwatch -help} to get the full help of this command\r\n";
+                                document.getElementById("output").value += "Example: stopwatch -n\r\n"
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "save_console_output/sco [REMOVED]: Save the console output into a file\r\n";
+                                document.getElementById("output").value += "Syntax: save_console_output/sco [filename.extension: string]\r\n";
+                                document.getElementById("output").value += "Example: save_console_output/sco test.txt\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
                                 return false;
                             }
                             if (a[1] == "4") {
-                                document.getElementById("output").innerHTML += "----------Offical Help Page----------\r\n";
-                                document.getElementById("output").innerHTML += "You are viewing page: 4/5\r\n";
-                                document.getElementById("output").innerHTML += "<>: Forced, []: Optional\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "color: Change the color of the background, input text and background, output text and background\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: Type {color -help} to get the full help of this command\r\n";
-                                document.getElementById("output").innerHTML += "Example: color background -hex #ffffff, color input-background -name red\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "edit: Create, Load and Download Document in your own browser\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: edit\r\n";
-                                document.getElementById("output").innerHTML += "Example: edit\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "mode: Change the setting of the console output\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: Type {mode help} to get the full help of this command\r\n";
-                                document.getElementById("output").innerHTML += "Example: mode cols 120, mode show\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "sound: Simple but customizable sound player\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: sound <vol: num> <freq: num> <duration[ms]: num> <type: sine/sawtooth/square/triangle>\r\n";
-                                document.getElementById("output").innerHTML += "Example: sound 10 500 1000 sawtooth, sound 20 100 5000 sine\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "welcome: Make your own welcome message when you log in to the OS\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: welcome <mode: help/open/remove/> (Full introduction: welcome help)\r\n";
-                                document.getElementById("output").innerHTML += "Example: welcome help, welcome open\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "title: Change the title of the console (Reset after a refresh)\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: title <name: string>\r\n";
-                                document.getElementById("output").innerHTML += "Example: title Test 123\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "----------Offical Help Page----------\r\n";
+                                document.getElementById("output").value += "You are viewing page: 4/5\r\n";
+                                document.getElementById("output").value += "<>: Forced, []: Optional\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "color: Change the color of the background, input text and background, output text and background\r\n";
+                                document.getElementById("output").value += "Syntax: Type {color -help} to get the full help of this command\r\n";
+                                document.getElementById("output").value += "Example: color background -hex #ffffff, color input-background -name red\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "edit: Create, Load and Download Document in your own browser\r\n";
+                                document.getElementById("output").value += "Syntax: edit\r\n";
+                                document.getElementById("output").value += "Example: edit\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "mode: Change the setting of the console output\r\n";
+                                document.getElementById("output").value += "Syntax: Type {mode help} to get the full help of this command\r\n";
+                                document.getElementById("output").value += "Example: mode cols 120, mode show\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "sound: Simple but customizable sound player\r\n";
+                                document.getElementById("output").value += "Syntax: sound <vol: num> <freq: num> <duration[ms]: num> <type: sine/sawtooth/square/triangle>\r\n";
+                                document.getElementById("output").value += "Example: sound 10 500 1000 sawtooth, sound 20 100 5000 sine\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "welcome: Make your own welcome message when you log in to the OS\r\n";
+                                document.getElementById("output").value += "Syntax: welcome <mode: help/open/remove/> (Full introduction: welcome help)\r\n";
+                                document.getElementById("output").value += "Example: welcome help, welcome open\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "title: Change the title of the console (Reset after a refresh)\r\n";
+                                document.getElementById("output").value += "Syntax: title <name: string>\r\n";
+                                document.getElementById("output").value += "Example: title Test 123\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
                                 return false;
                             } else if (a[1] == 5) {
-                                document.getElementById("output").innerHTML += "----------Offical Help Page----------\r\n";
-                                document.getElementById("output").innerHTML += "You are viewing page: 5/5\r\n";
-                                document.getElementById("output").innerHTML += "<>: Forced, []: Optional\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "export: Export your console setting, last 20 entered command, console output, etc.\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: Type {export help} to get the full help of this command\r\n";
-                                document.getElementById("output").innerHTML += "Example: export settings, export ltec\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "import: Import your console settings, etc.\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: Type {import help} to get the full help of this command\r\n";
-                                document.getElementById("output").innerHTML += "Example: import settings\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "readme: View important information that you need to know\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: readme\r\n";
-                                document.getElementById("output").innerHTML += "Example: readme\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "music: Play music from a JSON music sheet, for how to write a JSON music sheet, type music help\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: music [help]\r\n";
-                                document.getElementById("output").innerHTML += "Example: music, music help\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                                document.getElementById("output").innerHTML += "userinfo: Show the current user's info\r\n";
-                                document.getElementById("output").innerHTML += "Syntax: userinfo\r\n";
-                                document.getElementById("output").innerHTML += "Example: userinfo\r\n";
-                                document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "----------Offical Help Page----------\r\n";
+                                document.getElementById("output").value += "You are viewing page: 5/5\r\n";
+                                document.getElementById("output").value += "<>: Forced, []: Optional\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "export: Export your console setting, last 20 entered command, console output, etc.\r\n";
+                                document.getElementById("output").value += "Syntax: Type {export help} to get the full help of this command\r\n";
+                                document.getElementById("output").value += "Example: export settings, export ltec\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "import: Import your console settings, etc.\r\n";
+                                document.getElementById("output").value += "Syntax: Type {import help} to get the full help of this command\r\n";
+                                document.getElementById("output").value += "Example: import settings\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "readme: View important information that you need to know\r\n";
+                                document.getElementById("output").value += "Syntax: readme\r\n";
+                                document.getElementById("output").value += "Example: readme\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "music: Play music from a JSON music sheet, for how to write a JSON music sheet, type music help\r\n";
+                                document.getElementById("output").value += "Syntax: music [help]\r\n";
+                                document.getElementById("output").value += "Example: music, music help\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
+                                document.getElementById("output").value += "userinfo: Show the current user's info\r\n";
+                                document.getElementById("output").value += "Syntax: userinfo\r\n";
+                                document.getElementById("output").value += "Example: userinfo\r\n";
+                                document.getElementById("output").value += "-------------------------------------\r\n";
                             } else {
-                                document.getElementById("output").innerHTML += "Invalid page number!\r\n"
+                                document.getElementById("output").value += "Invalid page number!\r\n"
                             }
                         } else {
-                            document.getElementById("output").innerHTML += "Invalid page number!\r\n";
+                            document.getElementById("output").value += "Invalid page number!\r\n";
                         }
                     } else { //Default
-                        document.getElementById("output").innerHTML += "----------Offical Help Page----------\r\n";
-                        document.getElementById("output").innerHTML += "You are viewing page: 1/5\r\n";
-                        document.getElementById("output").innerHTML += "<>: Forced, []: Optional\r\n";
-                        document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                        document.getElementById("output").innerHTML += "hello: Say Hello\r\n";
-                        document.getElementById("output").innerHTML += "Syntax: hello <name: string>\r\n";
-                        document.getElementById("output").innerHTML += "Example: hello User 1234\r\n";
-                        document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                        document.getElementById("output").innerHTML += "goodbye/bye: Say Goodbye\r\n";
-                        document.getElementById("output").innerHTML += "Syntax: goodbye/bye <name: string>\r\n";
-                        document.getElementById("output").innerHTML += "Example: goodbye test, bye User 1234\r\n";
-                        document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                        document.getElementById("output").innerHTML += "calc/calculate: Make calculation\r\n";
-                        document.getElementById("output").innerHTML += "Syntax: Type {calc/calculate -help} to get the full help of this command\r\n";
-                        document.getElementById("output").innerHTML += "Example: calc 53 + 21, calculate 52 ** 2\r\n";
-                        document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                        document.getElementById("output").innerHTML += "clear/cls: Clear the console output\r\n";
-                        document.getElementById("output").innerHTML += "Syntax: clear/cls\r\n";
-                        document.getElementById("output").innerHTML += "Example: clear/cls\r\n";
-                        document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                        document.getElementById("output").innerHTML += "date: Show the current date\r\n";
-                        document.getElementById("output").innerHTML += "Syntax: date\r\n";
-                        document.getElementById("output").innerHTML += "Example: date\r\n";
-                        document.getElementById("output").innerHTML += "-------------------------------------\r\n";
-                        document.getElementById("output").innerHTML += "help: Show the help page\r\n";
-                        document.getElementById("output").innerHTML += "Syntax: help [page number: number]\r\n";
-                        document.getElementById("output").innerHTML += "Example: help 1\r\n";
-                        document.getElementById("output").innerHTML += "-------------------------------------\r\n";
+                        document.getElementById("output").value += "----------Offical Help Page----------\r\n";
+                        document.getElementById("output").value += "You are viewing page: 1/5\r\n";
+                        document.getElementById("output").value += "<>: Forced, []: Optional\r\n";
+                        document.getElementById("output").value += "-------------------------------------\r\n";
+                        document.getElementById("output").value += "hello: Say Hello\r\n";
+                        document.getElementById("output").value += "Syntax: hello <name: string>\r\n";
+                        document.getElementById("output").value += "Example: hello User 1234\r\n";
+                        document.getElementById("output").value += "-------------------------------------\r\n";
+                        document.getElementById("output").value += "goodbye/bye: Say Goodbye\r\n";
+                        document.getElementById("output").value += "Syntax: goodbye/bye <name: string>\r\n";
+                        document.getElementById("output").value += "Example: goodbye test, bye User 1234\r\n";
+                        document.getElementById("output").value += "-------------------------------------\r\n";
+                        document.getElementById("output").value += "calc/calculate: Make calculation\r\n";
+                        document.getElementById("output").value += "Syntax: Type {calc/calculate -help} to get the full help of this command\r\n";
+                        document.getElementById("output").value += "Example: calc 53 + 21, calculate 52 ** 2\r\n";
+                        document.getElementById("output").value += "-------------------------------------\r\n";
+                        document.getElementById("output").value += "clear/cls: Clear the console output\r\n";
+                        document.getElementById("output").value += "Syntax: clear/cls\r\n";
+                        document.getElementById("output").value += "Example: clear/cls\r\n";
+                        document.getElementById("output").value += "-------------------------------------\r\n";
+                        document.getElementById("output").value += "date: Show the current date\r\n";
+                        document.getElementById("output").value += "Syntax: date\r\n";
+                        document.getElementById("output").value += "Example: date\r\n";
+                        document.getElementById("output").value += "-------------------------------------\r\n";
+                        document.getElementById("output").value += "help: Show the help page\r\n";
+                        document.getElementById("output").value += "Syntax: help [page number: number]\r\n";
+                        document.getElementById("output").value += "Example: help 1\r\n";
+                        document.getElementById("output").value += "-------------------------------------\r\n";
                     }
                 }
                 else if (a[0] == "hello") { // Command "hello"
-                    document.getElementById("output").innerHTML += "Hello, ";
+                    document.getElementById("output").value += "Hello, ";
                     for (i_1 = 1; i_1 < a_length; i_1++) {
-                        document.getElementById("output").innerHTML += a[i_1] + ' ';
+                        document.getElementById("output").value += a[i_1] + ' ';
                     }
-                    document.getElementById("output").innerHTML += ". Have a nice day!!!\r\n";
+                    document.getElementById("output").value += ". Have a nice day!!!\r\n";
                 } else if (a[0] == "goodbye" || a[0] == "bye") { //Command "goodbye"
-                    document.getElementById("output").innerHTML += "Goodbye, ";
+                    document.getElementById("output").value += "Goodbye, ";
                     for (i_1 = 1; i_1 < a_length; i_1++) {
-                        document.getElementById("output").innerHTML += a[i_1] + ' ';
+                        document.getElementById("output").value += a[i_1] + ' ';
                     }
-                    document.getElementById("output").innerHTML += ". Hope you have a nice day!\r\n";
+                    document.getElementById("output").value += ". Hope you have a nice day!\r\n";
                 } else if (a[0] == "calc" || a[0] == "calculate") { //Command "calc"
                     if (a[1] == "-help") {
-                        document.getElementById("output").innerHTML += "Syntax: calc/calculate <first number: number> <operation: + (Plus), - (Minus), * (Multiply), / (Divide), % (Modulo), ** (To the power of)> <second number: number>\r\n";
-                        document.getElementById("output").innerHTML += "Example: calc 53 + 21, calculate 52 ** 2\r\n";
+                        document.getElementById("output").value += "Syntax: calc/calculate <first number: number> <operation: + (Plus), - (Minus), * (Multiply), / (Divide), % (Modulo), ** (To the power of)> <second number: number>\r\n";
+                        document.getElementById("output").value += "Example: calc 53 + 21, calculate 52 ** 2\r\n";
                         return false;
                     }
                     var number_1 = a[1];
                     var operation = a[2];
                     var number_2 = a[3];
                     if (!a[4] == '') {
-                        document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
+                        document.getElementById("output").value += "Invalid syntax! An invalid character has been added at the end!\r\n";
                         return false;
                     } else if (isNaN(number_1)) {
-                        document.getElementById("output").innerHTML += "Invalid syntax! Expected the first part of your math equation to be a number\r\n";
+                        document.getElementById("output").value += "Invalid syntax! Expected the first part of your math equation to be a number\r\n";
                         return false;
                     } else if (operation == "+" || operation == "-" || operation == "*" || operation == "/" || operation == "%" || operation == "**") {
                         if (isNaN(number_2)) {
-                            document.getElementById("output").innerHTML += "Invalid syntax! Expected the third part of your math equation to be a number\r\n";
+                            document.getElementById("output").value += "Invalid syntax! Expected the third part of your math equation to be a number\r\n";
                             return false;
                         } else {
                             if (operation == "+") {
@@ -1580,10 +1580,10 @@
                             if (operation == "**") {
                                 var result = number_1 ** number_2;
                             }
-                            document.getElementById("output").innerHTML += "Your result for: " + number_1 + ' ' + operation + ' ' + number_2 + ' is: ' + result + '\r\n';
+                            document.getElementById("output").value += "Your result for: " + number_1 + ' ' + operation + ' ' + number_2 + ' is: ' + result + '\r\n';
                         }
                     } else {
-                        document.getElementById("output").innerHTML += "Invalid syntax! Expected the second part of your math equation to be a math operators\r\n";
+                        document.getElementById("output").value += "Invalid syntax! Expected the second part of your math equation to be a math operators\r\n";
                         return false;
                     }
                 } else if (a[0] == "print") { //Command: "print"
@@ -1593,51 +1593,51 @@
                         window.console_output = true;
                     }
                     for (i_1 = 1; i_1 < a_length; i_1++) {
-                        document.getElementById("output").innerHTML += a[i_1] + ' ';
+                        document.getElementById("output").value += a[i_1] + ' ';
                     }
-                    document.getElementById("output").innerHTML += '\r\n';
+                    document.getElementById("output").value += '\r\n';
                 } else if (a[0] == "clear" || a[0] == "cls") { //Command "clear"
-                    document.getElementById("output").innerHTML = '';
+                    document.getElementById("output").value = '';
                 } else if (a[0] == "date") { //Command "date"
                     d = new Date();
                     var year = d.getFullYear();
                     var month = d.getMonth() + 1;
                     var day = d.getDate();
-                    document.getElementById("output").innerHTML += "Current date: " + day + "/" + month + "/" + year + " (This is in DD/MM/YYYY format)\r\n";
+                    document.getElementById("output").value += "Current date: " + day + "/" + month + "/" + year + " (This is in DD/MM/YYYY format)\r\n";
                 } else if (a[0] == "time") { //Command "time"
                     t = new Date()
                     var hours = t.getHours();
                     var minutes = t.getMinutes();
                     var seconds = t.getSeconds();
-                    document.getElementById("output").innerHTML += "Current time: " + hours + "-" + minutes + "-" + seconds + " (This is in HH/MM/SS format)\r\n";
+                    document.getElementById("output").value += "Current time: " + hours + "-" + minutes + "-" + seconds + " (This is in HH/MM/SS format)\r\n";
                 } else if (a[0] == "crash") { //Command "crash"
                     if (a[1] == "yes") {
-                        document.getElementById("output").innerHTML += "Welp, I'm out of here!\r\n";
+                        document.getElementById("output").value += "Welp, I'm out of here!\r\n";
                         setTimeout(function() {while (3 > 2) { console.log("CRASH!!!");}}, 1000);
                     } else {
-                        document.getElementById("output").innerHTML += "Just to make sure that the user didn't accidentally type [crash] with out knowing what this command does.\r\n";
-                        document.getElementById("output").innerHTML += "This is a the command to crash the page (Client side only).\r\n";
-                        document.getElementById("output").innerHTML += "To continue with the crash, type [crash yes] to confirm, althrough I DO NOT RECOMMEND YOU TO DO THIS!\r\n";
+                        document.getElementById("output").value += "Just to make sure that the user didn't accidentally type [crash] with out knowing what this command does.\r\n";
+                        document.getElementById("output").value += "This is a the command to crash the page (Client side only).\r\n";
+                        document.getElementById("output").value += "To continue with the crash, type [crash yes] to confirm, althrough I DO NOT RECOMMEND YOU TO DO THIS!\r\n";
                     }
                 } else if (a[0] == "whoami") { //Command "whoami"
                     if (!a[1] == '') {
-                        document.getElementById("output").innerHTML += "Invalid syntax!\r\n";
+                        document.getElementById("output").value += "Invalid syntax!\r\n";
                     } else {
-                        document.getElementById("output").innerHTML += "browser/user\r\n";
+                        document.getElementById("output").value += "browser/user\r\n";
                     }
                 } else if (a[0] == "cd") {
-                    document.getElementById("output").innerHTML += "Sorry, nothing to change directory.\r\n";
+                    document.getElementById("output").value += "Sorry, nothing to change directory.\r\n";
                 } else if (a[0] == "ls" || a[0] == "dir") {
-                    document.getElementById("output").innerHTML += "Sorry, nothing to list directory.\r\n";
+                    document.getElementById("output").value += "Sorry, nothing to list directory.\r\n";
                 } else if (a[0] == "random") { //Command: "random"
                     if (!a[3] == '') {
-                        document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end! Here is the syntax: \r\n";
-                        document.getElementById("output").innerHTML += "random <mode: -uc (Uppercase)/-lc (Lowercase)/-nc (Number)/-ul (Uppercase and Lowercase)/-un (Uppercase and Number)/-ln (Lowercase and Number)/-uln (Uppercase, Lowercase and Number)> <length of string: number>\r\n";
-                        document.getElementById("output").innerHTML += "Example: random -uc 7\r\n";
+                        document.getElementById("output").value += "Invalid syntax! An invalid character has been added at the end! Here is the syntax: \r\n";
+                        document.getElementById("output").value += "random <mode: -uc (Uppercase)/-lc (Lowercase)/-nc (Number)/-ul (Uppercase and Lowercase)/-un (Uppercase and Number)/-ln (Lowercase and Number)/-uln (Uppercase, Lowercase and Number)> <length of string: number>\r\n";
+                        document.getElementById("output").value += "Example: random -uc 7\r\n";
                     } else {
                         if (a[1] == "-uc") { //Uppercase Charater
                             if (!isNaN(a[2])) {
-                                document.getElementById("output").innerHTML += "Here is your random charater: " + uc(a[2]) + ". Mode: Uppercase Only\r\n"
+                                document.getElementById("output").value += "Here is your random charater: " + uc(a[2]) + ". Mode: Uppercase Only\r\n"
                                 function uc(length) {
                                 var result           = '';
                                 var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -1647,10 +1647,10 @@
                                 }
                                     return result;
                                 }
-                            } else { document.getElementById("output").innerHTML += "Invalid syntax! Expected a number." }
+                            } else { document.getElementById("output").value += "Invalid syntax! Expected a number." }
                         } else if (a[1] == "-lc") { //Lowercase Charater
                             if (!isNaN(a[2])) {
-                                document.getElementById("output").innerHTML += "Here is your random charater: " + lc(a[2]) + ". Mode: Lowercase Only\r\n"
+                                document.getElementById("output").value += "Here is your random charater: " + lc(a[2]) + ". Mode: Lowercase Only\r\n"
                                 function lc(length) {
                                 var result           = '';
                                 var characters       = 'abcdefghijklmnopqrstuvwxyz';
@@ -1660,10 +1660,10 @@
                                 }
                                     return result;
                                 }
-                            } else { document.getElementById("output").innerHTML += "Invalid syntax! Expected a number." }
+                            } else { document.getElementById("output").value += "Invalid syntax! Expected a number." }
                         } else if (a[1] == "-nc") { //Number Charater
                             if (!isNaN(a[2])) {
-                                document.getElementById("output").innerHTML += "Here is your random charater: " + nc(a[2]) + ". Mode: Number Only\r\n"
+                                document.getElementById("output").value += "Here is your random charater: " + nc(a[2]) + ". Mode: Number Only\r\n"
                                 function nc(length) {
                                 var result           = '';
                                 var characters       = '0123456789';
@@ -1673,10 +1673,10 @@
                                 }
                                     return result;
                                 }
-                            } else { document.getElementById("output").innerHTML += "Invalid syntax! Expected a number." }
+                            } else { document.getElementById("output").value += "Invalid syntax! Expected a number." }
                         } else if (a[1] == "-ul") { //Uppercase and Lowercase
                             if (!isNaN(a[2])) {
-                                document.getElementById("output").innerHTML += "Here is your random charater: " + ul(a[2]) + ". Mode: Uppercase and Lowercase\r\n"
+                                document.getElementById("output").value += "Here is your random charater: " + ul(a[2]) + ". Mode: Uppercase and Lowercase\r\n"
                                 function ul(length) {
                                 var result           = '';
                                 var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -1686,10 +1686,10 @@
                                 }
                                     return result;
                                 }
-                            } else { document.getElementById("output").innerHTML += "Invalid syntax! Expected a number." }
+                            } else { document.getElementById("output").value += "Invalid syntax! Expected a number." }
                         } else if (a[1] == "-un") { //Uppercase and Number
                             if (!isNaN(a[2])) {
-                                document.getElementById("output").innerHTML += "Here is your random charater: " + un(a[2]) + ". Mode: Uppercase and Number\r\n"
+                                document.getElementById("output").value += "Here is your random charater: " + un(a[2]) + ". Mode: Uppercase and Number\r\n"
                                 function un(length) {
                                 var result           = '';
                                 var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -1699,10 +1699,10 @@
                                 }
                                     return result;
                                 }
-                            } else { document.getElementById("output").innerHTML += "Invalid syntax! Expected a number." }
+                            } else { document.getElementById("output").value += "Invalid syntax! Expected a number." }
                         } else if (a[1] == "-ln") { //Lowercase and Number
                             if (!isNaN(a[2])) {
-                                document.getElementById("output").innerHTML += "Here is your random charater: " + ln(a[2]) + ". Mode: Lowercase and Number\r\n"
+                                document.getElementById("output").value += "Here is your random charater: " + ln(a[2]) + ". Mode: Lowercase and Number\r\n"
                                 function ln(length) {
                                 var result           = '';
                                 var characters       = 'abcdefghijklmnopqrstuvwxyz0123456789';
@@ -1712,10 +1712,10 @@
                                 }
                                     return result;
                                 }
-                            } else { document.getElementById("output").innerHTML += "Invalid syntax! Expected a number." }
+                            } else { document.getElementById("output").value += "Invalid syntax! Expected a number." }
                         } else if (a[1] == "-uln") { //Uppercase, Lowercase and Number
                             if (!isNaN(a[2])) {
-                                document.getElementById("output").innerHTML += "Here is your random charater: " + uln(a[2]) + ". Mode: Uppercase, Lowercase and Number\r\n"
+                                document.getElementById("output").value += "Here is your random charater: " + uln(a[2]) + ". Mode: Uppercase, Lowercase and Number\r\n"
                                 function uln(length) {
                                 var result           = '';
                                 var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -1725,33 +1725,33 @@
                                 }
                                     return result;
                                 }
-                            } else { document.getElementById("output").innerHTML += "Invalid syntax! Expected a number." }
+                            } else { document.getElementById("output").value += "Invalid syntax! Expected a number." }
                         } else if (a[1] == "-help") {
-                            document.getElementById("output").innerHTML += "Syntax: random <mode: -uc (Uppercase)/-lc (Lowercase)/-nc (Number)/-ul (Uppercase and Lowercase)/-un (Uppercase and Number)/-ln (Lowercase and Number)/-uln (Uppercase, Lowercase and Number)> <length of string: number>\r\n";
-                            document.getElementById("output").innerHTML += "Example: random -uc 7\r\n";
+                            document.getElementById("output").value += "Syntax: random <mode: -uc (Uppercase)/-lc (Lowercase)/-nc (Number)/-ul (Uppercase and Lowercase)/-un (Uppercase and Number)/-ln (Lowercase and Number)/-uln (Uppercase, Lowercase and Number)> <length of string: number>\r\n";
+                            document.getElementById("output").value += "Example: random -uc 7\r\n";
                         } else {
-                            document.getElementById("output").innerHTML += "Unknow mode or syntax error! Here is the syntax: \r\n";
-                            document.getElementById("output").innerHTML += "random <mode: -uc (Uppercase)/-lc (Lowercase)/-nc (Number)/-ul (Uppercase and Lowercase)/-un (Uppercase and Number)/-ln (Lowercase and Number)/-uln (Uppercase, Lowercase and Number)> <length of string: number>\r\n";
-                            document.getElementById("output").innerHTML += "Example: random -uc 7\r\n";
+                            document.getElementById("output").value += "Unknow mode or syntax error! Here is the syntax: \r\n";
+                            document.getElementById("output").value += "random <mode: -uc (Uppercase)/-lc (Lowercase)/-nc (Number)/-ul (Uppercase and Lowercase)/-un (Uppercase and Number)/-ln (Lowercase and Number)/-uln (Uppercase, Lowercase and Number)> <length of string: number>\r\n";
+                            document.getElementById("output").value += "Example: random -uc 7\r\n";
                         }
                     }
                 } else if (a[0] == "intro") { //Command "intro"
                     if (!a[1] == '') {
-                        document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!";
+                        document.getElementById("output").value += "Invalid syntax! An invalid character has been added at the end!";
                     } else {
-                        document.getElementById("output").innerHTML += "Welcome to WTOS v1.2 (Web-Terminal Operating System)\r\n";
-                        document.getElementById("output").innerHTML += "This is a VERY BASIC Operating System that can only execute a certain command like a linux terminal.\r\n";
-                        document.getElementById("output").innerHTML += "Copyright (C) 2021 Quan_MCPC\r\n";
-                        document.getElementById("output").innerHTML += "To get started, type [help] with no bracket\r\n";
-                        document.getElementById("output").innerHTML += "Current date: " + d + "/" + m + "/" + y + " (This is in DD/MM/YYYY format)\r\n";
-                        document.getElementById("output").innerHTML += "\r\n";
+                        document.getElementById("output").value += "Welcome to WTOS v1.2 (Web-Terminal Operating System)\r\n";
+                        document.getElementById("output").value += "This is a VERY BASIC Operating System that can only execute a certain command like a linux terminal.\r\n";
+                        document.getElementById("output").value += "Copyright (C) 2021 Quan_MCPC\r\n";
+                        document.getElementById("output").value += "To get started, type [help] with no bracket\r\n";
+                        document.getElementById("output").value += "Current date: " + d + "/" + m + "/" + y + " (This is in DD/MM/YYYY format)\r\n";
+                        document.getElementById("output").value += "\r\n";
                     }
                 } else if (a[0] == "log_command" || a[0] == "lc") { //Command: log_command
-                    document.getElementById("output").innerHTML += "This command has been removed, please use \"export ltec\" OR \"export last_256_entered_command\"\r\n";
+                    document.getElementById("output").value += "This command has been removed, please use \"export ltec\" OR \"export last_256_entered_command\"\r\n";
                     return false
                 } else if (a[0] == "about") { //Command: about
                     if (!a[1] == '') {
-                        document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
+                        document.getElementById("output").value += "Invalid syntax! An invalid character has been added at the end!\r\n";
                     } else {
                         navigator.sayswho = (function(){
                             var ua= navigator.userAgent, tem,
@@ -1768,47 +1768,47 @@
                             if((tem= ua.match(/version\/(\d+)/i))!= null) M.splice(1, 1, tem[1]);
                             return M.join(' ');
                         })();
-                        document.getElementById("output").innerHTML += "------------------------------\r\n";
-                        document.getElementById("output").innerHTML += "About WTOS\r\n";
-                        document.getElementById("output").innerHTML += "Version: 1.2.12\r\n";
-                        document.getElementById("output").innerHTML += "Release on: November 4th 2020\r\n";
-                        document.getElementById("output").innerHTML += "Original Release Date: August 23th 2020\r\n";
-                        document.getElementById("output").innerHTML += "Info about the first version: 328 lines of code, have 11 commands and a separate icon file\r\n";
-                        document.getElementById("output").innerHTML += "Copyright (C) 2021 Quan_MCPC. All right reserved!\r\n";
-                        document.getElementById("output").innerHTML += "Build number: 1.2.12.110420_Revision1\r\n";
-                        document.getElementById("output").innerHTML += "This project is J4F (Just For Fun)\r\n";
-                        document.getElementById("output").innerHTML += "You are using browser: " + navigator.sayswho +"\r\n";
-                        document.getElementById("output").innerHTML += "------------------------------\r\n";
+                        document.getElementById("output").value += "------------------------------\r\n";
+                        document.getElementById("output").value += "About WTOS\r\n";
+                        document.getElementById("output").value += "Version: 1.2.12\r\n";
+                        document.getElementById("output").value += "Release on: November 4th 2020\r\n";
+                        document.getElementById("output").value += "Original Release Date: August 23th 2020\r\n";
+                        document.getElementById("output").value += "Info about the first version: 328 lines of code, have 11 commands and a separate icon file\r\n";
+                        document.getElementById("output").value += "Copyright (C) 2021 Quan_MCPC. All right reserved!\r\n";
+                        document.getElementById("output").value += "Build number: 1.2.12.110420_Revision1\r\n";
+                        document.getElementById("output").value += "This project is J4F (Just For Fun)\r\n";
+                        document.getElementById("output").value += "You are using browser: " + navigator.sayswho +"\r\n";
+                        document.getElementById("output").value += "------------------------------\r\n";
                     }
                 } else if (a[0] == "ver") { //Command: ver
                     if (!a[1] == '') {
-                        document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
+                        document.getElementById("output").value += "Invalid syntax! An invalid character has been added at the end!\r\n";
                     } else {
-                        document.getElementById("output").innerHTML += "Version: 1.2.12\r\n";
+                        document.getElementById("output").value += "Version: 1.2.12\r\n";
                     }
                 } else if (a[0] == "timer") { //Command: timer
                     if (!isNaN(a[1])) {
                         if (!a[2] == '') {
-                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
+                            document.getElementById("output").value += "Invalid syntax! An invalid character has been added at the end!\r\n";
                         } else {
-                            document.getElementById("output").innerHTML += "Press Ctrl + B to immediately end the timer\r\n";
+                            document.getElementById("output").value += "Press Ctrl + B to immediately end the timer\r\n";
                             var timer_a = document.getElementById("output").value;
                             var fa = setInterval(function () {
                                 if (!a[1] == 0) {
                                     command_busy(true);
-                                    document.getElementById("output").innerHTML = '';
-                                    document.getElementById("output").innerHTML = timer_a;
-                                    document.getElementById("output").innerHTML += "Time left: " + a[1] + "\r\n";
+                                    document.getElementById("output").value = '';
+                                    document.getElementById("output").value = timer_a;
+                                    document.getElementById("output").value += "Time left: " + a[1] + "\r\n";
                                     a[1]--;
                                 } else {
                                     command_busy(false);
-                                    document.getElementById("output").innerHTML += "The timer has run out!\r\n";
+                                    document.getElementById("output").value += "The timer has run out!\r\n";
                                     clearInterval(fa);
                                 }
                             }, 1000);
                         }
                     } else {
-                        document.getElementById("output").innerHTML += "Invalid syntax! Expected an number!\r\n";
+                        document.getElementById("output").value += "Invalid syntax! Expected an number!\r\n";
                     }
                     let buffer = [];
                     let lastKeyTime = Date.now();
@@ -1823,7 +1823,7 @@
                             console.log("break");
                             command_busy(false);
                             clearInterval(fa);
-                            document.getElementById("output").innerHTML += "The timer has been stopped by user!\r\n";
+                            document.getElementById("output").value += "The timer has been stopped by user!\r\n";
                         }
                     });
                 } else if (a[0] == "stopwatch") { //Command: stopwatch
@@ -1831,78 +1831,78 @@
                     stop_signal = 0;
                     if (a[1] == "-n") { //Normal: 1
                         if (!a[2] == '') {
-                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
+                            document.getElementById("output").value += "Invalid syntax! An invalid character has been added at the end!\r\n";
                         } else {
                             var stopwatch_a = document.getElementById("output").value;
                             var mnt = 0;
                             mn = setInterval(function () {
                                 command_busy(true);
-                                document.getElementById("output").innerHTML = '';
-                                document.getElementById("output").innerHTML = stopwatch_a;
-                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Normal. Press Ctrl + B to stop the stopwatch\r\n"
-                                document.getElementById("output").innerHTML += mnt + "\r\n";
+                                document.getElementById("output").value = '';
+                                document.getElementById("output").value = stopwatch_a;
+                                document.getElementById("output").value += "The stopwatch has started! Mode: Normal. Press Ctrl + B to stop the stopwatch\r\n"
+                                document.getElementById("output").value += mnt + "\r\n";
                                 mnt++;
                             }, 1000);
                         }
                     } else
                     if (a[1] == "-d") { //Decisecond: 1.1
                         if (!a[2] == '') {
-                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
+                            document.getElementById("output").value += "Invalid syntax! An invalid character has been added at the end!\r\n";
                         } else {
                             var mdt = 0;
                             var stopwatch_a = document.getElementById("output").value;
                             md = setInterval(function () {
                                 command_busy(true);
-                                document.getElementById("output").innerHTML = '';
-                                document.getElementById("output").innerHTML = stopwatch_a;
-                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Decisecond (1/10 of a second). Press Ctrl + B to stop the stopwatch\r\n"
-                                document.getElementById("output").innerHTML += mdt / 10 + "\r\n";
+                                document.getElementById("output").value = '';
+                                document.getElementById("output").value = stopwatch_a;
+                                document.getElementById("output").value += "The stopwatch has started! Mode: Decisecond (1/10 of a second). Press Ctrl + B to stop the stopwatch\r\n"
+                                document.getElementById("output").value += mdt / 10 + "\r\n";
                                 mdt++;
                             }, 100);
                         }
                     } else
                     if (a[1] == "-c") { //Centisecond: 1.11
                         if (!a[2] == '') {
-                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
+                            document.getElementById("output").value += "Invalid syntax! An invalid character has been added at the end!\r\n";
                         } else {
                             var mct = 0;
                             var stopwatch_a = document.getElementById("output").value;
                             mc = setInterval(function () {
                                 command_busy(true);
-                                document.getElementById("output").innerHTML = '';
-                                document.getElementById("output").innerHTML = stopwatch_a;
-                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Centisecond(1/100 of a second). Press Ctrl + B to stop the stopwatch\r\n"
-                                document.getElementById("output").innerHTML += mct / 100 + "\r\n";
+                                document.getElementById("output").value = '';
+                                document.getElementById("output").value = stopwatch_a;
+                                document.getElementById("output").value += "The stopwatch has started! Mode: Centisecond(1/100 of a second). Press Ctrl + B to stop the stopwatch\r\n"
+                                document.getElementById("output").value += mct / 100 + "\r\n";
                                 mct++;
                             }, 10);
                         }
                     } else
                     if (a[1] == "-m") { //Milisecond: 1.111
                         if (!a[2] == '') {
-                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
+                            document.getElementById("output").value += "Invalid syntax! An invalid character has been added at the end!\r\n";
                         } else {
                             var mmt = 0;
                             var stopwatch_a = document.getElementById("output").value;
                             mm = setInterval(function () {
                                 command_busy(true);
-                                document.getElementById("output").innerHTML = '';
-                                document.getElementById("output").innerHTML = stopwatch_a;
-                                document.getElementById("output").innerHTML += "The stopwatch has started! Mode: Milisecond. Press Ctrl + B to stop the stopwatch\r\n"
-                                document.getElementById("output").innerHTML += mmt / 1000 + "\r\n";
+                                document.getElementById("output").value = '';
+                                document.getElementById("output").value = stopwatch_a;
+                                document.getElementById("output").value += "The stopwatch has started! Mode: Milisecond. Press Ctrl + B to stop the stopwatch\r\n"
+                                document.getElementById("output").value += mmt / 1000 + "\r\n";
                                 mmt++;
                             }, 1);
                         }
                     } else
                     if (a[1] == "-help") {
                         if (!a[2] == '') {
-                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid character has been added at the end!\r\n";
+                            document.getElementById("output").value += "Invalid syntax! An invalid character has been added at the end!\r\n";
                         } else {
-                            document.getElementById("output").innerHTML += "Syntax: stopwatch <mode: -n (Normal), -d (Decisecond [1/10 of a second]), -c (Centisecond [1/100 of a second]), -m (Milisecond)>\r\n";
-                            document.getElementById("output").innerHTML += "Example: stopwatch -n\r\n";
-                            document.getElementById("output").innerHTML += "Warning: Option -m is only for strong connection and for strong computer. Also the stopwatch will in most cases count the time wrong in this mode.\r\n";
+                            document.getElementById("output").value += "Syntax: stopwatch <mode: -n (Normal), -d (Decisecond [1/10 of a second]), -c (Centisecond [1/100 of a second]), -m (Milisecond)>\r\n";
+                            document.getElementById("output").value += "Example: stopwatch -n\r\n";
+                            document.getElementById("output").value += "Warning: Option -m is only for strong connection and for strong computer. Also the stopwatch will in most cases count the time wrong in this mode.\r\n";
                         }
                     } else {
-                        document.getElementById("output").innerHTML += "Invalid Syntax! Expected a mode, type timer -help to get help with the command\r\n";
+                        document.getElementById("output").value += "Invalid Syntax! Expected a mode, type timer -help to get help with the command\r\n";
                     }
                     let buffer = [];
                     let lastKeyTime = Date.now();
@@ -1927,7 +1927,7 @@
                 } else if (a[0] == "stop") {
                     start = 0;
                 } else if (a[0] == "save_console_output" || a[0] == "sco") {
-                    document.getElementById("output").innerHTML += "This command has been removed, please use \"export console_output\"\r\n";
+                    document.getElementById("output").value += "This command has been removed, please use \"export console_output\"\r\n";
                 } else if (a[0] == "color") { //Command: color
                     if (a[1] == "background") { //Type: background
                         if (a[2] == "-hex") { //Mode: Hex (#ffffff)
@@ -1938,13 +1938,13 @@
                                         color_input_hex.style.backgroundColor = a[3];
                                         localStorage.setItem("color:background", a[3]);
                                     } else {
-                                        document.getElementById("output").innerHTML += "Invalid syntax! The color code does not match the allow length\r\n";
+                                        document.getElementById("output").value += "Invalid syntax! The color code does not match the allow length\r\n";
                                     }
                                 } else {
-                                    document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid hex color code\r\n";
+                                    document.getElementById("output").value += "Invalid syntax! Expected a valid hex color code\r\n";
                                 }
                             } else {
-                                //document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid hex color code\r\n";
+                                //document.getElementById("output").value += "Invalid syntax! Expected a valid hex color code\r\n";
                             }
                         } else if (a[2] == "-name") { //Mode: Name (red)
                             if (a[3].match(/^[a-zA-Z]+$/)) {//Check
@@ -1952,10 +1952,10 @@
                                 color_background_name.style.backgroundColor = a[3];
                                 localStorage.setItem("color:background", a[3]);
                             } else {
-                                document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid color name\r\n";
+                                document.getElementById("output").value += "Invalid syntax! Expected a valid color name\r\n";
                             }
                         } else {
-                            document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid mode (-hex or -name), type color -help to get help with the command\r\n";
+                            document.getElementById("output").value += "Invalid syntax! Expected a valid mode (-hex or -name), type color -help to get help with the command\r\n";
                         }
                     } else if (a[1] == "output-background") { //Type: Output-BackgroundColor
                         if (a[2] == "-hex") { //Mode: Hex (#ffffff)
@@ -1966,13 +1966,13 @@
                                         color_input_hex.style.backgroundColor = a[3];
                                         localStorage.setItem("color:output_background", a[3]);
                                     } else {
-                                        document.getElementById("output").innerHTML += "Invalid syntax! The color code does not match the allow length\r\n";
+                                        document.getElementById("output").value += "Invalid syntax! The color code does not match the allow length\r\n";
                                     }
                                 } else {
-                                    document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid hex color code\r\n";
+                                    document.getElementById("output").value += "Invalid syntax! Expected a valid hex color code\r\n";
                                 }
                             } else {
-                                document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid hex color code\r\n";
+                                document.getElementById("output").value += "Invalid syntax! Expected a valid hex color code\r\n";
                             }
                         } else if (a[2] == "-name") { //Mode: Name (red)
                             if (a[3].match(/^[a-zA-Z]+$/)) {//Check
@@ -1980,10 +1980,10 @@
                                 color_background_name.style.backgroundColor = a[3];
                                 localStorage.setItem("color:output_background", a[3]);
                             } else {
-                                document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid color name\r\n";
+                                document.getElementById("output").value += "Invalid syntax! Expected a valid color name\r\n";
                             }
                         } else {
-                            document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid mode (-hex or -name), type color -help to get help with the command\r\n";
+                            document.getElementById("output").value += "Invalid syntax! Expected a valid mode (-hex or -name), type color -help to get help with the command\r\n";
                         }
                     } else if (a[1] == "input-background") { //Type: Input
                         if (a[2] == "-hex") { //Mode: Hex (#ffffff)
@@ -1994,13 +1994,13 @@
                                         color_input_hex.style.backgroundColor = a[3];
                                         localStorage.setItem("color:input_background", a[3]);
                                     } else {
-                                        document.getElementById("output").innerHTML += "Invalid syntax! The color code does not match the allow length\r\n";
+                                        document.getElementById("output").value += "Invalid syntax! The color code does not match the allow length\r\n";
                                     }
                                 } else {
-                                    document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid hex color code\r\n";
+                                    document.getElementById("output").value += "Invalid syntax! Expected a valid hex color code\r\n";
                                 }
                             } else {
-                                document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid hex color code\r\n";
+                                document.getElementById("output").value += "Invalid syntax! Expected a valid hex color code\r\n";
                             }
                         } else if (a[2] == "-name") { //Mode: Name (red)
                             if (a[3].match(/^[a-zA-Z]+$/)) {//Check
@@ -2008,10 +2008,10 @@
                                 color_background_name.style.backgroundColor = a[3];
                                 localStorage.setItem("color:input_background", a[3]);
                             } else {
-                                document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid color name\r\n";
+                                document.getElementById("output").value += "Invalid syntax! Expected a valid color name\r\n";
                             }
                         } else {
-                            document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid mode (-hex or -name), type color -help to get help with the command\r\n";
+                            document.getElementById("output").value += "Invalid syntax! Expected a valid mode (-hex or -name), type color -help to get help with the command\r\n";
                         }
                     } else if (a[1] == "output-text") { //Type: Output-TextColor
                         if (a[2] == "-hex") { //Mode: Hex (#ffffff)
@@ -2022,13 +2022,13 @@
                                         color_input_hex.style.color = a[3];
                                         localStorage.setItem("color:output_text", a[3]);
                                     } else {
-                                        document.getElementById("output").innerHTML += "Invalid syntax! The color code does not match the allow length\r\n";
+                                        document.getElementById("output").value += "Invalid syntax! The color code does not match the allow length\r\n";
                                     }
                                 } else {
-                                    document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid hex color code\r\n";
+                                    document.getElementById("output").value += "Invalid syntax! Expected a valid hex color code\r\n";
                                 }
                             } else {
-                                document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid hex color code\r\n";
+                                document.getElementById("output").value += "Invalid syntax! Expected a valid hex color code\r\n";
                             }
                         } else if (a[2] == "-name") { //Mode: Name (red)
                             if (a[3].match(/^[a-zA-Z]+$/)) {//Check
@@ -2036,10 +2036,10 @@
                                 color_background_name.style.color = a[3];
                                 localStorage.setItem("color:output_text", a[3]);
                             } else {
-                                document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid color name\r\n";
+                                document.getElementById("output").value += "Invalid syntax! Expected a valid color name\r\n";
                             }
                         } else {
-                            document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid mode (-hex or -name), type color -help to get help with the command\r\n";
+                            document.getElementById("output").value += "Invalid syntax! Expected a valid mode (-hex or -name), type color -help to get help with the command\r\n";
                         }
                     } else if (a[1] == "input-text") {
                         if (a[2] == "-hex") { //Mode: Hex (#ffffff)
@@ -2050,13 +2050,13 @@
                                         color_input_hex.style.color = a[3];
                                         localStorage.setItem("color:input_text", a[3]);
                                     } else {
-                                        document.getElementById("output").innerHTML += "Invalid syntax! The color code does not match the allow length\r\n";
+                                        document.getElementById("output").value += "Invalid syntax! The color code does not match the allow length\r\n";
                                     }
                                 } else {
-                                    document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid hex color code\r\n";
+                                    document.getElementById("output").value += "Invalid syntax! Expected a valid hex color code\r\n";
                                 }
                             } else {
-                                document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid hex color code\r\n";
+                                document.getElementById("output").value += "Invalid syntax! Expected a valid hex color code\r\n";
                             }
                         } else if (a[2] == "-name") { //Mode: Name (red)
                             if (a[3].match(/^[a-zA-Z]+$/)) {//Check
@@ -2064,10 +2064,10 @@
                                 color_background_name.style.color = a[3];
                                 localStorage.setItem("color:input_text", a[3]);
                             } else {
-                                document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid color name\r\n";
+                                document.getElementById("output").value += "Invalid syntax! Expected a valid color name\r\n";
                             }
                         } else {
-                            document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid mode (-hex or -name), type color -help to get help with the command\r\n";
+                            document.getElementById("output").value += "Invalid syntax! Expected a valid mode (-hex or -name), type color -help to get help with the command\r\n";
                         }
                     } else if (a[1] == "input-border") {
                         if (a[2] == "-hex") { //Mode: Hex (#ffffff)
@@ -2078,13 +2078,13 @@
                                         color_input_hex.style.borderColor = a[3];
                                         localStorage.setItem("color:input_border", a[3]);
                                     } else {
-                                        document.getElementById("output").innerHTML += "Invalid syntax! The color code does not match the allow length\r\n";
+                                        document.getElementById("output").value += "Invalid syntax! The color code does not match the allow length\r\n";
                                     }
                                 } else {
-                                    document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid hex color code\r\n";
+                                    document.getElementById("output").value += "Invalid syntax! Expected a valid hex color code\r\n";
                                 }
                             } else {
-                                document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid hex color code\r\n";
+                                document.getElementById("output").value += "Invalid syntax! Expected a valid hex color code\r\n";
                             }
                         } else if (a[2] == "-name") { //Mode: Name (red)
                             if (a[3].match(/^[a-zA-Z]+$/)) {//Check
@@ -2092,10 +2092,10 @@
                                 color_background_name.style.borderColor = a[3];
                                 localStorage.setItem("color:input_border", a[3]);
                             } else {
-                                document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid color name\r\n";
+                                document.getElementById("output").value += "Invalid syntax! Expected a valid color name\r\n";
                             }
                         } else {
-                            document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid mode (-hex or -name), type color -help to get help with the command\r\n";
+                            document.getElementById("output").value += "Invalid syntax! Expected a valid mode (-hex or -name), type color -help to get help with the command\r\n";
                         }
                     } else if (a[1] == "output-border") {
                         if (a[2] == "-hex") { //Mode: Hex (#ffffff)
@@ -2106,13 +2106,13 @@
                                         color_input_hex.style.borderColor = a[3];
                                         localStorage.setItem("color:output_border", a[3]);
                                     } else {
-                                        document.getElementById("output").innerHTML += "Invalid syntax! The color code does not match the allow length\r\n";
+                                        document.getElementById("output").value += "Invalid syntax! The color code does not match the allow length\r\n";
                                     }
                                 } else {
-                                    document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid hex color code\r\n";
+                                    document.getElementById("output").value += "Invalid syntax! Expected a valid hex color code\r\n";
                                 }
                             } else {
-                                document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid hex color code\r\n";
+                                document.getElementById("output").value += "Invalid syntax! Expected a valid hex color code\r\n";
                             }
                         } else if (a[2] == "-name") { //Mode: Name (red)
                             if (a[3].match(/^[a-zA-Z]+$/)) {//Check
@@ -2120,16 +2120,16 @@
                                 color_background_name.style.borderColor = a[3];
                                 localStorage.setItem("color:output_border", a[3]);
                             } else {
-                                document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid color name\r\n";
+                                document.getElementById("output").value += "Invalid syntax! Expected a valid color name\r\n";
                             }
                         } else {
-                            document.getElementById("output").innerHTML += "Invalid syntax! Expected a valid mode (-hex or -name), type color -help to get help with the command\r\n";
+                            document.getElementById("output").value += "Invalid syntax! Expected a valid mode (-hex or -name), type color -help to get help with the command\r\n";
                         }
                     } else if (a[1] == "-help") {
-                        document.getElementById("output").innerHTML += "Syntax: color <type: background/output-background/output-text/input-background/input-text/input-border/output-border> -hex <color-code: # + hex_data> OR\r\n";
-                        document.getElementById("output").innerHTML += "color <type: background/output-background/output-text/input-background/input-text/input-border/output-border> -name <color-name: text> OR\r\n";
-                        document.getElementById("output").innerHTML += "color -reset\r\n";
-                        document.getElementById("output").innerHTML += "Example: color background -hex #ffffff, color input-background -name red\r\n";
+                        document.getElementById("output").value += "Syntax: color <type: background/output-background/output-text/input-background/input-text/input-border/output-border> -hex <color-code: # + hex_data> OR\r\n";
+                        document.getElementById("output").value += "color <type: background/output-background/output-text/input-background/input-text/input-border/output-border> -name <color-name: text> OR\r\n";
+                        document.getElementById("output").value += "color -reset\r\n";
+                        document.getElementById("output").value += "Example: color background -hex #ffffff, color input-background -name red\r\n";
                     } else if (a[1] == "-reset") {
                         localStorage.removeItem("color:input_text");
                         localStorage.removeItem("color:output_text");
@@ -2153,11 +2153,11 @@
                         let color_input_hex6 = document.querySelector("#command");
                         color_input_hex6.style.borderColor = "white";
                     } else {
-                        document.getElementById("output").innerHTML += "Invalid syntax! Expected a mode, type color -help to get help with the command\r\n";
+                        document.getElementById("output").value += "Invalid syntax! Expected a mode, type color -help to get help with the command\r\n";
                     }
                 } else if (a[0] == "edit") { //Command: edit
                     if (!a[1] == "") {
-                        document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
+                        document.getElementById("output").value += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                         return false;
                     } else {
                         let edit = document.querySelector("#editor");
@@ -2168,39 +2168,39 @@
                         if (!isNaN(a[2])) {
                             if (a[3] == null) {
                                 document.getElementById("output").setAttribute("cols", a[2]);
-                                document.getElementById("output").innerHTML += "[Console: Cols: " + document.getElementById("output").getAttribute("cols") + ", Rows: " + document.getElementById("output").getAttribute("rows") + "]" + "\r\n";
+                                document.getElementById("output").value += "[Console: Cols: " + document.getElementById("output").getAttribute("cols") + ", Rows: " + document.getElementById("output").getAttribute("rows") + "]" + "\r\n";
                                 localStorage.setItem("mode:cols", a[2]);
                             } else {
-                                document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
+                                document.getElementById("output").value += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                             }
                         } else {
-                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid number has been insert.\r\n";
+                            document.getElementById("output").value += "Invalid syntax! An invalid number has been insert.\r\n";
                         }
                     } else if (a[1] == "rows") {  //Mode: rows
                         if (!isNaN(a[2])) {
                             if (a[3] == null) {
                                 document.getElementById("output").setAttribute("rows", a[2]);
-                                document.getElementById("output").innerHTML += "[Console: Cols: " + document.getElementById("output").getAttribute("cols") + ", Rows: " + document.getElementById("output").getAttribute("rows") + "]" + "\r\n";
+                                document.getElementById("output").value += "[Console: Cols: " + document.getElementById("output").getAttribute("cols") + ", Rows: " + document.getElementById("output").getAttribute("rows") + "]" + "\r\n";
                                 localStorage.setItem("mode:rows", a[2]);
                             } else {
-                                document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
+                                document.getElementById("output").value += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                             }
                         } else {
-                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid number has been insert.\r\n";
+                            document.getElementById("output").value += "Invalid syntax! An invalid number has been insert.\r\n";
                         }
                     } else if (a[1] == "show") { //Mode: show
                         if (a[2] == null) {
-                            document.getElementById("output").innerHTML += "[Console: Cols: " + document.getElementById("output").getAttribute("cols") + ", Rows: " + document.getElementById("output").getAttribute("rows") + "]" + "\r\n";
+                            document.getElementById("output").value += "[Console: Cols: " + document.getElementById("output").getAttribute("cols") + ", Rows: " + document.getElementById("output").getAttribute("rows") + "]" + "\r\n";
                         } else {
-                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
+                            document.getElementById("output").value += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                         }
                     } else if (a[1] == "help") { //Mode: help
                         if (a[2] == null) {
-                            document.getElementById("output").innerHTML += "Syntax: mode <mode: cols/rows> <number_of_cols_or_rows: number> OR\r\n";
-                            document.getElementById("output").innerHTML += "mode <mode: show/help/reset>\r\n";
-                            document.getElementById("output").innerHTML += "Example: mode cols 120, mode show\r\n";
+                            document.getElementById("output").value += "Syntax: mode <mode: cols/rows> <number_of_cols_or_rows: number> OR\r\n";
+                            document.getElementById("output").value += "mode <mode: show/help/reset>\r\n";
+                            document.getElementById("output").value += "Example: mode cols 120, mode show\r\n";
                         } else {
-                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
+                            document.getElementById("output").value += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                         }
                     } else if (a[1] == "reset") {
                         if (a[2] == null) {
@@ -2208,12 +2208,12 @@
                             localStorage.removeItem("mode:rows");
                             document.getElementById("output").setAttribute("rows", 30);
                             document.getElementById("output").setAttribute("cols", 100);
-                            document.getElementById("output").innerHTML += "[Console: Cols: " + document.getElementById("output").getAttribute("cols") + ", Rows: " + document.getElementById("output").getAttribute("rows") + "]" + "\r\n";
+                            document.getElementById("output").value += "[Console: Cols: " + document.getElementById("output").getAttribute("cols") + ", Rows: " + document.getElementById("output").getAttribute("rows") + "]" + "\r\n";
                         } else {
-                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
+                            document.getElementById("output").value += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                         }
                     } else {
-                        document.getElementById("output").innerHTML += "Invalid syntax! Expected a mode, type mode help to get help with the command\r\n";
+                        document.getElementById("output").value += "Invalid syntax! Expected a mode, type mode help to get help with the command\r\n";
                     }
                 } else if (a[0] == "sound") { //Command: sound
                     console.log(typeof(a[1]), typeof(a[2]), typeof(a[3]))
@@ -2222,8 +2222,8 @@
                         if (!isNaN(a[1]) && !isNaN(a[2]) && !isNaN(a[3])) {
                             if (a[4] == "sine" || a[4] == "sawtooth" || a[4] == "triangle" || a[4] == "square" || !a[4] == null) {
                                 setTimeout(function() { command_busy(false); }, a[3]);
-                                document.getElementById("output").innerHTML += "Now playing: One-Simple-One-Bit-Beep (OSOBB) (Volume: "+ a[1] + ", Frequency: " + a[2] + ", Duration: " + a[3] + "ms" + ", Type: " + a[4] + ")\r\n";
-                                document.getElementById("output").innerHTML += "To stop the sound, press Ctrl + B\r\n";
+                                document.getElementById("output").value += "Now playing: One-Simple-One-Bit-Beep (OSOBB) (Volume: "+ a[1] + ", Frequency: " + a[2] + ", Duration: " + a[3] + "ms" + ", Type: " + a[4] + ")\r\n";
+                                document.getElementById("output").value += "To stop the sound, press Ctrl + B\r\n";
                                 command_busy(true);
                                 beep(Number(a[1]), Number(a[2]), Number(a[3]), a[4]);
                                 function beep(vol, freq, duration, type) {
@@ -2248,28 +2248,28 @@
                                         lastKeyTime = currentTime;
                                         if (buffer.includes("control", 0) && buffer.includes("b", 1)) {
                                             command_busy(false);
-                                            document.getElementById("output").innerHTML += "Sound has been stopped by the user!\r\n";
+                                            document.getElementById("output").value += "Sound has been stopped by the user!\r\n";
                                             v.stop(a.currentTime)
                                         }
                                     });
                                 }
                             } else {
-                                document.getElementById("output").innerHTML += "Invalid Syntax! Expected number for Volume, Frequency, Duration part and Type of Sound.\r\n";
+                                document.getElementById("output").value += "Invalid Syntax! Expected number for Volume, Frequency, Duration part and Type of Sound.\r\n";
                             }
                         } else {
-                            document.getElementById("output").innerHTML += "Invalid Syntax! Expected number for Volume, Frequency, Duration part and Type of Sound.\r\n";
+                            document.getElementById("output").value += "Invalid Syntax! Expected number for Volume, Frequency, Duration part and Type of Sound.\r\n";
                         }
                     }
                 } else if (a[0] == "welcome") {
                     if (a[1] == "help") {
-                        document.getElementById("output").innerHTML += "Do you want to show a custom message everytime you log in to OS? Now You Can with the all new 'welcome' command\r\n";
-                        document.getElementById("output").innerHTML += "How to install: Type welcome or welcome open, choose the txt file and the message will automatically be set\r\n";
-                        document.getElementById("output").innerHTML += "If you want to make a message that fill the whole screen (with the default setting), here is the settings: Cols: 97, Rows: 29 (With the default font size)\r\n";
-                        document.getElementById("output").innerHTML += "Note: If you delete the cache data, the message will be deleted\r\n";
+                        document.getElementById("output").value += "Do you want to show a custom message everytime you log in to OS? Now You Can with the all new 'welcome' command\r\n";
+                        document.getElementById("output").value += "How to install: Type welcome or welcome open, choose the txt file and the message will automatically be set\r\n";
+                        document.getElementById("output").value += "If you want to make a message that fill the whole screen (with the default setting), here is the settings: Cols: 97, Rows: 29 (With the default font size)\r\n";
+                        document.getElementById("output").value += "Note: If you delete the cache data, the message will be deleted\r\n";
                     } else if (a[1] == "open") {
-                        document.getElementById("output").innerHTML += "A open window should pop-up, please input the txt file that you want to set as the welcome text everytime when you log in\r\n";
+                        document.getElementById("output").value += "A open window should pop-up, please input the txt file that you want to set as the welcome text everytime when you log in\r\n";
                         if (localStorage.getItem("welcome_content_set") == 1) {
-                            document.getElementById("output").innerHTML += "Warning: System has detected an exisited message in your browser. By continuing, the old one will be overwriten by the new one!\r\n";
+                            document.getElementById("output").value += "Warning: System has detected an exisited message in your browser. By continuing, the old one will be overwriten by the new one!\r\n";
                         }
                         openFile(setFile);
                         function clickElem(elem) {
@@ -2303,15 +2303,15 @@
                         function setFile(contents) {
                             localStorage.setItem("welcome_content", contents);
                             localStorage.setItem("welcome_content_set", 1);
-                            document.getElementById("output").innerHTML += "The message has been set successfully! The message should pop-up everytime your log in\r\n";
+                            document.getElementById("output").value += "The message has been set successfully! The message should pop-up everytime your log in\r\n";
                         }
                     } else if (a[1] == "remove") {
                         localStorage.removeItem("welcome_content");
                         localStorage.removeItem("welcome_content_set");
-                        document.getElementById("output").innerHTML += "Your message has been deleted successfully!\r\n";
+                        document.getElementById("output").value += "Your message has been deleted successfully!\r\n";
                     } else {
-                        document.getElementById("output").innerHTML += localStorage.getItem("welcome_content");
-                        document.getElementById("output").innerHTML += "\r\n";
+                        document.getElementById("output").value += localStorage.getItem("welcome_content");
+                        document.getElementById("output").value += "\r\n";
                     }
                 } else if (a[0] == "title") { //Command: title
                     if (a[0] == "underfined" || a[0] == null) {
@@ -2344,7 +2344,7 @@
                                 document.body.removeChild(event.target);
                             }
                         } else {
-                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
+                            document.getElementById("output").value += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                         }
                     } else if (a[1] == "last_256_entered_command" || a[1] == "ltec") {
                         if (a[2] == null) {
@@ -2371,7 +2371,7 @@
                                 document.body.removeChild(event.target);
                             }
                         } else {
-                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
+                            document.getElementById("output").value += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                         }
                     } else if (a[1] == "settings") {
                         if (a[2] == null) {
@@ -2406,20 +2406,20 @@
                                 document.body.removeChild(event.target);
                             }
                         } else {
-                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
+                            document.getElementById("output").value += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                         }
                     } else if (a[1] == "settings-jsontext") {
-                        document.getElementById("output").innerHTML += "This function has been disabled due to countless bug found!\r\n";
+                        document.getElementById("output").value += "This function has been disabled due to countless bug found!\r\n";
                     } else if (a[1] == "help") {
                         if (a[2] == null) {
-                            document.getElementById("output").innerHTML += "Export your console settings as JSON for backup, last 20 entered command and console output as txt\r\n";
-                            document.getElementById("output").innerHTML += "Syntax: export <settings/settings-jsontext/console_output/co/last_256_entered_command/ltec>\r\n";
-                            document.getElementById("output").innerHTML += "Example: export settings, export console_output\r\n";
+                            document.getElementById("output").value += "Export your console settings as JSON for backup, last 20 entered command and console output as txt\r\n";
+                            document.getElementById("output").value += "Syntax: export <settings/settings-jsontext/console_output/co/last_256_entered_command/ltec>\r\n";
+                            document.getElementById("output").value += "Example: export settings, export console_output\r\n";
                         } else {
-                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
+                            document.getElementById("output").value += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                         }
                     } else {
-                        document.getElementById("output").innerHTML += "Invalid syntax! Expected a mode, type export help for help about the command\r\n";
+                        document.getElementById("output").value += "Invalid syntax! Expected a mode, type export help for help about the command\r\n";
                     }
                 } else if (a[0] == "import") { //Command: import
                     if (a[1] == "settings") {
@@ -2501,9 +2501,9 @@
                                     localStorage.setItem("color:output_border", settings.color_output_border);
                                     localStorage.setItem("mode:rows", settings.mode_rows);
                                     localStorage.setItem("mode:cols", settings.mode_cols);
-                                    document.getElementById("output").innerHTML += "Settings has been applied successfully\r\n";
+                                    document.getElementById("output").value += "Settings has been applied successfully\r\n";
                                 } else {
-                                    document.getElementById("output").innerHTML += "Error while importing file: Invalid JSON file, please check your JSON file or import a different file\r\n";
+                                    document.getElementById("output").value += "Error while importing file: Invalid JSON file, please check your JSON file or import a different file\r\n";
                                 }
                             }
                             function IsJsonString(input) {
@@ -2514,12 +2514,12 @@
                                 }
                                 return true;
                             }
-                            document.getElementById("output").innerHTML += "To undo your settings, type import undo (Warning: You can not undo 2 times)\r\n"
+                            document.getElementById("output").value += "To undo your settings, type import undo (Warning: You can not undo 2 times)\r\n"
                         } else {
-                            document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
+                            document.getElementById("output").value += "Invalid syntax! An invalid charater or word has been added at the end.\r\n";
                         }
                     } else if (a[1] == "settings-jsontext") {
-                        document.getElementById("output").innerHTML += "This function has been disabled due to countless bug found!\r\n";
+                        document.getElementById("output").value += "This function has been disabled due to countless bug found!\r\n";
                     } else if (a[1] == "undo") {
                         if (window.backup[11]) {
                             let color_input_hex = document.querySelector("#background");
@@ -2542,14 +2542,14 @@
                             localStorage.setItem("welcome_content_set", window.backup[10])
                             window.backup[11] = false;
                         } else {
-                            document.getElementById("output").innerHTML += "Unable to undo because you already undo for there is no import action to undo\r\n";
+                            document.getElementById("output").value += "Unable to undo because you already undo for there is no import action to undo\r\n";
                         }
                     } else if (a[1] == "help") {
-                        document.getElementById("output").innerHTML += "Import your console settings\r\n";
-                        document.getElementById("output").innerHTML += "Syntax: import <settings/settings-jsontext/undo>\r\n";
-                        document.getElementById("output").innerHTML += "Example: import settings\r\n";
+                        document.getElementById("output").value += "Import your console settings\r\n";
+                        document.getElementById("output").value += "Syntax: import <settings/settings-jsontext/undo>\r\n";
+                        document.getElementById("output").value += "Example: import settings\r\n";
                     } else {
-                        document.getElementById("output").innerHTML += "Invalid syntax! Expected a mode, type export help for help about the command\r\n";
+                        document.getElementById("output").value += "Invalid syntax! Expected a mode, type export help for help about the command\r\n";
                     }
                 } else if (a[0] == "readme") {
                     var ab = window.open("", "ab", "width=800,height=600");
@@ -2603,7 +2603,7 @@
                         sheet.document.write("<h3> - You can write the music sheet as one continous line or each line for each note</h3>");
                         sheet.document.write("<h3>That's it!</h3>");
                     } else if (a[1] == null) {
-                        document.getElementById("output").innerHTML += "Insert the valid JSON music sheet into the open dialog box.\r\nIf you want to know how to write an valid JSON music sheet for this console, type music help\r\n";
+                        document.getElementById("output").value += "Insert the valid JSON music sheet into the open dialog box.\r\nIf you want to know how to write an valid JSON music sheet for this console, type music help\r\n";
                         openFile(parseData);
                         function clickElem(elem) {
                             // Thx user1601638 on Stack Overflow (6/6/2018 - https://stackoverflow.com/questions/13405129/javascript-create-and-save-file )
@@ -2646,24 +2646,24 @@
                                 var input = JSON.parse(input);
                             }
                             catch (err) {
-                                document.getElementById("output").innerHTML += "An error has occurred while parsing file, Here is the detail: \"" + err.message + "\"\r\n";
+                                document.getElementById("output").value += "An error has occurred while parsing file, Here is the detail: \"" + err.message + "\"\r\n";
                                 return false;
                             }
-                            if (!Array.isArray(input)) { document.getElementById("output").innerHTML += "An error has occurred while parsing file: The sheet must be an array. System can not continue\r\n"; return false; }
-                            document.getElementById("output").innerHTML += "To stop the music, press Ctrl + B or F5\r\n";
+                            if (!Array.isArray(input)) { document.getElementById("output").value += "An error has occurred while parsing file: The sheet must be an array. System can not continue\r\n"; return false; }
+                            document.getElementById("output").value += "To stop the music, press Ctrl + B or F5\r\n";
                             for (var b = 0; b < input.length; b++) {
                                 if (input[b].break !== undefined && input[b].break !== null) {
                                     wait(input[b].break);
                                     continue;
                                 } else {
-                                    if (input[b].vol == null || input[b].vol == undefined) { document.getElementById("output").innerHTML += "An error has occurred while reading line " + (b + 1) + ": Volume must be defined. System can not continue\r\n"; return false; console.log("Not pass 1");
-                                    } else if (input[b].freq == null || input[b].freq == undefined) { document.getElementById("output").innerHTML += "An error has occurred while reading line " + (b + 1) + ": Frequency must be defined. System can not continue\r\n"; return false; console.log("Not pass 1");
-                                    } else if (input[b].duration == null || input[b].duration == undefined) { document.getElementById("output").innerHTML += "An error has occurred while reading line " + (b + 1) + ": Duration must be defined. System can not continue\r\n"; return false; console.log("Not pass 1");
-                                    } else if (input[b].type == null || input[b].type == undefined) { document.getElementById("output").innerHTML += "An error has occurred while reading line " + (b + 1) + ": Type of sound must be defined. System can not continue\r\n"; return false; console.log("Not pass 1");
-                                    } else if (isNaN(Number(input[b].vol))) { document.getElementById("output").innerHTML += "An error has occurred while reading line " + (b + 1) + ": Volume must be number. System can not continue\r\n"; return false; console.log("Not pass 1");
-                                    } else if (isNaN(Number(input[b].freq))) { document.getElementById("output").innerHTML += "An error has occurred while reading line " + (b + 1) + ": Frequency must be number. System can not continue\r\n"; return false; console.log("Not pass 1");
-                                    } else if (isNaN(Number(input[b].duration))) { document.getElementById("output").innerHTML += "An error has occurred while reading line " + (b + 1) + ": Duration must be number. System can not continue\r\n"; return false; console.log("Not pass 1");
-                                    } else if (input[b].type !== "sine" && input[b].type !== "sawtooth" && input[b].type !== "triangle" && input[b].type !== "square") { document.getElementById("output").innerHTML += "An error has occurred while reading line " + (b + 1) + ": Type of sound must be: \"Sine, Sawtooth, Triangle or Square\". System can not continue\r\n"; return false; console.log("Not pass 1");
+                                    if (input[b].vol == null || input[b].vol == undefined) { document.getElementById("output").value += "An error has occurred while reading line " + (b + 1) + ": Volume must be defined. System can not continue\r\n"; return false; console.log("Not pass 1");
+                                    } else if (input[b].freq == null || input[b].freq == undefined) { document.getElementById("output").value += "An error has occurred while reading line " + (b + 1) + ": Frequency must be defined. System can not continue\r\n"; return false; console.log("Not pass 1");
+                                    } else if (input[b].duration == null || input[b].duration == undefined) { document.getElementById("output").value += "An error has occurred while reading line " + (b + 1) + ": Duration must be defined. System can not continue\r\n"; return false; console.log("Not pass 1");
+                                    } else if (input[b].type == null || input[b].type == undefined) { document.getElementById("output").value += "An error has occurred while reading line " + (b + 1) + ": Type of sound must be defined. System can not continue\r\n"; return false; console.log("Not pass 1");
+                                    } else if (isNaN(Number(input[b].vol))) { document.getElementById("output").value += "An error has occurred while reading line " + (b + 1) + ": Volume must be number. System can not continue\r\n"; return false; console.log("Not pass 1");
+                                    } else if (isNaN(Number(input[b].freq))) { document.getElementById("output").value += "An error has occurred while reading line " + (b + 1) + ": Frequency must be number. System can not continue\r\n"; return false; console.log("Not pass 1");
+                                    } else if (isNaN(Number(input[b].duration))) { document.getElementById("output").value += "An error has occurred while reading line " + (b + 1) + ": Duration must be number. System can not continue\r\n"; return false; console.log("Not pass 1");
+                                    } else if (input[b].type !== "sine" && input[b].type !== "sawtooth" && input[b].type !== "triangle" && input[b].type !== "square") { document.getElementById("output").value += "An error has occurred while reading line " + (b + 1) + ": Type of sound must be: \"Sine, Sawtooth, Triangle or Square\". System can not continue\r\n"; return false; console.log("Not pass 1");
                                     } else {
                                         command_busy(true);
                                         beep(input[b].vol, input[b].freq, input[b].duration, input[b].type)
@@ -2695,13 +2695,13 @@
                                 lastKeyTime = currentTime;
                                 if (buffer.includes("control", 0) && buffer.includes("b", 1)) {
                                     command_busy(false);
-                                    document.getElementById("output").innerHTML += "Music has been stopped by the user!\r\n";
+                                    document.getElementById("output").value += "Music has been stopped by the user!\r\n";
                                     v.stop(a.currentTime)
                                 }
                             });
                         }
                     } else {
-                        document.getElementById("output").innerHTML += "Invalid syntax! An invalid charater or word has been added at the end. Or it might because your JSON string contain space, please remove any space you found and try again.\r\n";
+                        document.getElementById("output").value += "Invalid syntax! An invalid charater or word has been added at the end. Or it might because your JSON string contain space, please remove any space you found and try again.\r\n";
                     }
                 } else if (a[0] == "userinfo") {
                     function date_check() {
@@ -2711,14 +2711,14 @@
                         var Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
                         return DIS + " seconds";
                     }
-                    document.getElementById("output").innerHTML += "Current User Info: \r\n";
-                    document.getElementById("output").innerHTML += "Login time:  " + login + "\r\n";
-                    document.getElementById("output").innerHTML += "Up Time: "+ date_check() + "\r\n";
-                    document.getElementById("output").innerHTML += "Type: browser/user\r\n";
+                    document.getElementById("output").value += "Current User Info: \r\n";
+                    document.getElementById("output").value += "Login time:  " + login + "\r\n";
+                    document.getElementById("output").value += "Up Time: "+ date_check() + "\r\n";
+                    document.getElementById("output").value += "Type: browser/user\r\n";
                 } else {
                     //Error 1: Not a correct command
-                    document.getElementById("output").innerHTML += "\"" + document.getElementById("command").value + "\"" +" is not a valid command.\r\n";
-                    document.getElementById("output").innerHTML += "Please refer the help page by typing: \"help\" for valid command.\r\n";
+                    document.getElementById("output").value += "\"" + document.getElementById("command").value + "\"" +" is not a valid command.\r\n";
+                    document.getElementById("output").value += "Please refer the help page by typing: \"help\" for valid command.\r\n";
                 }
             };
         </script>
