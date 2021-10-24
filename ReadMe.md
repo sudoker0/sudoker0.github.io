@@ -8,6 +8,12 @@
     </a>
 </p>
 
+[![QuanMCPC - QuanMCPC.github.io](https://img.shields.io/static/v1?label=QuanMCPC&message=QuanMCPC.github.io&color=red&logo=github)](https://github.com/QuanMCPC/QuanMCPC.github.io)
+[![License](https://img.shields.io/badge/License-MIT-red)](#license)
+[![stars - QuanMCPC.github.io](https://img.shields.io/github/stars/QuanMCPC/QuanMCPC.github.io?style=social)](https://github.com/QuanMCPC/QuanMCPC.github.io)
+[![forks - QuanMCPC.github.io](https://img.shields.io/github/forks/QuanMCPC/QuanMCPC.github.io?style=social)](https://github.com/QuanMCPC/QuanMCPC.github.io)
+[![issues - QuanMCPC.github.io](https://img.shields.io/github/issues/QuanMCPC/QuanMCPC.github.io)](https://github.com/QuanMCPC/QuanMCPC.github.io/issues)
+
 [![CodeQL](https://github.com/QuanMCPC/QuanMCPC.github.io/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/QuanMCPC/QuanMCPC.github.io/actions/workflows/codeql-analysis.yml)
 [![Update Website Information](https://github.com/QuanMCPC/QuanMCPC.github.io/actions/workflows/main.yml/badge.svg)](https://github.com/QuanMCPC/QuanMCPC.github.io/actions/workflows/main.yml)
 
