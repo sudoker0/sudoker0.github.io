@@ -8,6 +8,9 @@
     </a>
 </p>
 
+[![CodeQL](https://github.com/QuanMCPC/QuanMCPC.github.io/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/QuanMCPC/QuanMCPC.github.io/actions/workflows/codeql-analysis.yml)
+[![Update Website Information](https://github.com/QuanMCPC/QuanMCPC.github.io/actions/workflows/main.yml/badge.svg)](https://github.com/QuanMCPC/QuanMCPC.github.io/actions/workflows/main.yml)
+
 ## Welcome to my first ever repository and also my first ever website (And also my favourite repository) in GitHub.
 
 ### Important Note: The domain `https://quanmcpc.site` is privately funded and not by me funded.
