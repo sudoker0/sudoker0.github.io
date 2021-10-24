@@ -521,7 +521,8 @@
                 times.push(timestamp);
                 fps = times.length;
                 var fps_ = fps / 2;
-                getId("v_fps").innerHTML = fps + " fps"; getId("v_pColor").innerHTML = getId("brush_color").value;
+                getId("v_fps").innerText = fps + " fps";
+                getId("v_pColor").innerText = getId("brush_color").value;
                 if (xPos >= getId("canvas_").getAttribute("width")) { xPos = -5 }
                 ctx.beginPath();
                 ctx.globalCompositeOperation="source-over";
@@ -534,10 +535,14 @@
                 ctx.lineCap = 'butt';
                 ctx.stroke();
                 xPos++;
-                getId("v_cX").innerText = currX; getId("v_cY").innerHTML = currY;
-                getId("v_width").innerText = $canvas.getAttribute("width"); getId("v_height").innerHTML = $canvas.getAttribute("height");
-                getId("v_pSize").innerText = getId("brush_size").value; getId("v_eSize").innerHTML = getId("eraser_size").value;
-                getId("v_bT").innerText = getId("backgroundTransparent").checked; getId("v_eu").innerHTML = getId("enable_unredo").checked;
+                getId("v_cX").innerText = currX;
+                getId("v_cY").innerText = currY;
+                getId("v_width").innerText = $canvas.getAttribute("width");
+                getId("v_height").innerText = $canvas.getAttribute("height");
+                getId("v_pSize").innerText = getId("brush_size").value;
+                getId("v_eSize").innerText = getId("eraser_size").value;
+                getId("v_bT").innerText = getId("backgroundTransparent").checked;
+                getId("v_eu").innerText = getId("enable_unredo").checked;
                 getId("v_tool").innerText = tool_;
                 getId("v_lR").innerText = lockRatio_;
                 getId("v_lR_").innerText = lockRatio__;

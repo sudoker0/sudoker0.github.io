@@ -1007,7 +1007,7 @@
                     if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
                         filename = filename.substring(1);
                     }
-                    document.getElementById("editor_filename").innerHTML = "File: " + filename;
+                    document.getElementById("editor_filename").innerText = "File: " + filename;
                 }
             }
             function editor_save1() {
@@ -1037,7 +1037,7 @@
                 }
                 let cancel1 = document.querySelector("#editor_save");
                 cancel1.style.display = "none";
-                document.getElementById("editor_filename").innerHTML = "File: " + document.getElementById("editor_save_name").value;
+                document.getElementById("editor_filename").innerText = "File: " + document.getElementById("editor_save_name").value;
                 document.querySelector("#editor_overlay").style.display = "none";
             }
             function destroyClickedElement(event) {
