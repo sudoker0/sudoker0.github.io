@@ -120,6 +120,7 @@ h3#accbar a:hover::after, h3#accbar_small a:hover::after { width: 100% }
 h3#accbar a:active::after, h3#accbar_small a:active::after { bottom: -6px; }
 nav#accb_small {
   transition: clip-path 0.3s;
+  -webkit-clip-path: polygon(0px 0px, 100% 0px, 100% 0%, 0% 0%);
   clip-path: polygon(0px 0px, 100% 0px, 100% 0%, 0% 0%);
   opacity: 1;
   display: block;
@@ -447,7 +448,11 @@ div.spOpened { opacity: 1 !important; pointer-events: initial !important; }
 div.spOpened > * { transform: scale(1) !important; }
 div#loadingIndicator.lIClosed { opacity: 0; pointer-events: none; }
 div#loadingIndicator.lIClosed div { transform: scale(0.5); }
-nav.logo_rotate.navbar > a { background-color: white; clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); }
+nav.logo_rotate.navbar > a {
+  background-color: white;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
 nav.logo_rotate.navbar > a > img { animation: rotate_ 1s infinite linear; }
 input.custom_slider {
   -webkit-appearance: none;

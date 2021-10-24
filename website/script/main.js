@@ -34,7 +34,7 @@ function ls_st(i, v) { localStorage.setItem(i, v) }
  * @param {string} v - The value
  */
 function setCSSVar(p, v) { document.documentElement.style.setProperty(p, v) }
-var pathname = window.location.pathname, accb_small_isOn = false;
+var pathname = window.location.pathname, accb_small_isOn = false, nBP = { "close": "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)", "open": "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" };
 document.querySelectorAll("h3#accbar a").forEach((v) => { document.querySelector("h3#accbar_small").append(v.cloneNode(true)) })
 // var name_ = [
 //     {
@@ -166,7 +166,8 @@ document.addEventListener("click", function(evt) {
         if (tE == fE) { return; }
         tE = tE.parentNode;
     } while (tE);
-    sel("#accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0% 0%)";
+    sel("#accb_small").style.webkitClipPath = nBP.close;
+    sel("#accb_small").style.clipPath = nBP.close;
     accb_small_isOn = false;
 });
 sel("#settingspage").onclick = (e) => { if (!(sel("#sp_actual").contains(e.target))) { closeSettings(); } }
@@ -209,19 +210,22 @@ var somethingCrash = false;
 function smtg() {
     check()
     accb_small_isOn = false;
-    sel("#accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0% 0%)";
+    sel("#accb_small").style.webkitClipPath = nBP.close;
+    sel("#accb_small").style.clipPath = nBP.close;
 }
 accb_small_isOn = false;
 function accb_small() {
     if (accb_small_isOn) {
         // sel("#accb_small").style.display = "none";
         // if (getWebConf("theme") == "2") sel("#accb_small_").style.backgroundColor = scrollY > 32 ? "rgba(20, 20, 20, 0.85)" : "transparent"
-        sel("#accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0% 0%)";
+        sel("#accb_small").style.webkitClipPath = nBP.close;
+        sel("#accb_small").style.clipPath = nBP.close;
         accb_small_isOn = false;
     } else {
         // sel("#accb_small").style.display = "block";
         // if (getWebConf("theme") == "2") sel("#accb_small_").style.backgroundColor = "rgba(20, 20, 20, 0.85)"
-        sel("#accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 100%, 0% 100%)";
+        sel("#accb_small").style.webkitClipPath = nBP.open;
+        sel("#accb_small").style.clipPath = nBP.open;
         accb_small_isOn = true;
     }
 }
@@ -285,7 +289,8 @@ function changeOpacity() {
 }
 document.onscroll = (_) => {
     dropShadow(); changeOpacity();
-    sel("#accb_small").style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0% 0%)";
+    sel("#accb_small").style.webkitClipPath = nBP.close;
+    sel("#accb_small").style.clipPath = nBP.close;
     accb_small_isOn = false;
 }
 function changeBackground() {
