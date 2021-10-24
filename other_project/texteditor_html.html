@@ -61,6 +61,10 @@
 <h5 style="color:red">NOTE: I am NOT the person that write this. I just added new features and fixed some bug in the og code.</h5>
 
     <script>
+        function sanitizeString(str){
+            str = str.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
+            return str.trim();
+        }
         function downloadfile(){
             var fileName =  document.getElementById("namefile").value;
             downloadInnerHtml(fileName, 'sampleeditor','text/html');
@@ -96,7 +100,7 @@
                 var textSelected = selection.toString();
                 var element = document.createElement('a');
                 element.innerText = textSelected;
-                element.setAttribute('href', url);
+                element.setAttribute('href', sanitizeString(url));
 
                 var range = selection.getRangeAt(0);
                 range.deleteContents();

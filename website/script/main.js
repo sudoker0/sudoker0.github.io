@@ -87,6 +87,10 @@ document.querySelectorAll("h3#accbar a").forEach((v) => { document.querySelector
  * @param {string} url The URL that you want to use (Optional)
  * @returns String
  */
+function sanitizeString(str){
+    str = str.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
+    return str.trim();
+}
 function gPBName(name, url = window.location.href) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]\\]/g, '\\$&');
