@@ -20,6 +20,10 @@
                             "type": "file"
                         },
                         {
+                            "name": "codeql-analysis.yml",
+                            "type": "file"
+                        },
+                        {
                             "name": "main.yml",
                             "type": "file"
                         }

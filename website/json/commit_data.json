@@ -3,6 +3,18 @@
     "last_update_on": "2021-10-24",
     "data": [
         {
+            "hash": "f6058a1",
+            "committer": "GitHub",
+            "commit_date": 1635082374,
+            "message": "Create codeql-analysis.yml"
+        },
+        {
+            "hash": "a3b9144",
+            "committer": "QuanMCPC",
+            "commit_date": 1635065515,
+            "message": "Update website's information"
+        },
+        {
             "hash": "932886f",
             "committer": "QuanMCPC",
             "commit_date": 1635065473,
