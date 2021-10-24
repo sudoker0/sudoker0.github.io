@@ -74,11 +74,11 @@
             getId("b").innerHTML = `This 404 error is a <b>Lie</b>, please open an actual invalid pathname.`;
             getId("c").innerHTML = `<del>404 Not Found</del> 200 OK`;
         }
-        getId("requestedURL").innerHTML = window.location.pathname;
-        getId("fullURL").innerHTML = ` [\"${window.location.href}\"]`;
-        getId("hostName").innerHTML = ` [\"${window.location.hostname}\"]`;
-        getId("protocol").innerHTML = ` [\"${window.location.protocol}\"]`;
-        getId("origin").innerHTML = ` [\"${window.location.origin}\"]`;
-        getId("portNumber").innerHTML = ` [\"${window.location.port}\"]`;
+        getId("requestedURL").innerText = window.location.pathname;
+        getId("fullURL").innerText = ` [\"${window.location.href}\"]`;
+        getId("hostName").innerText = ` [\"${window.location.hostname}\"]`;
+        getId("protocol").innerText = ` [\"${window.location.protocol}\"]`;
+        getId("origin").innerText = ` [\"${window.location.origin}\"]`;
+        getId("portNumber").innerText = ` [\"${window.location.port}\"]`;
     </script>
 </html>

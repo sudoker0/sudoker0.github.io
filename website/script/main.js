@@ -89,7 +89,7 @@ document.querySelectorAll("h3#accbar a").forEach((v) => { document.querySelector
  */
 function gPBName(name, url = window.location.href) {
     if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, '\\$&');
+    name = name.replace(/[\[\]\\]/g, '\\$&');
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
     if (!results) return null;
     if (!results[2]) return '';
@@ -305,7 +305,7 @@ function changeBackground() {
         changeBg(3)
     }
 }
-function bgOpacity() { document.body.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, ${sel("#bg-opacity-slider").value / 100}), rgba(0, 0, 0, ${sel("#bg-opacity-slider").value / 100})), var(--bg-img)`; sel("#wsl-bgonly-only-current").innerHTML = sel("#bg-opacity-slider").value; setWebConf("imageBrightness", sel("#bg-opacity-slider").value) }
+function bgOpacity() { document.body.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, ${sel("#bg-opacity-slider").value / 100}), rgba(0, 0, 0, ${sel("#bg-opacity-slider").value / 100})), var(--bg-img)`; sel("#wsl-bgonly-only-current").innerText = sel("#bg-opacity-slider").value; setWebConf("imageBrightness", sel("#bg-opacity-slider").value) }
 function ws_1() {
     setCSSVar("--bg", "rgba(20, 20, 20, 0.85)")
     sel(".container").style.border = "3px solid black";
