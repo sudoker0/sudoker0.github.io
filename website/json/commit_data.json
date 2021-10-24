@@ -3,6 +3,18 @@
     "last_update_on": "2021-10-24",
     "data": [
         {
+            "hash": "8ed552d",
+            "committer": "QuanMCPC",
+            "commit_date": 1635083998,
+            "message": "Attempt that make the code more secure"
+        },
+        {
+            "hash": "502f0ee",
+            "committer": "QuanMCPC",
+            "commit_date": 1635082399,
+            "message": "Update website's information"
+        },
+        {
             "hash": "f6058a1",
             "committer": "GitHub",
             "commit_date": 1635082374,
