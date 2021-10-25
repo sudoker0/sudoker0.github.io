@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<!-- https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c+sharp&logoColor=white -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="61.5" height="28" role="img" aria-label="C#">
+	<title>C#</title>
+	<g shape-rendering="crispEdges">
+		<rect width="61.5" height="28" fill="#239120"/>
+	</g>
+	<g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="100">
+		<image x="9" y="7" width="14" height="14" xlink:href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJ3aGl0ZSIgcm9sZT0iaW1nIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPkMgU2hhcnA8L3RpdGxlPjxwYXRoIGQ9Ik0xMiAwQTEyIDEyIDAgMDAwIDEyYTEyIDEyIDAgMDAxMiAxMiAxMiAxMiAwIDAwMTItMTJBMTIgMTIgMCAwMDEyIDB6TTkuNDI2IDcuMTJhNS41NSA1LjU1IDAgMDExLjk4NS4zOHYxLjE4MWE0LjUgNC41IDAgMDAtMi4yNS0uNTY2IDMuNDM5IDMuNDM5IDAgMDAtMi42MjUgMS4wODcgNC4wOTkgNC4wOTkgMCAwMC0xLjAxMiAyLjkwNiAzLjkgMy45IDAgMDAuOTQ1IDIuNzU0IDMuMjE3IDMuMjE3IDAgMDAyLjQ4MiAxLjAyMyA0LjY1NyA0LjY1NyAwIDAwMi40NjQtLjYzNGwtLjAwNCAxLjA4YTUuNTQzIDUuNTQzIDAgMDEtMi42MjUuNTU1IDQuMjExIDQuMjExIDAgMDEtMy4yMjgtMS4yOTcgNC43OTMgNC43OTMgMCAwMS0xLjIxMi0zLjQwOSA1LjAyMSA1LjAyMSAwIDAxMS4zNjUtMy42NjMgNC42MzEgNC42MzEgMCAwMTMuNDczLTEuMzkyIDUuNTUgNS41NSAwIDAxLjEyLS4wMDQgNS41NSA1LjU1IDAgMDEuMTIyIDB6bTUuODYzLjE1NWguODM2bC0uNTU1IDIuNjUyaDEuNjYxbC41NjctMi42NTJoLjgxbC0uNTU1IDIuNjUyIDEuNzMyLS4wMDQtLjE1LjY5N0gxNy45MWwtLjQxMiAxLjk4aDEuODUybC0uMTc2LjY5OGgtMS44MTZsLS41OCAyLjYyNWgtLjgzbC41NjctMi42MjVoLTEuNjVsLS41NTUgMi42MjVoLS44MWwuNTU1LTIuNjI1aC0xLjc0bC4xMzEtLjY5OGgxLjc0OGwuNDAxLTEuOTc2aC0xLjgyNmwuMTM4LS42OTdoMS44MjZ6bS4xNDIgMy4zNDVMMTUgMTIuNmgxLjY3M2wuNDIzLTEuOTh6Ii8+PC9zdmc+"/>
+		<text transform="scale(.1)" x="407.5" y="175" textLength="175" fill="#fff" font-weight="bold">C#</text>
+	</g>
+</svg>
