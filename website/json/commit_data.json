@@ -1,7 +1,31 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2021-10-24",
+    "last_update_on": "2021-10-25",
     "data": [
+        {
+            "hash": "954f2f0",
+            "committer": "QuanMCPC",
+            "commit_date": 1635141601,
+            "message": "Improved design on table element"
+        },
+        {
+            "hash": "d2153a1",
+            "committer": "QuanMCPC",
+            "commit_date": 1635141592,
+            "message": "Improved design on table element and the text view"
+        },
+        {
+            "hash": "53bde77",
+            "committer": "QuanMCPC",
+            "commit_date": 1635141552,
+            "message": "Added a self rating on programming languages"
+        },
+        {
+            "hash": "698bb4f",
+            "committer": "QuanMCPC",
+            "commit_date": 1635092626,
+            "message": "Update website's information"
+        },
         {
             "hash": "8671771",
             "committer": "QuanMCPC",

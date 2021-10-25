@@ -1,13 +1,13 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
     "filesize": {
-        "lastupdateon": "2021-10-24",
-        "total": "446,904,300",
-        "standard_src_code": "142,851",
-        "basic_src_code": "105,613",
-        "assets": "82,869,622",
+        "lastupdateon": "2021-10-25",
+        "total": "447,104,933",
+        "standard_src_code": "145,150",
+        "basic_src_code": "107,869",
+        "assets": "82,870,666",
         "archive": "97,114,085",
         "other_project": "6,266,575",
-        "other": "186,498,746"
+        "other": "186,504,345"
     }
 }
