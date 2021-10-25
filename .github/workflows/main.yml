@@ -9,7 +9,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  update_info:
+    name: Update Website Information
     runs-on: ubuntu-latest
     steps:
       - name: Initial setup
