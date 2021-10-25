@@ -63,7 +63,7 @@ data = {
         "assets": formatFileSize(assets_size),
         "archive": formatFileSize(archive_size),
         "other_project": formatFileSize(other_project_size),
-        "other": formatFileSize(standard_src_code_size + basic_src_code_size + assets_size + archive_size + other_project_size)
+        "other": formatFileSize(total_size - (standard_src_code_size + basic_src_code_size + assets_size + archive_size + other_project_size))
     }
 }
 
