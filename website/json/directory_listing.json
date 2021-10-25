@@ -286,6 +286,32 @@
             ]
         },
         {
+            "name": "download",
+            "type": "directory",
+            "children": [
+                {
+                    "name": "High_Quality_Backgrounds.7z",
+                    "type": "file"
+                },
+                {
+                    "name": "ScreenShots_HighQuality_tga.7z",
+                    "type": "file"
+                },
+                {
+                    "name": "current_image_png.zip",
+                    "type": "file"
+                },
+                {
+                    "name": "data-to-get-screenshot.yml",
+                    "type": "file"
+                },
+                {
+                    "name": "old_image.zip",
+                    "type": "file"
+                }
+            ]
+        },
+        {
             "name": "download.html",
             "type": "file"
         },
@@ -571,32 +597,6 @@
                                 },
                                 {
                                     "name": "background_light.png",
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "download",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "High_Quality_Backgrounds.7z",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "ScreenShots_HighQuality_tga.7z",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "current_image_png.zip",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "data-to-get-screenshot.yml",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "old_image.zip",
                                     "type": "file"
                                 }
                             ]
