@@ -307,7 +307,7 @@ li {
   div#screentoosmall { display: none; }
   div#sp_actual * { margin-top: 3px; margin-bottom: 3px; }
   div#settingspage span { margin-top: initial; margin-bottom: initial; }
-  ul { margin-left: 5px }
+  ul { margin-left: 20px; padding: 0; }
 }
 @media (min-width: 482px) {
   body { font-size: 0.75rem; }
@@ -316,7 +316,6 @@ li {
   div.container > *, div#settingspage > * { max-width: 95% }
   div#sp_actual * { margin-top: 5px; margin-bottom: 5px; }
   div#settingspage span { margin-top: initial; margin-bottom: initial; }
-  ul { margin-left: 10px }
 }
 @media (max-width: 639px) {
   button#accbar_small_open {
@@ -481,3 +480,13 @@ input.custom_slider::-moz-range-thumb {
   cursor: pointer;
 }
 div.disabledSection { opacity: 0.5; }
+table {
+  border: 2px solid white;
+  border-collapse: collapse;
+  color: white;
+}
+td, th {
+  border: 2px solid white;
+  padding: 8px;
+}
+th { text-decoration: underline; }
