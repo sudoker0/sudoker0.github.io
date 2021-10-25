@@ -3,6 +3,18 @@
     "last_update_on": "2021-10-25",
     "data": [
         {
+            "hash": "d3d55dd",
+            "committer": "QuanMCPC",
+            "commit_date": 1635156706,
+            "message": "Added C++ to the list of programming languages that I know"
+        },
+        {
+            "hash": "269a893",
+            "committer": "QuanMCPC",
+            "commit_date": 1635141637,
+            "message": "Update website's information"
+        },
+        {
             "hash": "954f2f0",
             "committer": "QuanMCPC",
             "commit_date": 1635141601,
