@@ -3,6 +3,18 @@
     "last_update_on": "2021-10-25",
     "data": [
         {
+            "hash": "9e0af9c",
+            "committer": "QuanMCPC",
+            "commit_date": 1635162975,
+            "message": "Why am I so stupid at math"
+        },
+        {
+            "hash": "b4fce89",
+            "committer": "QuanMCPC",
+            "commit_date": 1635162777,
+            "message": "Update website's information"
+        },
+        {
             "hash": "ca6b7bf",
             "committer": "QuanMCPC",
             "commit_date": 1635162740,
