@@ -3,6 +3,18 @@
     "last_update_on": "2021-10-25",
     "data": [
         {
+            "hash": "2db117e",
+            "committer": "QuanMCPC",
+            "commit_date": 1635167787,
+            "message": "Revert \"Switch to using local resources instead\""
+        },
+        {
+            "hash": "77cfa7b",
+            "committer": "QuanMCPC",
+            "commit_date": 1635167546,
+            "message": "Update website's information"
+        },
+        {
             "hash": "2c43a8c",
             "committer": "QuanMCPC",
             "commit_date": 1635167506,
