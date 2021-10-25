@@ -602,60 +602,6 @@
                             ]
                         },
                         {
-                            "name": "badge",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "ASSEMBLY.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "C.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "CPP.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "CS.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "CSS.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "HTML.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "JAVA.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "JS.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "PHP.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "POWERSHELL.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "PYTHON.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "badge_fetcher.py",
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        {
                             "name": "gallery",
                             "type": "directory",
                             "children": [
