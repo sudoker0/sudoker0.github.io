@@ -88,7 +88,7 @@ document.querySelectorAll("h3#accbar a").forEach((v) => { document.querySelector
  * @returns String
  */
 function sanitizeString(str){
-    str = str.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
+    str = str.replace(/[^a-z0-9áéíóúñü \.,_-\/]/gim,"");
     return str.trim();
 }
 function gPBName(name, url = window.location.href) {

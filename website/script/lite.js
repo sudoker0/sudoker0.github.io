@@ -16,7 +16,7 @@ function gPBN(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 function sanitizeString(str){
-    str = str.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
+    str = str.replace(/[^a-z0-9áéíóúñü \.,_-\/]/gim,"");
     return str.trim();
 }
 // var name_ = [
