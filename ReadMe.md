@@ -9,7 +9,7 @@
 </p>
 
 [![QuanMCPC - QuanMCPC.github.io](https://img.shields.io/static/v1?label=QuanMCPC&message=QuanMCPC.github.io&color=red&logo=github)](https://github.com/QuanMCPC/QuanMCPC.github.io)
-[![License](https://img.shields.io/badge/License-MIT-red)](#license)
+[![License](https://img.shields.io/badge/License-MIT-red)](#-license)
 [![stars - QuanMCPC.github.io](https://img.shields.io/github/stars/QuanMCPC/QuanMCPC.github.io?style=social)](https://github.com/QuanMCPC/QuanMCPC.github.io)
 [![forks - QuanMCPC.github.io](https://img.shields.io/github/forks/QuanMCPC/QuanMCPC.github.io?style=social)](https://github.com/QuanMCPC/QuanMCPC.github.io)
 
@@ -27,53 +27,57 @@
 4. [❓ FAQ](#-faq-frequently-asked-questions)
 5. [📁 File information of the website's folder](#-information-about-the-files-in-the-websites-folder)
 6. [👀 Random Stuff](#-random-stuff)
+7. [📜 License](#-license)
 ### 📕 Introduction
-* Ok, I have to tell the truth: This repository is not really the first ever repo that I created. I created the first one to store my game that I created using Unity but then I delete that because I still want my game private.
-* After deleting that, I rarely use GitHub. But one day, I want to created my first ever website and then I found a [website](https://medium.com/@svinkle/publish-and-share-your-own-website-for-free-with-github-2eff049a1cb5) that help you created a free website On [GitHub](https://github.com). And after that, [QuanMCPC.github.io](https://quanmcpc.github.io) was born!
-* **Note**: When I created the website, my original GitHub nickname was Quan215 so the name of my website was actually Quan215.github.io. But then I change my nickname to my Minecraft username and after that I have to change the name of the repo to the current website name.
+* Ok, I have to tell the truth: This repository was not the first-ever repo I created. The first one that I created is used to store the game I made using Unity, and then I removed that same repo because I still want my game to be private.
+* After removing that, I rarely use GitHub. Then one day, I decided to create my first ever website because I wanted one, and so I found an [article on Medium](https://medium.com/@svinkle/publish-and-share-your-own-website-for-free-with-github-2eff049a1cb5) that helps you create a free website on GitHub. So after some hard work, my very first website was born!
+* **Note**: When I first created the website, my original GitHub nickname was Quan215, so the name of my website was Quan215.github.io. Then I changed my nickname to my Minecraft username because remembering so many user names is hard. I also have to change the repository name to the current website name to make my website work.
 ### 💡 About
-- My website is not the best looking, but it's good enough for myself. I will try to improve my website and in that process, learn new things too!
+- My website is not the best looking, but it's good enough for me. And don't worry, I will try to improve my website while learning new things too!
 ### 📖 Details
-- This website is writen in HTML, JS and CSS. Why I did not use PHP or other language? Simply because:
-    - GitHub does not supported parsing PHP, ASP
-    - I like to keep my website **pure** HTML and JS
-- There are currently 5 page* on my website:
-    - Home: Show the page you will see when you access my website, this page contain:
-        - A little introduction about my self
-        - Social link
+- I use programming languages such as HTML, JS, and CSS to create this website. And why I didn't use PHP or another language? Simply because:
+    - GitHub does not support parsing PHP, ASP.
+    - I like to keep my website **pure** HTML and JS.
+- There are currently five pages* on my website:
+    - Home: This is the page that you'll see first when you enter my website, which contains:
+        - A little introduction about myself
+        - Social links
+        - Self-rating on programming languages that I knew
         - A long list of all of my project
-    - Credit: Show credit for software and webpage that help with this website, this page contain:
-        - Link to the software that help created this website
-        - Link to the webpage that help with the website
-    - About Website: Show information about my website in both Table and text form, this page contain:
-        - A table show information like the file size, number of commit, ...
-    - Gallery: Show a list of picture, this page contain:
-        - A UI to nagivate and see the picture
-    - Download: Download stuff, that's it, and this page contain:
-        - A list for downloadable file.
-- *: There are some page like: Loading page, basic HTML version of the page that I did not mention. That's because most people will access the main version of the website (unless your Internet is slow). But I will still mention some of those:
+    - Credit: This page shows a list of software and webpage that help with the website, containing:
+        - Links to the software that helps create this website
+        - Links to the webpage that help with the website
+    - About Website: This shows a lot of information about my website in both table and text form, which contains:
+        - A table show information like the file size, number of commits, etc.
+        - A chart that shows the number of commits per week starting from the creation of the website.
+        - Another table displays detailed information on every commits ever created.
+    - Gallery: Gallery: Show a list of screenshots of some of my Minecraft projects, containing:
+        - A UI to navigate and view the picture
+    - Download: Download stuff that I allow people to download. Wait, that's a lie, everything on my website is free to download and use, and it's all legal. By the way, this page contains:
+        - A list of free to download and use files.
+- \* There is some page like the Loading page, basic HTML version of the page that I didn't mention. But I'll still mention some of those pages for no reason at all:
     - Basic HTML version:
         - No custom font
         - Basic styling
-        - Can be access through the loading page
+        - Accessed through the loading page
     - Loading page (index.html):
         - An animated SVG (or GIF if the SVG one failed to load)
-        - 3 link:
-            - One redirect to the main version
-            - One redirect to the lite version
-            - One redirect to the first ever version of my website
-    - ~~First version:~~ (This part of the website has been moved to [https://quan215.github.io](https://quan215.github.io))
-        - ~~Very basic (only contain 4kb of html file, 6mb of image)~~
+        - And ~~three~~ two links:
+            - One redirects to the main version.
+            - Another one redirects to the lite version.
+            - ~~And the final one redirects to the first-ever revision of the website.~~
+    - ~~First version:~~ (This part of the website has moved to [https://quan215.github.io](https://quan215.github.io))
+        - ~~Very basic (only contain 4KB of HTML file, 6MB of image)~~
         - ~~Almost no styling~~
 ### ❓ FAQ (Frequently Asked Questions)
 - Will I ever stop working on the website?
-    - **Maybe**, I mean I have other thing in life to do, for example: Go to school, playing with my friend and other things. But because this is one of my greatest thing I ever created, it might take very long.
-- Will I ever purchase your own domain and build your website on that?
-    - **Yes**, in the far future. Because I am currently a student, I do not have money to purchase my own domain and even if I can then I think it's a waste of money (But not really because domain now only cost like 2 to 3 dollar at minimum). I mean like my website is for fun and never for actual business or something, beside I already got a free domain so why purchase a domain? (Probally to make my website more noticable.)
-- Have I ever encounter a problem when making the website?
-    - **Yes**, I have. When I add or change something, there will always be problem and if there is, I will search on the Internet to find a solution. And just because you search things up on the Internet, it doesn't mean you not good. Even the smart people out there still have to read book and search thing up for the solution.
-- If GitHub support PHP or other language, will I ever use those language to write my website?
-    - **Maybe**, but I will probably prefer to stay on HTML, mainly because that mean I have to learn a new language and adapt all of the difference syntax and other things too
+    - **Maybe**, I mean I have other things in life to do, for example: Go to school, play with my friend and do other things. Don't worry about it tho, since it will take very long to happen.
+- Will I ever purchase my domain?
+    - **Yes**, but in the far future.
+- Have I ever encountered problems when making a website?
+    - **Yes**, I have. When I add or change something, it might cause a problem, and if that happens, I will search on the Internet to find a solution.
+- If GitHub supports PHP or other languages, will I ever use those languages to write my website?
+    - **Maybe**, but I will probably prefer to stay on HTML, mainly because that means I have to learn a new language and adapt all of the different syntax and other things.
 ### 📁 Information about the files in the website's folder
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
@@ -137,6 +141,8 @@ for( ; ; ) {
  - My Cock is Pissed-off from Coding (When something really broke)
  - Might Code for Poor Coder (When something work)
 ```
+### 📜 License
+Released under [MIT](/LICENSE) by [@QuanMCPC](https://github.com/QuanMCPC).
 ***
 Copyright &copy; 2021 Quan_MCPC
 ***
