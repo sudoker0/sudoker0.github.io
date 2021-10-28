@@ -162,7 +162,15 @@ function check() {
     if (gPBName("id") == "rotate") { document.body.style.animation = "rotate_ 5s ease"; }
     if (gPBName("id") == "rotate-inf") { document.body.style.animation = "rotate_ 5s ease infinite"; }
 }
-function closeSettings() { sel("#settingspage").classList.remove('spOpened') }
+function displaySettings(open = false) {
+    if (open) {
+        sel('#settingspage').style.display = 'flex'
+        setTimeout(() => { sel("#settingspage").classList.add('spOpened') }, 50)
+    } else {
+        sel("#settingspage").classList.remove('spOpened')
+        setTimeout(() => { sel('#settingspage').style.display = 'none' }, 500)
+    }
+}
 document.addEventListener("click", function(evt) {
     var fE = sel("#accbar"),
         tE = evt.target;
@@ -174,7 +182,7 @@ document.addEventListener("click", function(evt) {
     sel("#accb_small").style.clipPath = nBP.close;
     accb_small_isOn = false;
 });
-sel("#settingspage").onclick = (e) => { if (!(sel("#sp_actual").contains(e.target))) { closeSettings(); } }
+sel("#settingspage").onclick = (e) => { if (!(sel("#sp_actual").contains(e.target))) { displaySettings(false); } }
 function fetchLocal() {
     sel("#sp_background").querySelectorAll("button")[getWebConf("background")].classList.add("selected")
     sel("#sp_look").querySelectorAll("button")[getWebConf("theme")].classList.add("selected")
@@ -445,3 +453,32 @@ logo_a.forEach(e => {
         })
     }
 })
+function oOPIIF(url) {
+    sel("#iframe__").setAttribute("src", sanitizeString(url) + `?nocache=${Math.round(Math.random() * 1000000)}`);
+    document.getElementsByTagName("body")[0].style.overflow = "hidden";
+    sel("#iframe_").style.display = "block";
+    setTimeout(() => {
+        sel("#iframe_").style.transform = "scale(1)";
+        sel("#iframe_").style.opacity = "1";
+    }, 100)
+}
+function closeIframe() {
+    sel('#iframe__').setAttribute('src', 'about:blank');
+    sel('body').style.overflow = 'initial';
+    sel('#iframe_').style.transform = 'scale(1.5)';
+    sel('#iframe_').style.opacity = '0';
+    setTimeout(() => {
+        sel('#iframe_').style.display = 'none';
+        sel('body').style.overflow = 'initial';
+    }, 400)
+}
+function openIframeInNewTab() {
+    window.open(sel('#iframe__').getAttribute('src'), '_blank');
+    sel('#iframe__').setAttribute('src', 'about:blank');
+    sel('#iframe_').style.transform = 'scale(1.5)';
+    sel('#iframe_').style.opacity = '0';
+    setTimeout(() => {
+        sel('#iframe_').style.display = 'none';
+        sel('body').style.overflow = 'initial';
+    }, 400)
+}
