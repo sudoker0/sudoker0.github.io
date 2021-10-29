@@ -3,6 +3,24 @@
     "last_update_on": "2021-10-29",
     "data": [
         {
+            "hash": "ef0ae73",
+            "committer": "QuanMCPC",
+            "commit_date": 1635499489,
+            "message": "Some update"
+        },
+        {
+            "hash": "5473b27",
+            "committer": "QuanMCPC",
+            "commit_date": 1635499478,
+            "message": "Some update to the 404 and Offline page"
+        },
+        {
+            "hash": "fb08257",
+            "committer": "QuanMCPC",
+            "commit_date": 1635489247,
+            "message": "Update website's information"
+        },
+        {
             "hash": "5a894f1",
             "committer": "QuanMCPC",
             "commit_date": 1635489207,
