@@ -50,46 +50,8 @@
                 div.container > * { max-width: 50% }
                 th, td { padding: 15px }
             }
-            #iframe_ {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: calc(100% - 8px);
-                height: calc(100% - 8px);
-                z-index: 30;
-                border: 4px solid gray;
-                background-color: white;
-                display: none;
-            }
-            #iframe_accbar {
-                width: 100%;
-                height: 20px;
-                background-color: gray;
-            }
-            #abcd {
-                margin: 0;
-                height: 4px;
-                background-color: gray;
-                border: 1px solid gray;
-            }
-            div#iframe_accbar button {
-                height: 20px;
-                min-width: 50px;
-                border: none;
-                margin-left: 5px;
-                margin-right: 5px;
-                background-color: #EFEFEF;
-                color: black;
-            }
-            div#iframe_accbar button:hover {
-                background-color: rgb(180, 180, 180);
-            }
-            iframe {
-                border: none;
-                overflow: scroll;
-                height: calc(100% - 26px);
-            }
             div#textview { display: none; }
+            div#tableview { width: 100%; }
             div.container > :nth-child(2) { display: block; }
         </style>
     </head>
@@ -166,9 +128,9 @@
                 </div>
                 <table class="tg" id="tableview">
                     <colgroup>
-                        <col style="width: 163px">
-                        <col style="width: 171px">
-                        <col style="width: 309px">
+                        <col style="width: 20%">
+                        <col style="width: 20%">
+                        <col style="width: 60%">
                     </colgroup>
                     <tbody>
                         <tr>

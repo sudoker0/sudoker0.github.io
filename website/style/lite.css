@@ -188,3 +188,42 @@ td, th {
   padding: 8px;
 }
 th { text-decoration: underline; }
+div#iframe_ {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  z-index: 30;
+  border: 4px solid gray;
+  background-color: white;
+  display: none;
+}
+div#iframe_accbar {
+  width: 100%;
+  height: 20px;
+  background-color: gray;
+}
+div#iframe_ hr {
+  margin: 0;
+  height: 4px;
+  background-color: gray;
+  border: 1px solid gray;
+}
+div#iframe_accbar button {
+  height: 20px;
+  min-width: 50px;
+  border: none;
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: #EFEFEF;
+  color: black;
+}
+div#iframe_accbar button:hover {
+  background-color: rgb(180, 180, 180);
+}
+iframe {
+  border: none;
+  overflow: scroll;
+  height: calc(100% - 26px);
+}
