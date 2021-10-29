@@ -1,7 +1,25 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2021-10-28",
+    "last_update_on": "2021-10-29",
     "data": [
+        {
+            "hash": "2370c76",
+            "committer": "QuanMCPC",
+            "commit_date": 1635485885,
+            "message": "Improvement to the Iframe"
+        },
+        {
+            "hash": "1a36de6",
+            "committer": "QuanMCPC",
+            "commit_date": 1635485854,
+            "message": "Remove unused meta tag"
+        },
+        {
+            "hash": "a274ede",
+            "committer": "QuanMCPC",
+            "commit_date": 1635421616,
+            "message": "Update website's information"
+        },
         {
             "hash": "1e544fd",
             "committer": "QuanMCPC",
