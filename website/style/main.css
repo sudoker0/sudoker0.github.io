@@ -61,7 +61,15 @@ footer b { color: red; }
   -ms-transition: none !important;
   transition: none !important;
 }
-html, body { font-size: 100%; image-rendering: pixelated }
+html, body {
+  font-size: 100%;
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
+}
 nav.navbar {
   position: -webkit-sticky;
   position: sticky;
