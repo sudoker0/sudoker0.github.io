@@ -238,46 +238,47 @@
                 </footer>
             </div>
         </main>
-    </body>
-    <script>
-        function selAll(q) { return document.querySelectorAll(q) }
-        function sel(q) { return document.querySelector(q) }
-        function innerHTMLClass(clas, text) { document.querySelectorAll(`.${clas}`).forEach((elem) => { elem.innerHTML = text }) }
-        function oOPIIF(url) {
-            sel("#iframe__").setAttribute("src", url + `?nocache=${Math.round(Math.random() * 1000000)}`);
-            sel("#iframe_").style.display = "block";
-            document.getElementsByTagName("body")[0].style.overflow = "hidden";
-        }
-        fetch("/website/json/website_data.json")
-        .then(e => e.json())
-            .then(data => {
-                innerHTMLClass("total_size", data.filesize.total);
-                innerHTMLClass("standard_ver_src_code_size", data.filesize.standard_src_code);
-                innerHTMLClass("basic_ver_src_code_size", data.filesize.basic_src_code);
-                innerHTMLClass("assets_size", data.filesize.assets);
-                innerHTMLClass("archive_size", data.filesize.archive);
-                innerHTMLClass("other_project_size", data.filesize.other_project);
-                innerHTMLClass("other_size", data.filesize.other);
-                innerHTMLClass("lastupdateon", data.filesize.lastupdateon);
-                var utcTime = 0, failed = 0;
-                function fetch_() {
-                    fetch(`/website/json/commit_data.json?nocache=${Math.round(Math.random() * 100000)}`)
-                    .then(e => e.json())
-                        .then(e => {
-                            innerHTMLClass("lastupdateon1", e.last_update_on);
-                            innerHTMLClass("numberofcommit", e.data.length);
-                        })
-                    }
-                    fetch_();
-            })
-            function date_check() {
-            var date1 = new Date("07/17/2020"), date2 = new Date()
-            DInTime = date2.getTime() - date1.getTime()
-                DInDays = Math.round(DInTime / (1000 * 3600 * 24))
-                innerHTMLClass("days_from", DInDays)
+        <script src="/index.js"></script>
+        <script src="/website/script/lite.min.js"></script>
+        <script>
+            function selAll(q) { return document.querySelectorAll(q) }
+            function sel(q) { return document.querySelector(q) }
+            function innerHTMLClass(clas, text) { document.querySelectorAll(`.${clas}`).forEach((elem) => { elem.innerHTML = text }) }
+            function oOPIIF(url) {
+                sel("#iframe__").setAttribute("src", url + `?nocache=${Math.round(Math.random() * 1000000)}`);
+                sel("#iframe_").style.display = "block";
+                document.getElementsByTagName("body")[0].style.overflow = "hidden";
             }
-        date_check()
-        sel('#switchtableview').style.display = 'none'
-    </script>
-    <script src="/website/script/lite.min.js"></script>
+            fetch("/website/json/website_data.json")
+            .then(e => e.json())
+                .then(data => {
+                    innerHTMLClass("total_size", data.filesize.total);
+                    innerHTMLClass("standard_ver_src_code_size", data.filesize.standard_src_code);
+                    innerHTMLClass("basic_ver_src_code_size", data.filesize.basic_src_code);
+                    innerHTMLClass("assets_size", data.filesize.assets);
+                    innerHTMLClass("archive_size", data.filesize.archive);
+                    innerHTMLClass("other_project_size", data.filesize.other_project);
+                    innerHTMLClass("other_size", data.filesize.other);
+                    innerHTMLClass("lastupdateon", data.filesize.lastupdateon);
+                    var utcTime = 0, failed = 0;
+                    function fetch_() {
+                        fetch(`/website/json/commit_data.json?nocache=${Math.round(Math.random() * 100000)}`)
+                        .then(e => e.json())
+                            .then(e => {
+                                innerHTMLClass("lastupdateon1", e.last_update_on);
+                                innerHTMLClass("numberofcommit", e.data.length);
+                            })
+                        }
+                        fetch_();
+                })
+                function date_check() {
+                var date1 = new Date("07/17/2020"), date2 = new Date()
+                DInTime = date2.getTime() - date1.getTime()
+                    DInDays = Math.round(DInTime / (1000 * 3600 * 24))
+                    innerHTMLClass("days_from", DInDays)
+                }
+            date_check()
+            sel('#switchtableview').style.display = 'none'
+        </script>
+    </body>
 </html>

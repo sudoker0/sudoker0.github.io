@@ -172,23 +172,23 @@
             </div>
         </main>
         <script src="/website/script/main.min.js?v=2"></script>
-        <script src="/index.js?ver=1202"></script>
-    </body>
-    <script>
-        document.querySelectorAll("div.collapsible").forEach((v) => {
-            v.onclick = e => {
-                console.log(e);
-                var vn = v.nextElementSibling;
-                if (vn.style.display == "block") {
-                    vn.style.display = "none"
-                    vn.querySelectorAll("div.collapsiblecontent").forEach((v_) => { v_.style.display = "none"; })
-                    vn.querySelectorAll("div.collapsible").forEach((v_) => { v_.querySelectorAll("img")[0].classList.remove("rotate") })
-                    v.querySelectorAll("img")[0].classList.remove("rotate")
-                } else {
-                    vn.style.display = "block"
-                    v.querySelectorAll("img")[0].classList.add("rotate")
+        <script src="/index.js"></script>
+        <script>
+            document.querySelectorAll("div.collapsible").forEach((v) => {
+                v.onclick = e => {
+                    console.log(e);
+                    var vn = v.nextElementSibling;
+                    if (vn.style.display == "block") {
+                        vn.style.display = "none"
+                        vn.querySelectorAll("div.collapsiblecontent").forEach((v_) => { v_.style.display = "none"; })
+                        vn.querySelectorAll("div.collapsible").forEach((v_) => { v_.querySelectorAll("img")[0].classList.remove("rotate") })
+                        v.querySelectorAll("img")[0].classList.remove("rotate")
+                    } else {
+                        vn.style.display = "block"
+                        v.querySelectorAll("img")[0].classList.add("rotate")
+                    }
                 }
-            }
-        })
-    </script>
+            })
+        </script>
+    </body>
 </html>

@@ -236,136 +236,136 @@
                 </footer>
             </div>
         </main>
+        <script src="/index.js"></script>
+        <script src="/website/script/lite.min.js"></script>
+        <script>
+            function selAll(q) { return document.querySelectorAll(q) }
+            function sel(q) { return document.querySelector(q) }
+            function getParameterByName(name, url) {
+                if (!url) url = window.location.href;
+                name = name.replace(/[\[\]\\]/g, '\\$&');
+                var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, ' '));
+            }
+            function webpSupport() {
+                var elem = document.createElement('canvas');
+                if (!!(elem.getContext && elem.getContext('2d'))) {
+                    return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
+                } else { return false; }
+            }
+            var imageArray = [
+                {
+                    "location": "/website/image/gallery/1",
+                    "description": "Compact Calculator [1.15.2] [Outside View]"
+                },
+                {
+                    "location": "/website/image/gallery/2",
+                    "description": "Security Vault 2.0 [Outside View]"
+                },
+                {
+                    "location": "/website/image/gallery/3",
+                    "description": "Security Vault 2.0 [Inside View]"
+                },
+                {
+                    "location": "/website/image/gallery/4",
+                    "description": "The Longest Useless Machine in Minecraft [version 1.2] [Inside View]"
+                },
+                {
+                    "location": "/website/image/gallery/5",
+                    "description": "The Longest Useless Machine in Minecraft [version 1.2] [Outside View #1]"
+                },
+                {
+                    "location": "/website/image/gallery/6",
+                    "description": "The Longest Useless Machine in Minecraft [version 1.2] [Outside View #2]"
+                },
+                {
+                    "location": "/website/image/gallery/7",
+                    "description": "Printer 1.16"
+                },
+                {
+                    "location": "/website/image/gallery/8",
+                    "description": "8-Bit Decoder in Minecraft"
+                },
+                {
+                    "location": "/website/image/gallery/9",
+                    "description": "Compact Calculator [1.15.2] [Front View]"
+                }
+            ]
+            var imagePos = 0;
+            var doneLoading = true
+            var left_ = sel("#left")
+            var right_ = sel("#right")
+            left_.onclick = e => { left() }
+            right_.onclick = e => { right() }
+            left_.onkeydown = event => { if (event.code == "Enter") { left() } }
+            right_.onkeydown = event => { if (event.code == "Enter") { right() } }
+            document.onkeyup = e => { if (e.key == "ArrowLeft" && e.ctrlKey) { left() } else if (e.key = "ArrowRight" && e.ctrlKey) { right() } }
+            function left() { if (imagePos > 0) { --imagePos; reloadImage(); } }
+            function right() { if (imagePos < imageArray.length - 1) { ++imagePos; reloadImage(); } }
+            function reloadImage() {
+                if (imagePos <= 0) {
+                    left_.style.pointerEvents = "none"
+                    left_.firstElementChild.style.color = "#999999"
+                } else if (imagePos >= imageArray.length - 1){
+                    right_.style.pointerEvents = "none"
+                    right_.firstElementChild.style.color = "#999999"
+                } else if (imagePos > 0) {
+                    left_.firstElementChild.style.color = "black"
+                    right_.firstElementChild.style.color = "black"
+                    left_.style.pointerEvents = ""
+                    right_.style.pointerEvents = ""
+                } else if (imagePos < imageArray.length - 1) {
+                    left_.firstElementChild.style.color = "black"
+                    right_.firstElementChild.style.color = "black"
+                    left_.style.pointerEvents = ""
+                    right_.style.pointerEvents = ""
+                }
+                doneLoading = false;
+                sel("#cancel_image").style.display = "block"
+                sel("#overlay_").style.opacity = 1
+                sel("#image__").setAttribute("src", imageArray[imagePos].location + (webpSupport() ? ".webp" : ".png"))
+                sel("#description_").innerHTML = `Page ${imagePos + 1} / ${imageArray.length}`
+                sel("#pic_caption").innerHTML = imageArray[imagePos].description
+                sel("#image__").setAttribute("alt", imageArray[imagePos].description)
+            }
+            reloadImage()
+            sel("#image__").onload = () => { sel("#overlay_").style.opacity = 0; sel("#cancel_image").style.display = "none"; doneLoading = true }
+            sel("#overlay_").onclick = () => {
+                console.log("dsaf")
+                if (doneLoading) {
+                    sel("#imageZoomer_text").innerHTML = `<p>${imageArray[imagePos].description}</p>`
+                    sel("#image_zoom").setAttribute("src", imageArray[imagePos].location + (webpSupport() ? ".webp" : ".png"))
+                    sel("#image_zoom").setAttribute("alt", imageArray[imagePos].description)
+                    sel("#imageZoomer").style.opacity = "1"
+                    sel("#imageZoomer").style.pointerEvents = "all"
+                }
+            }
+            function closeImageOverlay() {
+                sel("#imageZoomer").style.opacity = "0"
+                sel("#imageZoomer").style.pointerEvents = "none"
+            }
+            function cancelImageLoading() {
+                sel("#image__").setAttribute("src", 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTM2NiIgaGVpZ2h0PSI3MDUiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDM2MS40MiAxODYuNTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8cmVjdCB3aWR0aD0iMzYxLjQyIiBoZWlnaHQ9IjE4Ni41MyIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIuMjY2MTEiLz4KIDx0ZXh0IHRyYW5zZm9ybT0ic2NhbGUoMS4wNTcxIC45NDU5NSkiIHg9IjE2OS42OTQ2NyIgeT0iMTAyLjY0NDA3IiBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTEuNDcycHgiIHN0cm9rZS13aWR0aD0iLjEzMzMyIiB0ZXh0LWFsaWduPSJjZW50ZXIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJsaW5lLWhlaWdodDoxLjI1IiB4bWw6c3BhY2U9InByZXNlcnZlIj48dHNwYW4geD0iMTY5LjY5NDY3IiB5PSIxMDIuNjQ0MDciIHRleHQtYWxpZ249ImNlbnRlciI+Tm8gSW1hZ2U8L3RzcGFuPjx0c3BhbiB4PSIxNjkuNjk0NjciIHk9IjExNi45ODM4MyIgdGV4dC1hbGlnbj0iY2VudGVyIj4xMzY2IHggNzA1PC90c3Bhbj48L3RleHQ+Cjwvc3ZnPgo=')
+                sel("#overlay_").style.opacity = 0
+                sel("#cancel_image").style.display = "block"
+            }
+            sel("#image_zoom").onclick = (ev) => {
+                if (getComputedStyle(sel("#imageZoomer")).display == "flex") {
+                    sel("#imageZoomer").style.display = "block";
+                    sel("#image_zoom").style.maxWidth = "initial";
+                    sel("#image_zoom").style.maxHeight = "initial";
+                    sel("#image_zoom").style.objectFit = "initial";
+                    sel("#imageZoomer").querySelector("img").style.cursor = "zoom-out";
+                } else {
+                    sel("#imageZoomer").style.display = "flex";
+                    sel("#image_zoom").style.maxWidth = "100%";
+                    sel("#image_zoom").style.maxHeight = "100%";
+                    sel("#image_zoom").style.objectFit = "contain";
+                    sel("#imageZoomer").querySelector("img").style.cursor = "zoom-in";
+                }
+            }
+        </script>
     </body>
-    <script>
-        function selAll(q) { return document.querySelectorAll(q) }
-        function sel(q) { return document.querySelector(q) }
-        function getParameterByName(name, url) {
-            if (!url) url = window.location.href;
-            name = name.replace(/[\[\]\\]/g, '\\$&');
-            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, ' '));
-        }
-        function webpSupport() {
-            var elem = document.createElement('canvas');
-            if (!!(elem.getContext && elem.getContext('2d'))) {
-                return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
-            } else { return false; }
-        }
-        var imageArray = [
-            {
-                "location": "/website/image/gallery/1",
-                "description": "Compact Calculator [1.15.2] [Outside View]"
-            },
-            {
-                "location": "/website/image/gallery/2",
-                "description": "Security Vault 2.0 [Outside View]"
-            },
-            {
-                "location": "/website/image/gallery/3",
-                "description": "Security Vault 2.0 [Inside View]"
-            },
-            {
-                "location": "/website/image/gallery/4",
-                "description": "The Longest Useless Machine in Minecraft [version 1.2] [Inside View]"
-            },
-            {
-                "location": "/website/image/gallery/5",
-                "description": "The Longest Useless Machine in Minecraft [version 1.2] [Outside View #1]"
-            },
-            {
-                "location": "/website/image/gallery/6",
-                "description": "The Longest Useless Machine in Minecraft [version 1.2] [Outside View #2]"
-            },
-            {
-                "location": "/website/image/gallery/7",
-                "description": "Printer 1.16"
-            },
-            {
-                "location": "/website/image/gallery/8",
-                "description": "8-Bit Decoder in Minecraft"
-            },
-            {
-                "location": "/website/image/gallery/9",
-                "description": "Compact Calculator [1.15.2] [Front View]"
-            }
-        ]
-        var imagePos = 0;
-        var doneLoading = true
-        var left_ = sel("#left")
-        var right_ = sel("#right")
-        left_.onclick = e => { left() }
-        right_.onclick = e => { right() }
-        left_.onkeydown = event => { if (event.code == "Enter") { left() } }
-        right_.onkeydown = event => { if (event.code == "Enter") { right() } }
-        document.onkeyup = e => { if (e.key == "ArrowLeft" && e.ctrlKey) { left() } else if (e.key = "ArrowRight" && e.ctrlKey) { right() } }
-        function left() { if (imagePos > 0) { --imagePos; reloadImage(); } }
-        function right() { if (imagePos < imageArray.length - 1) { ++imagePos; reloadImage(); } }
-        function reloadImage() {
-            if (imagePos <= 0) {
-                left_.style.pointerEvents = "none"
-                left_.firstElementChild.style.color = "#999999"
-            } else if (imagePos >= imageArray.length - 1){
-                right_.style.pointerEvents = "none"
-                right_.firstElementChild.style.color = "#999999"
-            } else if (imagePos > 0) {
-                left_.firstElementChild.style.color = "black"
-                right_.firstElementChild.style.color = "black"
-                left_.style.pointerEvents = ""
-                right_.style.pointerEvents = ""
-            } else if (imagePos < imageArray.length - 1) {
-                left_.firstElementChild.style.color = "black"
-                right_.firstElementChild.style.color = "black"
-                left_.style.pointerEvents = ""
-                right_.style.pointerEvents = ""
-            }
-            doneLoading = false;
-            sel("#cancel_image").style.display = "block"
-            sel("#overlay_").style.opacity = 1
-            sel("#image__").setAttribute("src", imageArray[imagePos].location + (webpSupport() ? ".webp" : ".png"))
-            sel("#description_").innerHTML = `Page ${imagePos + 1} / ${imageArray.length}`
-            sel("#pic_caption").innerHTML = imageArray[imagePos].description
-            sel("#image__").setAttribute("alt", imageArray[imagePos].description)
-        }
-        reloadImage()
-        sel("#image__").onload = () => { sel("#overlay_").style.opacity = 0; sel("#cancel_image").style.display = "none"; doneLoading = true }
-        sel("#overlay_").onclick = () => {
-            console.log("dsaf")
-            if (doneLoading) {
-                sel("#imageZoomer_text").innerHTML = `<p>${imageArray[imagePos].description}</p>`
-                sel("#image_zoom").setAttribute("src", imageArray[imagePos].location + (webpSupport() ? ".webp" : ".png"))
-                sel("#image_zoom").setAttribute("alt", imageArray[imagePos].description)
-                sel("#imageZoomer").style.opacity = "1"
-                sel("#imageZoomer").style.pointerEvents = "all"
-            }
-        }
-        function closeImageOverlay() {
-            sel("#imageZoomer").style.opacity = "0"
-            sel("#imageZoomer").style.pointerEvents = "none"
-        }
-        function cancelImageLoading() {
-            sel("#image__").setAttribute("src", 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTM2NiIgaGVpZ2h0PSI3MDUiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDM2MS40MiAxODYuNTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8cmVjdCB3aWR0aD0iMzYxLjQyIiBoZWlnaHQ9IjE4Ni41MyIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIuMjY2MTEiLz4KIDx0ZXh0IHRyYW5zZm9ybT0ic2NhbGUoMS4wNTcxIC45NDU5NSkiIHg9IjE2OS42OTQ2NyIgeT0iMTAyLjY0NDA3IiBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTEuNDcycHgiIHN0cm9rZS13aWR0aD0iLjEzMzMyIiB0ZXh0LWFsaWduPSJjZW50ZXIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJsaW5lLWhlaWdodDoxLjI1IiB4bWw6c3BhY2U9InByZXNlcnZlIj48dHNwYW4geD0iMTY5LjY5NDY3IiB5PSIxMDIuNjQ0MDciIHRleHQtYWxpZ249ImNlbnRlciI+Tm8gSW1hZ2U8L3RzcGFuPjx0c3BhbiB4PSIxNjkuNjk0NjciIHk9IjExNi45ODM4MyIgdGV4dC1hbGlnbj0iY2VudGVyIj4xMzY2IHggNzA1PC90c3Bhbj48L3RleHQ+Cjwvc3ZnPgo=')
-            sel("#overlay_").style.opacity = 0
-            sel("#cancel_image").style.display = "block"
-        }
-        sel("#image_zoom").onclick = (ev) => {
-            if (getComputedStyle(sel("#imageZoomer")).display == "flex") {
-                sel("#imageZoomer").style.display = "block";
-                sel("#image_zoom").style.maxWidth = "initial";
-                sel("#image_zoom").style.maxHeight = "initial";
-                sel("#image_zoom").style.objectFit = "initial";
-                sel("#imageZoomer").querySelector("img").style.cursor = "zoom-out";
-            } else {
-                sel("#imageZoomer").style.display = "flex";
-                sel("#image_zoom").style.maxWidth = "100%";
-                sel("#image_zoom").style.maxHeight = "100%";
-                sel("#image_zoom").style.objectFit = "contain";
-                sel("#imageZoomer").querySelector("img").style.cursor = "zoom-in";
-            }
-        }
-    </script>
-    <script src="/index.js?ver=1202"></script>
-    <script src="/website/script/lite.min.js"></script>
 </html>
