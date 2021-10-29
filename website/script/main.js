@@ -462,9 +462,14 @@ function oOPIIF(url) {
         sel("#iframe_").style.opacity = "1";
     }, 100)
 }
+selAll("a.openInProjectViewer").forEach((/** @type {HTMLAnchorElement} */v) => {
+    v.onclick = (ev) => {
+        ev.preventDefault();
+        oOPIIF(v.getAttribute("href"));
+    }
+})
 function closeIframe() {
     sel('#iframe__').setAttribute('src', 'about:blank');
-    sel('body').style.overflow = 'initial';
     sel('#iframe_').style.transform = 'scale(1.5)';
     sel('#iframe_').style.opacity = '0';
     setTimeout(() => {
@@ -475,10 +480,5 @@ function closeIframe() {
 function openIframeInNewTab() {
     window.open(sel('#iframe__').getAttribute('src'), '_blank');
     sel('#iframe__').setAttribute('src', 'about:blank');
-    sel('#iframe_').style.transform = 'scale(1.5)';
-    sel('#iframe_').style.opacity = '0';
-    setTimeout(() => {
-        sel('#iframe_').style.display = 'none';
-        sel('body').style.overflow = 'initial';
-    }, 400)
+    closeIframe()
 }

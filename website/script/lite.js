@@ -6,7 +6,7 @@ window.onerror = (_, s, l ,c, err) => { if (!somethingCrash) { somethingCrash = 
  * @returns {HTMLElement}
  */
 function sel(q) { return document.querySelector(q) }
-function qSelAll(q) { return document.querySelectorAll(q) }
+function selAll(q) { return document.querySelectorAll(q) }
 function gPBN(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]\\]/g, '\\$&');
@@ -86,3 +86,14 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 })
 sel("#list_dir").onclick = (_) => { window.location.href = "/dir_listing.html" }
+selAll("a.openInProjectViewer").forEach((/** @type {HTMLAnchorElement} */v) => {
+    v.onclick = (ev) => {
+        ev.preventDefault();
+        oOPIIF(v.getAttribute("href"));
+    }
+})
+function oOPIIF(url) {
+    sel("#iframe__").setAttribute("src", sanitizeString(url) + `?nocache=${Math.round(Math.random() * 1000000)}`);
+    sel("#iframe_").style.display = "block";
+    document.getElementsByTagName("body")[0].style.overflow = "hidden";
+}
