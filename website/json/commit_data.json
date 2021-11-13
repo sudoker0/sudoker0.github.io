@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2021-10-29",
+    "last_update_on": "2021-11-13",
     "data": [
+        {
+            "hash": "07905dc",
+            "committer": "QuanMCPC",
+            "commit_date": 1636773871,
+            "message": "Allow user to use their own GitHub API key"
+        },
+        {
+            "hash": "323cb64",
+            "committer": "QuanMCPC",
+            "commit_date": 1635499523,
+            "message": "Update website's information"
+        },
         {
             "hash": "ef0ae73",
             "committer": "QuanMCPC",
