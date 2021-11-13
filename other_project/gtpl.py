@@ -1,7 +1,7 @@
-__ver__ = 0.5
-# Guess The Programming Language v0.5 (Written in Python)
+__ver__ = 0.6
+# Guess The Programming Language v0.6 (Written in Python)
 # Created by QuanMCPC (https://quanmcpc.site/), licensed under MIT license
-# Inspired from https://guessthiscode.com/
+# Inspiration from https://guessthiscode.com/
 
 # MIT License
 
@@ -24,6 +24,7 @@ __ver__ = 0.5
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+
 # Load a bunch of important module
 try:
     import random
@@ -77,7 +78,8 @@ code_list = []
 list_count = 0
 question_count = 0
 point = 0
-header = {"Authorization": f"token {base64.b64decode(b'Z2hwX1d5czM2ZjBWaFhqaVFpa1B6S1Z2cWR0RXZpRDVTVjRReDNCbw==').decode('utf-8')}"}
+api_key = base64.b64decode(b'Z2hwX1d5czM2ZjBWaFhqaVFpa1B6S1Z2cWR0RXZpRDVTVjRReDNCbw==').decode('utf-8')
+header = {"Authorization": f"token {api_key}"}
 # startTime = 0
 clearConsole = False
 moveOnAfterCorrectGuess = False
@@ -111,6 +113,20 @@ true_language = [
     "Dart", "Perl", "Go", "Dockerfile",
     "Haskell", "GLSL"
 ]
+
+# Check if the specified GitHub API key is valid
+def check_api_key(key: str):
+    try:
+        r = requests.get("https://api.github.com/rate_limit", headers={"Authorization": f"token {key}"})
+        if r.status_code == 200:
+            log("GitHub API key is valid!", allowColor)
+            return True
+        else:
+            error("GitHub API key is invalid!", allowColor)
+            return False
+    except Exception as e:
+        error(f"Cannot connect to GitHub API.\n{e}", allowColor)
+        return False
 
 # Get data from GitHub API (More specifically, GitHub Gist API), but since in the GitHub Gist
 # people post code with a lot of different programming language, we also gonna filter out
@@ -326,24 +342,36 @@ def main(argv):
             (
                 "=============================================\n"
                 f"GTPL v{__ver__} - Help Page\n"
-                "Usage: gtpl.py [-h | --help] OR gtpl.py [-c | --clearConsole] [-m | --moveOnAfterCorrectGuess]\n"
+                "Usage: gtpl.py [-h | --help] OR gtpl.py [-c | --clearConsole] [-m | --moveOnAfterCorrectGuess] [-t | --token]\n"
                 "-h | --help                    : Display this help page\n"
                 "-c | --clearConsole            : Clear the console after each guesses\n"
                 "-m | --moveOnAfterCorrectGuess : After each corrected guesses, move on to the next round\n"
                 "-a | --allowColor              : Enable color highlighting\n"
+                "-t | --token                   : Specify your own GitHub API key from a file called: \"gh_api_key.secret\"\n"
                 "=============================================\n"
             ), allowColor
         )
         exit()
     else:
         if "-c" in argv or "--clearConsole" in argv:
-            # Clear console flag
+            # Clear console
             clearConsole = True
         if "-m" in argv or "--moveOnAfterCorrectGuess" in argv:
-            # Move on after correct guesses flag
+            # Move on after correct guesses
             moveOnAfterCorrectGuess = True
         if "-a" in argv or "--allowColor" in argv:
+            # Allow color highlighting
             allowColor = True
+        if "-t" in argv or "--token" in argv:
+            # Specify own GitHub API key
+            try:
+                with open("gh_api_key.secret", "r") as f:
+                    global api_key
+                    api_key = f.read().strip()
+                    if not check_api_key(api_key): exit()
+            except FileNotFoundError:
+                error("You have to specify your own GitHub API key from a file called: \"gh_api_key.secret\"", allowColor)
+                exit()
 
     startTime = int(time.time())
     # def caller(): UpdateDiscordRPC("***", question_count, point)
@@ -366,7 +394,7 @@ def main(argv):
         game()
     else:
         # Aww
-        log("Thank you for atleast spend some time run this game!", allowColor)
+        log("Thank you for at least spend some time run this game!", allowColor)
         exit(666)
 
 if __name__ == "__main__":
