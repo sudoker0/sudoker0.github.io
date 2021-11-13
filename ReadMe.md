@@ -82,21 +82,21 @@
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\** | 100.0% | 191 files | 446,999,782 bytes
-\* | 0.0% | 13 files | 19,385 bytes
-\*.7z | 35.56% | 16 files | 158,965,963 bytes
+\** | 100.0% | 191 files | 447,191,808 bytes
+\* | 0.0% | 13 files | 19,393 bytes
+\*.7z | 35.55% | 16 files | 158,965,963 bytes
 \*.config | 0.02% | 1 files | 82,580 bytes
 \*.css | 0.01% | 5 files | 33,671 bytes
 \*.gif | 0.0% | 1 files | 10,498 bytes
 \*.html | 0.16% | 37 files | 709,783 bytes
 \*.ico | 0.02% | 1 files | 101,976 bytes
-\*.idx | 0.05% | 1 files | 210,036 bytes
+\*.idx | 0.05% | 1 files | 210,344 bytes
 \*.js | 0.01% | 8 files | 46,998 bytes
-\*.json | 0.06% | 7 files | 267,100 bytes
+\*.json | 0.06% | 7 files | 267,452 bytes
 \*.md | 0.0% | 1 files | 8,688 bytes
-\*.pack | 58.15% | 1 files | 259,950,173 bytes
-\*.png | 1.93% | 42 files | 8,607,492 bytes
-\*.py | 0.01% | 3 files | 30,163 bytes
+\*.pack | 58.17% | 1 files | 260,141,197 bytes
+\*.png | 1.92% | 42 files | 8,607,492 bytes
+\*.py | 0.01% | 3 files | 30,497 bytes
 \*.sample | 0.01% | 13 files | 23,442 bytes
 \*.sqlite | 0.02% | 1 files | 90,112 bytes
 \*.svg | 0.0% | 5 files | 10,270 bytes
