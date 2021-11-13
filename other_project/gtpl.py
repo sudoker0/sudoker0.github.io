@@ -114,6 +114,14 @@ true_language = [
     "Haskell", "GLSL"
 ]
 
+# Check if the script can connect to the Github API
+def check_api():
+    try:
+        requests.get("https://api.github.com/rate_limit")
+        return True
+    except requests.exceptions.RequestException as e:
+        return False
+
 # Check if the specified GitHub API key is valid
 def check_api_key(key: str):
     try:
@@ -372,7 +380,9 @@ def main(argv):
             except FileNotFoundError:
                 error("You have to specify your own GitHub API key from a file called: \"gh_api_key.secret\"", allowColor)
                 exit()
-
+    if not check_api():
+        error(f"Cannot connect to the Github API!", allowColor)
+        exit()
     startTime = int(time.time())
     # def caller(): UpdateDiscordRPC("***", question_count, point)
     # Print the intro text
