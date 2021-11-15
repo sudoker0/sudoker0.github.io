@@ -1,5 +1,5 @@
-__ver__ = 0.6
-# Guess The Programming Language v0.6 (Written in Python)
+__ver__ = 0.7
+# Guess The Programming Language v0.7 (Written in Python)
 # Created by QuanMCPC (https://quanmcpc.site/), licensed under MIT license
 # Inspiration from https://guessthiscode.com/
 
@@ -32,8 +32,9 @@ try:
     import base64
     from sys import exit
     import sys
+    import requests
 except ModuleNotFoundError as e:
-    print(f"[ERROR]: Cannot find important module: \"{e.name}\", this can be due to old Python version.")
+    print(f"[ERROR]: Cannot find important module: \"{e.name}\", this may be due to old Python version or the module hadn't been installed.")
     exit()
 
 # Colors
@@ -48,31 +49,6 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-# Log message with colors
-def log(message, color: bool):
-    if color: print(f"{bcolors.OKBLUE}[LOG]: {message}{bcolors.ENDC}")
-    else: print(f"[LOG]: {message}")
-
-# Print error with colors
-def error(message, color: bool):
-    if color: print(f"{bcolors.FAIL}[ERROR]: {message}{bcolors.ENDC}")
-    else: print(f"[ERROR]: {message}")
-
-# Print warning with colors
-def warning(message, color: bool):
-    if color: print(f"{bcolors.WARNING}[WARNING]: {message}{bcolors.ENDC}")
-    else: print(f"[WARNING]: {message}")
-
-# Print text with colors
-def cprint(message, color: bool):
-    if color: print(f"{bcolors.OKGREEN}{message}{bcolors.ENDC}")
-    else: print(message)
-
-# Waiting for input with colors
-def cinput(message, color: bool):
-    if color: return input(f"{bcolors.OKCYAN}{message}{bcolors.ENDC}")
-    else: return input(message)
-
 # Some variable declaration
 code_list = []
 list_count = 0
@@ -84,23 +60,29 @@ header = {"Authorization": f"token {api_key}"}
 clearConsole = False
 moveOnAfterCorrectGuess = False
 allowColor = False
+debug_level = 1
 
-# Attempt to import the "requests" module
-try:
-    import requests
-    # from pypresence import Presence
-    # import discord_rpc
-except ModuleNotFoundError as e:
-    if e.name == "pypresence":
-        warning(f"\"{e.name}\" cannot be loaded. Even through the package is not required for the game to run, it's recommend to install the package for the fullest experience.\n", allowColor)
-    else:
-        error(f"This game cannot continue because this require the \"{e.name}\" module!\nTry install the module using:\n - \"pip install {e.name}\"\nor\n - \"conda install {e.name}\"", allowColor)
-        exit()
-# try:
-#     import requests
-# except ModuleNotFoundError:
-#     error("This game cannot continue because this require the \"requests\" module!\nInstall the module using:\n - \"pip install requests\"\nor\n - \"conda install requests\"", allowColor)
-#     exit()
+# Log message with colors
+def log(message, color: bool, level=1):
+    if level <= debug_level:
+        if color: print(f"{bcolors.OKBLUE}[LOG]: {message}{bcolors.ENDC}")
+        else: print(f"[LOG]: {message}")
+# Print error with colors
+def error(message, color: bool):
+    if color: print(f"{bcolors.FAIL}[ERROR]: {message}{bcolors.ENDC}")
+    else: print(f"[ERROR]: {message}")
+# Print warning with colors
+def warning(message, color: bool):
+    if color: print(f"{bcolors.WARNING}[WARNING]: {message}{bcolors.ENDC}")
+    else: print(f"[WARNING]: {message}")
+# Print text with colors
+def cprint(message, color: bool):
+    if color: print(f"{bcolors.OKGREEN}{message}{bcolors.ENDC}")
+    else: print(message)
+# Waiting for input with colors
+def cinput(message, color: bool):
+    if color: return input(f"{bcolors.OKCYAN}{message}{bcolors.ENDC}")
+    else: return input(message)
 
 # Since there are many programming languages out there, we only gonna select languages that we can
 # actually use to write program. The "true_language" variable under will become important later
@@ -114,16 +96,20 @@ true_language = [
     "Haskell", "GLSL"
 ]
 
-# Check if the script can connect to the Github API
+# Check if the game can connect to the Github API
 def check_api():
+    log("Checking if the game can connect to the GitHub API...", allowColor)
     try:
         requests.get("https://api.github.com/rate_limit")
+        log("Yes, this game can connect to the API!", allowColor)
         return True
     except requests.exceptions.RequestException as e:
+        error(f"No, this game cannot connect to the API!\n{e}", allowColor)
         return False
 
 # Check if the specified GitHub API key is valid
 def check_api_key(key: str):
+    log("Checking if the specified GitHub API key is valid...", allowColor)
     try:
         r = requests.get("https://api.github.com/rate_limit", headers={"Authorization": f"token {key}"})
         if r.status_code == 200:
@@ -141,16 +127,17 @@ def check_api_key(key: str):
 # the "good" programming language, which is gonna be from the (allowedLanguage) variable
 def getGistData(allowedLanguage: list):
     newList = []
-    log("Fetching data from Github API...", allowColor)
+    log("Getting data from the GitHub Gist API...", allowColor)
     r = requests.get(url=f"https://api.github.com/gists/public?page={random.randint(0, 100)}", headers=header).json()
-    log("Filtering inputed data from the allowedLanguage list...", allowColor)
+    log("Now filtering the received data for the Gists that have the language in the \"allowedLanguage\"", allowColor)
     for item in r:
         if (str(item["files"][next(iter(item["files"]))]["language"]) in allowedLanguage): newList.append(item)
-    log("Success!", allowColor)
+    log("Done filtering the received data!", allowColor)
     return newList
 
 # Create a list of random language with one of them being the correct language
-def randomLanguageList(trueLanguage: str, listOfLanguage: list, lenOfTheList: int = 5):
+def randomLanguageList(trueLanguage: str, listOfLanguage: list, lenOfTheList: int = 5) -> dict[list[str], int]:
+    log("Creating a list of random languages...", allowColor)
     count = 0
     truePos = random.randint(0, lenOfTheList - 1)
     list_lang = []
@@ -167,6 +154,7 @@ def randomLanguageList(trueLanguage: str, listOfLanguage: list, lenOfTheList: in
                 if ranChoice == trueLanguage or ranChoice in list_lang: count -= 1
                 else: list_lang.append(ranChoice)
             count += 1
+    log("Done creating a list of random languages!", allowColor)
     return {
         "list": list_lang,
         "true_pos": truePos
@@ -174,222 +162,232 @@ def randomLanguageList(trueLanguage: str, listOfLanguage: list, lenOfTheList: in
 
 # The actual game code
 def game():
-    # Allow the function to access the global variable
+    # Allow the function to access the important global variable
     global code_list
     global list_count
     global question_count
     global allowColor
     global point
+
     # This is for some purpose
     while True:
         if clearConsole:
             print(chr(27)+'[2j')
             print('\033c')
             print('\x1bc')
-        # Check for the rate limit of the current IP address
+
+        # Check if the current API key can connect to the GitHub API
+        log("Checking if the API key can connect to the GitHub API...", allowColor)
         rate_limit_response = requests.get(url="https://api.github.com/rate_limit", headers=header)
-        # Check if your current IP address still have access to the GitHub API
         if (int(rate_limit_response.json()["resources"]["core"]["remaining"]) <= 0):
             # You don't have any more access! Oof
+            log("No, the API key cannot connect to the API!", 2)
             time_string = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(int(rate_limit_response.json()["resources"]["core"]["reset"])))
-            error(f"The game can no longer get data from GitHub API due to rate limit.\nYou should be able to run the game again on {time_string}", allowColor)
+            error(f"This game can no longer get data from GitHub API due to exceeding the rate limit.", allowColor)
+            error(f"You can either wait for the rate limit to reset, which should happen at {time_string}", allowColor)
+            error(f"Or you can specify your own API key if you don't want to wait.", allowColor)
+            exit()
+
+        # Yay, you still have access
+        log("Yes, the API key can connect to the GitHub API!", allowColor)
+        # Has the cache that store the URL that has the code for the game run out?
+        log("Checking if the cache that store the URL that has the code for the game has run out...", allowColor)
+        if (list_count >= len(code_list)):
+            # If it's used up, re-fill the cache
+            log("Yes, the cache has run out, now renewing the cache...", allowColor)
+            code_list = getGistData(allowedLanguage=true_language)
+            list_count = 0
+
+        log("Getting some information about the Gist", allowColor)
+        # Get an item in the cache based on the list_count
+        item = code_list[list_count]
+        # Get information about the file in the gists
+        code_object = item["files"][next(iter(item["files"]))]
+        # Get the code based on the URL provided in the code_object
+        code = requests.get(url=str(code_object["raw_url"]), headers=header).text
+        # Get a random language list
+        option = randomLanguageList(code_object["language"], true_language)
+        # Get the actual list
+        option_list = option["list"]
+        # Print stuff
+        if allowColor:
+            print(
+                (
+                    f"{bcolors.OKGREEN}\n"
+                    "=============================================\n"
+                    f"Round: {question_count}\n"
+                    f"Number of times the game can get data from GitHub API: {int(rate_limit_response.json()['resources']['core']['remaining'])}\n"
+                    f"Your current points: {str(point)}\n"
+                    f"{bcolors.WARNING}"
+                    "-------------CODE_START------------\n"
+                    f"{code}\n"
+                    "--------------CODE_END-------------\n"
+                    f"{bcolors.OKGREEN}"
+                    "What programming language do you think this is from the code above?\n"
+                    f"1. {option_list[0]}\n"
+                    f"2. {option_list[1]}\n"
+                    f"3. {option_list[2]}\n"
+                    f"4. {option_list[3]}\n"
+                    f"5. {option_list[4]}\n"
+                    "-----------------------------------\n"
+                    f"{bcolors.ENDC}"
+                )
+            )
         else:
-            # Yay, you still have access
-            # Has the cache been used up?
-            if (list_count >= len(code_list)):
-                # If it's used up, re-fill the cache
-                log("The cache has been used up, now re-fetching...", allowColor)
-                code_list = getGistData(allowedLanguage=true_language)
-                list_count = 0
-            log("Getting code from the raw URL from the cache...", allowColor)
-            # Get an item in the cache based on the list_count
-            item = code_list[list_count]
-            # Get information about the file in the gists
-            code_object = item["files"][next(iter(item["files"]))]
-            # Get the code based on the URL provided in the code_object
-            code = requests.get(url=str(code_object["raw_url"]), headers=header).text
-            # Get a random language list
-            option = randomLanguageList(code_object["language"], true_language)
-            # Get the actual list
-            option_list = option["list"]
-            # Print stuff
-            if allowColor:
-                print(
-                    (
-                        f"{bcolors.OKGREEN}\n"
-                        "=============================================\n"
-                        f"Round: {question_count}\n"
-                        f"Number of times the game can get data from GitHub API: {int(rate_limit_response.json()['resources']['core']['remaining'])}\n"
-                        f"Your current points: {str(point)}\n"
-                        f"{bcolors.WARNING}"
-                        "-------------CODE_START------------\n"
-                        f"{code}\n"
-                        "--------------CODE_END-------------\n"
-                        f"{bcolors.OKGREEN}"
-                        "What programming language do you think this is from the code above?\n"
-                        f"1. {option_list[0]}\n"
-                        f"2. {option_list[1]}\n"
-                        f"3. {option_list[2]}\n"
-                        f"4. {option_list[3]}\n"
-                        f"5. {option_list[4]}\n"
-                        "-----------------------------------\n"
-                        f"{bcolors.ENDC}"
-                    )
+            print(
+                (
+                    "=============================================\n"
+                    f"Round: {question_count}\n"
+                    f"Number of times the game can get data from GitHub API: {int(rate_limit_response.json()['resources']['core']['remaining'])}\n"
+                    f"Your current points: {str(point)}\n"
+                    "-------------CODE_START------------\n"
+                    f"{code}\n"
+                    "--------------CODE_END-------------\n"
+                    "What programming language do you think this is from the code above?\n"
+                    f"1. {option_list[0]}\n"
+                    f"2. {option_list[1]}\n"
+                    f"3. {option_list[2]}\n"
+                    f"4. {option_list[3]}\n"
+                    f"5. {option_list[4]}\n"
+                    "-----------------------------------\n"
                 )
-            else:
-                print(
-                    (
-                        "=============================================\n"
-                        f"Round: {question_count}\n"
-                        f"Number of times the game can get data from GitHub API: {int(rate_limit_response.json()['resources']['core']['remaining'])}\n"
-                        f"Your current points: {str(point)}\n"
-                        "-------------CODE_START------------\n"
-                        f"{code}\n"
-                        "--------------CODE_END-------------\n"
-                        "What programming language do you think this is from the code above?\n"
-                        f"1. {option_list[0]}\n"
-                        f"2. {option_list[1]}\n"
-                        f"3. {option_list[2]}\n"
-                        f"4. {option_list[3]}\n"
-                        f"5. {option_list[4]}\n"
-                        "-----------------------------------\n"
-                    )
-                )
-            while True:
-                # Allow the function to access the global variable
-                global user_option
-                try:
-                    # Waiting for an answer
-                    user_option = int(cinput("Answer: ", allowColor))
-                    # Set the variable (whereCorrectLang) to the position of the correct language in the "actual list"
-                    whereCorrectLang = int(option["true_pos"])
-                    # Get the correct language name
-                    lang = option["list"][whereCorrectLang]
-                    # Check if user has answered correctly
-                    if user_option == whereCorrectLang + 1:
-                        # Yay, the person has answered correctly, please add 50 points to the player!
-                        point += 50
-                        if allowColor:
-                            cprint(f"{bcolors.OKBLUE}Correct!{bcolors.OKGREEN} The programming language of the code above was {lang}\nYou've earned +50 points, which makes your current point: {point}!\n", allowColor)
-                        else:
-                            print(f"Correct! The programming language of the code above was {lang}\nYou've earned +50 points, which makes your current point: {point}!\n")
-                        if moveOnAfterCorrectGuess:
-                            list_count += 1
-                            question_count += 1
-                            cprint("=============================================", allowColor)
-                            break
-                        # Do the person want to continue?
-                        should_continue = cinput("Do you want to continue? [Yes (You can also press the Enter key instead) / No] > ", allowColor).lower()
-                        if (should_continue == "yes" or should_continue == ""):
-                            # Nice
-                            list_count += 1
-                            question_count += 1
-                            cprint("=============================================", allowColor)
-                            break
-                        else:
-                            # Aww
-                            cprint("Thank you for spending your time for playing this game!", allowColor)
-                            cprint("=============================================", allowColor)
-                            exit(69)
-                    elif user_option < 1 or user_option > 5:
-                        raise ValueError
+            )
+        while True:
+            # Allow the function to access the global variable
+            global user_option
+            try:
+                # Waiting for an answer
+                user_option = int(cinput("Answer: ", allowColor))
+                # Set the variable (whereCorrectLang) to the position of the correct language in the "actual list"
+                whereCorrectLang = int(option["true_pos"])
+                # Get the name of the correct language
+                log("Getting the name of the correct language...", allowColor, 2)
+                lang = option["list"][whereCorrectLang]
+                # Check if user has answered correctly
+                log("Checking if the user has answered correctly...", allowColor, 2)
+                if user_option == whereCorrectLang + 1:
+                    # Yay, the person has answered correctly, please add 50 points to the player!
+                    log("Yes, the user has answered correctly!", allowColor, 2)
+                    point += 50
+                    if allowColor:
+                        cprint(f"{bcolors.OKBLUE}Correct!{bcolors.OKGREEN} The programming language of the code above was {lang}\nYou've earned +50 points, which makes your current point: {point}!\n", allowColor)
                     else:
-                        # Oof, the person has answered incorrectly
-                        if allowColor:
-                            cprint(f"{bcolors.FAIL}Incorrect!{bcolors.OKGREEN} The programming language of the code above was {lang}\nYour current point is {point}!", allowColor)
-                        else:
-                            print(f"Incorrect! The programming language of the code above was {lang}\nYour current point is {point}!")
-                        # Do the person want to restart?
-                        should_restart = cinput("Do you want to start over? [Yes (You can also press the Enter key instead) / No] > ", allowColor).lower()
-                        if (should_restart == "yes" or should_restart == ""):
-                            # Reset the point and restart
-                            question_count = 0
-                            point = 0
-                            list_count += 1
-                            cprint("=============================================", allowColor)
-                            break
-                        else:
-                            # Aww
-                            cprint("Thank you for spending your time for playing this game!", allowColor)
-                            cprint("=============================================", allowColor)
-                            exit(420)
-                except ValueError:
-                    # That's not a valid answer
-                    error("Invalid answer (Valid answer have to be a number > 0 and number < 6)", allowColor)
-                    continue
+                        print(f"Correct! The programming language of the code above was {lang}\nYou've earned +50 points, which makes your current point: {point}!\n")
+                    if moveOnAfterCorrectGuess:
+                        list_count += 1
+                        question_count += 1
+                        cprint("=============================================", allowColor)
+                        break
+                    # Do the person want to continue?
+                    should_continue = cinput("Do you want to continue? [Yes (You can also press the Enter key instead) / No] > ", allowColor).lower()
+                    if (should_continue == "yes" or should_continue == ""):
+                        # Nice
+                        log("Yes, the user wants to continue!", allowColor, 2)
+                        list_count += 1
+                        question_count += 1
+                        cprint("=============================================", allowColor)
+                        break
+                    else:
+                        # Aww
+                        log("No, the user wants to stop!", allowColor, 2)
+                        cprint("Thank you for spending your time for playing this game!", allowColor)
+                        cprint("=============================================", allowColor)
+                        exit(69)
+                elif user_option < 1 or user_option > 5:
+                    raise ValueError
+                else:
+                    # Oof, the person has answered incorrectly
+                    log("No, the user has answered incorrectly!", allowColor, 2)
+                    if allowColor:
+                        cprint(f"{bcolors.FAIL}Incorrect!{bcolors.OKGREEN} The programming language of the code above was {lang}\nYour current point is {point}!", allowColor)
+                    else:
+                        print(f"Incorrect! The programming language of the code above was {lang}\nYour current point is {point}!")
+                    # Do the person want to restart?
+                    should_restart = cinput("Do you want to start over? [Yes (You can also press the Enter key instead) / No] > ", allowColor).lower()
+                    if (should_restart == "yes" or should_restart == ""):
+                        # Reset the point and restart
+                        log("Yes, the user wants to restart!", allowColor, 2)
+                        question_count = 0
+                        point = 0
+                        list_count += 1
+                        cprint("=============================================", allowColor)
+                        break
+                    else:
+                        # Aww
+                        log("No, the user wants to stop!", allowColor, 2)
+                        cprint("Thank you for spending your time for playing this game!", allowColor)
+                        cprint("=============================================", allowColor)
+                        exit(420)
+            except ValueError:
+                # That's not a valid answer
+                error("Invalid answer (Valid answer have to be a number > 0 and number < 6)", allowColor)
+                continue
 
-# def UpdateDiscordRPC(client_id: str, rounds_num: int, points_num: int):
-#     RPC = Presence(client_id) #867008888712462396
-#     RPC.connect()
-#     RPC.update(
-#         details=f"Rounds: {rounds_num}, Points: {points_num}",
-#         state="Trying to guess the language...",
-#         start=startTime,
-#         large_text=f"Guess The Programming Language v{__ver__}",
-#         buttons=[
-#             {
-#                 "label": "GitHub link",
-#                 "url": "https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/gtpl.py"
-#             },
-#             {
-#                 "label": "My Website",
-#                 "url": "https://quanmcpc.site"
-#             }
-#         ]
-#     )
-
-def main(argv):
+def main(argv: list[str]):
     global clearConsole
     global allowColor
     global moveOnAfterCorrectGuess
-    global startTime
-    # Arguments check
+    # global startTime
+    global debug_level
+
+    log("Booting up...", allowColor)
+
+    # Get a list of specified arguments
+    log(f"Detected argument(s): {argv}", allowColor)
     if "-h" in argv or "--help" in argv:
         # Help flag
         cprint(
             (
                 "=============================================\n"
                 f"GTPL v{__ver__} - Help Page\n"
-                "Usage: gtpl.py [-h | --help] OR gtpl.py [-c | --clearConsole] [-m | --moveOnAfterCorrectGuess] [-t | --token]\n"
-                "-h | --help                    : Display this help page\n"
-                "-c | --clearConsole            : Clear the console after each guesses\n"
-                "-m | --moveOnAfterCorrectGuess : After each corrected guesses, move on to the next round\n"
-                "-a | --allowColor              : Enable color highlighting\n"
-                "-t | --token                   : Specify your own GitHub API key from a file called: \"gh_api_key.secret\"\n"
+                "Usage: gtpl.py [options...]\n"
+                " -h, --help                    : Display this help page\n"
+                " -c, --clearConsole            : Clear the console after each guesses\n"
+                " -m, --moveOnAfterCorrectGuess : After each corrected guesses, move on to the next round\n"
+                " -a, --allowColor              : Enable color highlighting\n"
+                " -t, --token                   : Specify your own GitHub API key from a file called: \"gh_api_key.secret\"\n"
+                " -v, --verbose [<level>]       : Display some debug information. Specify the amount of information outputted by setting the level of debug, which start from 0 (no debug) (default is 1)\n"
                 "=============================================\n"
             ), allowColor
         )
         exit()
-    else:
-        if "-c" in argv or "--clearConsole" in argv:
-            # Clear console
-            clearConsole = True
-        if "-m" in argv or "--moveOnAfterCorrectGuess" in argv:
-            # Move on after correct guesses
-            moveOnAfterCorrectGuess = True
-        if "-a" in argv or "--allowColor" in argv:
-            # Allow color highlighting
-            allowColor = True
-        if "-t" in argv or "--token" in argv:
-            # Specify own GitHub API key
-            try:
-                with open("gh_api_key.secret", "r") as f:
-                    global api_key
-                    api_key = f.read().strip()
-                    if not check_api_key(api_key): exit()
-            except FileNotFoundError:
-                error("You have to specify your own GitHub API key from a file called: \"gh_api_key.secret\"", allowColor)
+    if "-c" in argv or "--clearConsole" in argv:
+        # Clear console
+        clearConsole = True
+    if "-m" in argv or "--moveOnAfterCorrectGuess" in argv:
+        # Move on after correct guesses
+        moveOnAfterCorrectGuess = True
+    if "-a" in argv or "--allowColor" in argv:
+        # Allow color highlighting
+        allowColor = True
+    if "-t" in argv or "--token" in argv:
+        # Specify own GitHub API key
+        log("Attempting to read the file that contain the API key...", allowColor)
+        try:
+            with open("gh_api_key.secret", "r") as f:
+                global api_key
+                api_key = f.read().strip()
+                if not check_api_key(api_key): exit()
+        except FileNotFoundError:
+            error("You have to specify your own GitHub API key from a file called: \"gh_api_key.secret\"", allowColor)
+            exit()
+    if "-v" in argv or "--verbose" in argv:
+        # Verbose
+        try:
+            debug_level = int(argv[argv.index("-v") + 1])
+            if debug_level < 0:
+                error("The debug level cannot be less than 0", allowColor)
                 exit()
-    if not check_api():
-        error(f"Cannot connect to the Github API!", allowColor)
-        exit()
-    startTime = int(time.time())
-    # def caller(): UpdateDiscordRPC("***", question_count, point)
+        except (IndexError, ValueError):
+            debug_level = 1
+
+    if not check_api(): exit()
+
     # Print the intro text
     cprint(
         (
             "=============================================\n"
-            f"Guess The Programming Language v{__ver__}\n"
+            f"Guess The Programming Language v{__ver__} (Inspiration from https://guessthiscode.com/)\n"
             "Are you ready to guess some programming language?\n"
             "If you're, enter Yes! If you're not, enter No or gibberish\n"
             "Also, for more settings, enter \"gtpl -h\" for the help page\n"
@@ -400,11 +398,13 @@ def main(argv):
     o = cinput("[Yes (You can also press the Enter key instead) / No] > ", allowColor).lower()
     if (o == "yes" or o == ""):
         # Yay!
-        log("Initializing stuff...", allowColor)
+        log("Yes, the user does want to start the game!", allowColor, 2)
+        log("Initializing some stuff, please wait...", allowColor)
         game()
     else:
+        log("No, the user does not want to start the game!", 2)
+        cprint("Goodbye user, it's nice knowing you.", allowColor)
         # Aww
-        log("Thank you for at least spend some time run this game!", allowColor)
         exit(666)
 
 if __name__ == "__main__":
