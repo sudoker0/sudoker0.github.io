@@ -3,6 +3,18 @@
     "last_update_on": "2021-12-15",
     "data": [
         {
+            "hash": "76df110",
+            "committer": "QuanMCPC",
+            "commit_date": 1639583543,
+            "message": "Removed the Basic HTML version"
+        },
+        {
+            "hash": "a49fc66",
+            "committer": "QuanMCPC",
+            "commit_date": 1639563959,
+            "message": "Update website's information"
+        },
+        {
             "hash": "11dac7c",
             "committer": "QuanMCPC",
             "commit_date": 1639563933,

@@ -146,6 +146,10 @@
                     "type": "file"
                 },
                 {
+                    "name": "basic_backup.zip",
+                    "type": "file"
+                },
+                {
                     "name": "file_listing.json",
                     "type": "file"
                 },
@@ -252,23 +256,7 @@
             "type": "directory",
             "children": [
                 {
-                    "name": "about.html",
-                    "type": "file"
-                },
-                {
-                    "name": "credit.html",
-                    "type": "file"
-                },
-                {
-                    "name": "download.html",
-                    "type": "file"
-                },
-                {
-                    "name": "gallery.html",
-                    "type": "file"
-                },
-                {
-                    "name": "home.html",
+                    "name": "index.html",
                     "type": "file"
                 }
             ]
@@ -794,18 +782,6 @@
                     "type": "directory",
                     "children": [
                         {
-                            "name": "lite.js",
-                            "type": "file"
-                        },
-                        {
-                            "name": "lite.js.map",
-                            "type": "file"
-                        },
-                        {
-                            "name": "lite.ts",
-                            "type": "file"
-                        },
-                        {
                             "name": "main.js",
                             "type": "file"
                         },
@@ -823,18 +799,6 @@
                     "name": "style",
                     "type": "directory",
                     "children": [
-                        {
-                            "name": "lite.css",
-                            "type": "file"
-                        },
-                        {
-                            "name": "lite.css.map",
-                            "type": "file"
-                        },
-                        {
-                            "name": "lite.scss",
-                            "type": "file"
-                        },
                         {
                             "name": "main.css",
                             "type": "file"

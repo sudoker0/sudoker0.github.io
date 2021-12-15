@@ -82,33 +82,33 @@
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\** | 100.0% | 199 files | 447,049,217 bytes
-\* | 0.0% | 13 files | 20,109 bytes
+\** | 100.0% | 190 files | 446,995,544 bytes
+\* | 0.0% | 13 files | 19,301 bytes
 \*.7z | 35.56% | 16 files | 158,965,963 bytes
 \*.config | 0.02% | 1 files | 82,580 bytes
-\*.css | 0.0% | 3 files | 14,601 bytes
+\*.css | 0.0% | 2 files | 10,548 bytes
 \*.gif | 0.0% | 1 files | 10,498 bytes
-\*.html | 0.15% | 37 files | 691,013 bytes
+\*.html | 0.13% | 33 files | 587,965 bytes
 \*.ico | 0.02% | 1 files | 101,976 bytes
-\*.idx | 0.05% | 1 files | 212,528 bytes
-\*.js | 0.0% | 6 files | 14,909 bytes
-\*.json | 0.07% | 11 files | 296,789 bytes
-\*.map | 0.0% | 4 files | 15,558 bytes
+\*.idx | 0.05% | 1 files | 213,004 bytes
+\*.js | 0.0% | 5 files | 12,764 bytes
+\*.json | 0.07% | 11 files | 297,153 bytes
+\*.map | 0.0% | 2 files | 11,552 bytes
 \*.md | 0.0% | 1 files | 8,804 bytes
-\*.pack | 58.16% | 1 files | 259,987,357 bytes
+\*.pack | 58.17% | 1 files | 260,023,147 bytes
 \*.png | 1.93% | 42 files | 8,607,492 bytes
 \*.py | 0.01% | 3 files | 30,784 bytes
 \*.sample | 0.01% | 13 files | 23,442 bytes
-\*.scss | 0.0% | 2 files | 21,377 bytes
+\*.scss | 0.0% | 1 files | 15,068 bytes
 \*.sqlite | 0.02% | 1 files | 90,112 bytes
 \*.svg | 0.0% | 5 files | 10,270 bytes
-\*.ts | 0.0% | 2 files | 11,589 bytes
+\*.ts | 0.0% | 1 files | 9,372 bytes
 \*.ttf | 0.04% | 1 files | 163,392 bytes
 \*.txt | 0.0% | 1 files | 283 bytes
 \*.webp | 0.84% | 9 files | 3,745,400 bytes
 \*.xml | 0.0% | 1 files | 1,236 bytes
 \*.yml | 0.0% | 4 files | 4,517 bytes
-\*.zip | 3.1% | 16 files | 13,860,229 bytes
+\*.zip | 3.11% | 17 files | 13,892,512 bytes
 > Last updated on: 2021-12-15
 <!--python_data_stop-->
 [Download the table as HTML in a zip file (Style is not the same) (This is kept for historical purposes only and the data is no longer being updated)](https://drive.google.com/u/0/uc?id=1nvijtp61EX7gtisnjHCAEBkfgQKs-zTh&export=download)
