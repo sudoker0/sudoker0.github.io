@@ -3,6 +3,24 @@
     "last_update_on": "2021-12-15",
     "data": [
         {
+            "hash": "11dac7c",
+            "committer": "QuanMCPC",
+            "commit_date": 1639563933,
+            "message": "Merge branch 'master' of https://github.com/QuanMCPC/QuanMCPC.github.io"
+        },
+        {
+            "hash": "8fea01a",
+            "committer": "QuanMCPC",
+            "commit_date": 1639563918,
+            "message": "Small fix"
+        },
+        {
+            "hash": "7c239f3",
+            "committer": "QuanMCPC",
+            "commit_date": 1639560575,
+            "message": "Update website's information"
+        },
+        {
             "hash": "33d6a5d",
             "committer": "QuanMCPC",
             "commit_date": 1639560515,
