@@ -82,31 +82,34 @@
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\** | 100.0% | 191 files | 447,196,203 bytes
-\* | 0.0% | 13 files | 19,385 bytes
-\*.7z | 35.55% | 16 files | 158,965,963 bytes
+\** | 100.0% | 199 files | 447,230,993 bytes
+\* | 0.0% | 13 files | 20,093 bytes
+\*.7z | 35.54% | 16 files | 158,965,963 bytes
 \*.config | 0.02% | 1 files | 82,580 bytes
-\*.css | 0.01% | 5 files | 33,671 bytes
+\*.css | 0.0% | 3 files | 14,601 bytes
 \*.gif | 0.0% | 1 files | 10,498 bytes
-\*.html | 0.16% | 37 files | 709,783 bytes
+\*.html | 0.15% | 37 files | 690,997 bytes
 \*.ico | 0.02% | 1 files | 101,976 bytes
-\*.idx | 0.05% | 1 files | 210,652 bytes
-\*.js | 0.01% | 8 files | 46,998 bytes
-\*.json | 0.06% | 7 files | 267,812 bytes
+\*.idx | 0.05% | 1 files | 211,884 bytes
+\*.js | 0.0% | 6 files | 15,063 bytes
+\*.json | 0.07% | 11 files | 295,147 bytes
+\*.map | 0.0% | 4 files | 15,562 bytes
 \*.md | 0.0% | 1 files | 8,688 bytes
-\*.pack | 58.17% | 1 files | 260,144,627 bytes
+\*.pack | 58.17% | 1 files | 260,171,389 bytes
 \*.png | 1.92% | 42 files | 8,607,492 bytes
-\*.py | 0.01% | 3 files | 30,802 bytes
+\*.py | 0.01% | 3 files | 30,784 bytes
 \*.sample | 0.01% | 13 files | 23,442 bytes
+\*.scss | 0.0% | 2 files | 21,377 bytes
 \*.sqlite | 0.02% | 1 files | 90,112 bytes
 \*.svg | 0.0% | 5 files | 10,270 bytes
+\*.ts | 0.0% | 2 files | 11,609 bytes
 \*.ttf | 0.04% | 1 files | 163,392 bytes
 \*.txt | 0.0% | 1 files | 283 bytes
 \*.webp | 0.84% | 9 files | 3,745,400 bytes
 \*.xml | 0.0% | 1 files | 1,236 bytes
 \*.yml | 0.0% | 4 files | 4,517 bytes
 \*.zip | 3.1% | 16 files | 13,860,229 bytes
-> Last updated on: 2021-11-15
+> Last updated on: 2021-12-15
 <!--python_data_stop-->
 [Download the table as HTML in a zip file (Style is not the same) (This is kept for historical purposes only and the data is no longer being updated)](https://drive.google.com/u/0/uc?id=1nvijtp61EX7gtisnjHCAEBkfgQKs-zTh&export=download)
 > You might ask: How do I able to get all of the file extensions, the number of file and other info?

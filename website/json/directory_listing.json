@@ -80,6 +80,16 @@
             ]
         },
         {
+            "name": ".vscode",
+            "type": "directory",
+            "children": [
+                {
+                    "name": "tasks.json",
+                    "type": "file"
+                }
+            ]
+        },
+        {
             "name": "404.html",
             "type": "file"
         },
@@ -550,11 +560,23 @@
             ]
         },
         {
+            "name": "package-lock.json",
+            "type": "file"
+        },
+        {
+            "name": "package.json",
+            "type": "file"
+        },
+        {
             "name": "sitemap.xml",
             "type": "file"
         },
         {
             "name": "sw.js",
+            "type": "file"
+        },
+        {
+            "name": "tsconfig.json",
             "type": "file"
         },
         {
@@ -776,7 +798,11 @@
                             "type": "file"
                         },
                         {
-                            "name": "lite.min.js",
+                            "name": "lite.js.map",
+                            "type": "file"
+                        },
+                        {
+                            "name": "lite.ts",
                             "type": "file"
                         },
                         {
@@ -784,7 +810,11 @@
                             "type": "file"
                         },
                         {
-                            "name": "main.min.js",
+                            "name": "main.js.map",
+                            "type": "file"
+                        },
+                        {
+                            "name": "main.ts",
                             "type": "file"
                         }
                     ]
@@ -798,7 +828,11 @@
                             "type": "file"
                         },
                         {
-                            "name": "lite.min.css",
+                            "name": "lite.css.map",
+                            "type": "file"
+                        },
+                        {
+                            "name": "lite.scss",
                             "type": "file"
                         },
                         {
@@ -806,7 +840,11 @@
                             "type": "file"
                         },
                         {
-                            "name": "main.min.css",
+                            "name": "main.css.map",
+                            "type": "file"
+                        },
+                        {
+                            "name": "main.scss",
                             "type": "file"
                         }
                     ]

@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2021-11-15",
+    "last_update_on": "2021-12-15",
     "data": [
+        {
+            "hash": "33d6a5d",
+            "committer": "QuanMCPC",
+            "commit_date": 1639560515,
+            "message": "Use SCSS instead of CSS, TS instead of JS, and turned the website into a NodeJS project (which doesn't have any dependencies)"
+        },
+        {
+            "hash": "6ec88c4",
+            "committer": "QuanMCPC",
+            "commit_date": 1636953885,
+            "message": "Update website's information"
+        },
         {
             "hash": "643a1fe",
             "committer": "QuanMCPC",
