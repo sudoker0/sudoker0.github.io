@@ -1,0 +1,19 @@
+{
+  "name": "quanmcpc.github.io",
+  "version": "1.0.0",
+  "description": "My Very First Website",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuanMCPC/QuanMCPC.github.io.git"
+  },
+  "author": "QuanMCPC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/QuanMCPC/QuanMCPC.github.io/issues"
+  },
+  "homepage": "https://github.com/QuanMCPC/QuanMCPC.github.io#readme",
+  "devDependencies": {
+    "sass": "^1.45.0",
+    "typescript": "^4.5.4"
+  }
+}

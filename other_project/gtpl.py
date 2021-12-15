@@ -1,5 +1,5 @@
-__ver__ = 0.7
-# Guess The Programming Language v0.7 (Written in Python)
+__ver__ = "0.7.1"
+# Guess The Programming Language v0.7.1 (Written in Python)
 # Created by QuanMCPC (https://quanmcpc.site/), licensed under MIT license
 # Inspiration from https://guessthiscode.com/
 
@@ -136,7 +136,7 @@ def getGistData(allowedLanguage: list):
     return newList
 
 # Create a list of random language with one of them being the correct language
-def randomLanguageList(trueLanguage: str, listOfLanguage: list, lenOfTheList: int = 5) -> dict[list[str], int]:
+def randomLanguageList(trueLanguage: str, listOfLanguage: list, lenOfTheList: int = 5):
     log("Creating a list of random languages...", allowColor)
     count = 0
     truePos = random.randint(0, lenOfTheList - 1)
