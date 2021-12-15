@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 function selAll(q) { return document.querySelectorAll(q); }
 function sel(q) { return document.querySelector(q); }
 function ls_gt(i) { return localStorage.getItem(i); }

@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 function sel(q) { return document.querySelector(q); }
 function selAll(q) { return document.querySelectorAll(q); }
 function gPBN(name, url) {

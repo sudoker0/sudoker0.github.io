@@ -1,7 +1,6 @@
 /**
  * Short for: `document.querySelector`
  */
-export {}
 function sel(q: string): HTMLElement { return document.querySelector(q) }
 function selAll(q: string) { return document.querySelectorAll(q) }
 function gPBN(name: string, url: string) {

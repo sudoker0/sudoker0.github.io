@@ -207,7 +207,7 @@
             function sel(q) { return document.querySelector(q) }
             function innerHTMLClass(clas, text) { document.querySelectorAll(`.${clas}`).forEach((elem) => { elem.innerHTML = text }) }
             function oOPIIF(url) {
-                sel("#iframe__").setAttribute("src", url + `?nocache=${Math.round(Math.random() * 1000000)}`);
+                sel("#iframe__").setAttribute("src", sanitizeString(url) + `?nocache=${Math.round(Math.random() * 1000000)}`);
                 sel("#iframe_").style.display = "block";
                 document.getElementsByTagName("body")[0].style.overflow = "hidden";
             }

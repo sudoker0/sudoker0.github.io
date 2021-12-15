@@ -1,5 +1,4 @@
 //@QuanMCPC
-export {}
 /**
  * Short for: `document.querySelectorAll`
  */
