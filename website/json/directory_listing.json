@@ -214,6 +214,10 @@
                     "type": "file"
                 },
                 {
+                    "name": "proof_of_concept.7z",
+                    "type": "file"
+                },
+                {
                     "name": "secret_stuff.mkcert.exe.7z",
                     "type": "file"
                 },
