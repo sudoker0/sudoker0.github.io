@@ -26,14 +26,8 @@
             }
         },
         {
-            "label": "sass: watch - lite.scss",
-            "type": "shell",
-            "command": "sass --watch ${workspaceFolder}/website/style/lite.scss:${workspaceFolder}/website/style/lite.css --style compressed --source-map",
-            "group": "build",
-        },
-        {
             "label": "RUN THIS TASK AND ONLY THIS TASK TO BUILD THE REQUIRED FILES",
-            "dependsOn": ["tsc: watch - tsconfig.json", "sass: watch - main.scss", "sass: watch - lite.scss"],
+            "dependsOn": ["tsc: watch - tsconfig.json", "sass: watch - main.scss"],
             "group": "build",
             "runOptions": {
                 "runOn": "folderOpen",

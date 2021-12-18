@@ -46,7 +46,6 @@ function mobileCheck() {
 };
 /**
  * Check if the current browser support WebP
- * @returns {Boolean}
  */
 function webpSupport(): boolean {
     var elem = document.createElement('canvas');
