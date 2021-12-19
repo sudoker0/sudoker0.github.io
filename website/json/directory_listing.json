@@ -624,6 +624,10 @@
                             "type": "file"
                         },
                         {
+                            "name": "circuit_board_modified.png",
+                            "type": "file"
+                        },
+                        {
                             "name": "gallery",
                             "type": "directory",
                             "children": [
