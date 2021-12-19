@@ -15,6 +15,7 @@
 
 [![CodeQL](https://github.com/QuanMCPC/QuanMCPC.github.io/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/QuanMCPC/QuanMCPC.github.io/actions/workflows/codeql-analysis.yml)
 [![Update Website Information](https://github.com/QuanMCPC/QuanMCPC.github.io/actions/workflows/main.yml/badge.svg)](https://github.com/QuanMCPC/QuanMCPC.github.io/actions/workflows/main.yml)
+[![pages-build-deployment](https://github.com/QuanMCPC/QuanMCPC.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/QuanMCPC/QuanMCPC.github.io/actions/workflows/pages/pages-build-deployment)
 
 ## Welcome to my first ever repository and also my first ever website (And also my favourite repository) in GitHub.
 
