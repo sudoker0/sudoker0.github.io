@@ -82,26 +82,26 @@
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\** | 100.0% | 191 files | 460,492,498 bytes
-\* | 0.0% | 13 files | 19,413 bytes
+\** | 100.0% | 193 files | 460,382,142 bytes
+\* | 0.0% | 13 files | 19,593 bytes
 \*.7z | 35.97% | 17 files | 165,617,856 bytes
 \*.config | 0.02% | 1 files | 82,580 bytes
 \*.css | 0.0% | 2 files | 10,538 bytes
 \*.gif | 0.0% | 1 files | 10,498 bytes
 \*.html | 0.13% | 33 files | 588,104 bytes
 \*.ico | 0.02% | 1 files | 101,976 bytes
-\*.idx | 0.05% | 1 files | 213,816 bytes
+\*.idx | 0.05% | 1 files | 214,208 bytes
 \*.js | 0.0% | 5 files | 12,764 bytes
-\*.json | 0.06% | 11 files | 296,145 bytes
+\*.json | 0.06% | 11 files | 296,607 bytes
 \*.map | 0.0% | 2 files | 11,547 bytes
 \*.md | 0.0% | 1 files | 8,804 bytes
-\*.pack | 57.95% | 1 files | 266,868,210 bytes
-\*.png | 1.87% | 42 files | 8,607,492 bytes
+\*.pack | 57.93% | 1 files | 266,689,844 bytes
+\*.png | 1.87% | 43 files | 8,620,815 bytes
 \*.py | 0.01% | 3 files | 30,784 bytes
 \*.sample | 0.01% | 13 files | 23,442 bytes
 \*.scss | 0.0% | 1 files | 15,048 bytes
 \*.sqlite | 0.02% | 1 files | 90,112 bytes
-\*.svg | 0.0% | 5 files | 10,270 bytes
+\*.svg | 0.01% | 6 files | 63,923 bytes
 \*.ts | 0.0% | 1 files | 9,350 bytes
 \*.ttf | 0.04% | 1 files | 163,392 bytes
 \*.txt | 0.0% | 1 files | 283 bytes
@@ -109,7 +109,7 @@ File Extensions | Percentages of Bytes | Number of files | File/Folder size (Byt
 \*.xml | 0.0% | 1 files | 1,236 bytes
 \*.yml | 0.0% | 4 files | 4,517 bytes
 \*.zip | 3.02% | 17 files | 13,892,512 bytes
-> Last updated on: 2021-12-18
+> Last updated on: 2021-12-19
 <!--python_data_stop-->
 [Download the table as HTML in a zip file (Style is not the same) (This is kept for historical purposes only and the data is no longer being updated)](https://drive.google.com/u/0/uc?id=1nvijtp61EX7gtisnjHCAEBkfgQKs-zTh&export=download)
 > You might ask: How do I able to get all of the file extensions, the number of file and other info?

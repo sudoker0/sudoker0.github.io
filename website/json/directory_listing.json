@@ -616,6 +616,14 @@
                             ]
                         },
                         {
+                            "name": "circuit_board.png",
+                            "type": "file"
+                        },
+                        {
+                            "name": "circuit_board.svg",
+                            "type": "file"
+                        },
+                        {
                             "name": "gallery",
                             "type": "directory",
                             "children": [
