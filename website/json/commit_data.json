@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2021-12-19",
+    "last_update_on": "2021-12-24",
     "data": [
+        {
+            "hash": "19dedd8",
+            "committer": "QuanMCPC",
+            "commit_date": 1640350270,
+            "message": "Changed the Discord Link"
+        },
+        {
+            "hash": "36ce4f9",
+            "committer": "QuanMCPC",
+            "commit_date": 1639907530,
+            "message": "Update website's information"
+        },
         {
             "hash": "fadedb2",
             "committer": "QuanMCPC",
