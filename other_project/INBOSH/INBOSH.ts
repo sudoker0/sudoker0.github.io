@@ -9,15 +9,6 @@
 */
 
 const buildNumber = "0.0.1-alpha.1+20210301111500";
-const token = "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";
-
-fetch("https://api.github.com/rate_limit", {
-    headers: {
-        "Authorization": "token " + token
-        }
-        }).then(res => res.json()).then(res => {
-            console.log(res)
-        });
 
 /**
  * A special string created for the terminal.
