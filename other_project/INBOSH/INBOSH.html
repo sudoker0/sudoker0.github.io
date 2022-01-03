@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="./INBOSH.ico" type="image/x-icon">
+        <title>INBOSH Shell</title>
+        <style>
+            :root {
+                --checkmarkColor: black;
+                --checkmarkXColor: white;
+            }
+            @font-face {
+                font-family: "Inconsolata";
+                src: url("Inconsolata-Regular.ttf") format("truetype");
+                font-weight: normal;
+            }
+            body {
+                margin: 0;
+            }
+            canvas#terminal {
+                position: fixed;
+                /* top: 25px; */
+                bottom: 0;
+                left: 0;
+            }
+            canvas#scrollbar {
+                position: fixed;
+                /* top: 0; */
+                bottom: 0;
+                right: 0;
+            }
+            div#recalibrating {
+                display: none;
+            }
+            div#recalibrating p {
+                text-align: center;
+            }
+            div.dialog {
+                display: flex;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: transparent;
+                justify-content: center;
+                align-items: center;
+                z-index: 5;
+                background-color: black;
+            }
+            input {
+                font-family: "Inconsolata";
+            }
+            div.dialog > div {
+                background-color: white;
+                color: black;
+                box-shadow: 10px 10px #808080;
+                font-family: "Inconsolata";
+                font-size: 1.5rem;
+                max-width: 800px;
+            }
+            div.dialog p {
+                margin: 10px;
+                padding: 0;
+            }
+            div#loading {
+                display: none;
+            }
+            div#loading svg {
+                display: block;
+            }
+            @keyframes loadButton {
+                from { opacity: 0; pointer-events: none; }
+                to { opacity: 1; pointer-events: all; }
+            }
+            div#loading button {
+                display: block;
+                margin: 5px auto;
+                border: 2px solid black;
+                background-color: white;
+                font-size: 1.25rem;
+                font-family: 'Inconsolata';
+                font-weight: bold;
+                opacity: 0;
+                pointer-events: none;
+                animation: loadButton 0.75s linear 3.5s forwards;
+            }
+            div#loading button:hover {
+                background-color: black;
+                color: white;
+            }
+            div#settings {
+                display: none;
+            }
+            div#settings > div {
+                padding: 10px;
+                max-height: 480px;
+                overflow-y: auto;
+            }
+            div#settings div div#header * {
+                font-family: 'Inconsolata';
+                font-weight: bold;
+                margin: 0;
+                padding: 0;
+            }
+            div#settings div div#header h1 { font-size: 1.5rem; }
+            div#settings div div#header p { font-size: 0.85em; }
+            div.setting_input {
+                margin: 0;
+                padding: 0;
+                position: relative;
+                background-color: white;
+                font-size: 1.25rem;
+                font-family: 'Inconsolata';
+                font-weight: bold;
+            }
+            div.setting_input  {
+                margin: 0;
+                padding: 0;
+                font-size: 1.25rem;
+                font-family: 'Inconsolata';
+                font-weight: bold;
+            }
+            div.setting_input  input {
+                border: 2px solid black;
+                font-size: 1rem;
+                outline: none;
+            }
+            div.setting_input  input:focus {
+                background-color: black;
+                color: white;
+            }
+            div#settings div div#footer {
+                margin: 0;
+                padding: 0;
+                font-size: 1.25rem;
+                font-family: 'Inconsolata';
+                font-weight: bold;
+                display: flex;
+                gap: 10px;
+            }
+            div#settings div div#footer button {
+                padding: 3px;
+                border: 2px solid black;
+                background-color: white;
+                font-size: 1.25rem;
+                font-family: 'Inconsolata';
+                font-weight: bold;
+                outline: none;
+            }
+            div#settings div div#footer button:hover, div#settings div div#footer button:focus {
+                background-color: black;
+                color: white;
+            }
+            div#settings div div.setting_input label, div.setting_input  label * { display: block; }
+            div#settings div div.setting_input {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+            }
+            div.setting_input input[type="checkbox"] {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+            }
+            div.setting_input span.checkmark {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: inline-block;
+                width: 14px;
+                height: 14px;
+                border: 4px solid var(--checkmarkColor);
+                background: var(--checkmarkColor);
+            }
+            div.setting_input label.checkboxLabel {
+                position: relative;
+                padding-left: 30px;
+            }
+            div.setting_input label:hover input[type="checkbox"] ~ .checkmark,
+            div.setting_input label input[type="checkbox"]:focus ~ .checkmark {
+                --checkmarkColor: rgb(192, 192, 192);
+                --checkmarkXColor: black;
+            }
+            div.setting_input label input[type="checkbox"]:checked ~ span.checkmark {
+                background: linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 43%, var(--checkmarkXColor) 45%, var(--checkmarkXColor) 55%,rgba(0,0,0,0) 57%,rgba(0,0,0,0) 100%), linear-gradient(135deg, var(--checkmarkColor) 0%,var(--checkmarkColor) 43%, var(--checkmarkXColor) 45%, var(--checkmarkXColor) 55%,var(--checkmarkColor) 57%,var(--checkmarkColor) 100%);
+            }
+            div#dropdown {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 25px;
+                width: 100%;
+                background-color: rgb(64, 64, 64);
+                z-index: 1;
+            }
+            .dropbtn {
+                background-color: rgb(64, 64, 64);
+                color: white;
+                height: 25px;
+                font-size: 16px;
+                border: none;
+            }
+            .dropbtn p {
+                margin: 0 5px;
+                padding: 0;
+                font-family: "Inconsolata";
+                font-size: 1.25rem;
+            }
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f1f1f1;
+                min-width: 240px;
+                box-shadow: 10px 10px #808080;
+                z-index: 1;
+            }
+            .dropdown-content button {
+                color: black;
+                padding: 5px;
+                text-decoration: none;
+                display: block;
+                width: 100%;
+                border: none;
+                font-family: "Inconsolata";
+                font-size: 1.25rem;
+                background-color: white;
+                text-align: left;
+            }
+            .dropdown-content button:hover {background-color: black; color: white;}
+            .dropdown:hover .dropdown-content {display: block;}
+            .dropdown:hover .dropbtn {background-color: black;}
+            details {
+                padding-left: 10px;
+            }
+            details > *:not(summary) {
+                margin: 5px 0;
+                padding: 0;
+            }
+            summary {
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                cursor: pointer;
+            }
+            hr {
+                width: 100%;
+                border: 1px solid black;
+                margin: 5px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="dropdown">
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <p>File</p>
+                </button>
+                <div class="dropdown-content">
+                    <button id="runScript"><del>Import and Run script</del></button>
+                    <button id="dumpConsole">Save console output</button>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <p>Options</p>
+                </button>
+                <div class="dropdown-content">
+                    <button id="settings_button">Settings</button>
+                    <button id="enableFullscreen">[O] Fullscreen</button>
+                </div>
+            </div>
+        </div>
+        <noscript>
+            <div class="dialog">
+                <div>
+                    <p>FATAL ERROR: 0xD0000001</p>
+                    <p>CODE: JS_DISABLED_OR_NOT_SUPPORTED</p>
+                    <p>MESSAGE: JavaScript is disabled or not supported by your browser. Please enable JavaScript for the shell to work.</p>
+                </div>
+            </div>
+        </noscript>
+        <div class="dialog" id="recalibrating">
+            <div>
+                <p>Terminal resized, now recalibrating...</p>
+            </div>
+        </div>
+        <div class="dialog" id="loading">
+            <div>
+                <svg width="256" height="256" version="1.1" viewBox="0 0 33.867 33.867" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <animate fill="freeze" dur="1.5s" begin="0" href="#body" values="67.14236450195312;0" attributeName="stroke-dashoffset" />
+                    <animate fill="freeze" dur="1.5s" begin="1.5" href="#intersection" values="67.14236450195312;0" attributeName="stroke-dashoffset" />
+                    <animate fill="freeze" dur="0.75s" begin="2" href="#prompt" values="0;1" attributeName="opacity" />
+                    <animate dur="3s" begin="3" href="#body" values="1;0.6;1" attributeName="opacity" repeatCount="indefinite" />
+                    <animate dur="3s" begin="3" href="#intersection" values="1;0.6;1" attributeName="opacity" repeatCount="indefinite" />
+                    <animate dur="3s" begin="3" href="#prompt" values="1;0.6;1" attributeName="opacity" repeatCount="indefinite" />
+                    <g fill="#4d4d4d">
+                        <rect width="33.867" height="33.867" style="paint-order:normal"/>
+                        <path d="m7.4083 10.98 9.525 5.1594v11.906l-9.525-5.1594z" style="paint-order:normal"/>
+                        <path d="m26.458 10.98-9.525 5.1594v11.906l9.525-5.1594z" style="paint-order:normal"/>
+                        <rect transform="matrix(.87929 .47628 -.87929 .47628 0 0)" x="15.74" y="-3.5183" width="10.833" height="10.833" style="paint-order:normal"/>
+                    </g>
+                    <path id="body" d="m16.933 5.8208c-3.175 1.7198-6.35 3.4396-9.525 5.1594v11.906c3.175 1.7198 6.35 3.4396 9.525 5.1594 3.175-1.7198 6.35-3.4396 9.525-5.1594-1e-6 -3.9688-1e-6 -7.9375-2e-6 -11.906-3.175-1.7198-6.35-3.4396-9.525-5.1594z" fill="none" stroke="#fff" stroke-width=".52917" stroke-dasharray="67.14236450195312" stroke-dashoffset="67.14236450195312" stroke-linecap="round" opacity="1" />
+                    <path id="intersection" d="m16.933 28.046v-11.906 11.906zm9.525-17.066c-3.175 1.7198-6.35 3.4396-9.525 5.1594 3.175-1.7198 6.35-3.4396 9.525-5.1594zm-19.05-1e-6c3.175 1.7198 6.35 3.4396 9.525 5.1594-3.175-1.7198-6.35-3.4396-9.525-5.1594z" fill="none" stroke="#fff" stroke-width=".52917" stroke-dasharray="67.14236450195312" stroke-dashoffset="67.14236450195312" stroke-linecap="round" opacity="1" />
+                    <path id="prompt" d="m18.553 18.374-0.33748 0.50665 2.2447 0.93941-2.4686 3.7069 0.56135 0.23492 2.2447-3.3712 0.56135-0.84272-0.56135-0.23459zm3.4796 2.8296v0.67348l3.3674-1.824v-0.67348z" fill="#fff" opacity="0" />
+                    <g font-size="8.4667px" stroke-width=".26458">
+                        <text x="20.108334" y="19.049999" font-family="Consolas" style="line-height:1.25" xml:space="preserve"><tspan x="20.108334" y="19.049999" font-family="Consolas" stroke-width=".26458"/></text>
+                        <text x="40.216667" y="8.4666662" font-family="Arial" style="line-height:1.25" xml:space="preserve"><tspan x="40.216667" y="8.4666662" stroke-width=".26458"/></text>
+                        <text x="64.558334" y="12.7" font-family="Arial" style="line-height:1.25" xml:space="preserve"><tspan stroke-width=".26458"/></text>
+                    </g>
+                </svg>
+                <button>START</button>
+            </div>
+        </div>
+        <div class="dialog" id="settings">
+            <!--
+                var config = {
+                    debounceResize: true,
+                    debounceResizeTime: 100,
+                    enableScrollBar: true,
+                    scrollBarWidth: 20,
+                    scrollBar_AmountToScroll: 5,
+                    commandPrompt: "> ",
+                    showBootScreen: true,
+                }
+            -->
+            <div>
+                <div id="header">
+                    <h1>INBOSH Settings</h1>
+                    <p>(Saving or Reseting will require a reload)</p>
+                </div>
+                <div id="scrollBarSettings" class="setting_input">
+                    <hr>
+                    <details>
+                        <summary>Scroll Bar</summary>
+                        <label class="checkboxLabel">
+                            <input type="checkbox" class="changeConfig" data-settingName="enableScrollBar" checked="checked" />
+                            <span class="checkmark"></span>
+                            <span>Enable scroll bar</span>
+                        </label>
+                        <label>
+                            <span>Width of scroll bar</span>
+                            <input type="number" class="changeConfig" data-settingName="scrollBarWidth" value="20" />
+                        </label>
+                        <label>
+                            <span>Lines to scroll of scroll bar</span>
+                            <input type="number" class="changeConfig" data-settingName="scrollBar_AmountToScroll" value="5" />
+                        </label>
+                    </details>
+                    <hr>
+                    <details>
+                        <summary>Color</summary>
+                        <label>
+                            <span>Termial Background Color</span>
+                            <input type="text" class="changeConfig" data-settingName="backgroundColor" value="20" />
+                        </label>
+                        <label>
+                            <span>Terminal Foreground (Text) Color</span>
+                            <input type="text" class="changeConfig" data-settingName="foregroundColor" value="5" />
+                        </label>
+                        <label>
+                            <span>Cursor Color</span>
+                            <input type="text" class="changeConfig" data-settingName="cursorColor" value="20" />
+                        </label>
+                        <label>
+                            <span>Scroll Bar Color</span>
+                            <input type="text" class="changeConfig" data-settingName="scrollBarColor" value="5" />
+                        </label>
+                        <label>
+                            <span>Scroll Bar Thumb Color</span>
+                            <input type="text" class="changeConfig" data-settingName="scrollBarThumbColor" value="20" />
+                        </label>
+                    </details>
+                    <hr>
+                    <details>
+                        <summary>Misc.</summary>
+                        <label class="checkboxLabel">
+                            <input type="checkbox" class="changeConfig" data-settingName="debounceResize" checked="checked" />
+                            <span class="checkmark"></span>
+                            <span>Debounce resize</span>
+                        </label>
+                        <label class="checkboxLabel">
+                            <input type="checkbox" class="changeConfig" data-settingName="showBootScreen" checked="checked" />
+                            <span class="checkmark"></span>
+                            <span>Show boot screen</span>
+                        </label>
+                        <label>
+                            <span>Prompt to enter command</span>
+                            <input type="text" class="changeConfig" data-settingName="commandPrompt" value="&gt; " />
+                        </label>
+                    </details>
+                    <hr>
+                </div>
+                <div id="footer">
+                    <button id="settings_save">Save</button>
+                    <button id="settings_reset">Reset</button>
+                    <button id="settings_cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+        <div style="font-family: 'Inconsolata'; z-index: -1;">.</div>
+        <canvas id="terminal">
+            <div class="dialog">
+                <div>
+                    <p>ERROR: 0xD1000001</p>
+                    <p>CODE: CANVAS_NOT_SUPPORTED</p>
+                    <p>MESSAGE: Your browser does not support the HTML5 canvas element.</p>
+                </div>
+            </div>
+        </canvas>
+        <canvas id="scrollbar"></canvas>
+    </body>
+    <script src="./INBOSH.js"></script>
+</html>
