@@ -134,6 +134,10 @@
                     "type": "file"
                 },
                 {
+                    "name": "TextTypingInterface(MSDOSv2).7z",
+                    "type": "file"
+                },
+                {
                     "name": "Unused_image.zip",
                     "type": "file"
                 },
@@ -349,6 +353,36 @@
             "name": "other_project",
             "type": "directory",
             "children": [
+                {
+                    "name": "INBOSH",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "INBOSH.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "INBOSH.ico",
+                            "type": "file"
+                        },
+                        {
+                            "name": "INBOSH.js",
+                            "type": "file"
+                        },
+                        {
+                            "name": "INBOSH.js.map",
+                            "type": "file"
+                        },
+                        {
+                            "name": "INBOSH.ts",
+                            "type": "file"
+                        },
+                        {
+                            "name": "Inconsolata-Regular.ttf",
+                            "type": "file"
+                        }
+                    ]
+                },
                 {
                     "name": "MSDOS.html",
                     "type": "file"
