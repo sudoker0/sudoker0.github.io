@@ -83,7 +83,7 @@
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\** | 100.0% | 201 files | 461,091,285 bytes
+\** | 100.0% | 201 files | 461,097,427 bytes
 \* | 0.0% | 13 files | 20,444 bytes
 \*.7z | 35.95% | 18 files | 165,762,396 bytes
 \*.config | 0.02% | 1 files | 82,580 bytes
@@ -91,24 +91,24 @@ File Extensions | Percentages of Bytes | Number of files | File/Folder size (Byt
 \*.gif | 0.0% | 1 files | 10,498 bytes
 \*.html | 0.13% | 34 files | 606,774 bytes
 \*.ico | 0.03% | 2 files | 118,934 bytes
-\*.idx | 0.05% | 1 files | 216,056 bytes
-\*.js | 0.01% | 6 files | 53,859 bytes
-\*.json | 0.06% | 11 files | 298,687 bytes
-\*.map | 0.01% | 3 files | 51,795 bytes
-\*.md | 0.0% | 1 files | 9,033 bytes
-\*.pack | 57.89% | 1 files | 266,933,949 bytes
+\*.idx | 0.05% | 1 files | 216,560 bytes
+\*.js | 0.01% | 6 files | 54,092 bytes
+\*.json | 0.07% | 11 files | 300,238 bytes
+\*.map | 0.01% | 3 files | 52,069 bytes
+\*.md | 0.0% | 1 files | 9,037 bytes
+\*.pack | 57.89% | 1 files | 266,937,251 bytes
 \*.png | 1.88% | 44 files | 8,676,770 bytes
 \*.py | 0.01% | 3 files | 30,784 bytes
 \*.sample | 0.01% | 13 files | 23,442 bytes
 \*.scss | 0.0% | 1 files | 15,050 bytes
 \*.sqlite | 0.02% | 1 files | 90,112 bytes
 \*.svg | 0.01% | 6 files | 63,923 bytes
-\*.ts | 0.01% | 2 files | 54,046 bytes
+\*.ts | 0.01% | 2 files | 54,307 bytes
 \*.ttf | 0.06% | 2 files | 261,256 bytes
 \*.txt | 0.0% | 1 files | 283 bytes
 \*.webp | 0.81% | 9 files | 3,745,400 bytes
 \*.xml | 0.0% | 1 files | 1,236 bytes
-\*.yml | 0.0% | 4 files | 4,517 bytes
+\*.yml | 0.0% | 4 files | 4,530 bytes
 \*.zip | 3.01% | 17 files | 13,892,512 bytes
 > Last updated on: 2022-01-03
 <!--python_data_stop-->
