@@ -8,7 +8,12 @@
 * A number of codes are from the `MSDOS.html` project I made a while ago.
 */
 
-const buildNumber = "0.0.2-alpha+20210301160800";
+// TODO:
+// * Fix a bug where the regex that detect if something is a string will fail even if the string indicator inside is escaped.
+// * Add the ability to run multiple commands in one line using semicolon.
+// * Implement the `Import and Run script` feature.
+
+const buildNumber = "0.0.3-alpha+20210301160800";
 
 /**
  * A special string created for the terminal.
@@ -354,6 +359,16 @@ const util = {
             }
         }
         return true;
+    },
+    varStrWithStr: (str: string) => {
+        str = str.replace(/{@([a-zA-Z0-9_]+?)}/g, (_, $1) => {
+            for (const value in window["INBOSH_VARIABLES"]) {
+                if (value == $1) {
+                    return window["INBOSH_VARIABLES"][value].value;
+                }
+            }
+        })
+        return str;
     }
 }
 
@@ -571,16 +586,6 @@ const commandList = [
         ],
         description: "Print the provided value to the terminal",
         func: async (args: Object) => {
-            const varStrWithStr = (str: string) => {
-                str = str.replace(/{@([a-zA-Z0-9_]+?)}/g, (_, $1) => {
-                    for (const value in window["INBOSH_VARIABLES"]) {
-                        if (value == $1) {
-                            return window["INBOSH_VARIABLES"][value].value;
-                        }
-                    }
-                })
-                return str;
-            }
             if (args["value"] == undefined) {
                 await insertString([`[ERROR]: Value not specified.`], true);
             } else {
@@ -588,7 +593,7 @@ const commandList = [
                 if (!(i.match(regexCheck.string) || i.match(regexCheck.number) || i.match(regexCheck.boolean))) {
                     await insertString([`[ERROR]: Value must be a string, number, or boolean.`], true);
                 }
-                i = util.removeStringIndicator(varStrWithStr(util.escapeString(i)));
+                i = util.removeStringIndicator(util.varStrWithStr(util.escapeString(i)));
                 if (i == undefined) {
                     await insertString([`[ERROR]: Value not specified.`], true);
                 } else {
@@ -629,6 +634,7 @@ const commandList = [
                 if (i == undefined) {
                     await insertString([`[ERROR]: Value not specified.`], true);
                 } else {
+                    i = util.varStrWithStr(i);
                     var calc = new Calculation();
                     var result = calc.calculate(i);
                     if (result == undefined || typeof result == "string") {
@@ -637,7 +643,7 @@ const commandList = [
                     } else {
                         await insertString([`[SUCCESS]: ${i} = ${result}`], true);
                         window["INBOSH_VARIABLES"][j] = {
-                            value: `\"${result}\"`,
+                            value: `${result}`,
                             type: "number"
                         };
                     }
@@ -915,7 +921,7 @@ async function bothResizeAndLoad(action: string) {
 
     // handleScrollbar();
     if (action === "load") {
-        await insertString([`INBOSH - It has No name But it's Online SHell (v${buildNumber})`, "[NOTE]: This is an Alpha release, expect a lot of bug.", "Copyright (C) 2021 QuanMCPC's Home.", "Type \"help()\" for a list of commands."]);
+        await insertString([`INBOSH - It has No name But it's Online SHell (v${buildNumber})`, "[NOTE]: This is an Alpha release, so expect a lot of bug and updates every day (± Infinite %)", "Copyright (C) 2021 QuanMCPC's Home.", "Type \"help()\" for a list of commands."]);
         await insertString(["", config.commandPrompt], true);
     }
     drawCaret();

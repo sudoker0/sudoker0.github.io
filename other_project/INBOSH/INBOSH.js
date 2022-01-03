@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const buildNumber = "0.0.2-alpha+20210301160800";
+const buildNumber = "0.0.3-alpha+20210301160800";
 class TerminalString extends String {
     constructor({ str = "", isOverlayedByCursor = false, isEndOfLine = false }) {
         super(str);
@@ -251,6 +251,16 @@ const util = {
             }
         }
         return true;
+    },
+    varStrWithStr: (str) => {
+        str = str.replace(/{@([a-zA-Z0-9_]+?)}/g, (_, $1) => {
+            for (const value in window["INBOSH_VARIABLES"]) {
+                if (value == $1) {
+                    return window["INBOSH_VARIABLES"][value].value;
+                }
+            }
+        });
+        return str;
     }
 };
 const $terminal = util.getId("terminal");
@@ -442,16 +452,6 @@ const commandList = [
         ],
         description: "Print the provided value to the terminal",
         func: (args) => __awaiter(this, void 0, void 0, function* () {
-            const varStrWithStr = (str) => {
-                str = str.replace(/{@([a-zA-Z0-9_]+?)}/g, (_, $1) => {
-                    for (const value in window["INBOSH_VARIABLES"]) {
-                        if (value == $1) {
-                            return window["INBOSH_VARIABLES"][value].value;
-                        }
-                    }
-                });
-                return str;
-            };
             if (args["value"] == undefined) {
                 yield insertString([`[ERROR]: Value not specified.`], true);
             }
@@ -460,7 +460,7 @@ const commandList = [
                 if (!(i.match(regexCheck.string) || i.match(regexCheck.number) || i.match(regexCheck.boolean))) {
                     yield insertString([`[ERROR]: Value must be a string, number, or boolean.`], true);
                 }
-                i = util.removeStringIndicator(varStrWithStr(util.escapeString(i)));
+                i = util.removeStringIndicator(util.varStrWithStr(util.escapeString(i)));
                 if (i == undefined) {
                     yield insertString([`[ERROR]: Value not specified.`], true);
                 }
@@ -505,6 +505,7 @@ const commandList = [
                     yield insertString([`[ERROR]: Value not specified.`], true);
                 }
                 else {
+                    i = util.varStrWithStr(i);
                     var calc = new Calculation();
                     var result = calc.calculate(i);
                     if (result == undefined || typeof result == "string") {
@@ -514,7 +515,7 @@ const commandList = [
                     else {
                         yield insertString([`[SUCCESS]: ${i} = ${result}`], true);
                         window["INBOSH_VARIABLES"][j] = {
-                            value: `\"${result}\"`,
+                            value: `${result}`,
                             type: "number"
                         };
                     }
@@ -775,7 +776,7 @@ function bothResizeAndLoad(action) {
         scrollbarConfig.y = Math.max(0, caretPos.y - availSpace.availRow + 1) / terminalContent.length * $scrollbar.height;
         util.drawScrollBar($scrollbar, $scrollbarCtx, scrollbarConfig.height, scrollbarConfig.y, config.scrollBarColor, config.scrollBarThumbColor);
         if (action === "load") {
-            yield insertString([`INBOSH - It has No name But it's Online SHell (v${buildNumber})`, "[NOTE]: This is an Alpha release, expect a lot of bug.", "Copyright (C) 2021 QuanMCPC's Home.", "Type \"help()\" for a list of commands."]);
+            yield insertString([`INBOSH - It has No name But it's Online SHell (v${buildNumber})`, "[NOTE]: This is an Alpha release, so expect a lot of bug and updates every day (± Infinite %)", "Copyright (C) 2021 QuanMCPC's Home.", "Type \"help()\" for a list of commands."]);
             yield insertString(["", config.commandPrompt], true);
         }
         drawCaret();
