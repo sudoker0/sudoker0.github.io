@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const buildNumber = "0.0.1-alpha.1+20210301111500";
+const buildNumber = "0.0.2-alpha+20210301160800";
 class TerminalString extends String {
     constructor({ str = "", isOverlayedByCursor = false, isEndOfLine = false }) {
         super(str);
@@ -228,6 +228,30 @@ const util = {
     },
     escapeString: (str) => { return str.replace(/\\([^n])/g, "{#n=[$1]}"); },
     unescapeString: (str) => { return str.replace(/{#n=\[(.)\]}/g, "$1"); },
+    migrateObj: (oldObj, newObj) => {
+        oldObj = Object.keys(newObj).reduce((acc, key) => (Object.assign(Object.assign({}, acc), { [key]: oldObj[key] == null || oldObj[key] == undefined ? newObj[key] : oldObj[key] })), {});
+        return oldObj;
+    },
+    areArraysEqualSets: (a1, a2) => {
+        const superSet = {};
+        for (const i of a1) {
+            const e = i + typeof i;
+            superSet[e] = 1;
+        }
+        for (const i of a2) {
+            const e = i + typeof i;
+            if (!superSet[e]) {
+                return false;
+            }
+            superSet[e] = 2;
+        }
+        for (let e in superSet) {
+            if (superSet[e] === 1) {
+                return false;
+            }
+        }
+        return true;
+    }
 };
 const $terminal = util.getId("terminal");
 const $terminalCtx = $terminal.getContext("2d");
@@ -271,6 +295,7 @@ var state = {
     command: "",
 };
 var config = {
+    configVersion: buildNumber,
     debounceResize: true,
     debounceResizeTime: 100,
     enableScrollBar: true,
@@ -282,7 +307,7 @@ var config = {
     backgroundColor: "#000",
     cursorColor: "#fff",
     scrollBarColor: "rgb(128, 128, 128)",
-    scrollBarThumbColor: "rgb(64, 64, 64)"
+    scrollBarThumbColor: "rgb(64, 64, 64)",
 };
 window["INBOSH_VARIABLES"] = {};
 const commandList = [
@@ -853,25 +878,31 @@ window.addEventListener("resize", () => {
     }
 });
 window.addEventListener("load", () => {
-    if (localStorage.getItem("INBOSH_DATA_CONFIG")) {
-        config = JSON.parse(localStorage.getItem("INBOSH_DATA_CONFIG"));
-        document.querySelectorAll("input.changeConfig").forEach((x) => {
-            switch (x.type) {
-                case "checkbox":
-                    x.checked = config[x.getAttribute("data-settingName")];
-                    break;
-                case "number":
-                    x.value = config[x.getAttribute("data-settingName")].toString();
-                    break;
-                default:
-                    x.value = config[x.getAttribute("data-settingName")];
-                    break;
-            }
-        });
-    }
-    else {
+    if (!localStorage.getItem("INBOSH_DATA_CONFIG")) {
         localStorage.setItem("INBOSH_DATA_CONFIG", JSON.stringify(config));
     }
+    var oldConfig = JSON.parse(localStorage.getItem("INBOSH_DATA_CONFIG"));
+    if (oldConfig["configVersion"] != buildNumber || !(util.areArraysEqualSets(Object.keys(oldConfig), Object.keys(config)))) {
+        config = util.migrateObj(oldConfig, config);
+        config.configVersion = buildNumber;
+        localStorage.setItem("INBOSH_DATA_CONFIG", JSON.stringify(config));
+    }
+    else {
+        config = JSON.parse(localStorage.getItem("INBOSH_DATA_CONFIG"));
+    }
+    document.querySelectorAll("input.changeConfig").forEach((x) => {
+        switch (x.type) {
+            case "checkbox":
+                x.checked = config[x.getAttribute("data-settingName")];
+                break;
+            case "number":
+                x.value = config[x.getAttribute("data-settingName")].toString();
+                break;
+            default:
+                x.value = config[x.getAttribute("data-settingName")];
+                break;
+        }
+    });
     if (config.showBootScreen) {
         util.getId("loading").style.display = "flex";
     }
