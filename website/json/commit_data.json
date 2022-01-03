@@ -3,6 +3,18 @@
     "last_update_on": "2022-01-03",
     "data": [
         {
+            "hash": "45581cc",
+            "committer": "QuanMCPC",
+            "commit_date": 1641184017,
+            "message": "Confirmed that CodeQL work excellent"
+        },
+        {
+            "hash": "b8461d9",
+            "committer": "QuanMCPC",
+            "commit_date": 1641183776,
+            "message": "Update website's information"
+        },
+        {
             "hash": "e71365b",
             "committer": "QuanMCPC",
             "commit_date": 1641183744,
