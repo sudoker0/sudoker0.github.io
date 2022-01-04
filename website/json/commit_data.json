@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-01-03",
+    "last_update_on": "2022-01-04",
     "data": [
+        {
+            "hash": "d6deb60",
+            "committer": "QuanMCPC",
+            "commit_date": 1641308489,
+            "message": "Added the import and run script feature, with 2 bug fix."
+        },
+        {
+            "hash": "0c9f281",
+            "committer": "QuanMCPC",
+            "commit_date": 1641221089,
+            "message": "Update website's information"
+        },
         {
             "hash": "baa8d64",
             "committer": "QuanMCPC",

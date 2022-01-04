@@ -358,6 +358,10 @@
                     "type": "directory",
                     "children": [
                         {
+                            "name": "CHANGELOG.md",
+                            "type": "file"
+                        },
+                        {
                             "name": "INBOSH.html",
                             "type": "file"
                         },
