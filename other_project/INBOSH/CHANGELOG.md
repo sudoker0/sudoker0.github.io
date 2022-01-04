@@ -8,7 +8,7 @@ All timestamp is formatted as MM/DD/YYYY
 ## [<u>**Alpha**</u>]
 
 ## [0.0.4] - 01/04/2022
-## Added:
+### Added:
  - "Import and run script" feature
  - Changelog
 
