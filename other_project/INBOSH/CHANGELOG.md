@@ -5,8 +5,7 @@ Please note that I/we might not record all of the changes (like when the changes
 
 All timestamp is formatted as MM/DD/YYYY
 
-## [Alpha]
----
+## [<u>**Alpha**</u>]
 
 ## [0.0.4] - 01/04/2022
 ## Added:
