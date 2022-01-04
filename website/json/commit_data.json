@@ -3,6 +3,18 @@
     "last_update_on": "2022-01-04",
     "data": [
         {
+            "hash": "1ebfae8",
+            "committer": "QuanMCPC",
+            "commit_date": 1641309435,
+            "message": "Make the Alpha text a bit \"noticeable\""
+        },
+        {
+            "hash": "208dce3",
+            "committer": "QuanMCPC",
+            "commit_date": 1641308553,
+            "message": "Update website's information"
+        },
+        {
             "hash": "d6deb60",
             "committer": "QuanMCPC",
             "commit_date": 1641308489,
