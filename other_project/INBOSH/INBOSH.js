@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const buildNumber = "0.0.3-alpha+20210301160800";
+const buildNumber = "0.0.4-alpha+20210401220200";
 class TerminalString extends String {
     constructor({ str = "", isOverlayedByCursor = false, isEndOfLine = false }) {
         super(str);
@@ -186,7 +186,11 @@ const util = {
             command: "",
             args: {}
         };
-        command
+        command = util.escapeString(command)
+            .replace(/("([^"]*)")|('([^']*)')|(`([^`]*)`)/g, (_, ...p1) => {
+            var p2 = p1[1] || p1[3] || p1[5];
+            return "\"" + p2.split("").map((x) => { return `{#n6[${x.charCodeAt(0)}]}`; }).join("") + "\"";
+        })
             .replace(/\s+/g, ' ')
             .trim()
             .replace(/(^\w+)\s*(\(.*\))$/gm, (_m, p1, p2, _o, _str) => {
@@ -199,6 +203,9 @@ const util = {
             });
             return p1 + p2;
         });
+        for (const i in total_func.args) {
+            total_func.args[i] = util.unescapeString(total_func.args[i]);
+        }
         return total_func;
     },
     removeStringIndicator: (str) => {
@@ -226,8 +233,8 @@ const util = {
         a.click();
         a.remove();
     },
-    escapeString: (str) => { return str.replace(/\\([^n])/g, "{#n=[$1]}"); },
-    unescapeString: (str) => { return str.replace(/{#n=\[(.)\]}/g, "$1"); },
+    escapeString: (str) => { return str.replace(/\\([^n])/g, (_, p1) => { return `{#n6[${p1.charCodeAt(0)}]}`; }); },
+    unescapeString: (str) => { return str === null || str === void 0 ? void 0 : str.replace(/{#n6\[(\d*)\]}/g, (_, p1) => { return String.fromCharCode(parseInt(p1)); }); },
     migrateObj: (oldObj, newObj) => {
         oldObj = Object.keys(newObj).reduce((acc, key) => (Object.assign(Object.assign({}, acc), { [key]: oldObj[key] == null || oldObj[key] == undefined ? newObj[key] : oldObj[key] })), {});
         return oldObj;
@@ -261,6 +268,32 @@ const util = {
             }
         });
         return str;
+    },
+    openFile: () => {
+        return new Promise((resolve, reject) => {
+            const readFile = function (e) {
+                var file = e.target["files"][0];
+                if (!file) {
+                    return null;
+                }
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var contents = e.target.result;
+                    document.body.removeChild(fileInput);
+                    resolve(contents);
+                };
+                reader.onerror = function (e) {
+                    reject(e);
+                };
+                reader.readAsText(file);
+            };
+            const fileInput = document.createElement("input");
+            fileInput.type = 'file';
+            fileInput.style.display = 'none';
+            fileInput.onchange = readFile;
+            document.body.appendChild(fileInput);
+            fileInput.click();
+        });
     }
 };
 const $terminal = util.getId("terminal");
@@ -831,6 +864,7 @@ function main(command) {
                     return;
                 }
             }
+            console.table(result.args);
             yield commandList[commandList.map(x => x.name).indexOf(result.command)].func(result.args);
         }
         yield _();
@@ -867,6 +901,14 @@ util.getId("dumpConsole").onclick = () => {
     var blob = new Blob([dumpstr], { type: "text/plain;charset=utf-8" });
     util.saveAs(blob, "INBOSH_DUMP.txt");
 };
+util.getId("runScript").onclick = () => __awaiter(this, void 0, void 0, function* () {
+    const result = yield util.openFile();
+    if (typeof result === "string") {
+        for (const command of result.split("\n")) {
+            yield main(command);
+        }
+    }
+});
 var resizeTimeout;
 window.addEventListener("resize", () => {
     if (config.debounceResize) {
@@ -879,6 +921,11 @@ window.addEventListener("resize", () => {
     }
 });
 window.addEventListener("load", () => {
+    setTimeout(() => {
+        var button = document.querySelector("div#loading button");
+        button.style.opacity = "1";
+        button.style.pointerEvents = "auto";
+    }, 3250);
     if (!localStorage.getItem("INBOSH_DATA_CONFIG")) {
         localStorage.setItem("INBOSH_DATA_CONFIG", JSON.stringify(config));
     }

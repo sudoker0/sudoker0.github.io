@@ -9,11 +9,11 @@
 */
 
 // TODO:
-// * Fix a bug where the regex that detect if something is a string will fail even if the string indicator inside is escaped.
+// * [DONE] Fix a bug where the regex that detect if something is a string will fail even if the string indicator inside is escaped.
 // * Add the ability to run multiple commands in one line using semicolon.
-// * Implement the `Import and Run script` feature.
+// * [DONE] Implement the `Import and Run script` feature.
 
-const buildNumber = "0.0.3-alpha+20210301160800";
+const buildNumber = "0.0.4-alpha+20210401220200";
 
 /**
  * A special string created for the terminal.
@@ -270,7 +270,11 @@ const util = {
             command: "",
             args: {}
         }
-        command
+        command = util.escapeString(command)
+            .replace(/("([^"]*)")|('([^']*)')|(`([^`]*)`)/g, (_, ...p1: string[]) => {
+                var p2 = p1[1] || p1[3] || p1[5]
+                return "\"" + p2.split("").map((x) => { return `{#n6[${x.charCodeAt(0)}]}`; }).join("") + "\""
+            })
             .replace(/\s+/g,' ')
             .trim()
             .replace(/(^\w+)\s*(\(.*\))$/gm, (_m: string, p1: string, p2: string, _o: number, _str: string) => {
@@ -283,6 +287,9 @@ const util = {
                 })
                 return p1 + p2;
             })
+        for (const i in total_func.args) {
+            total_func.args[i] = util.unescapeString(total_func.args[i]);
+        }
         return total_func;
     },
     /**
@@ -322,8 +329,8 @@ const util = {
         a.click();
         a.remove();
     },
-    escapeString: (str: string) => { return str.replace(/\\([^n])/g, "{#n=[$1]}") },
-    unescapeString: (str: string) => { return str.replace(/{#n=\[(.)\]}/g, "$1") },
+    escapeString: (str: string) => { return str.replace(/\\([^n])/g, (_, p1: string) => { return `{#n6[${p1.charCodeAt(0)}]}`; }) },
+    unescapeString: (str: string) => { return str?.replace(/{#n6\[(\d*)\]}/g, (_, p1: string) => { return String.fromCharCode(parseInt(p1)); }) },
     /**
      * "Smart" merge two objects
      * @param oldObj The old object
@@ -369,6 +376,32 @@ const util = {
             }
         })
         return str;
+    },
+    openFile: (): Promise<string | ArrayBuffer | null> => {
+        return new Promise((resolve, reject) => {
+            const readFile = function(e: Event) {
+                var file = e.target["files"][0];
+                if (!file) {
+                    return null;
+                }
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var contents = e.target.result;
+                    document.body.removeChild(fileInput)
+                    resolve(contents);
+                }
+                reader.onerror = function(e) {
+                    reject(e);
+                }
+                reader.readAsText(file)
+            }
+            const fileInput = document.createElement("input")
+            fileInput.type = 'file'
+            fileInput.style.display = 'none'
+            fileInput.onchange = readFile
+            document.body.appendChild(fileInput)
+            fileInput.click();
+        })
     }
 }
 
@@ -973,6 +1006,7 @@ async function main(command: string) {
                 return;
             }
         }
+        console.table(result.args)
         await commandList[commandList.map(x => x.name).indexOf(result.command)].func(result.args);
     }
     await _();
@@ -1017,6 +1051,15 @@ async function main(command: string) {
     util.saveAs(blob, "INBOSH_DUMP.txt");
 }
 
+(util.getId("runScript") as HTMLButtonElement).onclick = async () => {
+    const result = await util.openFile();
+    if (typeof result === "string") {
+        for (const command of result.split("\n")) {
+            await main(command);
+        }
+        // await insertString(["", config.commandPrompt], true);
+    }
+}
 //#endregion
 
 //#region Event Listeners
@@ -1033,6 +1076,11 @@ window.addEventListener("resize", () => {
 })
 
 window.addEventListener("load", () => {
+    setTimeout(() => {
+        var button: HTMLButtonElement = document.querySelector("div#loading button")
+        button.style.opacity = "1";
+        button.style.pointerEvents = "auto";
+    }, 3250)
     if (!localStorage.getItem("INBOSH_DATA_CONFIG")) { localStorage.setItem("INBOSH_DATA_CONFIG", JSON.stringify(config)); }
     var oldConfig: Object = JSON.parse(localStorage.getItem("INBOSH_DATA_CONFIG"));
     if (oldConfig["configVersion"] != buildNumber || !(util.areArraysEqualSets(Object.keys(oldConfig), Object.keys(config)))) {
