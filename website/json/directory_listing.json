@@ -378,6 +378,10 @@
                             "type": "file"
                         },
                         {
+                            "name": "INBOSH.png",
+                            "type": "file"
+                        },
+                        {
                             "name": "INBOSH.ts",
                             "type": "file"
                         },
