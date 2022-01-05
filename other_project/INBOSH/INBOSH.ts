@@ -10,10 +10,10 @@
 
 // TODO:
 // * [DONE] Fix a bug where the regex that detect if something is a string will fail even if the string indicator inside is escaped.
-// * Add the ability to run multiple commands in one line using semicolon.
+// * [DONE] Add the ability to run multiple commands in one line using semicolon.
 // * [DONE] Implement the `Import and Run script` feature.
 
-const buildNumber = "0.0.4-alpha+20210401220200";
+const buildNumber = "0.0.5-alpha+20210501192000";
 
 /**
  * A special string created for the terminal.
@@ -265,31 +265,47 @@ const util = {
      *     }
      * }
      */
-    analyzeCommand: (command: string): { command: string, args: Object } => {
-        var total_func = {
-            command: "",
-            args: {}
-        }
-        command = util.escapeString(command)
+    analyzeCommand: (command: string): { command: string, args: Object }[] => {
+        var total_func: { command: string, args: {} }[] = []
+        var listcommand = util.escapeString(command)
             .replace(/("([^"]*)")|('([^']*)')|(`([^`]*)`)/g, (_, ...p1: string[]) => {
-                var p2 = p1[1] || p1[3] || p1[5]
+                var p2 = (p1[1] || p1[3] || p1[5]) || ""
                 return "\"" + p2.split("").map((x) => { return `{#n6[${x.charCodeAt(0)}]}`; }).join("") + "\""
             })
             .replace(/\s+/g,' ')
             .trim()
-            .replace(/(^\w+)\s*(\(.*\))$/gm, (_m: string, p1: string, p2: string, _o: number, _str: string) => {
-                total_func.command = p1;
+            .split(/(\s*\w*\(.*?\))(?:;)/g)
+            .filter((x) => { return x.trim().length > 0; })
+
+        listcommand.forEach((x) => {
+            x = x.trim()
+            var command: string;
+            var _arguments: {}
+            x.replace(/(^\w+)\s*(\(.*\))$/gm, (_m: string, p1: string, p2: string, _o: number, _str: string) => {
+                command = p1;
                 var arg = p2.substring(1, p2.length - 1).split(/\s*,\s*/g);
                 console.log(arg)
-                arg.forEach((v) => {
-                    var args = v.split(/\s*=\s*/g);
-                    total_func.args[args[0]] = args[1]
+                _arguments = {}
+                var args = arg.map((v) => {
+                    var _args = v.split(/\s*=\s*/g);
+                    return {
+                        name: _args[0],
+                        value: _args[1]
+                    }
                 })
+                args.forEach(x => _arguments[x.name] = x.value)
                 return p1 + p2;
             })
-        for (const i in total_func.args) {
-            total_func.args[i] = util.unescapeString(total_func.args[i]);
-        }
+            total_func.push({
+                command: command,
+                args: _arguments
+            })
+        })
+        total_func.forEach((x) => {
+            for (const i in x.args) {
+                x.args[i] = util.unescapeString(x.args[i]);
+            }
+        })
         return total_func;
     },
     /**
@@ -419,8 +435,8 @@ const textHeight = 20;
 const terminalMargin = 5;
 
 const regexCheck = {
-    string: /(^\"[^\"]*[^\"]\"$)|(^\'[^\']*[^\']\'$)|(^\`[^\`]*[^\`]\`$)/,
-    number: /^[+-]?(\d+\.?\d*|\.\d+)$/,
+    string: /(^\"[^\"]*\"(.*?)$)|(^\'[^\']*\'(.*?)$)|(^\`[^\`]*\`(.*?)$)/,
+    number: /^[+-]?(\d+\.?\d*|\.\d+)(.*?)$/,
     boolean: /true|false/,
 }
 
@@ -469,11 +485,11 @@ var config = {
     scrollBar_AmountToScroll: 5,
     commandPrompt: "> ",
     showBootScreen: true,
-    foregroundColor: "#fff",
-    backgroundColor: "#000",
-    cursorColor: "#fff",
-    scrollBarColor: "rgb(128, 128, 128)",
-    scrollBarThumbColor: "rgb(64, 64, 64)",
+    foregroundColor: "#ffffff",
+    backgroundColor: "#000000",
+    cursorColor: "#ffffff",
+    scrollBarColor: "#808080",
+    scrollBarThumbColor: "#404040",
 }
 
 window["INBOSH_VARIABLES"] = {}
@@ -963,51 +979,61 @@ async function bothResizeAndLoad(action: string) {
 }
 
 async function main(command: string) {
-    var result = util.analyzeCommand(command)
-    var _ = async () => {
+    var _result = util.analyzeCommand(command)
+    const _ = async () => {
         state.allowInput = true;
         state.commandRunning = false;
         state.command = "";
         state.insertedNumberOfLetters = 0;
     }
-
-    if (command.trim() == "") {
-        await _();
-        return;
-    }
-    if (commandList.map(x => x.name).indexOf(result.command) <= -1) {
-        await insertString([`[ERROR]: Command "${command}" not found.`], true);
-        await _();
-        return;
-    }
-
-    var check = util.checkArgs(commandList[commandList.map(x => x.name).indexOf(result.command)].args.map(x => x.name), Object.keys(result.args))
-    var optionalArg = commandList[commandList.map(x => x.name).indexOf(result.command)].args.filter(x => x.optionalValue).map(x => x.name);
-    check.missing = check.missing.filter(x => optionalArg.indexOf(x) <= -1);
-    var _m = `For more information, type \`help(command="${result.command}")\` for how to use the command or just \`help()\` for the whole list of commands.`
-    if (check.extra.length > 0) {
-        await insertString([`The following argument(s): [${check.extra.map(x => `"${x}"`).join(", ")}] is not valid.`, _m], true);
-    } else if (check.missing.length > 0) {
-        await insertString([`The following argument(s): [${check.missing.map(x => `"${x}"`).join(", ")}] is required.`, _m], true);
-    } else {
-        for (var i in result.args) {
-            var type: string;
-            for (var j in regexCheck) {
-                if ((regexCheck[j] as RegExp).test(result.args[i])) {
-                    type = j;
-                    break;
+    for (const result of _result) {
+        if (command.trim() == "") {
+            await _();
+            return;
+        }
+        if (commandList.map(x => x.name).indexOf(result.command) <= -1) {
+            await insertString([`[ERROR]: Command "${command}" not found.`], true);
+            await _();
+            return;
+        }
+        var check = util.checkArgs(commandList[commandList.map(x => x.name).indexOf(result.command)].args.map(x => x.name), Object.keys(result.args))
+        var optionalArg = commandList[commandList.map(x => x.name).indexOf(result.command)].args.filter(x => x.optionalValue).map(x => x.name);
+        check.missing = check.missing.filter(x => optionalArg.indexOf(x) <= -1);
+        var _m = `For more information, type \`help(command="${result.command}")\` for how to use the command or just \`help()\` for the whole list of commands.`
+        if (check.extra.length > 0) {
+            await insertString([`The following argument(s): [${check.extra.map(x => `"${x}"`).join(", ")}] is not valid.`, _m], true);
+        } else if (check.missing.length > 0) {
+            await insertString([`The following argument(s): [${check.missing.map(x => `"${x}"`).join(", ")}] is required.`, _m], true);
+        } else {
+            var status = ""
+            for (var i in result.args) {
+                var type: string;
+                for (var j in regexCheck) {
+                    if ((regexCheck[j] as RegExp).test(result.args[i])) {
+                        (result.args[i] as string).replace(regexCheck[j], (_a, ...p) => {
+                            var value = (p[1] || p[3] || p[5]) || ""
+                            if (value.trim() != "") {
+                                insertString([`[ERROR]: Unexpected argument value: "${value}" in argument: "${i}"`], true).then(_)
+                                status = "error";
+                            }
+                            return value
+                        })
+                        type = j;
+                        break;
+                    }
+                }
+                var commandData = commandList[commandList.map(x => x.name).indexOf(result.command)]
+                console.log(commandData.args, type)
+                if (status == "error") return
+                if (commandData.args[commandData.args.map(x => x.name).indexOf(i)]?.type.split("|").map(x => x.trim()).indexOf(type) <= -1) {
+                    await insertString([`[ERROR]: Command "${result.command}" requires the argument "${i}" as type "${commandData.args[commandData.args.map(x => x.name).indexOf(i)].type}".`], true);
+                    await _();
+                    return;
                 }
             }
-            var commandData = commandList[commandList.map(x => x.name).indexOf(result.command)]
-            console.log(commandData.args, type)
-            if (commandData.args[commandData.args.map(x => x.name).indexOf(i)]?.type.split("|").map(x => x.trim()).indexOf(type) <= -1) {
-                await insertString([`[ERROR]: Command "${result.command}" requires the argument "${i}" as type "${commandData.args[commandData.args.map(x => x.name).indexOf(i)].type}".`], true);
-                await _();
-                return;
-            }
+            console.table(result.args)
+            await commandList[commandList.map(x => x.name).indexOf(result.command)].func(result.args);
         }
-        console.table(result.args)
-        await commandList[commandList.map(x => x.name).indexOf(result.command)].func(result.args);
     }
     await _();
 }
@@ -1060,6 +1086,15 @@ async function main(command: string) {
         // await insertString(["", config.commandPrompt], true);
     }
 }
+
+(util.getId("about_button") as HTMLButtonElement).onclick = () => {
+    util.getId("about").style.display = "flex";
+}
+
+(util.getId("about_ok") as HTMLButtonElement).onclick = () => {
+    util.getId("about").style.display = "none";
+}
+
 //#endregion
 
 //#region Event Listeners

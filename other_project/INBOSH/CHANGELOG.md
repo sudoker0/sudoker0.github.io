@@ -3,9 +3,20 @@ All changes made to `INBOSH` will be recorded and put into the changelog.
 
 Please note that I/we might not record all of the changes (like when the changes are so small that it isn't worth putting in or when I/we forgot to put the changes).
 
-All timestamp is formatted as MM/DD/YYYY
+Also, all timestamp is formatted as MM/DD/YYYY.
 
-## [<u>**Alpha**</u>]
+> ## **Alpha**
+
+## [0.0.5] - 01/05/2022
+### Added
+ - Padding around the dropdown menu and the dropdown button to make it look better.
+ - Icon at the start of the menu bar.
+ - Help menu button and About section.
+ - Ability to run multiple command on one line using the `;` character (currently it's really basic support).
+
+### Changed
+ - In the settings page, input for color changed from `input[type=text]` to `input[type=color]`.
+ - Improve error handling a bit.
 
 ## [0.0.4] - 01/04/2022
 ### Added:

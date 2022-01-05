@@ -31,7 +31,7 @@
                 bottom: 0;
                 right: 0;
             }
-            div#recalibrating {
+            div#recalibrating, div#settings, div#loading, div#about {
                 display: none;
             }
             div#recalibrating p {
@@ -65,9 +65,6 @@
                 margin: 10px;
                 padding: 0;
             }
-            div#loading {
-                display: none;
-            }
             div#loading svg {
                 display: block;
             }
@@ -87,23 +84,20 @@
                 background-color: black;
                 color: white;
             }
-            div#settings {
-                display: none;
-            }
             div#settings > div {
                 padding: 10px;
                 max-height: 480px;
                 overflow-y: auto;
             }
-            div#settings div div#header * {
+            div.dialog div div.header * {
                 font-family: 'Inconsolata';
                 font-weight: bold;
                 margin: 0;
                 padding: 0;
             }
-            div#settings div div#header h1 { font-size: 1.5rem; }
-            div#settings div div#header p { font-size: 0.85em; }
-            div.setting_input {
+            div.dialog div h1 { font-size: 1.5rem; }
+            div.dialog div p { font-size: 0.85em; }
+            div.dialog_input {
                 margin: 0;
                 padding: 0;
                 position: relative;
@@ -112,23 +106,23 @@
                 font-family: 'Inconsolata';
                 font-weight: bold;
             }
-            div.setting_input  {
+            div.dialog_input  {
                 margin: 0;
                 padding: 0;
                 font-size: 1.25rem;
                 font-family: 'Inconsolata';
                 font-weight: bold;
             }
-            div.setting_input  input {
+            div.dialog_input  input {
                 border: 2px solid black;
                 font-size: 1rem;
                 outline: none;
             }
-            div.setting_input  input:focus {
+            div.dialog_input  input:focus {
                 background-color: black;
                 color: white;
             }
-            div#settings div div#footer {
+            div.dialog div div.footer {
                 margin: 0;
                 padding: 0;
                 font-size: 1.25rem;
@@ -137,7 +131,7 @@
                 display: flex;
                 gap: 10px;
             }
-            div#settings div div#footer button {
+            div.dialog div div.footer button {
                 padding: 3px;
                 border: 2px solid black;
                 background-color: white;
@@ -146,24 +140,24 @@
                 font-weight: bold;
                 outline: none;
             }
-            div#settings div div#footer button:hover, div#settings div div#footer button:focus {
+            div.dialog div div.footer button:hover, div.dialog div div.footer button:focus {
                 background-color: black;
                 color: white;
             }
-            div#settings div div.setting_input label, div.setting_input  label * { display: block; }
-            div#settings div div.setting_input {
+            div.dialog div div.dialog_input label, div.dialog_input label * { display: block; }
+            div.dialog div div.dialog_input {
                 display: flex;
                 justify-content: center;
                 flex-direction: column;
             }
-            div.setting_input input[type="checkbox"] {
+            div.dialog_input input[type="checkbox"] {
                 position: absolute;
                 opacity: 0;
                 cursor: pointer;
                 height: 0;
                 width: 0;
             }
-            div.setting_input span.checkmark {
+            div.dialog_input span.checkmark {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -173,16 +167,16 @@
                 border: 4px solid var(--checkmarkColor);
                 background: var(--checkmarkColor);
             }
-            div.setting_input label.checkboxLabel {
+            div.dialog_input label.checkboxLabel {
                 position: relative;
                 padding-left: 30px;
             }
-            div.setting_input label:hover input[type="checkbox"] ~ .checkmark,
-            div.setting_input label input[type="checkbox"]:focus ~ .checkmark {
+            div.dialog_input label:hover input[type="checkbox"] ~ .checkmark,
+            div.dialog_input label input[type="checkbox"]:focus ~ .checkmark {
                 --checkmarkColor: rgb(192, 192, 192);
                 --checkmarkXColor: black;
             }
-            div.setting_input label input[type="checkbox"]:checked ~ span.checkmark {
+            div.dialog_input label input[type="checkbox"]:checked ~ span.checkmark {
                 background: linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 43%, var(--checkmarkXColor) 45%, var(--checkmarkXColor) 55%,rgba(0,0,0,0) 57%,rgba(0,0,0,0) 100%), linear-gradient(135deg, var(--checkmarkColor) 0%,var(--checkmarkColor) 43%, var(--checkmarkXColor) 45%, var(--checkmarkXColor) 55%,var(--checkmarkColor) 57%,var(--checkmarkColor) 100%);
             }
             div#dropdown {
@@ -193,6 +187,7 @@
                 width: 100%;
                 background-color: rgb(64, 64, 64);
                 z-index: 1;
+                display: flex;
             }
             .dropbtn {
                 background-color: rgb(64, 64, 64);
@@ -200,6 +195,7 @@
                 height: 25px;
                 font-size: 16px;
                 border: none;
+                padding: 0 10px;
             }
             .dropbtn p {
                 margin: 0 5px;
@@ -214,7 +210,8 @@
             .dropdown-content {
                 display: none;
                 position: absolute;
-                background-color: #f1f1f1;
+                background-color: #ffffff;
+                padding: 5px;
                 min-width: 240px;
                 box-shadow: 10px 10px #808080;
                 z-index: 1;
@@ -253,10 +250,19 @@
                 border: 1px solid black;
                 margin: 5px 0;
             }
+            div#about > div {
+                padding: 10px;
+            }
+            div#about div div.header p {
+                margin-top: 5px;
+                margin-bottom: 5px;
+                font-weight: normal;
+            }
         </style>
     </head>
     <body>
         <div id="dropdown">
+            <img src="./INBOSH.png" alt="INBOSH logo">
             <div class="dropdown">
                 <button class="dropbtn">
                     <p>File</p>
@@ -273,6 +279,14 @@
                 <div class="dropdown-content">
                     <button id="settings_button">Settings</button>
                     <button id="enableFullscreen">[O] Fullscreen</button>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <p>Help</p>
+                </button>
+                <div class="dropdown-content">
+                    <button id="about_button">About</button>
                 </div>
             </div>
         </div>
@@ -317,24 +331,26 @@
                 <button>START</button>
             </div>
         </div>
-        <div class="dialog" id="settings">
-            <!--
-                var config = {
-                    debounceResize: true,
-                    debounceResizeTime: 100,
-                    enableScrollBar: true,
-                    scrollBarWidth: 20,
-                    scrollBar_AmountToScroll: 5,
-                    commandPrompt: "> ",
-                    showBootScreen: true,
-                }
-            -->
+        <div class="dialog" id="about">
             <div>
-                <div id="header">
+                <div class="header">
+                    <h1>About INBOSH</h1>
+                    <p>Copyright (C) 2021 QuanMCPC's Home</p>
+                    <p>This is a simple terminal emulator written in JavaScript.</p>
+                    <p>Licensed under MIT license.</p>
+                </div>
+                <div class="footer">
+                    <button id="about_ok">&nbsp;OK&nbsp;</button>
+                </div>
+            </div>
+        </div>
+        <div class="dialog" id="settings">
+            <div>
+                <div class="header">
                     <h1>INBOSH Settings</h1>
                     <p>(Saving or Reseting will require a reload)</p>
                 </div>
-                <div id="scrollBarSettings" class="setting_input">
+                <div id="scrollBarSettings" class="dialog_input">
                     <hr>
                     <details>
                         <summary>Scroll Bar</summary>
@@ -357,23 +373,23 @@
                         <summary>Color</summary>
                         <label>
                             <span>Termial Background Color</span>
-                            <input type="text" class="changeConfig" data-settingName="backgroundColor"/>
+                            <input type="color" class="changeConfig" data-settingName="backgroundColor"/>
                         </label>
                         <label>
                             <span>Terminal Foreground (Text) Color</span>
-                            <input type="text" class="changeConfig" data-settingName="foregroundColor"/>
+                            <input type="color" class="changeConfig" data-settingName="foregroundColor"/>
                         </label>
                         <label>
                             <span>Cursor Color</span>
-                            <input type="text" class="changeConfig" data-settingName="cursorColor"/>
+                            <input type="color" class="changeConfig" data-settingName="cursorColor"/>
                         </label>
                         <label>
                             <span>Scroll Bar Color</span>
-                            <input type="text" class="changeConfig" data-settingName="scrollBarColor"/>
+                            <input type="color" class="changeConfig" data-settingName="scrollBarColor"/>
                         </label>
                         <label>
                             <span>Scroll Bar Thumb Color</span>
-                            <input type="text" class="changeConfig" data-settingName="scrollBarThumbColor"/>
+                            <input type="color" class="changeConfig" data-settingName="scrollBarThumbColor"/>
                         </label>
                     </details>
                     <hr>
@@ -396,7 +412,7 @@
                     </details>
                     <hr>
                 </div>
-                <div id="footer">
+                <div class="footer">
                     <button id="settings_save">Save</button>
                     <button id="settings_reset">Reset</button>
                     <button id="settings_cancel">Cancel</button>

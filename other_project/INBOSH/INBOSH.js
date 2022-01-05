@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const buildNumber = "0.0.4-alpha+20210401220200";
+const buildNumber = "0.0.5-alpha+20210501192000";
 class TerminalString extends String {
     constructor({ str = "", isOverlayedByCursor = false, isEndOfLine = false }) {
         super(str);
@@ -182,30 +182,45 @@ const util = {
         return null;
     },
     analyzeCommand: (command) => {
-        var total_func = {
-            command: "",
-            args: {}
-        };
-        command = util.escapeString(command)
+        var total_func = [];
+        var listcommand = util.escapeString(command)
             .replace(/("([^"]*)")|('([^']*)')|(`([^`]*)`)/g, (_, ...p1) => {
-            var p2 = p1[1] || p1[3] || p1[5];
+            var p2 = (p1[1] || p1[3] || p1[5]) || "";
             return "\"" + p2.split("").map((x) => { return `{#n6[${x.charCodeAt(0)}]}`; }).join("") + "\"";
         })
             .replace(/\s+/g, ' ')
             .trim()
-            .replace(/(^\w+)\s*(\(.*\))$/gm, (_m, p1, p2, _o, _str) => {
-            total_func.command = p1;
-            var arg = p2.substring(1, p2.length - 1).split(/\s*,\s*/g);
-            console.log(arg);
-            arg.forEach((v) => {
-                var args = v.split(/\s*=\s*/g);
-                total_func.args[args[0]] = args[1];
+            .split(/(\s*\w*\(.*?\))(?:;)/g)
+            .filter((x) => { return x.trim().length > 0; });
+        listcommand.forEach((x) => {
+            x = x.trim();
+            var command;
+            var _arguments;
+            x.replace(/(^\w+)\s*(\(.*\))$/gm, (_m, p1, p2, _o, _str) => {
+                command = p1;
+                var arg = p2.substring(1, p2.length - 1).split(/\s*,\s*/g);
+                console.log(arg);
+                _arguments = {};
+                var args = arg.map((v) => {
+                    var _args = v.split(/\s*=\s*/g);
+                    return {
+                        name: _args[0],
+                        value: _args[1]
+                    };
+                });
+                args.forEach(x => _arguments[x.name] = x.value);
+                return p1 + p2;
             });
-            return p1 + p2;
+            total_func.push({
+                command: command,
+                args: _arguments
+            });
         });
-        for (const i in total_func.args) {
-            total_func.args[i] = util.unescapeString(total_func.args[i]);
-        }
+        total_func.forEach((x) => {
+            for (const i in x.args) {
+                x.args[i] = util.unescapeString(x.args[i]);
+            }
+        });
         return total_func;
     },
     removeStringIndicator: (str) => {
@@ -305,8 +320,8 @@ const textWidth = util.getTextWidth($terminal, "#", font);
 const textHeight = 20;
 const terminalMargin = 5;
 const regexCheck = {
-    string: /(^\"[^\"]*[^\"]\"$)|(^\'[^\']*[^\']\'$)|(^\`[^\`]*[^\`]\`$)/,
-    number: /^[+-]?(\d+\.?\d*|\.\d+)$/,
+    string: /(^\"[^\"]*\"(.*?)$)|(^\'[^\']*\'(.*?)$)|(^\`[^\`]*\`(.*?)$)/,
+    number: /^[+-]?(\d+\.?\d*|\.\d+)(.*?)$/,
     boolean: /true|false/,
 };
 var terminalContent = [[new TerminalString({ isEndOfLine: true, isOverlayedByCursor: true })]];
@@ -346,11 +361,11 @@ var config = {
     scrollBar_AmountToScroll: 5,
     commandPrompt: "> ",
     showBootScreen: true,
-    foregroundColor: "#fff",
-    backgroundColor: "#000",
-    cursorColor: "#fff",
-    scrollBarColor: "rgb(128, 128, 128)",
-    scrollBarThumbColor: "rgb(64, 64, 64)",
+    foregroundColor: "#ffffff",
+    backgroundColor: "#000000",
+    cursorColor: "#ffffff",
+    scrollBarColor: "#808080",
+    scrollBarThumbColor: "#404040",
 };
 window["INBOSH_VARIABLES"] = {};
 const commandList = [
@@ -517,7 +532,7 @@ const commandList = [
         ],
         description: "Calculate using the provided expression and store the result in the provided variable",
         func: (args) => __awaiter(this, void 0, void 0, function* () {
-            var _a;
+            var _b;
             if (args["expression"] == undefined) {
                 yield insertString([`[ERROR]: Value not specified.`], true);
             }
@@ -542,7 +557,7 @@ const commandList = [
                     var calc = new Calculation();
                     var result = calc.calculate(i);
                     if (result == undefined || typeof result == "string") {
-                        var error = (_a = result) === null || _a === void 0 ? void 0 : _a.split("\\n");
+                        var error = (_b = result) === null || _b === void 0 ? void 0 : _b.split("\\n");
                         yield insertString([`[ERROR]: ${error[0]}`].concat(error.slice(-(error.length - 1))), true);
                     }
                     else {
@@ -819,53 +834,66 @@ function bothResizeAndLoad(action) {
     });
 }
 function main(command) {
-    var _a;
+    var _b;
     return __awaiter(this, void 0, void 0, function* () {
-        var result = util.analyzeCommand(command);
-        var _ = () => __awaiter(this, void 0, void 0, function* () {
+        var _result = util.analyzeCommand(command);
+        const _ = () => __awaiter(this, void 0, void 0, function* () {
             state.allowInput = true;
             state.commandRunning = false;
             state.command = "";
             state.insertedNumberOfLetters = 0;
         });
-        if (command.trim() == "") {
-            yield _();
-            return;
-        }
-        if (commandList.map(x => x.name).indexOf(result.command) <= -1) {
-            yield insertString([`[ERROR]: Command "${command}" not found.`], true);
-            yield _();
-            return;
-        }
-        var check = util.checkArgs(commandList[commandList.map(x => x.name).indexOf(result.command)].args.map(x => x.name), Object.keys(result.args));
-        var optionalArg = commandList[commandList.map(x => x.name).indexOf(result.command)].args.filter(x => x.optionalValue).map(x => x.name);
-        check.missing = check.missing.filter(x => optionalArg.indexOf(x) <= -1);
-        var _m = `For more information, type \`help(command="${result.command}")\` for how to use the command or just \`help()\` for the whole list of commands.`;
-        if (check.extra.length > 0) {
-            yield insertString([`The following argument(s): [${check.extra.map(x => `"${x}"`).join(", ")}] is not valid.`, _m], true);
-        }
-        else if (check.missing.length > 0) {
-            yield insertString([`The following argument(s): [${check.missing.map(x => `"${x}"`).join(", ")}] is required.`, _m], true);
-        }
-        else {
-            for (var i in result.args) {
-                var type;
-                for (var j in regexCheck) {
-                    if (regexCheck[j].test(result.args[i])) {
-                        type = j;
-                        break;
+        for (const result of _result) {
+            if (command.trim() == "") {
+                yield _();
+                return;
+            }
+            if (commandList.map(x => x.name).indexOf(result.command) <= -1) {
+                yield insertString([`[ERROR]: Command "${command}" not found.`], true);
+                yield _();
+                return;
+            }
+            var check = util.checkArgs(commandList[commandList.map(x => x.name).indexOf(result.command)].args.map(x => x.name), Object.keys(result.args));
+            var optionalArg = commandList[commandList.map(x => x.name).indexOf(result.command)].args.filter(x => x.optionalValue).map(x => x.name);
+            check.missing = check.missing.filter(x => optionalArg.indexOf(x) <= -1);
+            var _m = `For more information, type \`help(command="${result.command}")\` for how to use the command or just \`help()\` for the whole list of commands.`;
+            if (check.extra.length > 0) {
+                yield insertString([`The following argument(s): [${check.extra.map(x => `"${x}"`).join(", ")}] is not valid.`, _m], true);
+            }
+            else if (check.missing.length > 0) {
+                yield insertString([`The following argument(s): [${check.missing.map(x => `"${x}"`).join(", ")}] is required.`, _m], true);
+            }
+            else {
+                var status = "";
+                for (var i in result.args) {
+                    var type;
+                    for (var j in regexCheck) {
+                        if (regexCheck[j].test(result.args[i])) {
+                            result.args[i].replace(regexCheck[j], (_a, ...p) => {
+                                var value = (p[1] || p[3] || p[5]) || "";
+                                if (value.trim() != "") {
+                                    insertString([`[ERROR]: Unexpected argument value: "${value}" in argument: "${i}"`], true).then(_);
+                                    status = "error";
+                                }
+                                return value;
+                            });
+                            type = j;
+                            break;
+                        }
+                    }
+                    var commandData = commandList[commandList.map(x => x.name).indexOf(result.command)];
+                    console.log(commandData.args, type);
+                    if (status == "error")
+                        return;
+                    if (((_b = commandData.args[commandData.args.map(x => x.name).indexOf(i)]) === null || _b === void 0 ? void 0 : _b.type.split("|").map(x => x.trim()).indexOf(type)) <= -1) {
+                        yield insertString([`[ERROR]: Command "${result.command}" requires the argument "${i}" as type "${commandData.args[commandData.args.map(x => x.name).indexOf(i)].type}".`], true);
+                        yield _();
+                        return;
                     }
                 }
-                var commandData = commandList[commandList.map(x => x.name).indexOf(result.command)];
-                console.log(commandData.args, type);
-                if (((_a = commandData.args[commandData.args.map(x => x.name).indexOf(i)]) === null || _a === void 0 ? void 0 : _a.type.split("|").map(x => x.trim()).indexOf(type)) <= -1) {
-                    yield insertString([`[ERROR]: Command "${result.command}" requires the argument "${i}" as type "${commandData.args[commandData.args.map(x => x.name).indexOf(i)].type}".`], true);
-                    yield _();
-                    return;
-                }
+                console.table(result.args);
+                yield commandList[commandList.map(x => x.name).indexOf(result.command)].func(result.args);
             }
-            console.table(result.args);
-            yield commandList[commandList.map(x => x.name).indexOf(result.command)].func(result.args);
         }
         yield _();
     });
@@ -909,6 +937,12 @@ util.getId("runScript").onclick = () => __awaiter(this, void 0, void 0, function
         }
     }
 });
+util.getId("about_button").onclick = () => {
+    util.getId("about").style.display = "flex";
+};
+util.getId("about_ok").onclick = () => {
+    util.getId("about").style.display = "none";
+};
 var resizeTimeout;
 window.addEventListener("resize", () => {
     if (config.debounceResize) {
