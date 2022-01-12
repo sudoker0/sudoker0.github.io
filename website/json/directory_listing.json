@@ -388,6 +388,10 @@
                         {
                             "name": "Inconsolata-Regular.ttf",
                             "type": "file"
+                        },
+                        {
+                            "name": "make_license_key.html",
+                            "type": "file"
                         }
                     ]
                 },
