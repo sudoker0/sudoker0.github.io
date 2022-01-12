@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>how to make license key for inbosh</title>
+        <style>
+            @font-face {
+                font-family: "Inconsolata";
+                src: url("Inconsolata-Regular.ttf") format("truetype");
+                font-weight: normal;
+            }
+            * {
+                font-family: "Inconsolata", monospace;
+            }
+            h1, h2, h3, h4, h5, h6, p, label { margin: 10px 5px; display: block; }
+            body {
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                top: 0; left: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+            }
+            div#_2 {
+                display: none;
+            }
+            div#_1, div#_2 {
+                max-width: 800px;
+                max-height: 100%;
+                overflow-y: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="_1">
+            <h1>how to make license key for inbosh</h1>
+            <p>currently, i/we can't make a generator that make the license key</p>
+            <p>but i/we will give you the way to generate the key, after you pay us a fee</p>
+            <p>fee: 0$ + 0$ tax = 0$ total</p>
+            <button onclick="document.getElementById('_1').style.display='none';document.getElementById('_2').style.display='block'">pay</button>
+        </div>
+        <div id="_2">
+            <h1>thanks for paying</h1>
+            <p>here's how to create license keys for your own:</p>
+            <p>a license key is 19 characters long (16 hex digits, 3 seperator character) (ex: 1234-5678-90AB-CDEF)</p>
+            <p>format:</p>
+            <ul>
+                <li>total value of second + third + fourth digits must be divisible by 7</li>
+                <li>total value of fifth + sixth digit when multiplied by 5, plus 9, square root the result, then ceiling the result must be an even number</li>
+                <li>total value of fourth + fifth digit must be an odd number</li>
+                <li>(total value of seventh digit + ninth digit) multiplied by the value of the eighth digit must be divisible by 12</li>
+                <li>value of the fifthteen digit must be a prime number</li>
+                <li>value of the first digit is equal to the total value of all odd placed digit (digit #1, #3, #5, ...) (except digit #1) plus the total value of all even placed digit (digit #2, #4, #6, ...) (except digit #16) modulo by 10</li>
+                <li>value of digit #10 -> #14 can be any hex digits</li>
+                <li>value of digit #16 is a parity digit that use the luhn algorithm to check the whole key (without seperator)</li>
+            </ul>
+        </div>
+    </body>
+</html>

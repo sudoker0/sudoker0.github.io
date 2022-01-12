@@ -12,8 +12,9 @@
 // * [DONE] Fix a bug where the regex that detect if something is a string will fail even if the string indicator inside is escaped.
 // * [DONE] Add the ability to run multiple commands in one line using semicolon.
 // * [DONE] Implement the `Import and Run script` feature.
+// * Add command history
 
-const buildNumber = "0.0.5-alpha+20210501192000";
+const buildNumber = "0.0.5-alpha+20220112170700";
 
 /**
  * A special string created for the terminal.
@@ -415,10 +416,12 @@ const util = {
             fileInput.type = 'file'
             fileInput.style.display = 'none'
             fileInput.onchange = readFile
+            fileInput.accept = ".ibs"
             document.body.appendChild(fileInput)
             fileInput.click();
         })
-    }
+    },
+    verifyProdKey: (p:string)=>{if(!(/^\d{4}-\d{4}-\d{4}-\d{4}$/.test(p))){return false;}p=p.replace(/\-/g,"");var a=p.replace(/\-/g,"").split("").map(x=>parseInt(x,16));const s=(num:number)=>{for(let i=2,s=Math.sqrt(num);i<=s;i++)if(num%i===0)return false;return num>1;};const o=(k:string):boolean=>{var y=0;var h=k.length;var o=h%2;for(var i=0;i<h;++i){var q=parseInt(k.charAt(i),16);if (i%2==o){q*=2;if(q>9)q-=9;}y+=q;}return(y%10)==0;};var v=Math.floor((a.filter((x,i)=>i%2==0&&i!=0).reduce((a,b)=>a+b,0)+a.filter((_,i)=>i%2==1&&i!=15).reduce((a,b)=>a+b,0))%10);if((v!=a[0])||((a[1]+a[2]+a[3])%7!=0)||(Math.ceil(Math.sqrt((a[4]+a[5])*5+9))%2!=0)||((a[3]+a[4])%2==0)||(((a[6]+a[8])*a[7])%12!=0)||(!s(a[14]))||(!o(p))){return false;}return true}
 }
 
 //#region Init variables that are very important
@@ -440,6 +443,10 @@ const regexCheck = {
     boolean: /true|false/,
 }
 
+var commandHistory: { history: string[], current_index: number } = {
+    history : [],
+    current_index: 0,
+}
 var terminalContent: TerminalString[][] = [[new TerminalString({isEndOfLine: true, isOverlayedByCursor: true})]];
 var displayContent: TerminalString[][] = [[]];
 
@@ -469,6 +476,7 @@ var scrollbarConfig = {
 }
 
 var state = {
+    ready: false,
     commandRunning: false,
     allowInput: true,
     movingPage: false,
@@ -979,21 +987,27 @@ async function bothResizeAndLoad(action: string) {
 }
 
 async function main(command: string) {
-    var _result = util.analyzeCommand(command)
-    const _ = async () => {
+    const _ = () => {
         state.allowInput = true;
         state.commandRunning = false;
         state.command = "";
         state.insertedNumberOfLetters = 0;
     }
+    // If the command is a comment, stop analyze code
+    if (command.trim().startsWith("#")) {
+        _();
+        return;
+    };
+    var _result = util.analyzeCommand(command)
     for (const result of _result) {
         if (command.trim() == "") {
-            await _();
+            _();
             return;
         }
+        console.log(commandList, result.command)
         if (commandList.map(x => x.name).indexOf(result.command) <= -1) {
             await insertString([`[ERROR]: Command "${command}" not found.`], true);
-            await _();
+            _();
             return;
         }
         var check = util.checkArgs(commandList[commandList.map(x => x.name).indexOf(result.command)].args.map(x => x.name), Object.keys(result.args))
@@ -1027,7 +1041,7 @@ async function main(command: string) {
                 if (status == "error") return
                 if (commandData.args[commandData.args.map(x => x.name).indexOf(i)]?.type.split("|").map(x => x.trim()).indexOf(type) <= -1) {
                     await insertString([`[ERROR]: Command "${result.command}" requires the argument "${i}" as type "${commandData.args[commandData.args.map(x => x.name).indexOf(i)].type}".`], true);
-                    await _();
+                    _();
                     return;
                 }
             }
@@ -1035,7 +1049,7 @@ async function main(command: string) {
             await commandList[commandList.map(x => x.name).indexOf(result.command)].func(result.args);
         }
     }
-    await _();
+    _();
 }
 
 //#endregion
@@ -1095,12 +1109,60 @@ async function main(command: string) {
     util.getId("about").style.display = "none";
 }
 
+(util.getId("documentation_button") as HTMLButtonElement).onclick = () => {
+    util.getId("documentation").style.display = "flex";
+}
+
+(util.getId("documentation_ok") as HTMLButtonElement).onclick = () => {
+    util.getId("documentation").style.display = "none";
+}
+
+var key: string;
+(util.getId("activate_start_dialog_activate") as HTMLButtonElement).onclick = () => {
+    key = (util.getId("licenseKey") as HTMLInputElement).value
+    if (util.verifyProdKey(key)) {
+        util.getId("activateSucessful").style.display = "flex";
+    } else {
+        util.getId("activateFailed").style.display = "flex";
+    }
+}
+
+(util.getId("activate_start_dialog_continue") as HTMLButtonElement).onclick = () => {
+    if (confirm("Are you ABSOLUTELY sure you want to continue without ACTIVATING?")) {
+        util.getId("activate_start_dialog").style.display = "none";
+    }
+}
+
+(util.getId("activateSucessful_ok") as HTMLButtonElement).onclick = () => {
+    localStorage.setItem("INBOSH_LICENSE_KEY", key);
+    key = "";
+    location.reload();
+}
+
+(util.getId("activateFailed_ok") as HTMLButtonElement).onclick = () => {
+    util.getId("activateFailed").style.display = "none";
+}
+
+(util.getId("activate_button") as HTMLButtonElement).onclick = () => {
+    state.ready = false;
+    util.getId("activate_start_dialog").style.display = "flex";
+}
+
+(util.getId("remove_key_button") as HTMLButtonElement).onclick = () => {
+    if (confirm("Are you ABSOLUTELY sure you want to remove your license key?")) {
+        localStorage.removeItem("INBOSH_LICENSE_KEY");
+        key = "";
+        location.reload();
+    }
+}
+
 //#endregion
 
 //#region Event Listeners
 
 var resizeTimeout: number;
 window.addEventListener("resize", () => {
+    if (!state.ready) return;
     if (config.debounceResize) {
         util.getId("recalibrating").style.display = "flex";
         clearTimeout(resizeTimeout);
@@ -1111,6 +1173,12 @@ window.addEventListener("resize", () => {
 })
 
 window.addEventListener("load", () => {
+    if (util.verifyProdKey(localStorage.getItem("INBOSH_LICENSE_KEY") || "")) {
+        util.getId("activate_start_dialog").style.display = "none";
+        util.getId("activate_button").style.display = "none";
+        util.getId("remove_key_button").style.display = "block";
+    }
+    util.getId("posting").style.display = 'none';
     setTimeout(() => {
         var button: HTMLButtonElement = document.querySelector("div#loading button")
         button.style.opacity = "1";
@@ -1147,14 +1215,17 @@ window.addEventListener("load", () => {
     $terminalCtx.fillRect(0, 0, $terminal.width, $terminal.height);
     console.log("%cOk, so you might ask: Why didn't I remove all of this `console.log` mess?", "color: orange; font-size: 1.5rem; font-weight: bold;");
     console.log("%cTo put it simply: I'm lazy and I don't feel motivated enough to remove it.", "color: lightgreen; font-size: 1.5rem; font-weight: bold;");
+    state.ready = true;
     bothResizeAndLoad("load");
 })
 
 $scrollbar.addEventListener("mousedown", (e) => {
+    if (!state.ready) return;
     scrollbarConfig.leftClick = true;
 })
 
 document.addEventListener("mousemove", (e) => {
+    if (!state.ready) return;
     if (e.x > document.body.clientWidth - config.scrollBarWidth * 6 && e.x < document.body.clientWidth && e.y > scrollbarConfig.y && e.y < scrollbarConfig.y + scrollbarConfig.height && scrollbarConfig.leftClick) {
         scrollbarConfig.y += e.movementY;
         handleScrollbar();
@@ -1164,11 +1235,13 @@ document.addEventListener("mousemove", (e) => {
 })
 
 document.addEventListener("mouseup", () => {
+    if (!state.ready) return;
     scrollbarConfig.leftClick = false;
     drawCaret()
 })
 
 document.addEventListener("keydown", (e) => {
+    if (!state.ready) return;
     if (!state.allowInput) { return }
     prevCaretPos.x = caretPos.x;
     prevCaretPos.y = caretPos.y;
@@ -1233,6 +1306,8 @@ document.addEventListener("keydown", (e) => {
             // caretPos.y++;
             // caretPos.x = 0;
             // terminalContent.splice(caretPos.y, 0, [new TerminalString({isEndOfLine: true})]);
+            commandHistory.history.push(state.command)
+            commandHistory.current_index = commandHistory.history.length;
             state.commandRunning = true;
             state.allowInput = false;
 

@@ -6,13 +6,22 @@ Please note that I/we might not record all of the changes (like when the changes
 Also, all timestamp is formatted as MM/DD/YYYY.
 
 > ## **Alpha**
+## [0.0.6] - 01/12/2022
+### Added
+ - Ability to use comment (by placing a pound sign ("#") at the beginning of the line)
+ - Documentation
+
+### Changed
+ - Cleanup CSS code for better consistency
+ - A bit of UI change to the details tag
+ - Now required a license key to use (not a serious thing, will be removed after official release, and it's not that hard to bypass anyway)
 
 ## [0.0.5] - 01/05/2022
 ### Added
  - Padding around the dropdown menu and the dropdown button to make it look better.
  - Icon at the start of the menu bar.
  - Help menu button and About section.
- - Ability to run multiple command on one line using the `;` character (currently it's really basic support).
+ - Ability to run multiple command on one line using the `;` character (currently it's really basic).
 
 ### Changed
  - In the settings page, input for color changed from `input[type=text]` to `input[type=color]`.

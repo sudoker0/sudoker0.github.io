@@ -18,6 +18,7 @@
             }
             body {
                 margin: 0;
+                overflow: hidden;
             }
             canvas#terminal {
                 position: fixed;
@@ -31,154 +32,14 @@
                 bottom: 0;
                 right: 0;
             }
+
             div#recalibrating, div#settings, div#loading, div#about {
                 display: none;
             }
             div#recalibrating p {
                 text-align: center;
             }
-            div.dialog {
-                display: flex;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: transparent;
-                justify-content: center;
-                align-items: center;
-                z-index: 5;
-                background-color: black;
-            }
-            input {
-                font-family: "Inconsolata";
-            }
-            div.dialog > div {
-                background-color: white;
-                color: black;
-                box-shadow: 10px 10px #808080;
-                font-family: "Inconsolata";
-                font-size: 1.5rem;
-                max-width: 800px;
-            }
-            div.dialog p {
-                margin: 10px;
-                padding: 0;
-            }
-            div#loading svg {
-                display: block;
-            }
-            div#loading button {
-                display: block;
-                margin: 5px auto;
-                border: 2px solid black;
-                background-color: white;
-                font-size: 1.25rem;
-                font-family: 'Inconsolata';
-                font-weight: bold;
-                opacity: 0;
-                pointer-events: none;
-                transition: opacity 0.7s;
-            }
-            div#loading button:hover {
-                background-color: black;
-                color: white;
-            }
-            div#settings > div {
-                padding: 10px;
-                max-height: 480px;
-                overflow-y: auto;
-            }
-            div.dialog div div.header * {
-                font-family: 'Inconsolata';
-                font-weight: bold;
-                margin: 0;
-                padding: 0;
-            }
-            div.dialog div h1 { font-size: 1.5rem; }
-            div.dialog div p { font-size: 0.85em; }
-            div.dialog_input {
-                margin: 0;
-                padding: 0;
-                position: relative;
-                background-color: white;
-                font-size: 1.25rem;
-                font-family: 'Inconsolata';
-                font-weight: bold;
-            }
-            div.dialog_input  {
-                margin: 0;
-                padding: 0;
-                font-size: 1.25rem;
-                font-family: 'Inconsolata';
-                font-weight: bold;
-            }
-            div.dialog_input  input {
-                border: 2px solid black;
-                font-size: 1rem;
-                outline: none;
-            }
-            div.dialog_input  input:focus {
-                background-color: black;
-                color: white;
-            }
-            div.dialog div div.footer {
-                margin: 0;
-                padding: 0;
-                font-size: 1.25rem;
-                font-family: 'Inconsolata';
-                font-weight: bold;
-                display: flex;
-                gap: 10px;
-            }
-            div.dialog div div.footer button {
-                padding: 3px;
-                border: 2px solid black;
-                background-color: white;
-                font-size: 1.25rem;
-                font-family: 'Inconsolata';
-                font-weight: bold;
-                outline: none;
-            }
-            div.dialog div div.footer button:hover, div.dialog div div.footer button:focus {
-                background-color: black;
-                color: white;
-            }
-            div.dialog div div.dialog_input label, div.dialog_input label * { display: block; }
-            div.dialog div div.dialog_input {
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-            }
-            div.dialog_input input[type="checkbox"] {
-                position: absolute;
-                opacity: 0;
-                cursor: pointer;
-                height: 0;
-                width: 0;
-            }
-            div.dialog_input span.checkmark {
-                position: absolute;
-                top: 0;
-                left: 0;
-                display: inline-block;
-                width: 14px;
-                height: 14px;
-                border: 4px solid var(--checkmarkColor);
-                background: var(--checkmarkColor);
-            }
-            div.dialog_input label.checkboxLabel {
-                position: relative;
-                padding-left: 30px;
-            }
-            div.dialog_input label:hover input[type="checkbox"] ~ .checkmark,
-            div.dialog_input label input[type="checkbox"]:focus ~ .checkmark {
-                --checkmarkColor: rgb(192, 192, 192);
-                --checkmarkXColor: black;
-            }
-            div.dialog_input label input[type="checkbox"]:checked ~ span.checkmark {
-                background: linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 43%, var(--checkmarkXColor) 45%, var(--checkmarkXColor) 55%,rgba(0,0,0,0) 57%,rgba(0,0,0,0) 100%), linear-gradient(135deg, var(--checkmarkColor) 0%,var(--checkmarkColor) 43%, var(--checkmarkXColor) 45%, var(--checkmarkXColor) 55%,var(--checkmarkColor) 57%,var(--checkmarkColor) 100%);
-            }
+
             div#dropdown {
                 position: fixed;
                 top: 0;
@@ -231,33 +92,196 @@
             .dropdown-content button:hover {background-color: black; color: white;}
             .dropdown:hover .dropdown-content {display: block;}
             .dropdown:hover .dropbtn {background-color: black;}
-            details {
-                padding-left: 10px;
-            }
-            details > *:not(summary) {
+
+            hr {
+                width: 100%;
+                border: 1px solid black;
                 margin: 5px 0;
-                padding: 0;
             }
-            summary {
+
+            div.dialog {
+                display: flex;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                justify-content: center;
+                align-items: center;
+                z-index: 5;
+                background-color: black;
+            }
+            div.dialog > div {
+                padding: 10px;
+                background-color: white;
+                color: black;
+                box-shadow: 10px 10px #808080;
+                font-family: "Inconsolata";
+                font-size: 1.5rem;
+                max-width: 800px;
+                max-height: calc(100% - 50px);
+                overflow-y: auto;
+            }
+            div.dialog div div.footer {
+                /* margin: 0; */
+                padding: 0;
+                font-size: 1.25rem;
+                font-family: 'Inconsolata';
+                font-weight: bold;
+                display: flex;
+                gap: 10px;
+            }
+            div.dialog div div.footer button {
+                padding: 3px;
+                border: 2px solid black;
+                background-color: white;
+                font-size: 1.25rem;
+                font-family: 'Inconsolata';
+                font-weight: bold;
+                outline: none;
+                display: block;
+                cursor: pointer;
+            }
+            div.dialog div div.footer button:hover, div.dialog div div.footer button:focus {
+                background-color: black;
+                color: white;
+            }
+            div.dialog div div.header h1 {
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin: 7px 0;
+            }
+            div.dialog div div.header p {
+                font-size: 1.25rem;
+                margin: 5px 0;
+            }
+            div.dialog details {
+                font-size: 1.125rem;
+                margin-left: 10px;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+            div.dialog details summary {
+                font-size: 1.25rem;
+                font-weight: bold;
                 -moz-user-select: none;
                 -webkit-user-select: none;
                 -ms-user-select: none;
                 user-select: none;
                 cursor: pointer;
             }
-            hr {
-                width: 100%;
-                border: 1px solid black;
+            div.dialog label * {
+                display: block;
+                font-weight: bold;
+            }
+            div.dialog details > *:not(summary) {
                 margin: 5px 0;
+                display: block;
             }
-            div#about > div {
-                padding: 10px;
+            div.dialog label.checkboxLabel {
+                display: flex;
+                align-items: center;
+                height: 22px;
+                position: relative;
+                padding-left: 30px;
             }
-            div#about div div.header p {
-                margin-top: 5px;
-                margin-bottom: 5px;
-                font-weight: normal;
+            div.dialog label.checkboxLabel:hover input[type="checkbox"] ~ .checkmark,
+            div.dialog label.checkboxLabel input[type="checkbox"]:focus ~ .checkmark {
+                --checkmarkColor: rgb(192, 192, 192);
+                --checkmarkXColor: black;
+                cursor: pointer;
             }
+            div.dialog label.checkboxLabel input[type="checkbox"]:checked ~ span.checkmark {
+                background: linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 43%, var(--checkmarkXColor) 45%, var(--checkmarkXColor) 55%,rgba(0,0,0,0) 57%,rgba(0,0,0,0) 100%), linear-gradient(135deg, var(--checkmarkColor) 0%,var(--checkmarkColor) 43%, var(--checkmarkXColor) 45%, var(--checkmarkXColor) 55%,var(--checkmarkColor) 57%,var(--checkmarkColor) 100%);
+            }
+            div.dialog label.checkboxLabel input[type="checkbox"] {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+            }
+            div.dialog label span.checkmark {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: inline-block;
+                width: 14px;
+                height: 14px;
+                border: 4px solid var(--checkmarkColor);
+                background: var(--checkmarkColor);
+            }
+            div.dialog label input {
+                border: 2px solid black;
+                font-size: 1rem;
+                outline: none;
+            }
+            div.dialog label input:focus {
+                background-color: black;
+                color: white;
+            }
+
+            div#documentation { display: none; }
+            div#recalibrating p {
+                margin: 10px;
+            }
+            div#loading.dialog > div {
+                padding: 0;
+            }
+            div#loading svg {
+                display: block;
+            }
+            div#loading button {
+                margin: 5px auto;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.7s;
+            }
+
+            div.dialog ul {
+                list-style-type: square;
+            }
+
+            div.dialog li p {
+                margin: 10px 0;
+            }
+
+            summary::marker {
+                content: "[+] ";
+                /* display: none; */
+            }
+
+            details[open] summary::marker {
+                content: "[-] "
+            }
+
+            input#licenseKey { width: calc(100% - 6px) }
+
+            div#activateSucessful, div#activateFailed, button#remove_key_button {
+                display: none;
+            }
+
+            div#posting {
+                position: fixed;
+                top: 0; left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 7;
+                background-color: black;
+                font-family: "Inconsolata";
+            }
+            div#posting * {
+                color: white;
+                margin: 5px;
+            }
+
+            div.system_dialog {
+                z-index: 100;
+            }
+            div.system_dialog p {
+                margin: 10px;
+            }
+
         </style>
     </head>
     <body>
@@ -286,12 +310,15 @@
                     <p>Help</p>
                 </button>
                 <div class="dropdown-content">
+                    <button id="activate_button">Activate INBOSH!</button>
+                    <button id="remove_key_button">Remove License Key</button>
+                    <button id="documentation_button">Documentation</button>
                     <button id="about_button">About</button>
                 </div>
             </div>
         </div>
         <noscript>
-            <div class="dialog">
+            <div class="dialog system_dialog">
                 <div>
                     <p>FATAL ERROR: 0xD0000001</p>
                     <p>CODE: JS_DISABLED_OR_NOT_SUPPORTED</p>
@@ -299,6 +326,19 @@
                 </div>
             </div>
         </noscript>
+        <div id="posting">
+            <p>Preparing...</p>
+        </div>
+        <canvas id="terminal">
+            <div class="dialog system_dialog">
+                <div>
+                    <p>ERROR: 0xD1000001</p>
+                    <p>CODE: CANVAS_NOT_SUPPORTED</p>
+                    <p>MESSAGE: Your browser does not support the HTML5 canvas element.</p>
+                </div>
+            </div>
+        </canvas>
+        <canvas id="scrollbar"></canvas>
         <div class="dialog" id="recalibrating">
             <div>
                 <p>Terminal resized, now recalibrating...</p>
@@ -328,7 +368,50 @@
                         <text x="64.558334" y="12.7" font-family="Arial" style="line-height:1.25" xml:space="preserve"><tspan stroke-width=".26458"/></text>
                     </g>
                 </svg>
-                <button>START</button>
+                <div class="footer">
+                    <button>START</button>
+                </div>
+            </div>
+        </div>
+        <div class="dialog" id="documentation">
+            <div>
+                <div class="header">
+                    <h1>INBOSH Documentation</h1>
+                    <p>Welcome to the official documentation for the basic functionality of the console, so this should help you get started with the console.</p>
+                </div>
+                <div class="content">
+                    <details>
+                        <summary>I. Introduction</summary>
+                        <ul>
+                            <li><p>INBOSH was created as a personal project and somewhat a joke since the command is just functions (like if PHP and Bash have a kid, and they all have Down syndrome, then this would be their child).</p></li>
+                            <li><p>Now it has become something greater, something bigger, something more it's still a joke, a fucking joke, but more elaborate and more work.</p></li>
+                            <li><p>So here's the documentation, it's not that long, like only three sections. Read it or get lost. (I'm not that mean btw)</p></li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>II. Commands</summary>
+                        <ul>
+                            <li><p>Command in INBOSH has the same syntax as a function in most programming languages (Not because I like PHP btw).</p></li>
+                            <li><p>Command name can only contain (CAPITAL) letters, numbers, and the <b><i>underscore</i></b>.</p></li>
+                            <li><p>A command may choose to have arguments or not.</p></li>
+                            <li><p>An argument starts with a name (which follows the identical "word rules" as command name), followed by an equal sign, and finally, the value of the argument itself.</p></li>
+                            <li><p>Currently, INBOSH only supports three types of value: string, number, and booleans.</p></li>
+                            <li><p>Also, arguments can choose to be optional.</p></li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>III. Variables</summary>
+                        <ul>
+                            <li><p>Variables in INBOSH is the most crucial part of the shell, stored inside the JavaScript object: `window.INBOSH_VARIABLES`.</p></li>
+                            <li><p>To set a variable in INBOSH, use the command: `var()` (for more details, use the help command).</p></li>
+                            <li><p>To use a variables in a string, use the syntax: "{@&lt;insert_command_here&gt;}" inside a string (Example: "Variable value is: {@var}").</p></li>
+                            <li><p>Variable cannot change its type and must declare type explicitly.</p></li>
+                        </ul>
+                    </details>
+                </div>
+                <div class="footer">
+                    <button id="documentation_ok">&nbsp;OK&nbsp;</button>
+                </div>
             </div>
         </div>
         <div class="dialog" id="about">
@@ -350,14 +433,14 @@
                     <h1>INBOSH Settings</h1>
                     <p>(Saving or Reseting will require a reload)</p>
                 </div>
-                <div id="scrollBarSettings" class="dialog_input">
+                <div id="scrollBarSettings" class="content">
                     <hr>
                     <details>
                         <summary>Scroll Bar</summary>
                         <label class="checkboxLabel">
                             <input type="checkbox" class="changeConfig" data-settingName="enableScrollBar"/>
                             <span class="checkmark"></span>
-                            <span>Enable scroll bar</span>
+                            <span class="checkboxText">Enable scroll bar</span>
                         </label>
                         <label>
                             <span>Width of scroll bar</span>
@@ -398,12 +481,12 @@
                         <label class="checkboxLabel">
                             <input type="checkbox" class="changeConfig" data-settingName="debounceResize"/>
                             <span class="checkmark"></span>
-                            <span>Debounce resize</span>
+                            <span class="checkboxText">Debounce resize</span>
                         </label>
                         <label class="checkboxLabel">
                             <input type="checkbox" class="changeConfig" data-settingName="showBootScreen"/>
                             <span class="checkmark"></span>
-                            <span>Show boot screen</span>
+                            <span class="checkboxText">Show boot screen</span>
                         </label>
                         <label>
                             <span>Prompt to enter command</span>
@@ -419,17 +502,49 @@
                 </div>
             </div>
         </div>
-        <div style="font-family: 'Inconsolata'; z-index: -1;">.</div>
-        <canvas id="terminal">
-            <div class="dialog">
-                <div>
-                    <p>ERROR: 0xD1000001</p>
-                    <p>CODE: CANVAS_NOT_SUPPORTED</p>
-                    <p>MESSAGE: Your browser does not support the HTML5 canvas element.</p>
+        <div class="dialog" id="activate_start_dialog">
+            <div>
+                <div class="header">
+                    <h1>Activate INBOSH</h1>
+                    <p>Please note that this software is currently in Alpha (or Beta for future generations), and a license is required to use this software.</p>
+                    <p>If you have a license, please enter your license key below. If you don't have one, please get one <a href="./make_license_key.html">here</a> or get lost.</p>
+                    <p>After the software is officially released, the software will become free, and a license will no longer be required.</p>
+                </div>
+                <div class="content">
+                    <label>
+                        <span>License Key</span>
+                        <input type="text" id="licenseKey"/>
+                    </label>
+                    <hr>
+                </div>
+                <div class="footer">
+                    <button id="activate_start_dialog_activate">Activate</button>
+                    <button id="activate_start_dialog_continue">Continue without activating</button>
                 </div>
             </div>
-        </canvas>
-        <canvas id="scrollbar"></canvas>
+        </div>
+        <div class="dialog" id="activateSucessful">
+            <div>
+                <div class="header">
+                    <h1>Activation Successful</h1>
+                    <p>Thank you for activating INBOSH!</p>
+                </div>
+                <div class="footer">
+                    <button id="activateSucessful_ok">&nbsp;OK&nbsp;</button>
+                </div>
+            </div>
+        </div>
+        <div class="dialog" id="activateFailed">
+            <div>
+                <div class="header">
+                    <h1>Activation Failed</h1>
+                    <p>The license key you entered is invalid.</p>
+                </div>
+                <div class="footer">
+                    <button id="activateFailed_ok">&nbsp;OK&nbsp;</button>
+                </div>
+            </div>
+        </div>
     </body>
     <script src="./INBOSH.js"></script>
 </html>

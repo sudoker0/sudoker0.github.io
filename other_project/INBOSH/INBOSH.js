@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const buildNumber = "0.0.5-alpha+20210501192000";
+const buildNumber = "0.0.5-alpha+20220112170700";
 class TerminalString extends String {
     constructor({ str = "", isOverlayedByCursor = false, isEndOfLine = false }) {
         super(str);
@@ -306,10 +306,26 @@ const util = {
             fileInput.type = 'file';
             fileInput.style.display = 'none';
             fileInput.onchange = readFile;
+            fileInput.accept = ".ibs";
             document.body.appendChild(fileInput);
             fileInput.click();
         });
-    }
+    },
+    verifyProdKey: (p) => { if (!(/^\d{4}-\d{4}-\d{4}-\d{4}$/.test(p))) {
+        return false;
+    } p = p.replace(/\-/g, ""); var a = p.replace(/\-/g, "").split("").map(x => parseInt(x, 16)); const s = (num) => { for (let i = 2, s = Math.sqrt(num); i <= s; i++)
+        if (num % i === 0)
+            return false; return num > 1; }; const o = (k) => { var y = 0; var h = k.length; var o = h % 2; for (var i = 0; i < h; ++i) {
+        var q = parseInt(k.charAt(i), 16);
+        if (i % 2 == o) {
+            q *= 2;
+            if (q > 9)
+                q -= 9;
+        }
+        y += q;
+    } return (y % 10) == 0; }; var v = Math.floor((a.filter((x, i) => i % 2 == 0 && i != 0).reduce((a, b) => a + b, 0) + a.filter((_, i) => i % 2 == 1 && i != 15).reduce((a, b) => a + b, 0)) % 10); if ((v != a[0]) || ((a[1] + a[2] + a[3]) % 7 != 0) || (Math.ceil(Math.sqrt((a[4] + a[5]) * 5 + 9)) % 2 != 0) || ((a[3] + a[4]) % 2 == 0) || (((a[6] + a[8]) * a[7]) % 12 != 0) || (!s(a[14])) || (!o(p))) {
+        return false;
+    } return true; }
 };
 const $terminal = util.getId("terminal");
 const $terminalCtx = $terminal.getContext("2d");
@@ -323,6 +339,10 @@ const regexCheck = {
     string: /(^\"[^\"]*\"(.*?)$)|(^\'[^\']*\'(.*?)$)|(^\`[^\`]*\`(.*?)$)/,
     number: /^[+-]?(\d+\.?\d*|\.\d+)(.*?)$/,
     boolean: /true|false/,
+};
+var commandHistory = {
+    history: [],
+    current_index: 0,
 };
 var terminalContent = [[new TerminalString({ isEndOfLine: true, isOverlayedByCursor: true })]];
 var displayContent = [[]];
@@ -346,6 +366,7 @@ var scrollbarConfig = {
     leftClick: false,
 };
 var state = {
+    ready: false,
     commandRunning: false,
     allowInput: true,
     movingPage: false,
@@ -836,21 +857,27 @@ function bothResizeAndLoad(action) {
 function main(command) {
     var _b;
     return __awaiter(this, void 0, void 0, function* () {
-        var _result = util.analyzeCommand(command);
-        const _ = () => __awaiter(this, void 0, void 0, function* () {
+        const _ = () => {
             state.allowInput = true;
             state.commandRunning = false;
             state.command = "";
             state.insertedNumberOfLetters = 0;
-        });
+        };
+        if (command.trim().startsWith("#")) {
+            _();
+            return;
+        }
+        ;
+        var _result = util.analyzeCommand(command);
         for (const result of _result) {
             if (command.trim() == "") {
-                yield _();
+                _();
                 return;
             }
+            console.log(commandList, result.command);
             if (commandList.map(x => x.name).indexOf(result.command) <= -1) {
                 yield insertString([`[ERROR]: Command "${command}" not found.`], true);
-                yield _();
+                _();
                 return;
             }
             var check = util.checkArgs(commandList[commandList.map(x => x.name).indexOf(result.command)].args.map(x => x.name), Object.keys(result.args));
@@ -887,7 +914,7 @@ function main(command) {
                         return;
                     if (((_b = commandData.args[commandData.args.map(x => x.name).indexOf(i)]) === null || _b === void 0 ? void 0 : _b.type.split("|").map(x => x.trim()).indexOf(type)) <= -1) {
                         yield insertString([`[ERROR]: Command "${result.command}" requires the argument "${i}" as type "${commandData.args[commandData.args.map(x => x.name).indexOf(i)].type}".`], true);
-                        yield _();
+                        _();
                         return;
                     }
                 }
@@ -895,7 +922,7 @@ function main(command) {
                 yield commandList[commandList.map(x => x.name).indexOf(result.command)].func(result.args);
             }
         }
-        yield _();
+        _();
     });
 }
 document.querySelector("div#loading button").onclick = () => { util.getId("loading").style.display = "none"; };
@@ -943,8 +970,50 @@ util.getId("about_button").onclick = () => {
 util.getId("about_ok").onclick = () => {
     util.getId("about").style.display = "none";
 };
+util.getId("documentation_button").onclick = () => {
+    util.getId("documentation").style.display = "flex";
+};
+util.getId("documentation_ok").onclick = () => {
+    util.getId("documentation").style.display = "none";
+};
+var key;
+util.getId("activate_start_dialog_activate").onclick = () => {
+    key = util.getId("licenseKey").value;
+    if (util.verifyProdKey(key)) {
+        util.getId("activateSucessful").style.display = "flex";
+    }
+    else {
+        util.getId("activateFailed").style.display = "flex";
+    }
+};
+util.getId("activate_start_dialog_continue").onclick = () => {
+    if (confirm("Are you ABSOLUTELY sure you want to continue without ACTIVATING?")) {
+        util.getId("activate_start_dialog").style.display = "none";
+    }
+};
+util.getId("activateSucessful_ok").onclick = () => {
+    localStorage.setItem("INBOSH_LICENSE_KEY", key);
+    key = "";
+    location.reload();
+};
+util.getId("activateFailed_ok").onclick = () => {
+    util.getId("activateFailed").style.display = "none";
+};
+util.getId("activate_button").onclick = () => {
+    state.ready = false;
+    util.getId("activate_start_dialog").style.display = "flex";
+};
+util.getId("remove_key_button").onclick = () => {
+    if (confirm("Are you ABSOLUTELY sure you want to remove your license key?")) {
+        localStorage.removeItem("INBOSH_LICENSE_KEY");
+        key = "";
+        location.reload();
+    }
+};
 var resizeTimeout;
 window.addEventListener("resize", () => {
+    if (!state.ready)
+        return;
     if (config.debounceResize) {
         util.getId("recalibrating").style.display = "flex";
         clearTimeout(resizeTimeout);
@@ -955,6 +1024,12 @@ window.addEventListener("resize", () => {
     }
 });
 window.addEventListener("load", () => {
+    if (util.verifyProdKey(localStorage.getItem("INBOSH_LICENSE_KEY") || "")) {
+        util.getId("activate_start_dialog").style.display = "none";
+        util.getId("activate_button").style.display = "none";
+        util.getId("remove_key_button").style.display = "block";
+    }
+    util.getId("posting").style.display = 'none';
     setTimeout(() => {
         var button = document.querySelector("div#loading button");
         button.style.opacity = "1";
@@ -992,12 +1067,17 @@ window.addEventListener("load", () => {
     $terminalCtx.fillRect(0, 0, $terminal.width, $terminal.height);
     console.log("%cOk, so you might ask: Why didn't I remove all of this `console.log` mess?", "color: orange; font-size: 1.5rem; font-weight: bold;");
     console.log("%cTo put it simply: I'm lazy and I don't feel motivated enough to remove it.", "color: lightgreen; font-size: 1.5rem; font-weight: bold;");
+    state.ready = true;
     bothResizeAndLoad("load");
 });
 $scrollbar.addEventListener("mousedown", (e) => {
+    if (!state.ready)
+        return;
     scrollbarConfig.leftClick = true;
 });
 document.addEventListener("mousemove", (e) => {
+    if (!state.ready)
+        return;
     if (e.x > document.body.clientWidth - config.scrollBarWidth * 6 && e.x < document.body.clientWidth && e.y > scrollbarConfig.y && e.y < scrollbarConfig.y + scrollbarConfig.height && scrollbarConfig.leftClick) {
         scrollbarConfig.y += e.movementY;
         handleScrollbar();
@@ -1007,10 +1087,14 @@ document.addEventListener("mousemove", (e) => {
     }
 });
 document.addEventListener("mouseup", () => {
+    if (!state.ready)
+        return;
     scrollbarConfig.leftClick = false;
     drawCaret();
 });
 document.addEventListener("keydown", (e) => {
+    if (!state.ready)
+        return;
     if (!state.allowInput) {
         return;
     }
@@ -1068,6 +1152,8 @@ document.addEventListener("keydown", (e) => {
             state.insertedNumberOfLetters = terminalContent[caretPos.y].length - config.commandPrompt.length - 1;
             break;
         case "Enter":
+            commandHistory.history.push(state.command);
+            commandHistory.current_index = commandHistory.history.length;
             state.commandRunning = true;
             state.allowInput = false;
             main(state.command).then(() => {
