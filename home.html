@@ -81,12 +81,61 @@
                 margin: 4px;
             }
             table {width: 100%; }
+            iframe.discord_real_iframe {
+                width: 100%;
+                height: 500px;
+                display: none;
+            }
+            div#discord_iframe_container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr;
+                grid-template-areas: "desc_text_1 desc_text_2" "consent_dialog consent_dialog" "discord_iframe_1 discord_iframe_2";
+                gap: 15px;
+            }
+            @media (max-width: 639px) {
+                div#discord_iframe_container {
+                    grid-template-areas: "consent_dialog" "desc_text_1" "discord_iframe_1" "desc_text_2" "discord_iframe_2";
+                    grid-template-columns: 1fr;
+                }
+            }
+            div.discord_iframe_desc {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            div#discord_iframe_1 {
+                grid-area: discord_iframe_1;
+            }
+            div#discord_iframe_2 {
+                grid-area: discord_iframe_2;
+            }
+            div#discord_iframe_consentDialog {
+                grid-area: consent_dialog;
+            }
+            div.discord_iframe {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            div#discord_iframe_desc_1 {
+                grid-area: desc_text_1;
+            }
+            div#discord_iframe_desc_2 {
+                grid-area: desc_text_2;
+            }
+            div#discord_iframe_consentDialog {
+                border: 2px solid white;
+                padding: 10px;
+            }
         </style>
     </head>
     <body>
         <noscript>
             <div id="noscript_text"><p>This website work best with JavaScript enabled!</p></div>
-            <style>@media(max-width: 639px){button#accbar_small_open{display: none}h3#accbar a{display: block}}div#loadingIndicator,div#settings{display:none}</style>
+            <style>@media(max-width: 639px){button#accbar_small_open{display: none}h3#accbar a{display: block}}div#loadingIndicator,div#discord_iframe_consentDialog{display:none}</style>
         </noscript>
         <button id="list_dir">&rightarrow; Get access to directory listing here! &leftarrow;</button>
         <div id="iframe_">
@@ -230,7 +279,7 @@
                                 </g>
                             </svg>
                         </a>
-                        <a href="https://discord.gg/Ktwc783ZXp" aria-label="Discord Server link">
+                        <a target="_blank" class="openInProjectViewer" href="/other_project/discord_tag.html" aria-label="Discord Server link">
                             <svg name="external_link" class="social_link" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 245 240" width="64" height="64" alt="Discord icon">
                                 <style>
                                     .st0{fill:#FFFFFF;}
@@ -239,6 +288,33 @@
                                 <path class="st0" d="M189.5 20h-134C44.2 20 35 29.2 35 40.6v135.2c0 11.4 9.2 20.6 20.5 20.6h113.4l-5.3-18.5 12.8 11.9 12.1 11.2 21.5 19V40.6c0-11.4-9.2-20.6-20.5-20.6zm-38.6 130.6s-3.6-4.3-6.6-8.1c13.1-3.7 18.1-11.9 18.1-11.9-4.1 2.7-8 4.6-11.5 5.9-5 2.1-9.8 3.5-14.5 4.3-9.6 1.8-18.4 1.3-25.9-.1-5.7-1.1-10.6-2.7-14.7-4.3-2.3-.9-4.8-2-7.3-3.4-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.3-1.8-1-2.8-1.7-2.8-1.7s4.8 8 17.5 11.8c-3 3.8-6.7 8.3-6.7 8.3-22.1-.7-30.5-15.2-30.5-15.2 0-32.2 14.4-58.3 14.4-58.3 14.4-10.8 28.1-10.5 28.1-10.5l1 1.2c-18 5.2-26.3 13.1-26.3 13.1s2.2-1.2 5.9-2.9c10.7-4.7 19.2-6 22.7-6.3.6-.1 1.1-.2 1.7-.2 6.1-.8 13-1 20.2-.2 9.5 1.1 19.7 3.9 30.1 9.6 0 0-7.9-7.5-24.9-12.7l1.4-1.6s13.7-.3 28.1 10.5c0 0 14.4 26.1 14.4 58.3 0 0-8.5 14.5-30.6 15.2z"/>
                             </svg>
                         </a>
+                    </div>
+                </div>
+                <h3 class="showoff">Discord Server</h3>
+                <div id="discord_iframe_container">
+                    <div id="discord_iframe_desc_1">
+                        <h2><u>Our old SMP server</u></h2>
+                        <p>This was where I and few of my friend use to talk and play on our Minecraft survival server.</p>
+                        <p>The server is almost dead. If you are one of the old member of the server, please come back.</p>
+                        <a href="https://discord.gg/PDXK8bruDc">[Link to the server]</a>
+                    </div>
+                    <div id="discord_iframe_desc_2">
+                        <h2><u>QuanMCPC's Website Discord Server (Yeah, so original name)</u></h2>
+                        <p>The official Discord Server of my website, where you can contribute, talk or just jokes around.</p>
+                        <p>So come and join us!</p>
+                        <a href="https://discord.gg/Ktwc783ZXp">[Link to the server]</a>
+                    </div>
+                    <div id="discord_iframe_consentDialog">
+                        <h2>Consent Dialog</h2>
+                        <p>This website uses Discord's Widget and will require loading data from Discord's servers which might allow tracking.</p>
+                        <p>To continue, please click the "Allow" button below, or ignore to prevent the Discord's Widget from loading.</p>
+                        <button id="discord_iframe_consentDialog_button">Allow</button>
+                    </div>
+                    <div id="discord_iframe_1">
+                        <iframe class="discord_real_iframe" src="about:blank" data-src="https://discord.com/widget?id=802157607132987392&theme=dark" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-same-origin allow-scripts"></iframe>
+                    </div>
+                    <div id="discord_iframe_2">
+                        <iframe class="discord_real_iframe" src="about:blank" data-src="https://discord.com/widget?id=833166036286046229&theme=dark" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-same-origin allow-scripts"></iframe>
                     </div>
                 </div>
                 <h3 class="showoff">Self-rating on programming languages that I knew</h3>
@@ -290,8 +366,8 @@
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                 </label>
                 <div class="collapsiblecontent">
-                    <input type="checkbox" name="cb1-0" id="cb1-0" class="collapsible_cb">
-                    <label class="collapsible" for="cb1-0">
+                    <input type="checkbox" name="cb1-5" id="cb1-5" class="collapsible_cb">
+                    <label class="collapsible" for="cb1-5">
                         <span>Guess The Programming Language (Written in Python, text-based game)</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -300,8 +376,8 @@
                         <span>Download: <a href="/other_project/gtpl.py" download="gtpl.py" target="_blank" rel="noreferrer noopener">[Click here]</a></span>
                         <span>Description: Guess The Programming Language written in Python, it's a text-based game and it's my first ever Python game I've written.</span>
                     </div>
-                    <input type="checkbox" name="cb1-1" id="cb1-1" class="collapsible_cb">
-                    <label class="collapsible" for="cb1-1">
+                    <input type="checkbox" name="cb1-4" id="cb1-4" class="collapsible_cb">
+                    <label class="collapsible" for="cb1-4">
                         <span>Windows Forms App 2.0 Unofficial</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -309,8 +385,8 @@
                         <span>Link: <a href="https://github.com/QuanMCPC/Windows-Forms-App-2.0-Unofficial" target="_blank" rel="noreferrer noopener">[Click here]</a></span>
                         <span>Description: Just a bit more modern look of the Windows Forms App</span>
                     </div>
-                    <input type="checkbox" name="cb1-2" id="cb1-2" class="collapsible_cb">
-                    <label class="collapsible" for="cb1-2">
+                    <input type="checkbox" name="cb1-3" id="cb1-3" class="collapsible_cb">
+                    <label class="collapsible" for="cb1-3">
                         <span>Experiment ID: [redacted]</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -318,8 +394,8 @@
                         <span>Link: <a href="https://drive.google.com/file/d/1yGh0FskgCf5--X0SSPb86pXzQ4Nv1JIj/view" target="_blank" rel="noreferrer noopener">[<del>Don't</del> Click here]</a></span>
                         <span>Description: This #$!@ filE conTa1nS @$%!!$ tHaT wi1l al10w yoU t0 *&@*$![redacted]</span>
                     </div>
-                    <input type="checkbox" name="cb1-3" id="cb1-3" class="collapsible_cb">
-                    <label class="collapsible" for="cb1-3">
+                    <input type="checkbox" name="cb1-2" id="cb1-2" class="collapsible_cb">
+                    <label class="collapsible" for="cb1-2">
                         <span>Edit (Edit Document In Terminal)</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -327,8 +403,8 @@
                         <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/Edit">[Click here]</a></span>
                         <span>Description: Started as a small program in <a target="_blank" class="openInProjectViewer" href="/other_project/console.html">console</a>, it's now a native program that in executable in Windows and Linux</span>
                     </div>
-                    <input type="checkbox" name="cb1-4" id="cb1-4" class="collapsible_cb">
-                    <label class="collapsible" for="cb1-4">
+                    <input type="checkbox" name="cb1-1" id="cb1-1" class="collapsible_cb">
+                    <label class="collapsible" for="cb1-1">
                         <span>Guess the number Game</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -336,8 +412,8 @@
                         <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/Guess-The-Number-Game/">[Click here]</a></span>
                         <span>Description: My second game written in C# and based on the <a href="#" data-address="/other_project/numberguessgame.html" onclick="oOPIIF(this.getAttribute('data-address'))">NumberGuessingGame</a></span>
                     </div>
-                    <input type="checkbox" name="cb1-5" id="cb1-5" class="collapsible_cb">
-                    <label class="collapsible" for="cb1-5">
+                    <input type="checkbox" name="cb1-0" id="cb1-0" class="collapsible_cb">
+                    <label class="collapsible" for="cb1-0">
                         <span>MyFirstGame</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -370,8 +446,8 @@
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                 </label>
                 <div class="collapsiblecontent">
-                    <input type="checkbox" name="cb2-1" id="cb2-1" class="collapsible_cb">
-                    <label class="collapsible" for="cb2-1">
+                    <input type="checkbox" name="cb2-5" id="cb2-5" class="collapsible_cb">
+                    <label class="collapsible" for="cb2-5">
                         <span>8-bit Decoder</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -379,8 +455,8 @@
                         <span>Link: <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/8-bit-decoder-in-minecraft/">[Click here]</a></span>
                         <span>Description: Convert binary to character from A to Z, 0 to 9 in ASCII</span>
                     </div>
-                    <input type="checkbox" name="cb2-2" id="cb2-2" class="collapsible_cb">
-                    <label class="collapsible" for="cb2-2">
+                    <input type="checkbox" name="cb2-4" id="cb2-4" class="collapsible_cb">
+                    <label class="collapsible" for="cb2-4">
                         <span>Compact Calculator (1.15.2)</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -397,8 +473,8 @@
                         <span>Link: <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-0/">[Click here]</a></span>
                         <span>Description: My next big project in Minecraft that serve no purpose</span>
                     </div>
-                    <input type="checkbox" name="cb2-4" id="cb2-4" class="collapsible_cb">
-                    <label class="collapsible" for="cb2-4">
+                    <input type="checkbox" name="cb2-2" id="cb2-2" class="collapsible_cb">
+                    <label class="collapsible" for="cb2-2">
                         <span>The Longest Useless Machine in Minecraft (version 1.<del>1</del>2)</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -406,8 +482,8 @@
                         <span>Link: <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-1/">[Click here]</a></span>
                         <span>Description: An upgraded version of the 1.0 version</span>
                     </div>
-                    <input type="checkbox" name="cb2-5" id="cb2-5" class="collapsible_cb">
-                    <label class="collapsible" for="cb2-5">
+                    <input type="checkbox" name="cb2-1" id="cb2-1" class="collapsible_cb">
+                    <label class="collapsible" for="cb2-1">
                         <span>Printer 1.16</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -415,8 +491,8 @@
                         <span>Link: <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/printer-1-16/">[Click here]</a></span>
                         <span>Description: A "sort of working" printer that is inspired by Mumbo Jumbo.</span>
                     </div>
-                    <input type="checkbox" name="cb2-6" id="cb2-6" class="collapsible_cb">
-                    <label class="collapsible" for="cb2-6">
+                    <input type="checkbox" name="cb2-0" id="cb2-0" class="collapsible_cb">
+                    <label class="collapsible" for="cb2-0">
                         <span>Security Vault 2.0</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -429,12 +505,12 @@
                 <!-- JS-only Project START -->
                 <input type="checkbox" name="cb3" id="cb3" class="collapsible_cb">
                 <label class="collapsible" for="cb3">
-                    <span>Project Written In JS</span>
+                    <span>JavaScript Project</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                 </label>
                 <div class="collapsiblecontent">
-                    <input type="checkbox" name="cb3-1" id="cb3-1" class="collapsible_cb">
-                    <label class="collapsible" for="cb3-1">
+                    <input type="checkbox" name="cb3-2" id="cb3-2" class="collapsible_cb">
+                    <label class="collapsible" for="cb3-2">
                         <span>Edit for other website</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -442,8 +518,8 @@
                         <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/JavaScript-Project/blob/master/Edit_For_Other_Website.js">[Click here]</a></span>
                         <span>Description: Allow other people to use edit in their website</span>
                     </div>
-                    <input type="checkbox" name="cb3-2" id="cb3-2" class="collapsible_cb">
-                    <label class="collapsible" for="cb3-2">
+                    <input type="checkbox" name="cb3-1" id="cb3-1" class="collapsible_cb">
+                    <label class="collapsible" for="cb3-1">
                         <span>Random picture generator</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -451,8 +527,8 @@
                         <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/JavaScript-Project/blob/master/random-picture.js">[Click here]</a></span>
                         <span>Description: Create picture with "randomness"</span>
                     </div>
-                    <input type="checkbox" name="cb3-3" id="cb3-3" class="collapsible_cb">
-                    <label class="collapsible" for="cb3-3">
+                    <input type="checkbox" name="cb3-0" id="cb3-0" class="collapsible_cb">
+                    <label class="collapsible" for="cb3-0">
                         <span>UnderJScript</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -465,12 +541,22 @@
                 <!-- HTML-related Project START -->
                 <input type="checkbox" name="cb4" id="cb4" class="collapsible_cb">
                 <label class="collapsible" for="cb4">
-                    <span>Project For Browser</span>
+                    <span>Browser Project</span>
                     <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                 </label>
                 <div class="collapsiblecontent">
-                    <input type="checkbox" name="cb4-1" id="cb4-1" class="collapsible_cb">
-                    <label class="collapsible" for="cb4-1">
+                    <input type="checkbox" name="cb4-10" id="cb4-10" class="collapsible_cb">
+                    <label class="collapsible" for="cb4-10">
+                        <span>It has No name But it's Online SHell (INBOSH)</span>
+                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                    </label>
+                    <div class="collapsiblecontent">
+                        <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/tree/master/other_project/INBOSH">[Click here]</a></span>
+                        <span>Link: <a target="_blank" class="openInProjectViewer" href="/other_project/INBOSH/INBOSH.html">[Click here]</a></span>
+                        <span>Description: This is my third attempt at creating a terminal on the web (now with canvas, and a changelog).</span>
+                    </div>
+                    <input type="checkbox" name="cb4-9" id="cb4-9" class="collapsible_cb">
+                    <label class="collapsible" for="cb4-9"> target="_blank" class="openInProjectViewer"
                         <span>Panorama Demo</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -479,18 +565,18 @@
                         <span>Link: <a target="_blank" class="openInProjectViewer" href="/other_project/panorama/index.html">[Click here]</a></span>
                         <span>Description: If I ever set a background (and I might in the future) as a panorama, this would be it (And this doesn't use any external library!).</span>
                     </div>
-                    <input type="checkbox" name="cb4-2" id="cb4-2" class="collapsible_cb">
-                    <label class="collapsible" for="cb4-2">
+                    <input type="checkbox" name="cb4-8" id="cb4-8" class="collapsible_cb">
+                    <label class="collapsible" for="cb4-8">
                         <span>SOOPE (Simple and Open-Source Online Picture Editor)</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
                     <div class="collapsiblecontent">
                         <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/soope.html">[Click here]</a></span>
-                        <span>Link: <a target="_blank" class="openInProjectViewer" href="/other_project/soope.html">[Click here]</a></span>
+                        <span>Link: <a href="/other_project/soope.html">[Click here]</a></span>
                         <span>Description: A simple and open source picture editor for edit picture on browser and more.</span>
                     </div>
-                    <input type="checkbox" name="cb4-3" id="cb4-3" class="collapsible_cb">
-                    <label class="collapsible" for="cb4-3">
+                    <input type="checkbox" name="cb4-7" id="cb4-7" class="collapsible_cb">
+                    <label class="collapsible" for="cb4-7">
                         <span>Console</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -499,8 +585,8 @@
                         <span>Link: <a target="_blank" class="openInProjectViewer" href="/other_project/console.html">[Click here]</a></span>
                         <span>Description: My very first large HTML project which is my first CLI OS in HTML.</span>
                     </div>
-                    <input type="checkbox" name="cb4-4" id="cb4-4" class="collapsible_cb">
-                    <label class="collapsible" for="cb4-4">
+                    <input type="checkbox" name="cb4-6" id="cb4-6" class="collapsible_cb">
+                    <label class="collapsible" for="cb4-6">
                         <span>Vigenere Cipher</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -519,8 +605,8 @@
                         <span>Link: <a target="_blank" class="openInProjectViewer" href="/other_project/message_en_de.html">[Click here]</a></span>
                         <span>Description: A very, Very basic message encryptor and decrytor that just replace each character to the pre-set 4 random character</span>
                     </div>
-                    <input type="checkbox" name="cb4-6" id="cb4-6" class="collapsible_cb">
-                    <label class="collapsible" for="cb4-6">
+                    <input type="checkbox" name="cb4-4" id="cb4-4" class="collapsible_cb">
+                    <label class="collapsible" for="cb4-4">
                         <span>Guess the number game</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -529,8 +615,8 @@
                         <span>Link: <a target="_blank" class="openInProjectViewer" href="/other_project/numberguessgame.html">[Click here]</a></span>
                         <span>Description: A game where you have to guess the correct number, that's it.</span>
                     </div>
-                    <input type="checkbox" name="cb4-7" id="cb4-7" class="collapsible_cb">
-                    <label class="collapsible" for="cb4-7">
+                    <input type="checkbox" name="cb4-3" id="cb4-3" class="collapsible_cb">
+                    <label class="collapsible" for="cb4-3">
                         <span>Text editor (Lite and Full version)</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -539,8 +625,8 @@
                         <span>Link: <a target="_blank" class="openInProjectViewer" href="/other_project/texteditor_basic.html">[Click here for lite version]</a> <a target="_blank" class="openInProjectViewer" href="/other_project/texteditor_html.html">[Click here for full version]</a></span>
                         <span>Description: A text editor that work in your browser.</span>
                     </div>
-                    <input type="checkbox" name="cb4-8" id="cb4-8" class="collapsible_cb">
-                    <label class="collapsible" for="cb4-8">
+                    <input type="checkbox" name="cb4-2" id="cb4-2" class="collapsible_cb">
+                    <label class="collapsible" for="cb4-2">
                         <span>Webdriver Torso's video stream</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -549,8 +635,8 @@
                         <span>Link: <a target="_blank" class="openInProjectViewer" href="/other_project/webdriver_torso.html">[Click here]</a></span>
                         <span>Description: Show to user a stream of image that have the same style as a Webdriver Torso's video.</span>
                     </div>
-                    <input type="checkbox" name="cb4-9" id="cb4-9" class="collapsible_cb">
-                    <label class="collapsible" for="cb4-9">
+                    <input type="checkbox" name="cb4-1" id="cb4-1" class="collapsible_cb">
+                    <label class="collapsible" for="cb4-1">
                         <span>Simple Captcha</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -559,8 +645,8 @@
                         <span>Link: <a target="_blank" class="openInProjectViewer" href="/other_project/captcha.html">[Click here]</a></span>
                         <span>Description: A simple captcha test.</span>
                     </div>
-                    <input type="checkbox" name="cb4-10" id="cb4-10" class="collapsible_cb">
-                    <label class="collapsible" for="cb4-10">
+                    <input type="checkbox" name="cb4-0" id="cb4-0" class="collapsible_cb">
+                    <label class="collapsible" for="cb4-0">
                         <span>A copy of my website that will work on any browser (with almost any version) (Created using Windows XP and lots of effort)</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
@@ -611,5 +697,14 @@
         </main>
         <script src="/website/script/main.js?v=2"></script>
         <script src="/index.js"></script>
+        <script>
+            document.getElementById("discord_iframe_consentDialog_button").onclick = () => {
+                document.getElementById("discord_iframe_consentDialog").style.display = "none";
+                document.querySelectorAll(".discord_real_iframe").forEach((elm) => {
+                    elm.style.display = "block";
+                    elm.setAttribute("src", `${elm.getAttribute("data-src")}?nocache=${Math.round(Math.random() * 1000000)}`);
+                })
+            };
+        </script>
     </body>
 </html>

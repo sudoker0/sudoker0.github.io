@@ -79,7 +79,7 @@ document.addEventListener("click", function (evt) {
     accb_small_isOn = false;
 });
 window.onresize = smtg;
-window.onload = () => {
+window.addEventListener("DOMContentLoaded", () => {
     smtg();
     setTimeout(() => { selAll("nav.navbar").forEach(e => { e.classList.add("logo_rotate"); }); }, Math.random() * (4.5e+6 - 3.6e+6) + 3.6e+6);
     setTimeout(() => { sel("#loadingIndicator").classList.add("lIClosed"); }, 500);
@@ -92,7 +92,7 @@ window.onload = () => {
             }, 500);
         });
     });
-};
+});
 var somethingCrash = false;
 function smtg() {
     check();
