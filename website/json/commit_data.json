@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-01-12",
+    "last_update_on": "2022-01-13",
     "data": [
+        {
+            "hash": "3f61a6b",
+            "committer": "QuanMCPC",
+            "commit_date": 1642087866,
+            "message": "Add Discord widget, add INBOSH to project list, change the discord social link, and more."
+        },
+        {
+            "hash": "14cd690",
+            "committer": "QuanMCPC",
+            "commit_date": 1641982047,
+            "message": "Update website's information"
+        },
         {
             "hash": "53808b2",
             "committer": "QuanMCPC",

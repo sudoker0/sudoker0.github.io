@@ -530,6 +530,10 @@
                     "type": "file"
                 },
                 {
+                    "name": "discord_tag.html",
+                    "type": "file"
+                },
+                {
                     "name": "gtpl.py",
                     "type": "file"
                 },
