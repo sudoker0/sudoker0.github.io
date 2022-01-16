@@ -87,10 +87,12 @@
                 display: none;
             }
             div#discord_iframe_container {
+                display: -moz-grid;
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 grid-template-rows: 1fr;
                 grid-template-areas: "desc_text_1 desc_text_2" "consent_dialog consent_dialog" "discord_iframe_1 discord_iframe_2";
+                grid-gap: 15px;
                 gap: 15px;
             }
             @media (max-width: 639px) {
@@ -556,7 +558,7 @@
                         <span>Description: This is my third attempt at creating a terminal on the web (now with canvas, and a changelog).</span>
                     </div>
                     <input type="checkbox" name="cb4-9" id="cb4-9" class="collapsible_cb">
-                    <label class="collapsible" for="cb4-9"> target="_blank" class="openInProjectViewer"
+                    <label class="collapsible" for="cb4-9">
                         <span>Panorama Demo</span>
                         <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
                     </label>
