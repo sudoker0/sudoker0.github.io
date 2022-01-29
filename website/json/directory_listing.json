@@ -890,55 +890,55 @@
                     "type": "directory",
                     "children": [
                         {
-                            "name": "contacts",
+                            "name": "contacts_page",
                             "type": "directory",
                             "children": [
                                 {
-                                    "name": "script.js",
+                                    "name": "contacts.js",
                                     "type": "file"
                                 },
                                 {
-                                    "name": "script.js.map",
+                                    "name": "contacts.js.map",
                                     "type": "file"
                                 },
                                 {
-                                    "name": "script.ts",
+                                    "name": "contacts.ts",
                                     "type": "file"
                                 }
                             ]
                         },
                         {
-                            "name": "home",
+                            "name": "home_page",
                             "type": "directory",
                             "children": [
                                 {
-                                    "name": "script.js",
+                                    "name": "home.js",
                                     "type": "file"
                                 },
                                 {
-                                    "name": "script.js.map",
+                                    "name": "home.js.map",
                                     "type": "file"
                                 },
                                 {
-                                    "name": "script.ts",
+                                    "name": "home.ts",
                                     "type": "file"
                                 }
                             ]
                         },
                         {
-                            "name": "info",
+                            "name": "info_page",
                             "type": "directory",
                             "children": [
                                 {
-                                    "name": "script.js",
+                                    "name": "info.js",
                                     "type": "file"
                                 },
                                 {
-                                    "name": "script.js.map",
+                                    "name": "info.js.map",
                                     "type": "file"
                                 },
                                 {
-                                    "name": "script.ts",
+                                    "name": "info.ts",
                                     "type": "file"
                                 }
                             ]
@@ -971,6 +971,64 @@
                     "name": "style",
                     "type": "directory",
                     "children": [
+                        {
+                            "name": "_variables.scss",
+                            "type": "file"
+                        },
+                        {
+                            "name": "contacts_page",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "contacts.css",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "contacts.css.map",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "contacts.scss",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "home_page",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "home.css",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "home.css.map",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "home.scss",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "info_page",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "info.css",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "info.css.map",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "info.scss",
+                                    "type": "file"
+                                }
+                            ]
+                        },
                         {
                             "name": "style.css",
                             "type": "file"
