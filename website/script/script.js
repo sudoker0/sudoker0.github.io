@@ -1,14 +1,7 @@
-const getId = (id) => { return document.getElementById(id); }, qSel = (selector) => { return document.querySelector(selector); }, qSelAll = (sel) => { return document.querySelectorAll(sel); }, sharedFunctions = {
-    _a79o6W2KfD: () => {
-        document.body.style.overflow = "auto";
-        getId("projectViewer").style.opacity = "0";
-        getId("projectViewer").style.transform = "scale(1.5)";
-        getId("pv_iframe").setAttribute("src", "about:blank");
-        setTimeout(() => {
-            getId("projectViewer").style.display = "none";
-        }, 400);
-    }
-}, gPBName = (name, url = window.location.href) => {
+function getId(id) { return document.getElementById(id); }
+function qSel(selector) { return document.querySelector(selector); }
+function qSelAll(sel) { return document.querySelectorAll(sel); }
+function gPBName(name, url = window.location.href) {
     if (!url)
         url = window.location.href;
     name = name.replace(/[\[\]\\]/g, '\\$&');
@@ -18,18 +11,34 @@ const getId = (id) => { return document.getElementById(id); }, qSel = (selector)
     if (!results[2])
         return '';
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
-}, rString = (l) => {
+}
+function rString(l) {
     var r = [];
     for (var i = 0; i < l; i++) {
         r.push(String.fromCharCode.apply(null, [Math.floor(Math.random() * 256)]));
     }
     return r.join("");
-};
+}
+function getRandomInt(min, max) {
+    const range = max - min + 1;
+    const bytes_needed = Math.ceil(Math.log2(range) / 8);
+    const cutoff = Math.floor((Math.pow(256, bytes_needed)) / range) * range;
+    const bytes = new Uint8Array(bytes_needed);
+    let value;
+    do {
+        crypto.getRandomValues(bytes);
+        value = bytes.reduce((acc, x, n) => acc + x * Math.pow(256, n), 0);
+    } while (value >= cutoff);
+    return min + value % range;
+}
+function wait(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
 function sanitizeString(str) {
     str = str.replace(/[^a-z0-9áéíóúñü \.,_\-\/]/gim, "");
     return str.trim();
 }
 function openURLInProjectViewer(url) {
+    if (getId("projectViewer") == null || qSelAll("a.openInProjectViewer").length <= 0)
+        return;
     getId("pv_iframe").setAttribute("src", sanitizeString(url) + `?nocache=${Math.round(Math.random() * 1000000)}`);
     document.body.style.overflow = "hidden";
     getId("projectViewer").style.display = "block";
@@ -39,17 +48,27 @@ function openURLInProjectViewer(url) {
     }, 100);
 }
 document.addEventListener("DOMContentLoaded", () => {
-    var _a, _b, _c;
-    (_a = qSelAll("a.openInProjectViewer")) === null || _a === void 0 ? void 0 : _a.forEach((v) => {
+    if (getId("projectViewer") == null || qSelAll("a.openInProjectViewer").length <= 0)
+        return;
+    const _ = () => {
+        document.body.style.overflow = "auto";
+        getId("projectViewer").style.opacity = "0";
+        getId("projectViewer").style.transform = "scale(1.5)";
+        getId("pv_iframe").setAttribute("src", "about:blank");
+        setTimeout(() => {
+            getId("projectViewer").style.display = "none";
+        }, 400);
+    };
+    qSelAll("a.openInProjectViewer").forEach((v) => {
         v.onclick = (ev) => {
             ev.preventDefault();
             openURLInProjectViewer(v.getAttribute("href"));
         };
     });
-    (_b = getId("pv_close")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", sharedFunctions._a79o6W2KfD);
-    (_c = getId("pv_oint")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
+    getId("pv_close").addEventListener("click", _);
+    getId("pv_oint").addEventListener("click", () => {
         window.open(getId("pv_iframe").getAttribute("src"), "_blank");
-        sharedFunctions._a79o6W2KfD();
+        _();
     });
     if (gPBName("id") == "entropy") {
         var charStart = 1;
