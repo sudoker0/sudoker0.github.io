@@ -890,6 +890,60 @@
                     "type": "directory",
                     "children": [
                         {
+                            "name": "contacts",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "script.js",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "script.js.map",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "script.ts",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "home",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "script.js",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "script.js.map",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "script.ts",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "info",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "script.js",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "script.js.map",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "script.ts",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
                             "name": "script.js",
                             "type": "file"
                         },
