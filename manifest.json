@@ -24,7 +24,7 @@
     "background_color": "#a00000",
     "scope": "/",
     "theme_color": "#a00000",
-    "description": "My website as a installable web app",
+    "description": "My website as an installable web app",
     "display": "standalone",
     "orientation": "any",
     "shortcuts": [

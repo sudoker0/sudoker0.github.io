@@ -19,7 +19,7 @@
         {
             "label": "sass: watch - main.scss",
             "type": "shell",
-            "command": "sass --watch ${workspaceFolder}/website/style/style.scss:${workspaceFolder}/website/style/style.css --style compressed --source-map",
+            "command": "sass --watch website/style --style compressed --source-map",
             "group": "build",
             "runOptions": {
                 "runOn": "folderOpen",

@@ -1,0 +1,50 @@
+@import "../_variables.scss";
+
+section#contact {
+    div.social_item {
+        display: grid;
+        grid-template-areas: "image text";
+        grid-template-columns: 96px auto;
+        gap: 24px;
+        align-items: center;
+
+        p {
+            margin: 8px 0;
+        }
+        h2.sit_name {
+            margin: 8px 0;
+            font-size: 1.8rem;
+            width: fit-content;
+            background: var(--color-fg);
+            color: var(--color-bg);
+            padding: 4px 8px;
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    section#contact div.social_item p.sit_name {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 450px) {
+    section#contact div.social_item {
+        & {
+            grid-template-areas: "text";
+            grid-template-columns: auto;
+        }
+
+        p {
+            margin: 4px 0;
+        }
+
+        p.sit_name {
+            font-size: 1.25rem;
+        }
+
+        div.social_item_image svg {
+            display: none;
+        }
+    }
+}

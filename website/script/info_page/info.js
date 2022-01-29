@@ -24,4 +24,4 @@ function date_check() {
     innerHTMLClass("days_from", DInDays.toString());
 }
 document.addEventListener("DOMContentLoaded", date_check);
-//# sourceMappingURL=script.js.map
+//# sourceMappingURL=info.js.map

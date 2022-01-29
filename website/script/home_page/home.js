@@ -94,4 +94,4 @@ getId("claim_gift").ondragover = (ev) => {
 qSel("#website_logo").ondragstart = (ev) => {
     ev.dataTransfer.setData("text", ev.target["id"]);
 };
-//# sourceMappingURL=script.js.map
+//# sourceMappingURL=home.js.map

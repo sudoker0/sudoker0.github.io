@@ -1,3 +1,5 @@
+@import "./_variables.scss";
+
 @mixin grid {
     display: -moz-grid;
     display: -ms-grid;
@@ -24,27 +26,6 @@
 * {
     font-weight: 700;
     box-sizing: border-box;
-}
-
-body {
-    --color-fg: #ffffff;
-    --color-bg: #0c0c0c;
-    --color-tc-red: #c00000;
-    --color-tc-green: #008000;
-    --color-tc-blue: #0000c0;
-    --color-textwithtag-tag: #F07A0F;
-    --color-link-hover: #9e9e9e;
-    transition: background-color 0.2s linear, color 0.2s linear, border 0.2s linear;
-}
-
-.light-theme {
-    --color-fg: #202020;
-    --color-bg: #ffffff;
-    --color-tc-red: #FDB100;
-    --color-tc-green: #00E300;
-    --color-tc-blue: #00A9FB;
-    --color-textwithtag-tag: #000DA8;
-    --color-link-hover: #4F4F4F;
 }
 
 body {
@@ -191,7 +172,7 @@ a {
     position: relative;
     &:link, &:visited, & {
         color: var(--color-fg);
-        text-decoration: none;
+        // text-decoration: none;
         display: inline-block;
     }
 
@@ -357,6 +338,7 @@ nav.navbar {
         grid-area: menu;
 
         a {
+            text-decoration: none;
             font-size: 1.2rem;
 
             &:hover::after {
@@ -420,7 +402,7 @@ label[for="open_navbar_dropdown"] {
             h2 {
                 font-size: 1.35rem;
             }
-            p, label.collapsible span, table * {
+            p, label.collapsible, table *, div.collapsiblecontent {
                 font-size: 1rem;
             }
         }
@@ -479,7 +461,7 @@ label[for="open_navbar_dropdown"] {
             h2 {
                 font-size: 1rem;
             }
-            p, label.collapsible span, table * {
+            p, label.collapsible, table *, div.collapsiblecontent {
                 font-size: 0.8rem;
             }
         }
@@ -546,243 +528,5 @@ div#noscript_wrapper {
 
     p {
         margin: 0;
-    }
-}
-
-//! ----------------- Home page styles -----------------
-
-section {
-    &#home {
-        > div div.right svg {
-            max-width: 100%;
-            height: auto;
-        }
-    }
-}
-section#programming {
-    div.right {
-        &, & table {
-            width: 100%;
-            max-width: 100%;
-        }
-    }
-}
-
-section#bio div.right {
-    max-width: 100%;
-    width: 100%;
-    padding: 0;
-    border: 4px solid rgb(64, 64, 64);
-    border-top: none;
-    background-color: rgb(16, 16, 16);
-    height: fit-content;
-    box-shadow: 15px 15px #888888;
-    div {
-        overflow: auto;
-        .red { color: #d42332; }
-        .green { color: #69ce22; }
-        .blue { background-color: #00a0ff; }
-        code {
-            font-family: 'Courier Prime', monospace;
-        }
-        #title {
-            --padding: 7px;
-            color: white;
-            background-color: rgb(64, 64, 64);
-            width: 100%;
-            height: auto;
-            position: -webkit-sticky;
-            position: sticky;
-            top: 0;
-            left: 0;
-            padding: var(--padding);
-        }
-        #title p {
-            font-size: 1rem;
-            margin: 0;
-            padding: 0;
-        }
-        code {
-            display: block;
-            margin: 10px;
-            width: calc(100% - 20px);
-        }
-        code p {
-            color: white;
-            margin: 2px;
-            white-space: pre;
-        }
-    }
-}
-
-@keyframes lsd {
-    from { filter: hue-rotate(0deg) }
-    to { filter: hue-rotate(360deg) }
-}
-
-// ! This whole code is just for handling the gift aniamtion
-
-@keyframes gift_opening_animation {
-    @for $i from 0 through 80 {
-        @if $i % 2 == 0 {
-            #{$i * 1%} {
-                transform: scale(1.02);
-            }
-        } @else {
-            #{$i * 1%} {
-                transform: scale(0.98);
-            }
-        }
-    }
-    @for $i from 81 to 91 {
-        #{$i * 1%} {
-            transform: scale(0.8);
-        }
-    }
-    @for $i from 92 to 100 {
-        #{$i * 1%} {
-            transform: scale(1.2);
-        }
-    }
-}
-
-@keyframes gift_content_animation {
-    from { opacity: 0; visibility: hidden; }
-    to { opacity: 1; visibility: visible; }
-}
-
-section#gift div.textwithtag > div {
-    // align-items: center;
-
-    svg {
-        max-width: 100%;
-        width: 384px;
-        height: auto;
-    }
-    div#claim_gift_div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    button#claim_gift {
-        max-width: 100%;
-        width: fit-content;
-        background: transparent;
-        border: none;
-
-        &:hover svg {
-            cursor: pointer;
-            filter: brightness(0.8);
-        }
-    }
-
-    div#gift_display, div#gift_flashbang {
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%;
-        height: 100%;
-    }
-
-    div#gift_display {
-        z-index: 10;
-        display: none;
-        background-color: var(--color-bg);
-
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        * {
-            font-size: 1.5rem;
-        }
-
-        div#gift_thatsmygift_dialog {
-            background-color: var(--color-bg);
-            position: fixed;
-            top: 0;
-            right: 0;
-            border: 4px solid white;
-            padding: 8px;
-            margin: 12px;
-            max-width: calc(100% - 24px);
-            height: fit-content;
-            overflow: auto;
-            display: none;
-        }
-
-        div.gift_item {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-
-            svg {
-                margin: 16px;
-            }
-        }
-    }
-
-    div#gift_flashbang {
-        z-index: 11;
-        pointer-events: none;
-        opacity: 0;
-        background-color: var(--color-fg);
-    }
-}
-
-//! ----------------- Info page styles -----------------
-
-section#website_info table {
-    width: fit-content;
-    margin: auto;
-}
-
-//! ----------------- Contacts page styles -----------------
-
-section#contact {
-    div.social_item {
-        display: grid;
-        grid-template-areas: "image text";
-        grid-template-columns: 96px auto;
-        gap: 24px;
-        align-items: center;
-
-        p {
-            margin: 8px 0;
-        }
-        h2.sit_name {
-            margin: 8px 0;
-            font-size: 1.8rem;
-            width: fit-content;
-            background: var(--color-fg);
-            color: var(--color-bg);
-            padding: 4px 8px;
-        }
-    }
-}
-
-@media (max-width: 650px) {
-    section#contact div.social_item p.sit_name {
-        font-size: 1.4rem;
-    }
-}
-
-@media (max-width: 450px) {
-    section#contact div.social_item {
-        & {
-            grid-template-areas: "text";
-            grid-template-columns: auto;
-        }
-
-        p {
-            margin: 4px 0;
-        }
-
-        p.sit_name {
-            font-size: 1.25rem;
-        }
-
-        div.social_item_image svg {
-            display: none;
-        }
     }
 }
