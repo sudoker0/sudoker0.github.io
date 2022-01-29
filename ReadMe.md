@@ -38,34 +38,36 @@ They're the best way to show my work to the world. Also because it's fun to crea
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\** | 100.0% | 206 files | 461,221,242 bytes
-\* | 0.0% | 13 files | 20,932 bytes
-\*.7z | 35.94% | 18 files | 165,762,396 bytes
+\** | 100.0% | 218 files | 470,434,456 bytes
+\* | 0.0% | 13 files | 22,196 bytes
+\*.7z | 36.65% | 21 files | 172,429,319 bytes
 \*.config | 0.02% | 1 files | 82,580 bytes
-\*.css | 0.0% | 2 files | 10,540 bytes
+\*.css | 0.0% | 2 files | 14,027 bytes
 \*.gif | 0.0% | 1 files | 10,498 bytes
-\*.html | 0.14% | 36 files | 629,654 bytes
+\*.html | 0.13% | 35 files | 595,206 bytes
 \*.ico | 0.03% | 2 files | 118,934 bytes
-\*.idx | 0.05% | 1 files | 220,732 bytes
-\*.js | 0.01% | 6 files | 61,868 bytes
-\*.json | 0.07% | 12 files | 304,608 bytes
-\*.map | 0.01% | 3 files | 61,746 bytes
-\*.md | 0.0% | 2 files | 10,895 bytes
-\*.pack | 57.89% | 1 files | 266,997,960 bytes
-\*.png | 1.88% | 45 files | 8,680,201 bytes
-\*.py | 0.01% | 3 files | 30,784 bytes
-\*.sample | 0.01% | 13 files | 23,442 bytes
-\*.scss | 0.0% | 1 files | 15,050 bytes
+\*.idx | 0.05% | 1 files | 222,496 bytes
+\*.js | 0.01% | 5 files | 60,703 bytes
+\*.json | 0.06% | 12 files | 304,749 bytes
+\*.map | 0.01% | 4 files | 66,803 bytes
+\*.md | 0.0% | 3 files | 9,240 bytes
+\*.mp3 | 0.0% | 1 files | 9,069 bytes
+\*.pack | 57.16% | 1 files | 268,911,915 bytes
+\*.png | 1.85% | 48 files | 8,712,235 bytes
+\*.py | 0.01% | 3 files | 30,679 bytes
+\*.sample | 0.0% | 13 files | 23,442 bytes
+\*.scss | 0.0% | 1 files | 15,488 bytes
 \*.sqlite | 0.02% | 1 files | 90,112 bytes
 \*.svg | 0.01% | 6 files | 63,923 bytes
-\*.ts | 0.01% | 2 files | 62,761 bytes
-\*.ttf | 0.06% | 2 files | 261,256 bytes
+\*.ts | 0.01% | 3 files | 66,043 bytes
+\*.ttf | 0.17% | 4 files | 819,080 bytes
 \*.txt | 0.0% | 1 files | 283 bytes
-\*.webp | 0.81% | 9 files | 3,745,400 bytes
-\*.xml | 0.0% | 1 files | 1,236 bytes
+\*.wav | 0.01% | 2 files | 55,556 bytes
+\*.webp | 0.8% | 9 files | 3,745,400 bytes
+\*.xml | 0.0% | 1 files | 1,026 bytes
 \*.yml | 0.0% | 4 files | 4,530 bytes
-\*.zip | 3.01% | 17 files | 13,892,512 bytes
-> Last updated on: 2022-01-16
+\*.zip | 2.95% | 17 files | 13,892,512 bytes
+> Last updated on: 2022-01-29
 <!--python_data_stop-->
 
 > **Details about the website's creation**

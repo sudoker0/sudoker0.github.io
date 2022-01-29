@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-01-16",
+    "last_update_on": "2022-01-29",
     "data": [
+        {
+            "hash": "a57dbbd",
+            "committer": "QuanMCPC",
+            "commit_date": 1643442637,
+            "message": "A full website redesign, added project: \"Flappy Bird Clone\", improve accessibility, etc."
+        },
+        {
+            "hash": "d6e9504",
+            "committer": "QuanMCPC",
+            "commit_date": 1642307923,
+            "message": "Update website's information"
+        },
         {
             "hash": "38aa8f9",
             "committer": "QuanMCPC",

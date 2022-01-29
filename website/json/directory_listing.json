@@ -110,10 +110,6 @@
             "type": "file"
         },
         {
-            "name": "about.html",
-            "type": "file"
-        },
-        {
             "name": "archive",
             "type": "directory",
             "children": [
@@ -126,6 +122,10 @@
                     "type": "file"
                 },
                 {
+                    "name": "High_Quality_Backgrounds.7z",
+                    "type": "file"
+                },
+                {
                     "name": "ReadMe.WTOS.zip",
                     "type": "file"
                 },
@@ -135,6 +135,10 @@
                 },
                 {
                     "name": "Redstone_NoTransparent.zip",
+                    "type": "file"
+                },
+                {
+                    "name": "ScreenShots_HighQuality_tga.7z",
                     "type": "file"
                 },
                 {
@@ -155,6 +159,14 @@
                 },
                 {
                     "name": "basic_backup.zip",
+                    "type": "file"
+                },
+                {
+                    "name": "current_image_png.zip",
+                    "type": "file"
+                },
+                {
+                    "name": "data-to-get-screenshot.yml",
                     "type": "file"
                 },
                 {
@@ -190,6 +202,10 @@
                     "type": "file"
                 },
                 {
+                    "name": "more_attempt.7z",
+                    "type": "file"
+                },
+                {
                     "name": "more_old_image.7z",
                     "type": "file"
                 },
@@ -198,7 +214,19 @@
                     "type": "file"
                 },
                 {
+                    "name": "old_ReadMe.7z",
+                    "type": "file"
+                },
+                {
                     "name": "old_background.zip",
+                    "type": "file"
+                },
+                {
+                    "name": "old_image.zip",
+                    "type": "file"
+                },
+                {
+                    "name": "old_index.7z",
                     "type": "file"
                 },
                 {
@@ -274,7 +302,7 @@
             ]
         },
         {
-            "name": "credit.html",
+            "name": "contacts.html",
             "type": "file"
         },
         {
@@ -282,51 +310,7 @@
             "type": "file"
         },
         {
-            "name": "dist",
-            "type": "directory",
-            "children": [
-                {
-                    "name": "index.dev.js",
-                    "type": "file"
-                },
-                {
-                    "name": "serviceworker.dev.js",
-                    "type": "file"
-                }
-            ]
-        },
-        {
-            "name": "download",
-            "type": "directory",
-            "children": [
-                {
-                    "name": "High_Quality_Backgrounds.7z",
-                    "type": "file"
-                },
-                {
-                    "name": "ScreenShots_HighQuality_tga.7z",
-                    "type": "file"
-                },
-                {
-                    "name": "current_image_png.zip",
-                    "type": "file"
-                },
-                {
-                    "name": "data-to-get-screenshot.yml",
-                    "type": "file"
-                },
-                {
-                    "name": "old_image.zip",
-                    "type": "file"
-                }
-            ]
-        },
-        {
-            "name": "download.html",
-            "type": "file"
-        },
-        {
-            "name": "gallery.html",
+            "name": "easter_egg.md",
             "type": "file"
         },
         {
@@ -343,6 +327,10 @@
         },
         {
             "name": "index.js",
+            "type": "file"
+        },
+        {
+            "name": "info.html",
             "type": "file"
         },
         {
@@ -538,6 +526,52 @@
                     "type": "file"
                 },
                 {
+                    "name": "flappy_bird_clone",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "background.png",
+                            "type": "file"
+                        },
+                        {
+                            "name": "hit.wav",
+                            "type": "file"
+                        },
+                        {
+                            "name": "index.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "jump.wav",
+                            "type": "file"
+                        },
+                        {
+                            "name": "main.js",
+                            "type": "file"
+                        },
+                        {
+                            "name": "main.js.map",
+                            "type": "file"
+                        },
+                        {
+                            "name": "main.ts",
+                            "type": "file"
+                        },
+                        {
+                            "name": "pipe.png",
+                            "type": "file"
+                        },
+                        {
+                            "name": "pipeBody.png",
+                            "type": "file"
+                        },
+                        {
+                            "name": "pipeHead.png",
+                            "type": "file"
+                        }
+                    ]
+                },
+                {
                     "name": "gtpl.py",
                     "type": "file"
                 },
@@ -630,11 +664,19 @@
             "type": "directory",
             "children": [
                 {
-                    "name": "font",
+                    "name": "fonts",
                     "type": "directory",
                     "children": [
                         {
-                            "name": "Raleway-Medium.ttf",
+                            "name": "CourierPrime.ttf",
+                            "type": "file"
+                        },
+                        {
+                            "name": "Inconsolata.ttf",
+                            "type": "file"
+                        },
+                        {
+                            "name": "Raleway.ttf",
                             "type": "file"
                         }
                     ]
@@ -794,23 +836,19 @@
                             "type": "directory",
                             "children": [
                                 {
-                                    "name": "about.png",
+                                    "name": "archive.png",
                                     "type": "file"
                                 },
                                 {
-                                    "name": "credit.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "download.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "gallery.png",
+                                    "name": "contacts.png",
                                     "type": "file"
                                 },
                                 {
                                     "name": "home.png",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "info.png",
                                     "type": "file"
                                 }
                             ]
@@ -852,15 +890,25 @@
                     "type": "directory",
                     "children": [
                         {
-                            "name": "main.js",
+                            "name": "script.js",
                             "type": "file"
                         },
                         {
-                            "name": "main.js.map",
+                            "name": "script.js.map",
                             "type": "file"
                         },
                         {
-                            "name": "main.ts",
+                            "name": "script.ts",
+                            "type": "file"
+                        }
+                    ]
+                },
+                {
+                    "name": "sound",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "fart.mp3",
                             "type": "file"
                         }
                     ]
@@ -870,15 +918,15 @@
                     "type": "directory",
                     "children": [
                         {
-                            "name": "main.css",
+                            "name": "style.css",
                             "type": "file"
                         },
                         {
-                            "name": "main.css.map",
+                            "name": "style.css.map",
                             "type": "file"
                         },
                         {
-                            "name": "main.scss",
+                            "name": "style.scss",
                             "type": "file"
                         }
                     ]
