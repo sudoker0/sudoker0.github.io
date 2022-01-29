@@ -37,59 +37,46 @@
                 {
                     "src": "/website/image/manifest/home.png",
                     "type": "image/png",
-                    "sizes": "256x256"
+                    "sizes": "512x512"
                 }
             ]
         },
         {
-            "name": "Credit",
-            "short_name": "Credit",
-            "description": "All of the stuff and people that created this website will be listed here",
-            "url": "/credit.html",
+            "name": "Info",
+            "short_name": "Info",
+            "description": "Info about the website",
+            "url": "/info.html",
             "icons": [
                 {
-                    "src": "/website/image/manifest/credit.png",
+                    "src": "/website/image/manifest/info.png",
                     "type": "image/png",
-                    "sizes": "256x256"
+                    "sizes": "512x512"
                 }
             ]
         },
         {
-            "name": "About Website",
-            "short_name": "About Website",
-            "description": "Information about my website",
-            "url": "/about.html",
+            "name": "Contacts",
+            "short_name": "Contacts",
+            "description": "My social links and contact info is in this page",
+            "url": "/contacts.html",
             "icons": [
                 {
-                    "src": "/website/image/manifest/about.png",
+                    "src": "/website/image/manifest/contacts.png",
                     "type": "image/png",
-                    "sizes": "256x256"
+                    "sizes": "512x512"
                 }
             ]
         },
         {
-            "name": "Gallery",
-            "short_name": "Gallery",
-            "description": "Where I store picture of project and stuff",
-            "url": "/gallery.html",
+            "name": "Archive",
+            "short_name": "Archive",
+            "description": "Where you can download file that I might never fucking use.",
+            "url": "/archive/index.html",
             "icons": [
                 {
-                    "src": "/website/image/manifest/gallery.png",
+                    "src": "/website/image/manifest/archive.png",
                     "type": "image/png",
-                    "sizes": "256x256"
-                }
-            ]
-        },
-        {
-            "name": "Download",
-            "short_name": "Download",
-            "description": "Download stuff, that's it",
-            "url": "/download.html",
-            "icons": [
-                {
-                    "src": "/website/image/manifest/download.png",
-                    "type": "image/png",
-                    "sizes": "256x256"
+                    "sizes": "512x512"
                 }
             ]
         }

@@ -1,712 +1,603 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <link rel="stylesheet" type="text/css" href="/website/style/main.css?v=3" />
-        <meta name="robots" content="NOODP" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <meta name="HandheldFriendly" content="true" />
-        <meta name="keywords" content="QuanMCPC, Quan_MCPC" />
-        <meta name="description" content="This is the main page of my website, where you can see my bio, all of my project and my social links." />
-        <meta name="author" content="Quan_MCPC" />
-        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-        <meta http-equiv="Pragma" content="no-cache" />
-        <meta http-equiv="Expires" content="0"/>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <meta property="og:type" content="website" />
         <meta property="og:url" content="/home.html" />
         <meta property="og:site_name" content="Quan_MCPC's Website" />
-        <meta property="og:title" content="Quan_MCPC's Website | Home" />
-        <meta property="og:description" content="This is the main page of my website, where you can see my bio, all of my project and my social links." />
+        <meta property="og:title" content="QuanMCPC.home()" />
+        <meta property="og:description" content="This is the main page of my website, which contain an intro, about me section, projects, etc." />
         <meta property="og:image" content="/website/image/social_preview.png" />
         <meta property="og:image:alt" content="Social preview image" />
+
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="theme-color" content="#a00000" />
+
+        <meta name="keywords" content="QuanMCPC, Quan_MCPC" />
+        <meta name="description" content="This is the main page of my website, where you can see my bio, all of my project and my social links." />
+        <meta name="author" content="Quan_MCPC" />
+
+        <meta name="robots" content="NOODP" />
+        <link rel="manifest" href="/manifest.json" />
+
         <link rel="shortcut icon" href="/website/image/logo/favicon.ico" />
         <link rel="apple-touch-icon" href="/website/image/logo/logo.png">
-        <title>QuanMCPC's Website</title>
-        <style>
-            /* .social_link:hover {
-                cursor: pointer;
-            } */
-            :root {
-                --bs: 2px;
-                --bc: white;
-            }
-            div#social_link {
-                margin-left: auto;
-                margin-right: auto;
-                display: block
-            }
-            @media (min-width: 320px) {
-                div#sp_actual * { margin-top: 3px; margin-bottom: 3px; }
-                span { margin-top: initial; margin-bottom: initial; }
-            }
-            @media (min-width: 482px) {
-                div#sp_actual * { margin-top: 5px; margin-bottom: 5px; }
-                span { margin-top: initial; margin-bottom: initial; }
-            }
-            div#sp_actual * {
-                margin-left: initial;
-                margin-right: initial;
-                max-width: initial;
-            }
-            del {
-                margin: 0
-            }
-            div#project a { margin: 0; }
-            div#external_link_image a {
-                padding: 5px;
-                display: inline-block;
-                vertical-align: middle;
-                background-repeat: no-repeat;
-                background-image:
-                    linear-gradient(to right, var(--bc) 100%, var(--bc) 100%),
-                    linear-gradient(to bottom, var(--bc) 100%, var(--bc) 100%),
-                    linear-gradient(to right, var(--bc) 100%, var(--bc) 100%),
-                    linear-gradient(to bottom, var(--bc) 100%, var(--bc) 100%);
-                background-size: 0 var(--bs), var(--bs) 0, 0 var(--bs), var(--bs) 0;
-                background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-                transition: background-size 0.4s ease;
-            }
-            div#external_link_image a:hover, div#external_link_image a:focus {
-                outline: none;
-                background-size: 100% var(--bs), var(--bs) 100%, 100% var(--bs), var(--bs) 100%;
-            }
-            div#external_link_image svg { max-width: 100%; vertical-align: bottom; }
-            h3.showoff { color: rgb(0, 255, 0); text-align: center; }
-            td img {
-                vertical-align: bottom;
-                margin: 4px;
-            }
-            table {width: 100%; }
-            iframe.discord_real_iframe {
-                width: 100%;
-                height: 500px;
-                display: none;
-            }
-            div#discord_iframe_container {
-                display: -moz-grid;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                grid-template-rows: 1fr;
-                grid-template-areas: "desc_text_1 desc_text_2" "consent_dialog consent_dialog" "discord_iframe_1 discord_iframe_2";
-                grid-gap: 15px;
-                gap: 15px;
-            }
-            @media (max-width: 639px) {
-                div#discord_iframe_container {
-                    grid-template-areas: "consent_dialog" "desc_text_1" "discord_iframe_1" "desc_text_2" "discord_iframe_2";
-                    grid-template-columns: 1fr;
-                }
-            }
-            div.discord_iframe_desc {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
-            div#discord_iframe_1 {
-                grid-area: discord_iframe_1;
-            }
-            div#discord_iframe_2 {
-                grid-area: discord_iframe_2;
-            }
-            div#discord_iframe_consentDialog {
-                grid-area: consent_dialog;
-            }
-            div.discord_iframe {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
-            div#discord_iframe_desc_1 {
-                grid-area: desc_text_1;
-            }
-            div#discord_iframe_desc_2 {
-                grid-area: desc_text_2;
-            }
-            div#discord_iframe_consentDialog {
-                border: 2px solid white;
-                padding: 10px;
-            }
-        </style>
+
+        <title>QuanMCPC.home()</title>
+        <link rel="stylesheet" href="/website/style/style.css">
+        <!--
+            The perfect structure:
+            <header>
+                <nav></nav>
+            </header>
+            <main>
+                <section>
+                    <article></article>
+                </section>
+            </main>
+            <footer></footer>
+        -->
     </head>
     <body>
-        <noscript>
-            <div id="noscript_text"><p>This website work best with JavaScript enabled!</p></div>
-            <style>@media(max-width: 639px){button#accbar_small_open{display: none}h3#accbar a{display: block}}div#loadingIndicator,div#discord_iframe_consentDialog{display:none}</style>
-        </noscript>
-        <button id="list_dir">&rightarrow; Get access to directory listing here! &leftarrow;</button>
-        <div id="iframe_">
-            <div id="iframe_accbar">
-                <button onclick="closeIframe()">Close</button><button onclick="openIframeInNewTab()">Open in a new tab</button>
-            </div>
-            <hr>
-            <iframe title="A place to display my project" id="iframe__" scrolling="yes" src="about:blank" width="100%" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-modals allow-popups" style="overflow-y: scroll;"></iframe>
-        </div>
-        <div id="secret_image">
-            <img src="website/image/secret_.png" alt="Secret image UwU">
-        </div>
-        <nav class="accb nt navbar" id="accb">
-            <a href="/" title="Return to main page"><img class="website_logo" src="/website/image/logo/logo.svg" alt="Website's logo"></a>
-            <h3 id="accbar">
-                <button id="accbar_small_open" onclick="accb_small()" aria-label="Click here for more website link"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ffffff" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg></button>
-                <a href="/home.html">Home</a>
-                <a href="/credit.html">Credit</a>
-                <a href="/about.html">About Website</a>
-                <a href="/gallery.html">Gallery</a>
-                <a href="/download.html">Download</a>
-            </h3>
-        </nav>
-        <nav id="accb_small">
-            <h3 id="accbar_small"></h3>
-        </nav>
-        <div id="screentoosmall">
-            <h2>Error!</h2>
-            <p>We have detected that the width of the screen that you are using right now is too small for the website to render properly</p>
-            <p>Try to rotate the device so that the screen orientation is horizontal. Or if that didn't work either, then that mean your screen is incompatiable to view the website</p>
-        </div>
-        <div id="loadingIndicator">
-            <div>
-                <img id="loading_redstone_dust" src="/website/image/logo/redstone_dust_icon.svg" srcset="/website/image/logo/redstone_dust_icon.svg, /website/image/logo/loading.gif" alt="Loading Icon"><br>
-                <span>Loading, please wait</span>
-            </div>
-        </div>
+        <header>
+            <nav class="navbar" id="navbar">
+                <a href="/index.html" id="website_logo"><img src="/website/image/logo/logo.svg" alt="Website's logo"></a>
+                <input type="checkbox" name="open_navbar_dropdown" id="open_navbar_dropdown" title="Navigation link dropdown">
+                <div class="navbar_button">
+                    <label for="open_navbar_dropdown" title="Navigation link dropdown">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ffffff" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg>
+                    </label>
+                </div>
+                <div class="navbar_link">
+                    <a href="/home.html">.home()</a>
+                    <a href="/info.html">.info()</a>
+                    <a href="/contacts.html">.contacts()</a>
+                    <a href="/archive/index.html">.archive()</a>
+                </div>
+            </nav>
+        </header>
         <main>
-            <div class="container">
-                <h1><b>QuanMCPC - Web and Software Developer</b></h1>
-                <h3>Hello, I'm Quan. I'm a web developer and a software programmer. Currently living in Vietnam, my working space is the living room, and my computer is way too outdated. I've been coding for around two years, and "Free and Open-Source" is my philosophy on almost anything.</h3>
-                <h3>And just like a lot of good companies, this website contains several easter eggs that I put into JFF (Just For Fun) that you can find or leave my several lines of code wasted.</h3>
-                <h3 class="showoff">Social link</h3>
-                <div id="social_link">
-                    <div id="external_link_image" style="text-align: center;">
-                        <!--
-                            GitHub SVG: https://github.com/logos
-                            Plannet Minecraft SVG: Created from scratch using the logo image of the website (The globe part) (Original PNG image that allow me to create the SVG image from https://planetminecraft.com)
-                            GitLab SVG: https://about.gitlab.com/press/press-kit/
-                            Discord SVG: https://discord.com/branding
-                        -->
-                        <a href="https://github.com/QuanMCPC" aria-label="GitHub link">
-                            <svg name="external_link" class="social_link" id="github_link" width="64" height="64" version="1.1" viewBox="0 0 33.867 33.867" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" alt="GitHub icon">
-                                <g fill="#ffffff">
-                                    <path d="m16.933 0c-9.3509 0-16.933 7.7731-16.933 17.362 0 7.671 4.852 14.179 11.58 16.475 0.84628 0.16072 1.157-0.37664 1.157-0.83521 0-0.41401-0.01571-1.7817-0.02299-3.2325-4.7109 1.0503-5.705-2.0485-5.705-2.0485-0.77029-2.0068-1.8802-2.5404-1.8802-2.5404-1.5364-1.0776 0.11581-1.0554 0.11581-1.0554 1.7004 0.12219 2.5958 1.7894 2.5958 1.7894 1.5103 2.654 3.9614 1.8866 4.9277 1.443 0.15198-1.1221 0.59083-1.8884 1.0751-2.3216-3.7612-0.43902-7.715-1.9277-7.715-8.5804 0-1.8955 0.66149-3.4443 1.7447-4.6602-0.17582-0.43759-0.75543-2.2032 0.16404-4.5947 0 0 1.422-0.46663 4.6579 1.7797 1.3507-0.38469 2.7993-0.5776 4.2384-0.58422 1.4391 0.0066 2.8888 0.19953 4.2421 0.58422 3.232-2.2463 4.652-1.7797 4.652-1.7797 0.92171 2.3915 0.34182 4.1571 0.166 4.5947 1.0858 1.2159 1.7428 2.7647 1.7428 4.6602 0 6.6685-3.9614 8.1368-7.7321 8.5666 0.60737 0.53879 1.1486 1.5954 1.1486 3.2152 0 2.3231-0.01962 4.1927-0.01962 4.7646 0 0.46203 0.30481 1.0034 1.1631 0.83291 6.7245-2.2983 11.57-8.8041 11.57-16.472-1.2e-5 -9.589-7.5815-17.362-16.933-17.362" fill-rule="evenodd"/>
-                                    <g>
-                                        <path d="m6.4136 24.928c-0.037295 0.08654-0.16965 0.11213-0.29023 0.0529-0.12282-0.05664-0.1918-0.17423-0.15198-0.26077 0.036452-0.08855 0.16909-0.11328 0.29163-0.05434 0.1231 0.05693 0.1932 0.17567 0.15058 0.26221"/>
-                                        <path d="m7.0994 25.712c-0.080758 0.07676-0.23863 0.04112-0.34575-0.08022-0.11076-0.12104-0.13151-0.28291-0.049631-0.36082 0.083282-0.07648 0.23639-0.04054 0.34743 0.08021 0.11076 0.12248 0.13235 0.2832 0.047946 0.36082"/>
-                                        <path d="m7.7671 26.712c-0.10375 0.07389-0.2734 0.0046-0.37828-0.14979-0.10375-0.15439-0.10375-0.33955 0.00222-0.41372 0.10515-0.07418 0.27228-0.0072 0.37856 0.14577 0.10347 0.15698 0.10347 0.34214-0.00254 0.41775"/>
-                                        <path d="m8.6818 27.678c-0.092816 0.10494-0.29051 0.07676-0.4352-0.06641-0.14806-0.14002-0.18928-0.33868-0.09618-0.44363 0.093937-0.10523 0.29275-0.07561 0.43856 0.06641 0.14694 0.13973 0.1918 0.33983 0.092816 0.44363"/>
-                                        <path d="m9.9437 28.239c-0.040943 0.13599-0.23134 0.1978-0.42314 0.14002-0.19152-0.05952-0.31686-0.21879-0.27817-0.35622 0.039823-0.13685 0.23106-0.20126 0.42426-0.13944 0.19124 0.05922 0.31686 0.21736 0.27705 0.35565"/>
-                                        <path d="m11.329 28.343c0.0048 0.14318-0.15787 0.26192-0.35921 0.2645-0.20246 0.0046-0.36622-0.11126-0.36846-0.25214 0-0.14462 0.15899-0.26221 0.36145-0.26566 0.20134-4e-3 0.36622 0.11098 0.36622 0.2533"/>
-                                        <path d="m12.619 28.118c0.02412 0.13973-0.11581 0.28319-0.31574 0.32143-0.19657 0.0368-0.37856-0.04945-0.40351-0.18803-0.02439-0.14318 0.11805-0.28664 0.31434-0.32373 0.20021-0.03565 0.3794 0.0483 0.40491 0.19033"/>
-                                    </g>
-                                </g>
-                            </svg>
-                        </a>
-                        <a href="https://www.planetminecraft.com/member/quan_mcpc/" aria-label="PlannetMinecraft link">
-                            <svg name="external_link" class="social_link" id="plannetminecraft_link" width="64" height="64" version="1.1" viewBox="0 0 14.817 15.346" xmlns="http://www.w3.org/2000/svg" alt="PlannetMinecraft icon">
-                                <g>
-                                    <path d="m5.0271 0v1.0583h-2.6458v1.0583h-1.0583v2.6458h-1.3229v5.2917h0.26458v0.26458h0.26458v0.26458h0.52917v1.8521h0.26458v0.26458h0.26458v0.26458h0.52917v0.52917h0.26458v0.26458h0.26458v0.26459h0.26458v0.26458h1.8521v0.52917h0.26458v0.26458h0.26458v0.26458h4.2333v-0.26458h0.26458v-0.26458h0.26458v-0.52917h1.5875v-0.26458h0.26458v-0.26459h0.26458v-0.26458h0.26458v-0.52917h0.79375v-0.26458h0.26458v-0.26458h0.26458v-1.8521h0.52917v-0.26458h0.26458v-0.26458h0.26458v-5.2917h-1.3229v-2.6458h-1.3229v-1.0583h-2.3812v-1.0583z" fill="#2b696e" stroke-width="1.0985"/>
-                                    <path d="m5.0271 0v1.0583h-2.6458v1.0583h-1.0583v2.6458h-1.3229v5.2917h0.26458v0.26458h0.26458v0.26458h0.52917v1.8521h0.26458v0.26458h0.26458v0.26458h0.52917v0.52917h0.26458v0.26458h0.26458v0.26458h0.26458v0.26458h1.8521v0.52917h0.26458v0.26458h0.26458v0.26458h4.2333v-0.26458h0.26458v-0.26458h0.26458v-0.52917h1.5875v-0.26458h0.26458v-0.26458h0.26458v-0.26458h0.26458v-0.52917h0.79375v-0.26458h0.26458v-0.26458h0.26458v-1.8521h0.52917v-0.26458h0.26458v-0.26458h0.26458v-5.2917h-1.3229v-2.6458h-1.3229v-1.0583h-2.3812v-1.0583z" fill="#2b696e" stroke-width="1.0985"/>
-                                    <g stroke-width=".26458">
-                                        <path d="m5.0271 0v1.0583h4.7625v-1.0583zm-5.0271 4.7625v4.7625h1.3229v-4.7625zm1.3229 4.7625v2.3813h1.0583v-2.3813z" fill="#0157a9"/>
-                                        <path d="m0 9.525v0.52917h0.26458v0.26458h0.26458v0.26458h0.52917v1.8521h0.26458v0.26458h0.26458v0.26458h0.52917v0.52917h0.26458v0.26458h0.26458v0.26459h0.26458v0.26458h1.8521v0.52917h0.26458v0.26458h0.26458v0.26458h4.2333v-0.26458h0.26458v-0.26458h0.26458v-0.52917h1.5875v-0.26458h0.26458v-0.26459h0.26458v-0.26458h0.26458v-0.52917h0.79375v-0.26458h0.26458v-0.26458h0.26458v-2.3812h-0.26458v1.8521h-1.3229v1.3229h-2.3812v1.3229h-4.7625v-1.3229h-2.6458v-1.3229h-1.0583v-2.3813z" fill="#012647"/>
-                                        <path d="m2.3812 1.0583v1.0583h2.6458v-1.0583zm0 1.0583h-1.0583v2.6458h1.0583zm7.4083-1.0583v1.0583h2.3812v-1.0583zm2.3812 1.0583v2.6458h1.3229v-2.6458zm1.3229 2.6458v4.7625h1.3229v-4.7625zm0 4.7625h-0.52917v0.26458h0.26458v0.26459h0.26458v-0.26459zm-6.6146 3.7042v0.26458h0.26458v0.52917h0.52917v0.52916h0.79375v-0.26458h0.26458v-0.79375h0.26458v-0.26458z" fill="#2a5401"/>
-                                        <path d="m3.7042 2.1167v1.3229h2.1167v-0.52917h-0.26458v-0.26458h0.26458v-0.52917h-0.26458zm0 1.3229h-1.3229v2.3812h-1.0583v3.4396h1.0583v0.26458h1.3229v-0.52917h-0.52917v-0.26458h-0.52917v-0.79375h0.26458v-0.26458h0.79375v0.26458h0.26458v0.26458h0.26458v-1.0583h0.52917v-1.3229h-1.0583zm2.6458-1.3229v0.52917h0.79375v-0.52917zm-0.26458 1.5875v0.52917h0.26458v-0.52917zm0.26458 0.52917v0.52917h0.52917v-0.26458h-0.26458v-0.26458zm-1.3229 5.8208v0.79375h2.3812v-0.79375z" fill="#6ec310"/>
-                                        <path d="m5.0271 1.0583v1.0583h0.79375v-0.26458h0.52917v0.26458h0.79375v-0.52917h0.26458v-0.52917h-0.26458zm-2.6458 1.0583v1.3229h1.3229v-1.3229zm-1.0583 2.6458v1.0583h1.0583v-1.0583zm1.0583 4.7625v0.26458h0.79375v0.52917h0.79375v0.26458h0.26458v0.26459h0.79375v-0.26459h-0.52917v-0.26458h-0.26458v-0.52917h-0.52917v-0.26458zm2.6458 1.3229v1.0583h3.9688v-1.0583z" fill="#57b10f"/>
-                                        <path d="m10.319 2.1167v0.79375h0.79375v0.52917h0.79375v1.0583h0.26458v-2.3812zm2.6458 2.6458v2.3812h-0.79375v1.3229h0.52917v1.0583h0.79375v-4.7625zm-7.9375 7.1437v0.79375h1.0583v0.52917h3.7042v-1.3229z" fill="#448001"/>
-                                        <path d="m13.494 9.525v0.52917h0.26458v0.52916h0.52917v-0.26458h0.26458v-0.26458h0.26458v-0.52917z" fill="#132e2f"/>
-                                        <path d="m12.171 9.525v2.3813h1.3229v-1.8521h-0.26458v-0.26459h-0.26458v-0.26458zm0 2.3813h-2.3812v1.3229h2.3812zm-2.3812 1.3229h-0.79375v0.26458h-0.26458v0.79375h-0.26458v0.26458h1.3229v-1.0583zm-7.4083-1.3229v1.3229h2.6458v-1.3229zm2.6458 1.3229v1.3229h2.6458v-0.52916h-0.52917v-0.52917h-0.26458v-0.26458z" fill="#014e96"/>
-                                        <path d="m7.4083 1.0583v0.52917h-0.26458v0.52917h2.6458v-1.0583zm2.3812 1.0583v2.6458h1.3229v4.7625h1.0583v-5.0271h-0.26458v-1.0583h-0.79375v-0.52917h-0.79375v-0.79375zm1.3229 7.4083h-1.3229v1.3229h1.3229zm-1.3229 1.3229h-0.79375v1.0583h0.79375zm-3.9688-8.9958v0.26458h0.52917v-0.26458zm-4.4979 7.4083v0.26458h1.0583v-0.26458zm2.3812 0.26458v0.26458h0.52917v0.52917h0.26458v0.26458h0.52917v-1.0583zm-1.3229 0.26458v1.0583h1.3229v1.0583h1.3229v-1.0583h-0.79375v-0.26459h-0.26458v-0.26458h-0.79375v-0.52917z" fill="#278eed"/>
-                                        <path d="m12.171 4.7625v2.3812h0.79375v-2.3812zm0 3.7042v1.0583h0.52917v-1.0583zm0 1.0583h-1.0583v1.3229h-1.3229v1.0583h2.3812zm-9.7896 1.3229v1.0583h1.3229v-1.0583zm2.6458 1.8521v0.52917h1.0583v-0.52917z" fill="#0d74d3"/>
-                                        <path d="m7.4083 2.1167v3.7042h-1.3229v1.3229h-1.8521v1.0583h-0.26458v-0.26458h-0.26458v-0.26458h-0.79375v0.26458h-0.26458v0.79375h0.52917v0.26458h0.52917v0.52917h1.3229v-1.0583h2.3812v-1.3229h1.3229v-1.3229h1.0583v2.6458h1.3229v-3.7042h-2.3812v-2.6458zm2.3812 6.35h-1.0583v1.0583h1.0583zm-1.0583 1.0583h-1.3229v1.3229h1.3229z" fill="#3da2ff"/>
-                                        <path d="m8.7312 2.1167v2.6458h1.0583v-2.6458zm0 3.7042v1.3229h-1.3229v1.3229h-2.3812v1.5875h2.3812v-0.52917h1.3229v-1.0583h1.0583v-2.6458z" fill="#4ba8ff"/>
-                                        <rect x="8.7313" y="9.525" width="1.0583" height="1.3229" fill="#2e95f4"/>
-                                        <rect x="9.7896" y="8.4667" width="1.3229" height="1.0583" fill="#2e95f4"/>
-                                        <rect x="3.7042" y="3.4396" width="2.3812" height="2.3812" fill="#ffffff"/>
-                                        <path d="m5.8208 2.1167v0.52917h-0.26458v0.26458h0.26458v0.52917h0.26458v0.26458h0.26458v0.52917h0.26458v0.26458h0.26458v0.26458h-0.52917v-0.52917h-0.26458v1.5875h1.3229v-3.7042h-0.26458v0.52917h-0.79375v-0.52917zm0.26458 3.7042h-1.3229v1.3229h1.3229z" fill="#57aaff"/>
-                                        <rect x="11.112" y="4.7625" width="1.0583" height="1.0583" fill="#3198f7"/>
-                                    </g>
-                                </g>
-                            </svg>
-                        </a>
-                        <a href="https://gitlab.com/QuanMCPC" aria-label="GitLab link">
-                            <svg width="64" height="64" version="1.1" viewBox="0 0 360 360" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-                                <style type="text/css">
-                                    .st0{fill:#FAFAFA;} .st1{fill:#F0F0F0;} .st2{fill:#FFFFFF;}
-                                    .st3{fill:#E24329;} .st4{fill:#FCA326;} .st5{fill:#FC6D26;}
-                                    .st6{fill:#8C929D;} .st7{fill:#2E2E2E;}
-                                    .st8{fill:none;stroke:#FCA326;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-                                    .st9{fill:none;stroke:#FC6D26;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-                                    .st10{fill:none;stroke:#E24329;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-                                    .st11{fill:none;stroke:#F0F0F0;stroke-miterlimit:10;}
-                                    .st12{fill:#231F20;}
-                                    .st13{fill:none;stroke:#231F20;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-                                    .st14{display:none;}
-                                    .st15{display:inline;opacity:0.1;fill:#E828E3;}
-                                    .st16{display:inline;}
-                                    .st17{opacity:0.1;fill:#E828E3;}
-                                    .st18{font-family:'SourceSansPro-Semibold';}
-                                    .st19{font-size:24px;}
-                                    .st20{display:inline;fill:#DB3B21;} .st21{display:inline;fill:#FC6D26;}
-                                    .st22{display:inline;fill:#2E2E2E;} .st23{display:inline;fill:#6E49CB;}
-                                    .st24{display:inline;fill:#380D75;} .st25{display:inline;fill:#FCA121;}
-                                    .st26{opacity:0.6;fill:none;stroke:#231F20;stroke-width:2;stroke-miterlimit:10;stroke-dasharray:12,6;}
-                                    .st27{fill:none;stroke:#444444;stroke-width:1.5339;stroke-miterlimit:10;}
-                                </style>
-                                <g id="logo_art" transform="translate(-113.04 -99.5)">
-                                    <path id="path50_2_" class="st3" d="m293.03 434.98 62.199-191.32h-124.31z"/>
-                                    <path id="path66_6_" class="st4" d="m143.8 243.66-18.941 58.126c-1.714 5.278 0.137 11.104 4.661 14.394l163.51 118.8z"/>
-                                    <path id="path74_2_" class="st3" d="m143.8 243.66h87.12l-37.494-115.22c-1.919-5.895-10.282-5.895-12.27 0z"/>
-                                    <path id="path82_6_" class="st4" d="m442.35 243.66 18.873 58.126c1.714 5.278-0.137 11.104-4.661 14.394l-163.53 118.8z"/>
-                                    <path id="path86_2_" class="st3" d="m442.35 243.66h-87.12l37.425-115.22c1.919-5.895 10.282-5.895 12.27 0z"/>
-                                    <polygon class="st5" points="355.22 243.66 442.35 243.66 293.03 434.98"/>
-                                    <polygon class="st5" points="143.8 243.66 230.92 243.66 293.03 434.98"/>
-                                </g>
-                                <g id="spacing_guides" class="st14">
-                                    <path id="path40_18_" class="st15" d="m0 0.5v124h586v-124z"/>
-                                    <path id="path40_16_" class="st15" d="m0 435.5v124h586v-124z"/>
-                                    <path id="path40_15_" class="st15" d="m462.2 560h124v-560h-124z"/>
-                                    <g class="st16">
-                                        <text class="st18 st19" transform="translate(511.29 283.33)">1x</text>
-                                        <text class="st18 st19" transform="translate(281.29 501)">1x</text>
-                                        <text class="st18 st19" transform="translate(281.29 65.998)">1x</text>
-                                    </g>
-                                    <path id="path40_5_" class="st15" d="m0 560h124v-560h-124z"/>
-                                    <g class="st16">
-                                        <text class="st18 st19" transform="translate(51.288 283.33)">1x</text>
-                                    </g>
-                                </g>
-                            </svg>
-                        </a>
-                        <a target="_blank" class="openInProjectViewer" href="/other_project/discord_tag.html" aria-label="Discord Server link">
-                            <svg name="external_link" class="social_link" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 245 240" width="64" height="64" alt="Discord icon">
-                                <style>
-                                    .st0{fill:#FFFFFF;}
-                                </style>
-                                <path class="st0" d="M104.4 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1.1-6.1-4.5-11.1-10.2-11.1zM140.9 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.5-11.1-10.2-11.1z"/>
-                                <path class="st0" d="M189.5 20h-134C44.2 20 35 29.2 35 40.6v135.2c0 11.4 9.2 20.6 20.5 20.6h113.4l-5.3-18.5 12.8 11.9 12.1 11.2 21.5 19V40.6c0-11.4-9.2-20.6-20.5-20.6zm-38.6 130.6s-3.6-4.3-6.6-8.1c13.1-3.7 18.1-11.9 18.1-11.9-4.1 2.7-8 4.6-11.5 5.9-5 2.1-9.8 3.5-14.5 4.3-9.6 1.8-18.4 1.3-25.9-.1-5.7-1.1-10.6-2.7-14.7-4.3-2.3-.9-4.8-2-7.3-3.4-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.3-1.8-1-2.8-1.7-2.8-1.7s4.8 8 17.5 11.8c-3 3.8-6.7 8.3-6.7 8.3-22.1-.7-30.5-15.2-30.5-15.2 0-32.2 14.4-58.3 14.4-58.3 14.4-10.8 28.1-10.5 28.1-10.5l1 1.2c-18 5.2-26.3 13.1-26.3 13.1s2.2-1.2 5.9-2.9c10.7-4.7 19.2-6 22.7-6.3.6-.1 1.1-.2 1.7-.2 6.1-.8 13-1 20.2-.2 9.5 1.1 19.7 3.9 30.1 9.6 0 0-7.9-7.5-24.9-12.7l1.4-1.6s13.7-.3 28.1 10.5c0 0 14.4 26.1 14.4 58.3 0 0-8.5 14.5-30.6 15.2z"/>
-                            </svg>
-                        </a>
-                    </div>
+            <div id="projectViewer">
+                <div id="pv_titlebar">
+                    <button id="pv_close">Close</button>
+                    <button id="pv_oint">Open In New Tab</button>
                 </div>
-                <h3 class="showoff">Discord Server</h3>
-                <div id="discord_iframe_container">
-                    <div id="discord_iframe_desc_1">
-                        <h2><u>Our old SMP server</u></h2>
-                        <p>This was where I and few of my friend use to talk and play on our Minecraft survival server.</p>
-                        <p>The server is almost dead. If you are one of the old member of the server, please come back.</p>
-                        <a href="https://discord.gg/PDXK8bruDc">[Link to the server]</a>
-                    </div>
-                    <div id="discord_iframe_desc_2">
-                        <h2><u>QuanMCPC's Website Discord Server (Yeah, so original name)</u></h2>
-                        <p>The official Discord Server of my website, where you can contribute, talk or just jokes around.</p>
-                        <p>So come and join us!</p>
-                        <a href="https://discord.gg/Ktwc783ZXp">[Link to the server]</a>
-                    </div>
-                    <div id="discord_iframe_consentDialog">
-                        <h2>Consent Dialog</h2>
-                        <p>This website uses Discord's Widget and will require loading data from Discord's servers which might allow tracking.</p>
-                        <p>To continue, please click the "Allow" button below, or ignore to prevent the Discord's Widget from loading.</p>
-                        <button id="discord_iframe_consentDialog_button">Allow</button>
-                    </div>
-                    <div id="discord_iframe_1">
-                        <iframe class="discord_real_iframe" src="about:blank" data-src="https://discord.com/widget?id=802157607132987392&theme=dark" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-same-origin allow-scripts"></iframe>
-                    </div>
-                    <div id="discord_iframe_2">
-                        <iframe class="discord_real_iframe" src="about:blank" data-src="https://discord.com/widget?id=833166036286046229&theme=dark" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-same-origin allow-scripts"></iframe>
-                    </div>
-                </div>
-                <h3 class="showoff">Self-rating on programming languages that I knew</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Rating</th>
-                            <th>Languages</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Excellent</td>
-                            <td>
-                                <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&amp;logo=html5&amp;logoColor=white" alt="HTML"><img src="https://img.shields.io/badge/JS-EFD81D?style=for-the-badge&amp;logo=javascript&amp;logoColor=000000" alt="JS">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Good</td>
-                            <td>
-                                <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&amp;logo=python&amp;logoColor=white" alt="Python"><img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&amp;logo=css3&amp;logoColor=white" alt="CSS"><img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&amp;logo=c+sharp&amp;logoColor=white" alt="C#">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Ok/Medium</td>
-                            <td>
-                                <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&amp;logo=java&amp;logoColor=white" alt="Java"><img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&amp;logo=php&amp;logoColor=white" alt="PHP"><img src="https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&amp;logo=powershell&amp;logoColor=white" alt="PowerShell">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Poor</td>
-                            <td>
-                                <img src="https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&amp;logo=c&amp;logoColor=white" alt="C"><img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Uhh what&#39;s this</td>
-                            <td>
-                                <img src="https://img.shields.io/badge/Assembly-000000?style=for-the-badge" alt="Assembly">
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h3 class="showoff">Project</h3>
-                <!-- Other Project START -->
-                <input type="checkbox" name="cb1" id="cb1" class="collapsible_cb">
-                <label class="collapsible" for="cb1">
-                    <span>Miscellaneous Project</span>
-                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                </label>
-                <div class="collapsiblecontent">
-                    <input type="checkbox" name="cb1-5" id="cb1-5" class="collapsible_cb">
-                    <label class="collapsible" for="cb1-5">
-                        <span>Guess The Programming Language (Written in Python, text-based game)</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Link: <a href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/gtpl.py" target="_blank" rel="noreferrer noopener">[Click here]</a></span>
-                        <span>Download: <a href="/other_project/gtpl.py" download="gtpl.py" target="_blank" rel="noreferrer noopener">[Click here]</a></span>
-                        <span>Description: Guess The Programming Language written in Python, it's a text-based game and it's my first ever Python game I've written.</span>
-                    </div>
-                    <input type="checkbox" name="cb1-4" id="cb1-4" class="collapsible_cb">
-                    <label class="collapsible" for="cb1-4">
-                        <span>Windows Forms App 2.0 Unofficial</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Link: <a href="https://github.com/QuanMCPC/Windows-Forms-App-2.0-Unofficial" target="_blank" rel="noreferrer noopener">[Click here]</a></span>
-                        <span>Description: Just a bit more modern look of the Windows Forms App</span>
-                    </div>
-                    <input type="checkbox" name="cb1-3" id="cb1-3" class="collapsible_cb">
-                    <label class="collapsible" for="cb1-3">
-                        <span>Experiment ID: [redacted]</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Link: <a href="https://drive.google.com/file/d/1yGh0FskgCf5--X0SSPb86pXzQ4Nv1JIj/view" target="_blank" rel="noreferrer noopener">[<del>Don't</del> Click here]</a></span>
-                        <span>Description: This #$!@ filE conTa1nS @$%!!$ tHaT wi1l al10w yoU t0 *&@*$![redacted]</span>
-                    </div>
-                    <input type="checkbox" name="cb1-2" id="cb1-2" class="collapsible_cb">
-                    <label class="collapsible" for="cb1-2">
-                        <span>Edit (Edit Document In Terminal)</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/Edit">[Click here]</a></span>
-                        <span>Description: Started as a small program in <a target="_blank" class="openInProjectViewer" href="/other_project/console.html">console</a>, it's now a native program that in executable in Windows and Linux</span>
-                    </div>
-                    <input type="checkbox" name="cb1-1" id="cb1-1" class="collapsible_cb">
-                    <label class="collapsible" for="cb1-1">
-                        <span>Guess the number Game</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/Guess-The-Number-Game/">[Click here]</a></span>
-                        <span>Description: My second game written in C# and based on the <a href="#" data-address="/other_project/numberguessgame.html" onclick="oOPIIF(this.getAttribute('data-address'))">NumberGuessingGame</a></span>
-                    </div>
-                    <input type="checkbox" name="cb1-0" id="cb1-0" class="collapsible_cb">
-                    <label class="collapsible" for="cb1-0">
-                        <span>MyFirstGame</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Source code: Lost in time</span>
-                        <span>Link: </span>
-                        <span>&nbsp;-&nbsp;Version 1.0 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1hkj_x7mDC4jV9oz3j8nxyWrB3tjDA0Py&export=download">[Click here]</a></span>
-                        <span>&nbsp;-&nbsp;Version 1.0 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=10mPjRaw9HUV7aWz01x_h6E195QtAxDim&export=download">[Click here]</a></span>
-                        <span>&nbsp;-&nbsp;Version 1.1 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1c-uA6DiDiSSDBOLWh-YRN1PoG5Bg-HYt&export=download">[Click here]</a></span>
-                        <span>&nbsp;-&nbsp;Version 1.1 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1cXx4IZLxzOAR1YvjwCQQV4RJVRQv4Qj2&export=download">[Click here]</a></span>
-                        <span>&nbsp;-&nbsp;Version 1.2 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1HEGj9377joBw73VL5dheAdSlI2dYuXXf&export=download">[Click here]</a></span>
-                        <span>&nbsp;-&nbsp;Version 1.2 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1WvzufDhLfLhSmeYboybzHKcE3K6mi-s2&export=download">[Click here]</a></span>
-                        <span>&nbsp;-&nbsp;Version 1.3 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1EOIoMX8dJ97tyZ22XAXLSHNRZ54YtmXs&export=download">[Click here]</a></span>
-                        <span>&nbsp;-&nbsp;Version 1.3 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1tDGNNfBw-6QgA8OC_Fc_WQBGEGuvRQvs&export=download">[Click here]</a></span>
-                        <span>&nbsp;-&nbsp;Version 1.4 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1i2s_QccxxsXi-tjuZjFDspkzM1rsiinN&export=download">[Click here]</a></span>
-                        <span>&nbsp;-&nbsp;Version 1.4 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1rBOSjmIM5o-HQfKVLndYbTHtx01aI1CC&export=download">[Click here]</a></span>
-                        <span>&nbsp;-&nbsp;Version 1.5 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1tQ6_wyipfWmBXuD1Dx3OW3Nmgs0abEiC&export=download">[Click here]</a></span>
-                        <span>&nbsp;-&nbsp;Version 1.5 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1q5bxU_c1Nk6j3Gk6Iz7PyDNxsvPuYkqQ&export=download">[Click here]</a></span>
-                        <span>&nbsp;-&nbsp;Version 1.6 (Linux): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=14PJZptSA0MxZ9cCXWWJhttmlSJBapBfj&export=download">[Click here]</a></span>
-                        <span>&nbsp;-&nbsp;Version 1.6 (Windows): <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1s8TcS9_kn_OOqF37PmWUfu4LMhl9X0o7&export=download">[Click here]</a></span>
-                        <span>Link to all version inside of an ISO file: <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1sj2Uin_mRP0ipujgeWyR7B81frscRykn&export=download">[Click here]</a></span>
-                        <span>Description: One of my very first game and also my last game written in Unity</span>
-                    </div>
-                </div>
-                <!-- Other Project END-->
-                <!-- Minecraft Project START -->
-                <input type="checkbox" name="cb2" id="cb2" class="collapsible_cb">
-                <label class="collapsible" for="cb2">
-                    <span>Minecraft Project</span>
-                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                </label>
-                <div class="collapsiblecontent">
-                    <input type="checkbox" name="cb2-5" id="cb2-5" class="collapsible_cb">
-                    <label class="collapsible" for="cb2-5">
-                        <span>8-bit Decoder</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Link: <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/8-bit-decoder-in-minecraft/">[Click here]</a></span>
-                        <span>Description: Convert binary to character from A to Z, 0 to 9 in ASCII</span>
-                    </div>
-                    <input type="checkbox" name="cb2-4" id="cb2-4" class="collapsible_cb">
-                    <label class="collapsible" for="cb2-4">
-                        <span>Compact Calculator (1.15.2)</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Link: <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/compact-calculator-1-15-2/">[Click here]</a></span>
-                        <span>Description: A fully working calculator that can do basic calculation in Minecraft using command block</span>
-                    </div>
-                    <input type="checkbox" name="cb2-3" id="cb2-3" class="collapsible_cb">
-                    <label class="collapsible" for="cb2-3">
-                        <span>The Longest Useless Machine in Minecraft (version 1.0)</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Link: <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-0/">[Click here]</a></span>
-                        <span>Description: My next big project in Minecraft that serve no purpose</span>
-                    </div>
-                    <input type="checkbox" name="cb2-2" id="cb2-2" class="collapsible_cb">
-                    <label class="collapsible" for="cb2-2">
-                        <span>The Longest Useless Machine in Minecraft (version 1.<del>1</del>2)</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Link: <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-1/">[Click here]</a></span>
-                        <span>Description: An upgraded version of the 1.0 version</span>
-                    </div>
-                    <input type="checkbox" name="cb2-1" id="cb2-1" class="collapsible_cb">
-                    <label class="collapsible" for="cb2-1">
-                        <span>Printer 1.16</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Link: <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/printer-1-16/">[Click here]</a></span>
-                        <span>Description: A "sort of working" printer that is inspired by Mumbo Jumbo.</span>
-                    </div>
-                    <input type="checkbox" name="cb2-0" id="cb2-0" class="collapsible_cb">
-                    <label class="collapsible" for="cb2-0">
-                        <span>Security Vault 2.0</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Link: <a target="_blank" rel="noreferrer noopener" href="https://www.planetminecraft.com/project/security-vault-2-0/">[Click here]</a></span>
-                        <span>Description: A very large vault to store and hide valuables</span>
-                    </div>
-                </div>
-                <!-- Minecraft Project STOP -->
-                <!-- JS-only Project START -->
-                <input type="checkbox" name="cb3" id="cb3" class="collapsible_cb">
-                <label class="collapsible" for="cb3">
-                    <span>JavaScript Project</span>
-                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                </label>
-                <div class="collapsiblecontent">
-                    <input type="checkbox" name="cb3-2" id="cb3-2" class="collapsible_cb">
-                    <label class="collapsible" for="cb3-2">
-                        <span>Edit for other website</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/JavaScript-Project/blob/master/Edit_For_Other_Website.js">[Click here]</a></span>
-                        <span>Description: Allow other people to use edit in their website</span>
-                    </div>
-                    <input type="checkbox" name="cb3-1" id="cb3-1" class="collapsible_cb">
-                    <label class="collapsible" for="cb3-1">
-                        <span>Random picture generator</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/JavaScript-Project/blob/master/random-picture.js">[Click here]</a></span>
-                        <span>Description: Create picture with "randomness"</span>
-                    </div>
-                    <input type="checkbox" name="cb3-0" id="cb3-0" class="collapsible_cb">
-                    <label class="collapsible" for="cb3-0">
-                        <span>UnderJScript</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/JavaScript-Project/blob/master/underjscript.js">[Click here]</a></span>
-                        <span>Description: A small JavaScript library that add some function that I can get</span>
-                    </div>
-                </div>
-                <!-- JS-only Project END -->
-                <!-- HTML-related Project START -->
-                <input type="checkbox" name="cb4" id="cb4" class="collapsible_cb">
-                <label class="collapsible" for="cb4">
-                    <span>Browser Project</span>
-                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                </label>
-                <div class="collapsiblecontent">
-                    <input type="checkbox" name="cb4-10" id="cb4-10" class="collapsible_cb">
-                    <label class="collapsible" for="cb4-10">
-                        <span>It has No name But it's Online SHell (INBOSH)</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/tree/master/other_project/INBOSH">[Click here]</a></span>
-                        <span>Link: <a target="_blank" class="openInProjectViewer" href="/other_project/INBOSH/INBOSH.html">[Click here]</a></span>
-                        <span>Description: This is my third attempt at creating a terminal on the web (now with canvas, and a changelog).</span>
-                    </div>
-                    <input type="checkbox" name="cb4-9" id="cb4-9" class="collapsible_cb">
-                    <label class="collapsible" for="cb4-9">
-                        <span>Panorama Demo</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/tree/master/other_project/panorama">[Click here]</a></span>
-                        <span>Link: <a target="_blank" class="openInProjectViewer" href="/other_project/panorama/index.html">[Click here]</a></span>
-                        <span>Description: If I ever set a background (and I might in the future) as a panorama, this would be it (And this doesn't use any external library!).</span>
-                    </div>
-                    <input type="checkbox" name="cb4-8" id="cb4-8" class="collapsible_cb">
-                    <label class="collapsible" for="cb4-8">
-                        <span>SOOPE (Simple and Open-Source Online Picture Editor)</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/soope.html">[Click here]</a></span>
-                        <span>Link: <a href="/other_project/soope.html">[Click here]</a></span>
-                        <span>Description: A simple and open source picture editor for edit picture on browser and more.</span>
-                    </div>
-                    <input type="checkbox" name="cb4-7" id="cb4-7" class="collapsible_cb">
-                    <label class="collapsible" for="cb4-7">
-                        <span>Console</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/console.html">[Click here]</a></span>
-                        <span>Link: <a target="_blank" class="openInProjectViewer" href="/other_project/console.html">[Click here]</a></span>
-                        <span>Description: My very first large HTML project which is my first CLI OS in HTML.</span>
-                    </div>
-                    <input type="checkbox" name="cb4-6" id="cb4-6" class="collapsible_cb">
-                    <label class="collapsible" for="cb4-6">
-                        <span>Vigenere Cipher</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/Vigenere_Cipher.html">[Click here]</a></span>
-                        <span>Link: <a target="_blank" class="openInProjectViewer" href="/other_project/Vigenere_Cipher.html">[Click here]</a></span>
-                        <span>Description: It's an Vigenere cipther but very limited<small title="Input only accept normal character, no number, space, etc.">(?)</small></span>
-                    </div>
-                    <input type="checkbox" name="cb4-5" id="cb4-5" class="collapsible_cb">
-                    <label class="collapsible" for="cb4-5">
-                        <span>Basic message encrptor and decrptor</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/message_en_de.html">[Click here]</a></span>
-                        <span>Link: <a target="_blank" class="openInProjectViewer" href="/other_project/message_en_de.html">[Click here]</a></span>
-                        <span>Description: A very, Very basic message encryptor and decrytor that just replace each character to the pre-set 4 random character</span>
-                    </div>
-                    <input type="checkbox" name="cb4-4" id="cb4-4" class="collapsible_cb">
-                    <label class="collapsible" for="cb4-4">
-                        <span>Guess the number game</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/numberguessgame.html">[Click here]</a></span>
-                        <span>Link: <a target="_blank" class="openInProjectViewer" href="/other_project/numberguessgame.html">[Click here]</a></span>
-                        <span>Description: A game where you have to guess the correct number, that's it.</span>
-                    </div>
-                    <input type="checkbox" name="cb4-3" id="cb4-3" class="collapsible_cb">
-                    <label class="collapsible" for="cb4-3">
-                        <span>Text editor (Lite and Full version)</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/texteditor_basic.html">[Click here for lite version]</a> <a rel="noopener noreferrer" target="_blank" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/texteditor_html.html">[Click here for full version]</a></span>
-                        <span>Link: <a target="_blank" class="openInProjectViewer" href="/other_project/texteditor_basic.html">[Click here for lite version]</a> <a target="_blank" class="openInProjectViewer" href="/other_project/texteditor_html.html">[Click here for full version]</a></span>
-                        <span>Description: A text editor that work in your browser.</span>
-                    </div>
-                    <input type="checkbox" name="cb4-2" id="cb4-2" class="collapsible_cb">
-                    <label class="collapsible" for="cb4-2">
-                        <span>Webdriver Torso's video stream</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/webdriver_torso.html">[Click here]</a></span>
-                        <span>Link: <a target="_blank" class="openInProjectViewer" href="/other_project/webdriver_torso.html">[Click here]</a></span>
-                        <span>Description: Show to user a stream of image that have the same style as a Webdriver Torso's video.</span>
-                    </div>
-                    <input type="checkbox" name="cb4-1" id="cb4-1" class="collapsible_cb">
-                    <label class="collapsible" for="cb4-1">
-                        <span>Simple Captcha</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/captcha.html">[Click here]</a></span>
-                        <span>Link: <a target="_blank" class="openInProjectViewer" href="/other_project/captcha.html">[Click here]</a></span>
-                        <span>Description: A simple captcha test.</span>
-                    </div>
-                    <input type="checkbox" name="cb4-0" id="cb4-0" class="collapsible_cb">
-                    <label class="collapsible" for="cb4-0">
-                        <span>A copy of my website that will work on any browser (with almost any version) (Created using Windows XP and lots of effort)</span>
-                        <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                    </label>
-                    <div class="collapsiblecontent">
-                        <span>Source code: <a target="_blank" rel="noreferrer noopener" href="https://github.com/QuanMCPC/QuanMCPC.github.io/tree/master/other_project/compatible">[Click here]</a></span>
-                        <span>Link: <a target="_blank" class="openInProjectViewer" href="/other_project/compatible/index.html">[Click here]</a></span>
-                        <span>Description: This is a version of this website that will work on any browser (with almost any version). Used to be hosted on a separate server, now it has been moved to this website as a project.</span>
-                    </div>
-                </div>
-                <!-- HTML-related Project END -->
-                <!-- Websites that I owned START -->
-                <h3 class="showoff">Websites that I owned</h3>
-                <input type="checkbox" name="cb5-1" id="cb5-1" class="collapsible_cb">
-                <label class="collapsible" for="cb5-1">
-                    <span>My Carrd Website</span>
-                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                </label>
-                <div class="collapsiblecontent">
-                    <span>Link: <a rel="noopener noreferrer" target="_blank" href="https://quanmcpc.carrd.co/">[Click here]</a></span>
-                    <span>Source code: Not Avaliable</span>
-                    <span>Description: First attempt at drag and drop website.</span>
-                </div>
-                <input type="checkbox" name="cb5-2" id="cb5-2" class="collapsible_cb">
-                <label class="collapsible" for="cb5-2">
-                    <span>Where I post blog</span>
-                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                </label>
-                <div class="collapsiblecontent">
-                    <span>Link: <a rel="noopener noreferrer" target="_blank" href="https://quanmcpc-blogsite.github.io/">[Click here]</a></span>
-                    <span>Source code: <a rel="noopener noreferrer" target="_blank" href="https://github.com/quanmcpc-blogsite/quanmcpc-blogsite.github.io">[Click here]</a></span>
-                    <span>Description: Where I'll post blog about me and maybe the website.</span>
-                </div>
-                <input type="checkbox" name="cb5-3" id="cb5-3" class="collapsible_cb">
-                <label class="collapsible" for="cb5-3">
-                    <span>First version of my website (50% basic HTML, 50% nostalgia)</span>
-                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                </label>
-                <div class="collapsiblecontent">
-                    <span>Link: <a rel="noopener noreferrer" target="_blank" href="https://quan215.github.io/">[Click here]</a></span>
-                    <span>Source code: <a rel="noopener noreferrer" target="_blank" href="https://github.com/Quan215/Quan215.github.io">[Click here]</a></span>
-                    <span>Description: This is the first version of my website, even with the original domain. Please note that the website is really basic, like really basic.</span>
-                </div>
-                <!-- Websites that I owned EMD -->
-                <footer>
-                    <p>Copyright (C) 2021 Quan_MCPC. Created on: 07/16/20, this website will live <b>forever</b>.</p>
-                </footer>
+                <iframe title="A place to display my project" id="pv_iframe" scrolling="yes" src="about:blank" width="100%" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-modals allow-popups" style="overflow-y: scroll;"></iframe>
             </div>
+            <noscript>
+                <div id="noscript_wrapper">
+                    <p>To enjoy the full experience of this website, please enable JavaScript.</p>
+                </div>
+            </noscript>
+            <noscript>
+                <style>
+                    section#gift div.textwithtag > div div#claim_gift_div {
+                        display: none;
+                    }
+                </style>
+            </noscript>
+            <section id="home" class="st-leftright">
+                <div>
+                    <div class="left textwithtag">
+                        <span class="otag">intro</span>
+                        <div>
+                            <h1>Hello! I'm Quan. I'm a self-taught <span class="tc-red">programmer</span>, and a professional <span class="tc-green">dumbass</span>.</h1>
+                            <h2>Scroll down to know how a dumbass <span class="tc-blue">eat, code, sleep and repeat</span>.</h2>
+                        </div>
+                        <span class="ctag">intro</span>
+                    </div>
+                    <div class="right">
+                        <figure>
+                            <svg width="512" height="512" version="1.1" viewBox="0 0 135.47 135.47" xmlns="http://www.w3.org/2000/svg" aria-label="The Building Block Of The Internet Image">
+                                <g stroke-width="1.0451">
+                                    <path d="m67.733 0-33.867 16.933v42.333l33.867 16.933 33.867-16.933v-42.333z" fill="#f7df1e"/>
+                                    <path d="m33.867 59.267-33.867 16.933v42.333l33.867 16.933 33.867-16.933v-42.333z" fill="#e34f26"/>
+                                    <path d="m101.6 59.267-33.867 16.933v42.333l33.867 16.933 33.867-16.933v-42.333z" fill="#1572b6"/>
+                                </g>
+                                <path d="m38.947 100.13 23.707-11.853-2.1562 25.42-9.7231 7.6127-9.6678 2.0817zm7.9372 7.0381-0.26189-2.9374 11.355-5.6742 0.25962-3.0898-14.874 7.4336 0.78797 8.6484 10.302-5.1511-0.368 4.0516-3.2851 2.5502-3.3359 0.75353-0.21222-2.2758-2.9453 1.4726 0.37252 4.5223 6.1208-1.4235 6.0723-4.6651 0.83989-9.6283-10.828 5.4141z" fill="#fff" stroke-width="1.1289"/>
+                                <path d="m72.813 88.275 23.707 11.853-2.1562 23.264-9.7231-2.1105-9.6689-7.5867zm19.293 14.628-14.879-7.4429 0.24048 3.0802 11.43 5.7173-0.28787 2.9221-7.4958-3.7479 0.27095 3.0401 6.9788 3.4894-0.41319 3.7705-3.2851-0.7349-3.337-2.5829-0.21223-2.4881-2.9464-1.4732 0.32738 4.5156 6.1694 5.0072 6.0655 1.3056 1.3738-14.377z" fill="#fff" stroke-width="1.1289"/>
+                                <path d="m71.12 39.793v27.093l27.093-13.547v-27.093zm0.50715 0.2561 26.079-13.04v24.514l-3e-3 0.0014v1.5569l-26.074 13.037zm20.024 1.7802c-2.2381 1.119-3.6712 3.2811-3.6712 5.1805 0 2.0605 1.2006 2.4353 3.0098 2.3079l0.62565-0.0399c1.143-0.06528 1.8246-0.09994 1.8246 0.7699 0 0.72439-0.66336 1.5794-1.7006 2.098-1.2362 0.61809-1.9346 0.31549-2.4723-0.30122l-2.0368 2.2132c0.73521 1.1011 2.24 1.4701 4.567 0.30662 2.3806-1.1903 4.1536-3.3254 4.1536-5.6055 0-2.1147-1.2028-2.4559-3.3322-2.3138l-0.62841 0.04403c-1.0753 0.0671-1.5407-0.0083-1.5407-0.76703 0-0.61459 0.46786-1.3173 1.2017-1.6842 0.71969-0.35985 1.182-0.28474 1.6124 0.27722l1.9486-2.2387c-0.82411-1.0553-1.9678-1.0437-3.561-0.24704zm-8.2823 4.2832v8.6115c0 1.2663-0.5196 1.8501-1.3423 2.2614-0.86082 0.43041-1.2187 0.0144-1.6124-0.49445l-2.0396 2.2675c0.59128 0.96777 1.7528 1.4353 3.7594 0.43192 2.2212-1.1106 3.7402-3.0633 3.7402-5.6856v-8.6449z" stroke-width="1.4186"/>
+                            </svg>
+                            <figcaption>The Building Block Of The Internet</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+            <section id="bio" class="st-rightleft">
+                <div>
+                    <div class="left textwithtag">
+                        <span class="otag">about censor-level="40%"</span>
+                        <div>
+                            <h1>About Me</h1>
+                            <hr>
+                            <p>I'm a web developer and programmer that has been writing code for 3 years now. My current location is Vietnam, my office is in my living room, and the computer inside the office is way too outdated. I consider "Free and Open-Source" and "Respect Privacy" being my philosophy.</p>
+                            <p>When I create a webpage, I always make sure that the website would work even without JavaScript disabled. And that's why I've tried to use as little JS as possible to make my website as fast as possible and provide basic functionality to the user. Also because JavaScript is evil.</p>
+                        </div>
+                        <span class="ctag">about</span>
+                    </div>
+                    <div class="right">
+                        <div>
+                            <div id="title">
+                                <p>my_info.json</p>
+                            </div>
+                            <code>
+                                <p>{</p>
+                                <p>    <span class="red">"name"</span>: <span class="green">"Quan"</span>,</p>
+                                <p>    <span class="red">"current_location"</span>: <span class="green">"Vietnam"</span>,</p>
+                                <p>    <span class="red">"age"</span>: <span class="green">"[REDACTED]"</span>,</p>
+                                <p>    <span class="red">"philosophy"</span>: [</p>
+                                <p>        <span class="green">"Free and Open-Source"</span>,</p>
+                                <p>        <span class="green">"Respect Privacy"</span>,</p>
+                                <p>    ],</p>
+                                <p>    <span class="red">"is_available_for_work"</span>: <span class="green">false</span>,</p>
+                                <p>}</p>
+                            </code>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="programming" class="st-leftright">
+                <div>
+                    <div class="left textwithtag">
+                        <span class="otag">programming</span>
+                        <div>
+                            <h1>Programming</h1>
+                            <hr>
+                            <p>As someone who has been programming for three years, I've tried and used a lot of different languages, all with various purposes like making games, software, website, etc. So, to show how good I'm at those languages, I've created a table that shows exactly that.</p>
+                        </div>
+                        <span class="ctag">programming</span>
+                    </div>
+                    <div class="right">
+                        <table class="left">
+                            <thead>
+                                <tr>
+                                    <th>Rating</th>
+                                    <th>Languages</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Excellent</td>
+                                    <td>
+                                        <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&amp;logo=html5&amp;logoColor=white" alt="HTML"><img src="https://img.shields.io/badge/JS-EFD81D?style=for-the-badge&amp;logo=javascript&amp;logoColor=000000" alt="JS">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Good</td>
+                                    <td>
+                                        <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&amp;logo=python&amp;logoColor=white" alt="Python"><img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&amp;logo=css3&amp;logoColor=white" alt="CSS"><img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&amp;logo=c+sharp&amp;logoColor=white" alt="C#"><img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=Kotlin&logoColor=white" alt="Kotlin">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ok/Medium</td>
+                                    <td>
+                                        <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&amp;logo=java&amp;logoColor=white" alt="Java"><img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&amp;logo=php&amp;logoColor=white" alt="PHP"><img src="https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&amp;logo=powershell&amp;logoColor=white" alt="PowerShell">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Poor</td>
+                                    <td>
+                                        <img src="https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&amp;logo=c&amp;logoColor=white" alt="C"><img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Uhh what&#39;s this</td>
+                                    <td>
+                                        <img src="https://img.shields.io/badge/Assembly-000000?style=for-the-badge" alt="Assembly">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <section id="project">
+                <div class="textwithtag">
+                    <span class="otag">projects</span>
+                    <div>
+                        <h1>Projects</h1>
+                        <hr>
+                        <p>Here's a list of projects or stuff that I've created. Most of them are dead, but not all of them. So check them out!</p>
+                        <div>
+                            <input type="checkbox" name="cb1" id="cb1" class="collapsible_cb">
+                            <label class="collapsible" for="cb1">
+                                <span>Web Applications</span>
+                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                            </label>
+                            <div class="collapsiblecontent">
+                                <input type="checkbox" name="cb1-9" id="cb1-9" class="collapsible_cb">
+                                <label for="cb1-9" class="collapsible">
+                                    <span>Flappy Bird Clone</span>
+                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                                </label>
+                                <div class="collapsiblecontent">
+                                    <span>Here is the [<a target="_blank" class="openInProjectViewer" href="/other_project/flappy_bird_clone/index.html">link to (run/aceess) the project</a>]</span>
+                                    <span>Description: A basic prototype of the flappy bird clone that I made.</span>
+                                </div>
+                                <input type="checkbox" name="cb1-8" id="cb1-8" class="collapsible_cb">
+                                <label for="cb1-8" class="collapsible">
+                                    <span>INBOSH (It has No name But it's Online SHell)</span>
+                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                                </label>
+                                <div class="collapsiblecontent">
+                                    <span>Here is the [<a target="_blank" class="openInProjectViewer" href="/other_project/INBOSH/INBOSH.html">link to (run/aceess) the project</a>]</span>
+                                    <span>Description: A working shell inside a browser, that can only run function and has some bug.</span>
+                                </div>
+                                <input type="checkbox" name="cb1-7" id="cb1-7" class="collapsible_cb">
+                                <label for="cb1-7" class="collapsible">
+                                    <span>Demo for a panorama background</span>
+                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                                </label>
+                                <div class="collapsiblecontent">
+                                    <span>Here is the [<a target="_blank" class="openInProjectViewer" href="/other_project/panorama/index.html">link to (run/aceess) the project</a>]</span>
+                                    <span>Description: A demo for a panorama background that is fully written in JS (no plugin used).</span>
+                                </div>
+                                <input type="checkbox" name="cb1-6" id="cb1-6" class="collapsible_cb">
+                                <label for="cb1-6" class="collapsible">
+                                    <span>SOOPE (Simple and Open-Source Online Picture Editor)</span>
+                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                                </label>
+                                <div class="collapsiblecontent">
+                                    <span>Here is the [<a target="_blank" class="openInProjectViewer" href="/other_project/soope.html">link to (run/aceess) the project</a>]</span>
+                                    <span>Description: A fully functional image editor inside browser (It even has dark mode too!).</span>
+                                </div>
+                                <input type="checkbox" name="cb1-5" id="cb1-5" class="collapsible_cb">
+                                <label for="cb1-5" class="collapsible">
+                                    <span>WCOS (Web Console OS) [Dead]</span>
+                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                                </label>
+                                <div class="collapsiblecontent">
+                                    <span>Here is the [<a target="_blank" class="openInProjectViewer" href="/other_project/MSDOS.html">link to (run/aceess) the project</a>]</span>
+                                    <span>Description: My second attempt to create a shell (which is better then the previous attempt, but still, it's pretty bad).</span>
+                                </div>
+                                <input type="checkbox" name="cb1-4" id="cb1-4" class="collapsible_cb">
+                                <label for="cb1-4" class="collapsible">
+                                    <span>WTOS (Web Terminal OS; Also know as: Console) [Dead]</span>
+                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                                </label>
+                                <div class="collapsiblecontent">
+                                    <span>Here is the [<a target="_blank" class="openInProjectViewer" href="/other_project/console.html">link to (run/aceess) the project</a>]</span>
+                                    <span>Description: My first attempt to create a shell (which is pretty bad).</span>
+                                </div>
+                                <input type="checkbox" name="cb1-3" id="cb1-3" class="collapsible_cb">
+                                <label for="cb1-3" class="collapsible">
+                                    <span>Guess The Number Game [Dead]</span>
+                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                                </label>
+                                <div class="collapsiblecontent">
+                                    <span>Here is the [<a target="_blank" class="openInProjectViewer" href="/other_project/numberguessgame.html">link to (run/aceess) the project</a>]</span>
+                                    <span>Description: Pretty simple: Just Guess The Number.</span>
+                                </div>
+                                <input type="checkbox" name="cb1-2" id="cb1-2" class="collapsible_cb">
+                                <label for="cb1-2" class="collapsible">
+                                    <span>Simple Captcha [Dead]</span>
+                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                                </label>
+                                <div class="collapsiblecontent">
+                                    <span>Here is the [<a target="_blank" class="openInProjectViewer" href="/other_project/captcha.html">link to (run/aceess) the project</a>]</span>
+                                    <span>Description: Something I make for something related to AI idk.</span>
+                                </div>
+                                <input type="checkbox" name="cb1-1" id="cb1-1" class="collapsible_cb">
+                                <label for="cb1-1" class="collapsible">
+                                    <span>Vigenère Encoder and Decoder [Dead]</span>
+                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                                </label>
+                                <div class="collapsiblecontent">
+                                    <span>Here is the [<a target="_blank" class="openInProjectViewer" href="/other_project/Vigenere_Cipher.html">link to (run/aceess) the project</a>]</span>
+                                    <span>Description: A simple Vigenère Encoder and Decoder.</span>
+                                </div>
+                            </div>
+                            <input type="checkbox" name="cb2" id="cb2" class="collapsible_cb">
+                            <label for="cb2" class="collapsible">
+                                <span>Native (Or run on the user computer) Applications</span>
+                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                            </label>
+                            <div class="collapsiblecontent">
+                                <input type="checkbox" name="cb2-5" id="cb2-5" class="collapsible_cb">
+                                <label for="cb2-5" class="collapsible">
+                                    <span>GTPL (Guess The Programming Language)</span>
+                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                                </label>
+                                <div class="collapsiblecontent">
+                                    <span>Here is the [<a target="_blank" class="openInProjectViewer" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/gtpl.py">link to the source code</a>]</span>
+                                    <span>Description: A simple game written in Python and it's text-based where you have to guess the programming language of a piece of code.</span>
+                                </div>
+                                <input type="checkbox" name="cb2-4" id="cb2-4" class="collapsible_cb">
+                                <label for="cb2-4" class="collapsible">
+                                    <span>MyFirstGame</span>
+                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                                </label>
+                                <div class="collapsiblecontent">
+                                    <span>Here is the [<a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1sj2Uin_mRP0ipujgeWyR7B81frscRykn&export=download">link to all version as an ISO file</a>]</span>
+                                    <span>Description: My very first game created in Unity where you eat chicken to get points and eat bomb to lose point and get shoot up to the sky.</span>
+                                </div>
+                                <input type="checkbox" name="cb2-3" id="cb2-3" class="collapsible_cb">
+                                <label for="cb2-3" class="collapsible">
+                                    <span>Guess The Number Game</span>
+                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                                </label>
+                                <div class="collapsiblecontent">
+                                    <span>Here is the [<a target="_blank" class="openInProjectViewer" href="https://github.com/QuanMCPC/Guess-The-Number-Game/">link to the source code</a>]</span>
+                                    <span>Description: My second game written in C# where you guess a number with an Impossible Mode.</span>
+                                </div>
+                                <input type="checkbox" name="cb2-2" id="cb2-2" class="collapsible_cb">
+                                <label for="cb2-2" class="collapsible">
+                                    <span>Windows Forms App 2.0 Unofficial</span>
+                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                                </label>
+                                <div class="collapsiblecontent">
+                                    <span>Here is the [<a target="_blank" class="openInProjectViewer" href="https://github.com/QuanMCPC/Windows-Forms-App-2.0-Unofficial">link to the source code</a>]</span>
+                                    <span>Description: A template for a more modern build-in Windows Forms.</span>
+                                </div>
+                                <input type="checkbox" name="cb2-1" id="cb2-1" class="collapsible_cb">
+                                <label for="cb2-1" class="collapsible">
+                                    <span>EDIT (Edit Document In Terminal)</span>
+                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                                </label>
+                                <div class="collapsiblecontent">
+                                    <span>Here is the [<a target="_blank" class="openInProjectViewer" href="https://github.com/QuanMCPC/Edit">link to the source code</a>]</span>
+                                    <span>Description: A really ~OK~ text editor made with Electron with features like Auto Update.</span>
+                                </div>
+                            </div>
+                            <input type="checkbox" name="cb3" id="cb3" class="collapsible_cb">
+                            <label for="cb3" class="collapsible">
+                                <span>Minecraft Builds</span>
+                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                            </label>
+                            <div class="collapsiblecontent">
+                                <input type="checkbox" name="cb3-6" id="cb3-6" class="collapsible_cb">
+                                <label for="cb3-6" class="collapsible">
+                                    <span>8-bit Decoder</span>
+                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                                </label>
+                                <div class="collapsiblecontent">
+                                    <span>Here is the [<a target="_blank" class="openInProjectViewer" href="https://www.planetminecraft.com/project/8-bit-decoder-in-minecraft/">link to the map on PM</a>]</span>
+                                    <span>Description: Convert binary to character from A to Z, 0 to 9 in ASCII.</span>
+                                </div>
+                                <input type="checkbox" name="cb3-5" id="cb3-5" class="collapsible_cb">
+                                <label for="cb3-5" class="collapsible">
+                                    <span>Compact Calculator (1.15.2)</span>
+                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                                </label>
+                                <div class="collapsiblecontent">
+                                    <span>Here is the [<a target="_blank" class="openInProjectViewer" href="https://www.planetminecraft.com/project/compact-calculator-1-15-2/">link to the map on PM</a>]</span>
+                                    <span>Description: A fully working calculator that can do basic calculation in Minecraft using command block.</span>
+                                </div>
+                                <input type="checkbox" name="cb3-4" id="cb3-4" class="collapsible_cb">
+                                <label for="cb3-4" class="collapsible">
+                                    <span>The Longest Useless Machine in Minecraft (v1.0)</span>
+                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                                </label>
+                                <div class="collapsiblecontent">
+                                    <span>Here is the [<a target="_blank" class="openInProjectViewer" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-0/">link to the map on PM</a>]</span>
+                                    <span>Description: A redstone contraption that is pretty useless.</span>
+                                </div>
+                                <input type="checkbox" name="cb3-3" id="cb3-3" class="collapsible_cb">
+                                <label for="cb3-3" class="collapsible">
+                                    <span>The Longest Useless Machine in Minecraft (v1.2)</span>
+                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                                </label>
+                                <div class="collapsiblecontent">
+                                    <span>Here is the [<a target="_blank" class="openInProjectViewer" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-1/">link to the map on PM</a>]</span>
+                                    <span>Description: An upgraded version of the 1.0 version.</span>
+                                </div>
+                                <input type="checkbox" name="cb3-2" id="cb3-2" class="collapsible_cb">
+                                <label for="cb3-2" class="collapsible">
+                                    <span>Printer 1.16</span>
+                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                                </label>
+                                <div class="collapsiblecontent">
+                                    <span>Here is the [<a target="_blank" class="openInProjectViewer" href="https://www.planetminecraft.com/project/printer-1-16/">link to the map on PM</a>]</span>
+                                    <span>Description: A printer that can print stuff out using concrete instead of paper.</span>
+                                </div>
+                                <input type="checkbox" name="cb3-1" id="cb3-1" class="collapsible_cb">
+                                <label for="cb3-1" class="collapsible">
+                                    <span>Security Vault 2.0</span>
+                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                                </label>
+                                <div class="collapsiblecontent">
+                                    <span>Here is the [<a target="_blank" class="openInProjectViewer" href="https://www.planetminecraft.com/project/security-vault-2-0/">link to the map on PM</a>]</span>
+                                    <span>Description: A very large vault to store and hide valuables.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="ctag">projects</span>
+                </div>
+            </section>
+            <section id="gift">
+                <div class="textwithtag">
+                    <span class="otag">gift good-item="<del>false</del> true"</span>
+                    <div>
+                        <h1>Thank You</h1>
+                        <hr>
+                        <p>I don't know if you have visited everything on my website, only some of it, or just going by. But anyway, thanks for visiting my website. And to show off my appreciation, here's a gift for you. I promise you won't regret it :)</p>
+                        <noscript>
+                            <p>Well, this is awkward. It seems like we can't get you the present since it requires the technology of JavaScript to work. Sorry about that.</p>
+                        </noscript>
+                        <div id="gift_flashbang"></div>
+                        <div id="gift_display">
+                            <div id="gift_thatsmygift_dialog">
+                                <p></p>
+                            </div>
+                            <p>Congratulation! You got:</p>
+                            <div id="gift_item_1" class="gift_item">
+                                <svg width="38" height="18" version="1.1" viewBox="0 0 10.054 4.7625" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="10.054" height="4.7625" fill="#008000" stroke-width=".57664"/>
+                                    <path transform="scale(.26458)" d="m5 2v1h-1v1h-1v1h-1v8h1v1h1v1h1v1h28v-1h1v-1h1v-1h1v-8h-1v-1h-1v-1h-1v-1z" fill="#00d400" stroke-width="1.6733"/>
+                                    <path d="m2.5135 1.3229v0.26458h-0.26458v0.26458h0.26458v1.3229h-0.52917v0.26458h1.3229v-0.26458h-0.52917v-1.8521zm-0.26458 0.52917h-0.26458v0.26458h0.26458zm1.5875-0.52917v0.26458h0.79375v-0.26458zm0.79375 0.26458v1.5875h0.26458v-1.5875zm0 1.5875h-0.79375v0.26458h0.79375zm-0.79375 0v-1.5875h-0.26458v1.5875zm1.5875-1.8521v0.26458h0.79375v-0.26458zm0.79375 0.26458v1.5875h0.26458v-1.5875zm0 1.5875h-0.79375v0.26458h0.79375zm-0.79375 0v-1.5875h-0.26458v1.5875zm1.8521-1.7198v0.26458h-0.26458v0.26458h0.26458v0.26458h-0.26458v0.26458h0.26458v0.26458h-0.26458v0.26458h0.26458v0.26458h0.26458v-0.26458h0.26458v-0.26458h-0.26458v-0.26458h0.26458v-0.26458h-0.26458v-0.26458h0.26458v-0.26458h-0.26458v-0.26458zm0.52917 1.0583v0.26458h0.26458v-0.26458zm-0.79375-0.26458v-0.26458h-0.26458v0.26458z" fill="#008000" stroke-width=".26458"/>
+                                </svg>
+                                <p>$100 bill</p>
+                            </div>
+                            <div id="gift_item_2" class="gift_item">
+                                <svg width="90" height="64" version="1.1" viewBox="0 0 23.812 16.933" xmlns="http://www.w3.org/2000/svg">
+                                    <g stroke-width=".26458">
+                                        <path d="m8.4667 0v1.3229h4.2333v1.5875h1.3229v-1.5875h2.6458v-1.3229zm8.2021 1.3229v1.5875h1.5875v-1.5875zm1.5875 1.5875v1.3229h1.3229v-1.3229zm1.3229 1.3229v4.2333h-5.5562v1.3229h8.4667v-1.3229h-1.5875v-4.2333zm2.9104 5.5562v1.5875h1.3229v-1.5875zm0 1.5875h-8.4667v1.3229h6.8792v1.3229h1.5875zm-1.5875 2.6458h-6.8792v1.5875h6.8792zm-6.8792 1.5875h-7.1437v1.3229h7.1437zm-7.1437 0v-2.9104h-1.3229v1.3229h-4.2333v1.5875zm-5.5562-1.5875v-4.2333h-1.3229v4.2333zm0-4.2333h7.1438v-1.3229h-5.8208v-2.9104h-1.3229zm1.3229-4.2333h1.5875v-1.3229h-1.5875zm1.5875-1.3229h1.3229v-1.3229h-1.3229zm1.3229-1.3229h2.9104v-1.5875h-2.9104zm2.9104 6.8792v1.5875h1.3229v-1.5875zm0 1.5875h-1.5875v1.3229h1.5875zm5.5562 2.6458v-1.3229h-1.3229v1.3229zm-1.3229-1.3229v-1.3229h-1.5875v1.3229zm0-1.3229h1.3229v-1.5875h-1.3229zm1.3229-2.9104v-1.3229h-1.3229v1.3229zm-1.3229-1.3229v-4.2333h-1.5875v4.2333zm5.5562-2.9104h-1.5875v2.9104h1.5875z" fill="#533846"/>
+                                        <path d="m8.4667 1.3229v1.5875h4.2333v-1.5875zm0 1.5875h-2.9104v1.3229h2.9104zm-2.9104 1.3229h-1.3229v1.3229h1.3229zm-2.9104 5.5562v1.5875h-1.3229v2.6458h2.9104v-1.3229h2.6458v-2.9104z" fill="#dde2b1"/>
+                                        <path d="m8.4667 2.9104v1.3229h-2.9104v1.3229h-2.9104v2.9104h5.8208v1.3229h1.3229v1.5875h2.9104v-1.5875h1.3229v-1.3229h-1.3229v-1.3229h-1.5875v-4.2333zm0 6.8792h-1.5875v1.5875h1.5875zm-7.1438 0v1.5875h1.3229v-1.5875zm2.9104 2.9104v1.3229h1.3229v-1.3229z" fill="#d4bf27"/>
+                                        <path d="m8.4667 11.377v1.3229h-1.5875v2.9104h7.1437v-1.5875h-1.3229v-1.3229h-1.5875v-1.3229z" fill="#e48116"/>
+                                        <path d="m12.7 4.2333v2.9104h1.3229v-2.9104zm1.3229 2.9104v1.3229h1.3229v-1.3229z" fill="#c8c0c0"/>
+                                        <path d="m14.023 1.3229v1.5875h-1.3229v1.3229h1.3229v2.9104h1.3229v1.3229h4.2333v-4.2333h-1.3229v2.9104h-1.5875v-2.9104h1.5875v-1.3229h-1.5875v-1.5875z" fill="#ebfcdd"/>
+                                        <path d="m14.023 9.7896v1.5875h8.4667v-1.5875zm0 1.5875h-1.3229v1.3229h1.3229zm0 1.3229v1.3229h6.8792v-1.3229z" fill="#ea5040"/>
+                                    </g>
+                                </svg>
+                                <p>A flapping bird</p>
+                            </div>
+                            <div id="gift_item_3" class="gift_item">
+                                <svg width="40" height="15" version="1.1" viewBox="0 0 10.583 3.9688" xmlns="http://www.w3.org/2000/svg">
+                                    <path transform="scale(.26458)" d="m25 0v5h-25v5 5h5v-5h5v5h5v-5h10v5h5 10v-5-5-5h-15zm5 5h5v5h-5v-5z" fill="#fc0"/>
+                                </svg>
+                                <p>Sublime Text License key</p>
+                            </div>
+                            <div id="gift_item_4" class="gift_item">
+                                <p>Nothing</p>
+                            </div>
+                        </div>
+                        <div id="claim_gift_div">
+                            <button id="claim_gift" aria-label="The Present">
+                                <svg width="512" height="512" version="1.1" viewBox="0 0 135.47 135.47" xmlns="http://www.w3.org/2000/svg">
+                                    <g>
+                                        <path d="m67.733 0 67.733 30.77-2e-5 13.986-6.1463 2.7921-0.0109 59.946-61.576 27.972-3.88e-4 2e-5 -61.576-27.972v-59.941l-6.1572-2.7972v-13.986z" fill="#00afd6" stroke-width=".40502"/>
+                                        <rect transform="matrix(.91046 .4136 0 1 0 0)" x="6.7631" y="44.756" width="67.631" height="59.941" fill="#0af" stroke-width=".80217"/>
+                                        <rect transform="matrix(-.91046 .4136 0 1 0 0)" x="-142.03" y="106.3" width="67.631" height="59.941" fill="#0077b2" stroke-width=".80217"/>
+                                        <path d="m1.3964e-6 30.77 67.733 30.77v13.986l-67.733-30.77z" fill="#0bc" stroke-width=".40502"/>
+                                        <path d="m135.47 30.77-67.733 30.77v13.986l67.733-30.77z" fill="#00a4b2" stroke-width=".40502"/>
+                                        <path d="m67.733 0 67.733 30.77-67.733 30.77-67.733-30.77z" fill="#00eaff" stroke-width=".40502"/>
+                                        <rect transform="matrix(.91046 .4136 0 1 0 0)" x="33.816" y="44.756" width="13.526" height="59.941" fill="#e52600" stroke-width=".38748"/>
+                                        <rect transform="matrix(-.91046 .4136 0 1 0 0)" x="-114.97" y="106.3" width="13.526" height="59.941" fill="#cc2100" stroke-width=".38748"/>
+                                        <rect transform="matrix(.91046 .4136 0 1 0 0)" x="30.434" y="30.77" width="13.526" height="13.986" fill="#e52600" stroke-width=".55017"/>
+                                        <rect transform="matrix(-.91046 .4136 0 1 0 0)" x="-118.36" y="92.309" width="13.526" height="13.986" fill="#cc2100" stroke-width=".55017"/>
+                                        <path d="m27.709 43.357 67.733-30.77 12.315 5.5945-67.733 30.77z" fill="#ff2b00" stroke-width=".40502"/>
+                                        <path d="m107.76 43.357-67.733-30.77-12.315 5.5945 67.733 30.77z" fill="#ff2b00" stroke-width=".40502"/>
+                                    </g>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <span class="ctag">gift</span>
+                </div>
+            </section>
         </main>
-        <script src="/website/script/main.js?v=2"></script>
-        <script src="/index.js"></script>
-        <script>
-            document.getElementById("discord_iframe_consentDialog_button").onclick = () => {
-                document.getElementById("discord_iframe_consentDialog").style.display = "none";
-                document.querySelectorAll(".discord_real_iframe").forEach((elm) => {
-                    elm.style.display = "block";
-                    elm.setAttribute("src", `${elm.getAttribute("data-src")}?nocache=${Math.round(Math.random() * 1000000)}`);
-                })
-            };
-        </script>
+        <footer>
+            <div class="textwithtag">
+                <span class="otag">copyright</span>
+                <div>
+                    <p>Copyright (C) 2022 QuanMCPC. Created on 07/16/2020, this website will live <span class="tc-red">forever</span>.</p>
+                    <details>
+                        <summary>For licensing info</summary>
+                        <div>
+                            <p>Source code on the website is licensed under the <span class="tc-blue">MIT license</span>, and <span xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span property="dct:title">Images inside the "/downloads/" folder and in the "/website/image/" (except the "logo" folder) folder</span> is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;"><span class="tc-green">CC BY-SA 4.0</span><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a></span>. The Redcoder logo however <span class="tc-red">cannot be used without permission</span>.</p>
+                        </div>
+                    </details>
+                </div>
+                <span class="ctag">copyright</span>
+            </div>
+        </footer>
     </body>
+    <script src="/website/script/script.js"></script>
+    <script src="/index.js"></script>
+    <script>
+        let fartmode = false;
+        function getRandomInt(min, max) {
+            const range = max - min + 1;
+            const bytes_needed = Math.ceil(Math.log2(range) / 8);
+            const cutoff = Math.floor((256 ** bytes_needed) / range) * range;
+            const bytes = new Uint8Array(bytes_needed);
+            let value;
+            do {
+                crypto.getRandomValues(bytes);
+                value = bytes.reduce((acc, x, n) => acc + x * 256 ** n, 0);
+            } while (value >= cutoff);
+            return min + value % range;
+        }
+        function wait(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
+        var claiming_gift = false;
+        var fartnoise = new Audio("/website/sound/fart.mp3");
+        getId("claim_gift").onclick = async () => {
+            if (claiming_gift)
+                return;
+            if (fartmode) {
+                fartnoise.loop = true;
+                fartnoise.play();
+            }
+            claiming_gift = true;
+            getId("claim_gift").style.transformOrigin = "bottom";
+            getId("claim_gift").style.animation = "gift_opening_animation 3s";
+            await wait(2750);
+            if (fartmode) {
+                fartnoise.pause();
+                fartnoise.currentTime = 0;
+                fartmode = false;
+            }
+            getId("gift_display").style.display = "flex";
+            getId("gift_flashbang").style.opacity = "1";
+            await wait(250);
+            getId("gift_flashbang").style.transition = "opacity 0.5s";
+            getId("gift_flashbang").style.opacity = "0";
+            var gift = getRandomInt(1, 4);
+            getId(`gift_item_${gift}`).style.display = "flex";
+            await wait(500);
+            getId("claim_gift").style.animation = "none";
+            await wait(1500);
+            var gift_svg = qSel(`div#gift_item_${gift} svg`);
+            getId("gift_thatsmygift_dialog").style.display = "block";
+            switch (gift) {
+                case 1:
+                    qSel("div#gift_thatsmygift_dialog p").innerText = "Ooh, free money! That's mine now! Hahahaha!";
+                    await wait(1000);
+                    gift_svg.style.transition = "all 0.65s linear";
+                    gift_svg.style.transform = "translateY(-100%)";
+                    gift_svg.style.opacity = "0";
+                    break;
+                case 2:
+                    qSel("div#gift_thatsmygift_dialog p").innerText = "Ooh, a bird! I like them, but, ew, it's flappy bird! Shoo!";
+                    await wait(1500);
+                    gift_svg.style.transition = "all 0.4s linear";
+                    gift_svg.style.transform = "translate(100%, -100%)";
+                    gift_svg.style.opacity = "0";
+                    break;
+                case 3:
+                    qSel("div#gift_thatsmygift_dialog p").innerText = "Hey, that's my Sublime Text license key! Give it back!";
+                    await wait(1500);
+                    gift_svg.style.transition = "all 0.2s linear";
+                    gift_svg.style.transform = "translate(100%)";
+                    gift_svg.style.opacity = "0";
+                    break;
+                case 4:
+                case 5:
+                    qSel("div#gift_thatsmygift_dialog p").innerText = "Hahaha, you got nothing!";
+                    break;
+                default:
+                    break;
+            }
+            await wait(2000);
+            if (!!gift_svg) {
+                gift_svg.style.transform = "translateY(0%)";
+                gift_svg.style.opacity = "1";
+            }
+            getId("gift_thatsmygift_dialog").style.display = "none";
+            getId(`gift_item_${gift}`).style.display = "none";
+            getId("gift_display").style.display = "none";
+            getId("gift_flashbang").style.transition = "none";
+            claiming_gift = false;
+        };
+        getId("claim_gift").ondrop = (ev) => {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            if (data == "website_logo") {
+                getId("claim_gift").style.animation = "lsd 1s infinite linear";
+                getId(data).style.animation = "lsd 1s infinite linear";
+                fartmode = true;
+            }
+        }
+        getId("claim_gift").ondragover = (ev) => {
+            ev.preventDefault();
+        }
+        qSel("#website_logo").ondragstart = (ev) => {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+    </script>
 </html>

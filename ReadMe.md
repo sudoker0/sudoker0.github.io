@@ -19,67 +19,22 @@
 
 ## Welcome to my first ever repository and also my first ever website (And also my favourite repository) in GitHub.
 
-### Important Note: The domain `https://quanmcpc.site` is privately funded and not by me funded.
+> Important Note: The domain `https://quanmcpc.site` is privately funded and not by me funded.
 
-### 📋 Index
-1. [📕 Introduction](#-introduction)
-2. [💡 About](#-about)
-3. [📖 Details](#-details)
-4. [❓ FAQ](#-faq-frequently-asked-questions)
-5. [📁 File information of the website's folder](#-information-about-the-files-in-the-websites-folder)
-6. [👀 Random Stuff](#-random-stuff)
-7. [📜 License](#-license)
-### 📕 Introduction
-* Ok, I have to tell the truth: This repository was not the first-ever repo I created. The first one that I created is used to store the game I made using Unity, and then I removed that same repo because I still want my game to be private.
-* After removing that, I rarely use GitHub. Then one day, I decided to create my first ever website because I wanted one, and so I found an [article on Medium](https://medium.com/@svinkle/publish-and-share-your-own-website-for-free-with-github-2eff049a1cb5) that helps you create a free website on GitHub. So after some hard work, my very first website was born!
-* **Note**: When I first created the website, my original GitHub nickname was Quan215, so the name of my website was Quan215.github.io. Then I changed my nickname to my Minecraft username because remembering so many user names is hard. I also have to change the repository name to the current website name to make my website work.
-### 💡 About
-- My website is not the best looking, but it's good enough for me. And don't worry, I will try to improve my website while learning new things too!
-### 📖 Details
-- I use programming languages such as HTML, JS, and CSS to create this website. And why I didn't use PHP or another language? Simply because:
-    - GitHub does not support parsing PHP, ASP.
-    - I like to keep my website **pure** HTML and JS.
-- There are currently five pages* on my website:
-    - Home: This is the page that you'll see first when you enter my website, which contains:
-        - A little introduction about myself
-        - Social links
-        - Self-rating on programming languages that I knew
-        - A long list of all of my project
-    - Credit: This page shows a list of software and webpage that help with the website, containing:
-        - Links to the software that helps create this website
-        - Links to the webpage that help with the website
-    - About Website: This shows a lot of information about my website in both table and text form, which contains:
-        - A table show information like the file size, number of commits, etc.
-        - A chart that shows the number of commits per week starting from the creation of the website.
-        - Another table displays detailed information on every commits ever created.
-    - Gallery: Gallery: Show a list of screenshots of some of my Minecraft projects, containing:
-        - A UI to navigate and view the picture
-    - Download: Download stuff that I allow people to download. Wait, that's a lie, everything on my website is free to download and use, and it's all legal. By the way, this page contains:
-        - A list of free to download and use files.
-- \* There is some page like the Loading page, basic HTML version of the page that I didn't mention. But I'll still mention some of those pages for no reason at all:
-    - Basic HTML version:
-        - No custom font
-        - Basic styling
-        - Accessed through the loading page
-    - Loading page (index.html):
-        - An animated SVG (or GIF if the SVG one failed to load)
-        - And ~~three~~ two links:
-            - One redirects to the main version.
-            - Another one redirects to the lite version.
-            - ~~And the final one redirects to the first-ever revision of the website.~~
-    - ~~First version:~~ (This part of the website has moved to [https://quan215.github.io](https://quan215.github.io))
-        - ~~Very basic (only contain 4KB of HTML file, 6MB of image)~~
-        - ~~Almost no styling~~
-### ❓ FAQ (Frequently Asked Questions)
-- Will I ever stop working on the website?
-    - **Maybe**, I mean I have other things in life to do, for example: Go to school, play with my friend and do other things. Don't worry about it tho, since it will take very long to happen.
-- Will I ever purchase my domain?
-    - **Yes**, but in the far future.
-- Have I ever encountered problems when making a website?
-    - **Yes**, I have. When I add or change something, it might cause a problem, and if that happens, I will search on the Internet to find a solution.
-- If GitHub supports PHP or other languages, will I ever use those languages to write my website?
-    - **Maybe**, but I will probably prefer to stay on HTML, mainly because that means I have to learn a new language and adapt all of the different syntax and other things.
-### 📁 Information about the files in the website's folder
+### I. Why do I need a website?
+They're the best way to show my work to the world. Also because it's fun to create one, even if no one gonna see it.
+
+### II. What tool did I use?
+- For writing source code: Visual Studio Code (And Sublime Text sometimes)
+- For making SVG graphics: Inkscape
+- For making PNG images: Paint.net
+- For testing website: Firefox
+- For publishing website: GitHub Pages
+- Some other tool includes: Git, GitHub Actions, etc.
+
+### III. Can you provide us with technical details?
+
+> **Details about the size of each type of file in the website**
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
@@ -112,10 +67,26 @@ File Extensions | Percentages of Bytes | Number of files | File/Folder size (Byt
 \*.zip | 3.01% | 17 files | 13,892,512 bytes
 > Last updated on: 2022-01-16
 <!--python_data_stop-->
-[Download the table as HTML in a zip file (Style is not the same) (This is kept for historical purposes only and the data is no longer being updated)](https://drive.google.com/u/0/uc?id=1nvijtp61EX7gtisnjHCAEBkfgQKs-zTh&export=download)
-> You might ask: How do I able to get all of the file extensions, the number of file and other info?
-> Using ~~WinDirStat [https://windirstat.net/](https://windirstat.net/)~~ the Python script I've written (which is named: ~~remember_to_run_this_file.py~~)
-### 👀 Random Stuff
+
+> **Details about the website's creation**
+- First commit is created on July 16th, 2020 at 16:35:00 (GMT+0)
+- Website came to life 33 seconds after the initial commit.
+- Commit hash for the first two commit:
+    - #1: `777b1c7cd0e6a129c1776f41465de0c9a8eabea4`
+    - #2: `64a220caf1ac06f9028b6c7fc11f6f50487f3f59`
+- Original domain: `Quan215.github.io`
+- The first week since the creation of the website still has the most commits then any other weeks, even today.
+
+### IV. License info
+- Source code on the website is licensed under the [MIT license](/LICENSE)
+- <span xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span property="dct:title">Images inside the "/downloads/" folder and in the "/website/image/" (except the "logo" folder) folder</span> is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;"><span class="tc-green">CC BY-SA 4.0</span><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a></span>.
+- The Redcoder logo however <span class="tc-red">cannot be used without permission</span>.
+
+### V. Random stuff
+> One of my quotes
+```
+The only reason I tried to minimize accessibility issues is to avoid seeing errors and warnings on the accessibility checker tool.
+```
 > JavaScript Loop Code
 ```JavaScript
 while(1) {
@@ -145,8 +116,7 @@ for( ; ; ) {
  - My Cock is Pissed-off from Coding (When something really broke)
  - Might Code for Poor Coder (When something work)
 ```
-### 📜 License
-Released under [MIT](/LICENSE) by [@QuanMCPC](https://github.com/QuanMCPC).
+
 ***
 Copyright &copy; 2021 Quan_MCPC
 ***

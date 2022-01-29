@@ -1,13 +1,14 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
     "filesize": {
-        "lastupdateon": "2022-01-16",
-        "total": "461,220,887",
-        "standard_src_code": "128,062",
-        "basic_src_code": "2,640",
-        "assets": "7,270,970",
-        "archive": "103,942,801",
-        "other_project": "6,576,783",
-        "other": "343,299,631"
+        "lastupdateon": "2022-01-25",
+        "git_folder": "267,323,520",
+        "archive_folder": "110,599,919",
+        "assets_folder": "7,812,125",
+        "basic_folder": "2,694",
+        "download_folder": "75,724,906",
+        "other_project_folder": "6,587,217",
+        "the_rest": "77,449,907",
+        "total_size": "545,500,288"
     }
 }

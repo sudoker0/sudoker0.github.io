@@ -3,8 +3,7 @@
 # Copyright (C) 2021 Quan_MCPC, license under MIT license.
 
 import os, re, json, sys
-from datetime import date, time
-import time
+from datetime import date
 from subprocess import Popen, PIPE
 
 argument = sys.argv
@@ -17,7 +16,7 @@ os.chdir(os.getcwd())
 # ----------------------[find_size.py]---------------------- #
 
 # A Python script to automate the changing of file info.
-# I Don't really Care about shrinking the file size down.
+# I don't really care about shrinking the file size down.
 # Copyright (C) 2021 Quan_MCPC, license under MIT license.
 
 # Get the total size of folder in [path]
@@ -46,24 +45,24 @@ def formatFileSize(sizestring = 0): return re.sub(r"(?!^)(?=(?:\d{3})+(?:\.|$))"
 
 # Variable Here
 total_size = sizeOfFolder()
-standard_src_code_size = totalSizeOfEachFile(["./about.html", "./credit.html", "./download.html", "./gallery.html", "./home.html"])
-basic_src_code_size = sizeOfFolder("./basic")
-assets_size = sizeOfFolder("./website")
+git_folder_size = sizeOfFolder("./.git")
 archive_size = sizeOfFolder("./archive")
+basic_src_code_size = sizeOfFolder("./basic")
 other_project_size = sizeOfFolder("./other_project")
+assets_size = sizeOfFolder("./website")
 
 # JSON data here
 data = {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
     "filesize": {
         "lastupdateon": date.today().strftime("%Y-%m-%d"),
-        "total": formatFileSize(total_size),
-        "standard_src_code": formatFileSize(standard_src_code_size),
-        "basic_src_code": formatFileSize(basic_src_code_size),
-        "assets": formatFileSize(assets_size),
-        "archive": formatFileSize(archive_size),
-        "other_project": formatFileSize(other_project_size),
-        "other": formatFileSize(total_size - (standard_src_code_size + basic_src_code_size + assets_size + archive_size + other_project_size))
+        "git_folder": formatFileSize(git_folder_size),
+        "archive_folder": formatFileSize(archive_size),
+        "assets_folder": formatFileSize(assets_size),
+        "basic_folder": formatFileSize(basic_src_code_size),
+        "other_project_folder": formatFileSize(other_project_size),
+        "the_rest": formatFileSize(total_size - git_folder_size - archive_size - basic_src_code_size - other_project_size - assets_size),
+        "total_size": formatFileSize(total_size)
     }
 }
 
