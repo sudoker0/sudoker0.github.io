@@ -38,21 +38,21 @@ They're the best way to show my work to the world. Also because it's fun to crea
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\** | 100.0% | 237 files | 470,492,132 bytes
-\* | 0.01% | 13 files | 24,330 bytes
+\** | 100.0% | 237 files | 470,497,047 bytes
+\* | 0.01% | 13 files | 24,342 bytes
 \*.7z | 36.65% | 21 files | 172,429,319 bytes
 \*.config | 0.02% | 1 files | 82,580 bytes
 \*.css | 0.0% | 5 files | 15,534 bytes
 \*.gif | 0.0% | 1 files | 10,498 bytes
-\*.html | 0.12% | 35 files | 587,613 bytes
+\*.html | 0.12% | 35 files | 587,634 bytes
 \*.ico | 0.03% | 2 files | 118,934 bytes
-\*.idx | 0.05% | 1 files | 225,072 bytes
+\*.idx | 0.05% | 1 files | 225,380 bytes
 \*.js | 0.01% | 8 files | 66,486 bytes
-\*.json | 0.07% | 12 files | 312,233 bytes
+\*.json | 0.07% | 12 files | 315,011 bytes
 \*.map | 0.02% | 10 files | 73,399 bytes
-\*.md | 0.0% | 3 files | 9,311 bytes
+\*.md | 0.0% | 3 files | 9,313 bytes
 \*.mp3 | 0.0% | 1 files | 9,069 bytes
-\*.pack | 57.16% | 1 files | 268,943,363 bytes
+\*.pack | 57.16% | 1 files | 268,945,157 bytes
 \*.png | 1.85% | 48 files | 8,712,235 bytes
 \*.py | 0.01% | 3 files | 30,679 bytes
 \*.sample | 0.0% | 13 files | 23,442 bytes
@@ -67,7 +67,7 @@ File Extensions | Percentages of Bytes | Number of files | File/Folder size (Byt
 \*.xml | 0.0% | 1 files | 1,026 bytes
 \*.yml | 0.0% | 4 files | 4,530 bytes
 \*.zip | 2.95% | 17 files | 13,892,512 bytes
-> Last updated on: 2022-01-29
+> Last updated on: 2022-02-25
 <!--python_data_stop-->
 
 > **Details about the website's creation**
