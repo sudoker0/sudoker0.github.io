@@ -1,5 +1,5 @@
-__ver__ = "0.7.1"
-# Guess The Programming Language v0.7.1 (Written in Python)
+__ver__ = "0.7.2"
+# Guess The Programming Language v0.7.2 (Written in Python)
 # Created by QuanMCPC (https://quanmcpc.site/), licensed under MIT license
 # Inspiration from https://guessthiscode.com/
 
@@ -323,7 +323,7 @@ def game():
                 error("Invalid answer (Valid answer have to be a number > 0 and number < 6)", allowColor)
                 continue
 
-def main(argv: list[str]):
+def main(argv):
     global clearConsole
     global allowColor
     global moveOnAfterCorrectGuess
