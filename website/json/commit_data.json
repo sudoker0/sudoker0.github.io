@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-03-07",
+    "last_update_on": "2022-03-10",
     "data": [
+        {
+            "hash": "112d919",
+            "committer": "QuanMCPC",
+            "commit_date": 1646926963,
+            "message": "Message to Ukraine and Pusin"
+        },
+        {
+            "hash": "e6e72cd",
+            "committer": "QuanMCPC",
+            "commit_date": 1646630577,
+            "message": "Update website's information"
+        },
         {
             "hash": "104fb16",
             "committer": "QuanMCPC",
