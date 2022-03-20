@@ -65,6 +65,11 @@ hr {
     margin: 0;
 }
 
+section, footer {
+    max-width: 2000px;
+    margin: 0 auto;
+}
+
 section {
     padding: 24px 0;
     display: flex;
@@ -73,34 +78,28 @@ section {
     min-height: calc(100vh - 64px);
     width: 100%;
 
-    &[class^="st-"] {
-        & > div {
-            @include grid;
-            // It's a bit of hack, but it works.
-            grid-auto-columns: calc(50% - 12px);
-            grid-auto-flow: column;
-            justify-items: center;
-            align-items: center;
-            gap: 24px;
-            div.left {
-                grid-area: left;
-            }
-            div.right {
-                grid-area: right;
-            }
+    &[class^="st-"] > div {
+        @include grid;
+        // It's a bit of hack, but it works.
+        grid-auto-columns: calc(50% - 12px);
+        grid-auto-flow: column;
+        justify-items: center;
+        align-items: center;
+        gap: 24px;
+        div.left {
+            grid-area: left;
+        }
+        div.right {
+            grid-area: right;
         }
     }
 
-    &.st-leftright {
-        & > div {
-            grid-template-areas: "left right";
-        }
+    &.st-leftright > div {
+        grid-template-areas: "left right";
     }
 
-    &.st-rightleft {
-        & > div {
-            grid-template-areas: "right left";
-        }
+    &.st-rightleft > div {
+        grid-template-areas: "right left";
     }
 
     & > div {
@@ -161,7 +160,7 @@ div.textwithtag {
     }
 }
 
-footer {
+footer div {
     max-width: 80%;
     display: block;
     margin-left: auto;
@@ -394,17 +393,15 @@ label[for="open_navbar_dropdown"] {
 }
 
 @media (max-width: 800px) {
-    section{
-        > div {
-            h1 {
-                font-size: 1.7rem;
-            }
-            h2 {
-                font-size: 1.35rem;
-            }
-            p, label.collapsible, table *, div.collapsiblecontent {
-                font-size: 1rem;
-            }
+    section > div {
+        h1 {
+            font-size: 1.7rem;
+        }
+        h2 {
+            font-size: 1.35rem;
+        }
+        p, label.collapsible, table *, div.collapsiblecontent {
+            font-size: 1rem;
         }
     }
 }
@@ -453,17 +450,15 @@ label[for="open_navbar_dropdown"] {
 }
 
 @media (max-width: 450px) {
-    section{
-        > div {
-            h1 {
-                font-size: 1.4rem;
-            }
-            h2 {
-                font-size: 1rem;
-            }
-            p, label.collapsible, table *, div.collapsiblecontent {
-                font-size: 0.8rem;
-            }
+    section > div {
+        h1 {
+            font-size: 1.4rem;
+        }
+        h2 {
+            font-size: 1rem;
+        }
+        p, label.collapsible, table *, div.collapsiblecontent {
+            font-size: 0.8rem;
         }
     }
     div.textwithtag > div {
