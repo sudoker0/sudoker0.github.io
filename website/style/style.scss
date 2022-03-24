@@ -160,7 +160,7 @@ div.textwithtag {
     }
 }
 
-footer div {
+footer > div {
     max-width: 80%;
     display: block;
     margin-left: auto;
@@ -292,7 +292,7 @@ footer {
     p {
         margin: 0;
     }
-    div div {
+    > div > div {
         padding: 8px;
     }
 }
