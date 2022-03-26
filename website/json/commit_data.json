@@ -3,6 +3,18 @@
     "last_update_on": "2022-03-26",
     "data": [
         {
+            "hash": "46b310d",
+            "committer": "QuanMCPC",
+            "commit_date": 1648308594,
+            "message": "Improve grammar error, re-write the bio. Added the discord server link"
+        },
+        {
+            "hash": "f8c3409",
+            "committer": "QuanMCPC",
+            "commit_date": 1648281877,
+            "message": "Update website's information"
+        },
+        {
             "hash": "3e2f682",
             "committer": "QuanMCPC",
             "commit_date": 1648281849,
