@@ -862,6 +862,10 @@
                             "type": "file"
                         },
                         {
+                            "name": "social_preview.png.old",
+                            "type": "file"
+                        },
+                        {
                             "name": "sus_.png",
                             "type": "file"
                         }
