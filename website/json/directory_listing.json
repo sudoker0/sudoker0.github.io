@@ -858,6 +858,10 @@
                             "type": "file"
                         },
                         {
+                            "name": "social_image.xcf",
+                            "type": "file"
+                        },
+                        {
                             "name": "social_preview.png",
                             "type": "file"
                         },
