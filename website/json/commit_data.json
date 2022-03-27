@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-03-26",
+    "last_update_on": "2022-03-27",
     "data": [
+        {
+            "hash": "8e79d0c",
+            "committer": "QuanMCPC",
+            "commit_date": 1648361758,
+            "message": "Small fix to the footer layout"
+        },
+        {
+            "hash": "d9da8e9",
+            "committer": "QuanMCPC",
+            "commit_date": 1648313867,
+            "message": "Update website's information"
+        },
         {
             "hash": "fc7460b",
             "committer": "QuanMCPC",
