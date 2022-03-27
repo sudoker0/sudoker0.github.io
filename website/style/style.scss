@@ -407,7 +407,7 @@ label[for="open_navbar_dropdown"] {
 }
 
 @media (max-width: 768px) {
-    section > div, footer {
+    section > div, footer > div {
         max-width: 100%;
         padding: 32px;
     }
