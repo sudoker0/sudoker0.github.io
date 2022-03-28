@@ -150,6 +150,10 @@
                     "type": "file"
                 },
                 {
+                    "name": "Useless_Img.7z",
+                    "type": "file"
+                },
+                {
                     "name": "a.7z",
                     "type": "file"
                 },
@@ -698,20 +702,6 @@
                             "type": "file"
                         },
                         {
-                            "name": "background",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "background_dark.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "background_light.png",
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        {
                             "name": "circuit_board.png",
                             "type": "file"
                         },
@@ -722,84 +712,6 @@
                         {
                             "name": "circuit_board_modified.png",
                             "type": "file"
-                        },
-                        {
-                            "name": "gallery",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "1.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "1.webp",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "2.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "2.webp",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "3.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "3.webp",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "4.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "4.webp",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "5.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "5.webp",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "6.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "6.webp",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "7.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "7.webp",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "8.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "8.webp",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "9.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "9.webp",
-                                    "type": "file"
-                                }
-                            ]
                         },
                         {
                             "name": "logo",

@@ -38,23 +38,23 @@ They're the best way to show my work to the world. Also because it's fun to crea
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\** | 100.0% | 239 files | 471,433,257 bytes
-\* | 0.01% | 13 files | 24,530 bytes
-\*.7z | 36.58% | 21 files | 172,429,319 bytes
+\** | 100.0% | 220 files | 477,319,805 bytes
+\* | 0.0% | 13 files | 22,598 bytes
+\*.7z | 37.36% | 22 files | 178,327,462 bytes
 \*.config | 0.02% | 1 files | 82,580 bytes
 \*.css | 0.0% | 5 files | 15,588 bytes
 \*.gif | 0.0% | 1 files | 10,498 bytes
-\*.html | 0.13% | 35 files | 590,389 bytes
-\*.ico | 0.03% | 2 files | 118,934 bytes
-\*.idx | 0.05% | 1 files | 230,280 bytes
+\*.html | 0.12% | 35 files | 590,389 bytes
+\*.ico | 0.02% | 2 files | 118,934 bytes
+\*.idx | 0.05% | 1 files | 230,672 bytes
 \*.js | 0.01% | 8 files | 66,486 bytes
-\*.json | 0.07% | 12 files | 307,383 bytes
+\*.json | 0.06% | 12 files | 307,891 bytes
 \*.map | 0.02% | 10 files | 73,414 bytes
 \*.md | 0.0% | 3 files | 9,396 bytes
 \*.mp3 | 0.0% | 1 files | 9,069 bytes
 \*.old | 0.12% | 1 files | 551,097 bytes
-\*.pack | 57.11% | 1 files | 269,241,275 bytes
-\*.png | 1.75% | 48 files | 8,272,165 bytes
+\*.pack | 57.64% | 1 files | 275,142,607 bytes
+\*.png | 1.28% | 37 files | 6,105,670 bytes
 \*.py | 0.01% | 3 files | 30,669 bytes
 \*.sample | 0.0% | 13 files | 23,442 bytes
 \*.scss | 0.0% | 5 files | 15,316 bytes
@@ -64,12 +64,11 @@ File Extensions | Percentages of Bytes | Number of files | File/Folder size (Byt
 \*.ttf | 0.17% | 4 files | 819,080 bytes
 \*.txt | 0.0% | 1 files | 283 bytes
 \*.wav | 0.01% | 2 files | 55,556 bytes
-\*.webp | 0.79% | 9 files | 3,745,400 bytes
 \*.xcf | 0.11% | 1 files | 528,854 bytes
 \*.xml | 0.0% | 1 files | 1,026 bytes
 \*.yml | 0.0% | 4 files | 4,530 bytes
-\*.zip | 2.95% | 17 files | 13,892,512 bytes
-> Last updated on: 2022-03-27
+\*.zip | 2.91% | 17 files | 13,892,512 bytes
+> Last updated on: 2022-03-28
 <!--python_data_stop-->
 
 > **Details about the website's creation**
