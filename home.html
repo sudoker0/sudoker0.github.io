@@ -1,538 +1,537 @@
 <!DOCTYPE html>
-<!-- Test commit -->
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="/home.html" />
-        <meta property="og:site_name" content="Quan_MCPC's Website" />
-        <meta property="og:title" content="QuanMCPC.home()" />
-        <meta property="og:description" content="This is the main page of my website, which contain an intro, about me section, projects, etc." />
-        <meta property="og:image" content="/website/image/social_preview.png" />
-        <meta property="og:image:alt" content="Social preview image" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="/home.html" />
+    <meta property="og:site_name" content="Quan_MCPC's Website" />
+    <meta property="og:title" content="QuanMCPC.home()" />
+    <meta property="og:description" content="This is the main page of my website, which contain an intro, about me section, projects, etc." />
+    <meta property="og:image" content="/website/image/social_preview.png" />
+    <meta property="og:image:alt" content="Social preview image" />
 
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="theme-color" content="#a00000" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#a00000" />
 
-        <meta name="keywords" content="QuanMCPC, Quan_MCPC" />
-        <meta name="description" content="This is the main page of my website, where you can see my bio, all of my project and my social links." />
-        <meta name="author" content="Quan_MCPC" />
+    <meta name="keywords" content="QuanMCPC, Quan_MCPC" />
+    <meta name="description" content="This is the main page of my website, where you can see my bio, all of my project and my social links." />
+    <meta name="author" content="Quan_MCPC" />
 
-        <meta name="robots" content="NOODP" />
-        <link rel="manifest" href="/manifest.json" />
+    <meta name="robots" content="NOODP" />
+    <link rel="manifest" href="/manifest.json" />
 
-        <link rel="shortcut icon" href="/website/image/logo/favicon.ico" />
-        <link rel="apple-touch-icon" href="/website/image/logo/logo.png">
+    <link rel="shortcut icon" href="/website/image/logo/favicon.ico" />
+    <link rel="apple-touch-icon" href="/website/image/logo/logo.png">
 
-        <title>QuanMCPC.home()</title>
-        <link rel="stylesheet" href="/website/style/style.css">
-        <link rel="stylesheet" href="/website/style/home_page/home.css">
-        <!--
-            The perfect structure:
-            <header>
-                <nav></nav>
-            </header>
-            <main>
-                <section>
-                    <article></article>
-                </section>
-            </main>
-            <footer></footer>
-        -->
-    </head>
-    <body>
+    <title>QuanMCPC.home()</title>
+    <link rel="stylesheet" href="/website/style/style.css">
+    <link rel="stylesheet" href="/website/style/home_page/home.css">
+    <!--
+        The perfect structure:
         <header>
-            <nav class="navbar" id="navbar">
-                <a href="/index.html" id="website_logo"><img src="/website/image/logo/logo.svg" alt="Website's logo"></a>
-                <input type="checkbox" name="open_navbar_dropdown" id="open_navbar_dropdown" title="Navigation link dropdown">
-                <div class="navbar_button">
-                    <label for="open_navbar_dropdown" title="Navigation link dropdown">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ffffff" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg>
-                    </label>
-                </div>
-                <div class="navbar_link">
-                    <a href="/home.html">.home()</a>
-                    <a href="/info.html">.info()</a>
-                    <a href="/contacts.html">.contacts()</a>
-                    <a href="/archive/index.html">.archive()</a>
-                </div>
-            </nav>
+            <nav></nav>
         </header>
         <main>
-            <div id="projectViewer">
-                <div id="pv_titlebar">
-                    <button id="pv_close">Close</button>
-                    <button id="pv_oint">Open In New Tab</button>
-                </div>
-                <iframe title="A place to display my project" id="pv_iframe" scrolling="yes" src="about:blank" width="100%" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-modals allow-popups" style="overflow-y: scroll;"></iframe>
-            </div>
-            <noscript>
-                <div id="noscript_wrapper">
-                    <p>To enjoy the full experience of this website, please enable JavaScript.</p>
-                </div>
-            </noscript>
-            <noscript>
-                <style>
-                    section#gift div.textwithtag > div div#claim_gift_div {
-                        display: none;
-                    }
-                </style>
-            </noscript>
-            <section id="home" class="st-leftright">
-                <div>
-                    <div class="left textwithtag">
-                        <span class="otag">intro</span>
-                        <div>
-                            <h1>Hello! I'm Quan. I'm a self-taught <span class="tc-red">programmer</span>, and a professional <span class="tc-green">dumbass</span>.</h1>
-                            <h2>Scroll down to know how a dumbass <span class="tc-blue">eat, code, sleep and repeat</span>.</h2>
-                        </div>
-                        <span class="ctag">intro</span>
-                    </div>
-                    <div class="right">
-                        <figure>
-                            <svg width="512" height="512" version="1.1" viewBox="0 0 135.47 135.47" xmlns="http://www.w3.org/2000/svg" aria-label="The Building Block Of The Internet Image">
-                                <g stroke-width="1.0451">
-                                    <path d="m67.733 0-33.867 16.933v42.333l33.867 16.933 33.867-16.933v-42.333z" fill="#f7df1e"/>
-                                    <path d="m33.867 59.267-33.867 16.933v42.333l33.867 16.933 33.867-16.933v-42.333z" fill="#e34f26"/>
-                                    <path d="m101.6 59.267-33.867 16.933v42.333l33.867 16.933 33.867-16.933v-42.333z" fill="#1572b6"/>
-                                </g>
-                                <path d="m38.947 100.13 23.707-11.853-2.1562 25.42-9.7231 7.6127-9.6678 2.0817zm7.9372 7.0381-0.26189-2.9374 11.355-5.6742 0.25962-3.0898-14.874 7.4336 0.78797 8.6484 10.302-5.1511-0.368 4.0516-3.2851 2.5502-3.3359 0.75353-0.21222-2.2758-2.9453 1.4726 0.37252 4.5223 6.1208-1.4235 6.0723-4.6651 0.83989-9.6283-10.828 5.4141z" fill="#fff" stroke-width="1.1289"/>
-                                <path d="m72.813 88.275 23.707 11.853-2.1562 23.264-9.7231-2.1105-9.6689-7.5867zm19.293 14.628-14.879-7.4429 0.24048 3.0802 11.43 5.7173-0.28787 2.9221-7.4958-3.7479 0.27095 3.0401 6.9788 3.4894-0.41319 3.7705-3.2851-0.7349-3.337-2.5829-0.21223-2.4881-2.9464-1.4732 0.32738 4.5156 6.1694 5.0072 6.0655 1.3056 1.3738-14.377z" fill="#fff" stroke-width="1.1289"/>
-                                <path d="m71.12 39.793v27.093l27.093-13.547v-27.093zm0.50715 0.2561 26.079-13.04v24.514l-3e-3 0.0014v1.5569l-26.074 13.037zm20.024 1.7802c-2.2381 1.119-3.6712 3.2811-3.6712 5.1805 0 2.0605 1.2006 2.4353 3.0098 2.3079l0.62565-0.0399c1.143-0.06528 1.8246-0.09994 1.8246 0.7699 0 0.72439-0.66336 1.5794-1.7006 2.098-1.2362 0.61809-1.9346 0.31549-2.4723-0.30122l-2.0368 2.2132c0.73521 1.1011 2.24 1.4701 4.567 0.30662 2.3806-1.1903 4.1536-3.3254 4.1536-5.6055 0-2.1147-1.2028-2.4559-3.3322-2.3138l-0.62841 0.04403c-1.0753 0.0671-1.5407-0.0083-1.5407-0.76703 0-0.61459 0.46786-1.3173 1.2017-1.6842 0.71969-0.35985 1.182-0.28474 1.6124 0.27722l1.9486-2.2387c-0.82411-1.0553-1.9678-1.0437-3.561-0.24704zm-8.2823 4.2832v8.6115c0 1.2663-0.5196 1.8501-1.3423 2.2614-0.86082 0.43041-1.2187 0.0144-1.6124-0.49445l-2.0396 2.2675c0.59128 0.96777 1.7528 1.4353 3.7594 0.43192 2.2212-1.1106 3.7402-3.0633 3.7402-5.6856v-8.6449z" stroke-width="1.4186"/>
-                            </svg>
-                            <figcaption>The Building Block Of The Internet</figcaption>
-                        </figure>
-                    </div>
-                </div>
-            </section>
-            <section id="bio" class="st-rightleft">
-                <div>
-                    <div class="left textwithtag">
-                        <span class="otag">about censor-level="40%"</span>
-                        <div>
-                            <h1>About Me</h1>
-                            <hr>
-                            <!-- <p>I'm a web developer and programmer that has been writing code for 3 years now. My current location is Vietnam, my office is in my living room, and the computer inside the office is way too outdated. I consider "Free and Open-Source" and "Respect Privacy" being my philosophy.</p>
-                            <p>When I create a webpage, I always make sure that the website would work even without JavaScript disabled. And that's why I've tried to use as little JS as possible to make my website as fast as possible and provide basic functionality to the user. Also because JavaScript is evil.</p> -->
-                            <p>I'm a [redacted] years old web developer and programmer currently living in Vietnam. I've created many projects in the past as a way to train myself in how to program. And while I'm continuing to develop new projects (but slowly), now I focus on front-end programming, with things like my website, my blog site, or programs that run on browsers.</p>
-                            <p>Since I'm currently a junior programmer, all of my projects are Free and Open-Source, so you can either contribute to the repository, use it somewhere else, or do whatever you want with it. And it will never collect your data. I promise.</p>
-                        </div>
-                        <span class="ctag">about</span>
-                    </div>
-                    <div class="right">
-                        <div>
-                            <div id="title">
-                                <p>my_info.json</p>
-                            </div>
-                            <code>
-                                <p>{</p>
-                                <p>    <span class="red">"name"</span>: <span class="green">"Quan"</span>,</p>
-                                <p>    <span class="red">"current_location"</span>: <span class="green">"Vietnam"</span>,</p>
-                                <p>    <span class="red">"age"</span>: <span class="green">"[REDACTED]"</span>,</p>
-                                <p>    <span class="red">"philosophy"</span>: [</p>
-                                <p>        <span class="green">"Free and Open-Source"</span>,</p>
-                                <p>        <span class="green">"Respect Privacy"</span>,</p>
-                                <p>    ],</p>
-                                <p>    <span class="red">"is_available_for_work"</span>: <span class="green">false</span>,</p>
-                                <p>}</p>
-                            </code>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section id="programming" class="st-leftright">
-                <div>
-                    <div class="left textwithtag">
-                        <span class="otag">programming</span>
-                        <div>
-                            <h1>Programming Skills</h1>
-                            <hr>
-                            <p>As someone who has been programming for three years, I've tried and used a lot of different languages, all with various purposes like making games, software, website, etc. So, to show how good I'm at those languages, I've created a table that shows exactly that.</p>
-                        </div>
-                        <span class="ctag">programming</span>
-                    </div>
-                    <div class="right">
-                        <table class="left">
-                            <thead>
-                                <tr>
-                                    <th>Rating</th>
-                                    <th>Languages</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Excellent</td>
-                                    <td>
-                                        <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&amp;logo=html5&amp;logoColor=white" alt="HTML"><img src="https://img.shields.io/badge/JS-EFD81D?style=for-the-badge&amp;logo=javascript&amp;logoColor=000000" alt="JS">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Good</td>
-                                    <td>
-                                        <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&amp;logo=python&amp;logoColor=white" alt="Python"><img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&amp;logo=css3&amp;logoColor=white" alt="CSS"><img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&amp;logo=c+sharp&amp;logoColor=white" alt="C#"><img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=Kotlin&logoColor=white" alt="Kotlin">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Ok/Medium</td>
-                                    <td>
-                                        <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&amp;logo=java&amp;logoColor=white" alt="Java"><img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&amp;logo=php&amp;logoColor=white" alt="PHP"><img src="https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&amp;logo=powershell&amp;logoColor=white" alt="PowerShell">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Poor</td>
-                                    <td>
-                                        <img src="https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&amp;logo=c&amp;logoColor=white" alt="C"><img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Uhh what&#39;s this</td>
-                                    <td>
-                                        <img src="https://img.shields.io/badge/Assembly-000000?style=for-the-badge" alt="Assembly">
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
-            <section id="project">
-                <div class="textwithtag">
-                    <span class="otag">projects</span>
-                    <div>
-                        <h1>Projects</h1>
-                        <hr>
-                        <p>Here's a list of projects or stuff that I've created. Most of them are dead, but not all of them. So check them out!</p>
-                        <div>
-                            <input type="checkbox" name="cb1" id="cb1" class="collapsible_cb">
-                            <label class="collapsible" for="cb1">
-                                <span>Web Applications</span>
-                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                            </label>
-                            <div class="collapsiblecontent">
-                                <input type="checkbox" name="cb1-9" id="cb1-9" class="collapsible_cb">
-                                <label for="cb1-9" class="collapsible">
-                                    <span>Flappy Bird Clone</span>
-                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                                </label>
-                                <div class="collapsiblecontent">
-                                    <span>Here is the <a target="_blank" class="openInProjectViewer" href="/other_project/flappy_bird_clone/index.html">link to view the project</a></span>
-                                    <span>Description: A basic prototype of the flappy bird clone that I made.</span>
-                                </div>
-                                <input type="checkbox" name="cb1-8" id="cb1-8" class="collapsible_cb">
-                                <label for="cb1-8" class="collapsible">
-                                    <span>INBOSH (It has No name But it's Online SHell)</span>
-                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                                </label>
-                                <div class="collapsiblecontent">
-                                    <span>Here is the <a target="_blank" class="openInProjectViewer" href="/other_project/INBOSH/INBOSH.html">link to view the project</a></span>
-                                    <span>Description: A working shell inside a browser, that can only run function and has some bug.</span>
-                                </div>
-                                <input type="checkbox" name="cb1-7" id="cb1-7" class="collapsible_cb">
-                                <label for="cb1-7" class="collapsible">
-                                    <span>Demo for a panorama background</span>
-                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                                </label>
-                                <div class="collapsiblecontent">
-                                    <span>Here is the <a target="_blank" class="openInProjectViewer" href="/other_project/panorama/index.html">link to view the project</a></span>
-                                    <span>Description: A demo for a panorama background that is fully written in JS (no plugin used).</span>
-                                </div>
-                                <input type="checkbox" name="cb1-6" id="cb1-6" class="collapsible_cb">
-                                <label for="cb1-6" class="collapsible">
-                                    <span>SOOPE (Simple and Open-Source Online Picture Editor)</span>
-                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                                </label>
-                                <div class="collapsiblecontent">
-                                    <span>Here is the <a target="_blank" class="openInProjectViewer" href="/other_project/soope.html">link to view the project</a></span>
-                                    <span>Description: A fully functional image editor inside browser (It even has dark mode too!).</span>
-                                </div>
-                                <input type="checkbox" name="cb1-5" id="cb1-5" class="collapsible_cb">
-                                <label for="cb1-5" class="collapsible">
-                                    <span>WCOS (Web Console OS) [Dead]</span>
-                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                                </label>
-                                <div class="collapsiblecontent">
-                                    <span>Here is the <a target="_blank" class="openInProjectViewer" href="/other_project/MSDOS.html">link to view the project</a></span>
-                                    <span>Description: My second attempt to create a shell (which is better then the previous attempt, but still, it's pretty bad).</span>
-                                </div>
-                                <input type="checkbox" name="cb1-4" id="cb1-4" class="collapsible_cb">
-                                <label for="cb1-4" class="collapsible">
-                                    <span>WTOS (Web Terminal OS; Also know as: Console) [Dead]</span>
-                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                                </label>
-                                <div class="collapsiblecontent">
-                                    <span>Here is the <a target="_blank" class="openInProjectViewer" href="/other_project/console.html">link to view the project</a></span>
-                                    <span>Description: My first attempt to create a shell (which is pretty bad).</span>
-                                </div>
-                                <input type="checkbox" name="cb1-3" id="cb1-3" class="collapsible_cb">
-                                <label for="cb1-3" class="collapsible">
-                                    <span>Guess The Number Game [Dead]</span>
-                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                                </label>
-                                <div class="collapsiblecontent">
-                                    <span>Here is the <a target="_blank" class="openInProjectViewer" href="/other_project/numberguessgame.html">link to view the project</a></span>
-                                    <span>Description: Pretty simple: Just Guess The Number.</span>
-                                </div>
-                                <input type="checkbox" name="cb1-2" id="cb1-2" class="collapsible_cb">
-                                <label for="cb1-2" class="collapsible">
-                                    <span>Simple Captcha [Dead]</span>
-                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                                </label>
-                                <div class="collapsiblecontent">
-                                    <span>Here is the <a target="_blank" class="openInProjectViewer" href="/other_project/captcha.html">link to view the project</a></span>
-                                    <span>Description: Something I make for something related to AI idk.</span>
-                                </div>
-                                <input type="checkbox" name="cb1-1" id="cb1-1" class="collapsible_cb">
-                                <label for="cb1-1" class="collapsible">
-                                    <span>Vigenère Encoder and Decoder [Dead]</span>
-                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                                </label>
-                                <div class="collapsiblecontent">
-                                    <span>Here is the <a target="_blank" class="openInProjectViewer" href="/other_project/Vigenere_Cipher.html">link to view the project</a></span>
-                                    <span>Description: A simple Vigenère Encoder and Decoder.</span>
-                                </div>
-                            </div>
-                            <input type="checkbox" name="cb2" id="cb2" class="collapsible_cb">
-                            <label for="cb2" class="collapsible">
-                                <span>Native (Or run on the user computer) Applications</span>
-                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                            </label>
-                            <div class="collapsiblecontent">
-                                <input type="checkbox" name="cb2-5" id="cb2-5" class="collapsible_cb">
-                                <label for="cb2-5" class="collapsible">
-                                    <span>GTPL (Guess The Programming Language)</span>
-                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                                </label>
-                                <div class="collapsiblecontent">
-                                    <span>Here is the <a target="_blank" class="openInProjectViewer" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/gtpl.py">link to the source code</a></span>
-                                    <span>Description: A simple game written in Python and it's text-based where you have to guess the programming language of a piece of code.</span>
-                                </div>
-                                <input type="checkbox" name="cb2-4" id="cb2-4" class="collapsible_cb">
-                                <label for="cb2-4" class="collapsible">
-                                    <span>MyFirstGame</span>
-                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                                </label>
-                                <div class="collapsiblecontent">
-                                    <span>Here is the <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1sj2Uin_mRP0ipujgeWyR7B81frscRykn&export=download">link to all version as an ISO file</a></span>
-                                    <span>Description: My very first game created in Unity where you eat chicken to get points and eat bomb to lose point and get shoot up to the sky.</span>
-                                </div>
-                                <input type="checkbox" name="cb2-3" id="cb2-3" class="collapsible_cb">
-                                <label for="cb2-3" class="collapsible">
-                                    <span>Guess The Number Game</span>
-                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                                </label>
-                                <div class="collapsiblecontent">
-                                    <span>Here is the <a target="_blank" class="openInProjectViewer" href="https://github.com/QuanMCPC/Guess-The-Number-Game/">link to the source code</a></span>
-                                    <span>Description: My second game written in C# where you guess a number with an Impossible Mode.</span>
-                                </div>
-                                <input type="checkbox" name="cb2-2" id="cb2-2" class="collapsible_cb">
-                                <label for="cb2-2" class="collapsible">
-                                    <span>Windows Forms App 2.0 Unofficial</span>
-                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                                </label>
-                                <div class="collapsiblecontent">
-                                    <span>Here is the <a target="_blank" class="openInProjectViewer" href="https://github.com/QuanMCPC/Windows-Forms-App-2.0-Unofficial">link to the source code</a></span>
-                                    <span>Description: A template for a more modern build-in Windows Forms.</span>
-                                </div>
-                                <input type="checkbox" name="cb2-1" id="cb2-1" class="collapsible_cb">
-                                <label for="cb2-1" class="collapsible">
-                                    <span>EDIT (Edit Document In Terminal)</span>
-                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                                </label>
-                                <div class="collapsiblecontent">
-                                    <span>Here is the <a target="_blank" class="openInProjectViewer" href="https://github.com/QuanMCPC/Edit">link to the source code</a></span>
-                                    <span>Description: A really ~OK~ text editor made with Electron with features like Auto Update.</span>
-                                </div>
-                            </div>
-                            <input type="checkbox" name="cb3" id="cb3" class="collapsible_cb">
-                            <label for="cb3" class="collapsible">
-                                <span>Minecraft Builds</span>
-                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                            </label>
-                            <div class="collapsiblecontent">
-                                <input type="checkbox" name="cb3-6" id="cb3-6" class="collapsible_cb">
-                                <label for="cb3-6" class="collapsible">
-                                    <span>8-bit Decoder</span>
-                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                                </label>
-                                <div class="collapsiblecontent">
-                                    <span>Here is the <a target="_blank" class="openInProjectViewer" href="https://www.planetminecraft.com/project/8-bit-decoder-in-minecraft/">link to the map on PM</a></span>
-                                    <span>Description: Convert binary to character from A to Z, 0 to 9 in ASCII.</span>
-                                </div>
-                                <input type="checkbox" name="cb3-5" id="cb3-5" class="collapsible_cb">
-                                <label for="cb3-5" class="collapsible">
-                                    <span>Compact Calculator (1.15.2)</span>
-                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                                </label>
-                                <div class="collapsiblecontent">
-                                    <span>Here is the <a target="_blank" class="openInProjectViewer" href="https://www.planetminecraft.com/project/compact-calculator-1-15-2/">link to the map on PM</a></span>
-                                    <span>Description: A fully working calculator that can do basic calculation in Minecraft using command block.</span>
-                                </div>
-                                <input type="checkbox" name="cb3-4" id="cb3-4" class="collapsible_cb">
-                                <label for="cb3-4" class="collapsible">
-                                    <span>The Longest Useless Machine in Minecraft (v1.0)</span>
-                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                                </label>
-                                <div class="collapsiblecontent">
-                                    <span>Here is the <a target="_blank" class="openInProjectViewer" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-0/">link to the map on PM</a></span>
-                                    <span>Description: A redstone contraption that is pretty useless.</span>
-                                </div>
-                                <input type="checkbox" name="cb3-3" id="cb3-3" class="collapsible_cb">
-                                <label for="cb3-3" class="collapsible">
-                                    <span>The Longest Useless Machine in Minecraft (v1.2)</span>
-                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                                </label>
-                                <div class="collapsiblecontent">
-                                    <span>Here is the <a target="_blank" class="openInProjectViewer" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-1/">link to the map on PM</a></span>
-                                    <span>Description: An upgraded version of the 1.0 version.</span>
-                                </div>
-                                <input type="checkbox" name="cb3-2" id="cb3-2" class="collapsible_cb">
-                                <label for="cb3-2" class="collapsible">
-                                    <span>Printer 1.16</span>
-                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                                </label>
-                                <div class="collapsiblecontent">
-                                    <span>Here is the <a target="_blank" class="openInProjectViewer" href="https://www.planetminecraft.com/project/printer-1-16/">link to the map on PM</a></span>
-                                    <span>Description: A printer that can print stuff out using concrete instead of paper.</span>
-                                </div>
-                                <input type="checkbox" name="cb3-1" id="cb3-1" class="collapsible_cb">
-                                <label for="cb3-1" class="collapsible">
-                                    <span>Security Vault 2.0</span>
-                                    <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                                </label>
-                                <div class="collapsiblecontent">
-                                    <span>Here is the <a target="_blank" class="openInProjectViewer" href="https://www.planetminecraft.com/project/security-vault-2-0/">link to the map on PM</a></span>
-                                    <span>Description: A very large vault to store and hide valuables.</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <span class="ctag">projects</span>
-                </div>
-            </section>
-            <section id="website">
-                <div class="textwithtag">
-                    <span class="otag">website</span>
-                    <div>
-                        <h1>Website</h1>
-                        <hr>
-                        <p>And here is a list of websites that I own. All of this is run by me and is official. Some are currently active, while others are archived for historical purposes.</p>
-                        <div>
-                            <input type="checkbox" name="cb4-2" id="cb4-2" class="collapsible_cb">
-                            <label for="cb4-2" class="collapsible">
-                                <span>My Blogsite</span>
-                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                            </label>
-                            <div class="collapsiblecontent">
-                                <span>Here is the <a target="_blank" href="https://blog.quanmcpc.site">link to the website</a></span>
-                                <span>Description: This is my personal blog where I will be posting about stuff.</span>
-                            </div>
-                            <input type="checkbox" name="cb4-1" id="cb4-1" class="collapsible_cb">
-                            <label for="cb4-1" class="collapsible">
-                                <span>"First Commit"</span>
-                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
-                            </label>
-                            <div class="collapsiblecontent">
-                                <span>Here is the <a target="_blank" href="https://quan215.github.io">link to the website</a></span>
-                                <span>Description: The first ever version of this website so you can see how much I've improved over the last (insert_current_year) - 2020 + "years".</span>
-                            </div>
-                        </div>
-                    </div>
-                    <span class="ctag">website</span>
-                </div>
-            </section>
-            <section id="gift">
-                <div class="textwithtag">
-                    <span class="otag">gift good-item="<del>false</del> true"</span>
-                    <div>
-                        <h1>Thank You</h1>
-                        <hr>
-                        <p>I don't know if you have visited everything on my website, only some of it, or just going by. But anyway, thanks for visiting my website. And to show off my appreciation, here's a gift for you. I promise you won't regret it :)</p>
-                        <noscript>
-                            <p>Well, this is awkward. It seems like we can't get you the present since it requires the technology of JavaScript to work. Sorry about that.</p>
-                        </noscript>
-                        <div id="gift_flashbang"></div>
-                        <div id="gift_display">
-                            <div id="gift_thatsmygift_dialog">
-                                <p></p>
-                            </div>
-                            <p>Congratulation! You got:</p>
-                            <div id="gift_item_1" class="gift_item">
-                                <svg width="38" height="18" version="1.1" viewBox="0 0 10.054 4.7625" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="10.054" height="4.7625" fill="#008000" stroke-width=".57664"/>
-                                    <path transform="scale(.26458)" d="m5 2v1h-1v1h-1v1h-1v8h1v1h1v1h1v1h28v-1h1v-1h1v-1h1v-8h-1v-1h-1v-1h-1v-1z" fill="#00d400" stroke-width="1.6733"/>
-                                    <path d="m2.5135 1.3229v0.26458h-0.26458v0.26458h0.26458v1.3229h-0.52917v0.26458h1.3229v-0.26458h-0.52917v-1.8521zm-0.26458 0.52917h-0.26458v0.26458h0.26458zm1.5875-0.52917v0.26458h0.79375v-0.26458zm0.79375 0.26458v1.5875h0.26458v-1.5875zm0 1.5875h-0.79375v0.26458h0.79375zm-0.79375 0v-1.5875h-0.26458v1.5875zm1.5875-1.8521v0.26458h0.79375v-0.26458zm0.79375 0.26458v1.5875h0.26458v-1.5875zm0 1.5875h-0.79375v0.26458h0.79375zm-0.79375 0v-1.5875h-0.26458v1.5875zm1.8521-1.7198v0.26458h-0.26458v0.26458h0.26458v0.26458h-0.26458v0.26458h0.26458v0.26458h-0.26458v0.26458h0.26458v0.26458h0.26458v-0.26458h0.26458v-0.26458h-0.26458v-0.26458h0.26458v-0.26458h-0.26458v-0.26458h0.26458v-0.26458h-0.26458v-0.26458zm0.52917 1.0583v0.26458h0.26458v-0.26458zm-0.79375-0.26458v-0.26458h-0.26458v0.26458z" fill="#008000" stroke-width=".26458"/>
-                                </svg>
-                                <p>$100 bill</p>
-                            </div>
-                            <div id="gift_item_2" class="gift_item">
-                                <svg width="90" height="64" version="1.1" viewBox="0 0 23.812 16.933" xmlns="http://www.w3.org/2000/svg">
-                                    <g stroke-width=".26458">
-                                        <path d="m8.4667 0v1.3229h4.2333v1.5875h1.3229v-1.5875h2.6458v-1.3229zm8.2021 1.3229v1.5875h1.5875v-1.5875zm1.5875 1.5875v1.3229h1.3229v-1.3229zm1.3229 1.3229v4.2333h-5.5562v1.3229h8.4667v-1.3229h-1.5875v-4.2333zm2.9104 5.5562v1.5875h1.3229v-1.5875zm0 1.5875h-8.4667v1.3229h6.8792v1.3229h1.5875zm-1.5875 2.6458h-6.8792v1.5875h6.8792zm-6.8792 1.5875h-7.1437v1.3229h7.1437zm-7.1437 0v-2.9104h-1.3229v1.3229h-4.2333v1.5875zm-5.5562-1.5875v-4.2333h-1.3229v4.2333zm0-4.2333h7.1438v-1.3229h-5.8208v-2.9104h-1.3229zm1.3229-4.2333h1.5875v-1.3229h-1.5875zm1.5875-1.3229h1.3229v-1.3229h-1.3229zm1.3229-1.3229h2.9104v-1.5875h-2.9104zm2.9104 6.8792v1.5875h1.3229v-1.5875zm0 1.5875h-1.5875v1.3229h1.5875zm5.5562 2.6458v-1.3229h-1.3229v1.3229zm-1.3229-1.3229v-1.3229h-1.5875v1.3229zm0-1.3229h1.3229v-1.5875h-1.3229zm1.3229-2.9104v-1.3229h-1.3229v1.3229zm-1.3229-1.3229v-4.2333h-1.5875v4.2333zm5.5562-2.9104h-1.5875v2.9104h1.5875z" fill="#533846"/>
-                                        <path d="m8.4667 1.3229v1.5875h4.2333v-1.5875zm0 1.5875h-2.9104v1.3229h2.9104zm-2.9104 1.3229h-1.3229v1.3229h1.3229zm-2.9104 5.5562v1.5875h-1.3229v2.6458h2.9104v-1.3229h2.6458v-2.9104z" fill="#dde2b1"/>
-                                        <path d="m8.4667 2.9104v1.3229h-2.9104v1.3229h-2.9104v2.9104h5.8208v1.3229h1.3229v1.5875h2.9104v-1.5875h1.3229v-1.3229h-1.3229v-1.3229h-1.5875v-4.2333zm0 6.8792h-1.5875v1.5875h1.5875zm-7.1438 0v1.5875h1.3229v-1.5875zm2.9104 2.9104v1.3229h1.3229v-1.3229z" fill="#d4bf27"/>
-                                        <path d="m8.4667 11.377v1.3229h-1.5875v2.9104h7.1437v-1.5875h-1.3229v-1.3229h-1.5875v-1.3229z" fill="#e48116"/>
-                                        <path d="m12.7 4.2333v2.9104h1.3229v-2.9104zm1.3229 2.9104v1.3229h1.3229v-1.3229z" fill="#c8c0c0"/>
-                                        <path d="m14.023 1.3229v1.5875h-1.3229v1.3229h1.3229v2.9104h1.3229v1.3229h4.2333v-4.2333h-1.3229v2.9104h-1.5875v-2.9104h1.5875v-1.3229h-1.5875v-1.5875z" fill="#ebfcdd"/>
-                                        <path d="m14.023 9.7896v1.5875h8.4667v-1.5875zm0 1.5875h-1.3229v1.3229h1.3229zm0 1.3229v1.3229h6.8792v-1.3229z" fill="#ea5040"/>
-                                    </g>
-                                </svg>
-                                <p>A flapping bird</p>
-                            </div>
-                            <div id="gift_item_3" class="gift_item">
-                                <svg width="40" height="15" version="1.1" viewBox="0 0 10.583 3.9688" xmlns="http://www.w3.org/2000/svg">
-                                    <path transform="scale(.26458)" d="m25 0v5h-25v5 5h5v-5h5v5h5v-5h10v5h5 10v-5-5-5h-15zm5 5h5v5h-5v-5z" fill="#fc0"/>
-                                </svg>
-                                <p>Sublime Text License key</p>
-                            </div>
-                            <div id="gift_item_4" class="gift_item">
-                                <p>Nothing</p>
-                            </div>
-                        </div>
-                        <div id="claim_gift_div">
-                            <button id="claim_gift" aria-label="The Present">
-                                <svg width="512" height="512" version="1.1" viewBox="0 0 135.47 135.47" xmlns="http://www.w3.org/2000/svg">
-                                    <g>
-                                        <path d="m67.733 0 67.733 30.77-2e-5 13.986-6.1463 2.7921-0.0109 59.946-61.576 27.972-3.88e-4 2e-5 -61.576-27.972v-59.941l-6.1572-2.7972v-13.986z" fill="#00afd6" stroke-width=".40502"/>
-                                        <rect transform="matrix(.91046 .4136 0 1 0 0)" x="6.7631" y="44.756" width="67.631" height="59.941" fill="#0af" stroke-width=".80217"/>
-                                        <rect transform="matrix(-.91046 .4136 0 1 0 0)" x="-142.03" y="106.3" width="67.631" height="59.941" fill="#0077b2" stroke-width=".80217"/>
-                                        <path d="m1.3964e-6 30.77 67.733 30.77v13.986l-67.733-30.77z" fill="#0bc" stroke-width=".40502"/>
-                                        <path d="m135.47 30.77-67.733 30.77v13.986l67.733-30.77z" fill="#00a4b2" stroke-width=".40502"/>
-                                        <path d="m67.733 0 67.733 30.77-67.733 30.77-67.733-30.77z" fill="#00eaff" stroke-width=".40502"/>
-                                        <rect transform="matrix(.91046 .4136 0 1 0 0)" x="33.816" y="44.756" width="13.526" height="59.941" fill="#e52600" stroke-width=".38748"/>
-                                        <rect transform="matrix(-.91046 .4136 0 1 0 0)" x="-114.97" y="106.3" width="13.526" height="59.941" fill="#cc2100" stroke-width=".38748"/>
-                                        <rect transform="matrix(.91046 .4136 0 1 0 0)" x="30.434" y="30.77" width="13.526" height="13.986" fill="#e52600" stroke-width=".55017"/>
-                                        <rect transform="matrix(-.91046 .4136 0 1 0 0)" x="-118.36" y="92.309" width="13.526" height="13.986" fill="#cc2100" stroke-width=".55017"/>
-                                        <path d="m27.709 43.357 67.733-30.77 12.315 5.5945-67.733 30.77z" fill="#ff2b00" stroke-width=".40502"/>
-                                        <path d="m107.76 43.357-67.733-30.77-12.315 5.5945 67.733 30.77z" fill="#ff2b00" stroke-width=".40502"/>
-                                    </g>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    <span class="ctag">gift</span>
-                </div>
+            <section>
+                <article></article>
             </section>
         </main>
-        <footer>
-            <div class="textwithtag">
-                <span class="otag">copyright</span>
-                <div>
-                    <p>Copyright (C) 2022 QuanMCPC. Created on 07/16/2020, this website will live <span class="tc-red">forever</span>.</p>
-                    <details>
-                        <summary>For licensing info</summary>
-                        <div>
-                            <p>Source code on the website is licensed under the <span class="tc-blue">MIT license</span>, and <span xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span property="dct:title">Images inside the "/downloads/" folder and in the "/website/image/" (except the "logo" folder) folder</span> is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;"><span class="tc-green">CC BY-SA 4.0</span><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a></span>. The Redcoder logo however <span class="tc-red">cannot be used without permission</span>.</p>
-                        </div>
-                    </details>
-                </div>
-                <span class="ctag">copyright</span>
+        <footer></footer>
+    -->
+</head>
+<body>
+    <header>
+        <nav class="navbar" id="navbar">
+            <a href="/index.html" id="website_logo"><img src="/website/image/logo/logo.svg" alt="Website's logo"></a>
+            <input type="checkbox" name="open_navbar_dropdown" id="open_navbar_dropdown" title="Navigation link dropdown">
+            <div class="navbar_button">
+                <label for="open_navbar_dropdown" title="Navigation link dropdown">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ffffff" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg>
+                </label>
             </div>
-        </footer>
-    </body>
+            <div class="navbar_link">
+                <a href="/home.html">.home()</a>
+                <a href="/info.html">.info()</a>
+                <a href="/contacts.html">.contacts()</a>
+                <a href="/archive/index.html">.archive()</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div id="projectViewer">
+            <div id="pv_titlebar">
+                <button id="pv_close">Close</button>
+                <button id="pv_oint">Open In New Tab</button>
+            </div>
+            <iframe title="A place to display my project" id="pv_iframe" scrolling="yes" src="about:blank" width="100%" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-modals allow-popups" style="overflow-y: scroll;"></iframe>
+        </div>
+        <noscript>
+            <div id="noscript_wrapper">
+                <p>To enjoy the full experience of this website, please enable JavaScript.</p>
+            </div>
+        </noscript>
+        <noscript>
+            <style>
+                section#gift div.textwithtag > div div#claim_gift_div {
+                    display: none;
+                }
+            </style>
+        </noscript>
+        <section id="home" class="st-leftright">
+            <div>
+                <div class="left textwithtag">
+                    <span class="otag">intro</span>
+                    <div>
+                        <h1>Hello! I'm Quan. I'm a self-taught <span class="tc-red">programmer</span>, and a professional <span class="tc-green">dumbass</span>.</h1>
+                        <h2>Scroll down to know how a dumbass <span class="tc-blue">eat, code, sleep and repeat</span>.</h2>
+                    </div>
+                    <span class="ctag">intro</span>
+                </div>
+                <div class="right">
+                    <figure>
+                        <svg width="512" height="512" version="1.1" viewBox="0 0 135.47 135.47" xmlns="http://www.w3.org/2000/svg" aria-label="The Building Block Of The Internet Image">
+                            <g stroke-width="1.0451">
+                                <path d="m67.733 0-33.867 16.933v42.333l33.867 16.933 33.867-16.933v-42.333z" fill="#f7df1e"/>
+                                <path d="m33.867 59.267-33.867 16.933v42.333l33.867 16.933 33.867-16.933v-42.333z" fill="#e34f26"/>
+                                <path d="m101.6 59.267-33.867 16.933v42.333l33.867 16.933 33.867-16.933v-42.333z" fill="#1572b6"/>
+                            </g>
+                            <path d="m38.947 100.13 23.707-11.853-2.1562 25.42-9.7231 7.6127-9.6678 2.0817zm7.9372 7.0381-0.26189-2.9374 11.355-5.6742 0.25962-3.0898-14.874 7.4336 0.78797 8.6484 10.302-5.1511-0.368 4.0516-3.2851 2.5502-3.3359 0.75353-0.21222-2.2758-2.9453 1.4726 0.37252 4.5223 6.1208-1.4235 6.0723-4.6651 0.83989-9.6283-10.828 5.4141z" fill="#fff" stroke-width="1.1289"/>
+                            <path d="m72.813 88.275 23.707 11.853-2.1562 23.264-9.7231-2.1105-9.6689-7.5867zm19.293 14.628-14.879-7.4429 0.24048 3.0802 11.43 5.7173-0.28787 2.9221-7.4958-3.7479 0.27095 3.0401 6.9788 3.4894-0.41319 3.7705-3.2851-0.7349-3.337-2.5829-0.21223-2.4881-2.9464-1.4732 0.32738 4.5156 6.1694 5.0072 6.0655 1.3056 1.3738-14.377z" fill="#fff" stroke-width="1.1289"/>
+                            <path d="m71.12 39.793v27.093l27.093-13.547v-27.093zm0.50715 0.2561 26.079-13.04v24.514l-3e-3 0.0014v1.5569l-26.074 13.037zm20.024 1.7802c-2.2381 1.119-3.6712 3.2811-3.6712 5.1805 0 2.0605 1.2006 2.4353 3.0098 2.3079l0.62565-0.0399c1.143-0.06528 1.8246-0.09994 1.8246 0.7699 0 0.72439-0.66336 1.5794-1.7006 2.098-1.2362 0.61809-1.9346 0.31549-2.4723-0.30122l-2.0368 2.2132c0.73521 1.1011 2.24 1.4701 4.567 0.30662 2.3806-1.1903 4.1536-3.3254 4.1536-5.6055 0-2.1147-1.2028-2.4559-3.3322-2.3138l-0.62841 0.04403c-1.0753 0.0671-1.5407-0.0083-1.5407-0.76703 0-0.61459 0.46786-1.3173 1.2017-1.6842 0.71969-0.35985 1.182-0.28474 1.6124 0.27722l1.9486-2.2387c-0.82411-1.0553-1.9678-1.0437-3.561-0.24704zm-8.2823 4.2832v8.6115c0 1.2663-0.5196 1.8501-1.3423 2.2614-0.86082 0.43041-1.2187 0.0144-1.6124-0.49445l-2.0396 2.2675c0.59128 0.96777 1.7528 1.4353 3.7594 0.43192 2.2212-1.1106 3.7402-3.0633 3.7402-5.6856v-8.6449z" stroke-width="1.4186"/>
+                        </svg>
+                        <figcaption>The Building Block Of The Internet</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+        <section id="bio" class="st-rightleft">
+            <div>
+                <div class="left textwithtag">
+                    <span class="otag">about censor-level="40%"</span>
+                    <div>
+                        <h1>About Me</h1>
+                        <hr>
+                        <!-- <p>I'm a web developer and programmer that has been writing code for 3 years now. My current location is Vietnam, my office is in my living room, and the computer inside the office is way too outdated. I consider "Free and Open-Source" and "Respect Privacy" being my philosophy.</p>
+                        <p>When I create a webpage, I always make sure that the website would work even without JavaScript disabled. And that's why I've tried to use as little JS as possible to make my website as fast as possible and provide basic functionality to the user. Also because JavaScript is evil.</p> -->
+                        <p>I'm a [redacted] years old web developer and programmer currently living in Vietnam. I've created many projects in the past as a way to train myself in how to program. And while I'm continuing to develop new projects (but slowly), now I focus on front-end programming, with things like my website, my blog site, or programs that run on browsers.</p>
+                        <p>Since I'm currently a junior programmer, all of my projects are Free and Open-Source, so you can either contribute to the repository, use it somewhere else, or do whatever you want with it. And it will never collect your data. I promise.</p>
+                    </div>
+                    <span class="ctag">about</span>
+                </div>
+                <div class="right">
+                    <div>
+                        <div id="title">
+                            <p>my_info.json</p>
+                        </div>
+                        <code>
+                            <p>{</p>
+                            <p>    <span class="red">"name"</span>: <span class="green">"Quan"</span>,</p>
+                            <p>    <span class="red">"current_location"</span>: <span class="green">"Vietnam"</span>,</p>
+                            <p>    <span class="red">"age"</span>: <span class="green">"[REDACTED]"</span>,</p>
+                            <p>    <span class="red">"philosophy"</span>: [</p>
+                            <p>        <span class="green">"Free and Open-Source"</span>,</p>
+                            <p>        <span class="green">"Respect Privacy"</span>,</p>
+                            <p>    ],</p>
+                            <p>    <span class="red">"is_available_for_work"</span>: <span class="green">false</span>,</p>
+                            <p>}</p>
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="programming" class="st-leftright">
+            <div>
+                <div class="left textwithtag">
+                    <span class="otag">programming</span>
+                    <div>
+                        <h1>Programming Skills</h1>
+                        <hr>
+                        <p>As someone who has been programming for three years, I've tried and used a lot of different languages, all with various purposes like making games, software, website, etc. So, to show how good I'm at those languages, I've created a table that shows exactly that.</p>
+                    </div>
+                    <span class="ctag">programming</span>
+                </div>
+                <div class="right">
+                    <table class="left">
+                        <thead>
+                            <tr>
+                                <th>Rating</th>
+                                <th>Languages</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Excellent</td>
+                                <td>
+                                    <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&amp;logo=html5&amp;logoColor=white" alt="HTML"><img src="https://img.shields.io/badge/JS-EFD81D?style=for-the-badge&amp;logo=javascript&amp;logoColor=000000" alt="JS">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Good</td>
+                                <td>
+                                    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&amp;logo=python&amp;logoColor=white" alt="Python"><img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&amp;logo=css3&amp;logoColor=white" alt="CSS"><img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&amp;logo=c+sharp&amp;logoColor=white" alt="C#"><img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=Kotlin&logoColor=white" alt="Kotlin">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ok/Medium</td>
+                                <td>
+                                    <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&amp;logo=java&amp;logoColor=white" alt="Java"><img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&amp;logo=php&amp;logoColor=white" alt="PHP"><img src="https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&amp;logo=powershell&amp;logoColor=white" alt="PowerShell">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Poor</td>
+                                <td>
+                                    <img src="https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&amp;logo=c&amp;logoColor=white" alt="C"><img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Uhh what&#39;s this</td>
+                                <td>
+                                    <img src="https://img.shields.io/badge/Assembly-000000?style=for-the-badge" alt="Assembly">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <section id="project">
+            <div class="textwithtag">
+                <span class="otag">projects</span>
+                <div>
+                    <h1>Projects</h1>
+                    <hr>
+                    <p>Here's a list of projects or stuff that I've created. Most of them are dead, but not all of them. So check them out!</p>
+                    <div>
+                        <input type="checkbox" name="cb1" id="cb1" class="collapsible_cb">
+                        <label class="collapsible" for="cb1">
+                            <span>Web Applications</span>
+                            <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                        </label>
+                        <div class="collapsiblecontent">
+                            <input type="checkbox" name="cb1-9" id="cb1-9" class="collapsible_cb">
+                            <label for="cb1-9" class="collapsible">
+                                <span>Flappy Bird Clone</span>
+                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                            </label>
+                            <div class="collapsiblecontent">
+                                <span>Here is the <a target="_blank" class="openInProjectViewer" href="/other_project/flappy_bird_clone/index.html">link to view the project</a></span>
+                                <span>Description: A basic prototype of the flappy bird clone that I made.</span>
+                            </div>
+                            <input type="checkbox" name="cb1-8" id="cb1-8" class="collapsible_cb">
+                            <label for="cb1-8" class="collapsible">
+                                <span>INBOSH (It has No name But it's Online SHell)</span>
+                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                            </label>
+                            <div class="collapsiblecontent">
+                                <span>Here is the <a target="_blank" class="openInProjectViewer" href="/other_project/INBOSH/INBOSH.html">link to view the project</a></span>
+                                <span>Description: A working shell inside a browser, that can only run function and has some bug.</span>
+                            </div>
+                            <input type="checkbox" name="cb1-7" id="cb1-7" class="collapsible_cb">
+                            <label for="cb1-7" class="collapsible">
+                                <span>Demo for a panorama background</span>
+                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                            </label>
+                            <div class="collapsiblecontent">
+                                <span>Here is the <a target="_blank" class="openInProjectViewer" href="/other_project/panorama/index.html">link to view the project</a></span>
+                                <span>Description: A demo for a panorama background that is fully written in JS (no plugin used).</span>
+                            </div>
+                            <input type="checkbox" name="cb1-6" id="cb1-6" class="collapsible_cb">
+                            <label for="cb1-6" class="collapsible">
+                                <span>SOOPE (Simple and Open-Source Online Picture Editor)</span>
+                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                            </label>
+                            <div class="collapsiblecontent">
+                                <span>Here is the <a target="_blank" class="openInProjectViewer" href="/other_project/soope.html">link to view the project</a></span>
+                                <span>Description: A fully functional image editor inside browser (It even has dark mode too!).</span>
+                            </div>
+                            <input type="checkbox" name="cb1-5" id="cb1-5" class="collapsible_cb">
+                            <label for="cb1-5" class="collapsible">
+                                <span>WCOS (Web Console OS) [Dead]</span>
+                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                            </label>
+                            <div class="collapsiblecontent">
+                                <span>Here is the <a target="_blank" class="openInProjectViewer" href="/other_project/MSDOS.html">link to view the project</a></span>
+                                <span>Description: My second attempt to create a shell (which is better then the previous attempt, but still, it's pretty bad).</span>
+                            </div>
+                            <input type="checkbox" name="cb1-4" id="cb1-4" class="collapsible_cb">
+                            <label for="cb1-4" class="collapsible">
+                                <span>WTOS (Web Terminal OS; Also know as: Console) [Dead]</span>
+                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                            </label>
+                            <div class="collapsiblecontent">
+                                <span>Here is the <a target="_blank" class="openInProjectViewer" href="/other_project/console.html">link to view the project</a></span>
+                                <span>Description: My first attempt to create a shell (which is pretty bad).</span>
+                            </div>
+                            <input type="checkbox" name="cb1-3" id="cb1-3" class="collapsible_cb">
+                            <label for="cb1-3" class="collapsible">
+                                <span>Guess The Number Game [Dead]</span>
+                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                            </label>
+                            <div class="collapsiblecontent">
+                                <span>Here is the <a target="_blank" class="openInProjectViewer" href="/other_project/numberguessgame.html">link to view the project</a></span>
+                                <span>Description: Pretty simple: Just Guess The Number.</span>
+                            </div>
+                            <input type="checkbox" name="cb1-2" id="cb1-2" class="collapsible_cb">
+                            <label for="cb1-2" class="collapsible">
+                                <span>Simple Captcha [Dead]</span>
+                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                            </label>
+                            <div class="collapsiblecontent">
+                                <span>Here is the <a target="_blank" class="openInProjectViewer" href="/other_project/captcha.html">link to view the project</a></span>
+                                <span>Description: Something I make for something related to AI idk.</span>
+                            </div>
+                            <input type="checkbox" name="cb1-1" id="cb1-1" class="collapsible_cb">
+                            <label for="cb1-1" class="collapsible">
+                                <span>Vigenère Encoder and Decoder [Dead]</span>
+                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                            </label>
+                            <div class="collapsiblecontent">
+                                <span>Here is the <a target="_blank" class="openInProjectViewer" href="/other_project/Vigenere_Cipher.html">link to view the project</a></span>
+                                <span>Description: A simple Vigenère Encoder and Decoder.</span>
+                            </div>
+                        </div>
+                        <input type="checkbox" name="cb2" id="cb2" class="collapsible_cb">
+                        <label for="cb2" class="collapsible">
+                            <span>Native (Or run on the user computer) Applications</span>
+                            <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                        </label>
+                        <div class="collapsiblecontent">
+                            <input type="checkbox" name="cb2-5" id="cb2-5" class="collapsible_cb">
+                            <label for="cb2-5" class="collapsible">
+                                <span>GTPL (Guess The Programming Language)</span>
+                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                            </label>
+                            <div class="collapsiblecontent">
+                                <span>Here is the <a target="_blank" class="openInProjectViewer" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/other_project/gtpl.py">link to the source code</a></span>
+                                <span>Description: A simple game written in Python and it's text-based where you have to guess the programming language of a piece of code.</span>
+                            </div>
+                            <input type="checkbox" name="cb2-4" id="cb2-4" class="collapsible_cb">
+                            <label for="cb2-4" class="collapsible">
+                                <span>MyFirstGame</span>
+                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                            </label>
+                            <div class="collapsiblecontent">
+                                <span>Here is the <a target="_blank" rel="noreferrer noopener" href="https://drive.google.com/u/0/uc?id=1sj2Uin_mRP0ipujgeWyR7B81frscRykn&export=download">link to all version as an ISO file</a></span>
+                                <span>Description: My very first game created in Unity where you eat chicken to get points and eat bomb to lose point and get shoot up to the sky.</span>
+                            </div>
+                            <input type="checkbox" name="cb2-3" id="cb2-3" class="collapsible_cb">
+                            <label for="cb2-3" class="collapsible">
+                                <span>Guess The Number Game</span>
+                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                            </label>
+                            <div class="collapsiblecontent">
+                                <span>Here is the <a target="_blank" class="openInProjectViewer" href="https://github.com/QuanMCPC/Guess-The-Number-Game/">link to the source code</a></span>
+                                <span>Description: My second game written in C# where you guess a number with an Impossible Mode.</span>
+                            </div>
+                            <input type="checkbox" name="cb2-2" id="cb2-2" class="collapsible_cb">
+                            <label for="cb2-2" class="collapsible">
+                                <span>Windows Forms App 2.0 Unofficial</span>
+                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                            </label>
+                            <div class="collapsiblecontent">
+                                <span>Here is the <a target="_blank" class="openInProjectViewer" href="https://github.com/QuanMCPC/Windows-Forms-App-2.0-Unofficial">link to the source code</a></span>
+                                <span>Description: A template for a more modern build-in Windows Forms.</span>
+                            </div>
+                            <input type="checkbox" name="cb2-1" id="cb2-1" class="collapsible_cb">
+                            <label for="cb2-1" class="collapsible">
+                                <span>EDIT (Edit Document In Terminal)</span>
+                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                            </label>
+                            <div class="collapsiblecontent">
+                                <span>Here is the <a target="_blank" class="openInProjectViewer" href="https://github.com/QuanMCPC/Edit">link to the source code</a></span>
+                                <span>Description: A really ~OK~ text editor made with Electron with features like Auto Update.</span>
+                            </div>
+                        </div>
+                        <input type="checkbox" name="cb3" id="cb3" class="collapsible_cb">
+                        <label for="cb3" class="collapsible">
+                            <span>Minecraft Builds</span>
+                            <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                        </label>
+                        <div class="collapsiblecontent">
+                            <input type="checkbox" name="cb3-6" id="cb3-6" class="collapsible_cb">
+                            <label for="cb3-6" class="collapsible">
+                                <span>8-bit Decoder</span>
+                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                            </label>
+                            <div class="collapsiblecontent">
+                                <span>Here is the <a target="_blank" class="openInProjectViewer" href="https://www.planetminecraft.com/project/8-bit-decoder-in-minecraft/">link to the map on PM</a></span>
+                                <span>Description: Convert binary to character from A to Z, 0 to 9 in ASCII.</span>
+                            </div>
+                            <input type="checkbox" name="cb3-5" id="cb3-5" class="collapsible_cb">
+                            <label for="cb3-5" class="collapsible">
+                                <span>Compact Calculator (1.15.2)</span>
+                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                            </label>
+                            <div class="collapsiblecontent">
+                                <span>Here is the <a target="_blank" class="openInProjectViewer" href="https://www.planetminecraft.com/project/compact-calculator-1-15-2/">link to the map on PM</a></span>
+                                <span>Description: A fully working calculator that can do basic calculation in Minecraft using command block.</span>
+                            </div>
+                            <input type="checkbox" name="cb3-4" id="cb3-4" class="collapsible_cb">
+                            <label for="cb3-4" class="collapsible">
+                                <span>The Longest Useless Machine in Minecraft (v1.0)</span>
+                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                            </label>
+                            <div class="collapsiblecontent">
+                                <span>Here is the <a target="_blank" class="openInProjectViewer" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-0/">link to the map on PM</a></span>
+                                <span>Description: A redstone contraption that is pretty useless.</span>
+                            </div>
+                            <input type="checkbox" name="cb3-3" id="cb3-3" class="collapsible_cb">
+                            <label for="cb3-3" class="collapsible">
+                                <span>The Longest Useless Machine in Minecraft (v1.2)</span>
+                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                            </label>
+                            <div class="collapsiblecontent">
+                                <span>Here is the <a target="_blank" class="openInProjectViewer" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-1/">link to the map on PM</a></span>
+                                <span>Description: An upgraded version of the 1.0 version.</span>
+                            </div>
+                            <input type="checkbox" name="cb3-2" id="cb3-2" class="collapsible_cb">
+                            <label for="cb3-2" class="collapsible">
+                                <span>Printer 1.16</span>
+                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                            </label>
+                            <div class="collapsiblecontent">
+                                <span>Here is the <a target="_blank" class="openInProjectViewer" href="https://www.planetminecraft.com/project/printer-1-16/">link to the map on PM</a></span>
+                                <span>Description: A printer that can print stuff out using concrete instead of paper.</span>
+                            </div>
+                            <input type="checkbox" name="cb3-1" id="cb3-1" class="collapsible_cb">
+                            <label for="cb3-1" class="collapsible">
+                                <span>Security Vault 2.0</span>
+                                <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                            </label>
+                            <div class="collapsiblecontent">
+                                <span>Here is the <a target="_blank" class="openInProjectViewer" href="https://www.planetminecraft.com/project/security-vault-2-0/">link to the map on PM</a></span>
+                                <span>Description: A very large vault to store and hide valuables.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span class="ctag">projects</span>
+            </div>
+        </section>
+        <section id="website">
+            <div class="textwithtag">
+                <span class="otag">website</span>
+                <div>
+                    <h1>Website</h1>
+                    <hr>
+                    <p>And here is a list of websites that I own. All of this is run by me and is official. Some are currently active, while others are archived for historical purposes.</p>
+                    <div>
+                        <input type="checkbox" name="cb4-2" id="cb4-2" class="collapsible_cb">
+                        <label for="cb4-2" class="collapsible">
+                            <span>My Blogsite</span>
+                            <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                        </label>
+                        <div class="collapsiblecontent">
+                            <span>Here is the <a target="_blank" href="https://blog.quanmcpc.site">link to the website</a></span>
+                            <span>Description: This is my personal blog where I will be posting about stuff.</span>
+                        </div>
+                        <input type="checkbox" name="cb4-1" id="cb4-1" class="collapsible_cb">
+                        <label for="cb4-1" class="collapsible">
+                            <span>"First Commit"</span>
+                            <div class="indicator"><img src="/website/image/arrow.svg" alt="Arrow (Click Me!)"></div>
+                        </label>
+                        <div class="collapsiblecontent">
+                            <span>Here is the <a target="_blank" href="https://quan215.github.io">link to the website</a></span>
+                            <span>Description: The first ever version of this website so you can see how much I've improved over the last (insert_current_year) - 2020 + "years".</span>
+                        </div>
+                    </div>
+                </div>
+                <span class="ctag">website</span>
+            </div>
+        </section>
+        <section id="gift">
+            <div class="textwithtag">
+                <span class="otag">gift good-item="<del>false</del> true"</span>
+                <div>
+                    <h1>Thank You</h1>
+                    <hr>
+                    <p>I don't know if you have visited everything on my website, only some of it, or just going by. But anyway, thanks for visiting my website. And to show off my appreciation, here's a gift for you. I promise you won't regret it :)</p>
+                    <noscript>
+                        <p>Well, this is awkward. It seems like we can't get you the present since it requires the technology of JavaScript to work. Sorry about that.</p>
+                    </noscript>
+                    <div id="gift_flashbang"></div>
+                    <div id="gift_display">
+                        <div id="gift_thatsmygift_dialog">
+                            <p></p>
+                        </div>
+                        <p>Congratulation! You got:</p>
+                        <div id="gift_item_1" class="gift_item">
+                            <svg width="38" height="18" version="1.1" viewBox="0 0 10.054 4.7625" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="10.054" height="4.7625" fill="#008000" stroke-width=".57664"/>
+                                <path transform="scale(.26458)" d="m5 2v1h-1v1h-1v1h-1v8h1v1h1v1h1v1h28v-1h1v-1h1v-1h1v-8h-1v-1h-1v-1h-1v-1z" fill="#00d400" stroke-width="1.6733"/>
+                                <path d="m2.5135 1.3229v0.26458h-0.26458v0.26458h0.26458v1.3229h-0.52917v0.26458h1.3229v-0.26458h-0.52917v-1.8521zm-0.26458 0.52917h-0.26458v0.26458h0.26458zm1.5875-0.52917v0.26458h0.79375v-0.26458zm0.79375 0.26458v1.5875h0.26458v-1.5875zm0 1.5875h-0.79375v0.26458h0.79375zm-0.79375 0v-1.5875h-0.26458v1.5875zm1.5875-1.8521v0.26458h0.79375v-0.26458zm0.79375 0.26458v1.5875h0.26458v-1.5875zm0 1.5875h-0.79375v0.26458h0.79375zm-0.79375 0v-1.5875h-0.26458v1.5875zm1.8521-1.7198v0.26458h-0.26458v0.26458h0.26458v0.26458h-0.26458v0.26458h0.26458v0.26458h-0.26458v0.26458h0.26458v0.26458h0.26458v-0.26458h0.26458v-0.26458h-0.26458v-0.26458h0.26458v-0.26458h-0.26458v-0.26458h0.26458v-0.26458h-0.26458v-0.26458zm0.52917 1.0583v0.26458h0.26458v-0.26458zm-0.79375-0.26458v-0.26458h-0.26458v0.26458z" fill="#008000" stroke-width=".26458"/>
+                            </svg>
+                            <p>$100 bill</p>
+                        </div>
+                        <div id="gift_item_2" class="gift_item">
+                            <svg width="90" height="64" version="1.1" viewBox="0 0 23.812 16.933" xmlns="http://www.w3.org/2000/svg">
+                                <g stroke-width=".26458">
+                                    <path d="m8.4667 0v1.3229h4.2333v1.5875h1.3229v-1.5875h2.6458v-1.3229zm8.2021 1.3229v1.5875h1.5875v-1.5875zm1.5875 1.5875v1.3229h1.3229v-1.3229zm1.3229 1.3229v4.2333h-5.5562v1.3229h8.4667v-1.3229h-1.5875v-4.2333zm2.9104 5.5562v1.5875h1.3229v-1.5875zm0 1.5875h-8.4667v1.3229h6.8792v1.3229h1.5875zm-1.5875 2.6458h-6.8792v1.5875h6.8792zm-6.8792 1.5875h-7.1437v1.3229h7.1437zm-7.1437 0v-2.9104h-1.3229v1.3229h-4.2333v1.5875zm-5.5562-1.5875v-4.2333h-1.3229v4.2333zm0-4.2333h7.1438v-1.3229h-5.8208v-2.9104h-1.3229zm1.3229-4.2333h1.5875v-1.3229h-1.5875zm1.5875-1.3229h1.3229v-1.3229h-1.3229zm1.3229-1.3229h2.9104v-1.5875h-2.9104zm2.9104 6.8792v1.5875h1.3229v-1.5875zm0 1.5875h-1.5875v1.3229h1.5875zm5.5562 2.6458v-1.3229h-1.3229v1.3229zm-1.3229-1.3229v-1.3229h-1.5875v1.3229zm0-1.3229h1.3229v-1.5875h-1.3229zm1.3229-2.9104v-1.3229h-1.3229v1.3229zm-1.3229-1.3229v-4.2333h-1.5875v4.2333zm5.5562-2.9104h-1.5875v2.9104h1.5875z" fill="#533846"/>
+                                    <path d="m8.4667 1.3229v1.5875h4.2333v-1.5875zm0 1.5875h-2.9104v1.3229h2.9104zm-2.9104 1.3229h-1.3229v1.3229h1.3229zm-2.9104 5.5562v1.5875h-1.3229v2.6458h2.9104v-1.3229h2.6458v-2.9104z" fill="#dde2b1"/>
+                                    <path d="m8.4667 2.9104v1.3229h-2.9104v1.3229h-2.9104v2.9104h5.8208v1.3229h1.3229v1.5875h2.9104v-1.5875h1.3229v-1.3229h-1.3229v-1.3229h-1.5875v-4.2333zm0 6.8792h-1.5875v1.5875h1.5875zm-7.1438 0v1.5875h1.3229v-1.5875zm2.9104 2.9104v1.3229h1.3229v-1.3229z" fill="#d4bf27"/>
+                                    <path d="m8.4667 11.377v1.3229h-1.5875v2.9104h7.1437v-1.5875h-1.3229v-1.3229h-1.5875v-1.3229z" fill="#e48116"/>
+                                    <path d="m12.7 4.2333v2.9104h1.3229v-2.9104zm1.3229 2.9104v1.3229h1.3229v-1.3229z" fill="#c8c0c0"/>
+                                    <path d="m14.023 1.3229v1.5875h-1.3229v1.3229h1.3229v2.9104h1.3229v1.3229h4.2333v-4.2333h-1.3229v2.9104h-1.5875v-2.9104h1.5875v-1.3229h-1.5875v-1.5875z" fill="#ebfcdd"/>
+                                    <path d="m14.023 9.7896v1.5875h8.4667v-1.5875zm0 1.5875h-1.3229v1.3229h1.3229zm0 1.3229v1.3229h6.8792v-1.3229z" fill="#ea5040"/>
+                                </g>
+                            </svg>
+                            <p>A flapping bird</p>
+                        </div>
+                        <div id="gift_item_3" class="gift_item">
+                            <svg width="40" height="15" version="1.1" viewBox="0 0 10.583 3.9688" xmlns="http://www.w3.org/2000/svg">
+                                <path transform="scale(.26458)" d="m25 0v5h-25v5 5h5v-5h5v5h5v-5h10v5h5 10v-5-5-5h-15zm5 5h5v5h-5v-5z" fill="#fc0"/>
+                            </svg>
+                            <p>Sublime Text License key</p>
+                        </div>
+                        <div id="gift_item_4" class="gift_item">
+                            <p>Nothing</p>
+                        </div>
+                    </div>
+                    <div id="claim_gift_div">
+                        <button id="claim_gift" aria-label="The Present">
+                            <svg width="512" height="512" version="1.1" viewBox="0 0 135.47 135.47" xmlns="http://www.w3.org/2000/svg">
+                                <g>
+                                    <path d="m67.733 0 67.733 30.77-2e-5 13.986-6.1463 2.7921-0.0109 59.946-61.576 27.972-3.88e-4 2e-5 -61.576-27.972v-59.941l-6.1572-2.7972v-13.986z" fill="#00afd6" stroke-width=".40502"/>
+                                    <rect transform="matrix(.91046 .4136 0 1 0 0)" x="6.7631" y="44.756" width="67.631" height="59.941" fill="#0af" stroke-width=".80217"/>
+                                    <rect transform="matrix(-.91046 .4136 0 1 0 0)" x="-142.03" y="106.3" width="67.631" height="59.941" fill="#0077b2" stroke-width=".80217"/>
+                                    <path d="m1.3964e-6 30.77 67.733 30.77v13.986l-67.733-30.77z" fill="#0bc" stroke-width=".40502"/>
+                                    <path d="m135.47 30.77-67.733 30.77v13.986l67.733-30.77z" fill="#00a4b2" stroke-width=".40502"/>
+                                    <path d="m67.733 0 67.733 30.77-67.733 30.77-67.733-30.77z" fill="#00eaff" stroke-width=".40502"/>
+                                    <rect transform="matrix(.91046 .4136 0 1 0 0)" x="33.816" y="44.756" width="13.526" height="59.941" fill="#e52600" stroke-width=".38748"/>
+                                    <rect transform="matrix(-.91046 .4136 0 1 0 0)" x="-114.97" y="106.3" width="13.526" height="59.941" fill="#cc2100" stroke-width=".38748"/>
+                                    <rect transform="matrix(.91046 .4136 0 1 0 0)" x="30.434" y="30.77" width="13.526" height="13.986" fill="#e52600" stroke-width=".55017"/>
+                                    <rect transform="matrix(-.91046 .4136 0 1 0 0)" x="-118.36" y="92.309" width="13.526" height="13.986" fill="#cc2100" stroke-width=".55017"/>
+                                    <path d="m27.709 43.357 67.733-30.77 12.315 5.5945-67.733 30.77z" fill="#ff2b00" stroke-width=".40502"/>
+                                    <path d="m107.76 43.357-67.733-30.77-12.315 5.5945 67.733 30.77z" fill="#ff2b00" stroke-width=".40502"/>
+                                </g>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <span class="ctag">gift</span>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="textwithtag">
+            <span class="otag">copyright</span>
+            <div>
+                <p>Copyright (C) 2022 QuanMCPC. Created on 07/16/2020, this website will live <span class="tc-red">forever</span>.</p>
+                <details>
+                    <summary>For licensing info</summary>
+                    <div>
+                        <p>Source code on the website is licensed under the <span class="tc-blue">MIT license</span>, and <span xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span property="dct:title">Images inside the "/downloads/" folder and in the "/website/image/" (except the "logo" folder) folder</span> is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;"><span class="tc-green">CC BY-SA 4.0</span><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a></span>. The Redcoder logo however <span class="tc-red">cannot be used without permission</span>.</p>
+                    </div>
+                </details>
+            </div>
+            <span class="ctag">copyright</span>
+        </div>
+    </footer>
     <script src="/website/script/script.js"></script>
     <script src="/website/script/home_page/home.js"></script>
     <script src="/index.js"></script>
+</body>
 </html>

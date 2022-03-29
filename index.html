@@ -1,111 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://quanmcpc.github.io/" />
-        <meta property="og:site_name" content="Quan_MCPC's Website" />
-        <meta property="og:title" content="QuanMCPC" />
-        <meta property="og:description" content="Hi and welcome to my website." />
-        <meta property="og:image" content="/website/image/social_preview.png" />
-        <meta property="og:image:alt" content="Social preview image" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://quanmcpc.github.io/" />
+    <meta property="og:site_name" content="Quan_MCPC's Website" />
+    <meta property="og:title" content="QuanMCPC" />
+    <meta property="og:description" content="Hi and welcome to my website." />
+    <meta property="og:image" content="/website/image/social_preview.png" />
+    <meta property="og:image:alt" content="Social preview image" />
 
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="theme-color" content="#a00000" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#a00000" />
 
-        <meta name="keywords" content="QuanMCPC, Quan_MCPC" />
-        <meta name="description" content="Hi welcome to my website." />
-        <meta name="author" content="Quan_MCPC" />
+    <meta name="keywords" content="QuanMCPC, Quan_MCPC" />
+    <meta name="description" content="Hi welcome to my website." />
+    <meta name="author" content="Quan_MCPC" />
 
-        <meta name="robots" content="NOODP" />
-        <link rel="manifest" href="/manifest.json" />
+    <meta name="robots" content="NOODP" />
+    <link rel="manifest" href="/manifest.json" />
 
-        <link rel="shortcut icon" href="/website/image/logo/favicon.ico" />
-        <link rel="apple-touch-icon" href="/website/image/logo/logo.png">
-        <link rel="stylesheet" href="/website/style/style.css">
-        <title>QuanMCPC</title>
-        <style>
-            div.dialog {
-                display: flex;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                justify-content: center;
-                align-items: center;
-                z-index: 5;
-                background-color: black;
-            }
-            div.dialog > div {
-                padding: 10px;
-                background-color: white;
-                color: black;
-                box-shadow: 10px 10px #808080;
-                font-family: "Inconsolata";
-                max-width: 800px;
-                width: 480px;
-                max-height: calc(100% - 50px);
-                overflow-y: auto;
-            }
-            h1, h2, p {
-                margin: 8px;
-            }
-            p {
-                font-size: 1.25rem;
-                font-weight: normal;
-            }
-            hr {
-                border-color: black;
-            }
-            a:link, a:visited, a {
-                text-decoration: none;
-                transition: all 0.1s;
-                border: 2px solid black;
-                color: black;
-                width: calc(100% - 16px);
-                padding: 8px;
-                font-weight: normal;
-                font-size: 1.25rem;
-                margin: 0 8px 8px 8px;
-            }
-            a:hover, a:active, a:focus {
-                background-color: black;
-                color: white;
-            }
-            a#install_website { display: none; }
-        </style>
-    </head>
-    <body>
-        <noscript>
-            <div id="noscript_wrapper">
-                <p>To enjoy the full experience of this website, please enable JavaScript.</p>
-            </div>
-        </noscript>
-        <div class="dialog">
-            <div>
-                <h1>QuanMCPC's Website</h1>
-                <h2>Login Dialog</h2>
-                <p>Hey there, welcome to my website. What do you want to do?</p>
-                <a href="./home.html">Go to the website [Duh]</a>
-                <a href="./basic/index.html">Go see a bit of history about this website</a>
-                <a href="#" id="enter_password">Login to admin account</a>
-                <a id="install_website" href="#">Install website</a>
-            </div>
+    <link rel="shortcut icon" href="/website/image/logo/favicon.ico" />
+    <link rel="apple-touch-icon" href="/website/image/logo/logo.png">
+    <link rel="stylesheet" href="/website/style/style.css">
+    <title>QuanMCPC</title>
+    <style>
+        div.dialog {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            z-index: 5;
+            background-color: black;
+        }
+        div.dialog > div {
+            padding: 10px;
+            background-color: white;
+            color: black;
+            box-shadow: 10px 10px #808080;
+            font-family: "Inconsolata";
+            max-width: 800px;
+            width: 480px;
+            max-height: calc(100% - 50px);
+            overflow-y: auto;
+        }
+        h1, h2, p {
+            margin: 8px;
+        }
+        p {
+            font-size: 1.25rem;
+            font-weight: normal;
+        }
+        hr {
+            border-color: black;
+        }
+        a:link, a:visited, a {
+            text-decoration: none;
+            transition: all 0.1s;
+            border: 2px solid black;
+            color: black;
+            width: calc(100% - 16px);
+            padding: 8px;
+            font-weight: normal;
+            font-size: 1.25rem;
+            margin: 0 8px 8px 8px;
+        }
+        a:hover, a:active, a:focus {
+            background-color: black;
+            color: white;
+        }
+        a#install_website { display: none; }
+    </style>
+</head>
+<body>
+    <noscript>
+        <div id="noscript_wrapper">
+            <p>To enjoy the full experience of this website, please enable JavaScript.</p>
         </div>
-    </body>
+    </noscript>
+    <div class="dialog">
+        <div>
+            <h1>QuanMCPC's Website</h1>
+            <h2>Login Dialog</h2>
+            <p>Hey there, welcome to my website. What do you want to do?</p>
+            <a href="./home.html">Go to the website [Duh]</a>
+            <a href="./basic/index.html">Go see a bit of history about this website</a>
+            <a href="#" id="enter_password">Login to admin account</a>
+            <a id="install_website" href="#">Install website</a>
+        </div>
+    </div>
     <script>
         let deferredPrompt, allowinstall = true;
-
+    
         document.addEventListener("load", () => {
             if (window.matchMedia('(display-mode: standalone)').matches || navigator.standalone || window.matchMedia('(display-mode: minimal-ui)').matches) {
                 allowinstall = false;
             }
         })
-
+    
         window.addEventListener('beforeinstallprompt', (e) => {
             if (!allowinstall) return;
             console.log(`'beforeinstallprompt' event was fired.`);
@@ -114,13 +113,13 @@
             e.preventDefault();
             deferredPrompt = e;
         });
-
+    
         window.addEventListener("appinstalled", e => {
             if (!allowinstall) return;
             document.getElementById("install_website").style.display = "none";
             deferredPrompt = null;
         })
-
+    
         document.getElementById("install_website").addEventListener('click', async () => {
             if (!allowinstall) return;
             deferredPrompt.prompt();
@@ -130,7 +129,7 @@
             }
             deferredPrompt = null;
         });
-
+    
         // Source: https://stackoverflow.com/questions/59777670/how-can-i-hash-a-string-with-sha256-in-js
         // Source: https://stackoverflow.com/questions/62102034/javascript-how-to-encrypt-string-with-only-password-in-2020#62102577
         async function deriveKey(password){const algo={name:'PBKDF2',hash:'SHA-256',salt:new TextEncoder().encode('a-unique-salt'),iterations:1000};return crypto.subtle.deriveKey(algo,await crypto.subtle.importKey('raw',new TextEncoder().encode(password),{name:algo.name},false,['deriveKey']),{name:'AES-GCM',length:256},false,['encrypt','decrypt'])}
@@ -158,6 +157,6 @@
                     alert("Wrong password");
                 });
         })
-
     </script>
+</body>
 </html>
