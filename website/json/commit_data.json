@@ -3,6 +3,18 @@
     "last_update_on": "2022-03-29",
     "data": [
         {
+            "hash": "3d276fa",
+            "committer": "QuanMCPC",
+            "commit_date": 1648522190,
+            "message": "Oops, forgot to build some flle"
+        },
+        {
+            "hash": "ce72372",
+            "committer": "QuanMCPC",
+            "commit_date": 1648518461,
+            "message": "Update website's information"
+        },
+        {
             "hash": "c4f734a",
             "committer": "QuanMCPC",
             "commit_date": 1648518430,
