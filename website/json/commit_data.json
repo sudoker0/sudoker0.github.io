@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-03-28",
+    "last_update_on": "2022-03-29",
     "data": [
+        {
+            "hash": "c4f734a",
+            "committer": "QuanMCPC",
+            "commit_date": 1648518430,
+            "message": "Added Email contact (with PGP key), remove unnesseciarity indent"
+        },
+        {
+            "hash": "d820d5f",
+            "committer": "QuanMCPC",
+            "commit_date": 1648472047,
+            "message": "Update website's information"
+        },
         {
             "hash": "bf6f0ff",
             "committer": "QuanMCPC",
