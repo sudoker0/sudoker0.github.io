@@ -330,19 +330,11 @@
             "type": "file"
         },
         {
-            "name": "index.js",
-            "type": "file"
-        },
-        {
             "name": "info.html",
             "type": "file"
         },
         {
             "name": "manifest.json",
-            "type": "file"
-        },
-        {
-            "name": "offline.html",
             "type": "file"
         },
         {
@@ -653,10 +645,6 @@
         },
         {
             "name": "sitemap.xml",
-            "type": "file"
-        },
-        {
-            "name": "sw.js",
             "type": "file"
         },
         {

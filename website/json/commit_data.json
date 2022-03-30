@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-03-29",
+    "last_update_on": "2022-03-30",
     "data": [
+        {
+            "hash": "8708ef8",
+            "committer": "QuanMCPC",
+            "commit_date": 1648637122,
+            "message": "Remove ServiceWorker and change the bg color to fully black"
+        },
+        {
+            "hash": "a265c7c",
+            "committer": "QuanMCPC",
+            "commit_date": 1648522218,
+            "message": "Update website's information"
+        },
         {
             "hash": "3d276fa",
             "committer": "QuanMCPC",
