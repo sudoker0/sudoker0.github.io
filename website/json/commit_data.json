@@ -1,7 +1,25 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-03-30",
+    "last_update_on": "2022-03-31",
     "data": [
+        {
+            "hash": "430e678",
+            "committer": "QuanMCPC",
+            "commit_date": 1648690721,
+            "message": "Merge branch 'master' of https://github.com/QuanMCPC/QuanMCPC.github.io"
+        },
+        {
+            "hash": "c8ae492",
+            "committer": "QuanMCPC",
+            "commit_date": 1648690713,
+            "message": "Fix GPG public key"
+        },
+        {
+            "hash": "b135e6b",
+            "committer": "QuanMCPC",
+            "commit_date": 1648637163,
+            "message": "Update website's information"
+        },
         {
             "hash": "8708ef8",
             "committer": "QuanMCPC",
