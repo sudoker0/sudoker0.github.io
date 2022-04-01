@@ -98,6 +98,10 @@
             "type": "file"
         },
         {
+            "name": "CNAME",
+            "type": "file"
+        },
+        {
             "name": "LICENSE",
             "type": "file"
         },
