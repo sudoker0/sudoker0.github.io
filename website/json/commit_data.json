@@ -3,6 +3,18 @@
     "last_update_on": "2022-04-01",
     "data": [
         {
+            "hash": "325f3e9",
+            "committer": "QuanMCPC",
+            "commit_date": 1648784630,
+            "message": "Made the dropdown menu in mobile view on navigation bar change to an \"x\" when it's open"
+        },
+        {
+            "hash": "93d789f",
+            "committer": "QuanMCPC",
+            "commit_date": 1648781323,
+            "message": "Update website's information"
+        },
+        {
             "hash": "ef36561",
             "committer": "QuanMCPC",
             "commit_date": 1648781293,
