@@ -212,6 +212,7 @@ input.collapsible_cb {
 
     &:focus + label, &:hover + label {
         background-color: var(--color-fg);
+        svg { fill: var(--color-bg); }
     }
 
     &:focus + label > *, &:hover + label > * {
@@ -388,6 +389,12 @@ input#open_navbar_dropdown {
             #dd_ico_p3{ transform: translate(8px, 7.5px) rotate(-45deg) }
         }
     }
+    &:hover, &:focus {
+        & ~ div.navbar_button label {
+            background-color: var(--color-fg);
+            svg { fill: var(--color-bg); }
+        }
+    }
 }
 
 label[for="open_navbar_dropdown"] {
@@ -397,8 +404,6 @@ label[for="open_navbar_dropdown"] {
     }
     &:hover {
         cursor: pointer;
-        background-color: var(--color-fg);
-        svg { fill: var(--color-bg); }
     }
     svg {
         display: block;
