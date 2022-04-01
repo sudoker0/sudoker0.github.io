@@ -3,6 +3,18 @@
     "last_update_on": "2022-04-01",
     "data": [
         {
+            "hash": "d386040",
+            "committer": "QuanMCPC",
+            "commit_date": 1648815740,
+            "message": "Improve the dropdown menu and the dropdown button"
+        },
+        {
+            "hash": "d6002d4",
+            "committer": "QuanMCPC",
+            "commit_date": 1648793383,
+            "message": "Update website's information"
+        },
+        {
             "hash": "8a26e93",
             "committer": "QuanMCPC",
             "commit_date": 1648793139,
