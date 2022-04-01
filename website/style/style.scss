@@ -376,10 +376,16 @@ input#open_navbar_dropdown {
     position: absolute;
     z-index: -1;
     top: 0; left: 0;
-    &:checked ~ div.navbar_link {
-        // display: flex;
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-        pointer-events: all;
+    &:checked {
+        & ~ div.navbar_link {
+            // display: flex;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            pointer-events: all;
+        }
+        & ~ div.navbar_button {
+            svg#dropdown_icon_open { display: none; }
+            svg#dropdown_icon_close { display: block; }
+        }
     }
 }
 
@@ -446,6 +452,7 @@ label[for="open_navbar_dropdown"] {
             width: 100%;
             height: 100%;
             color: var(--color-fg);
+            svg#dropdown_icon_close { display: none; }
         }
     }
 }
