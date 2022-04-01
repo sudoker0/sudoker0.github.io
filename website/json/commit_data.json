@@ -3,6 +3,18 @@
     "last_update_on": "2022-04-01",
     "data": [
         {
+            "hash": "0470ba9",
+            "committer": "GitHub",
+            "commit_date": 1648830884,
+            "message": "Delete CNAME"
+        },
+        {
+            "hash": "31785da",
+            "committer": "QuanMCPC",
+            "commit_date": 1648817861,
+            "message": "Update website's information"
+        },
+        {
             "hash": "221b7e8",
             "committer": "QuanMCPC",
             "commit_date": 1648817827,
