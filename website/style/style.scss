@@ -235,7 +235,7 @@ label.collapsible {
     grid-template-areas: "text indicator";
     cursor: pointer;
     margin-bottom: 10px;
-    transition: all 0.1s ease;
+    &, & > * { transition: all 0.1s ease; }
     -webkit-user-select: none;
     -webkit-touch-callout: none;
     -khtml-user-select: none;
@@ -382,20 +382,27 @@ input#open_navbar_dropdown {
             clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
             pointer-events: all;
         }
-        & ~ div.navbar_button {
-            svg#dropdown_icon_open { display: none; }
-            svg#dropdown_icon_close { display: block; }
+        & ~ div.navbar_button svg#dropdown_icon {
+            #dd_ico_p1 { transform: translate(8px, 7.5px) rotate(45deg) }
+            #dd_ico_p2{ transform: translate(21.5px, 7.5px); opacity:0 }
+            #dd_ico_p3{ transform: translate(8px, 7.5px) rotate(-45deg) }
         }
     }
 }
 
 label[for="open_navbar_dropdown"] {
     margin-right: 2px;
+    &, * {
+        transition: all 0.2s ease;
+    }
     &:hover {
         cursor: pointer;
+        background-color: var(--color-fg);
+        svg { fill: var(--color-bg); }
     }
     svg {
         display: block;
+        fill: var(--color-fg);
     }
 }
 
