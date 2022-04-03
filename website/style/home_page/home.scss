@@ -99,7 +99,12 @@ section#bio div.right {
     to { opacity: 1; visibility: visible; }
 }
 
-section#gift div.textwithtag > div {
+section#gift div.right {
+    div#gift_noscript {
+        border: 2px solid red;
+        padding: 4px;
+    }
+
     // align-items: center;
 
     svg {
