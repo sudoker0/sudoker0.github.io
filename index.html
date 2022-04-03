@@ -93,42 +93,42 @@
             <a href="./home.html">Go to the website [Duh]</a>
             <a href="./basic/index.html">Go see a bit of history about this website</a>
             <a href="#" id="enter_password">Login to admin account</a>
-            <a id="install_website" href="#">Install website</a>
+            <!-- <a id="install_website" href="#">Install website</a> -->
         </div>
     </div>
     <script>
-        let deferredPrompt, allowinstall = true;
+        // let deferredPrompt, allowinstall = true;
     
-        document.addEventListener("load", () => {
-            if (window.matchMedia('(display-mode: standalone)').matches || navigator.standalone || window.matchMedia('(display-mode: minimal-ui)').matches) {
-                allowinstall = false;
-            }
-        })
+        // document.addEventListener("load", () => {
+        //     if (window.matchMedia('(display-mode: standalone)').matches || navigator.standalone || window.matchMedia('(display-mode: minimal-ui)').matches) {
+        //         allowinstall = false;
+        //     }
+        // })
     
-        window.addEventListener('beforeinstallprompt', (e) => {
-            if (!allowinstall) return;
-            console.log(`'beforeinstallprompt' event was fired.`);
-            console.log("B")
-            document.getElementById("install_website").style.display = "block"
-            e.preventDefault();
-            deferredPrompt = e;
-        });
+        // window.addEventListener('beforeinstallprompt', (e) => {
+        //     if (!allowinstall) return;
+        //     console.log(`'beforeinstallprompt' event was fired.`);
+        //     console.log("B")
+        //     document.getElementById("install_website").style.display = "block"
+        //     e.preventDefault();
+        //     deferredPrompt = e;
+        // });
     
-        window.addEventListener("appinstalled", e => {
-            if (!allowinstall) return;
-            document.getElementById("install_website").style.display = "none";
-            deferredPrompt = null;
-        })
+        // window.addEventListener("appinstalled", e => {
+        //     if (!allowinstall) return;
+        //     document.getElementById("install_website").style.display = "none";
+        //     deferredPrompt = null;
+        // })
     
-        document.getElementById("install_website").addEventListener('click', async () => {
-            if (!allowinstall) return;
-            deferredPrompt.prompt();
-            const { outcome } = await deferredPrompt.userChoice;
-            if (outcome == "accepted") {
-                document.getElementById("install_website").style.display = "none"
-            }
-            deferredPrompt = null;
-        });
+        // document.getElementById("install_website").addEventListener('click', async () => {
+        //     if (!allowinstall) return;
+        //     deferredPrompt.prompt();
+        //     const { outcome } = await deferredPrompt.userChoice;
+        //     if (outcome == "accepted") {
+        //         document.getElementById("install_website").style.display = "none"
+        //     }
+        //     deferredPrompt = null;
+        // });
     
         // Source: https://stackoverflow.com/questions/59777670/how-can-i-hash-a-string-with-sha256-in-js
         // Source: https://stackoverflow.com/questions/62102034/javascript-how-to-encrypt-string-with-only-password-in-2020#62102577
