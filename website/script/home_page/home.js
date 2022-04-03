@@ -79,9 +79,13 @@ getId("claim_gift").onclick = () => __awaiter(this, void 0, void 0, function* ()
     getId("gift_flashbang").style.transition = "none";
     claiming_gift = false;
 });
+getId("website_logo").ondragstart = (ev) => {
+    ev.dataTransfer.setData("text", "website_logo");
+};
 getId("claim_gift").ondrop = (ev) => {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
+    console.log(data);
     if (data == "website_logo") {
         getId("claim_gift").style.animation = "lsd 1s infinite linear";
         getId(data).style.animation = "lsd 1s infinite linear";
@@ -90,8 +94,5 @@ getId("claim_gift").ondrop = (ev) => {
 };
 getId("claim_gift").ondragover = (ev) => {
     ev.preventDefault();
-};
-qSel("#website_logo").ondragstart = (ev) => {
-    ev.dataTransfer.setData("text", ev.target["id"]);
 };
 //# sourceMappingURL=home.js.map

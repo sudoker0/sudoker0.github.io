@@ -20,6 +20,7 @@ getId("claim_gift").onclick = async () => {
         fartnoise.currentTime = 0;
         fartmode = false;
     }
+
     getId("gift_display").style.display = "flex";
     getId("gift_flashbang").style.opacity = "1";
 
@@ -77,9 +78,14 @@ getId("claim_gift").onclick = async () => {
     getId("gift_flashbang").style.transition = "none";
     claiming_gift = false;
 };
+getId("website_logo").ondragstart = (ev) => {
+    ev.dataTransfer.setData("text", "website_logo");
+}
+
 getId("claim_gift").ondrop = (ev) => {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
+    console.log(data)
     if (data == "website_logo") {
         getId("claim_gift").style.animation = "lsd 1s infinite linear";
         getId(data).style.animation = "lsd 1s infinite linear";
@@ -88,7 +94,4 @@ getId("claim_gift").ondrop = (ev) => {
 }
 getId("claim_gift").ondragover = (ev) => {
     ev.preventDefault();
-}
-(qSel("#website_logo") as HTMLElement).ondragstart = (ev) => {
-    ev.dataTransfer.setData("text", ev.target["id"]);
 }
