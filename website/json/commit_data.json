@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-04-02",
+    "last_update_on": "2022-04-03",
     "data": [
+        {
+            "hash": "510d8f7",
+            "committer": "QuanMCPC",
+            "commit_date": 1648960450,
+            "message": "Fix problem with the gift in home page's easter egg doesn't work in Chromium browser"
+        },
+        {
+            "hash": "47fd3e3",
+            "committer": "QuanMCPC",
+            "commit_date": 1648904969,
+            "message": "Update website's information"
+        },
         {
             "hash": "bcaf142",
             "committer": "QuanMCPC",
