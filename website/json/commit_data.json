@@ -3,6 +3,18 @@
     "last_update_on": "2022-04-03",
     "data": [
         {
+            "hash": "fca421d",
+            "committer": "QuanMCPC",
+            "commit_date": 1648966281,
+            "message": "Oops, forgot to delete comments"
+        },
+        {
+            "hash": "bbdd4d0",
+            "committer": "QuanMCPC",
+            "commit_date": 1648964552,
+            "message": "Update website's information"
+        },
+        {
             "hash": "76d56bf",
             "committer": "QuanMCPC",
             "commit_date": 1648964523,
