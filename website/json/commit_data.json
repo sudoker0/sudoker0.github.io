@@ -3,6 +3,18 @@
     "last_update_on": "2022-04-03",
     "data": [
         {
+            "hash": "3ecbfac",
+            "committer": "QuanMCPC",
+            "commit_date": 1648962085,
+            "message": "Make my website NOT a web app"
+        },
+        {
+            "hash": "7b61037",
+            "committer": "QuanMCPC",
+            "commit_date": 1648960478,
+            "message": "Update website's information"
+        },
+        {
             "hash": "510d8f7",
             "committer": "QuanMCPC",
             "commit_date": 1648960450,

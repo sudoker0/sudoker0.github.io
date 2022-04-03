@@ -110,6 +110,10 @@
             "type": "file"
         },
         {
+            "name": "_manifest.json.old",
+            "type": "file"
+        },
+        {
             "name": "archive",
             "type": "directory",
             "children": [
@@ -331,10 +335,6 @@
         },
         {
             "name": "info.html",
-            "type": "file"
-        },
-        {
-            "name": "manifest.json",
             "type": "file"
         },
         {
