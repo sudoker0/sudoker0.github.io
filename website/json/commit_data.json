@@ -3,6 +3,18 @@
     "last_update_on": "2022-04-03",
     "data": [
         {
+            "hash": "76d56bf",
+            "committer": "QuanMCPC",
+            "commit_date": 1648964523,
+            "message": "Make the gift section in the home page now as a splitted view"
+        },
+        {
+            "hash": "789e648",
+            "committer": "QuanMCPC",
+            "commit_date": 1648962117,
+            "message": "Update website's information"
+        },
+        {
             "hash": "3ecbfac",
             "committer": "QuanMCPC",
             "commit_date": 1648962085,
