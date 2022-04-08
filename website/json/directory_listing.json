@@ -102,6 +102,10 @@
             "type": "file"
         },
         {
+            "name": "CREDITS.md",
+            "type": "file"
+        },
+        {
             "name": "LICENSE",
             "type": "file"
         },
