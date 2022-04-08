@@ -300,16 +300,6 @@
             ]
         },
         {
-            "name": "basic",
-            "type": "directory",
-            "children": [
-                {
-                    "name": "index.html",
-                    "type": "file"
-                }
-            ]
-        },
-        {
             "name": "contacts.html",
             "type": "file"
         },
@@ -645,6 +635,10 @@
         },
         {
             "name": "sitemap.xml",
+            "type": "file"
+        },
+        {
+            "name": "svg.html",
             "type": "file"
         },
         {

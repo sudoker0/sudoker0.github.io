@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-04-03",
+    "last_update_on": "2022-04-08",
     "data": [
+        {
+            "hash": "382c661",
+            "committer": "QuanMCPC",
+            "commit_date": 1649398120,
+            "message": "Added Carrd site listing, removed basic version of website, improve the index page"
+        },
+        {
+            "hash": "8b636b1",
+            "committer": "QuanMCPC",
+            "commit_date": 1648978765,
+            "message": "Update website's information"
+        },
         {
             "hash": "278604e",
             "committer": "QuanMCPC",

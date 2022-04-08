@@ -1,13 +1,13 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
     "filesize": {
-        "lastupdateon": "2022-04-03",
-        "git_folder": "275,535,375",
+        "lastupdateon": "2022-04-08",
+        "git_folder": "275,541,219",
         "archive_folder": "192,234,746",
-        "assets_folder": "2,606,275",
-        "basic_folder": "2,640",
+        "assets_folder": "2,608,792",
+        "basic_folder": "0",
         "other_project_folder": "6,692,379",
-        "the_rest": "370,202",
-        "total_size": "477,441,617"
+        "the_rest": "371,985",
+        "total_size": "477,449,121"
     }
 }
