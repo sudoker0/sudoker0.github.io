@@ -79,20 +79,17 @@
                 <div>
                     <h1>Website Info</h1>
                     <hr>
-                    <noscript>
-                        <hr>
-                        <ul>
-                            <li>
-                                <p>This page require the use of JavaScript to be able to get the data from the JSON file. Which mean that this table is pretty useless without JS.</p>
-                            </li>
-                            <li>
-                                <p>Here's the link to the <a href="/website/json/website_data.json" target="_blank" rel="noopener noreferrer">[filesize]</a> and <a href="/website/json/commit_data.json" target="_blank" rel="noopener noreferrer">[commit]</a> raw JSON data btw.</p>
-                            </li>
-                        </ul>
-                        <hr>
-                    </noscript>
                     <p>Here's some data about the website, some is updated regularly, while the rest is updated manually.</p>
-                    <table class="tg" id="tableview" style="display: block; border: none" cellspacing="0">
+                    <noscript>
+                        <div id="noscript_object">
+                            <p>Unfortunately, this table required the use of JavaScript to be able to get website data.</p>
+                            <p>If you can read JSON data, then here's the link to the <a href="./website/json/website_data.json" target="_blank" rel="noopener noreferrer">filesize</a> and the <a href="./website/json/commit_data.json" target="_blank" rel="noopener noreferrer">commit</a> JSON file.</p>
+                        </div>
+                        <style>
+                            section#website_info table#tableview { display: none; }
+                        </style>
+                    </noscript>
+                    <table class="tg" id="tableview" cellspacing="0">
                         <colgroup>
                             <col style="width: 20%">
                             <col style="width: 20%">
@@ -151,16 +148,6 @@
                             <tr>
                                 <td colspan="2"><a target="_blank" class="openInProjectViewer" href="/other_project/commit_table.html">Click here for a detailed table which contains lots of information for each commit (Fetch from local commit data and update by the author)</a></td>
                             </tr>
-                            <!-- <tr>
-                                <td rowspan="3">Some fact</td>
-                                <td colspan="2">While the total size of the website is over 200MB, it only need 20MB to function properly.</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">This website has been designed to use as little JS as possible. Any element that require JS is properly handled to not make the website look broken.</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">There are quite an amount of easter egg in the website.</td>
-                            </tr> -->
                         </tbody>
                     </table>
                 </div>
@@ -173,8 +160,7 @@
                 <div>
                     <h1>My Info</h1>
                     <hr>
-                    <p>[CENSORED]</p>
-                    <p>Due to not enough interesting information, most of my information has been censored. If you want to know more about me, then look for clues.</p>
+                    <p>Well, I want to give you some information about me, but due to Personal Data Policy, I cannot give you any data that can identify me.</p>
                 </div>
                 <span class="ctag" aria-hidden="true">info</span>
             </div>

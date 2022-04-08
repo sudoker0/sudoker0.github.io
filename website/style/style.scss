@@ -62,6 +62,7 @@ figcaption {
 hr {
     width: 100%;
     border: 1px solid var(--color-fg);
+    background-color: var(--color-fg);
     margin: 0;
 }
 
@@ -548,4 +549,9 @@ div#noscript_wrapper {
 
 textarea {
     font-family: "Courier Prime", monospace;
+}
+
+div#noscript_object {
+    border: 2px solid red;
+    padding: 4px;
 }
