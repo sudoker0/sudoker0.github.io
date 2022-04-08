@@ -84,52 +84,21 @@
         <div id="noscript_wrapper">
             <p>To enjoy the full experience of this website, please enable JavaScript.</p>
         </div>
+        <style>
+            a#enter_password { display: none; }
+        </style>
     </noscript>
     <div class="dialog">
         <div>
             <h1>QuanMCPC's Website</h1>
-            <h2>Login Dialog</h2>
+            <h2>Home Gateway</h2>
             <p>Hey there, welcome to my website. What do you want to do?</p>
-            <a href="./home.html">Go to the website [Duh]</a>
-            <a href="./basic/index.html">Go see a bit of history about this website</a>
+            <a href="./home.html">Redirect me to the website</a>
             <a href="#" id="enter_password">Login to admin account</a>
             <!-- <a id="install_website" href="#">Install website</a> -->
         </div>
     </div>
     <script>
-        // let deferredPrompt, allowinstall = true;
-    
-        // document.addEventListener("load", () => {
-        //     if (window.matchMedia('(display-mode: standalone)').matches || navigator.standalone || window.matchMedia('(display-mode: minimal-ui)').matches) {
-        //         allowinstall = false;
-        //     }
-        // })
-    
-        // window.addEventListener('beforeinstallprompt', (e) => {
-        //     if (!allowinstall) return;
-        //     console.log(`'beforeinstallprompt' event was fired.`);
-        //     console.log("B")
-        //     document.getElementById("install_website").style.display = "block"
-        //     e.preventDefault();
-        //     deferredPrompt = e;
-        // });
-    
-        // window.addEventListener("appinstalled", e => {
-        //     if (!allowinstall) return;
-        //     document.getElementById("install_website").style.display = "none";
-        //     deferredPrompt = null;
-        // })
-    
-        // document.getElementById("install_website").addEventListener('click', async () => {
-        //     if (!allowinstall) return;
-        //     deferredPrompt.prompt();
-        //     const { outcome } = await deferredPrompt.userChoice;
-        //     if (outcome == "accepted") {
-        //         document.getElementById("install_website").style.display = "none"
-        //     }
-        //     deferredPrompt = null;
-        // });
-    
         // Source: https://stackoverflow.com/questions/59777670/how-can-i-hash-a-string-with-sha256-in-js
         // Source: https://stackoverflow.com/questions/62102034/javascript-how-to-encrypt-string-with-only-password-in-2020#62102577
         async function deriveKey(password){const algo={name:'PBKDF2',hash:'SHA-256',salt:new TextEncoder().encode('a-unique-salt'),iterations:1000};return crypto.subtle.deriveKey(algo,await crypto.subtle.importKey('raw',new TextEncoder().encode(password),{name:algo.name},false,['deriveKey']),{name:'AES-GCM',length:256},false,['encrypt','decrypt'])}
