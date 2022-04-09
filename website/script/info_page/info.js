@@ -2,7 +2,6 @@ function innerHTMLClass(clas, text) { qSelAll(`.${clas}`).forEach((elem) => { el
 fetch("/website/json/website_data.json")
     .then(e => e.json())
     .then(data => {
-    qSel("#git_folder").innerHTML = data.filesize.git_folder;
     qSel("#archive_folder").innerHTML = data.filesize.archive_folder;
     qSel("#assets_folder").innerHTML = data.filesize.assets_folder;
     qSel("#project_folder").innerHTML = data.filesize.project_folder;

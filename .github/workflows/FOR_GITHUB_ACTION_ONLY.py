@@ -24,7 +24,7 @@ log("\n========================================\nNow running \"find_size.py\"\n"
 def sizeOfFolder(path = "."):
     log(f"Calculating the total size of folder: {os.path.abspath(path)}")
     fp = ""; lite_size = 0
-    for path, dirs, files in os.walk(path):
+    for path, _, files in os.walk(path):
         for f in files:
             fp = os.path.join(path, f)
             lite_size += os.path.getsize(fp)
@@ -46,9 +46,7 @@ def formatFileSize(sizestring = 0): return re.sub(r"(?!^)(?=(?:\d{3})+(?:\.|$))"
 # Variable Here
 total_size = sizeOfFolder()
 git_folder_size = sizeOfFolder("./.git")
-archive_size = sizeOfFolder("./archive")
-basic_src_code_size = sizeOfFolder("./basic")
-other_project_size = sizeOfFolder("./other_project")
+project_size = sizeOfFolder("./project")
 assets_size = sizeOfFolder("./website")
 
 # JSON data here
@@ -57,11 +55,9 @@ data = {
     "filesize": {
         "lastupdateon": date.today().strftime("%Y-%m-%d"),
         "git_folder": formatFileSize(git_folder_size),
-        "archive_folder": formatFileSize(archive_size),
         "assets_folder": formatFileSize(assets_size),
-        "basic_folder": formatFileSize(basic_src_code_size),
-        "other_project_folder": formatFileSize(other_project_size),
-        "the_rest": formatFileSize(total_size - git_folder_size - archive_size - basic_src_code_size - other_project_size - assets_size),
+        "project_folder": formatFileSize(project_size),
+        "the_rest": formatFileSize(total_size - git_folder_size - project_size - assets_size),
         "total_size": formatFileSize(total_size)
     }
 }
