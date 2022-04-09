@@ -1,7 +1,25 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-04-08",
+    "last_update_on": "2022-04-09",
     "data": [
+        {
+            "hash": "e7b8648",
+            "committer": "QuanMCPC",
+            "commit_date": 1649478694,
+            "message": "Small change"
+        },
+        {
+            "hash": "ed25eff",
+            "committer": "QuanMCPC",
+            "commit_date": 1649478674,
+            "message": "Moved the archive folder to another repository: \"WebsiteArchive\""
+        },
+        {
+            "hash": "9812aed",
+            "committer": "QuanMCPC",
+            "commit_date": 1649410469,
+            "message": "Update website's information"
+        },
         {
             "hash": "0eb83cc",
             "committer": "QuanMCPC",
