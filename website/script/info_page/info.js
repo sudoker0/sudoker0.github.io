@@ -5,7 +5,7 @@ fetch("/website/json/website_data.json")
     qSel("#git_folder").innerHTML = data.filesize.git_folder;
     qSel("#archive_folder").innerHTML = data.filesize.archive_folder;
     qSel("#assets_folder").innerHTML = data.filesize.assets_folder;
-    qSel("#other_project_folder").innerHTML = data.filesize.other_project_folder;
+    qSel("#project_folder").innerHTML = data.filesize.project_folder;
     qSel("#the_rest").innerHTML = data.filesize.the_rest;
     qSel("#total_size").innerHTML = data.filesize.total_size;
     qSel(".lastupdateon").innerHTML = data.filesize.lastupdateon;
