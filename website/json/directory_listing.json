@@ -146,6 +146,14 @@
             "type": "file"
         },
         {
+            "name": "package-lock.json",
+            "type": "file"
+        },
+        {
+            "name": "package.json",
+            "type": "file"
+        },
+        {
             "name": "project",
             "type": "directory",
             "children": [
@@ -442,14 +450,6 @@
                     "type": "file"
                 }
             ]
-        },
-        {
-            "name": "package-lock.json",
-            "type": "file"
-        },
-        {
-            "name": "package.json",
-            "type": "file"
         },
         {
             "name": "sitemap.xml",
