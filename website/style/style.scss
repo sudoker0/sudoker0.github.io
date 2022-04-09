@@ -528,6 +528,8 @@ div#projectViewer {
     iframe {
         border: none;
         height: calc(100% - 24px);
+        width: 100%;
+        overflow-y: scroll;
     }
 }
 
