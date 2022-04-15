@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-04-09",
+    "last_update_on": "2022-04-15",
     "data": [
+        {
+            "hash": "469c6f6",
+            "committer": "QuanMCPC",
+            "commit_date": 1650022100,
+            "message": "Smol fix"
+        },
+        {
+            "hash": "8330d41",
+            "committer": "QuanMCPC",
+            "commit_date": 1649490874,
+            "message": "Update website's information"
+        },
         {
             "hash": "7835d75",
             "committer": "QuanMCPC",
