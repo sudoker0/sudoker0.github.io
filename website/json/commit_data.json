@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-04-15",
+    "last_update_on": "2022-04-20",
     "data": [
+        {
+            "hash": "484cb35",
+            "committer": "QuanMCPC",
+            "commit_date": 1650448734,
+            "message": "Fix problem with \"Not a project\" link being opened in the project window"
+        },
+        {
+            "hash": "d3cd0ed",
+            "committer": "QuanMCPC",
+            "commit_date": 1650022568,
+            "message": "Update website's information"
+        },
         {
             "hash": "148d79f",
             "committer": "QuanMCPC",
