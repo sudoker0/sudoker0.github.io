@@ -3,6 +3,18 @@
     "last_update_on": "2022-04-29",
     "data": [
         {
+            "hash": "0b0ef54",
+            "committer": "QuanMCPC",
+            "commit_date": 1651248009,
+            "message": "Fix problem with font not scaling when screen changed size in the dropdown text"
+        },
+        {
+            "hash": "ea89054",
+            "committer": "QuanMCPC",
+            "commit_date": 1651236072,
+            "message": "Update website's information"
+        },
+        {
             "hash": "5783abb",
             "committer": "QuanMCPC",
             "commit_date": 1651236015,
