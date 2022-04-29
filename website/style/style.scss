@@ -445,7 +445,7 @@ label[for="open_navbar_dropdown"] {
         h2 {
             font-size: 1.35rem;
         }
-        p, label.collapsible, table *, div.collapsiblecontent {
+        p, label.collapsible, table *, div.collapsiblecontent * {
             font-size: 1rem;
         }
     }
@@ -503,7 +503,7 @@ label[for="open_navbar_dropdown"] {
         h2 {
             font-size: 1rem;
         }
-        p, label.collapsible, table *, div.collapsiblecontent {
+        p, label.collapsible, table *, div.collapsiblecontent * {
             font-size: 0.8rem;
         }
     }
