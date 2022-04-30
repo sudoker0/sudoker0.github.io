@@ -34,7 +34,7 @@ getId("claim_gift").onclick = async () => {
     getId("claim_gift").style.animation = "none";
 
     await wait(1500);
-    var gift_svg = qSel(`div#gift_item_${gift} svg`) as SVGElement;
+    var gift_svg = qSel(`div#gift_item_${gift} img`) as SVGElement;
     var somestring = qSel("div#gift_thatsmygift_dialog p") as HTMLParagraphElement;
     getId("gift_thatsmygift_dialog").style.display = "block";
 

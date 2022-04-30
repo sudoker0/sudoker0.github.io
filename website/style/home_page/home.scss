@@ -1,7 +1,7 @@
 @import "../_variables.scss";
 
 section#home {
-    > div div.right svg {
+    > div div.right img {
         max-width: 100%;
         height: auto;
     }
@@ -102,7 +102,7 @@ section#bio div.right {
 section#gift div.right {
     // align-items: center;
 
-    svg {
+    img {
         max-width: 100%;
         width: 384px;
         height: auto;
@@ -118,7 +118,7 @@ section#gift div.right {
         background: transparent;
         border: none;
 
-        &:hover svg {
+        &:hover img {
             cursor: pointer;
             filter: brightness(0.8);
         }
@@ -163,7 +163,7 @@ section#gift div.right {
             flex-direction: column;
             align-items: center;
 
-            svg {
+            img {
                 margin: 16px;
             }
         }

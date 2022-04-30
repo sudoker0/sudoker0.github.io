@@ -36,7 +36,7 @@ getId("claim_gift").onclick = () => __awaiter(this, void 0, void 0, function* ()
     yield wait(500);
     getId("claim_gift").style.animation = "none";
     yield wait(1500);
-    var gift_svg = qSel(`div#gift_item_${gift} svg`);
+    var gift_svg = qSel(`div#gift_item_${gift} img`);
     var somestring = qSel("div#gift_thatsmygift_dialog p");
     getId("gift_thatsmygift_dialog").style.display = "block";
     switch (gift) {
