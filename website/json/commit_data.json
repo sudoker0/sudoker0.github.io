@@ -3,6 +3,18 @@
     "last_update_on": "2022-04-30",
     "data": [
         {
+            "hash": "2b61725",
+            "committer": "QuanMCPC",
+            "commit_date": 1651302965,
+            "message": "Update the NoScript dialog"
+        },
+        {
+            "hash": "8c6fd54",
+            "committer": "QuanMCPC",
+            "commit_date": 1651289237,
+            "message": "Update website's information"
+        },
+        {
             "hash": "7134daf",
             "committer": "QuanMCPC",
             "commit_date": 1651289212,
