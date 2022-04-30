@@ -506,6 +506,62 @@
                             "type": "file"
                         },
                         {
+                            "name": "contact_page",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "discord.svg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "email.svg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "github.svg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "gitlab.svg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "planet_minecraft.svg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "twitter.svg",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "home_page",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "building_block_of_internet.svg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "gift.svg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "gift_100_bill.svg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "gift_flappy_bird.svg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "gift_sublime_text_license_key.svg",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
                             "name": "logo",
                             "type": "directory",
                             "children": [

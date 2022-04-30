@@ -3,6 +3,18 @@
     "last_update_on": "2022-04-30",
     "data": [
         {
+            "hash": "805e4e5",
+            "committer": "QuanMCPC",
+            "commit_date": 1651334405,
+            "message": "Move most of the SVG image to external file"
+        },
+        {
+            "hash": "ea9c9ff",
+            "committer": "QuanMCPC",
+            "commit_date": 1651302998,
+            "message": "Update website's information"
+        },
+        {
             "hash": "2b61725",
             "committer": "QuanMCPC",
             "commit_date": 1651302965,
