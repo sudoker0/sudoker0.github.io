@@ -3,6 +3,24 @@
     "last_update_on": "2022-04-30",
     "data": [
         {
+            "hash": "161d587",
+            "committer": "QuanMCPC",
+            "commit_date": 1651334783,
+            "message": "Merge branch 'master' of https://github.com/QuanMCPC/QuanMCPC.github.io"
+        },
+        {
+            "hash": "ce85b41",
+            "committer": "QuanMCPC",
+            "commit_date": 1651334776,
+            "message": "Emergency: Fix logo appear even if the mobile screen is too small"
+        },
+        {
+            "hash": "dcd65a6",
+            "committer": "QuanMCPC",
+            "commit_date": 1651334442,
+            "message": "Update website's information"
+        },
+        {
             "hash": "805e4e5",
             "committer": "QuanMCPC",
             "commit_date": 1651334405,
