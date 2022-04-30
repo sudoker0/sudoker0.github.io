@@ -82,11 +82,11 @@
                     <p>Here's some data about the website, some is updated regularly, while the rest is updated manually.</p>
                     <noscript>
                         <div id="noscript_object">
-                            <p>Unfortunately, this table required the use of JavaScript to be able to get website data.</p>
-                            <p>If you can read JSON data, then here's the link to the <a href="./website/json/website_data.json" target="_blank" rel="noopener noreferrer">filesize</a> and the <a href="./website/json/commit_data.json" target="_blank" rel="noopener noreferrer">commit</a> JSON file.</p>
+                            <p>Error: We can't provide you data like the file size or the age of the website because it requires JavaScript to work, which you have turned off.</p>
+                            <p>If you can read JSON data, here's the link to the <a href="./website/json/website_data.json" target="_blank" rel="noopener noreferrer">filesize</a> and the <a href="./website/json/commit_data.json" target="_blank" rel="noopener noreferrer">commit</a> JSON file.</p>
                         </div>
                         <style>
-                            section#website_info table#tableview { display: none; }
+                            section#website_info .use_js { display: none; }
                         </style>
                     </noscript>
                     <table class="tg" id="tableview" cellspacing="0">
@@ -97,28 +97,28 @@
                         </colgroup>
                         <tbody>
                             <tr aria-hidden="true"></tr>
-                            <tr>
+                            <tr class="use_js">
                                 <td rowspan="5">Folder size (Last updated on: <span class="lastupdateon"></span>)</td>
                                 <td>.git Folder</td>
                                 <td><span class="content_to_change" id="git_folder">0</span> bytes</td>
                             </tr>
-                            <tr>
+                            <tr class="use_js">
                                 <td>Assets (Images, Script, etc.) Folder</td>
                                 <td><span class="content_to_change" id="assets_folder">0</span> bytes</td>
                             </tr>
-                            <tr>
+                            <tr class="use_js">
                                 <td>Projects Folder</td>
                                 <td><span class="content_to_change" id="project_folder">0</span> bytes</td>
                             </tr>
-                            <tr>
+                            <tr class="use_js">
                                 <td>Other (File on the root directory, unindexed folder)</td>
                                 <td><span class="content_to_change" id="the_rest">0</span> bytes</td>
                             </tr>
-                            <tr>
+                            <tr class="use_js">
                                 <td>Total size</td>
                                 <td><span class="content_to_change" id="total_size">0</span> bytes</td>
                             </tr>
-                            <tr>
+                            <tr class="use_js">
                                 <td>Website's age</td>
                                 <td colspan="2"><span class="days_from">0</span> days (Since when the website was created)</td>
                             </tr>
@@ -135,29 +135,18 @@
                             <tr>
                                 <td colspan="2">Python</td>
                             </tr>
-                            <tr>
+                            <tr class="use_js">
                                 <td rowspan="3">Number of commit</td>
                                 <td colspan="2"><span class="numberofcommit">0</span> commits (Last updated on: <span class="lastupdateon1"></span>, fetch from local commit data and update by the author)</td>
                             </tr>
-                            <tr>
+                            <tr class="use_js">
                                 <td colspan="2"><a target="_blank" class="openInProjectViewer" href="/project/commit.html">Click here for a detailed graph about the number of commit (Fetch from GitHub API and update weekly)</a></td>
                             </tr>
-                            <tr>
+                            <tr class="use_js">
                                 <td colspan="2"><a target="_blank" class="openInProjectViewer" href="/project/commit_table.html">Click here for a detailed table which contains lots of information for each commit (Fetch from local commit data and update by the author)</a></td>
                             </tr>
                         </tbody>
                     </table>
-                </div>
-                <span class="ctag" aria-hidden="true">info</span>
-            </div>
-        </section>
-        <section id="my_info">
-            <div class="textwithtag">
-                <span class="otag" aria-hidden="true">info type="me" censor-level="98%"</span>
-                <div>
-                    <h1>My Info</h1>
-                    <hr>
-                    <p>Well, I want to give you some information about me, but due to Personal Data Policy, I cannot give you any data that can identify me.</p>
                 </div>
                 <span class="ctag" aria-hidden="true">info</span>
             </div>
