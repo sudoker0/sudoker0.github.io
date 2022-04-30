@@ -1,7 +1,25 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-04-29",
+    "last_update_on": "2022-04-30",
     "data": [
+        {
+            "hash": "7134daf",
+            "committer": "QuanMCPC",
+            "commit_date": 1651289212,
+            "message": "Update the sitemap"
+        },
+        {
+            "hash": "3cc3bae",
+            "committer": "QuanMCPC",
+            "commit_date": 1651289201,
+            "message": "Clean up some file"
+        },
+        {
+            "hash": "6c36adf",
+            "committer": "QuanMCPC",
+            "commit_date": 1651248038,
+            "message": "Update website's information"
+        },
         {
             "hash": "0b0ef54",
             "committer": "QuanMCPC",
