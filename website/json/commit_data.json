@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-04-30",
+    "last_update_on": "2022-05-01",
     "data": [
+        {
+            "hash": "9c9abf3",
+            "committer": "QuanMCPC",
+            "commit_date": 1651374010,
+            "message": "Use ::before pseudo-element to place  the arrow in the dropdown instead of img tag"
+        },
+        {
+            "hash": "e0fbbdf",
+            "committer": "QuanMCPC",
+            "commit_date": 1651334805,
+            "message": "Update website's information"
+        },
         {
             "hash": "161d587",
             "committer": "QuanMCPC",
