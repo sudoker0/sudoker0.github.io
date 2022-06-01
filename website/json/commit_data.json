@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-05-10",
+    "last_update_on": "2022-06-01",
     "data": [
+        {
+            "hash": "eba8044",
+            "committer": "QuanMCPC",
+            "commit_date": 1654059284,
+            "message": "Removed Project Viewer"
+        },
+        {
+            "hash": "6f94beb",
+            "committer": "QuanMCPC",
+            "commit_date": 1652163408,
+            "message": "Update website's information"
+        },
         {
             "hash": "ab9b82d",
             "committer": "QuanMCPC",
