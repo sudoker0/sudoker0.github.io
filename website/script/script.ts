@@ -75,45 +75,7 @@ function sanitizeString(str: string): string {
     return str.trim();
 }
 
-function openURLInProjectViewer(url: string) {
-
-    if (getId("projectViewer") == null || qSelAll("a.openInProjectViewer").length <= 0) return;
-
-    getId("pv_iframe").setAttribute("src", sanitizeString(url) + `?nocache=${Math.round(Math.random() * 1000000)}`);
-    document.body.style.overflow = "hidden";
-    getId("projectViewer").style.display = "block";
-    setTimeout(() => {
-        getId("projectViewer").style.transform = "scale(1)";
-        getId("projectViewer").style.opacity = "1";
-    }, 100)
-}
-
 document.addEventListener("DOMContentLoaded", () => {
-
-    if (getId("projectViewer") == null || qSelAll("a.openInProjectViewer").length <= 0) return;
-
-    const _ = () => {
-        document.body.style.overflow = "auto";
-        getId("projectViewer").style.opacity = "0";
-        getId("projectViewer").style.transform = "scale(1.5)";
-        getId("pv_iframe").setAttribute("src", "about:blank");
-        setTimeout(() => {
-            getId("projectViewer").style.display = "none";
-        }, 400);
-    }
-
-    qSelAll("a.openInProjectViewer").forEach((v) => {
-        (v as HTMLAnchorElement).onclick = (ev) => {
-            ev.preventDefault();
-            openURLInProjectViewer(v.getAttribute("href"));
-        }
-    })
-    getId("pv_close").addEventListener("click", _);
-
-    getId("pv_oint").addEventListener("click", () => {
-        window.open(getId("pv_iframe").getAttribute("src"), "_blank");
-        _();
-    })
 
     if (gPBName("id") == "entropy") {
         var charStart = 1;

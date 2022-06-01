@@ -553,6 +553,7 @@ const commandList = [
         ],
         description: "Calculate using the provided expression and store the result in the provided variable",
         func: (args) => __awaiter(this, void 0, void 0, function* () {
+            var _b;
             if (args["expression"] == undefined) {
                 yield insertString([`[ERROR]: Value not specified.`], true);
             }
@@ -577,7 +578,7 @@ const commandList = [
                     var calc = new Calculation();
                     var result = calc.calculate(i);
                     if (result == undefined || typeof result == "string") {
-                        var error = result === null || result === void 0 ? void 0 : result.split("\\n");
+                        var error = (_b = result) === null || _b === void 0 ? void 0 : _b.split("\\n");
                         yield insertString([`[ERROR]: ${error[0]}`].concat(error.slice(-(error.length - 1))), true);
                     }
                     else {
