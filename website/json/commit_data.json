@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-06-01",
+    "last_update_on": "2022-06-20",
     "data": [
+        {
+            "hash": "fb1ff51",
+            "committer": "QuanMCPC",
+            "commit_date": 1655736674,
+            "message": "Added itch.io link"
+        },
+        {
+            "hash": "7330f35",
+            "committer": "QuanMCPC",
+            "commit_date": 1654059313,
+            "message": "Update website's information"
+        },
         {
             "hash": "eba8044",
             "committer": "QuanMCPC",

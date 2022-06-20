@@ -526,6 +526,10 @@
                                     "type": "file"
                                 },
                                 {
+                                    "name": "itchio.svg",
+                                    "type": "file"
+                                },
+                                {
                                     "name": "planet_minecraft.svg",
                                     "type": "file"
                                 },
