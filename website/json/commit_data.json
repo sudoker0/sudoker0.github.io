@@ -3,6 +3,18 @@
     "last_update_on": "2022-07-01",
     "data": [
         {
+            "hash": "6ecaa0d",
+            "committer": "GitHub",
+            "commit_date": 1656648272,
+            "message": "Create CNAME"
+        },
+        {
+            "hash": "9d64025",
+            "committer": "QuanMCPC",
+            "commit_date": 1656647821,
+            "message": "Update website's information"
+        },
+        {
             "hash": "42673c9",
             "committer": "GitHub",
             "commit_date": 1656647801,
