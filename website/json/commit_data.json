@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-06-20",
+    "last_update_on": "2022-07-01",
     "data": [
+        {
+            "hash": "42673c9",
+            "committer": "GitHub",
+            "commit_date": 1656647801,
+            "message": "Delete CNAME"
+        },
+        {
+            "hash": "0e7624a",
+            "committer": "QuanMCPC",
+            "commit_date": 1655736702,
+            "message": "Update website's information"
+        },
         {
             "hash": "fb1ff51",
             "committer": "QuanMCPC",
