@@ -3,6 +3,18 @@
     "last_update_on": "2022-07-25",
     "data": [
         {
+            "hash": "78304d1",
+            "committer": "QuanMCPC",
+            "commit_date": 1658752988,
+            "message": "Fix up a bit on the languages table"
+        },
+        {
+            "hash": "4e3d4fc",
+            "committer": "QuanMCPC",
+            "commit_date": 1658752415,
+            "message": "Update website's information"
+        },
+        {
             "hash": "a7d4686",
             "committer": "GitHub",
             "commit_date": 1658752392,
