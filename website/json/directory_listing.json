@@ -562,6 +562,28 @@
                             ]
                         },
                         {
+                            "name": "label",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "source_on_github.svg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "source_on_github_optimized.svg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "work_without_javascript.svg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "work_without_javascript_optimized.svg",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
                             "name": "logo",
                             "type": "directory",
                             "children": [
