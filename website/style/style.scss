@@ -547,3 +547,19 @@ div#noscript_object {
     border: 2px solid red;
     padding: 8px;
 }
+
+div.label-container {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+
+    img.label {
+        width: 120px;
+        height: auto;
+        display: inline-block;
+    }
+
+    div.label-link {
+        display: flex;
+    }
+}
