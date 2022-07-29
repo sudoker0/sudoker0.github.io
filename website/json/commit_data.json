@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-07-28",
+    "last_update_on": "2022-07-29",
     "data": [
+        {
+            "hash": "31c976a",
+            "committer": "GitHub",
+            "commit_date": 1659077058,
+            "message": "Change the blogsite address"
+        },
+        {
+            "hash": "1c082d0",
+            "committer": "QuanMCPC",
+            "commit_date": 1659002275,
+            "message": "Update website's information"
+        },
         {
             "hash": "7bb2599",
             "committer": "QuanMCPC",
