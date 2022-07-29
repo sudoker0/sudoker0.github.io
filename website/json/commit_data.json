@@ -3,6 +3,18 @@
     "last_update_on": "2022-07-29",
     "data": [
         {
+            "hash": "9102e69",
+            "committer": "QuanMCPC",
+            "commit_date": 1659080146,
+            "message": "Change the drop down style"
+        },
+        {
+            "hash": "8de4c0f",
+            "committer": "QuanMCPC",
+            "commit_date": 1659077078,
+            "message": "Update website's information"
+        },
+        {
             "hash": "31c976a",
             "committer": "GitHub",
             "commit_date": 1659077058,
