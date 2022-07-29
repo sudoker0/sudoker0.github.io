@@ -235,6 +235,8 @@ input.collapsible_cb {
     &:focus + label, &:hover + label {
         background-color: var(--color-fg);
         svg { fill: var(--color-bg); }
+        span { margin-left: 10px; }
+        div.indicator::before { margin-right: 10px; }
     }
 
     &:focus + label > *, &:hover + label > * {
@@ -253,11 +255,12 @@ input.collapsible_cb {
 }
 
 label.collapsible {
-    border: 1px solid var(--color-fg);
+    border-bottom: 1px solid var(--color-fg);
     display: grid;
     grid-template-areas: "text indicator";
     cursor: pointer;
     margin-bottom: 10px;
+    margin-right: 0 !important;
     &, & > * { transition: all 0.1s ease; }
     -webkit-user-select: none;
     -webkit-touch-callout: none;
@@ -270,13 +273,17 @@ label.collapsible {
         grid-area: text;
         max-width: initial;
         margin: 10px;
+        margin-left: 0;
     }
+
     div.indicator {
         grid-area: indicator;
         display: flex;
         justify-content: flex-end;
         align-items: center;
+
         &::before {
+            transition: margin 0.2s;
             content: "";
             background: url("/website/image/arrow.svg") no-repeat;
             background-size: auto;
@@ -284,7 +291,6 @@ label.collapsible {
             width: 24px;
             background-size: 24px 24px;
             display: inline-block;
-            margin-right: 10px;
             max-width: initial;
         }
     }
@@ -295,10 +301,9 @@ label.collapsible {
 }
 
 div.collapsiblecontent {
-    border: 1px solid var(--color-fg);
+    border-left: 4px solid var(--color-fg);
     display: none;
     margin-bottom: 10px;
-    margin-top: -11px !important;
 
     > * {
         max-width: initial;
