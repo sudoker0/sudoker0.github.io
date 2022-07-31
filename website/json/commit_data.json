@@ -3,6 +3,18 @@
     "last_update_on": "2022-07-31",
     "data": [
         {
+            "hash": "cb24214",
+            "committer": "QuanMCPC",
+            "commit_date": 1659245110,
+            "message": "Put the Archive page to the website section at the home page"
+        },
+        {
+            "hash": "55aba55",
+            "committer": "QuanMCPC",
+            "commit_date": 1659244819,
+            "message": "Update website's information"
+        },
+        {
             "hash": "d36d78e",
             "committer": "QuanMCPC",
             "commit_date": 1659244791,
