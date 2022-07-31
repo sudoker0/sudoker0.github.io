@@ -510,6 +510,10 @@
                                     "type": "file"
                                 },
                                 {
+                                    "name": "discord_org.svg",
+                                    "type": "file"
+                                },
+                                {
                                     "name": "email.svg",
                                     "type": "file"
                                 },
