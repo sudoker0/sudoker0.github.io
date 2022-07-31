@@ -13,7 +13,7 @@
             "group": "build",
             "label": "tsc: watch - tsconfig.json",
             "runOptions": {
-                "runOn": "folderOpen",
+                "runOn": "folderOpen"
             }
         },
         {
@@ -22,16 +22,23 @@
             "command": "npx sass --watch website/style --style compressed --source-map",
             "group": "build",
             "runOptions": {
-                "runOn": "folderOpen",
+                "runOn": "folderOpen"
             }
         },
         {
             "label": "RUN THIS TASK AND ONLY THIS TASK TO BUILD THE REQUIRED FILES",
-            "dependsOn": ["tsc: watch - tsconfig.json", "sass: watch - main.scss"],
-            "group": "build",
-            "runOptions": {
-                "runOn": "folderOpen",
+            "dependsOn": [
+                "tsc: watch - tsconfig.json",
+                "sass: watch - main.scss"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
             },
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "problemMatcher": []
         }
     ]
 }
