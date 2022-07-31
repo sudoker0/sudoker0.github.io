@@ -3,6 +3,18 @@
     "last_update_on": "2022-07-31",
     "data": [
         {
+            "hash": "d36d78e",
+            "committer": "QuanMCPC",
+            "commit_date": 1659244791,
+            "message": "Changed the tag to footer instead of info"
+        },
+        {
+            "hash": "20de0f4",
+            "committer": "QuanMCPC",
+            "commit_date": 1659241482,
+            "message": "Update website's information"
+        },
+        {
             "hash": "329f082",
             "committer": "QuanMCPC",
             "commit_date": 1659241459,
