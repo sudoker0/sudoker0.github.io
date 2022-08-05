@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-07-31",
+    "last_update_on": "2022-08-05",
     "data": [
+        {
+            "hash": "16863d7",
+            "committer": "QuanMCPC",
+            "commit_date": 1659716604,
+            "message": "Stop VSCode from auto starting the task"
+        },
+        {
+            "hash": "fe1af7e",
+            "committer": "QuanMCPC",
+            "commit_date": 1659245137,
+            "message": "Update website's information"
+        },
         {
             "hash": "cb24214",
             "committer": "QuanMCPC",
