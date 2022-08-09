@@ -640,6 +640,10 @@
                             ]
                         },
                         {
+                            "name": "noice.jpg",
+                            "type": "file"
+                        },
+                        {
                             "name": "secret_.png",
                             "type": "file"
                         },

@@ -3,6 +3,18 @@
     "last_update_on": "2022-08-09",
     "data": [
         {
+            "hash": "a79ef21",
+            "committer": "QuanMCPC",
+            "commit_date": 1660046546,
+            "message": "Added the noice image"
+        },
+        {
+            "hash": "f2d2ab7",
+            "committer": "QuanMCPC",
+            "commit_date": 1660019985,
+            "message": "Update website's information"
+        },
+        {
             "hash": "f359bf2",
             "committer": "QuanMCPC",
             "commit_date": 1660019865,
