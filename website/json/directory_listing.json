@@ -608,6 +608,10 @@
                                     "type": "file"
                                 },
                                 {
+                                    "name": "logo_rotate.xcf",
+                                    "type": "file"
+                                },
+                                {
                                     "name": "redstone_dust_icon.svg",
                                     "type": "file"
                                 }
