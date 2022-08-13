@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-08-12",
+    "last_update_on": "2022-08-13",
     "data": [
+        {
+            "hash": "65f6d45",
+            "committer": "QuanMCPC",
+            "commit_date": 1660393882,
+            "message": "Update the CodeQL Action in the Workflow file from version 1 to version 2"
+        },
+        {
+            "hash": "fcc8fca",
+            "committer": "QuanMCPC",
+            "commit_date": 1660295549,
+            "message": "Update website's information"
+        },
         {
             "hash": "e98519a",
             "committer": "QuanMCPC",
