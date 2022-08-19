@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-08-13",
+    "last_update_on": "2022-08-19",
     "data": [
+        {
+            "hash": "14f43a3",
+            "committer": "QuanMCPC",
+            "commit_date": 1660893587,
+            "message": "Added \"Get Discord Message as JSON\" project"
+        },
+        {
+            "hash": "2fbb537",
+            "committer": "QuanMCPC",
+            "commit_date": 1660393956,
+            "message": "Update website's information"
+        },
         {
             "hash": "65f6d45",
             "committer": "QuanMCPC",
