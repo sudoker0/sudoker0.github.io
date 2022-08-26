@@ -25,9 +25,9 @@
 They're the best way to show my work to the world. Also because it's fun to create one, even if no one gonna see it.
 
 ### II. What tool did I use?
-- For writing source code: Visual Studio Code (And Sublime Text sometimes)
+- For writing source code: Visual Studio Code
 - For making SVG graphics: Inkscape
-- For making PNG images: Paint.net
+- For making PNG images: GIMP
 - For testing website: Firefox
 - For publishing website: GitHub Pages
 - Some other tool includes: Git, GitHub Actions, etc.
