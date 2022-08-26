@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-08-19",
+    "last_update_on": "2022-08-26",
     "data": [
+        {
+            "hash": "3ebbb4b",
+            "committer": "GitHub",
+            "commit_date": 1661531742,
+            "message": "Update ReadMe.md"
+        },
+        {
+            "hash": "dfe5a49",
+            "committer": "QuanMCPC",
+            "commit_date": 1660893626,
+            "message": "Update website's information"
+        },
         {
             "hash": "14f43a3",
             "committer": "QuanMCPC",
