@@ -3,6 +3,18 @@
     "last_update_on": "2022-09-03",
     "data": [
         {
+            "hash": "e03d97c",
+            "committer": "QuanMCPC",
+            "commit_date": 1662215532,
+            "message": "Fix background color problem for account header in contacts page"
+        },
+        {
+            "hash": "eae6c55",
+            "committer": "QuanMCPC",
+            "commit_date": 1662176087,
+            "message": "Update website's information"
+        },
+        {
             "hash": "bb088a5",
             "committer": "GitHub",
             "commit_date": 1662176059,
