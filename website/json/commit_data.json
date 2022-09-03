@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-08-26",
+    "last_update_on": "2022-09-03",
     "data": [
+        {
+            "hash": "bb088a5",
+            "committer": "GitHub",
+            "commit_date": 1662176059,
+            "message": "Update the copyright year of the readme"
+        },
+        {
+            "hash": "d04631b",
+            "committer": "QuanMCPC",
+            "commit_date": 1661531760,
+            "message": "Update website's information"
+        },
         {
             "hash": "3ebbb4b",
             "committer": "GitHub",
