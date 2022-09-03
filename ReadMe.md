@@ -19,7 +19,7 @@
 
 ## Welcome to my first ever repository and also my first ever website (And also my favourite repository) in GitHub.
 
-> Important Note: The domain `https://quanmcpc.site` is privately funded and not by me funded.
+> ~~Important Note: The domain `https://quanmcpc.site` is privately funded and not by me funded.~~
 
 ### I. Why do I need a website?
 They're the best way to show my work to the world. Also because it's fun to create one, even if no one gonna see it.
@@ -84,10 +84,6 @@ File Extensions | Percentages of Bytes | Number of files | File/Folder size (Byt
 - The Redcoder logo however <span class="tc-red">cannot be used without permission</span>.
 
 ### V. Random stuff
-> One of my quotes
-```
-The only reason I tried to minimize accessibility issues is to avoid seeing errors and warnings on the accessibility checker tool.
-```
 > JavaScript Loop Code
 ```JavaScript
 while(1) {
@@ -110,14 +106,7 @@ for( ; ; ) {
 10 PRINT "Loop!"
 20 GOTO 10
 ```
-> MCPC in my username is acronym and it can mean a lot of things:
-```nim
- - MineCraft for Personal Computer (The correct one)
- - May Center around Piece of Crap (When something's a bit broke)
- - My Cock is Pissed-off from Coding (When something really broke)
- - Might Code for Poor Coder (When something work)
-```
 
 ***
-Copyright &copy; 2021 Quan_MCPC
+Copyright &copy; 2022 Quan_MCPC
 ***
