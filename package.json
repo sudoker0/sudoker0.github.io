@@ -13,6 +13,14 @@
   },
   "homepage": "https://github.com/QuanMCPC/QuanMCPC.github.io#readme",
   "devDependencies": {
+    "@types/node": "^18.7.16",
+    "@types/node-dir": "^0.0.34",
+    "@types/pug": "^2.0.6",
     "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "node-dir": "^0.1.17",
+    "node-watch": "^0.7.3",
+    "pug": "^3.0.2"
   }
 }

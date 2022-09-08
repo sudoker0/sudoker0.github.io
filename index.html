@@ -1,131 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://quanmcpc.github.io/" />
-    <meta property="og:site_name" content="Quan_MCPC's Website" />
-    <meta property="og:title" content="QuanMCPC" />
-    <meta property="og:description" content="Hi and welcome to my website." />
-    <meta property="og:image" content="/website/image/social_preview.png" />
-    <meta property="og:image:alt" content="Social preview image" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#a00000" />
-
-    <meta name="keywords" content="QuanMCPC, Quan_MCPC" />
-    <meta name="description" content="Hi welcome to my website." />
-    <meta name="author" content="Quan_MCPC" />
-
-    <meta name="robots" content="NOODP" />
-    <link rel="manifest" href="/manifest.json" />
-
-    <link rel="shortcut icon" href="/website/image/logo/favicon.ico" />
-    <link rel="apple-touch-icon" href="/website/image/logo/logo.png">
-    <link rel="stylesheet" href="/website/style/style.css">
-    <title>QuanMCPC</title>
-    <style>
-        div.dialog {
-            display: flex;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            justify-content: center;
-            align-items: center;
-            z-index: 5;
-            background-color: black;
-        }
-        div.dialog > div {
-            padding: 10px;
-            background-color: white;
-            color: black;
-            box-shadow: 10px 10px #808080;
-            font-family: "Inconsolata";
-            max-width: 800px;
-            width: 480px;
-            max-height: calc(100% - 50px);
-            overflow-y: auto;
-        }
-        h1, h2, p {
-            margin: 8px;
-        }
-        p {
-            font-size: 1.25rem;
-            font-weight: normal;
-        }
-        hr {
-            border-color: black;
-        }
-        a:link, a:visited, a {
-            text-decoration: none;
-            transition: all 0.1s;
-            border: 2px solid black;
-            color: black;
-            width: calc(100% - 16px);
-            padding: 8px;
-            font-weight: normal;
-            font-size: 1.25rem;
-            margin: 0 8px 8px 8px;
-        }
-        a:hover, a:active, a:focus {
-            background-color: black;
-            color: white;
-        }
-        a#install_website { display: none; }
-    </style>
-</head>
-<body>
-    <noscript>
-        <div id="noscript_wrapper">
-            <p>To enjoy the full experience of this website, please enable JavaScript.</p>
-        </div>
-        <style>
-            a#enter_password { display: none; }
-        </style>
-    </noscript>
-    <div class="dialog">
-        <div>
-            <h1>QuanMCPC's Website</h1>
-            <h2>Home Gateway</h2>
-            <p>Hey there, welcome to my website. What do you want to do?</p>
-            <a href="./home.html">Redirect me to the website</a>
-            <a href="#" id="enter_password">Login to admin account</a>
-            <!-- <a id="install_website" href="#">Install website</a> -->
-        </div>
-    </div>
-    <script>
-        // Source: https://stackoverflow.com/questions/59777670/how-can-i-hash-a-string-with-sha256-in-js
-        // Source: https://stackoverflow.com/questions/62102034/javascript-how-to-encrypt-string-with-only-password-in-2020#62102577
-        async function deriveKey(password){const algo={name:'PBKDF2',hash:'SHA-256',salt:new TextEncoder().encode('a-unique-salt'),iterations:1000};return crypto.subtle.deriveKey(algo,await crypto.subtle.importKey('raw',new TextEncoder().encode(password),{name:algo.name},false,['deriveKey']),{name:'AES-GCM',length:256},false,['encrypt','decrypt'])}
-        async function decrypt(encrypted,password){const algo={name:'AES-GCM',length:256,iv:encrypted.iv};return new TextDecoder().decode(await crypto.subtle.decrypt(algo,await deriveKey(password),encrypted.cipherText))}
-        document.getElementById("enter_password").addEventListener("click", () => {
-            // NOTE from developer#1980: You should remove the comments below before deploying the website
-            // HINT: this is an admin password
-            // HASH: 649acac3c98a83d47e5de166536b8bd0a3b59c8cb50db93f332919332f8c6c54
-            var encryptedString = {
-                cipherText: new Uint8Array([28, 72, 213, 162, 1, 237, 105, 192, 186, 33, 249, 232, 221, 86, 190, 175, 78, 163, 130, 232, 233, 209, 38, 215, 51, 28, 98, 145, 225, 235, 141, 4, 251, 96, 18, 25, 8, 90, 147, 214, 10, 211, 59, 54, 119, 172, 0, 233, 17, 163, 36, 153, 104, 224, 208, 90, 95, 18, 101, 230, 122, 150, 247, 43, 249, 88, 151, 251, 182, 211, 5, 48, 248, 61, 141, 17, 86, 126, 170, 202, 214, 200, 11, 178, 25, 101, 74, 165, 51, 213, 46, 89, 227, 188, 116, 92, 38, 159, 72, 36, 237, 234, 132, 17, 205, 103, 1, 224, 63, 7, 202, 90, 48, 238, 71, 187, 221, 135, 198, 246, 181, 249, 101, 38, 243, 99, 123, 224, 42, 112, 42, 131, 28, 236, 108, 168, 196, 32, 1, 64, 168, 18, 16, 26, 30, 140, 57, 226, 171, 36, 126, 103, 130, 57, 145, 186, 89, 91, 164, 209, 84, 87, 89, 69, 188, 14, 41, 100, 70, 239, 144, 225, 13, 118, 128, 86, 46, 102, 94, 39, 224, 116, 53, 152, 238, 255, 55, 231, 139, 27, 255, 249, 135, 166, 220, 188, 105, 99, 58, 84, 86, 66, 39, 93, 41, 133, 50, 207, 206, 203, 213, 72, 181, 126, 17, 16, 182, 219, 243, 108, 197, 18, 143, 35, 221, 203, 86, 146, 69, 243, 134, 248, 188, 190, 145, 225, 95, 212, 73, 80, 30, 65, 254, 3, 128, 18, 153, 198, 215, 220, 7, 11, 85, 61, 44, 232, 63, 208, 170, 28, 129, 124, 139, 34, 173, 213, 117, 90, 109, 133, 229, 97, 192, 120, 146, 21, 213, 62, 225, 182, 140, 182, 167, 47]),
-                iv: new Uint8Array([197, 62, 166, 21, 96, 148, 10, 142, 75, 46, 242, 122])
-            }
-            var pass = prompt("Please enter password to login to admin account", "")
-            if (pass == null) return;
-            var decryptedString = {
-                cipherText: encryptedString.cipherText.buffer,
-                iv: encryptedString.iv
-            }
-            decrypt(decryptedString, pass)
-                .then((result) => {
-                    alert(result);
-                    pass = "";
-                })
-                .catch((error) => {
-                    alert("Wrong password");
-                });
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:type" content="website"><meta property="og:site_name" content="Quan_MCPC's Website"><meta property="og:image" content="/website/image/social_preview.png"><meta property="og:image:alt" content="Social preview image"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#a00000"><meta name="keywords" content="QuanMCPC, Quan_MCPC"><meta name="author" content="Quan_MCPC"><meta name="robots" content="NOODP"><link rel="shortcut icon" href="/website/image/logo/favicon.ico"><link rel="apple-touch-icon" href="/website/image/logo/logo.png"><link rel="stylesheet" href="/website/style/style.css"><meta property="og:url" content="https://quanmcpc.github.io/"><meta property="og:title" content="Quan_MCPC's Website"><meta property="og:description" content="My personal website / Trang web của tôi / Мій особистий веб-сайт"><meta name="description" content="My personal website / Trang web của tôi / Мій особистий веб-сайт"><link rel="stylesheet" href="/website/style/style.css"><title>QuanMCPC</title><style>div.dialog {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    background-color: black;
+}
+div.dialog > div {
+    padding: 10px;
+    background-color: white;
+    color: black;
+    box-shadow: 10px 10px #808080;
+    font-family: "Inconsolata";
+    max-width: 800px;
+    width: 480px;
+    max-height: calc(100% - 50px);
+    overflow-y: auto;
+}
+h1, h2, p {
+    margin: 8px;
+}
+p {
+    font-size: 1.25rem;
+    font-weight: normal;
+}
+hr {
+    border-color: black;
+}
+a:link, a:visited, a {
+    text-decoration: none;
+    transition: all 0.1s;
+    border: 2px solid black;
+    color: black;
+    width: calc(100% - 16px);
+    padding: 8px;
+    font-weight: normal;
+    font-size: 1.25rem;
+    margin: 0 8px 8px 8px;
+}
+a:hover, a:active, a:focus {
+    background-color: black;
+    color: white;
+}
+a#install_website { display: none; }
+</style></head><body><noscript><div id="noscript_wrapper"><p>To enjoy the full experience of this website, please enable JavaScript.</p></div></noscript><div class="dialog"><div><h1>QuanMCPC's Website</h1><h2>Home Gateway</h2><p>Hey there, welcome to my website. What do you want to do?</p><a href="./home.html">Redirect me to the website</a><a href="#" id="enter_password">Login to admin account</a></div></div><script>// Source: https://stackoverflow.com/questions/59777670/how-can-i-hash-a-string-with-sha256-in-js
+// Source: https://stackoverflow.com/questions/62102034/javascript-how-to-encrypt-string-with-only-password-in-2020#62102577
+async function deriveKey(password){const algo={name:'PBKDF2',hash:'SHA-256',salt:new TextEncoder().encode('a-unique-salt'),iterations:1000};return crypto.subtle.deriveKey(algo,await crypto.subtle.importKey('raw',new TextEncoder().encode(password),{name:algo.name},false,['deriveKey']),{name:'AES-GCM',length:256},false,['encrypt','decrypt'])}
+async function decrypt(encrypted,password){const algo={name:'AES-GCM',length:256,iv:encrypted.iv};return new TextDecoder().decode(await crypto.subtle.decrypt(algo,await deriveKey(password),encrypted.cipherText))}
+document.getElementById("enter_password").addEventListener("click", () => {
+    // NOTE from developer#1980: You should remove the comments below before deploying the website
+    // HINT: this is an admin password
+    // HASH: 649acac3c98a83d47e5de166536b8bd0a3b59c8cb50db93f332919332f8c6c54
+    var encryptedString = {
+        cipherText: new Uint8Array([28, 72, 213, 162, 1, 237, 105, 192, 186, 33, 249, 232, 221, 86, 190, 175, 78, 163, 130, 232, 233, 209, 38, 215, 51, 28, 98, 145, 225, 235, 141, 4, 251, 96, 18, 25, 8, 90, 147, 214, 10, 211, 59, 54, 119, 172, 0, 233, 17, 163, 36, 153, 104, 224, 208, 90, 95, 18, 101, 230, 122, 150, 247, 43, 249, 88, 151, 251, 182, 211, 5, 48, 248, 61, 141, 17, 86, 126, 170, 202, 214, 200, 11, 178, 25, 101, 74, 165, 51, 213, 46, 89, 227, 188, 116, 92, 38, 159, 72, 36, 237, 234, 132, 17, 205, 103, 1, 224, 63, 7, 202, 90, 48, 238, 71, 187, 221, 135, 198, 246, 181, 249, 101, 38, 243, 99, 123, 224, 42, 112, 42, 131, 28, 236, 108, 168, 196, 32, 1, 64, 168, 18, 16, 26, 30, 140, 57, 226, 171, 36, 126, 103, 130, 57, 145, 186, 89, 91, 164, 209, 84, 87, 89, 69, 188, 14, 41, 100, 70, 239, 144, 225, 13, 118, 128, 86, 46, 102, 94, 39, 224, 116, 53, 152, 238, 255, 55, 231, 139, 27, 255, 249, 135, 166, 220, 188, 105, 99, 58, 84, 86, 66, 39, 93, 41, 133, 50, 207, 206, 203, 213, 72, 181, 126, 17, 16, 182, 219, 243, 108, 197, 18, 143, 35, 221, 203, 86, 146, 69, 243, 134, 248, 188, 190, 145, 225, 95, 212, 73, 80, 30, 65, 254, 3, 128, 18, 153, 198, 215, 220, 7, 11, 85, 61, 44, 232, 63, 208, 170, 28, 129, 124, 139, 34, 173, 213, 117, 90, 109, 133, 229, 97, 192, 120, 146, 21, 213, 62, 225, 182, 140, 182, 167, 47]),
+        iv: new Uint8Array([197, 62, 166, 21, 96, 148, 10, 142, 75, 46, 242, 122])
+    }
+    var pass = prompt("Please enter password to login to admin account", "")
+    if (pass == null) return;
+    var decryptedString = {
+        cipherText: encryptedString.cipherText.buffer,
+        iv: encryptedString.iv
+    }
+    decrypt(decryptedString, pass)
+        .then((result) => {
+            alert(result);
+            pass = "";
         })
-    </script>
-</body>
-</html>
+        .catch((error) => {
+            alert("Wrong password");
+        });
+})</script></body></html>
