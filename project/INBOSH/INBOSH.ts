@@ -1166,6 +1166,7 @@ window.addEventListener("resize", () => {
     if (config.debounceResize) {
         util.getId("recalibrating").style.display = "flex";
         clearTimeout(resizeTimeout);
+        //@ts-ignore
         resizeTimeout = setTimeout(() => { bothResizeAndLoad("resize") }, config.debounceResizeTime);
     } else {
         bothResizeAndLoad("resize");
