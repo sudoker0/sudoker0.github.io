@@ -114,7 +114,23 @@
             "type": "file"
         },
         {
+            "name": "compilePug.js",
+            "type": "file"
+        },
+        {
+            "name": "compilePug.js.map",
+            "type": "file"
+        },
+        {
+            "name": "compilePug.ts",
+            "type": "file"
+        },
+        {
             "name": "contacts.html",
+            "type": "file"
+        },
+        {
+            "name": "contacts.pug",
             "type": "file"
         },
         {
@@ -130,11 +146,23 @@
             "type": "file"
         },
         {
+            "name": "home.pug",
+            "type": "file"
+        },
+        {
             "name": "index.html",
             "type": "file"
         },
         {
+            "name": "index.pug",
+            "type": "file"
+        },
+        {
             "name": "info.html",
+            "type": "file"
+        },
+        {
+            "name": "info.pug",
             "type": "file"
         },
         {
@@ -446,6 +474,28 @@
         {
             "name": "sitemap.xml",
             "type": "file"
+        },
+        {
+            "name": "template",
+            "type": "directory",
+            "children": [
+                {
+                    "name": "_footer.pug",
+                    "type": "file"
+                },
+                {
+                    "name": "_head_metadata.pug",
+                    "type": "file"
+                },
+                {
+                    "name": "_header.pug",
+                    "type": "file"
+                },
+                {
+                    "name": "_noscript.pug",
+                    "type": "file"
+                }
+            ]
         },
         {
             "name": "tsconfig.json",

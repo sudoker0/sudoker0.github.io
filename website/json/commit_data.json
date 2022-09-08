@@ -1,7 +1,25 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-09-03",
+    "last_update_on": "2022-09-08",
     "data": [
+        {
+            "hash": "b07c62d",
+            "committer": "QuanMCPC",
+            "commit_date": 1662646764,
+            "message": "Small change"
+        },
+        {
+            "hash": "63b4a28",
+            "committer": "QuanMCPC",
+            "commit_date": 1662646756,
+            "message": "MAJOR UPDATE: Use Pug instead of pure HTML"
+        },
+        {
+            "hash": "744fb73",
+            "committer": "QuanMCPC",
+            "commit_date": 1662215563,
+            "message": "Update website's information"
+        },
         {
             "hash": "e03d97c",
             "committer": "QuanMCPC",
