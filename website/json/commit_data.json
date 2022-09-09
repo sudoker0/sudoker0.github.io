@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-09-08",
+    "last_update_on": "2022-09-09",
     "data": [
+        {
+            "hash": "f207ee3",
+            "committer": "QuanMCPC",
+            "commit_date": 1662702261,
+            "message": "Removed some unnecessarily tab"
+        },
+        {
+            "hash": "a6fd10d",
+            "committer": "QuanMCPC",
+            "commit_date": 1662646798,
+            "message": "Update website's information"
+        },
         {
             "hash": "b07c62d",
             "committer": "QuanMCPC",
