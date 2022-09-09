@@ -33,36 +33,25 @@ html(lang="en")
                         tbody
                             tr(aria-hidden='true')
                             tr.use_js
-                                td(rowspan='5') Folder size (Last updated on: <span class="lastupdateon"></span>)
+                                td(rowspan='5'): span#lastupdateon Folder size (Last updated on: $_lastupdateon)
                                 td .git Folder
-                                td
-                                    span#git_folder.content_to_change 0
-                                    |  bytes
+                                td: span#git_folder $_bytes bytes
                             tr.use_js
                                 td Assets (Images, Script, etc.) Folder
-                                td
-                                    span#assets_folder.content_to_change 0
-                                    |  bytes
+                                td: span#assets_folder $_bytes bytes
                             tr.use_js
                                 td Projects Folder
-                                td
-                                    span#project_folder.content_to_change 0
-                                    |  bytes
+                                td: span#project_folder $_bytes bytes
                             tr.use_js
                                 td Other (File on the root directory, unindexed folder)
-                                td
-                                    span#the_rest.content_to_change 0
-                                    |  bytes
+                                td: span#the_rest $_bytes bytes
                             tr.use_js
                                 td Total size
-                                td
-                                    span#total_size.content_to_change 0
-                                    |  bytes
+                                td: span#total_size $_bytes bytes
                             tr.use_js
                                 td Website's age
                                 td(colspan='2')
-                                    span.days_from 0
-                                    |  days (Since when the website was created)
+                                    span#days_from $_age days (Since when the website was created)
 
                             tr
                                 td(rowspan='4')
@@ -80,8 +69,7 @@ html(lang="en")
                             tr.use_js
                                 td(rowspan='3') Number of commit
                                 td(colspan='2')
-                                    span.numberofcommit 0
-                                    |  commits (Last updated on: <span class="lastupdateon1"></span>, fetch from local commit data and update by the author)
+                                    span#numberofcommit $_commit commits (Last updated on: $_lastupdateon, fetch from local commit data and update by the author)
                             tr.use_js
                                 td(colspan='2')
                                     a(target='_blank' href='/project/commit.html')

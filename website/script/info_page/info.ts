@@ -1,13 +1,11 @@
-function innerHTMLClass(clas: string, text: string) { qSelAll(`.${clas}`).forEach((elem) => { elem.innerHTML = text }) }
 fetch("/website/json/website_data.json")
     .then(e => e.json())
     .then(data => {
-        qSel("#git_folder").innerHTML = data.filesize.git_folder;
-        qSel("#assets_folder").innerHTML = data.filesize.assets_folder;
-        qSel("#project_folder").innerHTML = data.filesize.project_folder;
-        qSel("#the_rest").innerHTML = data.filesize.the_rest;
-        qSel("#total_size").innerHTML = data.filesize.total_size;
-        qSel(".lastupdateon").innerHTML = data.filesize.lastupdateon;
+        getId("git_folder").replace({ "bytes": data.filesize.git_folder });
+        getId("assets_folder").replace({ "bytes": data.filesize.assets_folder });
+        getId("project_folder").replace({ "bytes": data.filesize.project_folder });
+        getId("the_rest").replace({ "bytes": data.filesize.the_rest });
+        getId("total_size").replace({ "bytes": data.filesize.total_size });
 
         function fetch_() {
             // var key = ""; ["0x67", "0x68", "0x70", "0x5f", "0x30", "0x4d", "0x55", "0x58", "0x77", "0x52", "0x6e", "0x4a", "0x78", "0x38", "0x35", "0x63", "0x74", "0x37", "0x34", "0x4d", "0x37", "0x69", "0x41", "0x4a", "0x59", "0x6f", "0x46", "0x67", "0x32", "0x38", "0x31", "0x33", "0x43", "0x33", "0x31", "0x37", "0x52", "0x70", "0x4a", "0x6f"]["forEach"]((a) => {key += String["fromCharCode"](Number(a))})
@@ -29,8 +27,7 @@ fetch("/website/json/website_data.json")
             fetch(`/website/json/commit_data.json?nocache=${Math.round(Math.random() * 100000)}`)
                 .then(e => e.json())
                 .then(e => {
-                    innerHTMLClass("lastupdateon1", e.last_update_on);
-                    innerHTMLClass("numberofcommit", e.data.length);
+                    getId("numberofcommit").replace({ "commit": e.data.length, "lastupdateon": e.last_update_on });
                 })
         }
         fetch_();
@@ -39,6 +36,6 @@ function date_check() {
     var date1 = new Date("07/16/2020"), date2 = new Date(),
         DInTime = date2.getTime() - date1.getTime(),
         DInDays = Math.round(DInTime / (1000 * 3600 * 24))
-    innerHTMLClass("days_from", DInDays.toString())
+    getId("days_from").replace({ "age": DInDays.toString() })
 }
 document.addEventListener("DOMContentLoaded", date_check);

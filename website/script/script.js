@@ -1,3 +1,9 @@
+HTMLElement.prototype.replace = function (data, prefix = "$_") {
+    for (const i in data) {
+        const old = this.innerHTML;
+        this.innerHTML = old.replace(`${prefix}${i}`, data[i]);
+    }
+};
 function getId(id) { return document.getElementById(id); }
 function qSel(selector) { return document.querySelector(selector); }
 function qSelAll(sel) { return document.querySelectorAll(sel); }

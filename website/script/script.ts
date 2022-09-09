@@ -1,3 +1,17 @@
+interface Template {
+    [key: string]: string
+}
+interface HTMLElement {
+    replace(data: Template, prefix?: string): void
+}
+
+HTMLElement.prototype.replace = function (data: Template, prefix: string = "$_") {
+    for (const i in data) {
+        const old = (this as HTMLElement).innerHTML;
+        (this as HTMLElement).innerHTML = old.replace(`${prefix}${i}`, data[i])
+    }
+}
+
 /**
  * Returns a reference to the first object with the specified value of the ID attribute.
  * @param id String that specifies the ID value.
@@ -74,6 +88,8 @@ function sanitizeString(str: string): string {
     str = str.replace(/[^a-z0-9áéíóúñü \.,_\-\/]/gim,"");
     return str.trim();
 }
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
 

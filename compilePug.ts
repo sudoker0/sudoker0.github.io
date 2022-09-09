@@ -9,7 +9,14 @@ const IGNORED_DIR = /(node_modules)|(\.git)/
 async function render(path: string) {
     const p = npath.parse(path);
     if (!PUG_FILE.test(p.base)) return false;
-    await writeFile(`${p.dir}${p.dir == "" ? "" : npath.sep}${p.base.replace(PUG_FILE, ".html")}`, renderFile(path, { doctype: "html", pretty: false }), { encoding: "utf-8", })
+    await writeFile(`${p.dir}${p.dir == "" ? "" : npath.sep}${p.base.replace(PUG_FILE, ".html")}`, renderFile(path, {
+        doctype: "html",
+        pretty: false,
+        self: true,
+        string: {
+            // Foundation for i18n
+        }
+    }), { encoding: "utf-8", })
     console.log("Compiled: " + path);
 }
 

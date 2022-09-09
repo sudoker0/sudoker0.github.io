@@ -24,7 +24,12 @@ function render(path) {
         const p = path_1.default.parse(path);
         if (!PUG_FILE.test(p.base))
             return false;
-        yield (0, promises_1.writeFile)(`${p.dir}${p.dir == "" ? "" : path_1.default.sep}${p.base.replace(PUG_FILE, ".html")}`, (0, pug_1.renderFile)(path, { doctype: "html", pretty: false }), { encoding: "utf-8", });
+        yield (0, promises_1.writeFile)(`${p.dir}${p.dir == "" ? "" : path_1.default.sep}${p.base.replace(PUG_FILE, ".html")}`, (0, pug_1.renderFile)(path, {
+            doctype: "html",
+            pretty: false,
+            self: true,
+            string: {}
+        }), { encoding: "utf-8", });
         console.log("Compiled: " + path);
     });
 }

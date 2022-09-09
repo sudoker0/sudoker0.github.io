@@ -41,21 +41,21 @@ getId("claim_gift").onclick = () => __awaiter(this, void 0, void 0, function* ()
     getId("gift_thatsmygift_dialog").style.display = "block";
     switch (gift) {
         case 1:
-            somestring.innerText = "Ooh, free money! That's mine now! Hahahaha!";
+            somestring.replace({ "message": "Ooh, free money! That's mine now! Hahahaha!" });
             yield wait(1000);
             gift_svg.style.transition = "all 0.65s linear";
             gift_svg.style.transform = "translateY(-100%)";
             gift_svg.style.opacity = "0";
             break;
         case 2:
-            somestring.innerText = "Ooh, a bird! I like them, but, ew, it's flappy bird! Shoo!";
+            somestring.replace({ "message": "Ooh, a bird! I like them, but, ew, it's flappy bird! Shoo!" });
             yield wait(1500);
             gift_svg.style.transition = "all 0.4s linear";
             gift_svg.style.transform = "translate(100%, -100%)";
             gift_svg.style.opacity = "0";
             break;
         case 3:
-            somestring.innerText = "Hey, that's my Sublime Text license key! Give it back!";
+            somestring.replace({ "message": "Hey, that's my Sublime Text license key! Give it back!" });
             yield wait(1500);
             gift_svg.style.transition = "all 0.2s linear";
             gift_svg.style.transform = "translate(100%)";
@@ -63,7 +63,7 @@ getId("claim_gift").onclick = () => __awaiter(this, void 0, void 0, function* ()
             break;
         case 4:
         case 5:
-            somestring.innerText = "Hahaha, you got nothing!";
+            somestring.replace({ "message": "Hahaha, you got nothing!" });
             break;
         default:
             break;
