@@ -61,13 +61,12 @@ html(lang="en")
 
     body
         include template/_noscript.pug
-        .dialog
-            div
-                h1 QuanMCPC's Website
-                h2 Home Gateway
-                p Hey there, welcome to my website. What do you want to do?
-                a(href="./home.html") Redirect me to the website
-                a(href="#", id="enter_password") Login to admin account
+        .dialog: div
+            h1 QuanMCPC's Website
+            h2 Home Gateway
+            p Hey there, welcome to my website. What do you want to do?
+            a(href="./home.html") Redirect me to the website
+            a(href="#", id="enter_password") Login to admin account
         script.
             // Source: https://stackoverflow.com/questions/59777670/how-can-i-hash-a-string-with-sha256-in-js
             // Source: https://stackoverflow.com/questions/62102034/javascript-how-to-encrypt-string-with-only-password-in-2020#62102577

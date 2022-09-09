@@ -13,86 +13,84 @@ html(lang="en")
         include template/_header.pug
         main
             include template/_noscript.pug
-            section#website_info
-                .textwithtag
-                    span.otag(aria-hidden="true") info type="website"
-                    div
-                        h1 Website Info
-                        hr
-                        p Here's some data about the website, some is updated regularly, while the rest is updated manually.
-                        noscript
-                            .noscript_object
-                                p Error: We can't provide you data like the file size or the age of the website because it requires JavaScript to work, which you have turned off.
-                                p If you can read JSON data, here's the link to the <a href="./website/json/website_data.json" target="_blank" rel="noopener noreferrer">filesize</a> and the <a href="./website/json/commit_data.json" target="_blank" rel="noopener noreferrer">commit</a> JSON file.
-                            style.
-                                section#website_info .use_js { display: none; }
-                        table#tableview.tg(cellspacing='0')
-                            colgroup
-                                col(style='width: 20%')
-                                col(style='width: 20%')
-                                col(style='width: 60%')
-                            tbody
-                                tr(aria-hidden='true')
-                                tr.use_js
-                                    td(rowspan='5') Folder size (Last updated on: <span class="lastupdateon"></span>)
-                                    td .git Folder
-                                    td
-                                        span#git_folder.content_to_change 0
-                                        |  bytes
-                                tr.use_js
-                                    td Assets (Images, Script, etc.) Folder
-                                    td
-                                        span#assets_folder.content_to_change 0
-                                        |  bytes
-                                tr.use_js
-                                    td Projects Folder
-                                    td
-                                        span#project_folder.content_to_change 0
-                                        |  bytes
-                                tr.use_js
-                                    td Other (File on the root directory, unindexed folder)
-                                    td
-                                        span#the_rest.content_to_change 0
-                                        |  bytes
-                                tr.use_js
-                                    td Total size
-                                    td
-                                        span#total_size.content_to_change 0
-                                        |  bytes
-                                tr.use_js
-                                    td Website's age
-                                    td(colspan='2')
-                                        span.days_from 0
-                                        |  days (Since when the website was created)
+            section#website_info: .textwithtag
+                span.otag(aria-hidden="true") info type="website"
+                div
+                    h1 Website Info
+                    hr
+                    p Here's some data about the website, some is updated regularly, while the rest is updated manually.
+                    noscript
+                        .noscript_object
+                            p Error: We can't provide you data like the file size or the age of the website because it requires JavaScript to work, which you have turned off.
+                            p If you can read JSON data, here's the link to the <a href="./website/json/website_data.json" target="_blank" rel="noopener noreferrer">filesize</a> and the <a href="./website/json/commit_data.json" target="_blank" rel="noopener noreferrer">commit</a> JSON file.
+                        style.
+                            section#website_info .use_js { display: none; }
+                    table#tableview.tg(cellspacing='0')
+                        colgroup
+                            col(style='width: 20%')
+                            col(style='width: 20%')
+                            col(style='width: 60%')
+                        tbody
+                            tr(aria-hidden='true')
+                            tr.use_js
+                                td(rowspan='5') Folder size (Last updated on: <span class="lastupdateon"></span>)
+                                td .git Folder
+                                td
+                                    span#git_folder.content_to_change 0
+                                    |  bytes
+                            tr.use_js
+                                td Assets (Images, Script, etc.) Folder
+                                td
+                                    span#assets_folder.content_to_change 0
+                                    |  bytes
+                            tr.use_js
+                                td Projects Folder
+                                td
+                                    span#project_folder.content_to_change 0
+                                    |  bytes
+                            tr.use_js
+                                td Other (File on the root directory, unindexed folder)
+                                td
+                                    span#the_rest.content_to_change 0
+                                    |  bytes
+                            tr.use_js
+                                td Total size
+                                td
+                                    span#total_size.content_to_change 0
+                                    |  bytes
+                            tr.use_js
+                                td Website's age
+                                td(colspan='2')
+                                    span.days_from 0
+                                    |  days (Since when the website was created)
 
-                                tr
-                                    td(rowspan='4')
-                                        | Language used
-                                        br
-                                        | (or contain in the website)
-                                    td(colspan='2') Pug -> HTML (HyperText Markup Language)
-                                tr
-                                    td(colspan='2') SASS (Syntactically Awesome Style Sheets) -> CSS (Cascading Style Sheets)
-                                tr
-                                    td(colspan='2') TS (TypeScript) -> JS (JavaScript)
-                                tr
-                                    td(colspan='2') Python
+                            tr
+                                td(rowspan='4')
+                                    | Language used
+                                    br
+                                    | (or contain in the website)
+                                td(colspan='2') Pug -> HTML (HyperText Markup Language)
+                            tr
+                                td(colspan='2') SASS (Syntactically Awesome Style Sheets) -> CSS (Cascading Style Sheets)
+                            tr
+                                td(colspan='2') TS (TypeScript) -> JS (JavaScript)
+                            tr
+                                td(colspan='2') Python
 
-                                tr.use_js
-                                    td(rowspan='3') Number of commit
-                                    td(colspan='2')
-                                        span.numberofcommit 0
-                                        |  commits (Last updated on: <span class="lastupdateon1"></span>, fetch from local commit data and update by the author)
-                                tr.use_js
-                                    td(colspan='2')
-                                        a(target='_blank' href='/project/commit.html')
-                                            | Click here for a detailed graph about the number of commit (Fetch from GitHub API and update weekly)
-                                tr.use_js
-                                    td(colspan='2')
-                                        a(target='_blank' href='/project/commit_table.html')
-                                            | Click here for a detailed table which contains lots of information for each commit (Fetch from local commit data and update by the author)
-
-                    span.ctag(aria-hidden="true") info
+                            tr.use_js
+                                td(rowspan='3') Number of commit
+                                td(colspan='2')
+                                    span.numberofcommit 0
+                                    |  commits (Last updated on: <span class="lastupdateon1"></span>, fetch from local commit data and update by the author)
+                            tr.use_js
+                                td(colspan='2')
+                                    a(target='_blank' href='/project/commit.html')
+                                        | Click here for a detailed graph about the number of commit (Fetch from GitHub API and update weekly)
+                            tr.use_js
+                                td(colspan='2')
+                                    a(target='_blank' href='/project/commit_table.html')
+                                        | Click here for a detailed table which contains lots of information for each commit (Fetch from local commit data and update by the author)
+                span.ctag(aria-hidden="true") info
 
         include template/_footer.pug
         script(src="/website/script/info_page/info.js")
