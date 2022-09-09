@@ -3,6 +3,18 @@
     "last_update_on": "2022-09-09",
     "data": [
         {
+            "hash": "7a5f706",
+            "committer": "QuanMCPC",
+            "commit_date": 1662731216,
+            "message": "Use string templating to insert dynamic data instead of directly insering it using JavaScript"
+        },
+        {
+            "hash": "19545b1",
+            "committer": "QuanMCPC",
+            "commit_date": 1662702287,
+            "message": "Update website's information"
+        },
+        {
             "hash": "f207ee3",
             "committer": "QuanMCPC",
             "commit_date": 1662702261,
