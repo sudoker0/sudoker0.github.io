@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-09-09",
+    "last_update_on": "2022-09-10",
     "data": [
+        {
+            "hash": "1235b65",
+            "committer": "QuanMCPC",
+            "commit_date": 1662825256,
+            "message": "Change the string template to be able to change data multiple times"
+        },
+        {
+            "hash": "9593dc0",
+            "committer": "QuanMCPC",
+            "commit_date": 1662731266,
+            "message": "Update website's information"
+        },
         {
             "hash": "7a5f706",
             "committer": "QuanMCPC",

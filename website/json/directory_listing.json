@@ -598,6 +598,10 @@
                                     "type": "file"
                                 },
                                 {
+                                    "name": "building_block_of_my_website.svg",
+                                    "type": "file"
+                                },
+                                {
                                     "name": "gift.svg",
                                     "type": "file"
                                 },
