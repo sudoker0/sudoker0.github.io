@@ -33,21 +33,21 @@ html(lang="en")
                         tbody
                             tr(aria-hidden='true')
                             tr.use_js
-                                td(rowspan='5'): span#lastupdateon Folder size (Last updated on: $_lastupdateon)
+                                td(rowspan='5'): span#lastupdateon Folder size (Last updated on: $_lastupdateon_size)
                                 td .git Folder
-                                td: span#git_folder $_bytes bytes
+                                td: span#git_folder $_git_bytes bytes
                             tr.use_js
                                 td Assets (Images, Script, etc.) Folder
-                                td: span#assets_folder $_bytes bytes
+                                td: span#assets_folder $_assets_bytes bytes
                             tr.use_js
                                 td Projects Folder
-                                td: span#project_folder $_bytes bytes
+                                td: span#project_folder $_projects_bytes bytes
                             tr.use_js
                                 td Other (File on the root directory, unindexed folder)
-                                td: span#the_rest $_bytes bytes
+                                td: span#the_rest $_other_bytes bytes
                             tr.use_js
                                 td Total size
-                                td: span#total_size $_bytes bytes
+                                td: span#total_size $_total_bytes bytes
                             tr.use_js
                                 td Website's age
                                 td(colspan='2')
@@ -69,7 +69,7 @@ html(lang="en")
                             tr.use_js
                                 td(rowspan='3') Number of commit
                                 td(colspan='2')
-                                    span#numberofcommit $_commit commits (Last updated on: $_lastupdateon, fetch from local commit data and update by the author)
+                                    span#numberofcommit $_commit commits (Last updated on: $_lastupdateon_commit, fetch from local commit data and update by the author)
                             tr.use_js
                                 td(colspan='2')
                                     a(target='_blank' href='/project/commit.html')

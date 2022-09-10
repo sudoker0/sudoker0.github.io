@@ -1,7 +1,12 @@
 HTMLElement.prototype.replace = function (data, prefix = "$_") {
+    const alternate_prefix = "id_dlr_";
+    const _this = () => this;
     for (const i in data) {
-        const old = this.innerHTML;
-        this.innerHTML = old.replace(`${prefix}${i}`, data[i]);
+        const old = _this().innerHTML;
+        const span = () => _this().querySelector(`span.reactive#${alternate_prefix}${i}`);
+        if (span() == null)
+            _this().innerHTML = old.replace(`${prefix}${i}`, `<span class="reactive" id="${alternate_prefix}${i}"></span>`);
+        span().innerText = data[i];
     }
 };
 function getId(id) { return document.getElementById(id); }

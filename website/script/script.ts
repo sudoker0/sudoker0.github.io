@@ -6,9 +6,13 @@ interface HTMLElement {
 }
 
 HTMLElement.prototype.replace = function (data: Template, prefix: string = "$_") {
+    const alternate_prefix = "id_dlr_";
+    const _this: () => HTMLElement = () => this;
     for (const i in data) {
-        const old = (this as HTMLElement).innerHTML;
-        (this as HTMLElement).innerHTML = old.replace(`${prefix}${i}`, data[i])
+        const old = _this().innerHTML;
+        const span: () => HTMLElement | null = () => _this().querySelector(`span.reactive#${alternate_prefix}${i}`)
+        if (span() == null) _this().innerHTML = old.replace(`${prefix}${i}`, `<span class="reactive" id="${alternate_prefix}${i}"></span>`)
+        span().innerText = data[i]
     }
 }
 

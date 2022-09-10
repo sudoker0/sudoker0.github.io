@@ -82,17 +82,31 @@ getId("claim_gift").onclick = () => __awaiter(this, void 0, void 0, function* ()
 getId("website_logo").ondragstart = (ev) => {
     ev.dataTransfer.setData("text", "website_logo");
 };
+getId("website_logo").ondrag = (ev) => {
+    console.log("Drag: " + ev);
+};
 getId("claim_gift").ondrop = (ev) => {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    console.log(data);
-    if (data == "website_logo") {
-        getId("claim_gift").style.animation = "lsd 1s infinite linear";
-        getId(data).style.animation = "lsd 1s infinite linear";
-        fartmode = true;
-    }
+    if (data != "website_logo")
+        return;
+    getId("claim_gift").style.animation = "lsd 1s infinite linear";
+    fartmode = true;
 };
-getId("claim_gift").ondragover = (ev) => {
+getId("building_block").ondrop = (ev) => {
     ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    if (data != "website_logo")
+        return;
+    getId("building_block").setAttribute("src", getId("building_block").classList.contains("toggled")
+        ? "./website/image/home_page/building_block_of_internet.svg"
+        : "./website/image/home_page/building_block_of_my_website.svg");
+    getId("building_block_caption").innerText =
+        getId("building_block").classList.contains("toggled")
+            ? "The Building Block Of The Internet"
+            : "The Building Block Of My Website";
+    getId("building_block").classList.toggle("toggled");
 };
+getId("claim_gift").ondragover = (ev) => ev.preventDefault();
+getId("building_block").ondragover = (ev) => ev.preventDefault();
 //# sourceMappingURL=home.js.map
