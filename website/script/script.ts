@@ -93,18 +93,7 @@ function sanitizeString(str: string): string {
     return str.trim();
 }
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
-
-    if (gPBName("id") == "entropy") {
-        var charStart = 1;
-        setInterval(() => {
-            var lChar = Math.round(Math.random() * document.body.innerHTML.length), char = rString(Math.floor(charStart));
-            document.body.innerHTML = document.body.innerHTML.substring(0, lChar) + char + document.body.innerHTML.substring(lChar + Math.floor(charStart));
-            charStart =  charStart <= 32 ? charStart + 0.1 : charStart;
-        }, 10)
-    }
     switch (gPBName("id")) {
         case "entropy":
             var charStart = 1;
@@ -120,5 +109,8 @@ document.addEventListener("DOMContentLoaded", () => {
         case "\"alert(1)":
             alert(1);
             break;
+        case "rtl":
+        case "righttoleft":
+            document.body.style.direction = "rtl";
     }
 })
