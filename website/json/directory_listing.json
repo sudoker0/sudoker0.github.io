@@ -492,6 +492,10 @@
                     "type": "file"
                 },
                 {
+                    "name": "_mixins.pug",
+                    "type": "file"
+                },
+                {
                     "name": "_noscript.pug",
                     "type": "file"
                 }
