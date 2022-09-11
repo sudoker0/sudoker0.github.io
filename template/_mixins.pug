@@ -1,0 +1,23 @@
+mixin textwithtag(title)
+    - var endtag = title.split(" ")[0]
+    .textwithtag
+        span.otag(aria-hidden="true")=title
+        div
+            if block
+                block
+            else
+                p INTERNAL ERROR: Please contact developer
+        span.ctag(aria-hidden="true")=endtag
+
+- var count_diff = 0
+mixin collapsecontent(header)
+    - count_diff++;
+    input.collapsible_cb(id="cb" + count_diff, type="checkbox", name="cb" + count_diff)
+    label.collapsible(for="cb" + count_diff)
+        span=header
+        div.indicator(aria-hidden="true")
+    div.collapsiblecontent
+        if block
+            block
+        else
+            p INTERNAL ERROR: Please contact developer
