@@ -22,10 +22,10 @@
 > ~~Important Note: The domain `https://quanmcpc.site` is privately funded and not by me funded.~~
 
 ### I. Why do I need a website?
-They're the best way to show my work to the world. Also because it's fun to create one, even if no one gonna see it.
+Because it's the best way to show my works and my skills to the world. Also because it's fun to create one, even if no one gonna see it.
 
 ### II. What tool did I use?
-- For writing source code: Visual Studio Code
+- For writing source code: Visual Studio Code, Neovim
 - For making SVG graphics: Inkscape
 - For making PNG images: GIMP
 - For testing website: Firefox
@@ -81,8 +81,8 @@ File Extensions | Percentages of Bytes | Number of files | File/Folder size (Byt
 
 ### IV. License info
 - Source code on the website is licensed under the [MIT license](/LICENSE)
-- <span xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span property="dct:title">Images inside the "/downloads/" folder and in the "/website/image/" (except the "logo" folder) folder</span> is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;"><span class="tc-green">CC BY-SA 4.0</span><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a></span>.
-- The Redcoder logo however <span class="tc-red">cannot be used without permission</span>.
+- Images in the website are licensed under the [CC BY-SA 4.0 license](http://creativecommons.org/licenses/by-sa/4.0/)
+- External media (like images, videos, etc.) that are under different licenses will be listed in the [CREDITS](/CREDITS) file
 
 ### V. Random stuff
 > JavaScript Loop Code
@@ -98,7 +98,7 @@ while True:
 ```
 > C++ Loop Code
 ```c++
-for( ; ; ) {
+while (true) {
     cout << "Loop!" << endl;
 }
 ```
@@ -108,6 +108,4 @@ for( ; ; ) {
 20 GOTO 10
 ```
 
-***
-Copyright &copy; 2022 Quan_MCPC
-***
+**Copyright &copy; 2022 Quan_MCPC**
