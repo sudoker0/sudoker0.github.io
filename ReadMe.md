@@ -82,7 +82,7 @@ File Extensions | Percentages of Bytes | Number of files | File/Folder size (Byt
 ### IV. License info
 - Source code on the website is licensed under the [MIT license](/LICENSE)
 - Images in the website are licensed under the [CC BY-SA 4.0 license](http://creativecommons.org/licenses/by-sa/4.0/)
-- External media (like images, videos, etc.) that are under different licenses will be listed in the [CREDITS](/CREDITS) file
+- External media (like images, videos, etc.) that are under different licenses will be listed in the [CREDITS](/CREDITS.md) file
 
 ### V. Random stuff
 > JavaScript Loop Code
