@@ -228,6 +228,74 @@
                     "type": "file"
                 },
                 {
+                    "name": "anti-nutella-challange",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "favicon.ico",
+                            "type": "file"
+                        },
+                        {
+                            "name": "fonts",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "Montserrat-Regular.ttf",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "SourceCodePro-Regular.ttf",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "UbuntuMono-Regular.ttf",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "index.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "script",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "script.js",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "script.js.map",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "script.ts",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "style",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "style.css",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "style.css.map",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "style.scss",
+                                    "type": "file"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
                     "name": "captcha.html",
                     "type": "file"
                 },
@@ -663,6 +731,10 @@
                                 },
                                 {
                                     "name": "logo.svg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "logo_rotate.gif",
                                     "type": "file"
                                 },
                                 {

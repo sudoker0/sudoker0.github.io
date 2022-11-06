@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-10-31",
+    "last_update_on": "2022-11-06",
     "data": [
+        {
+            "hash": "36c0bb6",
+            "committer": "QuanMCPC",
+            "commit_date": 1667715073,
+            "message": "Added the November Challange Tracker"
+        },
+        {
+            "hash": "7283486",
+            "committer": "QuanMCPC",
+            "commit_date": 1667222709,
+            "message": "Update website's information"
+        },
         {
             "hash": "e93c604",
             "committer": "QuanMCPC",
