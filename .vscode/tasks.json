@@ -16,7 +16,7 @@
         {
             "label": "build sass file",
             "type": "shell",
-            "command": "npx sass --watch website/style --style compressed --source-map",
+            "command": "npx sass --watch . --style compressed --source-map",
             "group": "build"
         },
         {
