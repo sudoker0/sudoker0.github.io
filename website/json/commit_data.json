@@ -3,6 +3,18 @@
     "last_update_on": "2022-11-06",
     "data": [
         {
+            "hash": "d8d9ee6",
+            "committer": "QuanMCPC",
+            "commit_date": 1667747307,
+            "message": "Quality of Life(TM) update - fix the problem with time, timezone, time parsing - add an small anti-cheat"
+        },
+        {
+            "hash": "2db4af2",
+            "committer": "QuanMCPC",
+            "commit_date": 1667715512,
+            "message": "Update website's information"
+        },
+        {
             "hash": "d686459",
             "committer": "QuanMCPC",
             "commit_date": 1667715493,
