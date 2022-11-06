@@ -3,6 +3,18 @@
     "last_update_on": "2022-11-06",
     "data": [
         {
+            "hash": "782fa8e",
+            "committer": "QuanMCPC",
+            "commit_date": 1667751764,
+            "message": "fack"
+        },
+        {
+            "hash": "6792966",
+            "committer": "QuanMCPC",
+            "commit_date": 1667751631,
+            "message": "Update website's information"
+        },
+        {
             "hash": "ea0c6c3",
             "committer": "QuanMCPC",
             "commit_date": 1667751592,
