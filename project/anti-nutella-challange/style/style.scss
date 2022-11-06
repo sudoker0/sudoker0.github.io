@@ -16,19 +16,21 @@
 :root {
     --green: #00a800;
     --red: #be0000;
+    --red-opaque: #910000e3;
     --background: white;
     --foreground: black;
-    --progress-bar-fg-color: white;
+    --progress-bar-fg-color: black;
     --progress-bar-bg-color: gray;
-    --progress-bar-indicator: #000099;
+    --progress-bar-indicator: white;
     .dark_mode {
         --green: #00cc00;
         --red: #d10000;
+        --red-opaque: #570000e3;
         --background: black;
         --foreground: white;
-        --progress-bar-fg-color: white;
+        --progress-bar-fg-color: black;
         --progress-bar-bg-color: gray;
-        --progress-bar-indicator: #000099;
+        --progress-bar-indicator: white;
     }
 }
 
@@ -120,5 +122,29 @@ hr {
 @media (max-width: 600px) {
     h1 {
         font-size: 1.5rem;
+    }
+}
+
+.full_screen_error {
+    display: none;
+    z-index: 3;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    //display: grid;
+    justify-content: center;
+    align-items: center;
+
+    .centered_content {
+        width: fit-content;
+        max-width: 1200px;
+    }
+
+    background-color: var(--red-opaque);
+    //display: none;
+    &[data-hidden=false]{
+        display: grid;
     }
 }

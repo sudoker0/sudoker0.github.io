@@ -6,16 +6,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>No "Nutella" November Challange Tracker</title>
         <link rel="stylesheet" href="./style/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/utc.js" defer></script>
         <script src="./script/script.js" defer></script>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     </head>
     <body class="dark_mode">
+        <div class="full_screen_error" id="clock_not_correct_error" data-hidden="true">
+            <div class="centered_content">
+                <h1>Error!</h1>
+                <p>We've detected that the clock on the user's device is not correct from the actual time in your timezone. Please re-adjust your clock or re-adjust the timezone on your device!</p>
+            </div>
+        </div>
         <header>
             <h1>No "Nutella" November Challange Tracker</h1>
         </header>
         <main>
             <p>To track the progress of people who have participated in this challenge, I've created this website where youcan see the current status of the challenge, how much time is left, how much time is before the next one, etc.</p>
-            <p>(Note: Information like timezone or current time are pulled from the user's browser, so those info might not exactly match the actual info of the user's computer)</p>
+            <p>(Note: Information like timezone or current time are pulled from the user's browser, so those info might not exactly match the actual info of the user's device)</p>
             <hr>
             <div id="time_left" class="display_time" data-hidden="true">
                 <p class="green"><b><span class="reverse">Status</span>: Challange has started!</b></p>

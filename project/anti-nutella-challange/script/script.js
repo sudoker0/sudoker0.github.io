@@ -17,23 +17,21 @@ HTMLElement.prototype.replace = function (data, prefix = "$_") {
 function qSel(selector) { return document.querySelector(selector); }
 function qSelAll(sel) { return document.querySelectorAll(sel); }
 function diffTime(begin, end) {
-    let diff = new Date(Math.abs(end.getTime() - begin.getTime()));
+    let diff = Math.abs((typeof end == "number" ? end : end.getTime()) -
+        (typeof begin == "number" ? begin : begin.getTime()));
     return diff;
 }
 function getTimeZone() {
     var offset = new Date().getTimezoneOffset(), o = Math.abs(offset);
     return (offset <= 0 ? "+" : "-") + ("00" + Math.floor(o / 60)).slice(-2) + ":" + ("00" + (o % 60)).slice(-2);
 }
-function daysIntoYear(date) {
-    return (Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) - Date.UTC(date.getFullYear(), 0, 0)) / 24 / 60 / 60 / 1000;
-}
 function displayTime(date) {
+    var s = Math.floor(date / 1000), m = Math.floor(s / 60), h = Math.floor(m / 60), d = Math.floor(h / 24);
     var result = "", result_arr = [
-        `${date.getUTCFullYear() - 1970} years`,
-        `${daysIntoYear(date) - 1} days`,
-        `${date.getUTCHours()} hours`,
-        `${date.getUTCMinutes()} minutes`,
-        `${date.getUTCSeconds()} seconds`,
+        `${d} days`,
+        `${h % 24} hours`,
+        `${m % 60} minutes`,
+        `${s % 60} seconds`,
     ];
     result_arr = result_arr.filter(x => {
         return x.replace(/(\d) (\w)*?$/gm, (_0, p1, _p2) => {
@@ -48,7 +46,31 @@ function displayTime(date) {
         + result_arr[result_arr.length - 1];
     return result;
 }
-function update() {
+const limitRefresh = 15000;
+const timeDelayLimit = 10000;
+var startTimeRefresh = -1;
+function checkTime() {
+    qSelAll(".full_screen_error").forEach(v => v.setAttribute("data-hidden", "true"));
+    fetch(`http://worldtimeapi.org/api/ip`, {
+        "headers": {
+            "accept": "application/json"
+        }
+    })
+        .then(v => v.json())
+        .then(r => {
+        const diff = diffTime(new Date().getTime(), r["unixtime"] * 1000);
+        qSel("#clock_not_correct_error").setAttribute("data-hidden", diff > timeDelayLimit ? "false" : "true");
+        console.log(diff);
+    });
+}
+function update(timestamp) {
+    if (startTimeRefresh == -1)
+        startTimeRefresh = timestamp;
+    const elapsed = timestamp - startTimeRefresh;
+    if (elapsed >= limitRefresh) {
+        startTimeRefresh = timestamp;
+        checkTime();
+    }
     qSelAll(".display_time").forEach(v => v.setAttribute("data-hidden", "true"));
     CURRENT_TIME = new Date();
     CURRENT_YEAR = CURRENT_TIME.getFullYear();
@@ -60,13 +82,13 @@ function update() {
         qSel("div#time_left").setAttribute("data-hidden", "false");
         const ELAPSED = diffTime(CURRENT_TIME, BEGIN_NNN);
         const TIME_LEFT = diffTime(END_NNN, CURRENT_TIME);
-        const PERCENTAGE = (ELAPSED.getTime() / (END_NNN.getTime() - BEGIN_NNN.getTime()) * 100).toString()
+        const PERCENTAGE = (ELAPSED / (END_NNN.getTime() - BEGIN_NNN.getTime()) * 100).toString()
             + "%";
         document.body.replace({
             "elapsed": displayTime(ELAPSED),
             "time_left": displayTime(TIME_LEFT),
             "time_left_percentage": PERCENTAGE,
-            "timezone": getTimeZone()
+            "timezone": `${getTimeZone()} (${Intl.DateTimeFormat().resolvedOptions().timeZone})`
         });
         qSel("div#time_left_pb .indicator").style.width = PERCENTAGE;
     }
@@ -79,5 +101,6 @@ function update() {
     }
     requestAnimationFrame(update);
 }
+checkTime();
 requestAnimationFrame(update);
 //# sourceMappingURL=script.js.map
