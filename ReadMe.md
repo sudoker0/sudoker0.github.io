@@ -38,36 +38,36 @@ Because it's the best way to show my works and my skills to the world. Also beca
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\** | 100.0% | 202 files | 287,365,515 bytes
-\* | 0.01% | 12 files | 20,886 bytes
+\** | 100.0% | 214 files | 289,103,462 bytes
+\* | 0.01% | 12 files | 22,417 bytes
 \*.config | 0.03% | 1 files | 82,580 bytes
-\*.css | 0.01% | 5 files | 17,137 bytes
-\*.gif | 0.0% | 1 files | 10,498 bytes
-\*.html | 0.19% | 32 files | 539,840 bytes
-\*.ico | 0.04% | 2 files | 118,934 bytes
-\*.idx | 0.09% | 1 files | 262,480 bytes
+\*.css | 0.01% | 6 files | 18,834 bytes
+\*.gif | 0.17% | 2 files | 477,306 bytes
+\*.html | 0.19% | 33 files | 542,839 bytes
+\*.ico | 0.05% | 3 files | 133,332 bytes
+\*.idx | 0.09% | 1 files | 263,404 bytes
 \*.jpg | 0.0% | 1 files | 5,529 bytes
-\*.js | 0.02% | 7 files | 67,712 bytes
-\*.json | 0.13% | 10 files | 361,737 bytes
-\*.map | 0.03% | 11 files | 75,203 bytes
+\*.js | 0.02% | 8 files | 71,139 bytes
+\*.json | 0.13% | 10 files | 362,097 bytes
+\*.map | 0.03% | 13 files | 79,904 bytes
 \*.md | 0.0% | 3 files | 7,044 bytes
 \*.mp3 | 0.0% | 1 files | 9,069 bytes
 \*.old | 0.19% | 2 files | 553,570 bytes
-\*.pack | 95.7% | 1 files | 274,994,516 bytes
-\*.png | 2.12% | 36 files | 6,102,973 bytes
-\*.pug | 0.01% | 9 files | 42,656 bytes
+\*.pack | 95.37% | 1 files | 275,721,690 bytes
+\*.png | 2.11% | 36 files | 6,102,973 bytes
+\*.pug | 0.01% | 9 files | 42,973 bytes
 \*.py | 0.01% | 2 files | 29,084 bytes
 \*.sample | 0.01% | 13 files | 23,513 bytes
-\*.scss | 0.01% | 5 files | 16,700 bytes
+\*.scss | 0.01% | 6 files | 18,859 bytes
 \*.sqlite | 0.03% | 1 files | 90,112 bytes
 \*.svg | 0.05% | 24 files | 147,352 bytes
-\*.ts | 0.03% | 7 files | 75,355 bytes
-\*.ttf | 0.29% | 4 files | 819,080 bytes
+\*.ts | 0.03% | 8 files | 79,151 bytes
+\*.ttf | 0.46% | 7 files | 1,326,736 bytes
 \*.wav | 0.02% | 2 files | 55,556 bytes
-\*.xcf | 0.97% | 2 files | 2,775,449 bytes
+\*.xcf | 0.96% | 2 files | 2,775,449 bytes
 \*.xml | 0.0% | 1 files | 835 bytes
 \*.yml | 0.0% | 3 files | 3,694 bytes
-> Last updated on: 2022-10-31
+> Last updated on: 2022-11-06
 <!--python_data_stop-->
 
 > **Details about the website's creation**
