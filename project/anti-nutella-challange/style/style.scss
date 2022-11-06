@@ -104,3 +104,21 @@ hr {
     background-color: var(--foreground);
     border: 2px solid var(--foreground);
 }
+
+@media (max-width: 800px) {
+    h1 {
+        font-size: 2rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+    div.display_time p {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+}
