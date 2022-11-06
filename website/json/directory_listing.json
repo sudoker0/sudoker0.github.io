@@ -254,6 +254,20 @@
                             ]
                         },
                         {
+                            "name": "images",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "nutella.jpg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "nutella.png",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
                             "name": "index.html",
                             "type": "file"
                         },
