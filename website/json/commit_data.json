@@ -1,7 +1,43 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-11-06",
+    "last_update_on": "2022-11-07",
     "data": [
+        {
+            "hash": "048baa6",
+            "committer": "QuanMCPC",
+            "commit_date": 1667802968,
+            "message": "Add icon for the error screen"
+        },
+        {
+            "hash": "265063f",
+            "committer": "QuanMCPC",
+            "commit_date": 1667802953,
+            "message": "Update the style to be better"
+        },
+        {
+            "hash": "f1142a2",
+            "committer": "QuanMCPC",
+            "commit_date": 1667802934,
+            "message": "Use Pug instead of HTML page"
+        },
+        {
+            "hash": "37311d8",
+            "committer": "QuanMCPC",
+            "commit_date": 1667802906,
+            "message": "Bug fix: Use https instead of http to get the time instead"
+        },
+        {
+            "hash": "7f46c03",
+            "committer": "QuanMCPC",
+            "commit_date": 1667802856,
+            "message": "Fix a bug where if a Pug file is invalid, the whole compiler crashed"
+        },
+        {
+            "hash": "8d5c2b8",
+            "committer": "QuanMCPC",
+            "commit_date": 1667751788,
+            "message": "Update website's information"
+        },
         {
             "hash": "782fa8e",
             "committer": "QuanMCPC",

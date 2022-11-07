@@ -258,6 +258,14 @@
                             "type": "directory",
                             "children": [
                                 {
+                                    "name": "clock.svg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "error.svg",
+                                    "type": "file"
+                                },
+                                {
                                     "name": "nutella.jpg",
                                     "type": "file"
                                 },
@@ -269,6 +277,10 @@
                         },
                         {
                             "name": "index.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "index.pug",
                             "type": "file"
                         },
                         {
