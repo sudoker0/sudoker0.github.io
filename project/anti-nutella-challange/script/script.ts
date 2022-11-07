@@ -48,7 +48,7 @@ function displayTime(date: number) {
     ]
 
     result_arr = result_arr.filter(x => {
-        return x.replace(/(\d) (\w)*?$/gm, (_0, p1, _p2) => {
+        return x.replace(/(\d+) (\w)*?$/gm, (_0, p1, _p2) => {
             const num = Number(p1)
             if (num == 0) return ""
             return x
