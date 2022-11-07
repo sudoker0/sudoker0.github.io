@@ -16,7 +16,7 @@
 :root {
     --green: #00a800;
     --red: #be0000;
-    --red-opaque: #910000e3;
+    --red-opaque: #910000;
     --background: white;
     --foreground: black;
     --progress-bar-fg-color: black;
@@ -25,7 +25,7 @@
     .dark_mode {
         --green: #00cc00;
         --red: #d10000;
-        --red-opaque: #570000e3;
+        --red-opaque: #570000;
         --background: black;
         --foreground: white;
         --progress-bar-fg-color: black;
@@ -43,16 +43,16 @@
 .red{ color: var(--red) }
 
 * {
+    box-sizing: border-box;
     font-family: "Source Code Pro", 'Courier New', Courier, monospace;
 }
 
 body {
     word-wrap: anywhere;
-    box-sizing: border-box;
     color: var(--foreground);
     background-color: var(--background);
     font-size: 1.25rem;
-    padding: 8px;
+    padding: 16px;
     display: block;
     margin: 0 auto;
     max-width: 1200px;
@@ -117,6 +117,11 @@ hr {
     div.display_time p {
         font-size: 1.5rem;
     }
+    div.full_screen_error
+        .centered_content
+        .error_icon img {
+        width: 64px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -136,15 +141,44 @@ hr {
     //display: grid;
     justify-content: center;
     align-items: center;
+    padding: 16px;
 
     .centered_content {
+        h1, p {
+            margin: 0;
+        }
+        display: grid;
+        grid-gap: 16px;
+        gap: 16px;
+        grid-template-areas:
+            "icon title"
+            "icon content";
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        // flex-direction: column;
         width: fit-content;
         max-width: 1200px;
+
+        .error_icon {
+            grid-area: icon;
+            img {
+                width: 128px;
+            }
+        }
+
+        .error_title {
+            grid-area: title;
+        }
+
+        .error_content {
+            grid-area: content;
+        }
     }
 
     background-color: var(--red-opaque);
     //display: none;
     &[data-hidden=false]{
-        display: grid;
+        display: flex;
     }
 }
