@@ -50,14 +50,14 @@ const limitRefresh = 15000;
 const timeDelayLimit = 10000;
 var startTimeRefresh = -1;
 function checkTime() {
-    qSelAll(".full_screen_error").forEach(v => v.setAttribute("data-hidden", "true"));
-    fetch(`http://worldtimeapi.org/api/ip`, {
+    fetch(`https://worldtimeapi.org/api/ip`, {
         "headers": {
             "accept": "application/json"
         }
     })
         .then(v => v.json())
         .then(r => {
+        qSelAll(".full_screen_error").forEach(v => v.setAttribute("data-hidden", "true"));
         const diff = diffTime(new Date().getTime(), r["unixtime"] * 1000);
         qSel("#clock_not_correct_error").setAttribute("data-hidden", diff > timeDelayLimit ? "false" : "true");
         console.log(diff);
