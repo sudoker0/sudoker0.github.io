@@ -19,6 +19,8 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
+    "@types/argparse": "^2.0.10",
+    "argparse": "^2.0.1",
     "node-dir": "^0.1.17",
     "node-watch": "^0.7.3",
     "pug": "^3.0.2"

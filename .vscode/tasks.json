@@ -22,7 +22,7 @@
         {
             "label": "build pug file",
             "type": "shell",
-            "command": "node compilePug.js --watch",
+            "command": "node tools/compilePug.js -p \"../\" --watch",
             "group": "build"
         },
         {
