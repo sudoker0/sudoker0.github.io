@@ -114,18 +114,6 @@
             "type": "file"
         },
         {
-            "name": "compilePug.js",
-            "type": "file"
-        },
-        {
-            "name": "compilePug.js.map",
-            "type": "file"
-        },
-        {
-            "name": "compilePug.ts",
-            "type": "file"
-        },
-        {
             "name": "contacts.html",
             "type": "file"
         },
@@ -591,6 +579,24 @@
                 },
                 {
                     "name": "_noscript.pug",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "tools",
+            "type": "directory",
+            "children": [
+                {
+                    "name": "compilePug.js",
+                    "type": "file"
+                },
+                {
+                    "name": "compilePug.js.map",
+                    "type": "file"
+                },
+                {
+                    "name": "compilePug.ts",
                     "type": "file"
                 }
             ]
