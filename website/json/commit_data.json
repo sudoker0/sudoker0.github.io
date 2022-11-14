@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-11-13",
+    "last_update_on": "2022-11-14",
     "data": [
+        {
+            "hash": "b5d7537",
+            "committer": "QuanMCPC",
+            "commit_date": 1668408122,
+            "message": "changed the public key of my mailbox to use ed25519 instead of rsa4096"
+        },
+        {
+            "hash": "6d8d960",
+            "committer": "QuanMCPC",
+            "commit_date": 1668348407,
+            "message": "Update website's information"
+        },
         {
             "hash": "c6b122a",
             "committer": "QuanMCPC",
