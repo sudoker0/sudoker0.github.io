@@ -3,6 +3,18 @@
     "last_update_on": "2022-11-14",
     "data": [
         {
+            "hash": "6d6e482",
+            "committer": "QuanMCPC",
+            "commit_date": 1668429932,
+            "message": "updated the gpg key"
+        },
+        {
+            "hash": "dc9e430",
+            "committer": "QuanMCPC",
+            "commit_date": 1668408157,
+            "message": "Update website's information"
+        },
+        {
             "hash": "b5d7537",
             "committer": "QuanMCPC",
             "commit_date": 1668408122,
