@@ -3,6 +3,18 @@
     "last_update_on": "2022-11-14",
     "data": [
         {
+            "hash": "e4b6494",
+            "committer": "QuanMCPC",
+            "commit_date": 1668432811,
+            "message": "forgor to change the steam icon color from back to white"
+        },
+        {
+            "hash": "0a25663",
+            "committer": "QuanMCPC",
+            "commit_date": 1668432382,
+            "message": "Update website's information"
+        },
+        {
             "hash": "004f83d",
             "committer": "QuanMCPC",
             "commit_date": 1668432354,
