@@ -688,6 +688,10 @@
                                     "type": "file"
                                 },
                                 {
+                                    "name": "steam.svg",
+                                    "type": "file"
+                                },
+                                {
                                     "name": "twitter.svg",
                                     "type": "file"
                                 }
