@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-11-14",
+    "last_update_on": "2022-11-17",
     "data": [
+        {
+            "hash": "1314f4c",
+            "committer": "QuanMCPC",
+            "commit_date": 1668694020,
+            "message": "The \"highlight\" update"
+        },
+        {
+            "hash": "c82642d",
+            "committer": "QuanMCPC",
+            "commit_date": 1668432836,
+            "message": "Update website's information"
+        },
         {
             "hash": "e4b6494",
             "committer": "QuanMCPC",
