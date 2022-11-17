@@ -23,39 +23,44 @@ html(lang="en")
 
             section#home.st-leftright: div
                 .left: +textwithtag("intro")
-                    h1 Hello! I'm Quan. I'm a self-taught <span class="tc-red">programmer</span>, and a professional <span class="tc-green">dumbass</span>.
-                    h2 Scroll down to know how a dumbass <span class="tc-blue">eat, code, sleep and repeat</span>.
+                    h1 Hello! I'm Quan. I'm a self-taught #[span.tc-red programmer], and a professional #[span.tc-green dumbass].
+                    h2 Scroll down to know how a dumbass #[span.tc-blue eat, code, sleep and repeat].
                 .right
                     figure
                         img#building_block(src='./website/image/home_page/building_block_of_internet.svg' alt='The Building Block of The Internet')
                         figcaption#building_block_caption The Building Block Of The Internet
 
             section#bio.st-rightleft: div
-                .left: +textwithtag("about privacy=\"true\"")
+                .left: +textwithtag("about")
                     h1 About Me
                     hr
-                    p I'm a [redacted] years old web developer and programmer currently living in Vietnam. I've created many projects in the past as a way to train myself in how to program. And while I'm continuing to develop new projects (but slowly), now I focus on front-end programming, with things like my website, my blog site, or programs that run on browsers.
-                    p Since I'm currently a junior programmer, all of my projects are Free and Open-Source, so you can either contribute to the repository, use it somewhere else, or do whatever you want with it. And it will never collect your data. I promise.
+                    p I'm a #[span.tc-blue web developer] and an #[span.tc-blue average programmer] living in #[span.tc-red Vietnam]. I mainly focus on #[span.tc-green front-end development] but can also work with #[span.tc-green back-end development], like my website, blog site, API, or programs that run on browsers.
+                    p That said, I also have #[span.tc-cyan experience] in #[span.tc-purple game-making] (Unity, Godot), #[span.tc-purple GUI apps] (Tauri, Electron, C#), and #[span.tc-purple mobile apps] (Flutter). However, it's not my main focus right now.
+                    p Since I believe in freedom, all my projects are #[span.tc-red Free and Open-Source], so you can contribute to the repository, use it somewhere else, or do whatever you want with it.
                 .right
                     div
-                        #title: p my_info.json
+                        #title: p me.metadata.json
                         code
                             p {
-                            p     <span class="red">"name"</span>: <span class="green">"Quan"</span>,
-                            p     <span class="red">"current_location"</span>: <span class="green">"Vietnam"</span>,
-                            p     <span class="red">"age"</span>: <span class="green">"[REDACTED]"</span>,
-                            p     <span class="red">"philosophy"</span>: [
-                            p         <span class="green">"Free and Open-Source"</span>,
-                            p         <span class="green">"Respect Privacy"</span>,
+                            p     #[span.red "name"]: #[span.green "Quan"],
+                            p     #[span.red "current_location"]: #[span.green "Vietnam"],
+                            p     #[span.red "main_focus"]: [
+                            p         #[span.green "frontend"],
+                            p         #[span.green "backend"]
+                            p     ]
+                            p     #[span.red "age"]: #[span.green "(REDACTED)"],
+                            p     #[span.red "philosophy"]: [
+                            p         #[span.green "Free and Open-Source"],
+                            p         #[span.green "Respect Privacy"]
                             p     ],
-                            p     <span class="red">"is_available_for_work"</span>: <span class="green">false</span>,
+                            p     #[span.red "is_available_for_work"]: #[span.green false]
                             p }
 
             section#programming.st-leftright: div
                 .left: +textwithtag("programming")
                     h1 Programming Skills
                     hr
-                    p As someone who has been programming for three years, I've tried and used a lot of different languages, all with various purposes like making games, software, website, etc. So, to show how good I'm at those languages, I've created a table that shows exactly that.
+                    p As someone who has been programming #[span.tc-red for three years], I've tried and used a lot of different languages, all with #[span.tc-purple various purposes] like making games, software, website, etc. So, #[span.tc-blue to show how good] I'm at those languages, I've created a table that shows exactly that.
                 .right
                     table.left
                         thead
@@ -95,12 +100,12 @@ html(lang="en")
             section#project: +textwithtag("project")
                 h1 Projects
                 hr
-                p Here's a list of projects or stuff that I've created. Most of them are dead, but not all of them. So check them out!
+                p Here's a #[span.tc-purple list of projects] or stuff that I've created. Most of them are #[span.tc-red dead], but not all of them. So check them out!
                 div
                     +collapsecontent("Web Applications")
-                        +collapsecontent("No \"Nutella\" November Challange Tracker")
+                        +collapsecontent("No \"Nutella\" November Challenge Tracker")
                             p Here is the <a target="_blank" href="/project/anti-nutella-challange/index.html">link to view the project</a>
-                            p Description: A progress tracker for the "November" Challange
+                            p Description: A progress tracker for the "November" Challenge
                         +collapsecontent("Flappy Bird Clone")
                             p Here is the <a target="_blank" href="/project/flappy_bird_clone/index.html">link to view the project</a>
                             p Description: A basic prototype of the flappy bird clone that I made.
@@ -178,7 +183,7 @@ html(lang="en")
             section#website: +textwithtag("website")
                 h1 Website
                 hr
-                p And here is a list of websites that I own. All of this is run by me and is official. Some are currently active, while others are archived for historical purposes.
+                p And here is a #[span.tc-purple list of websites] that I own. All of this is run by me and is official. Some are currently #[span.tc-red active], while others are #[span.tc-red archived] for historical purposes.
                 div
                     +collapsecontent("Code and Random Stuff Archive")
                         p Here is the <a target="_blank" href="https://quanmcpc.github.io/WebsiteArchive/">link to the website</a>
@@ -197,7 +202,7 @@ html(lang="en")
                 .left: +textwithtag("gift good-item=\"fal- true\"")
                     h1 Thank You
                     hr
-                    p I don't know if you have visited everything on my website, only some of it, or just going by. But anyway, thanks for visiting my website. And to show off my appreciation, here's a gift for you. I promise you won't regret it :)
+                    p I don't know if you have visited everything on my website, only some of it, or just going by. But anyway, #[span.tc-purple thanks for visiting my website]. And to show off my appreciation, here's #[span.tc-green a gift] for you. I promise you won't #[span.tc-red regret] it :)
                 .right
                     noscript
                         style.

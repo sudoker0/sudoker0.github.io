@@ -49,6 +49,12 @@ span {
     &.tc-blue {
         background-color: var(--color-tc-blue);
     }
+    &.tc-purple {
+        background-color: var(--color-tc-purple);
+    }
+    &.tc-cyan {
+        background-color: var(--color-tc-cyan);
+    }
 }
 
 figcaption {
@@ -87,6 +93,7 @@ section {
         justify-items: center;
         align-items: center;
         gap: 24px;
+
         div.left {
             grid-area: left;
         }
@@ -95,12 +102,41 @@ section {
         }
     }
 
+    // & * {
+    //     transition: opacity 0.5s, transform 0.5s;
+    // }
+
+    // & > div {
+    //     .left, .right {
+    //         opacity: 0;
+    //     }
+    // }
+
+    // &.show > div {
+    //     .left, .right {
+    //         opacity: 1;
+    //         transform: translateX(0);
+    //     }
+    // }
+
     &.st-leftright > div {
         grid-template-areas: "left right";
+        // .left {
+        //     transform: translateX(-50px);
+        // }
+        // .right {
+        //     transform: translateX(50px);
+        // }
     }
 
     &.st-rightleft > div {
         grid-template-areas: "right left";
+        // .left {
+        //     transform: translateX(50px);
+        // }
+        // .right {
+        //     transform: translateX(-50px);
+        // }
     }
 
     & > div {
