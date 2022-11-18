@@ -60,7 +60,8 @@ html(lang="en")
             }
             a#install_website { display: none; }
 
-    body
+    body(data-js="false")
+        include template/_preload.pug
         include template/_noscript.pug
         .dialog: div
             h1 QuanMCPC's Website

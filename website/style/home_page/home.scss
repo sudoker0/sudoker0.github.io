@@ -108,7 +108,7 @@ section#gift div.right {
         height: auto;
     }
     div#claim_gift_div {
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: center;
     }
@@ -174,5 +174,11 @@ section#gift div.right {
         pointer-events: none;
         opacity: 0;
         background-color: var(--color-fg);
+    }
+}
+
+body[data-js=true] {
+    section#gift div.right div#claim_gift_div {
+        display: flex;
     }
 }

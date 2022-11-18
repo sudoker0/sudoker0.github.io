@@ -9,21 +9,21 @@ html(lang="en")
         link(rel="stylesheet", href="/website/style/info_page/info.css")
         title QuanMCPC.info()
 
-    body
+    body(data-js="false")
+        include template/_preload.pug
         include template/_mixins.pug
         include template/_header.pug
         main
             include template/_noscript.pug
-            section#website_info: +textwithtag("info type=\"website\"")
+            section#website_info.nost: +textwithtag("info type=\"website\"")
                 h1 Website Info
                 hr
                 p Here's #[span.tc-purple some data about the website], some is updated regularly, while the rest is updated manually.
-                noscript
-                    .noscript_object
-                        p Error: We can't provide you data like the file size or the age of the website because it requires JavaScript to work, which you have turned off.
-                        p If you can read JSON data, here's the link to the <a href="./website/json/website_data.json" target="_blank" rel="noopener noreferrer">filesize</a> and the <a href="./website/json/commit_data.json" target="_blank" rel="noopener noreferrer">commit</a> JSON file.
-                    style.
-                        section#website_info .use_js { display: none; }
+
+                #noscript_object
+                    p Error: We can't provide you data like the file size or the age of the website because it requires JavaScript to work, which you have turned off.
+                    p If you can read JSON data, here's the link to the #[a(target="_blank" href="./website/json/website_data.json") filesize] and the #[a(target="_blank" href="./website/json/commit_data.json") commit] JSON file.
+
                 table#tableview.tg(cellspacing='0')
                     colgroup
                         col(style='width: 20%')

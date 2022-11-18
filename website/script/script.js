@@ -5,7 +5,9 @@ HTMLElement.prototype.replace = function (data, prefix = "$_") {
         const old = _this().innerHTML;
         const span = () => _this().querySelector(`span.reactive#${alternate_prefix}${i}`);
         if (span() == null)
-            _this().innerHTML = old.replace(`${prefix}${i}`, `<span class="reactive" id="${alternate_prefix}${i}"></span>`);
+            _this().innerHTML =
+                old.replace(`${prefix}${i}`, `
+                <span class="reactive" id="${alternate_prefix}${i}"></span>`);
         span().innerText = data[i];
     }
 };
@@ -47,14 +49,20 @@ function sanitizeString(str) {
     str = str.replace(/[^a-z0-9áéíóúñü \.,_\-\/]/gim, "");
     return str.trim();
 }
-document.body.setAttribute("data-js", "true");
+function toggleSection(id, show = true) {
+    document.querySelector(`section#${id}`)
+        .setAttribute("data-show", show ? "true" : "false");
+}
 document.addEventListener("DOMContentLoaded", () => {
     switch (gPBName("id")) {
         case "entropy":
             var charStart = 1;
             setInterval(() => {
                 var lChar = Math.round(Math.random() * document.body.innerHTML.length), char = rString(Math.floor(charStart));
-                document.body.innerHTML = document.body.innerHTML.substring(0, lChar) + char + document.body.innerHTML.substring(lChar + Math.floor(charStart));
+                document.body.innerHTML =
+                    document.body.innerHTML.substring(0, lChar)
+                        + char
+                        + document.body.innerHTML.substring(lChar + Math.floor(charStart));
                 charStart = charStart <= 32 ? charStart + 0.1 : charStart;
             }, 10);
             break;
@@ -68,5 +76,35 @@ document.addEventListener("DOMContentLoaded", () => {
         case "righttoleft":
             document.body.style.direction = "rtl";
     }
+    var intersect = null;
+    try {
+        intersect = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                console.log(entry);
+                toggleSection(entry.target.id, entry.isIntersecting);
+                if (entry.isIntersecting)
+                    intersect.unobserve(entry.target);
+            });
+        }, {
+            rootMargin: "-50%",
+            threshold: 0
+        });
+    }
+    catch (e) {
+        console.log("Looks like IntersectionObserver doesn't exist!");
+    }
+    document.querySelectorAll("section")
+        .forEach(v => {
+        if (v.classList.value
+            .split(" ")
+            .map(v => v.startsWith("st-") || v.startsWith("nost"))
+            .reduce((a, b) => a || b)) {
+            if (intersect == null) {
+                toggleSection(v.id);
+                return;
+            }
+            intersect.observe(v);
+        }
+    });
 });
 //# sourceMappingURL=script.js.map

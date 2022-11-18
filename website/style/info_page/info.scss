@@ -1,8 +1,14 @@
 @import "../_variables.scss";
 
-section#website_info table {
-    width: fit-content;
-    margin: auto;
-    display: block;
-    border: none;
+section#website_info {
+    table {
+        width: fit-content;
+        margin: auto;
+        display: block;
+        border: none;
+    }
+}
+
+body[data-js=false] {
+    .use_js { display: none; }
 }

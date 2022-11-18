@@ -28,6 +28,10 @@
     box-sizing: border-box;
 }
 
+:root {
+    overflow-x: hidden;
+}
+
 body {
     top: 0; left: 0;
     width: 100%;
@@ -84,6 +88,7 @@ section {
     justify-content: center;
     min-height: calc(100vh - 64px);
     width: 100%;
+    overflow: hidden;
 
     &[class^="st-"] > div {
         @include grid;
@@ -102,41 +107,12 @@ section {
         }
     }
 
-    // & * {
-    //     transition: opacity 0.5s, transform 0.5s;
-    // }
-
-    // & > div {
-    //     .left, .right {
-    //         opacity: 0;
-    //     }
-    // }
-
-    // &.show > div {
-    //     .left, .right {
-    //         opacity: 1;
-    //         transform: translateX(0);
-    //     }
-    // }
-
     &.st-leftright > div {
         grid-template-areas: "left right";
-        // .left {
-        //     transform: translateX(-50px);
-        // }
-        // .right {
-        //     transform: translateX(50px);
-        // }
     }
 
     &.st-rightleft > div {
         grid-template-areas: "right left";
-        // .left {
-        //     transform: translateX(50px);
-        // }
-        // .right {
-        //     transform: translateX(-50px);
-        // }
     }
 
     & > div {
@@ -602,5 +578,60 @@ div.label-container {
 
     a.label-link {
         display: flex;
+    }
+}
+
+// ? Style when JavaScript is enabled
+body[data-js=true] {
+    div#noscript_wrapper, div#noscript_object {
+        display: none !important;
+    }
+
+    section {
+        & > div, & > div > .left, & > div > .right {
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        & > div {
+            .left, .right {
+                opacity: 0;
+            }
+        }
+
+        &.nost > div {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+
+        &.st-leftright > div {
+            .left {
+                transform: translateX(-50px);
+            }
+            .right {
+                transform: translateX(50px);
+            }
+        }
+
+        &.st-rightleft > div {
+            .left {
+                transform: translateX(50px);
+            }
+            .right {
+                transform: translateX(-50px);
+            }
+        }
+
+        &[data-show=true] {
+            & > div {
+                .left, .right {
+                    opacity: 1;
+                    transform: none;
+                }
+            }
+            &.nost > div {
+                opacity: 1;
+                transform: none;
+            }
+        }
     }
 }
