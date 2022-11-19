@@ -898,6 +898,24 @@
                             ]
                         },
                         {
+                            "name": "index_page",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "index.js",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "index.js.map",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "index.ts",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
                             "name": "info_page",
                             "type": "directory",
                             "children": [
