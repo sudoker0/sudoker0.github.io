@@ -146,7 +146,9 @@ div.captcha_test {
         }
     }
 
-    &:hover input ~ .checkbox_checkmark {
-        background-color: #777;
+    &:hover, &:focus {
+        input ~ .checkbox_checkmark {
+            background-color: #777;
+        }
     }
 }
