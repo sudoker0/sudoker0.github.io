@@ -1,12 +1,14 @@
 html(lang="en")
-    head
+        head
         include template/_head_metadata.pug
 
         meta(property="og:url", content="/contacts.html")
         meta(property="og:title", content="QuanMCPC.contacts()")
         meta(property="og:description", content="All information about my contact info is and will only be here.")
         meta(name="description", content="All information about my contact info is and will only be here.")
+
         link(rel="stylesheet", href="/website/style/contacts_page/contacts.css")
+        script(src="/website/script/contacts_page/contacts.js" defer)
         title QuanMCPC.contacts()
 
     body(data-js="false")
@@ -72,4 +74,3 @@ html(lang="en")
                             | -----END PGP PUBLIC KEY BLOCK-----
 
         include template/_footer.pug
-        script(src="/website/script/contacts_page/contacts.js")
