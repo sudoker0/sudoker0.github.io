@@ -996,6 +996,24 @@
                             ]
                         },
                         {
+                            "name": "index_page",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "index.css",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "index.css.map",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "index.scss",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
                             "name": "info_page",
                             "type": "directory",
                             "children": [

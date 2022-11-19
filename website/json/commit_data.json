@@ -1,7 +1,25 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-11-18",
+    "last_update_on": "2022-11-19",
     "data": [
+        {
+            "hash": "dae5add",
+            "committer": "QuanMCPC",
+            "commit_date": 1668852335,
+            "message": "Merge branch 'master' of https://github.com/QuanMCPC/QuanMCPC.github.io"
+        },
+        {
+            "hash": "6850f84",
+            "committer": "QuanMCPC",
+            "commit_date": 1668852313,
+            "message": "added captcha test"
+        },
+        {
+            "hash": "a04624e",
+            "committer": "QuanMCPC",
+            "commit_date": 1668778596,
+            "message": "Update website's information"
+        },
         {
             "hash": "77820d9",
             "committer": "QuanMCPC",
