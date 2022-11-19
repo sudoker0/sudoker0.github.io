@@ -1,4 +1,7 @@
 (() => {
+    onload = () => {
+        document.querySelector("div.dialog").setAttribute("data-show", "true");
+    };
     var cheat_pos = 0;
     const captcha_event = {
         "gotowebsitecheck": {

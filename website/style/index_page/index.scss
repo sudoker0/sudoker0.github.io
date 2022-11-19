@@ -59,6 +59,19 @@ a.captcha_submit {
     margin-top: 0;
 }
 
+body[data-js=true] {
+    div.dialog {
+        opacity: 0;
+        transform: scale(0.5);
+        transition: all 0.5s;
+
+        &[data-show=true] {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}
+
 body[data-js=false] {
     div.captcha_test {
         display: none;
