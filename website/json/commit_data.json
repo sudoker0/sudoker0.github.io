@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-11-17",
+    "last_update_on": "2022-11-18",
     "data": [
+        {
+            "hash": "77820d9",
+            "committer": "QuanMCPC",
+            "commit_date": 1668778521,
+            "message": "change how the website handle with noscript and add animation on scroll on each section of website"
+        },
+        {
+            "hash": "aceec03",
+            "committer": "QuanMCPC",
+            "commit_date": 1668694056,
+            "message": "Update website's information"
+        },
         {
             "hash": "1314f4c",
             "committer": "QuanMCPC",

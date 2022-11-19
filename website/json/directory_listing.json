@@ -580,6 +580,10 @@
                 {
                     "name": "_noscript.pug",
                     "type": "file"
+                },
+                {
+                    "name": "_preload.pug",
+                    "type": "file"
                 }
             ]
         },
@@ -910,6 +914,18 @@
                                     "type": "file"
                                 }
                             ]
+                        },
+                        {
+                            "name": "preload.js",
+                            "type": "file"
+                        },
+                        {
+                            "name": "preload.js.map",
+                            "type": "file"
+                        },
+                        {
+                            "name": "preload.ts",
+                            "type": "file"
                         },
                         {
                             "name": "script.js",
