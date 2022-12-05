@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-11-19",
+    "last_update_on": "2022-12-05",
     "data": [
+        {
+            "hash": "d5fe42e",
+            "committer": "QuanMCPC",
+            "commit_date": 1670222255,
+            "message": "some code i made to understand how 2fa work"
+        },
+        {
+            "hash": "b5f48ed",
+            "committer": "QuanMCPC",
+            "commit_date": 1668860009,
+            "message": "Update website's information"
+        },
         {
             "hash": "940f2a2",
             "committer": "QuanMCPC",
