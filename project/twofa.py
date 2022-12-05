@@ -44,6 +44,15 @@ def hotp(secret, counter, length=6):
 
 
 def totp(secret, length=6, period = 30):
+    """
+    Generate those "6 digits code" that is used to authorize the user
+    https://gist.github.com/MineRobber9000/d468c3d1dfc6ac20d0314600ca765bc4
+
+    @param secret: The "secret" token that is shared between the user and the server to generate the token
+    @param length: The length of those "digits code"
+    @param period: The retention period of those code
+    """
+
     """TOTP is implemented as HOTP, but with the counter being the floor of
        the division of the Unix timestamp by 30."""
     
@@ -100,7 +109,6 @@ def generate2FA(
         "secret": secret,
         "url": url
     }
-
 
 def check2FA(type_2fa: TwoFAType, secret: str, code: str, length = 6, period = 30):
     """
