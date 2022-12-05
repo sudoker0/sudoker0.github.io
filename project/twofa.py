@@ -31,32 +31,26 @@ def dynamic_truncate(raw_bytes: bytes, length):
     return str(decimal_value)[-length:]
 
 
-def hotp(secret, counter, length=6, _alg: Algorithm = Algorithm.SHA1):
+def hotp(secret, counter, length=6):
     if type(counter) != bytes: counter = pack_counter(int(counter))
     if type(secret) != bytes: secret = base64.b32decode(secret)
     
     hash_alg = hashlib.sha1
-    # if alg == Algorithm.SHA1:
-    #     hash_alg = hashlib.sha1
-    # elif alg == Algorithm.SHA256:
-    #     hash_alg = hashlib.sha256
-    # elif alg == Algorithm.SHA512:
-    #     hash_alg = hashlib.sha512
 
     digest = hmac.new(secret, counter, hash_alg).digest()
     return dynamic_truncate(digest, length)
 
 
-def totp(secret, length=6, period = 30, _alg: Algorithm = Algorithm.SHA1):
+def totp(secret, length=6, period = 30):
     """TOTP is implemented as HOTP, but with the counter being the floor of
        the division of the Unix timestamp by 30."""
     
     counter = pack_counter(round(time.time() // period))
-    return hotp(secret, counter, length, _alg)
+    return hotp(secret, counter, length)
 
 # --SECTION_END--
 
-def generate2FA(type_2fa: TwoFAType, product_name: str, account_name: str, issuer: str = "", secret_length = 32, digits = 6, period = 30, _alg: Algorithm = Algorithm.SHA1):
+def generate2FA(type_2fa: TwoFAType, product_name: str, account_name: str, issuer: str = "", secret_length = 32, digits = 6, period = 30):
 
     if type_2fa == TwoFAType.HOTP:
         print("not supported yet")
@@ -65,7 +59,6 @@ def generate2FA(type_2fa: TwoFAType, product_name: str, account_name: str, issue
     url = "otpauth://%s/%s?secret=%s"
     optional = {
         "issuer": "&issuer=%s",
-        "algorithm": "&algorithm=%s",
         "digits": "&digits=%d",
         "period": "&period=%d",
         "counter": "&counter=%d"
@@ -78,7 +71,6 @@ def generate2FA(type_2fa: TwoFAType, product_name: str, account_name: str, issue
     if issuer != "":
         url += optional["issuer"] % urllib.parse.quote(issuer, safe="")
 
-    # url += optional["algorithm"] % alg.value
     url += optional["digits"] % digits
     url += optional["period"] % period
 
@@ -87,24 +79,21 @@ def generate2FA(type_2fa: TwoFAType, product_name: str, account_name: str, issue
         "url": url
     }
 
-def check2FA(type_2fa: TwoFAType, secret: str, code: str, length = 6, period = 30, _alg = Algorithm.SHA1):
+def check2FA(type_2fa: TwoFAType, secret: str, code: str, length = 6, period = 30):
     if type_2fa == TwoFAType.TOTP:
-        ccode = totp(secret, length, period, _alg)
+        ccode = totp(secret, length, period)
         return code == ccode
 
 
-code = generate2FA(TwoFAType.TOTP, "Test Product Name", "My Account", "Test Issuer", 64, 8, 15)
+code = generate2FA(TwoFAType.TOTP, "Test Product Name", "My Account", "Test Issuer", 128)
 print(code)
 webbrowser.open(f"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data={urllib.parse.quote(code['url'], safe='')}")
 
 i_secret = input("enter secret: ")
-#i_alg = input("enter algorithm: ")
-i_len = input("enter length: ")
-i_per = input("enter period: ")
 
 while True:
     test = input("enter code to test: ")
-    if check2FA(TwoFAType.TOTP, i_secret, test, int(i_len), int(i_per)):
+    if check2FA(TwoFAType.TOTP, i_secret, test):
         print("good")
     else:
         print("bad")
