@@ -25,9 +25,12 @@ def pack_counter(t):
 def dynamic_truncate(raw_bytes: bytes, length):
     offset = raw_bytes[19] & 0x0f
 
-    decimal_value = ((raw_bytes[offset] & 0x7f) << 24) | (
-        (raw_bytes[offset + 1] & 0xff) << 16
-    ) | ((raw_bytes[offset + 2] & 0xFF) << 8) | (raw_bytes[offset + 3] & 0xFF)
+    decimal_value =\
+        ((raw_bytes[offset] & 0x7f) << 24) |\
+        ((raw_bytes[offset + 1] & 0xff) << 16) |\
+        ((raw_bytes[offset + 2] & 0xFF) << 8) |\
+        (raw_bytes[offset + 3] & 0xFF)
+    
     return str(decimal_value)[-length:]
 
 
@@ -36,7 +39,6 @@ def hotp(secret, counter, length=6):
     if type(secret) != bytes: secret = base64.b32decode(secret)
     
     hash_alg = hashlib.sha1
-
     digest = hmac.new(secret, counter, hash_alg).digest()
     return dynamic_truncate(digest, length)
 
@@ -50,7 +52,27 @@ def totp(secret, length=6, period = 30):
 
 # --SECTION_END--
 
-def generate2FA(type_2fa: TwoFAType, product_name: str, account_name: str, issuer: str = "", secret_length = 32, digits = 6, period = 30):
+def generate2FA(
+    type_2fa: TwoFAType,
+    product_name: str,
+    account_name: str,
+    issuer: str = "",
+    secret_length = 32,
+    digits = 6,
+    period = 30):
+
+    """
+    A simple function to generate an 2FA URL which can be open or put into QR code
+
+    @param type_2fa: The type of 2FA token to generate (TOTP or HOTP)
+    @param product_name: The name of the "product" (which is another way of saying it's the website or app that make the URL
+    @param account_name: The name of the account (it could be the email, username, anything to identify the user)
+    @param issuer: The issuer
+    @param secret_length: The length of the "secret" (which is a token to help create those 6 digits code)
+    @param digits: The length of those "digits code" that you have to enter (might be ignored by most 2FA app)
+    @param period: The retention period of those "digits code" (might be ignored by most 2FA app)
+    @return The URL to access or create QR from and the "secrets"
+    """
 
     if type_2fa == TwoFAType.HOTP:
         print("not supported yet")
@@ -65,7 +87,7 @@ def generate2FA(type_2fa: TwoFAType, product_name: str, account_name: str, issue
     }
     base32_alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567"
 
-    secret = ''.join(secrets.choice(base32_alphabet) for i in range(secret_length))
+    secret = ''.join(secrets.choice(base32_alphabet) for _ in range(secret_length))
     url = url % (type_2fa.value, urllib.parse.quote(f"{product_name}:{account_name}", safe=""), secret)
 
     if issuer != "":
@@ -79,13 +101,17 @@ def generate2FA(type_2fa: TwoFAType, product_name: str, account_name: str, issue
         "url": url
     }
 
+
 def check2FA(type_2fa: TwoFAType, secret: str, code: str, length = 6, period = 30):
+    """
+    Check if the 2FA code is valid
+    """
     if type_2fa == TwoFAType.TOTP:
         ccode = totp(secret, length, period)
         return code == ccode
 
 
-code = generate2FA(TwoFAType.TOTP, "Test Product Name", "My Account", "Test Issuer", 128)
+code = generate2FA(TwoFAType.TOTP, "Test Product Name", "My Account", "Test Issuer", 32)
 print(code)
 webbrowser.open(f"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data={urllib.parse.quote(code['url'], safe='')}")
 
