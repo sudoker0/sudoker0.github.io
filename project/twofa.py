@@ -57,6 +57,11 @@ def totp(secret, length=6, period = 30, _alg: Algorithm = Algorithm.SHA1):
 # --SECTION_END--
 
 def generate2FA(type_2fa: TwoFAType, product_name: str, account_name: str, issuer: str = "", secret_length = 32, digits = 6, period = 30, _alg: Algorithm = Algorithm.SHA1):
+
+    if type_2fa == TwoFAType.HOTP:
+        print("not supported yet")
+        return {}
+
     url = "otpauth://%s/%s?secret=%s"
     optional = {
         "issuer": "&issuer=%s",
