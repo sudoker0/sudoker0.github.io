@@ -88,10 +88,12 @@ function update(timestamp: number) {
 
     if (elapsed >= limitRefresh) {
         startTimeRefresh = timestamp
-        checkTime()
+        //checkTime()
     }
+    qSelAll("[class*='challange_']").forEach(v => {
+        v.setAttribute("data-hidden", "true")
+    })
 
-    qSelAll(".display_time").forEach(v => v.setAttribute("data-hidden", "true"))
     CURRENT_TIME = new Date()
     CURRENT_YEAR = CURRENT_TIME.getFullYear()
     BEGIN_NNN = new Date(CURRENT_YEAR, 10, 1, 0, 0, 0)
@@ -101,7 +103,9 @@ function update(timestamp: number) {
     // Check if the current date is between Nov 1st and Dec 1s
     const IN_BETWEEN = CURRENT_TIME >= BEGIN_NNN && CURRENT_TIME <= END_NNN
     if (IN_BETWEEN) {
-        qSel("div#time_left").setAttribute("data-hidden", "false")
+        qSelAll(".challange_started").forEach(v => {
+            v.setAttribute("data-hidden", "false")
+        })
 
         const ELAPSED = diffTime(CURRENT_TIME, BEGIN_NNN)
         const TIME_LEFT = diffTime(END_NNN, CURRENT_TIME)
@@ -113,22 +117,28 @@ function update(timestamp: number) {
             "elapsed": displayTime(ELAPSED),
             "time_left": displayTime(TIME_LEFT),
             "time_left_percentage": PERCENTAGE,
-            "timezone": `${getTimeZone()} (${Intl.DateTimeFormat().resolvedOptions().timeZone})`
         })
 
         qSel<HTMLElement>("div#time_left_pb .indicator").style.width = PERCENTAGE
 
     } else {
-        qSel("div#time_before_begin").setAttribute("data-hidden", "false")
+        qSelAll(".challange_not_started").forEach(v => {
+            v.setAttribute("data-hidden", "false")
+        })
+
         const TIME_LEFT_BEFORE_BEGIN = diffTime(BEGIN_NEW_NNN, CURRENT_TIME)
 
         document.body.replace({
             "time_left_before_begin": displayTime(TIME_LEFT_BEFORE_BEGIN)
         })
     }
+    
+    document.body.replace({
+        "timezone": `${getTimeZone()} (${Intl.DateTimeFormat().resolvedOptions().timeZone})`
+    })
     requestAnimationFrame(update)
 }
 
-checkTime()
+//checkTime()
 requestAnimationFrame(update)
 //setInterval(update, 10)

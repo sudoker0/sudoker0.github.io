@@ -22,9 +22,8 @@ html(lang='en')
         script(src="./script/script.js" defer)
 
     body.dark_mode
-
         mixin progressbar(id, text_id)
-            .progress_bar(id=id)
+            .progress_bar.challange_started(id=id)
                 .text=text_id
                 .indicator
 
@@ -50,35 +49,30 @@ html(lang='en')
             p (Note: Information like timezone or current time are pulled from the user's browser, so those info might not exactly match the actual info of the user's device)
             hr
 
-            div.display_time#time_left(data-hidden="true")
+            div.display_time
                 p: b
                     span.reverse Status:
-                    span.green  Challange has started!
+                    span.green.challange_started  Challange has started!
+                    span.red.challange_not_started  Challange haven't started yet!
 
                 p: b
                     span.reverse Client timezone:
                     span  $_timezone
 
-                p: b
+                p.challange_started: b
                     span.reverse Time elapsed:
-                p $_elapsed
+                p.challange_started $_elapsed
 
                 p: b
                     span.reverse Time left:
-                p $_time_left
+                span.note.challange_started (before challange end)
+                span.note.challange_not_started (before challange start next year)
+                p.challange_started $_time_left
+                p.challange_not_started $_time_left_before_begin
 
-                p: b
+                p.challange_started: b
                     span.reverse Progress:
                 +progressbar("time_left_pb", "$_time_left_percentage")
-
-            div.display_time#time_before_begin(data-hidden="true")
-                p: b
-                    span.reverse Status:&nbsp;
-                    span.red Challange hasn't started yet!
-
-                p: b
-                    span.reverse Time left:
-                p $_time_left_before_begin
 
             hr
 
