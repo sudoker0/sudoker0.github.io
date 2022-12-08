@@ -494,6 +494,56 @@
                     "type": "directory",
                     "children": [
                         {
+                            "name": "help_get_api",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "1.jpg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "2.jpg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "3.jpg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "4.jpg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "5.jpg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "6.jpg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "7.jpg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "8.jpg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "9.jpg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "index.html",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "index.pug",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
                             "name": "index.html",
                             "type": "file"
                         },

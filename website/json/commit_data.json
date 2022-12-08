@@ -3,6 +3,30 @@
     "last_update_on": "2022-12-08",
     "data": [
         {
+            "hash": "3566b4d",
+            "committer": "QuanMCPC",
+            "commit_date": 1670514523,
+            "message": "Merge branch 'master' of https://github.com/QuanMCPC/QuanMCPC.github.io"
+        },
+        {
+            "hash": "a2c7089",
+            "committer": "QuanMCPC",
+            "commit_date": 1670514505,
+            "message": "add project \"guess the gif\" to home"
+        },
+        {
+            "hash": "c5b2f92",
+            "committer": "QuanMCPC",
+            "commit_date": 1670514361,
+            "message": "new project: guess the gif"
+        },
+        {
+            "hash": "53614b6",
+            "committer": "QuanMCPC",
+            "commit_date": 1670477840,
+            "message": "Update website's information"
+        },
+        {
             "hash": "27b1918",
             "committer": "QuanMCPC",
             "commit_date": 1670477817,
