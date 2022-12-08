@@ -1,4 +1,8 @@
-const api_key = "AIzaSyCDheC0w5STLWBJd-n0jUpRbBnEAEhYIDw" // Replace
+const k = atob("NGM0NDc3NmM1ZTc0NGU0OTY1Njg0ZTNkN2EzODVlNTk0MTVhNGY0NzY5MjA2MzNkNjc1ODdkNWY2ZjRmNjM0ODRjNDg2NTU0NDQ0OTdh")
+var api_key = ""
+for (var i = 0; i < k.length; i += 2) {
+  	api_key += String.fromCharCode(Number(atob("MHg=") + k[i] + k[i + 1]) ^ 13)
+}
 
 const wordlist = "https://raw.githubusercontent.com/dwyl/english-words/master/words.txt"
 const max_reset = 10,
@@ -13,6 +17,7 @@ var tag_list: string[] = []
 var good_tag: string[] = []
 var next_item = ""
 var reset_count = max_reset
+var high_score = 0
 
 var round_number = 1
 var game_score = 0
@@ -49,20 +54,59 @@ function sanitizeString(str: string){
     return nstr.trim()
 }
 
+async function customFetch(input: RequestInfo, init?: RequestInit): Promise<Response> | null {
+    const retry_amount = 5
+    var count_retry = 0, r = null, not_good_at_all = false
+    while (count_retry < retry_amount) {
+        await wait(1200)
+        try {
+            r = await fetch(input, init)
+        } catch (e) {
+            console.log(e)
+            not_good_at_all = true
+            break
+        }
+        if (!r.ok) {
+            count_retry += 1
+            continue
+        }
+        break
+    }
+    if (!r?.ok || not_good_at_all) {
+        console.log(
+            `-------------------------------------\n` +
+            `GTF network error log\n` +
+            `URL: ${r?.url}\n` + 
+            `Status (response code): ${r?.status} (${r?.statusText})\n` +
+            `Headers: ${r?.headers}\n` + 
+            `Response: \n${await r?.text()}\n` + 
+            `-------------------------------------`
+        )
+        console.log(r)
+        alert("Failed to load API data! This might be caused by too many people loading the data, or something is blocking the connection from making through. Detail of the error will be printed onto the Developer Tools. Please reload the page manually.")
+        return null
+    }
+
+    return r
+}
+
 async function newgame() {
     good_tag = []
 
     const elm_tag_list = qSel("div#list_of_tags")
     var tags = [], start_length = 0
+
     //! Check if the program should reset it's source of random tags
     if (reset_count >= max_reset) {
         tag_list = []
-        const r_featured = await fetch(
+        const r_featured = await customFetch(
             `https://tenor.googleapis.com/v2/featured` +
                 `?key=${api_key}` +
                 `&limit=50` +
-                `${next_item != "" ? "&pos=" + next_item : ""}`),
-            featured = await r_featured.json()
+                `${next_item != "" ? "&pos=" + next_item : ""}`)
+        if (r_featured == null) return false
+        
+        const featured = await r_featured.json()
         await wait(1000)
         
         for (const i of featured["results"]) {
@@ -82,11 +126,13 @@ async function newgame() {
     var copy_tag_list = [...tag_list]
 
     //! Get a list of GIF based on a random keyword
-    const r_gif_data = await fetch(
+    const r_gif_data = await customFetch(
         `https://tenor.googleapis.com/v2/search` +
             `?key=${api_key}` +
-            `&q=${wlist[Math.floor(Math.random() * wlist.length)]}`),
-        gif_data = await r_gif_data.json()
+            `&q=${wlist[Math.floor(Math.random() * wlist.length)]}`)
+    if (r_gif_data == null) return false
+
+    const gif_data = await r_gif_data.json()
 
     const gif = gif_data["results"][0]
     start_length = gif["tags"].length
@@ -106,8 +152,10 @@ async function newgame() {
     shuffleArray(tags)
 
     const gif_url = gif["media_formats"]["gif"]["url"]
-    const r_gif_img = await fetch(gif_url),
-        gif_img = await r_gif_img.blob()
+    const r_gif_img = await customFetch(gif_url)
+    if (r_gif_img == null) return false
+
+    const gif_img = await r_gif_img.blob()
 
     const url = URL.createObjectURL(gif_img)
     qSel("img#gif_image")["src"] = url
@@ -139,6 +187,7 @@ async function newgame() {
                 .setAttribute("data-selected", current == "true" ? "false" : "true")
         }
     })
+    return true
 }
 
 function showPage(id: string) {
@@ -146,7 +195,7 @@ function showPage(id: string) {
     qSel(`.page_fragment[data-id=${id}]`)?.setAttribute("data-hidden", "false")
 }
 
-async function submit_action() {
+async function submitAction() {
     var count_good = 0, count_bad = 0, limit_bad = 0, cnt = 0
     var good_t = [], bad_t = []
     qSelAll(".tag_select").forEach(v => {
@@ -182,17 +231,24 @@ async function submit_action() {
 
     var score_good = count_good * score_good_tag,
         score_bad = count_bad * score_bad_tag
-    
+   
+    const gtg_hs = localStorage.getItem("guess_the_gif_high_score")
+    if (Number(gtg_hs) < game_score) {
+        high_score = game_score
+        localStorage.setItem("guess_the_gif_high_score", game_score.toString())
+    }
+
     document.body.replace({
         "round_result": round_number.toString(),
         "num_of_tag_correct": count_good.toString(),
         "correct_tag_list": good_t.join(", "),
         "score_tag_correct": score_good.toString(),
-        "num_of_tag_incorrect": (count_bad + limit_bad).toString(),
+        "num_of_tag_incorrect": (count_bad + limit_bad + (count_bad > 0 ? -1 : 0)).toString(),
         "incorrect_tag_list": bad_t.join(", "),
         "score_tag_incorrect": Math.abs(score_bad).toString(),
         "total_score_this_round": (score_good + score_bad).toString(),
         "total_score": game_score.toString(),
+        "new_high_score": (Number(gtg_hs) < game_score) ? "(New High Score!)" : ""
     })
 
     showPage("game_result")
@@ -200,26 +256,64 @@ async function submit_action() {
 
 async function init() {
     showPage("loading_screen")
-    const r_wordlist = await (await fetch(wordlist)).text()
-    wlist = r_wordlist.split("\n")
+
+    const key_from_input: string = qSel("#api_key")["value"]
+    if (key_from_input.trim() != "") {
+        const r_test = await fetch(`https://tenor.googleapis.com/v2/featured?key=${key_from_input}`)
+        if (!r_test.ok) {
+            alert("Invalid API key! Please check if the API key has permission to access Tenor API")
+            showPage("explain_stuff")
+            return
+        }
+        api_key = key_from_input
+        localStorage.setItem("guess_the_gif_key", key_from_input)
+    }
+
+    const r_wordlist = await customFetch(wordlist)
+    if (r_wordlist == null) return
+    wlist = (await r_wordlist.text()).split("\n")
 
     document.body.replace({
         "round": round_number.toString(),
-        "score": game_score.toString()
+        "score": game_score.toString(),
+        "high_score": high_score.toString(),
     })
-    await newgame()
+    
+    const result = await newgame()
+    if (!result) return
     showPage("game_board")
 }
 
-async function next_game() {
+async function nextGame() {
     round_number++
     showPage("loading_screen")
     document.body.replace({
         "round": round_number.toString(),
-        "score": game_score.toString()
+        "score": game_score.toString(),
+        "high_score": high_score.toString(),
     })
-    await newgame()
+    
+    const result = await newgame()
+    if (!result) return
     showPage("game_board")
+}
+
+function resetHighScore() {
+    localStorage.setItem("guess_the_gif_high_score", "0")
+    high_score = 0
+    alert("High score has been reset!")
+}
+
+const gtg_key = localStorage.getItem("guess_the_gif_key")
+if (gtg_key != null) {
+    qSel("#api_key")["value"] = gtg_key
+}
+
+const gtg_hs = localStorage.getItem("guess_the_gif_high_score")
+if (gtg_hs == null) {
+    localStorage.setItem("guess_the_gif_high_score", "0")
+} else {
+    high_score = Number(gtg_hs)
 }
 
 showPage("explain_stuff")

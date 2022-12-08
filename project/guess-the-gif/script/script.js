@@ -7,7 +7,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const api_key = "AIzaSyCDheC0w5STLWBJd-n0jUpRbBnEAEhYIDw";
+const k = atob("NGM0NDc3NmM1ZTc0NGU0OTY1Njg0ZTNkN2EzODVlNTk0MTVhNGY0NzY5MjA2MzNkNjc1ODdkNWY2ZjRmNjM0ODRjNDg2NTU0NDQ0OTdh");
+var api_key = "";
+for (var i = 0; i < k.length; i += 2) {
+    api_key += String.fromCharCode(Number(atob("MHg=") + k[i] + k[i + 1]) ^ 13);
+}
 const wordlist = "https://raw.githubusercontent.com/dwyl/english-words/master/words.txt";
 const max_reset = 10, num_of_tag = 12, max_good_tag = 5, score_good_tag = 20, score_bad_tag = -40, penality_after = 3;
 var wlist = [];
@@ -15,6 +19,7 @@ var tag_list = [];
 var good_tag = [];
 var next_item = "";
 var reset_count = max_reset;
+var high_score = 0;
 var round_number = 1;
 var game_score = 0;
 function qSel(selector) { return document.querySelector(selector); }
@@ -44,6 +49,41 @@ function sanitizeString(str) {
     var nstr = str.replace(/[^a-z0-9áéíóúñü \.,_-]/gim, "");
     return nstr.trim();
 }
+function customFetch(input, init) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const retry_amount = 5;
+        var count_retry = 0, r = null, not_good_at_all = false;
+        while (count_retry < retry_amount) {
+            yield wait(1200);
+            try {
+                r = yield fetch(input, init);
+            }
+            catch (e) {
+                console.log(e);
+                not_good_at_all = true;
+                break;
+            }
+            if (!r.ok) {
+                count_retry += 1;
+                continue;
+            }
+            break;
+        }
+        if (!(r === null || r === void 0 ? void 0 : r.ok) || not_good_at_all) {
+            console.log(`-------------------------------------\n` +
+                `GTF network error log\n` +
+                `URL: ${r === null || r === void 0 ? void 0 : r.url}\n` +
+                `Status (response code): ${r === null || r === void 0 ? void 0 : r.status} (${r === null || r === void 0 ? void 0 : r.statusText})\n` +
+                `Headers: ${r === null || r === void 0 ? void 0 : r.headers}\n` +
+                `Response: \n${yield (r === null || r === void 0 ? void 0 : r.text())}\n` +
+                `-------------------------------------`);
+            console.log(r);
+            alert("Failed to load API data! This might be caused by too many people loading the data, or something is blocking the connection from making through. Detail of the error will be printed onto the Developer Tools. Please reload the page manually.");
+            return null;
+        }
+        return r;
+    });
+}
 function newgame() {
     return __awaiter(this, void 0, void 0, function* () {
         good_tag = [];
@@ -51,10 +91,13 @@ function newgame() {
         var tags = [], start_length = 0;
         if (reset_count >= max_reset) {
             tag_list = [];
-            const r_featured = yield fetch(`https://tenor.googleapis.com/v2/featured` +
+            const r_featured = yield customFetch(`https://tenor.googleapis.com/v2/featured` +
                 `?key=${api_key}` +
                 `&limit=50` +
-                `${next_item != "" ? "&pos=" + next_item : ""}`), featured = yield r_featured.json();
+                `${next_item != "" ? "&pos=" + next_item : ""}`);
+            if (r_featured == null)
+                return false;
+            const featured = yield r_featured.json();
             yield wait(1000);
             for (const i of featured["results"]) {
                 for (const j of i["tags"]) {
@@ -70,9 +113,12 @@ function newgame() {
             elm_tag_list.removeChild(elm_tag_list.lastChild);
         }
         var copy_tag_list = [...tag_list];
-        const r_gif_data = yield fetch(`https://tenor.googleapis.com/v2/search` +
+        const r_gif_data = yield customFetch(`https://tenor.googleapis.com/v2/search` +
             `?key=${api_key}` +
-            `&q=${wlist[Math.floor(Math.random() * wlist.length)]}`), gif_data = yield r_gif_data.json();
+            `&q=${wlist[Math.floor(Math.random() * wlist.length)]}`);
+        if (r_gif_data == null)
+            return false;
+        const gif_data = yield r_gif_data.json();
         const gif = gif_data["results"][0];
         start_length = gif["tags"].length;
         gif["tags"].splice(max_good_tag);
@@ -87,7 +133,10 @@ function newgame() {
         }
         shuffleArray(tags);
         const gif_url = gif["media_formats"]["gif"]["url"];
-        const r_gif_img = yield fetch(gif_url), gif_img = yield r_gif_img.blob();
+        const r_gif_img = yield customFetch(gif_url);
+        if (r_gif_img == null)
+            return false;
+        const gif_img = yield r_gif_img.blob();
         const url = URL.createObjectURL(gif_img);
         qSel("img#gif_image")["src"] = url;
         document.body.replace({
@@ -115,6 +164,7 @@ function newgame() {
                     .setAttribute("data-selected", current == "true" ? "false" : "true");
             };
         });
+        return true;
     });
 }
 function showPage(id) {
@@ -122,7 +172,7 @@ function showPage(id) {
     qSelAll(".page_fragment").forEach(v => v.setAttribute("data-hidden", "true"));
     (_a = qSel(`.page_fragment[data-id=${id}]`)) === null || _a === void 0 ? void 0 : _a.setAttribute("data-hidden", "false");
 }
-function submit_action() {
+function submitAction() {
     return __awaiter(this, void 0, void 0, function* () {
         var count_good = 0, count_bad = 0, limit_bad = 0, cnt = 0;
         var good_t = [], bad_t = [];
@@ -158,16 +208,22 @@ function submit_action() {
             }
         });
         var score_good = count_good * score_good_tag, score_bad = count_bad * score_bad_tag;
+        const gtg_hs = localStorage.getItem("guess_the_gif_high_score");
+        if (Number(gtg_hs) < game_score) {
+            high_score = game_score;
+            localStorage.setItem("guess_the_gif_high_score", game_score.toString());
+        }
         document.body.replace({
             "round_result": round_number.toString(),
             "num_of_tag_correct": count_good.toString(),
             "correct_tag_list": good_t.join(", "),
             "score_tag_correct": score_good.toString(),
-            "num_of_tag_incorrect": (count_bad + limit_bad).toString(),
+            "num_of_tag_incorrect": (count_bad + limit_bad + (count_bad > 0 ? -1 : 0)).toString(),
             "incorrect_tag_list": bad_t.join(", "),
             "score_tag_incorrect": Math.abs(score_bad).toString(),
             "total_score_this_round": (score_good + score_bad).toString(),
             "total_score": game_score.toString(),
+            "new_high_score": (Number(gtg_hs) < game_score) ? "(New High Score!)" : ""
         });
         showPage("game_result");
     });
@@ -175,27 +231,62 @@ function submit_action() {
 function init() {
     return __awaiter(this, void 0, void 0, function* () {
         showPage("loading_screen");
-        const r_wordlist = yield (yield fetch(wordlist)).text();
-        wlist = r_wordlist.split("\n");
+        const key_from_input = qSel("#api_key")["value"];
+        if (key_from_input.trim() != "") {
+            const r_test = yield fetch(`https://tenor.googleapis.com/v2/featured?key=${key_from_input}`);
+            if (!r_test.ok) {
+                alert("Invalid API key! Please check if the API key has permission to access Tenor API");
+                showPage("explain_stuff");
+                return;
+            }
+            api_key = key_from_input;
+            localStorage.setItem("guess_the_gif_key", key_from_input);
+        }
+        const r_wordlist = yield customFetch(wordlist);
+        if (r_wordlist == null)
+            return;
+        wlist = (yield r_wordlist.text()).split("\n");
         document.body.replace({
             "round": round_number.toString(),
-            "score": game_score.toString()
+            "score": game_score.toString(),
+            "high_score": high_score.toString(),
         });
-        yield newgame();
+        const result = yield newgame();
+        if (!result)
+            return;
         showPage("game_board");
     });
 }
-function next_game() {
+function nextGame() {
     return __awaiter(this, void 0, void 0, function* () {
         round_number++;
         showPage("loading_screen");
         document.body.replace({
             "round": round_number.toString(),
-            "score": game_score.toString()
+            "score": game_score.toString(),
+            "high_score": high_score.toString(),
         });
-        yield newgame();
+        const result = yield newgame();
+        if (!result)
+            return;
         showPage("game_board");
     });
+}
+function resetHighScore() {
+    localStorage.setItem("guess_the_gif_high_score", "0");
+    high_score = 0;
+    alert("High score has been reset!");
+}
+const gtg_key = localStorage.getItem("guess_the_gif_key");
+if (gtg_key != null) {
+    qSel("#api_key")["value"] = gtg_key;
+}
+const gtg_hs = localStorage.getItem("guess_the_gif_high_score");
+if (gtg_hs == null) {
+    localStorage.setItem("guess_the_gif_high_score", "0");
+}
+else {
+    high_score = Number(gtg_hs);
 }
 showPage("explain_stuff");
 //# sourceMappingURL=script.js.map

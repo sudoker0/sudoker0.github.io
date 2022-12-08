@@ -1,0 +1,64 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+        link(rel="stylesheet", href="../style/style.css")
+        link(href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap", rel="stylesheet")
+        title Guess The GIF - Help
+
+        style.
+            img.help {
+                width: 100%;
+                border: 2px solid var(--fg);
+            }
+    body
+        h1 Guess The GIF
+
+        h3 How to get your own API key
+        
+        b Step 1:
+        p -- Make sure you have a Google Account and make sure it's login in your web browwser
+
+        b Step 2:
+        p -- Go to #[a(href="https://console.cloud.google.com/projectcreate" target="_blank") https://console.cloud.google.com/projectcreate]. This will lead you to the Google Cloud page where you can create a new project
+
+        b Step 3:
+        p -- Name this project whatever you want (it doesn't really matter, as long you have a name), and then click "Create". Wait for a few seconds for the project to be created.
+        img.help(src="./1.jpg", alt="step 3")
+
+        b Step 4:
+        p -- Go to #[a(href="https://developers.google.com/tenor/guides/quickstart#setup" target="_blank") this page] and you should see something like this. Click on "2. Get a Tenor API key"
+        img.help(src="./2.jpg", alt="step 4")
+
+        b Step 5:
+        p -- Select the project you just created by clicking on the dropdown and select the project with the name that you choose. If you don't see the project showing up, try and refresh the page a coule of times. Then click on "NEXT"
+        img.help(src="./3.jpg", alt="step 5")
+
+        b Step 6:
+        p -- You should now see this, and while you can click the "SHOW KEY" now, I HIGHLY recommend you do the next step, which is restricting the API key to only use the Tenor API.
+        img.help(src="./4.jpg", alt="step 6")
+
+        b Step 7:
+        p -- Go back to the Google Cloud page, and select the project by clicking on the dropdown on the top of the page, and on the popup, select the project that you've created.
+        img.help(src="./5.jpg", alt="step 7")
+
+        b Step 8:
+        p -- Click on the hamburger menu (The three line on the top-left corner) -> "API & Services" -> Credentials
+        img.help(src="./6.jpg", alt="step 8")
+
+        b Step 9:
+        p -- On this page, at the "API key" row, click on the three dot menu, and then click "Edit API key"
+        img.help(src="./7.jpg", alt="step 9")
+
+        b Step 10:
+        p -- Scroll down until you see "API restrictions", click on "Restrict key", and on the dropdown below, select the "Tenor API" and ONLY "Tenor API". After that, click "Save" to save your changes
+        img.help(src="./8.jpg", alt="step 10")
+
+        b Step 11:
+        p -- And finally, click the "SHOW KEY" at the "API key" row. A popup should show up showing the API key, copy the text inside.
+        img.help(src="./9.jpg", alt="step 11")
+        footer
+            p Copyright (C) 2022 QuanMCPC, licensed under the MIT license.
+            img(src="https://www.gstatic.com/tenor/web/attribution/PB_tenor_logo_blue_horizontal.svg", alt="Powered by Tenor" width="240")

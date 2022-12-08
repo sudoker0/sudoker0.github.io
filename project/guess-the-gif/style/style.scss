@@ -89,7 +89,8 @@ div[data-id="game_board"] {
 
 div#display_info {
     display: flex;
-    gap: 96px;
+    flex-flow: wrap;
+    gap: 0 96px;
     margin: 0 auto;
     justify-content: center;
 }
@@ -99,6 +100,25 @@ div#display_image {
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+label.custom_text_input {
+    input.custom_input {
+        margin-top: 0.25em;
+    }    
+}
+
+input.custom_input {
+    display: block;
+    border: 2px solid var(--fg);
+    background-color: var(--bg);
+    margin: 1em 0;
+    font-size: 1.25em;
+    font-family: var(--font);
+
+    &#api_key {
+        width: 100%;
+    }
 }
 
 img#gif_image {
