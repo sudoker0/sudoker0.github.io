@@ -1,0 +1,48 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+        link(rel="stylesheet", href="style/style.css")
+        script(src="script/script.js" defer)
+        link(href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap", rel="stylesheet")
+        title Guess The GIF
+    body
+        h1 Guess The GIF
+        
+        .page_fragment(data-hidden="true", data-id="explain_stuff")
+            p #[b Rules: ] We'll give you a random GIF (which is obtained from Tenor), and a list of 12 random tags. Your job is to select the tag which best describe the GIF. Each correct tag will increase your point by 20, while each wrong tag will decrease your point by 40 (only after you select at least 3 wrong tags).
+            p #[b Notes: ] Since most of the data (like the actual GIF and the tags) are provided by Tenor, it might not be very accurate, but it should be good enough for a simple game.
+            p Once you've read the rules and the notes carefully, click "Play" to start your playing experience.
+            button#start_play(onclick="init()") Play
+
+        .page_fragment(data-hidden="false", data-id="loading_screen")
+            h3 Now loading...
+
+        .page_fragment(data-hidden="true", data-id="game_board")
+            #display_info
+                h3.round Round: $_round
+                h3.score Score: $_score
+            #display_image
+                img#gif_image(src="about:blank")
+                p This GIF have: $_num_of_tag, so the maximum score for this round is: $_max_score
+            #list_of_tags
+            #submit_wrapper
+                button#submit_but(onclick="submit_action()") Submit
+
+        .page_fragment(data-hidden="true", data-id="game_result")
+            h2 Result of round: $_round_result
+            h3 Correct number of tags: $_num_of_tag_correct ($_correct_tag_list)
+            h3 --> Amount of score from correct tags: $_score_tag_correct
+            h3 Incorrect number of tags: $_num_of_tag_incorrect ($_incorrect_tag_list)
+            h3 --> Penality: $_score_tag_incorrect
+            h3 -----> Total score for this round: $_total_score_this_round
+            h3 -----> New score: $_total_score
+            #next_wrapper
+                button#next_but(onclick="next_game()") Next
+                button(onclick="location.reload()") Restart
+
+        footer
+            p Copyright (C) 2022 QuanMCPC, licensed under the MIT license.
+            img(src="https://www.gstatic.com/tenor/web/attribution/PB_tenor_logo_blue_horizontal.svg", alt="Powered by Tenor" width="240")

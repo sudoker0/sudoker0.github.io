@@ -120,10 +120,9 @@ def check2FA(type_2fa: TwoFAType, secret: str, code: str, length = 6, period = 3
 
 
 code = generate2FA(TwoFAType.TOTP, "Test Product Name", "My Account", "Test Issuer", 32)
-print(code)
 webbrowser.open(f"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data={urllib.parse.quote(code['url'], safe='')}")
 
-i_secret = input("enter secret: ")
+i_secret = code["secret"]#input("enter secret: ")
 
 while True:
     test = input("enter code to test: ")
