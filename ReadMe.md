@@ -38,36 +38,36 @@ Because it's the best way to show my works and my skills to the world. Also beca
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\** | 100.0% | 231 files | 294,688,054 bytes
-\* | 0.01% | 12 files | 24,292 bytes
+\** | 100.0% | 239 files | 294,734,204 bytes
+\* | 0.01% | 12 files | 25,215 bytes
 \*.config | 0.03% | 1 files | 82,580 bytes
-\*.css | 0.01% | 7 files | 23,457 bytes
+\*.css | 0.01% | 8 files | 24,830 bytes
 \*.gif | 0.16% | 2 files | 477,306 bytes
-\*.html | 0.18% | 33 files | 539,324 bytes
+\*.html | 0.18% | 34 files | 541,905 bytes
 \*.ico | 0.05% | 3 files | 133,332 bytes
-\*.idx | 0.09% | 1 files | 276,592 bytes
+\*.idx | 0.09% | 1 files | 277,208 bytes
 \*.jpg | 0.2% | 2 files | 594,004 bytes
-\*.js | 0.03% | 10 files | 78,299 bytes
-\*.json | 0.13% | 10 files | 382,042 bytes
-\*.map | 0.03% | 16 files | 87,811 bytes
+\*.js | 0.03% | 11 files | 86,758 bytes
+\*.json | 0.13% | 10 files | 382,383 bytes
+\*.map | 0.03% | 18 files | 95,797 bytes
 \*.md | 0.0% | 3 files | 7,054 bytes
 \*.mp3 | 0.0% | 1 files | 9,069 bytes
 \*.old | 0.19% | 2 files | 553,570 bytes
-\*.pack | 94.54% | 1 files | 278,584,117 bytes
+\*.pack | 94.52% | 1 files | 278,596,119 bytes
 \*.png | 2.77% | 37 files | 8,169,570 bytes
-\*.pug | 0.01% | 11 files | 39,765 bytes
-\*.py | 0.01% | 3 files | 33,251 bytes
+\*.pug | 0.01% | 12 files | 42,462 bytes
+\*.py | 0.01% | 3 files | 33,254 bytes
 \*.sample | 0.01% | 13 files | 23,513 bytes
-\*.scss | 0.01% | 7 files | 24,936 bytes
+\*.scss | 0.01% | 8 files | 26,841 bytes
 \*.sqlite | 0.03% | 1 files | 90,112 bytes
 \*.svg | 0.05% | 27 files | 148,961 bytes
-\*.ts | 0.03% | 10 files | 86,406 bytes
+\*.ts | 0.03% | 11 files | 93,670 bytes
 \*.ttf | 0.45% | 7 files | 1,326,736 bytes
 \*.wav | 0.02% | 2 files | 55,556 bytes
 \*.xcf | 0.94% | 2 files | 2,775,449 bytes
 \*.xml | 0.0% | 1 files | 835 bytes
 \*.yml | 0.0% | 3 files | 3,694 bytes
-> Last updated on: 2022-12-06
+> Last updated on: 2022-12-08
 <!--python_data_stop-->
 
 > **Details about the website's creation**
