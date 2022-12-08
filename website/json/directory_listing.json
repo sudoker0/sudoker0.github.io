@@ -490,6 +490,56 @@
                     "type": "file"
                 },
                 {
+                    "name": "guess-the-gif",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "index.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "index.pug",
+                            "type": "file"
+                        },
+                        {
+                            "name": "script",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "script.js",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "script.js.map",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "script.ts",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "style",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "style.css",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "style.css.map",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "style.scss",
+                                    "type": "file"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
                     "name": "loop.html",
                     "type": "file"
                 },
