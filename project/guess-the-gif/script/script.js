@@ -7,8 +7,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const wordlist = "https://raw.githubusercontent.com/dwyl/english-words/master/words.txt";
-const max_reset = 10, num_of_tag = 12, max_good_tag = 5, score_good_tag = 20, score_bad_tag = -40, penality_after = 3;
+const wordlist = "./word_list.txt";
+const max_reset = 5, num_of_tag = 12, max_good_tag = 5, score_good_tag = 20, score_bad_tag = -40, penality_after = 3;
 var wlist = [];
 var tag_list = [];
 var good_tag = [];
@@ -18,9 +18,6 @@ var reset_count = max_reset;
 var high_score = 0;
 var round_number = 1;
 var game_score = 0;
-function qSel(selector) { return document.querySelector(selector); }
-function qSelAll(sel) { return document.querySelectorAll(sel); }
-function wait(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
 HTMLElement.prototype.replace = function (data, prefix = "$_") {
     const alternate_prefix = "id_dlr_";
     const _this = () => this;
@@ -33,6 +30,24 @@ HTMLElement.prototype.replace = function (data, prefix = "$_") {
         span().innerText = data[i];
     }
 };
+function qSel(selector) { return document.querySelector(selector); }
+function qSelAll(sel) { return document.querySelectorAll(sel); }
+function wait(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
+function secureRandom(limit = null) {
+    var num = 0, c_limit = limit > Math.pow(2, 32);
+    if (limit == null || c_limit) {
+        num = crypto.getRandomValues(new Uint32Array(1))[0] / (Math.pow(2, 32));
+        if (c_limit) {
+            num = Math.floor(num * limit);
+        }
+    }
+    else {
+        num = crypto.getRandomValues(new Uint32Array(1))[0] % limit;
+    }
+    if (num == limit)
+        num--;
+    return num;
+}
 function dec2hex(dec) {
     return dec.toString(16).padStart(2, "0");
 }
@@ -43,7 +58,7 @@ function generateId(len) {
 }
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
+        var j = Math.floor(secureRandom() * (i + 1));
         var temp = array[i];
         array[i] = array[j];
         array[j] = temp;
@@ -63,7 +78,7 @@ function customFetch(input, init) {
         const retry_amount = 5;
         var count_retry = 0, r = null, not_good_at_all = false;
         while (count_retry < retry_amount) {
-            yield wait(1200);
+            yield wait(1000);
             try {
                 r = yield fetch(input, init);
             }
@@ -113,7 +128,6 @@ function newgame() {
             if (r_featured == null)
                 return false;
             const featured = yield r_featured.json();
-            yield wait(1000);
             for (const i of featured["results"]) {
                 for (const j of i["tags"]) {
                     tag_list.push(j);
@@ -124,17 +138,24 @@ function newgame() {
         }
         else
             reset_count++;
-        while (elm_tag_list.lastChild) {
+        while (elm_tag_list.lastChild)
             elm_tag_list.removeChild(elm_tag_list.lastChild);
-        }
         var copy_tag_list = [...tag_list];
+        const search_key = () => {
+            const count = secureRandom(2);
+            var result = [];
+            for (var i = 0; i <= count; i++) {
+                result.push(wlist[secureRandom(wlist.length)].toLowerCase());
+            }
+            return result.join("%20");
+        };
         const r_gif_data = yield customFetch(`https://tenor.googleapis.com/v2/search` +
             `?key=${api_key}` +
-            `&q=${wlist[Math.floor(Math.random() * wlist.length)]}`);
+            `&q=${search_key()}`);
         if (r_gif_data == null)
             return false;
         const gif_data = yield r_gif_data.json();
-        const gif = gif_data["results"][0];
+        const gif = gif_data["results"][secureRandom(gif_data["results"].length)];
         start_length = gif["tags"].length;
         gif["tags"].splice(max_good_tag);
         for (const i of gif["tags"]) {
@@ -146,7 +167,7 @@ function newgame() {
             good_tag.push(t_object.id);
         }
         for (var i = 0; i < num_of_tag - Math.min(gif["tags"].length, max_good_tag); i++) {
-            const index_select = Math.floor(Math.random() * copy_tag_list.length);
+            const index_select = secureRandom(copy_tag_list.length);
             const removed_select = copy_tag_list.splice(index_select, 1);
             const t_object = {
                 id: generateId(64),
@@ -297,15 +318,12 @@ function resetHighScore() {
     alert("High score has been reset!");
 }
 const gtg_key = localStorage.getItem("guess_the_gif_key");
-if (gtg_key != null) {
+if (gtg_key != null)
     qSel("#api_key")["value"] = gtg_key;
-}
 const gtg_hs = localStorage.getItem("guess_the_gif_high_score");
-if (gtg_hs == null) {
+if (gtg_hs == null)
     localStorage.setItem("guess_the_gif_high_score", "0");
-}
-else {
+else
     high_score = Number(gtg_hs);
-}
 showPage("explain_stuff");
 //# sourceMappingURL=script.js.map

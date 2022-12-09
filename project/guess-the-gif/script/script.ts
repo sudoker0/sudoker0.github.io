@@ -1,5 +1,5 @@
-const wordlist = "https://raw.githubusercontent.com/dwyl/english-words/master/words.txt"
-const max_reset = 10,
+const wordlist = "./word_list.txt" //"https://raw.githubusercontent.com/dwyl/english-words/master/words.txt"
+const max_reset = 5,
     num_of_tag = 12,
     max_good_tag = 5,
     score_good_tag = 20,
@@ -17,10 +17,6 @@ var high_score = 0
 var round_number = 1
 var game_score = 0
 
-function qSel(selector: string) { return document.querySelector(selector) }
-function qSelAll(sel: string) { return document.querySelectorAll(sel) }
-function wait(ms: number) { return new Promise(resolve => setTimeout(resolve, ms)); }
-
 HTMLElement.prototype.replace = function (data: Template, prefix: string = "$_") {
     const alternate_prefix = "id_dlr_";
     const _this: () => HTMLElement = () => this;
@@ -35,6 +31,23 @@ HTMLElement.prototype.replace = function (data: Template, prefix: string = "$_")
     }
 }
 
+function qSel(selector: string) { return document.querySelector(selector) }
+function qSelAll(sel: string) { return document.querySelectorAll(sel) }
+function wait(ms: number) { return new Promise(resolve => setTimeout(resolve, ms)); }
+function secureRandom(limit: number = null) {
+    var num = 0, c_limit = limit > 2 ** 32
+    if (limit == null || c_limit) {
+        num = crypto.getRandomValues(new Uint32Array(1))[0] / (2 ** 32)
+        if (c_limit) {
+            num = Math.floor(num * limit)
+        }
+    } else {
+        num = crypto.getRandomValues(new Uint32Array(1))[0] % limit 
+    }
+    if (num == limit) num--;
+    return num
+}
+
 function dec2hex(dec: number) {
   return dec.toString(16).padStart(2, "0")
 }
@@ -47,7 +60,7 @@ function generateId(len: number) {
 
 function shuffleArray(array: any[]) {
     for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
+        var j = Math.floor(secureRandom() * (i + 1));
         var temp = array[i];
         array[i] = array[j];
         array[j] = temp;
@@ -67,8 +80,9 @@ function showPage(id: string) {
 async function customFetch(input: RequestInfo, init?: RequestInit): Promise<Response> | null {
     const retry_amount = 5
     var count_retry = 0, r = null, not_good_at_all = false
+
     while (count_retry < retry_amount) {
-        await wait(1200)
+        await wait(1000)
         try {
             r = await fetch(input, init)
         } catch (e) {
@@ -76,12 +90,15 @@ async function customFetch(input: RequestInfo, init?: RequestInit): Promise<Resp
             not_good_at_all = true
             break
         }
+
         if (!r.ok) {
             count_retry += 1
             continue
         }
+
         break
     }
+
     if (!r?.ok || not_good_at_all) {
         console.log(
             `-------------------------------------\n` +
@@ -109,48 +126,60 @@ for (var i = 0; i < k.length; i += 2) {
 async function newgame() {
     good_tag = []
     tags_in_game = []
+
     const elm_tag_list = qSel("div#list_of_tags")
     var start_length = 0
 
     //! Check if the program should reset it's source of random tags
     if (reset_count >= max_reset) {
         tag_list = []
+
         const r_featured = await customFetch(
             `https://tenor.googleapis.com/v2/featured` +
                 `?key=${api_key}` +
                 `&limit=50` +
                 `${next_item != "" ? "&pos=" + next_item : ""}`)
+
         if (r_featured == null) return false
         
         const featured = await r_featured.json()
-        await wait(1000)
-        
         for (const i of featured["results"]) {
             for (const j of i["tags"]) {
                 tag_list.push(j)
             }
         }
+
         next_item = featured["next"]
         reset_count = 0;
     } else reset_count++;
 
-
-    while (elm_tag_list.lastChild) {
+    while (elm_tag_list.lastChild)
         elm_tag_list.removeChild(elm_tag_list.lastChild)
-    }
 
     var copy_tag_list = [...tag_list]
 
     //! Get a list of GIF based on a random keyword
+    const search_key = () => {
+        const count = secureRandom(2)
+        var result = []
+
+        for (var i = 0; i <= count; i++) {
+            result.push(wlist[secureRandom(wlist.length)].toLowerCase())
+        }
+
+        return result.join("%20")
+    }
+    
     const r_gif_data = await customFetch(
         `https://tenor.googleapis.com/v2/search` +
             `?key=${api_key}` +
-            `&q=${wlist[Math.floor(Math.random() * wlist.length)]}`)
+            `&q=${search_key()}`)
+    
     if (r_gif_data == null) return false
 
     const gif_data = await r_gif_data.json()
+    const gif = gif_data["results"][secureRandom(gif_data["results"].length)]
 
-    const gif = gif_data["results"][0]
     start_length = gif["tags"].length
     gif["tags"].splice(max_good_tag)
     
@@ -159,17 +188,19 @@ async function newgame() {
             id: generateId(64),
             name: i
         }
+
         tags_in_game.push(t_object)
         good_tag.push(t_object.id)
     }
     
     for (var i = 0; i < num_of_tag - Math.min(gif["tags"].length, max_good_tag); i++) {
-        const index_select = Math.floor(Math.random() * copy_tag_list.length)
+        const index_select = secureRandom(copy_tag_list.length)
         const removed_select = copy_tag_list.splice(index_select, 1);
         const t_object = {
             id: generateId(64),
             name: removed_select[0]
         }
+        
         tags_in_game.push(t_object)
     }
     
@@ -177,10 +208,10 @@ async function newgame() {
 
     const gif_url = gif["media_formats"]["gif"]["url"]
     const r_gif_img = await customFetch(gif_url)
+
     if (r_gif_img == null) return false
 
     const gif_img = await r_gif_img.blob()
-
     const url = URL.createObjectURL(gif_img)
     qSel("img#gif_image")["src"] = url
 
@@ -217,18 +248,22 @@ async function newgame() {
 async function submitAction() {
     var count_good = 0, count_bad = 0, limit_bad = 0, cnt = 0
     var good_t = [], bad_t = []
+
     qSelAll(".tag_select").forEach(v => {
         const checked = v.querySelector("div.selector")
             .getAttribute("data-selected") == "true" ? true : false
         if (checked) cnt++
     })
+    
     if (cnt < good_tag.length) {
         alert(`Please select at least ${good_tag.length} tags!`)
         return
     }
+    
     qSelAll(".tag_select").forEach(v => {
         const checked = v.querySelector("div.selector")
             .getAttribute("data-selected") == "true" ? true : false
+    
         if (!checked) {
             return
         }
@@ -238,6 +273,7 @@ async function submitAction() {
         if (good_tag.find(v => v == tag_id) == undefined) {
             limit_bad += limit_bad < penality_after ? 1 : 0
             bad_t.push(tag)
+
             if (limit_bad >= penality_after) {
                 game_score += score_bad_tag
                 count_bad++
@@ -278,6 +314,7 @@ async function init() {
     showPage("loading_screen")
 
     const key_from_input: string = qSel("#api_key")["value"]
+    
     if (key_from_input.trim() != "") {
         const r_test = await fetch(`https://tenor.googleapis.com/v2/featured?key=${key_from_input}`)
         if (!r_test.ok) {
@@ -285,11 +322,13 @@ async function init() {
             showPage("explain_stuff")
             return
         }
+       
         api_key = key_from_input
         localStorage.setItem("guess_the_gif_key", key_from_input)
     }
 
     const r_wordlist = await customFetch(wordlist)
+
     if (r_wordlist == null) return
     wlist = (await r_wordlist.text()).split("\n")
 
@@ -301,12 +340,14 @@ async function init() {
     
     const result = await newgame()
     if (!result) return
+    
     showPage("game_board")
 }
 
 async function nextGame() {
     round_number++
     showPage("loading_screen")
+    
     document.body.replace({
         "round": round_number.toString(),
         "score": game_score.toString(),
@@ -315,6 +356,7 @@ async function nextGame() {
     
     const result = await newgame()
     if (!result) return
+
     showPage("game_board")
 }
 
@@ -325,15 +367,15 @@ function resetHighScore() {
 }
 
 const gtg_key = localStorage.getItem("guess_the_gif_key")
-if (gtg_key != null) {
+
+if (gtg_key != null)
     qSel("#api_key")["value"] = gtg_key
-}
 
 const gtg_hs = localStorage.getItem("guess_the_gif_high_score")
-if (gtg_hs == null) {
+
+if (gtg_hs == null)
     localStorage.setItem("guess_the_gif_high_score", "0")
-} else {
+else
     high_score = Number(gtg_hs)
-}
 
 showPage("explain_stuff")
