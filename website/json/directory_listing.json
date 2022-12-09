@@ -586,6 +586,10 @@
                                     "type": "file"
                                 }
                             ]
+                        },
+                        {
+                            "name": "word_list.txt",
+                            "type": "file"
                         }
                     ]
                 },
