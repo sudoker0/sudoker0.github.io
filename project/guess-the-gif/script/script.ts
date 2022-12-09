@@ -1,9 +1,3 @@
-const k = atob("NGM0NDc3NmM1ZTc0NGU0OTY1Njg0ZTNkN2EzODVlNTk0MTVhNGY0NzY5MjA2MzNkNjc1ODdkNWY2ZjRmNjM0ODRjNDg2NTU0NDQ0OTdh")
-var api_key = ""
-for (var i = 0; i < k.length; i += 2) {
-  	api_key += String.fromCharCode(Number(atob("MHg=") + k[i] + k[i + 1]) ^ 13)
-}
-
 const wordlist = "https://raw.githubusercontent.com/dwyl/english-words/master/words.txt"
 const max_reset = 10,
     num_of_tag = 12,
@@ -15,6 +9,7 @@ const max_reset = 10,
 var wlist: string[] = []
 var tag_list: string[] = []
 var good_tag: string[] = []
+var tags_in_game: {id: string, name: string}[] = []
 var next_item = ""
 var reset_count = max_reset
 var high_score = 0
@@ -40,6 +35,16 @@ HTMLElement.prototype.replace = function (data: Template, prefix: string = "$_")
     }
 }
 
+function dec2hex(dec: number) {
+  return dec.toString(16).padStart(2, "0")
+}
+
+function generateId(len: number) {
+  var arr = new Uint8Array((len || 40) / 2)
+  window.crypto.getRandomValues(arr)
+  return Array.from(arr, dec2hex).join('')
+}
+
 function shuffleArray(array: any[]) {
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -52,6 +57,11 @@ function shuffleArray(array: any[]) {
 function sanitizeString(str: string){
     var nstr = str.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"")
     return nstr.trim()
+}
+
+function showPage(id: string) {
+    qSelAll(".page_fragment").forEach(v => v.setAttribute("data-hidden", "true"))
+    qSel(`.page_fragment[data-id=${id}]`)?.setAttribute("data-hidden", "false")
 }
 
 async function customFetch(input: RequestInfo, init?: RequestInit): Promise<Response> | null {
@@ -90,11 +100,17 @@ async function customFetch(input: RequestInfo, init?: RequestInit): Promise<Resp
     return r
 }
 
+const k = atob("NGM0NDc3NmM1ZTc0NGU0OTY1Njg0ZTNkN2EzODVlNTk0MTVhNGY0NzY5MjA2MzNkNjc1ODdkNWY2ZjRmNjM0ODRjNDg2NTU0NDQ0OTdh")
+var api_key = ""
+for (var i = 0; i < k.length; i += 2) {
+  	api_key += String.fromCharCode(Number(atob("MHg=") + k[i] + k[i + 1]) ^ 13)
+}
+
 async function newgame() {
     good_tag = []
-
+    tags_in_game = []
     const elm_tag_list = qSel("div#list_of_tags")
-    var tags = [], start_length = 0
+    var start_length = 0
 
     //! Check if the program should reset it's source of random tags
     if (reset_count >= max_reset) {
@@ -139,17 +155,25 @@ async function newgame() {
     gif["tags"].splice(max_good_tag)
     
     for (const i of gif["tags"]) {
-        tags.push(i)
-        good_tag.push(sanitizeString(i))
+        const t_object = {
+            id: generateId(64),
+            name: i
+        }
+        tags_in_game.push(t_object)
+        good_tag.push(t_object.id)
     }
     
     for (var i = 0; i < num_of_tag - Math.min(gif["tags"].length, max_good_tag); i++) {
         const index_select = Math.floor(Math.random() * copy_tag_list.length)
         const removed_select = copy_tag_list.splice(index_select, 1);
-        tags.push(removed_select[0])
+        const t_object = {
+            id: generateId(64),
+            name: removed_select[0]
+        }
+        tags_in_game.push(t_object)
     }
     
-    shuffleArray(tags)
+    shuffleArray(tags_in_game)
 
     const gif_url = gif["media_formats"]["gif"]["url"]
     const r_gif_img = await customFetch(gif_url)
@@ -170,10 +194,10 @@ async function newgame() {
         "max_score": (good_tag.length * score_good_tag).toString(),
     })
 
-    for (const t of tags) {
+    for (const t of tags_in_game) {
         const template = `
-            <button class="select_button tag_select" data-tag="${t}">
-                #${t}
+            <button class="select_button tag_select" data-tag="${t.id}">
+                #${t.name}
                 <div class="selector" data-selected="false"></div>
             </button>
         `
@@ -188,11 +212,6 @@ async function newgame() {
         }
     })
     return true
-}
-
-function showPage(id: string) {
-    qSelAll(".page_fragment").forEach(v => v.setAttribute("data-hidden", "true"))
-    qSel(`.page_fragment[data-id=${id}]`)?.setAttribute("data-hidden", "false")
 }
 
 async function submitAction() {
@@ -214,8 +233,9 @@ async function submitAction() {
             return
         }
 
-        const tag = v.getAttribute("data-tag")
-        if (good_tag.find(v => v == tag) == undefined) {
+        const tag_id = v.getAttribute("data-tag")
+        const tag = tags_in_game.find(v => v.id == tag_id).name
+        if (good_tag.find(v => v == tag_id) == undefined) {
             limit_bad += limit_bad < penality_after ? 1 : 0
             bad_t.push(tag)
             if (limit_bad >= penality_after) {

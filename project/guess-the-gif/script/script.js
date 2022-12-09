@@ -7,16 +7,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const k = atob("NGM0NDc3NmM1ZTc0NGU0OTY1Njg0ZTNkN2EzODVlNTk0MTVhNGY0NzY5MjA2MzNkNjc1ODdkNWY2ZjRmNjM0ODRjNDg2NTU0NDQ0OTdh");
-var api_key = "";
-for (var i = 0; i < k.length; i += 2) {
-    api_key += String.fromCharCode(Number(atob("MHg=") + k[i] + k[i + 1]) ^ 13);
-}
 const wordlist = "https://raw.githubusercontent.com/dwyl/english-words/master/words.txt";
 const max_reset = 10, num_of_tag = 12, max_good_tag = 5, score_good_tag = 20, score_bad_tag = -40, penality_after = 3;
 var wlist = [];
 var tag_list = [];
 var good_tag = [];
+var tags_in_game = [];
 var next_item = "";
 var reset_count = max_reset;
 var high_score = 0;
@@ -37,6 +33,14 @@ HTMLElement.prototype.replace = function (data, prefix = "$_") {
         span().innerText = data[i];
     }
 };
+function dec2hex(dec) {
+    return dec.toString(16).padStart(2, "0");
+}
+function generateId(len) {
+    var arr = new Uint8Array((len || 40) / 2);
+    window.crypto.getRandomValues(arr);
+    return Array.from(arr, dec2hex).join('');
+}
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -48,6 +52,11 @@ function shuffleArray(array) {
 function sanitizeString(str) {
     var nstr = str.replace(/[^a-z0-9áéíóúñü \.,_-]/gim, "");
     return nstr.trim();
+}
+function showPage(id) {
+    var _a;
+    qSelAll(".page_fragment").forEach(v => v.setAttribute("data-hidden", "true"));
+    (_a = qSel(`.page_fragment[data-id=${id}]`)) === null || _a === void 0 ? void 0 : _a.setAttribute("data-hidden", "false");
 }
 function customFetch(input, init) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -84,11 +93,17 @@ function customFetch(input, init) {
         return r;
     });
 }
+const k = atob("NGM0NDc3NmM1ZTc0NGU0OTY1Njg0ZTNkN2EzODVlNTk0MTVhNGY0NzY5MjA2MzNkNjc1ODdkNWY2ZjRmNjM0ODRjNDg2NTU0NDQ0OTdh");
+var api_key = "";
+for (var i = 0; i < k.length; i += 2) {
+    api_key += String.fromCharCode(Number(atob("MHg=") + k[i] + k[i + 1]) ^ 13);
+}
 function newgame() {
     return __awaiter(this, void 0, void 0, function* () {
         good_tag = [];
+        tags_in_game = [];
         const elm_tag_list = qSel("div#list_of_tags");
-        var tags = [], start_length = 0;
+        var start_length = 0;
         if (reset_count >= max_reset) {
             tag_list = [];
             const r_featured = yield customFetch(`https://tenor.googleapis.com/v2/featured` +
@@ -123,15 +138,23 @@ function newgame() {
         start_length = gif["tags"].length;
         gif["tags"].splice(max_good_tag);
         for (const i of gif["tags"]) {
-            tags.push(i);
-            good_tag.push(sanitizeString(i));
+            const t_object = {
+                id: generateId(64),
+                name: i
+            };
+            tags_in_game.push(t_object);
+            good_tag.push(t_object.id);
         }
         for (var i = 0; i < num_of_tag - Math.min(gif["tags"].length, max_good_tag); i++) {
             const index_select = Math.floor(Math.random() * copy_tag_list.length);
             const removed_select = copy_tag_list.splice(index_select, 1);
-            tags.push(removed_select[0]);
+            const t_object = {
+                id: generateId(64),
+                name: removed_select[0]
+            };
+            tags_in_game.push(t_object);
         }
-        shuffleArray(tags);
+        shuffleArray(tags_in_game);
         const gif_url = gif["media_formats"]["gif"]["url"];
         const r_gif_img = yield customFetch(gif_url);
         if (r_gif_img == null)
@@ -148,10 +171,10 @@ function newgame() {
                     : ""}`,
             "max_score": (good_tag.length * score_good_tag).toString(),
         });
-        for (const t of tags) {
+        for (const t of tags_in_game) {
             const template = `
-            <button class="select_button tag_select" data-tag="${t}">
-                #${t}
+            <button class="select_button tag_select" data-tag="${t.id}">
+                #${t.name}
                 <div class="selector" data-selected="false"></div>
             </button>
         `;
@@ -166,11 +189,6 @@ function newgame() {
         });
         return true;
     });
-}
-function showPage(id) {
-    var _a;
-    qSelAll(".page_fragment").forEach(v => v.setAttribute("data-hidden", "true"));
-    (_a = qSel(`.page_fragment[data-id=${id}]`)) === null || _a === void 0 ? void 0 : _a.setAttribute("data-hidden", "false");
 }
 function submitAction() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -192,8 +210,9 @@ function submitAction() {
             if (!checked) {
                 return;
             }
-            const tag = v.getAttribute("data-tag");
-            if (good_tag.find(v => v == tag) == undefined) {
+            const tag_id = v.getAttribute("data-tag");
+            const tag = tags_in_game.find(v => v.id == tag_id).name;
+            if (good_tag.find(v => v == tag_id) == undefined) {
                 limit_bad += limit_bad < penality_after ? 1 : 0;
                 bad_t.push(tag);
                 if (limit_bad >= penality_after) {
