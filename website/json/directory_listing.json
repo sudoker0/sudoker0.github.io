@@ -666,11 +666,6 @@
             ]
         },
         {
-            "name": "project.test0",
-            "type": "directory",
-            "children": []
-        },
-        {
             "name": "sitemap.xml",
             "type": "file"
         },
