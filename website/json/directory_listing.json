@@ -36,6 +36,10 @@
             "type": "file"
         },
         {
+            "name": ".gitmodules",
+            "type": "file"
+        },
+        {
             "name": ".vs",
             "type": "directory",
             "children": [
@@ -660,6 +664,11 @@
                     "type": "file"
                 }
             ]
+        },
+        {
+            "name": "project.test0",
+            "type": "directory",
+            "children": []
         },
         {
             "name": "sitemap.xml",
