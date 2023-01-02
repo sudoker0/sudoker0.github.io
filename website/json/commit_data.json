@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2022-12-20",
+    "last_update_on": "2023-01-02",
     "data": [
+        {
+            "hash": "9b82bf5",
+            "committer": "QuanMCPC",
+            "commit_date": 1672652668,
+            "message": "add mastodon info"
+        },
+        {
+            "hash": "040b1c5",
+            "committer": "QuanMCPC",
+            "commit_date": 1671526330,
+            "message": "Update website's information"
+        },
         {
             "hash": "bb1b084",
             "committer": "QuanMCPC",

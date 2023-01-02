@@ -800,6 +800,10 @@
                                     "type": "file"
                                 },
                                 {
+                                    "name": "mastodon.svg",
+                                    "type": "file"
+                                },
+                                {
                                     "name": "planet_minecraft.svg",
                                     "type": "file"
                                 },
