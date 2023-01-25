@@ -76,7 +76,10 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
-
+  post_analyze:
+    if: ${{ always() }}
+    needs: [analyze]
+    steps:
     - name: Trigger next workflow
       if: success()
       uses: peter-evans/repository-dispatch@v1
