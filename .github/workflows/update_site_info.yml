@@ -8,7 +8,6 @@ on:
 
 jobs:
   update_info:
-    name: "(${{ github.sha }}) child workflow #1"
     runs-on: ubuntu-latest
     steps:
     - name: Initial setup
