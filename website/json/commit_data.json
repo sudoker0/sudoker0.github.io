@@ -3,6 +3,18 @@
     "last_update_on": "2023-01-25",
     "data": [
         {
+            "hash": "db10089",
+            "committer": "QuanMCPC",
+            "commit_date": 1674655517,
+            "message": "update workflows"
+        },
+        {
+            "hash": "93709c7",
+            "committer": "QuanMCPC",
+            "commit_date": 1674654587,
+            "message": "Update website's information"
+        },
+        {
             "hash": "65bbaea",
             "committer": "GitHub",
             "commit_date": 1674654565,
