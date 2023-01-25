@@ -19,6 +19,8 @@ on:
     branches: [ master ]
   schedule:
     - cron: '29 4 * * 0'
+  repository_dispatch:
+    types: [trigger-workflow-2]
 
 jobs:
   analyze:
@@ -40,6 +42,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.client_payload.sha }}
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
@@ -69,3 +73,12 @@ jobs:
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
+
+    - name: Trigger next workflow
+      if: success()
+      uses: peter-evans/repository-dispatch@v1
+      with:
+        token: ${{ secrets.REPO_GHA_PAT }}
+        repository: ${{ github.repository }}
+        event-type: trigger-workflow-3
+        client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
