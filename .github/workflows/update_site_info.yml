@@ -8,9 +8,7 @@ on:
 
 jobs:
   update_info:
-    env:
-      COMMIT_SHA8: ${GITHUB_SHA::8}
-    name: "(${{ env.COMMIT_SHA8 }}) Child Workflow #1"
+    name: "(${{ github.sha }}) child workflow #1"
     runs-on: ubuntu-latest
     steps:
     - name: Initial setup
