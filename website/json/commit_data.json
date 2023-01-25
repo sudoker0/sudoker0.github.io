@@ -3,6 +3,18 @@
     "last_update_on": "2023-01-25",
     "data": [
         {
+            "hash": "65bbaea",
+            "committer": "GitHub",
+            "commit_date": 1674654565,
+            "message": "Create pages.yml"
+        },
+        {
+            "hash": "a4cbf2c",
+            "committer": "QuanMCPC",
+            "commit_date": 1674654238,
+            "message": "Update website's information"
+        },
+        {
             "hash": "8376c87",
             "committer": "QuanMCPC",
             "commit_date": 1674654195,

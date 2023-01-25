@@ -26,6 +26,10 @@
                         {
                             "name": "main.yml",
                             "type": "file"
+                        },
+                        {
+                            "name": "pages.yml",
+                            "type": "file"
                         }
                     ]
                 }
