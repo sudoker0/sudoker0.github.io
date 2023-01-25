@@ -1,7 +1,31 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2023-01-02",
+    "last_update_on": "2023-01-25",
     "data": [
+        {
+            "hash": "8376c87",
+            "committer": "QuanMCPC",
+            "commit_date": 1674654195,
+            "message": "change year to 2023 in footer, and remove copyright"
+        },
+        {
+            "hash": "03ffca4",
+            "committer": "QuanMCPC",
+            "commit_date": 1674654094,
+            "message": "Merge branch 'master' of https://github.com/QuanMCPC/QuanMCPC.github.io"
+        },
+        {
+            "hash": "48269ad",
+            "committer": "QuanMCPC",
+            "commit_date": 1674653948,
+            "message": "added \"bouncy beam\" and add another category: games"
+        },
+        {
+            "hash": "f3faf08",
+            "committer": "QuanMCPC",
+            "commit_date": 1672652891,
+            "message": "Update website's information"
+        },
         {
             "hash": "a896490",
             "committer": "QuanMCPC",
