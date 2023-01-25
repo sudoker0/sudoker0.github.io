@@ -24,11 +24,11 @@
                             "type": "file"
                         },
                         {
-                            "name": "main.yml",
+                            "name": "pages.yml",
                             "type": "file"
                         },
                         {
-                            "name": "pages.yml",
+                            "name": "update_site_info.yml",
                             "type": "file"
                         }
                     ]
