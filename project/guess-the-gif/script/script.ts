@@ -34,18 +34,17 @@ HTMLElement.prototype.replace = function (data: Template, prefix: string = "$_")
 function qSel(selector: string) { return document.querySelector(selector) }
 function qSelAll(sel: string) { return document.querySelectorAll(sel) }
 function wait(ms: number) { return new Promise(resolve => setTimeout(resolve, ms)); }
-function secureRandom(limit: number = null) {
-    var num = 0, c_limit = limit > 2 ** 32
-    if (limit == null || c_limit) {
-        num = crypto.getRandomValues(new Uint32Array(1))[0] / (2 ** 32)
-        if (c_limit) {
-            num = Math.floor(num * limit)
-        }
-    } else {
-        num = crypto.getRandomValues(new Uint32Array(1))[0] % limit 
-    }
-    if (num == limit) num--;
-    return num
+function secureRandom(min: number, max: number) {
+    const range = max - min + 1
+    const bytes_needed = Math.ceil(Math.log2(range) / 8)
+    const cutoff = Math.floor((256 ** bytes_needed) / range) * range
+    const bytes = new Uint8Array(bytes_needed)
+    let value
+    do {
+        crypto.getRandomValues(bytes)
+        value = bytes.reduce((acc, x, n) => acc + x * 256 ** n, 0)
+    } while (value >= cutoff)
+    return min + value % range
 }
 
 function dec2hex(dec: number) {
@@ -59,8 +58,8 @@ function generateId(len: number) {
 }
 
 function shuffleArray(array: any[]) {
-    for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(secureRandom() * (i + 1));
+    for (var i = array.length - 1; i >= 0; i--) {
+        const j = secureRandom(0, i)
         var temp = array[i];
         array[i] = array[j];
         array[j] = temp;
@@ -160,11 +159,11 @@ async function newgame() {
 
     //! Get a list of GIF based on a random keyword
     const search_key = () => {
-        const count = secureRandom(2)
+        const count = secureRandom(0, 1)
         var result = []
 
         for (var i = 0; i <= count; i++) {
-            result.push(wlist[secureRandom(wlist.length)].toLowerCase())
+            result.push(wlist[secureRandom(0, wlist.length - 1)].toLowerCase())
         }
 
         return result.join("%20")
@@ -178,7 +177,7 @@ async function newgame() {
     if (r_gif_data == null) return false
 
     const gif_data = await r_gif_data.json()
-    const gif = gif_data["results"][secureRandom(gif_data["results"].length)]
+    const gif = gif_data["results"][secureRandom(0, gif_data["results"].length - 1)]
 
     start_length = gif["tags"].length
     gif["tags"].splice(max_good_tag)
@@ -194,7 +193,7 @@ async function newgame() {
     }
     
     for (var i = 0; i < num_of_tag - Math.min(gif["tags"].length, max_good_tag); i++) {
-        const index_select = secureRandom(copy_tag_list.length)
+        const index_select = secureRandom(0, copy_tag_list.length - 1)
         const removed_select = copy_tag_list.splice(index_select, 1);
         const t_object = {
             id: generateId(64),
