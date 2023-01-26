@@ -3,6 +3,24 @@
     "last_update_on": "2023-01-26",
     "data": [
         {
+            "hash": "69dd543",
+            "committer": "QuanMCPC",
+            "commit_date": 1674711945,
+            "message": "Merge branch 'master' of https://github.com/QuanMCPC/QuanMCPC.github.io"
+        },
+        {
+            "hash": "c9444ad",
+            "committer": "QuanMCPC",
+            "commit_date": 1674711918,
+            "message": "fix security problem with biased random number"
+        },
+        {
+            "hash": "e99719d",
+            "committer": "QuanMCPC",
+            "commit_date": 1674704019,
+            "message": "Update website's information"
+        },
+        {
             "hash": "7134c5f",
             "committer": "QuanMCPC",
             "commit_date": 1674703979,
