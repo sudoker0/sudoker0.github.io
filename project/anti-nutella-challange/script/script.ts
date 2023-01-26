@@ -98,7 +98,10 @@ function update(timestamp: number) {
     CURRENT_YEAR = CURRENT_TIME.getFullYear()
     BEGIN_NNN = new Date(CURRENT_YEAR, 10, 1, 0, 0, 0)
     END_NNN = new Date(CURRENT_YEAR, 11, 1, 0, 0, 1)
-    BEGIN_NEW_NNN = new Date(CURRENT_YEAR + 1, 10, 1)
+    BEGIN_NEW_NNN = BEGIN_NNN
+
+    if (CURRENT_TIME >= BEGIN_NNN)
+        BEGIN_NEW_NNN = new Date(CURRENT_YEAR + 1, 10, 1)
 
     // Check if the current date is between Nov 1st and Dec 1s
     const IN_BETWEEN = CURRENT_TIME >= BEGIN_NNN && CURRENT_TIME <= END_NNN
