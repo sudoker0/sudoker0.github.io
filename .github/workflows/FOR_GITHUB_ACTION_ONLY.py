@@ -162,6 +162,8 @@ TotalSize = FolderSize()
 
 def getJSONData(path, ext):
     Size = SizeOfFile(path, ext)
+    if ext == "*":
+        ext = "\\*"
     return f"\\*{ext} | {str(round((Size / TotalSize * 100), 2))}% | {str(NumberOfFile(path, ext))} files | {str(formatFileSize(Size))} bytes"
 
 text = ""
