@@ -267,7 +267,7 @@ input.collapsible_cb {
 }
 
 label.collapsible {
-    border-bottom: 1px solid var(--color-fg);
+    border-bottom: 2px solid var(--color-fg);
     display: grid;
     grid-template-areas: "text indicator";
     cursor: pointer;
@@ -313,13 +313,16 @@ label.collapsible {
 }
 
 div.collapsiblecontent {
-    border-left: 4px solid var(--color-fg);
+    border-left: 8px solid var(--color-fg);
+    //border-bottom: 8px solid var(--color-fg);
     display: none;
     margin-bottom: 10px;
+    padding-bottom: 0px;
 
     > * {
         max-width: initial;
         margin: 10px;
+        margin-right: 0;
     }
 
     del, a {
