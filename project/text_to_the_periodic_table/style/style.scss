@@ -1,0 +1,40 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Source Code Pro";
+    src: url("../fonts/SourceCodePro-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Ubuntu Mono";
+    src: url("../fonts/UbuntuMono-Regular.ttf");
+}
+
+body {
+    margin: 0 auto;
+    padding: 16px 24px;
+    max-width: 900px;
+    background-color: black;
+    color: white;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Source Code Pro", 'Courier New', Courier, monospace;
+}
+
+div#user_input {
+    width: 100%;
+    background-color: white;
+    color: black;
+    height: 160px;
+    overflow-y: auto;
+    resize: vertical;
+}
+
+span.error {
+    background-color: red;
+}
