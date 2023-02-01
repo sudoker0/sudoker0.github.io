@@ -656,6 +656,74 @@
                     "type": "file"
                 },
                 {
+                    "name": "text_to_the_periodic_table",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "fonts",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "Montserrat-Regular.ttf",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "SourceCodePro-Regular.ttf",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "UbuntuMono-Regular.ttf",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "index.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "index.pug",
+                            "type": "file"
+                        },
+                        {
+                            "name": "script",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "script.js",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "script.js.map",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "script.ts",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "style",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "style.css",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "style.css.map",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "style.scss",
+                                    "type": "file"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
                     "name": "texteditor_basic.html",
                     "type": "file"
                 },
