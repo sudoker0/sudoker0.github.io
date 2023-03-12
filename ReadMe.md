@@ -38,24 +38,24 @@ Because it's the best way to show my works and my skills to the world. Also beca
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\*\* | 100.0% | 0 files | 300,172,099 bytes
-\* | 0.01% | 12 files | 28,383 bytes
+\*\* | 100.0% | 0 files | 300,183,574 bytes
+\* | 0.01% | 12 files | 28,391 bytes
 \*.config | 0.03% | 1 files | 82,580 bytes
 \*.css | 0.01% | 9 files | 25,712 bytes
 \*.gif | 0.16% | 2 files | 477,306 bytes
-\*.html | 0.18% | 36 files | 548,220 bytes
+\*.html | 0.18% | 36 files | 548,860 bytes
 \*.ico | 0.04% | 3 files | 133,332 bytes
-\*.idx | 0.1% | 1 files | 288,576 bytes
+\*.idx | 0.1% | 1 files | 288,884 bytes
 \*.jpg | 0.44% | 11 files | 1,319,934 bytes
 \*.js | 0.04% | 12 files | 111,669 bytes
-\*.json | 0.13% | 10 files | 402,290 bytes
+\*.json | 0.13% | 10 files | 402,672 bytes
 \*.map | 0.04% | 20 files | 115,596 bytes
 \*.md | 0.0% | 3 files | 7,096 bytes
 \*.mp3 | 0.0% | 1 files | 9,069 bytes
 \*.old | 0.18% | 2 files | 553,570 bytes
-\*.pack | 93.27% | 1 files | 279,970,941 bytes
+\*.pack | 93.27% | 1 files | 279,980,560 bytes
 \*.png | 2.72% | 37 files | 8,169,570 bytes
-\*.pug | 0.02% | 14 files | 48,731 bytes
+\*.pug | 0.02% | 14 files | 49,249 bytes
 \*.py | 0.01% | 3 files | 33,294 bytes
 \*.sample | 0.01% | 13 files | 23,513 bytes
 \*.scss | 0.01% | 9 files | 27,996 bytes
@@ -68,7 +68,7 @@ File Extensions | Percentages of Bytes | Number of files | File/Folder size (Byt
 \*.xcf | 0.92% | 2 files | 2,775,449 bytes
 \*.xml | 0.0% | 1 files | 835 bytes
 \*.yml | 0.0% | 5 files | 6,400 bytes
-> Last updated on: 2023-02-11
+> Last updated on: 2023-03-12
 <!--python_data_stop-->
 
 > **Details about the website's creation**
