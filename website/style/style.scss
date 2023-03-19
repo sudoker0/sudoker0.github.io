@@ -7,20 +7,15 @@
 }
 
 @font-face {
-    font-family: "Raleway";
-    src: url("/website/fonts/Raleway.ttf");
-    font-weight: 400;
+    font-family: "Noto Sans Mono";
+    src: url("/website/fonts/NotoSansMono.ttf");
+    font-weight: normal;
 }
 
 @font-face {
-    font-family: "Inconsolata";
-    src: url("/website/fonts/Inconsolata.ttf");
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: "Courier Prime";
-    src: url("/website/fonts/CourierPrime.ttf");
+    font-family: "Source Code Pro";
+    src: url("/website/fonts/SourceCodePro.ttf");
+    font-weight: normal;
 }
 
 * {
@@ -40,7 +35,7 @@ body {
 
     background-color: var(--color-bg);
     color: var(--color-fg);
-    font-family: 'Raleway', sans-serif;
+    font-family: "Noto Sans Mono", monospace;
 }
 
 span {
@@ -139,7 +134,7 @@ section {
 
 div.textwithtag {
     span.otag, span.ctag {
-        font-family: 'Courier Prime', monospace;
+        font-family: 'Source Code Pro', monospace;
         font-size: 1.25rem;
         color: var(--color-textwithtag-tag);
         margin: 8px 0;
@@ -229,7 +224,7 @@ th {
     // border: 2px solid var(--color-fg);
     padding: 8px 16px;
     text-align: start;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Source Code Pro", monospace;
     &.end {
         text-align: end;
     }
@@ -377,7 +372,7 @@ nav.navbar {
     }
 
     div.navbar_link {
-        font-family: "Inconsolata", monospace;
+        font-family: 'Source Code Pro', monospace;
         width: 100%;
         height: 100%;
         display: flex;
@@ -560,7 +555,7 @@ div#noscript_wrapper {
 }
 
 textarea {
-    font-family: "Courier Prime", monospace;
+    font-family: "Noto Sans Mono", monospace;
 }
 
 div#noscript_object {
