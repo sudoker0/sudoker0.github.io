@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
             entries.forEach(entry => {
                 console.log(entry)
                 toggleSection(entry.target.id, entry.isIntersecting)
-                if (entry.isIntersecting) intersect.unobserve(entry.target)
+                //if (entry.isIntersecting) intersect.unobserve(entry.target)
             })
         }, {
             rootMargin: "-50%",
@@ -150,9 +150,9 @@ document.addEventListener("DOMContentLoaded", () => {
         .forEach(v => {
             if (
                 v.classList.value
-                .split(" ")
-                .map(v => v.startsWith("st-") || v.startsWith("nost"))
-                .reduce((a, b) => a || b)
+                    .split(" ")
+                    .map(v => v.startsWith("st-") || v.startsWith("nost"))
+                    .reduce((a, b) => a || b)
             ) {
                 if (intersect == null) {
                     toggleSection(v.id)

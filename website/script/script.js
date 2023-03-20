@@ -82,8 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
             entries.forEach(entry => {
                 console.log(entry);
                 toggleSection(entry.target.id, entry.isIntersecting);
-                if (entry.isIntersecting)
-                    intersect.unobserve(entry.target);
             });
         }, {
             rootMargin: "-50%",
