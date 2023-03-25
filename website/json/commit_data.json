@@ -3,6 +3,18 @@
     "last_update_on": "2023-03-25",
     "data": [
         {
+            "hash": "8cdc836",
+            "committer": "QuanMCPC",
+            "commit_date": 1679752829,
+            "message": "cleanup and migrate project"
+        },
+        {
+            "hash": "df621b6",
+            "committer": "QuanMCPC",
+            "commit_date": 1679746913,
+            "message": "Update website's information"
+        },
+        {
             "hash": "d22e776",
             "committer": "QuanMCPC",
             "commit_date": 1679746849,

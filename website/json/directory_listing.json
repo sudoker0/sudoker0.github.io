@@ -126,6 +126,44 @@
             "type": "file"
         },
         {
+            "name": "classic-project",
+            "type": "directory",
+            "children": [
+                {
+                    "name": "MSDOS.html",
+                    "type": "file"
+                },
+                {
+                    "name": "Vigenere_Cipher.html",
+                    "type": "file"
+                },
+                {
+                    "name": "captcha.html",
+                    "type": "file"
+                },
+                {
+                    "name": "commit.html",
+                    "type": "file"
+                },
+                {
+                    "name": "commit_table.html",
+                    "type": "file"
+                },
+                {
+                    "name": "console.html",
+                    "type": "file"
+                },
+                {
+                    "name": "numberguessgame.html",
+                    "type": "file"
+                },
+                {
+                    "name": "soope.html",
+                    "type": "file"
+                }
+            ]
+        },
+        {
             "name": "contacts.html",
             "type": "file"
         },
@@ -174,167 +212,11 @@
             "type": "file"
         },
         {
-            "name": "project",
+            "name": "random-project",
             "type": "directory",
             "children": [
                 {
-                    "name": "INBOSH",
-                    "type": "directory",
-                    "children": [
-                        {
-                            "name": "CHANGELOG.md",
-                            "type": "file"
-                        },
-                        {
-                            "name": "INBOSH.html",
-                            "type": "file"
-                        },
-                        {
-                            "name": "INBOSH.ico",
-                            "type": "file"
-                        },
-                        {
-                            "name": "INBOSH.js",
-                            "type": "file"
-                        },
-                        {
-                            "name": "INBOSH.js.map",
-                            "type": "file"
-                        },
-                        {
-                            "name": "INBOSH.png",
-                            "type": "file"
-                        },
-                        {
-                            "name": "INBOSH.ts",
-                            "type": "file"
-                        },
-                        {
-                            "name": "Inconsolata-Regular.ttf",
-                            "type": "file"
-                        },
-                        {
-                            "name": "make_license_key.html",
-                            "type": "file"
-                        }
-                    ]
-                },
-                {
-                    "name": "MSDOS.html",
-                    "type": "file"
-                },
-                {
-                    "name": "Vigenere_Cipher.html",
-                    "type": "file"
-                },
-                {
-                    "name": "anti-nutella-challange",
-                    "type": "directory",
-                    "children": [
-                        {
-                            "name": "favicon.ico",
-                            "type": "file"
-                        },
-                        {
-                            "name": "fonts",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "Montserrat-Regular.ttf",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "SourceCodePro-Regular.ttf",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "UbuntuMono-Regular.ttf",
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "images",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "clock.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "error.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "nutella.jpg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "nutella.png",
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "index.html",
-                            "type": "file"
-                        },
-                        {
-                            "name": "index.pug",
-                            "type": "file"
-                        },
-                        {
-                            "name": "script",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "script.js",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "script.js.map",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "script.ts",
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "style",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "style.css",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "style.css.map",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "style.scss",
-                                    "type": "file"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": "captcha.html",
-                    "type": "file"
-                },
-                {
                     "name": "coming_soon.html",
-                    "type": "file"
-                },
-                {
-                    "name": "commit.html",
-                    "type": "file"
-                },
-                {
-                    "name": "commit_table.html",
                     "type": "file"
                 },
                 {
@@ -444,166 +326,12 @@
                     ]
                 },
                 {
-                    "name": "console.html",
-                    "type": "file"
-                },
-                {
                     "name": "discord_tag.html",
                     "type": "file"
                 },
                 {
-                    "name": "flappy_bird_clone",
-                    "type": "directory",
-                    "children": [
-                        {
-                            "name": "background.png",
-                            "type": "file"
-                        },
-                        {
-                            "name": "hit.wav",
-                            "type": "file"
-                        },
-                        {
-                            "name": "index.html",
-                            "type": "file"
-                        },
-                        {
-                            "name": "jump.wav",
-                            "type": "file"
-                        },
-                        {
-                            "name": "main.js",
-                            "type": "file"
-                        },
-                        {
-                            "name": "main.js.map",
-                            "type": "file"
-                        },
-                        {
-                            "name": "main.ts",
-                            "type": "file"
-                        },
-                        {
-                            "name": "pipe.png",
-                            "type": "file"
-                        },
-                        {
-                            "name": "pipeBody.png",
-                            "type": "file"
-                        },
-                        {
-                            "name": "pipeHead.png",
-                            "type": "file"
-                        }
-                    ]
-                },
-                {
                     "name": "gtpl.py",
                     "type": "file"
-                },
-                {
-                    "name": "guess-the-gif",
-                    "type": "directory",
-                    "children": [
-                        {
-                            "name": "help_get_api",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "1.jpg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "2.jpg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "3.jpg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "4.jpg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "5.jpg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "6.jpg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "7.jpg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "8.jpg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "9.jpg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "index.html",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "index.pug",
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "index.html",
-                            "type": "file"
-                        },
-                        {
-                            "name": "index.pug",
-                            "type": "file"
-                        },
-                        {
-                            "name": "script",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "script.js",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "script.js.map",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "script.ts",
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "style",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "style.css",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "style.css.map",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "style.scss",
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "word_list.txt",
-                            "type": "file"
-                        }
-                    ]
                 },
                 {
                     "name": "loop.html",
@@ -611,48 +339,6 @@
                 },
                 {
                     "name": "message_en_de.html",
-                    "type": "file"
-                },
-                {
-                    "name": "numberguessgame.html",
-                    "type": "file"
-                },
-                {
-                    "name": "panorama",
-                    "type": "directory",
-                    "children": [
-                        {
-                            "name": "behind.png",
-                            "type": "file"
-                        },
-                        {
-                            "name": "bottom.png",
-                            "type": "file"
-                        },
-                        {
-                            "name": "front.png",
-                            "type": "file"
-                        },
-                        {
-                            "name": "index.html",
-                            "type": "file"
-                        },
-                        {
-                            "name": "left.png",
-                            "type": "file"
-                        },
-                        {
-                            "name": "right.png",
-                            "type": "file"
-                        },
-                        {
-                            "name": "top.png",
-                            "type": "file"
-                        }
-                    ]
-                },
-                {
-                    "name": "soope.html",
                     "type": "file"
                 },
                 {
