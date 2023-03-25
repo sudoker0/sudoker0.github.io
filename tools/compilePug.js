@@ -24,6 +24,9 @@ var IGNORED_DIR = /.*/g;
 const argparse = new argparse_1.ArgumentParser({
     description: "a pug compiler that compile pug to html",
 });
+function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
 function render(path) {
     return __awaiter(this, void 0, void 0, function* () {
         const p = path_1.default.parse(path);
@@ -66,7 +69,7 @@ function render(path) {
     const args = argparse.parse_args();
     var good_path = [];
     console.log(args);
-    IGNORED_DIR = new RegExp(args["ignore"][0], "g");
+    IGNORED_DIR = new RegExp(escapeRegExp(args["ignore"][0]), "g");
     console.log("Compiling...");
     for (const i of args["path"]) {
         const path = path_1.default.resolve(__dirname + "/" + i);

@@ -12,6 +12,10 @@ const argparse = new ArgumentParser({
     description: "a pug compiler that compile pug to html",
 })
 
+function escapeRegExp(string: string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+}
+
 async function render(path: string) {
     const p = npath.parse(path);
     if (IGNORED_DIR.test(path)) return false;
@@ -64,7 +68,7 @@ async function render(path: string) {
     var good_path: string[] = []
 
     console.log(args)
-    IGNORED_DIR = new RegExp(args["ignore"][0], "g")
+    IGNORED_DIR = new RegExp(escapeRegExp(args["ignore"][0]), "g")
 
     console.log("Compiling...")
     for (const i of args["path"] as string[]) {
