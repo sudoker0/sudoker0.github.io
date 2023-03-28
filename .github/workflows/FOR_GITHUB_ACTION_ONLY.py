@@ -46,7 +46,6 @@ def formatFileSize(sizestring = 0): return re.sub(r"(?!^)(?=(?:\d{3})+(?:\.|$))"
 # Variable Here
 total_size = sizeOfFolder()
 git_folder_size = sizeOfFolder("./.git")
-project_size = sizeOfFolder("./project")
 assets_size = sizeOfFolder("./website")
 
 # JSON data here
@@ -56,8 +55,7 @@ data = {
         "lastupdateon": date.today().strftime("%Y-%m-%d"),
         "git_folder": formatFileSize(git_folder_size),
         "assets_folder": formatFileSize(assets_size),
-        "project_folder": formatFileSize(project_size),
-        "the_rest": formatFileSize(total_size - git_folder_size - project_size - assets_size),
+        "the_rest": formatFileSize(total_size - git_folder_size - assets_size),
         "total_size": formatFileSize(total_size)
     }
 }

@@ -4,7 +4,6 @@ fetch("/website/json/website_data.json")
     getId("lastupdateon").replace({ "lastupdateon_size": data.filesize.lastupdateon });
     getId("git_folder").replace({ "git_bytes": data.filesize.git_folder });
     getId("assets_folder").replace({ "assets_bytes": data.filesize.assets_folder });
-    getId("project_folder").replace({ "projects_bytes": data.filesize.project_folder });
     getId("the_rest").replace({ "other_bytes": data.filesize.the_rest });
     getId("total_size").replace({ "total_bytes": data.filesize.total_size });
     function fetch_() {
