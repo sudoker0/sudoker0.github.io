@@ -9,7 +9,7 @@
                 location.replace(redirect)
             },
             "deny": () => {
-                alert("Error! Error! Bot Detected!")
+                alert("error: please solve the captcha")
             }
         }
     }
@@ -43,7 +43,7 @@
 
         if (code.length == cheat_pos) {
             cheat_pos = 0;
-            alert("Cheat Activated! Now bypassing the Captcha")
+            alert("cheat activated! now bypassing the captcha")
             document.querySelector("div.captcha_test[data-captcha-id=gotowebsitecheck] input")["click"]()
             document.querySelector("a[data-submit-id=gotowebsitecheck]")["click"]()
         }
@@ -55,12 +55,12 @@
             v["href"] = "#"
             const id = v.getAttribute("data-submit-id")
             const captcha = document.querySelector(`div.captcha_test[data-captcha-id=${id}]`)
-            
+
             if (!!!captcha) {
                 console.warn(`Can't find captcha with ID: ${id}`)
                 return
             }
-            
+
             v.addEventListener("click", (ev) => {
                 ev.preventDefault()
                 const checkbox = captcha.querySelector<HTMLInputElement>(".checkbox_container input")
@@ -69,7 +69,7 @@
                     captcha_event[id].allow(redirect)
                 } else {
                     captcha_event[id].deny()
-                }  
+                }
             })
         })
 })()

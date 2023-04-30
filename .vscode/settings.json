@@ -1,6 +1,7 @@
 {
     "liveServer.settings.multiRootWorkspaceName": "QuanMCPC.github.io",
     "cSpell.words": [
+        "argparse",
         "Blogsite",
         "Carrd's",
         "collapsecontent",
@@ -11,8 +12,11 @@
         "INBOSH",
         "leftright",
         "MSDOS",
+        "nargs",
         "nost",
+        "npath",
         "numberguessgame",
+        "pmod",
         "SOOPE",
         "textwithtag",
         "thatsmygift",

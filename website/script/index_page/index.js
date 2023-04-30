@@ -9,7 +9,7 @@
                 location.replace(redirect);
             },
             "deny": () => {
-                alert("Error! Error! Bot Detected!");
+                alert("error: please solve the captcha");
             }
         }
     };
@@ -43,7 +43,7 @@
             cheat_pos = 0;
         if (code.length == cheat_pos) {
             cheat_pos = 0;
-            alert("Cheat Activated! Now bypassing the Captcha");
+            alert("cheat activated! now bypassing the captcha");
             document.querySelector("div.captcha_test[data-captcha-id=gotowebsitecheck] input")["click"]();
             document.querySelector("a[data-submit-id=gotowebsitecheck]")["click"]();
         }

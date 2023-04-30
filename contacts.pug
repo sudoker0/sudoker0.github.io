@@ -1,6 +1,6 @@
 html(lang="en")
     head
-        include template/_head_metadata.pug
+        include template/_pmod_head_metadata.pug
 
         meta(property="og:url", content="/contacts.html")
         meta(property="og:title", content="QuanMCPC.contacts()")
@@ -12,9 +12,9 @@ html(lang="en")
         title QuanMCPC.contacts()
 
     body(data-js="false")
-        include template/_preload.pug
-        include template/_mixins.pug
-        include template/_header.pug
+        include template/_pmod_preload.pug
+        include template/_pmod_mixins.pug
+        include template/_pmod_header.pug
         mixin social_item(title, image_link, alt)
             .social_item
                 .social_item_image
@@ -27,7 +27,7 @@ html(lang="en")
                         p INTERNAL ERROR: Please contact developer
 
         main
-            include template/_noscript.pug
+            include template/_pmod_noscript.pug
             section#contact.nost: +textwithtag("contacts")
                 h1 Contact/Social link Info
                 hr
@@ -85,4 +85,4 @@ html(lang="en")
                             | =SCby
                             | -----END PGP PUBLIC KEY BLOCK-----
 
-        include template/_footer.pug
+        include template/_pmod_footer.pug

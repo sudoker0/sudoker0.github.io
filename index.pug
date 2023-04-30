@@ -1,7 +1,7 @@
 html(lang="en")
     head
         //- Слава Україні
-        include template/_head_metadata.pug
+        include template/_pmod_head_metadata.pug
 
         meta(property="og:url", content="https://quanmcpc.github.io/")
         meta(property="og:title", content="Quan_MCPC's Website")
@@ -15,13 +15,13 @@ html(lang="en")
     body(data-js="false")
         //- For verification
         a(rel="me" href="https://mastodon.world/@quanmcpc" aria-hidden="true")
-        include template/_preload.pug
-        include template/_noscript.pug
+        include template/_pmod_preload.pug
+        include template/_pmod_noscript.pug
         .dialog: div
             h1 QuanMCPC's Website
             h2 Captcha Test
             p Due to the sudden increase in traffic (around five visits per day), I have implemented a captcha check to ensure only humans can enter. Please solve the captcha to enter the website.
-            p.notice_captcha_js: b (Captcha has been disabled! Yay for the robots!)
+            p.notice_captcha_js: b (unable to detect javascript, captcha has been disabled)
             .captcha_test(data-captcha-id="gotowebsitecheck")
                 .captcha_checkbox
                     label.checkbox_container

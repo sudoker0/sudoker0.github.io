@@ -436,27 +436,27 @@
             "type": "directory",
             "children": [
                 {
-                    "name": "_footer.pug",
+                    "name": "_pmod_footer.pug",
                     "type": "file"
                 },
                 {
-                    "name": "_head_metadata.pug",
+                    "name": "_pmod_head_metadata.pug",
                     "type": "file"
                 },
                 {
-                    "name": "_header.pug",
+                    "name": "_pmod_header.pug",
                     "type": "file"
                 },
                 {
-                    "name": "_mixins.pug",
+                    "name": "_pmod_mixins.pug",
                     "type": "file"
                 },
                 {
-                    "name": "_noscript.pug",
+                    "name": "_pmod_noscript.pug",
                     "type": "file"
                 },
                 {
-                    "name": "_preload.pug",
+                    "name": "_pmod_preload.pug",
                     "type": "file"
                 }
             ]

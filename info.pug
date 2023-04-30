@@ -1,6 +1,6 @@
 html(lang="en")
     head
-        include template/_head_metadata.pug
+        include template/_pmod_head_metadata.pug
 
         meta(property="og:url", content="/info.html")
         meta(property="og:title", content="QuanMCPC.info()")
@@ -12,11 +12,11 @@ html(lang="en")
         title QuanMCPC.info()
 
     body(data-js="false")
-        include template/_preload.pug
-        include template/_mixins.pug
-        include template/_header.pug
+        include template/_pmod_preload.pug
+        include template/_pmod_mixins.pug
+        include template/_pmod_header.pug
         main
-            include template/_noscript.pug
+            include template/_pmod_noscript.pug
             section#website_info.nost: +textwithtag("info type=\"website\"")
                 h1 Website Info
                 hr
@@ -77,4 +77,4 @@ html(lang="en")
                                 a(target='_blank' href='/classic-project/commit_table.html')
                                     | Click here for a detailed table which contains lots of information for each commit (Fetch from local commit data and update by the author)
 
-        include template/_footer.pug
+        include template/_pmod_footer.pug

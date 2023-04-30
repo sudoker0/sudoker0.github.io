@@ -30,9 +30,7 @@ function escapeRegExp(string) {
 function render(path) {
     return __awaiter(this, void 0, void 0, function* () {
         const p = path_1.default.parse(path);
-        if (IGNORED_DIR.test(path))
-            return false;
-        if (!PUG_FILE.test(p.base))
+        if (IGNORED_DIR.test(path) || !PUG_FILE.test(p.base))
             return false;
         try {
             const content = (0, pug_1.renderFile)(path, {
@@ -54,7 +52,7 @@ function render(path) {
         type: String,
         nargs: "*",
         default: ["."],
-        help: "a list of directories to compile all pug file inside or a list of pug files seperated by spaces (like: -p '1.pug' '2.pug' 'stuff/') (default: the current directory of the script) (this will use the current dir of the script as the root for path, so if you use: -p 'b/a.pug' and the location of the script (relative to: '/home/admin/project') than the path will be: '/home/admin/project/b/a.pug')"
+        help: "a list of directories to compile all pug file inside or a list of pug files separated by spaces (like: -p '1.pug' '2.pug' 'stuff/') (default: the current directory of the script) (this will use the current dir of the script as the root for path, so if you use: -p 'b/a.pug' and the location of the script (relative to: '/home/admin/project') than the path will be: '/home/admin/project/b/a.pug')"
     });
     argparse.add_argument("-w", "--watch", {
         action: "store_true",

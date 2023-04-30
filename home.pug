@@ -1,6 +1,6 @@
 html(lang="en")
     head
-        include template/_head_metadata.pug
+        include template/_pmod_head_metadata.pug
 
         meta(property="og:url", content="/home.html")
         meta(property="og:title", content="QuanMCPC.home()")
@@ -12,11 +12,11 @@ html(lang="en")
         title QuanMCPC.home()
 
     body(data-js="false")
-        include template/_preload.pug
-        include template/_mixins.pug
-        include template/_header.pug
+        include template/_pmod_preload.pug
+        include template/_pmod_mixins.pug
+        include template/_pmod_header.pug
         main
-            include template/_noscript.pug
+            include template/_pmod_noscript.pug
 
             section#home.st-leftright: div
                 .left: +textwithtag("intro")
@@ -74,25 +74,19 @@ html(lang="en")
                                 td Good
                                 td.end
                                     img(src='https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white' alt='Python')
-                                    img(src='https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white' alt='CSS')
                                     img(src='https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c+sharp&logoColor=white' alt='C#')
-                                    img(src='https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=Kotlin&logoColor=white' alt='Kotlin')
+                                    img(src='https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white' alt='C++')
                             tr
                                 td Ok/Medium
                                 td.end
+                                    img(src='https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=Kotlin&logoColor=white' alt='Kotlin')
                                     img(src='https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white' alt='Java')
                                     img(src='https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white' alt='PHP')
-                                    img(src='https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white' alt='PowerShell')
-                                    img(src='https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white' alt='C++')
                                     img(src='https://img.shields.io/badge/Godot-478CBF?style=for-the-badge&logo=Godot+Engine&logoColor=FFFFFF' alt='Godot')
                             tr
-                                td Poor
+                                td Not good
                                 td.end
                                     img(src='https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=white' alt='C')
-                            tr
-                                td Uhhh what's this
-                                td.end
-                                    img(src='https://img.shields.io/badge/Assembly-FFFFFF?style=for-the-badge' alt='Assembly')
 
             section#project.nost: +textwithtag("project")
                 h1 Projects
@@ -237,4 +231,4 @@ html(lang="en")
                         button#claim_gift(aria-label="The Present")
                             img(src="./website/image/home_page/gift.svg", alt="The Present")
 
-        include template/_footer.pug
+        include template/_pmod_footer.pug

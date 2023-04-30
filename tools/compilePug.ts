@@ -13,13 +13,12 @@ const argparse = new ArgumentParser({
 })
 
 function escapeRegExp(string: string) {
-    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') // $& means the whole matched string
 }
 
 async function render(path: string) {
-    const p = npath.parse(path);
-    if (IGNORED_DIR.test(path)) return false;
-    if (!PUG_FILE.test(p.base)) return false;
+    const p = npath.parse(path)
+    if (IGNORED_DIR.test(path) || !PUG_FILE.test(p.base)) return false
 
     try {
         const content = renderFile(path, {
@@ -31,7 +30,7 @@ async function render(path: string) {
             }
         })
         await writeFile(`${p.dir}${p.dir == "" ? "" : npath.sep}${p.base.replace(PUG_FILE, ".html")}`, content, { encoding: "utf-8", })
-        console.log("Compiled: " + path);
+        console.log("Compiled: " + path)
     }
     catch(e) {
         console.error(
@@ -49,7 +48,7 @@ async function render(path: string) {
         type: String,
         nargs: "*",
         default: ["."],
-        help: "a list of directories to compile all pug file inside or a list of pug files seperated by spaces (like: -p '1.pug' '2.pug' 'stuff/') (default: the current directory of the script) (this will use the current dir of the script as the root for path, so if you use: -p 'b/a.pug' and the location of the script (relative to: '/home/admin/project') than the path will be: '/home/admin/project/b/a.pug')"
+        help: "a list of directories to compile all pug file inside or a list of pug files separated by spaces (like: -p '1.pug' '2.pug' 'stuff/') (default: the current directory of the script) (this will use the current dir of the script as the root for path, so if you use: -p 'b/a.pug' and the location of the script (relative to: '/home/admin/project') than the path will be: '/home/admin/project/b/a.pug')"
     })
 
     argparse.add_argument("-w", "--watch", {
@@ -108,4 +107,4 @@ async function render(path: string) {
             })
         }
     }
-})();
+})()
