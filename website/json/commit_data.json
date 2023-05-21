@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2023-04-30",
+    "last_update_on": "2023-05-21",
     "data": [
+        {
+            "hash": "395544b",
+            "committer": "QuanMCPC",
+            "commit_date": 1684686691,
+            "message": "new entry added in projects: DCT"
+        },
+        {
+            "hash": "c050384",
+            "committer": "QuanMCPC",
+            "commit_date": 1682832378,
+            "message": "Update website's information"
+        },
         {
             "hash": "7d058f6",
             "committer": "QuanMCPC",
