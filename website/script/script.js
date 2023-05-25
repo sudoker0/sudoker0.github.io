@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }, {
             rootMargin: "-50%",
-            threshold: 0
+            threshold: 0,
         });
     }
     catch (e) {

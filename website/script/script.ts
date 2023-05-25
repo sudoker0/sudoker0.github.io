@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
             })
         }, {
             rootMargin: "-50%",
-            threshold: 0
+            threshold: 0,
         })
     } catch (e) {
         console.log("Looks like IntersectionObserver doesn't exist!")
