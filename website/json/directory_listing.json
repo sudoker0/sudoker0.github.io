@@ -212,6 +212,14 @@
             "type": "file"
         },
         {
+            "name": "project.html",
+            "type": "file"
+        },
+        {
+            "name": "project.pug",
+            "type": "file"
+        },
+        {
             "name": "random-project",
             "type": "directory",
             "children": [
@@ -688,7 +696,15 @@
                             ]
                         },
                         {
+                            "name": "minus.svg",
+                            "type": "file"
+                        },
+                        {
                             "name": "noice.jpg",
+                            "type": "file"
+                        },
+                        {
+                            "name": "plus.svg",
                             "type": "file"
                         },
                         {
@@ -820,6 +836,24 @@
                             "type": "file"
                         },
                         {
+                            "name": "project_page",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "project.js",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "project.js.map",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "project.ts",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
                             "name": "script.js",
                             "type": "file"
                         },
@@ -919,6 +953,24 @@
                                 },
                                 {
                                     "name": "info.scss",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "project_page",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "project.css",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "project.css.map",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "project.scss",
                                     "type": "file"
                                 }
                             ]
