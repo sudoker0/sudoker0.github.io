@@ -2,7 +2,7 @@ let fartmode = false;
 var claiming_gift = false;
 var fartnoise = new Audio("/website/sound/fart.mp3");
 
-getId("claim_gift").onclick = async () => {
+qSel<HTMLElement>("#claim_gift").onclick = async () => {
     if (claiming_gift)
         return;
     if (fartmode) {
@@ -11,8 +11,8 @@ getId("claim_gift").onclick = async () => {
     }
 
     claiming_gift = true;
-    getId("claim_gift").style.transformOrigin = "bottom";
-    getId("claim_gift").style.animation = "gift_opening_animation 3s";
+    qSel<HTMLElement>("#claim_gift").style.transformOrigin = "bottom";
+    qSel<HTMLElement>("#claim_gift").style.animation = "gift_opening_animation 3s";
 
     await wait(2750);
     if (fartmode) {
@@ -21,22 +21,22 @@ getId("claim_gift").onclick = async () => {
         fartmode = false;
     }
 
-    getId("gift_display").style.display = "flex";
-    getId("gift_flashbang").style.opacity = "1";
+    qSel<HTMLElement>("#gift_display").style.display = "flex";
+    qSel<HTMLElement>("#gift_flashbang").style.opacity = "1";
 
     await wait(250);
-    getId("gift_flashbang").style.transition = "opacity 0.5s";
-    getId("gift_flashbang").style.opacity = "0";
+    qSel<HTMLElement>("#gift_flashbang").style.transition = "opacity 0.5s";
+    qSel<HTMLElement>("#gift_flashbang").style.opacity = "0";
     var gift = getRandomInt(1, 4);
-    getId(`gift_item_${gift}`).style.display = "flex";
+    qSel<HTMLElement>(`#gift_item_${gift}`).style.display = "flex";
 
     await wait(500);
-    getId("claim_gift").style.animation = "none";
+    qSel<HTMLElement>("#claim_gift").style.animation = "none";
 
     await wait(1500);
     var gift_svg = qSel(`div#gift_item_${gift} img`) as SVGElement;
     var somestring = qSel("div#gift_thatsmygift_dialog p") as HTMLParagraphElement;
-    getId("gift_thatsmygift_dialog").style.display = "block";
+    qSel<HTMLElement>("#gift_thatsmygift_dialog").style.display = "block";
 
     switch (gift) {
         case 1:
@@ -72,43 +72,43 @@ getId("claim_gift").onclick = async () => {
         gift_svg.style.transform = "translateY(0%)";
         gift_svg.style.opacity = "1";
     }
-    getId("gift_thatsmygift_dialog").style.display = "none";
-    getId(`gift_item_${gift}`).style.display = "none";
-    getId("gift_display").style.display = "none";
-    getId("gift_flashbang").style.transition = "none";
+    qSel<HTMLElement>("#gift_thatsmygift_dialog").style.display = "none";
+    qSel<HTMLElement>(`#gift_item_${gift}`).style.display = "none";
+    qSel<HTMLElement>("#gift_display").style.display = "none";
+    qSel<HTMLElement>("#gift_flashbang").style.transition = "none";
     claiming_gift = false;
 };
-getId("website_logo").ondragstart = (ev) => {
+qSel<HTMLElement>("#website_logo").ondragstart = (ev) => {
     ev.dataTransfer.setData("text", "website_logo");
 }
 
-getId("website_logo").ondrag = (ev) => {
+qSel<HTMLElement>("#website_logo").ondrag = (ev) => {
     console.log("Drag: " + ev);
 }
 
-getId("claim_gift").ondrop = (ev) => {
+qSel<HTMLElement>("#claim_gift").ondrop = (ev) => {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     if (data != "website_logo") return;
-    getId("claim_gift").style.animation = "lsd 1s infinite linear";
+    qSel<HTMLElement>("#claim_gift").style.animation = "lsd 1s infinite linear";
     fartmode = true;
 }
 
-getId("building_block").ondrop = (ev) => {
+qSel<HTMLElement>("#building_block").ondrop = (ev) => {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     if (data != "website_logo") return;
-    getId("building_block").setAttribute("src",
-        getId("building_block").classList.contains("toggled")
+    qSel<HTMLElement>("#building_block").setAttribute("src",
+        qSel<HTMLElement>("#building_block").classList.contains("toggled")
             ? "./website/image/home_page/building_block_of_internet.svg"
             : "./website/image/home_page/building_block_of_my_website.svg"
     )
-    getId("building_block_caption").innerText =
-        getId("building_block").classList.contains("toggled")
+    qSel<HTMLElement>("#building_block_caption").innerText =
+        qSel<HTMLElement>("#building_block").classList.contains("toggled")
             ? "The Building Block Of The Internet"
             : "The Building Block Of My Website"
-    getId("building_block").classList.toggle("toggled")
+    qSel<HTMLElement>("#building_block").classList.toggle("toggled")
 }
 
-getId("claim_gift").ondragover = (ev) => ev.preventDefault();
-getId("building_block").ondragover = (ev) => ev.preventDefault();
+qSel<HTMLElement>("#claim_gift").ondragover = (ev) => ev.preventDefault();
+qSel<HTMLElement>("#building_block").ondragover = (ev) => ev.preventDefault();

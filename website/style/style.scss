@@ -240,35 +240,38 @@ input.collapsible_cb {
     z-index: -100;
 
     &:focus + label, &:hover + label {
-        background-color: var(--color-fg);
-        svg { fill: var(--color-bg); }
-        span { margin-left: 10px; }
-        div.indicator::before { margin-right: 10px; }
+        background-color: var(--color-link-hover);
+        svg { fill: var(--color-link-hover); }
     }
 
     &:focus + label > *, &:hover + label > * {
         filter: invert(1);
     }
 
-    &:checked + label {
-        + div.collapsiblecontent {
-            display: block;
+    &:checked + label.collapsible {
+        border-bottom-color: var(--color-link-hover);
+
+        div.indicator::before {
+            background: url("/website/image/minus.svg") no-repeat;
         }
 
-        div::before {
-            transform: rotate(180deg);
+        + div.collapsiblecontent {
+            display: block;
         }
     }
 }
 
 label.collapsible {
-    border-bottom: 2px solid var(--color-fg);
+    border-bottom: 2px solid transparent;
+
     display: grid;
-    grid-template-areas: "text indicator";
+    grid-template-areas: "indicator text";
+    justify-content: start;
     cursor: pointer;
     margin-bottom: 10px;
     margin-right: 0 !important;
-    &, & > * { transition: all 0.1s ease; }
+    &, & > * { transition: all 0.2s ease; }
+
     -webkit-user-select: none;
     -webkit-touch-callout: none;
     -khtml-user-select: none;
@@ -280,7 +283,6 @@ label.collapsible {
         grid-area: text;
         max-width: initial;
         margin: 10px;
-        margin-left: 0;
     }
 
     div.indicator {
@@ -288,11 +290,12 @@ label.collapsible {
         display: flex;
         justify-content: flex-end;
         align-items: center;
+        margin-left: 10px;
 
         &::before {
             transition: margin 0.2s;
             content: "";
-            background: url("/website/image/arrow.svg") no-repeat;
+            background: url("/website/image/plus.svg") no-repeat;
             background-size: auto;
             height: 24px;
             width: 24px;

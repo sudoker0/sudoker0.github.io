@@ -20,25 +20,18 @@ HTMLElement.prototype.replace = function (data: Template, prefix: string = "$_")
 }
 
 /**
- * Returns a reference to the first object with the specified value of the ID attribute.
- * @param id String that specifies the ID value.
- * @returns The element
- */
-function getId(id: string) { return document.getElementById(id) }
-
-/**
  * Returns the first element that is a descendant of node that matches selectors.
  * @param selector CSS selector to select the element
  * @returns The element
  */
-function qSel(selector: string) { return document.querySelector(selector) }
+function qSel<T>(selector: string) { return document.querySelector(selector) as T }
 
 /**
  * Returns all element descendants of node that match selectors.
  * @param sel CSS selector to select elements
  * @returns List of elements
  */
-function qSelAll(sel: string) { return document.querySelectorAll(sel) }
+function qSelAll<T extends Node>(sel: string) { return document.querySelectorAll(sel) as unknown as NodeListOf<T> }
 
 /**
  * Get the value of query string

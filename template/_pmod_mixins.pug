@@ -10,12 +10,12 @@ mixin textwithtag(title)
         span.ctag(aria-hidden="true")=endtag
 
 - var count_diff = 0
-mixin collapsecontent(header)
+mixin collapsecontent(header, classname = "")
     - count_diff++;
-    input.collapsible_cb(id="cb" + count_diff, type="checkbox", name="cb" + count_diff)
+    input.collapsible_cb(class=classname, id="cb" + count_diff, type="checkbox", name="cb" + count_diff)
     label.collapsible(for="cb" + count_diff)
-        span=header
         div.indicator(aria-hidden="true")
+        span=header
     div.collapsiblecontent
         if block
             block

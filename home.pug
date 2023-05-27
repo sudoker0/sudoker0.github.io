@@ -4,8 +4,8 @@ html(lang="en")
 
         meta(property="og:url", content="/home.html")
         meta(property="og:title", content="QuanMCPC.home()")
-        meta(property="og:description", content="This is the main page of my website, which contain an intro, about me section, projects, etc.")
-        meta(name="description", content="This is the main page of my website, where you can see my bio, all of my project and my social links")
+        meta(property="og:description", content="Home page of the website")
+        meta(name="description", content="Home page of the website")
 
         link(rel="stylesheet", href="/website/style/home_page/home.css")
         script(src="/website/script/home_page/home.js" defer)
@@ -88,108 +88,6 @@ html(lang="en")
                                 td.end
                                     img(src='https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=white' alt='C')
 
-            section#project.nost: +textwithtag("project")
-                h1 Projects
-                hr
-                p Here's a #[span.tc-purple list of projects] or stuff that I've created. Be sure to check them out!
-                p List of projects: 25
-                div
-                    +collapsecontent("Web Related")
-                        +collapsecontent("April Fools 2023: DPRK VPN")
-                            p Here is the #[a(target="_blank" href="/project.dprk-vpn/index.html") link to view the project]
-                            p Description: A VPN which allow you to browse the best Internet created by the DPRK.
-                        +collapsecontent("Guess The GIF")
-                            p Here is the #[a(target="_blank" href="/project.guess-the-gif/index.html") link to view the project]
-                            p Description: A game about guessing GIF (or JIF i guess)
-                        +collapsecontent("No \"Nutella\" November Challenge Tracker")
-                            p Here is the #[a(target="_blank" href="/project.anti-nutella-challange/index.html") link to view the project]
-                            p Description: A progress tracker for the "November" Challenge
-                        +collapsecontent("Flappy Bird Clone")
-                            p Here is the #[a(target="_blank" href="/project.flappy-bird-clone/index.html") link to view the project]
-                            p Description: A basic prototype of the flappy bird clone that I made.
-                        +collapsecontent("INBOSH (It has No name But it's Online SHell)")
-                            p Here is the #[a(target="_blank" href="/project.INBOSH/INBOSH.html") link to view the project]
-                            p Description: A working shell inside a browser, that can only run function and has some bug.
-                        +collapsecontent("Demo for a panorama background")
-                            p Here is the #[a(target="_blank" href="/project.panorama-demo/index.html") link to view the project]
-                            p Description: A demo for a panorama background that is fully writ`ten in JS (no plugin used).
-                        +collapsecontent("SOOPE (Simple and Open-Source Online Picture Editor)")
-                            p Here is the #[a(target="_blank" href="/classic-project/soope.html") link to view the project]
-                            p Description: A fully functional image editor inside browser (It even has dark mode too!).
-                        +collapsecontent("WCOS (Web Console OS)")
-                            p Here is the #[a(target="_blank" href="/classic-project/MSDOS.html") link to view the project]
-                            p Description: My second attempt to create a shell (which is better then the previous attempt, but still, it's pretty bad).
-                        +collapsecontent("WTOS (Web Terminal OS; Also know as: Console)")
-                            p Here is the #[a(target="_blank" href="/classic-project/console.html") link to view the project]
-                            p Description: My first attempt to create a shell (which is pretty bad).
-                        +collapsecontent("Guess The Number Game")
-                            p Here is the #[a(target="_blank" href="/classic-project/numberguessgame.html") link to view the project]
-                            p Description: Pretty simple: Just Guess The Number.
-                        +collapsecontent("Simple Captcha")
-                            p Here is the #[a(target="_blank" href="/classic-project/captcha.html") link to view the project]
-                            p Description: Something I make for something related to AI idk.
-                        +collapsecontent("Vigenère Encoder and Decoder")
-                            p Here is the #[a(target="_blank" href="/classic-project/Vigenere_Cipher.html") link to view the project]
-                            p Description: A simple Vigenère Encoder and Decoder.
-
-                    +collapsecontent("Games")
-                        +collapsecontent("Bouncy Beam")
-                            p Here is the #[a(target="_blank" href="https://github.com/QuanMCPC/Bouncy-Beam") link to the source code]
-                            p And here's the #[a(target="_blank" href="https://quanmcpc.itch.io/bouncy-beam") link to the game]
-                            p Description: My third game about laser where you need to place mirror to make sure the laser hit the target while avoiding obstruction.
-                        +collapsecontent("Guess The Number Game")
-                            p Here is the #[a(target="_blank" href="https://github.com/QuanMCPC/NumberGuessingGame/") link to the source code]
-                            p Description: My second game written in C# where you guess a number with an Impossible Mode.
-                        +collapsecontent("MyFirstGame")
-                            p Here is the #[a(target="_blank" href="https://drive.google.com/u/0/uc?id=1sj2Uin_mRP0ipujgeWyR7B81frscRykn&export=download") link to all version as an ISO file]
-                            p Description: My very first game created in Unity where you eat chicken to get points and eat bomb to lose point and get shoot up to the sky.
-
-                    +collapsecontent("Programs")
-                        +collapsecontent("Dead Chat Tracker (DCT) - A Discord Bot")
-                            p Here is the #[a(target="_blank" href="https://github.com/QuanMCPC/project.discord-dead-chat-bot.bot") link to the source code]
-                            p Description: A Discord bot made for only one purpose, and that is to track how long the channels of a server has died.
-                        +collapsecontent("Better Tuxedo Keyboard Backlight Controller")
-                            p Here is the #[a(target="_blank" href="https://github.com/QuanMCPC/TuxedoBacklightController") link to the source code]
-                            p Description: A program which allow user to change their keyboard backlight color, as long as they have the Tuxedo/Clevo compatible keyboard and appropriate #[a(target="_blank" href="https://github.com/tuxedocomputers/tuxedo-keyboard") kernal modules].
-                        +collapsecontent("Get Discord Message as JSON")
-                            p Here is the #[a(target="_blank" href="https://github.com/QuanMCPC/Get_Discord_MSG") link to the source code]
-                            p Description: A NodeJS project to get the chat message of any channels in any server/person as JSON data.
-                        +collapsecontent("GTPL (Guess The Programming Language)")
-                            p Here is the #[a(target="_blank" href="https://github.com/QuanMCPC/QuanMCPC.github.io/blob/master/random-project/gtpl.py") link to the source code]
-                            p Description: A simple game written in Python and it's text-based where you have to guess the programming language of a piece of code.
-                        +collapsecontent("Windows Forms App 2.0 Unofficial")
-                            p Here is the #[a(target="_blank" href="https://github.com/QuanMCPC/Windows-Forms-App-2.0-Unofficial") link to the source code]
-                            p Description: A template for a more modern build-in Windows Forms.
-                        +collapsecontent("EDIT (Edit Document In Terminal)")
-                            p Here is the #[a(target="_blank" href="https://github.com/QuanMCPC/Edit") link to the source code]
-                            p Description: A really ~OK~ text editor made with Electron with features like Auto Update.
-
-                    +collapsecontent("Minecraft Builds")
-                        +collapsecontent("8-bit Decoder")
-                            p Here is the #[a(target="_blank" href="https://www.planetminecraft.com/project/8-bit-decoder-in-minecraft/") link to the map on PM]
-                            p Description: Convert binary to character from A to Z, 0 to 9 in ASCII.
-                        +collapsecontent("Compact Calculator (1.15.2)")
-                            p Here is the #[a(target="_blank" href="https://www.planetminecraft.com/project/compact-calculator-1-15-2/") link to the map on PM]
-                            p Description: A fully working calculator that can do basic calculation in Minecraft using command block.
-                        +collapsecontent("The Longest Useless Machine in Minecraft (v1.0)")
-                            p Here is the #[a(target="_blank" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-0/") link to the map on PM]
-                            p Description: A redstone contraption that is pretty useless.
-                        +collapsecontent("The Longest Useless Machine in Minecraft (v1.2)")
-                            p Here is the #[a(target="_blank" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-1/") link to the map on PM]
-                            p Description: An upgraded version of the 1.0 version.
-                        +collapsecontent("Printer 1.16")
-                            p Here is the #[a(target="_blank" href="https://www.planetminecraft.com/project/printer-1-16/") link to the map on PM]
-                            p Description: A printer that can print stuff out using concrete instead of paper.
-                        +collapsecontent("Security Vault 2.0")
-                            p Here is the #[a(target="_blank" href="https://www.planetminecraft.com/project/security-vault-2-0/") link to the map on PM]
-                            p Description: A very large vault to store and hide valuables.
-
-                    +collapsecontent("Miscellaneous Project")
-                        +collapsecontent("NoHistory - A Firefox Extension")
-                            p Here is the #[a(target="_blank" href="https://github.com/QuanMCPC/NoHistory/") link to the source code]
-                            p And here is the #[a(target="_blank" href="https://addons.mozilla.org/en-US/firefox/addon/nohistory/") link to the extension]
-                            p Description: An extension for Firefox to prevent web pages from getting saved from history without opening a private window.
-
             section#website.nost: +textwithtag("website")
                 h1 Website
                 hr
@@ -212,9 +110,9 @@ html(lang="en")
                 .left: +textwithtag("gift good-item=\"fal- true\"")
                     h1 Thank You
                     hr
-                    p I don't know if you have visited everything on my website, only some of it, or just going by. But anyway, #[span.tc-purple thanks for visiting my website]. And to show off my appreciation, here's #[span.tc-green a gift] for you. I promise you won't #[span.tc-red regret] it :)
+                    p I don't know if you have visited everything on my website, only some of it. But anyway, #[span.tc-purple thanks for visiting my website]. And to show off my appreciation, here's #[span.tc-green a gift] for you. I promise you won't #[span.tc-red regret] it :)
                 .right
-                    #noscript_object: p Error: We can't give you the gift because it requires JavaScript to work, which you have turned off.
+                    #noscript_object: p Sorry, but we can't give you the gift because it requires JavaScript to work, which you have turned off.
                     #gift_flashbang
                     #gift_display
                         #gift_thatsmygift_dialog: p $_message

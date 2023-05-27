@@ -11,7 +11,6 @@ HTMLElement.prototype.replace = function (data, prefix = "$_") {
         span().innerText = data[i];
     }
 };
-function getId(id) { return document.getElementById(id); }
 function qSel(selector) { return document.querySelector(selector); }
 function qSelAll(sel) { return document.querySelectorAll(sel); }
 function gPBName(name, url = window.location.href) {

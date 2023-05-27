@@ -4,8 +4,8 @@ html(lang="en")
 
         meta(property="og:url", content="/info.html")
         meta(property="og:title", content="QuanMCPC.info()")
-        meta(property="og:description", content="Information about the website and about me.")
-        meta(name="description", content="Information about the website and about me.")
+        meta(property="og:description", content="Information about the website.")
+        meta(name="description", content="Information about the website.")
 
         link(rel="stylesheet", href="/website/style/info_page/info.css")
         script(src="/website/script/info_page/info.js" defer)
@@ -23,8 +23,8 @@ html(lang="en")
                 p Here's #[span.tc-purple some data about the website], some is updated regularly, while the rest is updated manually.
 
                 #noscript_object
-                    p Error: We can't provide you data like the file size or the age of the website because it requires JavaScript to work, which you have turned off.
-                    p If you can read JSON data, here's the link to the #[a(target="_blank" href="./website/json/website_data.json") filesize] and the #[a(target="_blank" href="./website/json/commit_data.json") commit] JSON file.
+                    p Sorry, but we can't provide you data like the file size or the age of the website because it requires JavaScript to work, which you have turned off.
+                    p If you can read JSON data, here's the link to the #[a(target="_blank" href="./website/json/website_data.json") file size] and the #[a(target="_blank" href="./website/json/commit_data.json") commit] JSON file.
 
                 table#tableview.tg(cellspacing='0')
                     colgroup
@@ -41,7 +41,7 @@ html(lang="en")
                             td Assets (Images, Script, etc.) Folder
                             td: span#assets_folder $_assets_bytes bytes
                         tr.use_js
-                            td Other (File on the root directory, unindexed folder)
+                            td Other (File on the root directory, un-indexed folder)
                             td: span#the_rest $_other_bytes bytes
                         tr.use_js
                             td Total size
