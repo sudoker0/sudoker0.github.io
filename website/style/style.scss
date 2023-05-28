@@ -365,6 +365,13 @@ nav.navbar {
 
     > a {
         width: fit-content;
+        transition: all 0.2s;
+        filter: brightness(0.8);
+
+        &:hover {
+            filter: brightness(1);
+            box-shadow: 0px 0px 80px 16px white;
+        }
     }
 
     img {
