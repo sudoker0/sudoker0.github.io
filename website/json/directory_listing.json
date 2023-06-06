@@ -644,10 +644,6 @@
                                     "type": "file"
                                 },
                                 {
-                                    "name": "loading.gif",
-                                    "type": "file"
-                                },
-                                {
                                     "name": "logo.png",
                                     "type": "file"
                                 },
@@ -656,16 +652,42 @@
                                     "type": "file"
                                 },
                                 {
-                                    "name": "logo_rotate.gif",
+                                    "name": "logo.xcf",
                                     "type": "file"
                                 },
                                 {
-                                    "name": "logo_rotate.xcf",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "redstone_dust_icon.svg",
-                                    "type": "file"
+                                    "name": "old_logo",
+                                    "type": "directory",
+                                    "children": [
+                                        {
+                                            "name": "favicon.ico",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "loading.gif",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "logo.png",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "logo.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "logo_rotate.gif",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "logo_rotate.xcf",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "redstone_dust_icon.svg",
+                                            "type": "file"
+                                        }
+                                    ]
                                 }
                             ]
                         },
