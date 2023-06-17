@@ -3,6 +3,18 @@
     "last_update_on": "2023-06-17",
     "data": [
         {
+            "hash": "aba2248",
+            "committer": "QuanMCPC",
+            "commit_date": 1687011584,
+            "message": "username update, again"
+        },
+        {
+            "hash": "656cd93",
+            "committer": "sudoku0",
+            "commit_date": 1686979379,
+            "message": "Update website's information"
+        },
+        {
             "hash": "cc90ab9",
             "committer": "QuanMCPC",
             "commit_date": 1686979336,
@@ -10,7 +22,7 @@
         },
         {
             "hash": "a9cc537",
-            "committer": "sudoker0",
+            "committer": "sudoku0",
             "commit_date": 1686978176,
             "message": "Update website's information"
         },
