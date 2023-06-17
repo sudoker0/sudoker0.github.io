@@ -1,21 +1,21 @@
 <h1 style="text-align: center"></h1>
 
-![sudoku0's Website](https://sudoku0.github.io/website/image/social_preview.png)
+![sudoker0's Website](https://sudoker0.github.io/website/image/social_preview.png)
 
 <p align="center">
-    <a href="https://sudoku0.github.io">
-        <h2 align="center">sudoku0.github.io</h2>
+    <a href="https://sudoker0.github.io">
+        <h2 align="center">sudoker0.github.io</h2>
     </a>
 </p>
 
-[![sudoku0 - sudoku0.github.io](https://img.shields.io/static/v1?label=sudoku0&message=sudoku0.github.io&color=red&logo=github)](https://github.com/sudoku0/sudoku0.github.io)
+[![sudoker0 - sudoker0.github.io](https://img.shields.io/static/v1?label=sudoker0&message=sudoker0.github.io&color=red&logo=github)](https://github.com/sudoker0/sudoker0.github.io)
 [![License](https://img.shields.io/badge/License-MIT-red)](#-license)
-[![stars - sudoku0.github.io](https://img.shields.io/github/stars/sudoku0/sudoku0.github.io?style=social)](https://github.com/sudoku0/sudoku0.github.io)
-[![forks - sudoku0.github.io](https://img.shields.io/github/forks/sudoku0/sudoku0.github.io?style=social)](https://github.com/sudoku0/sudoku0.github.io)
+[![stars - sudoker0.github.io](https://img.shields.io/github/stars/sudoker0/sudoker0.github.io?style=social)](https://github.com/sudoker0/sudoker0.github.io)
+[![forks - sudoker0.github.io](https://img.shields.io/github/forks/sudoker0/sudoker0.github.io?style=social)](https://github.com/sudoker0/sudoker0.github.io)
 
-[![CodeQL](https://github.com/sudoku0/sudoku0.github.io/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/sudoku0/sudoku0.github.io/actions/workflows/codeql-analysis.yml)
-[![Update Website Information](https://github.com/sudoku0/sudoku0.github.io/actions/workflows/update_site_info.yml/badge.svg)](https://github.com/sudoku0/sudoku0.github.io/actions/workflows/main.yml)
-[![pages-build-deployment](https://github.com/sudoku0/sudoku0.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/sudoku0/sudoku0.github.io/actions/workflows/pages/pages-build-deployment)
+[![CodeQL](https://github.com/sudoker0/sudoker0.github.io/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/sudoker0/sudoker0.github.io/actions/workflows/codeql-analysis.yml)
+[![Update Website Information](https://github.com/sudoker0/sudoker0.github.io/actions/workflows/update_site_info.yml/badge.svg)](https://github.com/sudoker0/sudoker0.github.io/actions/workflows/main.yml)
+[![pages-build-deployment](https://github.com/sudoker0/sudoker0.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/sudoker0/sudoker0.github.io/actions/workflows/pages/pages-build-deployment)
 
 ## Welcome to my first ever repository and also my first ever website (And also my favourite repository) in GitHub.
 
@@ -107,4 +107,4 @@ while (true) {
 20 GOTO 10
 ```
 
-**2023 sudoku0 (QuanMCPC)**
+**2023 sudoker0 (QuanMCPC)**

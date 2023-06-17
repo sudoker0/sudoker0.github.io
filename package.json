@@ -1,17 +1,17 @@
 {
-  "name": "sudoku0.github.io",
+  "name": "sudoker0.github.io",
   "version": "1.0.0",
   "description": "My Very First Website",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sudoku0/sudoku0.github.io.git"
+    "url": "git+https://github.com/sudoker0/sudoker0.github.io.git"
   },
-  "author": "sudoku0",
+  "author": "sudoker0",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sudoku0/sudoku0.github.io/issues"
+    "url": "https://github.com/sudoker0/sudoker0.github.io/issues"
   },
-  "homepage": "https://github.com/sudoku0/sudoku0.github.io#readme",
+  "homepage": "https://github.com/sudoker0/sudoker0.github.io#readme",
   "devDependencies": {
     "@types/node": "^18.7.16",
     "@types/node-dir": "^0.0.34",
