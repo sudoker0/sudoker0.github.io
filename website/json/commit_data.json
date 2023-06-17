@@ -3,6 +3,24 @@
     "last_update_on": "2023-06-17",
     "data": [
         {
+            "hash": "e3846ac",
+            "committer": "QuanMCPC",
+            "commit_date": 1687011975,
+            "message": "Merge branch 'master' of https://github.com/sudoku0/sudoku0.github.io"
+        },
+        {
+            "hash": "aafd30b",
+            "committer": "QuanMCPC",
+            "commit_date": 1687011971,
+            "message": "more change"
+        },
+        {
+            "hash": "c78f619",
+            "committer": "sudoker0",
+            "commit_date": 1687011691,
+            "message": "Update website's information"
+        },
+        {
             "hash": "aba2248",
             "committer": "QuanMCPC",
             "commit_date": 1687011584,
