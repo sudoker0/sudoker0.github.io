@@ -3,6 +3,18 @@
     "last_update_on": "2023-06-17",
     "data": [
         {
+            "hash": "1c27523",
+            "committer": "GitHub",
+            "commit_date": 1686976433,
+            "message": "Update ReadMe.md"
+        },
+        {
+            "hash": "038fd95",
+            "committer": "QuanMCPC",
+            "commit_date": 1686976020,
+            "message": "Update website's information"
+        },
+        {
             "hash": "9fb7d5a",
             "committer": "QuanMCPC",
             "commit_date": 1686975966,
