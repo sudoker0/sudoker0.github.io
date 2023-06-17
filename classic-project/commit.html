@@ -112,7 +112,7 @@
         function getId(id) { return document.getElementById(id) };
         function fetch_() {
             getId("rateLimit_content").innerHTML = "Getting data from GitHub...";
-            fetch("https://api.github.com/repos/QuanMCPC/QuanMCPC.github.io/stats/contributors", { headers: {"Authorization": `token ${key}`} })
+            fetch("https://api.github.com/repos/sudoku0/sudoku0.github.io/stats/contributors", { headers: {"Authorization": `token ${key}`} })
                 .then(e => e.json())
                 .then(f => {
                     fetch("https://api.github.com/rate_limit", { headers: {"Authorization": `token ${key}`} })
