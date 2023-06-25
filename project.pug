@@ -23,6 +23,9 @@ html(lang="en")
                 hr
                 p #[span.tc-purple List of projects] that I'm proud of. Be sure to check them out, and also #[span.tc-green the rest of my project] below!
                 div
+                    +collapsecontent("Discord Message Scraper", "project")
+                        p Here is the #[a(target="_blank" href="https://github.com/sudoker0/DiscordMessageScraper") link to the source code]
+                        p Description: A NodeJS program which allow you to download messages from channels in servers.
                     +collapsecontent("April Fools 2023: DPRK VPN", "notable")
                         p Here is the #[a(target="_blank" href="/project.dprk-vpn/index.html") link to view the project]
                         p Description: A VPN which allow you to browse the best Internet created by the DPRK.
@@ -90,13 +93,16 @@ html(lang="en")
                             p Description: My very first game created in Unity where you eat chicken to get points and eat bomb to lose point and get shoot up to the sky.
 
                     +collapsecontent("Program")
+                        +collapsecontent("Discord Message Scraper", "project")
+                                p Here is the #[a(target="_blank" href="https://github.com/sudoker0/DiscordMessageScraper") link to the source code]
+                                p Description: A NodeJS program which allow you to download messages from channels in servers.
                         +collapsecontent("Dead Chat Tracker (DCT) - A Discord Bot", "project notable")
                             p Here is the #[a(target="_blank" href="https://github.com/sudoker0/project.discord-dead-chat-bot.bot") link to the source code]
                             p Description: A Discord bot made for only one purpose, and that is to track how long the channels of a server has died.
                         +collapsecontent("Better Tuxedo Keyboard Backlight Controller", "project")
                             p Here is the #[a(target="_blank" href="https://github.com/sudoker0/TuxedoBacklightController") link to the source code]
                             p Description: A program which allow user to change their keyboard backlight color, as long as they have the Tuxedo/Clevo compatible keyboard and appropriate #[a(target="_blank" href="https://github.com/tuxedocomputers/tuxedo-keyboard") kernal modules].
-                        +collapsecontent("Get Discord Message as JSON", "project")
+                        +collapsecontent("[DEPRECATED] Get Discord Message as JSON", "project")
                             p Here is the #[a(target="_blank" href="https://github.com/sudoker0/Get_Discord_MSG") link to the source code]
                             p Description: A NodeJS project to get the chat message of any channels in any server/person as JSON data.
                         +collapsecontent("GTPL (Guess The Programming Language)", "project")
