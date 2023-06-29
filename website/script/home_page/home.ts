@@ -34,7 +34,7 @@ qSel<HTMLElement>("#claim_gift").onclick = async () => {
     qSel<HTMLElement>("#claim_gift").style.animation = "none";
 
     await wait(1500);
-    var gift_svg = qSel(`div#gift_item_${gift} img`) as SVGElement;
+    var gift_svg = qSel<SVGElement>(`div#gift_item_${gift} img`)
     var somestring = qSel("div#gift_thatsmygift_dialog p") as HTMLParagraphElement;
     qSel<HTMLElement>("#gift_thatsmygift_dialog").style.display = "block";
 

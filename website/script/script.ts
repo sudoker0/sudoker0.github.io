@@ -24,7 +24,7 @@ HTMLElement.prototype.replace = function (data: Template, prefix: string = "$_")
  * @param selector CSS selector to select the element
  * @returns The element
  */
-function qSel<T extends HTMLElement>(selector: string) { return document.querySelector<T>(selector) }
+function qSel<T extends Element>(selector: string) { return document.querySelector<T>(selector) }
 
 /**
  * Returns all element descendants of node that match selectors.
