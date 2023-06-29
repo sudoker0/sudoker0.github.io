@@ -23,7 +23,7 @@ html(lang="en")
                 hr
                 p #[span.tc-purple List of projects] that I'm proud of. Be sure to check them out, and also #[span.tc-green the rest of my project] below!
                 div
-                    +collapsecontent("Discord Message Scraper", "project")
+                    +collapsecontent("Discord Message Scraper", "notable")
                         p Here is the #[a(target="_blank" href="https://github.com/sudoker0/DiscordMessageScraper") link to the source code]
                         p Description: A NodeJS program which allow you to download messages from channels in servers.
                     +collapsecontent("April Fools 2023: DPRK VPN", "notable")
@@ -43,10 +43,13 @@ html(lang="en")
                 p#number_of_projects.use_js Number of projects: $_num_of_projects
                 div
                     +collapsecontent("Web")
-                        +collapsecontent("April Fools 2023: DPRK VPN", "project notable")
+                        +collapsecontent("DVD Screensaver", "project")
+                            p Here is the #[a(target="_blank" href="/project.dprk-vpn/index.html") link to view the project]
+                            p Description: A web screensaver with an image that bounces around
+                        +collapsecontent("April Fools 2023: DPRK VPN", "project")
                             p Here is the #[a(target="_blank" href="/project.dprk-vpn/index.html") link to view the project]
                             p Description: A VPN which allow you to browse the best Internet created by the DPRK.
-                        +collapsecontent("Guess The GIF", "project notable")
+                        +collapsecontent("Guess The GIF", "project")
                             p Here is the #[a(target="_blank" href="/project.guess-the-gif/index.html") link to view the project]
                             p Description: A game about guessing GIF (or JIF i guess)
                         +collapsecontent("No \"Nutella\" November Challenge Tracker", "project")
