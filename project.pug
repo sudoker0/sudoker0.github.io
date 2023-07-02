@@ -1,15 +1,10 @@
 html(lang="en")
     head
         include template/_pmod_head_metadata.pug
-
-        meta(property="og:url", content="/home.html")
-        meta(property="og:title", content="sudoker0.project()")
-        meta(property="og:description", content="List of my projects")
-        meta(name="description", content="List of my projects")
+        +og_generator("sudoker0.project()", "List of my projects", "/project.html")
 
         link(rel="stylesheet", href="/website/style/project_page/project.css")
         script(src="/website/script/project_page/project.js" defer)
-        title sudoker0.project()
 
     body(data-js="false")
         include template/_pmod_preload.pug

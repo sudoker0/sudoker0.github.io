@@ -1,15 +1,10 @@
 html(lang="en")
     head
         include template/_pmod_head_metadata.pug
-
-        meta(property="og:url", content="/home.html")
-        meta(property="og:title", content="sudoker0.home()")
-        meta(property="og:description", content="Home page of the website")
-        meta(name="description", content="Home page of the website")
+        +og_generator("sudoker0.home()", "Homepage of the website", "/home.html")
 
         link(rel="stylesheet", href="/website/style/home_page/home.css")
         script(src="/website/script/home_page/home.js" defer)
-        title sudoker0.home()
 
     body(data-js="false")
         include template/_pmod_preload.pug

@@ -1,15 +1,10 @@
 html(lang="en")
     head
         include template/_pmod_head_metadata.pug
-
-        meta(property="og:url", content="/contacts.html")
-        meta(property="og:title", content="sudoker0.contacts()")
-        meta(property="og:description", content="Contact info")
-        meta(name="description", content="Contact info")
+        +og_generator("sudoker0.contacts()", "Contact info", "/contacts.html")
 
         link(rel="stylesheet", href="/website/style/contacts_page/contacts.css")
         script(src="/website/script/contacts_page/contacts.js" defer)
-        title sudoker0.contacts()
 
     body(data-js="false")
         include template/_pmod_preload.pug

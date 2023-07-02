@@ -1,15 +1,10 @@
 html(lang="en")
     head
         include template/_pmod_head_metadata.pug
-
-        meta(property="og:url", content="/info.html")
-        meta(property="og:title", content="sudoker0.info()")
-        meta(property="og:description", content="Information about the website")
-        meta(name="description", content="Information about the website")
+        +og_generator("sudoker0.info()", "Information about the website", "/info.html")
 
         link(rel="stylesheet", href="/website/style/info_page/info.css")
         script(src="/website/script/info_page/info.js" defer)
-        title sudoker0.info()
 
     body(data-js="false")
         include template/_pmod_preload.pug
