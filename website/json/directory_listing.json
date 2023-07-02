@@ -726,6 +726,14 @@
                             "type": "file"
                         },
                         {
+                            "name": "old2_social_image.xcf",
+                            "type": "file"
+                        },
+                        {
+                            "name": "old2_social_preview.png",
+                            "type": "file"
+                        },
+                        {
                             "name": "plus.svg",
                             "type": "file"
                         },
@@ -734,15 +742,15 @@
                             "type": "file"
                         },
                         {
-                            "name": "social_image.xcf",
-                            "type": "file"
-                        },
-                        {
                             "name": "social_preview.png",
                             "type": "file"
                         },
                         {
                             "name": "social_preview.png.old",
+                            "type": "file"
+                        },
+                        {
+                            "name": "social_preview.xcf",
                             "type": "file"
                         },
                         {
