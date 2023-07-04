@@ -44,54 +44,6 @@
             "type": "file"
         },
         {
-            "name": ".gitmodules",
-            "type": "file"
-        },
-        {
-            "name": ".vs",
-            "type": "directory",
-            "children": [
-                {
-                    "name": "ProjectSettings.json",
-                    "type": "file"
-                },
-                {
-                    "name": "QuanMCPC.github.io",
-                    "type": "directory",
-                    "children": [
-                        {
-                            "name": "config",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "applicationhost.config",
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "v16",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": ".suo",
-                                    "type": "file"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": "VSWorkspaceState.json",
-                    "type": "file"
-                },
-                {
-                    "name": "slnx.sqlite",
-                    "type": "file"
-                }
-            ]
-        },
-        {
             "name": ".vscode",
             "type": "directory",
             "children": [
@@ -119,10 +71,6 @@
         },
         {
             "name": "ReadMe.md",
-            "type": "file"
-        },
-        {
-            "name": "_manifest.json.old",
             "type": "file"
         },
         {
@@ -172,10 +120,6 @@
             "type": "file"
         },
         {
-            "name": "dir_listing.html",
-            "type": "file"
-        },
-        {
             "name": "google0d0804a11aec577f.html",
             "type": "file"
         },
@@ -202,6 +146,102 @@
         {
             "name": "info.pug",
             "type": "file"
+        },
+        {
+            "name": "old",
+            "type": "directory",
+            "children": [
+                {
+                    "name": "Redstone.png",
+                    "type": "file"
+                },
+                {
+                    "name": "Redstone.svg",
+                    "type": "file"
+                },
+                {
+                    "name": "_manifest.json.old",
+                    "type": "file"
+                },
+                {
+                    "name": "arrow.svg",
+                    "type": "file"
+                },
+                {
+                    "name": "circuit_board.png",
+                    "type": "file"
+                },
+                {
+                    "name": "circuit_board.svg",
+                    "type": "file"
+                },
+                {
+                    "name": "circuit_board_modified.png",
+                    "type": "file"
+                },
+                {
+                    "name": "logo_long.svg",
+                    "type": "file"
+                },
+                {
+                    "name": "noice.jpg",
+                    "type": "file"
+                },
+                {
+                    "name": "old2_social_image.xcf",
+                    "type": "file"
+                },
+                {
+                    "name": "old2_social_preview.png",
+                    "type": "file"
+                },
+                {
+                    "name": "old_logo",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "favicon.ico",
+                            "type": "file"
+                        },
+                        {
+                            "name": "loading.gif",
+                            "type": "file"
+                        },
+                        {
+                            "name": "logo.png",
+                            "type": "file"
+                        },
+                        {
+                            "name": "logo.svg",
+                            "type": "file"
+                        },
+                        {
+                            "name": "logo_rotate.gif",
+                            "type": "file"
+                        },
+                        {
+                            "name": "logo_rotate.xcf",
+                            "type": "file"
+                        },
+                        {
+                            "name": "redstone_dust_icon.svg",
+                            "type": "file"
+                        }
+                    ]
+                },
+                {
+                    "name": "secret_.png",
+                    "type": "file"
+                },
+                {
+                    "name": "sitemap.xml",
+                    "type": "file"
+                },
+                {
+                    "name": "social_preview.png.old",
+                    "type": "file"
+                }
+            ]
         },
         {
             "name": "package-lock.json",
@@ -334,6 +374,10 @@
                     ]
                 },
                 {
+                    "name": "dir_listing.html",
+                    "type": "file"
+                },
+                {
                     "name": "discord_tag.html",
                     "type": "file"
                 },
@@ -436,10 +480,6 @@
             ]
         },
         {
-            "name": "sitemap.xml",
-            "type": "file"
-        },
-        {
             "name": "template",
             "type": "directory",
             "children": [
@@ -513,30 +553,6 @@
                     "name": "image",
                     "type": "directory",
                     "children": [
-                        {
-                            "name": "Redstone.png",
-                            "type": "file"
-                        },
-                        {
-                            "name": "Redstone.svg",
-                            "type": "file"
-                        },
-                        {
-                            "name": "arrow.svg",
-                            "type": "file"
-                        },
-                        {
-                            "name": "circuit_board.png",
-                            "type": "file"
-                        },
-                        {
-                            "name": "circuit_board.svg",
-                            "type": "file"
-                        },
-                        {
-                            "name": "circuit_board_modified.png",
-                            "type": "file"
-                        },
                         {
                             "name": "contact_page",
                             "type": "directory",
@@ -654,66 +670,6 @@
                                 {
                                     "name": "logo.xcf",
                                     "type": "file"
-                                },
-                                {
-                                    "name": "old_logo",
-                                    "type": "directory",
-                                    "children": [
-                                        {
-                                            "name": "favicon.ico",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "loading.gif",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "logo.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "logo.svg",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "logo_rotate.gif",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "logo_rotate.xcf",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "redstone_dust_icon.svg",
-                                            "type": "file"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "name": "logo_long.svg",
-                            "type": "file"
-                        },
-                        {
-                            "name": "manifest",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "archive.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "contacts.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "home.png",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "info.png",
-                                    "type": "file"
                                 }
                             ]
                         },
@@ -722,31 +678,11 @@
                             "type": "file"
                         },
                         {
-                            "name": "noice.jpg",
-                            "type": "file"
-                        },
-                        {
-                            "name": "old2_social_image.xcf",
-                            "type": "file"
-                        },
-                        {
-                            "name": "old2_social_preview.png",
-                            "type": "file"
-                        },
-                        {
                             "name": "plus.svg",
                             "type": "file"
                         },
                         {
-                            "name": "secret_.png",
-                            "type": "file"
-                        },
-                        {
                             "name": "social_preview.png",
-                            "type": "file"
-                        },
-                        {
-                            "name": "social_preview.png.old",
                             "type": "file"
                         },
                         {
