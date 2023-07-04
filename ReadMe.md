@@ -1,12 +1,6 @@
-<h1 style="text-align: center"></h1>
-
 ![sudoker0's Website](https://sudoker0.github.io/website/image/social_preview.png)
 
-<p align="center">
-    <a href="https://sudoker0.github.io">
-        <h2 align="center">sudoker0.github.io</h2>
-    </a>
-</p>
+# sudoker0's website
 
 [![sudoker0 - sudoker0.github.io](https://img.shields.io/static/v1?label=sudoker0&message=sudoker0.github.io&color=red&logo=github)](https://github.com/sudoker0/sudoker0.github.io)
 [![License](https://img.shields.io/badge/License-MIT-red)](#-license)
@@ -17,22 +11,58 @@
 [![Update Website Information](https://github.com/sudoker0/sudoker0.github.io/actions/workflows/update_site_info.yml/badge.svg)](https://github.com/sudoker0/sudoker0.github.io/actions/workflows/main.yml)
 [![pages-build-deployment](https://github.com/sudoker0/sudoker0.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/sudoker0/sudoker0.github.io/actions/workflows/pages/pages-build-deployment)
 
-## Welcome to my first ever repository and also my first ever website (And also my favourite repository) in GitHub.
+## Info
+Hello! This is a personal website which is also one of my earliest repository on my account. The main purpose of this website is to show information about me, project I've created and other relevant information.
 
-> ~~Important Note: The domain `https://quanmcpc.site` is privately funded and not by me funded.~~
+Feel free to create an issue or pull request to fix bugs or grammatical error on my website. Although if you wish to make a pull requests, refer to the [Setting up](#setting-up) section for information on how to set up the website for local development.
 
-### I. Why do I need a website?
-Because it's the best way to show my works and my skills to the world. Also because it's fun to create one, even if no one gonna see it.
+## Program/Tools used in the website
+- For writing source code: VSCode
+- For vector graphics (SVG): Inkscape
+- For images (PNG): GIMP
+- Tools: Git, Node, NPM
 
-### II. What tool did I use?
-- For writing source code: Visual Studio Code, Neovim
-- For making SVG graphics: Inkscape
-- For making PNG images: GIMP
-- For testing website: Firefox
-- For publishing website: GitHub Pages
-- Some other tool includes: Git, GitHub Actions, etc.
+## Setting up
+How to setup the website for local development:
 
-### III. Can you provide us with technical details?
+0. Make sure the following programs are installed:
+    - Git
+    - Node
+    - NPM
+    - VSCode (not required, but recommended)
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/sudoker0/sudoker0.github.io
+    ```
+2. Install the dependencies:
+    ```bash
+    cd sudoker0.github.io/ # in case you haven't change directory to the root of the website
+    npm install
+    ```
+3. Running the build program:
+    - For VSCode users:
+        - Open the project folders (`File -> Open Folder` or `File -> Add Folder to Workspace` (if you have an existing workspace))
+        - Open the build tasks (`Ctrl + Shift + B` or `Ctrl + Shift + P (to open the command palette) -> "Tasks: Run Build Task"`)
+        - Run the build tasks by running the `build and watch all` tasks
+    - For non-VSCode users:
+        - To build Pug files:
+        ```bash
+        node tools/compilePug.js -p "../" --watch
+        ```
+        - To build SCSS files:
+        ```bash
+        npx sass . --style compressed --source-map --watch
+        ```
+        - To build TypeScript files:
+        ```
+        npx tsc --watch
+        ```
+        (All of the build command above will watch for changes and auto build them for you indefinitely. To only build once, remove the `--watch` arguments)
+4. Host the website locally:
+    - For VSCode users: `Live Server` extension is recommended, although you can use other extensions to host the site.
+    - For non-VSCode users: You can use any web server program available, as long as you can set it up.
+
+## Details about my website
 
 > **Details about the size of each type of file in the website**
 <!--python_data_start-->
@@ -73,39 +103,18 @@ File Extensions | Percentages of Bytes | Number of files | File/Folder size (Byt
 > **Details about the website's creation**
 - First commit is created on July 16th, 2020 at 16:35:00 (GMT+0)
 - Website came to life 33 seconds after the initial commit.
-- Commit hash for the first two commit:
-    - #1: `777b1c7cd0e6a129c1776f41465de0c9a8eabea4`
-    - #2: `64a220caf1ac06f9028b6c7fc11f6f50487f3f59`
+- Commit hash for my first commit: `777b1c7cd0e6a129c1776f41465de0c9a8eabea4`
 - Original domain: `Quan215.github.io`
 - The first week since the creation of the website still has the most commits then any other weeks, even today.
 
-### IV. License info
+## License info
 - Source code on the website is licensed under the [MIT license](/LICENSE)
 - Images in the website are licensed under the [CC BY-SA 4.0 license](http://creativecommons.org/licenses/by-sa/4.0/)
 - External media (like images, videos, etc.) that are under different licenses will be listed in the [CREDITS](/CREDITS.md) file
 
-### V. Random stuff
-> JavaScript Loop Code
-```JavaScript
-while(1) {
-    console.log("Loop!");
-}
-```
-> Python Loop Code
-```Python
-while True:
-    print("Loop!")
-```
-> C++ Loop Code
-```c++
-while (true) {
-    cout << "Loop!" << endl;
-}
-```
-> I forgot what is this language but I can tell you, this is a loop code
-```basic
-10 PRINT "Loop!"
-20 GOTO 10
+## Random stuff
+```bf
+-[--->+<]>-.-[--->+<]>--.-----------.---.+[--->+<]>+++.-[---->+<]>++.-[--->++<]>-.++++++++++.+[---->+<]>+++.---[->++++<]>.------------.---.--[--->+<]>-.---[->++++<]>.-----.--.++.+++..---.++++++++.+[---->+<]>++.--[->++++<]>+.----------.++++++.-[---->+<]>+++.--[->++++<]>-.--------.+++..---------.----.-.-[--->+<]>-.[->+++<]>+.+.+++++++++++++.++++++.-.[---->+<]>+++.--[->++++<]>+.--[->+++<]>.[--->+<]>----.+.+++[->+++<]>.+++++++++++++.--------------.---.+[--->+<]>+++.-----[++>---<]>.
 ```
 
-**2023 sudoker0 (QuanMCPC)**
+**2023 sudoker0 (QuanMCPC). Website made with 50% love, 48% hard work, and 2% sugar:)**
