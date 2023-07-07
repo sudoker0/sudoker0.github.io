@@ -8,20 +8,20 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const content = `// very cool intro:)
-^003$
+^052$
 import { buttonStyle } from "./style.js"
 
-^003$
+^052$
 const website = new sudoker0.website()
 const home_page = website.home
 
-^003$
+^052$
 const a_tag = document.createElement("a")
 a_tag.innerText = "Home"
 a_tag.href = home_page.url
 a_tag.style = buttonStyle
 
-^003$
+^052$
 this.append(a_tag)
 
 ^0001$
@@ -67,9 +67,12 @@ function typeWriter(text) {
         }
     });
 }
-(() => __awaiter(this, void 0, void 0, function* () {
-    yield delay(1000);
+onload = () => __awaiter(this, void 0, void 0, function* () {
+    document.querySelectorAll(".label").forEach(v => {
+        v.classList.add("nohide");
+    });
+    yield delay(700);
     yield typeWriter(content);
     yield postTyping();
-}))();
+});
 //# sourceMappingURL=index.js.map
