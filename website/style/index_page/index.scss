@@ -90,3 +90,9 @@ a {
         opacity: 1;
     }
 }
+
+@media (max-width: 600px) {
+    body {
+        font-size: 1rem;
+    }
+}
