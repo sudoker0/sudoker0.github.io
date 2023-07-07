@@ -2,26 +2,22 @@ html(lang="en")
     head
         //- Слава Україні
         include template/_pmod_head_metadata.pug
-        +og_generator("sudoker0", "const website = new sudoker0()", "https://sudoker0.github.io/")
+        +og_generator("sudoker0", "const website = new sudoker0.website()", "https://sudoker0.github.io/")
 
         link(rel="stylesheet", href="/website/style/index_page/index.css")
         script(src="/website/script/index_page/index.js" defer)
 
     body(data-js="false")
         //- For verification
-        a(rel="me" href="https://mastodon.world/@quanmcpc" aria-hidden="true")
+        a.verification(rel="me" href="https://mastodon.world/@quanmcpc" aria-hidden="true")
         include template/_pmod_preload.pug
         include template/_pmod_noscript.pug
-        .dialog: div
-            h1 sudoker0's Website
-            h2 Captcha Test
-            p Due to the sudden increase in traffic (around five visits per day), I have implemented a captcha check to ensure only humans can enter. Please solve the captcha to enter the website.
-            p.notice_captcha_js: b (unable to detect javascript, captcha has been disabled)
-            .captcha_test(data-captcha-id="gotowebsitecheck")
-                .captcha_checkbox
-                    label.checkbox_container
-                        input(type="checkbox")
-                        span.checkbox_checkmark
-                .captcha_text
-                    p i no robot, i human
-            a(href="home.html" class="captcha_submit" data-submit-id="gotowebsitecheck") Submit
+
+        pre#codeblock
+            p.label Editor
+            code.language-javascript
+            span.cursor _
+        div#console
+            p.label Console
+            p#running.hidden -> Running...
+            a#redirect.hidden(aria-hidden="true", href="home.html") Home

@@ -1,73 +1,51 @@
-(() => {
-    onload = () => {
-        document.querySelector("div.dialog").setAttribute("data-show", "true");
-    };
-    var cheat_pos = 0;
-    const captcha_event = {
-        "gotowebsitecheck": {
-            "allow": (redirect) => {
-                location.replace(redirect);
-            },
-            "deny": () => {
-                alert("error: please solve the captcha");
-            }
-        }
-    };
-    const cheat_code = [
-        0x51, 0x58, 0x4a, 0x79, 0x62, 0x33,
-        0x64, 0x56, 0x63, 0x48, 0x78, 0x42,
-        0x63, 0x6e, 0x4a, 0x76, 0x64, 0x31,
-        0x56, 0x77, 0x66, 0x45, 0x46, 0x79,
-        0x63, 0x6d, 0x39, 0x33, 0x52, 0x47,
-        0x39, 0x33, 0x62, 0x6e, 0x78, 0x42,
-        0x63, 0x6e, 0x4a, 0x76, 0x64, 0x30,
-        0x52, 0x76, 0x64, 0x32, 0x35, 0x38,
-        0x51, 0x58, 0x4a, 0x79, 0x62, 0x33,
-        0x64, 0x4d, 0x5a, 0x57, 0x5a, 0x30,
-        0x66, 0x45, 0x46, 0x79, 0x63, 0x6d,
-        0x39, 0x33, 0x55, 0x6d, 0x6c, 0x6e,
-        0x61, 0x48, 0x52, 0x38, 0x51, 0x58,
-        0x4a, 0x79, 0x62, 0x33, 0x64, 0x4d,
-        0x5a, 0x57, 0x5a, 0x30, 0x66, 0x45,
-        0x46, 0x79, 0x63, 0x6d, 0x39, 0x33,
-        0x55, 0x6d, 0x6c, 0x6e, 0x61, 0x48,
-        0x52, 0x38, 0x53, 0x32, 0x56, 0x35,
-        0x51, 0x6e, 0x78, 0x4c, 0x5a, 0x58,
-        0x6c, 0x42
-    ];
-    document.onkeydown = (ev) => {
-        const code = atob(cheat_code.map(v => String.fromCharCode(v)).join("")).split("|");
-        if (ev.code == code[cheat_pos])
-            cheat_pos++;
-        else
-            cheat_pos = 0;
-        if (code.length == cheat_pos) {
-            cheat_pos = 0;
-            alert("cheat activated! now bypassing the captcha");
-            document.querySelector("div.captcha_test[data-captcha-id=gotowebsitecheck] input")["click"]();
-            document.querySelector("a[data-submit-id=gotowebsitecheck]")["click"]();
-        }
-    };
-    document.querySelectorAll("a.captcha_submit")
-        .forEach(v => {
-        const redirect = v["href"];
-        v["href"] = "#";
-        const id = v.getAttribute("data-submit-id");
-        const captcha = document.querySelector(`div.captcha_test[data-captcha-id=${id}]`);
-        if (!!!captcha) {
-            console.warn(`Can't find captcha with ID: ${id}`);
-            return;
-        }
-        v.addEventListener("click", (ev) => {
-            ev.preventDefault();
-            const checkbox = captcha.querySelector(".checkbox_container input");
-            if (checkbox.checked) {
-                captcha_event[id].allow(redirect);
-            }
-            else {
-                captcha_event[id].deny();
-            }
-        });
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
-})();
+};
+const content = `// very cool intro:)
+import { buttonStyle } from "./style.js"
+
+const website = new sudoker0.website()
+const home_page = website.home
+
+const a_tag = document.createElement("a")
+a_tag.innerText = "Home"
+a_tag.href = home_page.url
+a_tag.style = buttonStyle
+
+this.append(a_tag)
+
+//#run_console`;
+const typingDelay = 15;
+function delay(ms) {
+    return new Promise(resolve => setTimeout(_ => resolve(), ms));
+}
+function postTyping() {
+    return __awaiter(this, void 0, void 0, function* () {
+        yield delay(1000);
+        document.querySelector("p#running").classList.remove("hidden");
+        yield delay(1000);
+        document.querySelector("a#redirect").classList.remove("hidden");
+    });
+}
+(() => __awaiter(this, void 0, void 0, function* () {
+    let indexOfString = 0;
+    yield delay(500);
+    const typingInterval = setInterval(() => __awaiter(this, void 0, void 0, function* () {
+        if (indexOfString < content.length) {
+            const char = content.charAt(indexOfString);
+            document.querySelector("pre#codeblock code").textContent += char;
+            indexOfString++;
+        }
+        else {
+            clearInterval(typingInterval);
+            yield postTyping();
+        }
+    }), typingDelay);
+}))();
 //# sourceMappingURL=index.js.map
