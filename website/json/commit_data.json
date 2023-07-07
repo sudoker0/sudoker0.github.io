@@ -3,6 +3,18 @@
     "last_update_on": "2023-07-07",
     "data": [
         {
+            "hash": "44beb1c",
+            "committer": "QuanMCPC",
+            "commit_date": 1688717084,
+            "message": "fix issue with font and some quality of life improvement"
+        },
+        {
+            "hash": "bea6ef5",
+            "committer": "sudoker0",
+            "commit_date": 1688707055,
+            "message": "Update website's information"
+        },
+        {
             "hash": "3e5e522",
             "committer": "QuanMCPC",
             "commit_date": 1688707023,
