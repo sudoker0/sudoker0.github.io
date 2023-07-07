@@ -2,6 +2,18 @@
 
 body {
     font-size: 1.25rem;
+
+    &[data-js=false] {
+        p#running, a#redirect {
+            display: block !important;
+        }
+    }
+
+    &[data-js=true] {
+        code.fallback {
+            display: none;
+        }
+    }
 }
 
 .hidden {
