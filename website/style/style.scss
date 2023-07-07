@@ -35,6 +35,9 @@ body {
 
     background-color: var(--color-bg);
     color: var(--color-fg);
+}
+
+body, pre, code {
     font-family: "Noto Sans Mono", monospace;
 }
 
