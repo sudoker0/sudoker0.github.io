@@ -68,34 +68,34 @@ How to setup the website for local development:
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\*\* | 100.0% | 0 files | 291,262,686 bytes
-\* | 0.01% | 12 files | 22,119 bytes
-\*.css | 0.01% | 8 files | 22,016 bytes
+\*\* | 100.0% | 0 files | 291,269,262 bytes
+\* | 0.01% | 12 files | 22,299 bytes
+\*.css | 0.01% | 8 files | 20,979 bytes
 \*.gif | 0.16% | 2 files | 477,306 bytes
-\*.html | 0.17% | 30 files | 486,058 bytes
+\*.html | 0.17% | 30 files | 485,679 bytes
 \*.ico | 0.04% | 2 files | 112,342 bytes
-\*.idx | 0.11% | 1 files | 306,328 bytes
+\*.idx | 0.11% | 1 files | 306,972 bytes
 \*.jpg | 0.0% | 1 files | 5,529 bytes
-\*.js | 0.01% | 9 files | 37,479 bytes
-\*.json | 0.14% | 8 files | 419,407 bytes
-\*.map | 0.01% | 16 files | 37,829 bytes
-\*.md | 0.0% | 2 files | 6,740 bytes
+\*.js | 0.01% | 9 files | 36,786 bytes
+\*.json | 0.14% | 8 files | 416,580 bytes
+\*.map | 0.01% | 16 files | 35,600 bytes
+\*.md | 0.0% | 2 files | 6,654 bytes
 \*.mp3 | 0.0% | 1 files | 9,069 bytes
 \*.old | 0.19% | 2 files | 553,570 bytes
-\*.pack | 96.55% | 1 files | 281,215,983 bytes
+\*.pack | 96.55% | 1 files | 281,233,006 bytes
 \*.png | 0.64% | 23 files | 1,860,617 bytes
-\*.pug | 0.01% | 12 files | 40,628 bytes
+\*.pug | 0.01% | 12 files | 40,150 bytes
 \*.py | 0.01% | 3 files | 33,182 bytes
-\*.rev | 0.01% | 1 files | 43,660 bytes
+\*.rev | 0.02% | 1 files | 43,752 bytes
 \*.sample | 0.01% | 14 files | 25,821 bytes
-\*.scss | 0.01% | 8 files | 22,425 bytes
+\*.scss | 0.01% | 8 files | 20,359 bytes
 \*.svg | 0.05% | 29 files | 153,598 bytes
-\*.ts | 0.01% | 9 files | 37,383 bytes
+\*.ts | 0.01% | 9 files | 35,815 bytes
 \*.ttf | 0.35% | 5 files | 1,011,420 bytes
 \*.xcf | 1.48% | 4 files | 4,314,841 bytes
 \*.xml | 0.0% | 1 files | 835 bytes
 \*.yml | 0.0% | 5 files | 6,400 bytes
-> Last updated on: 2023-07-04
+> Last updated on: 2023-07-07
 <!--python_data_stop-->
 
 > **Details about the website's creation**
