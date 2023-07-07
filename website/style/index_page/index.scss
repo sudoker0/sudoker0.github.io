@@ -30,8 +30,11 @@ a.verification {
 }
 
 @keyframes blinking {
-    0% {
+    from, to {
         opacity: 0;
+    }
+    50% {
+        opacity: 1;
     }
 }
 
@@ -52,7 +55,7 @@ pre#codeblock {
 }
 
 span.cursor {
-    animation: blinking 1s steps(2) infinite;
+    animation: blinking 1s step-end infinite;
 }
 
 a {
@@ -80,7 +83,7 @@ a {
     color: var(--color-bg);
     margin: 16px 0;
     padding: 8px;
-    transition: all 0.2s;
+    transition: all 0.4s;
 
     &.nohide {
         width: 100%;

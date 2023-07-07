@@ -8,24 +8,26 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const content = `// very cool intro:)
-^052$
+
+^002$
 import { buttonStyle } from "./style.js"
 
-^052$
+^002$
 const website = new sudoker0.website()
 const home_page = website.home
 
-^052$
+^002$
 const a_tag = document.createElement("a")
 a_tag.innerText = "Home"
 a_tag.href = home_page.url
 a_tag.style = buttonStyle
 
-^052$
+^002$
 this.append(a_tag)
 
 ^0001$
-//#console run`;
+//#console run
+`;
 const typingDelay = 15;
 function delay(ms) {
     return new Promise(resolve => setTimeout(_ => resolve(), ms));
