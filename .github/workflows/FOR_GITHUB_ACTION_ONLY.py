@@ -15,54 +15,54 @@ os.chdir(os.getcwd())
 
 # ----------------------[find_size.py]---------------------- #
 
-# A Python script to automate the changing of file info.
-# I don't really care about shrinking the file size down.
-# Copyright (C) 2021 Quan_MCPC, license under MIT license.
+# # A Python script to automate the changing of file info.
+# # I don't really care about shrinking the file size down.
+# # Copyright (C) 2021 Quan_MCPC, license under MIT license.
 
-# Get the total size of folder in [path]
-log("\n========================================\nNow running \"find_size.py\"\n")
-def sizeOfFolder(path = "."):
-    log(f"Calculating the total size of folder: {os.path.abspath(path)}")
-    fp = ""; lite_size = 0
-    for path, _, files in os.walk(path):
-        for f in files:
-            fp = os.path.join(path, f)
-            lite_size += os.path.getsize(fp)
-    log(f"Total size: {str(lite_size)}")
-    return lite_size
+# # Get the total size of folder in [path]
+# log("\n========================================\nNow running \"find_size.py\"\n")
+# def sizeOfFolder(path = "."):
+#     log(f"Calculating the total size of folder: {os.path.abspath(path)}")
+#     fp = ""; lite_size = 0
+#     for path, _, files in os.walk(path):
+#         for f in files:
+#             fp = os.path.join(path, f)
+#             lite_size += os.path.getsize(fp)
+#     log(f"Total size: {str(lite_size)}")
+#     return lite_size
 
-# Get the total size for each file listed in the [pathgroup] array
-def totalSizeOfEachFile(pathgroup = []):
-    sizegroup = 0
-    for path in pathgroup:
-        log(f"Get size of path: {path}")
-        sizegroup += os.path.getsize(path)
-    log(f"Total size: {str(sizegroup)}")
-    return sizegroup
+# # Get the total size for each file listed in the [pathgroup] array
+# def totalSizeOfEachFile(pathgroup = []):
+#     sizegroup = 0
+#     for path in pathgroup:
+#         log(f"Get size of path: {path}")
+#         sizegroup += os.path.getsize(path)
+#     log(f"Total size: {str(sizegroup)}")
+#     return sizegroup
 
-# Format the input number as size string (123456789 => 123,456,789)
-def formatFileSize(sizestring = 0): return re.sub(r"(?!^)(?=(?:\d{3})+(?:\.|$))", ",", str(sizestring))
+# # Format the input number as size string (123456789 => 123,456,789)
+# def formatFileSize(sizestring = 0): return re.sub(r"(?!^)(?=(?:\d{3})+(?:\.|$))", ",", str(sizestring))
 
-# Variable Here
-total_size = sizeOfFolder()
-git_folder_size = sizeOfFolder("./.git")
-assets_size = sizeOfFolder("./website")
+# # Variable Here
+# total_size = sizeOfFolder()
+# git_folder_size = sizeOfFolder("./.git")
+# assets_size = sizeOfFolder("./website")
 
-# JSON data here
-data = {
-    "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "filesize": {
-        "lastupdateon": date.today().strftime("%Y-%m-%d"),
-        "git_folder": formatFileSize(git_folder_size),
-        "assets_folder": formatFileSize(assets_size),
-        "the_rest": formatFileSize(total_size - git_folder_size - assets_size),
-        "total_size": formatFileSize(total_size)
-    }
-}
+# # JSON data here
+# data = {
+#     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
+#     "filesize": {
+#         "lastupdateon": date.today().strftime("%Y-%m-%d"),
+#         "git_folder": formatFileSize(git_folder_size),
+#         "assets_folder": formatFileSize(assets_size),
+#         "the_rest": formatFileSize(total_size - git_folder_size - assets_size),
+#         "total_size": formatFileSize(total_size)
+#     }
+# }
 
-# Dump the JSON data to a file (with indent ofcourse)
-with open("./website/json/website_data.json", "w") as outfile:
-    json.dump(data, outfile, indent=4)
+# # Dump the JSON data to a file (with indent ofcourse)
+# with open("./website/json/website_data.json", "w") as outfile:
+#     json.dump(data, outfile, indent=4)
 
 # ----------------------[find_size.py]---------------------- #
 
@@ -76,7 +76,7 @@ with open("./website/json/website_data.json", "w") as outfile:
 # from subprocess import Popen, PIPE
 # import subprocess
 log("\n========================================\nNow running \"commit.py\"\n")
-command_to_execute = ["git", "log", "--pretty=format:\"%h;%cn;%cd;%s\"", "--date=unix"]
+command_to_execute = ["git", "log", "--pretty=format:\"%H;%cn;%cd;%s\"", "--date=unix"]
 # Run the git command
 if sys.platform == "linux" or sys.platform == "linux2" or sys.platform == "darwin": enableShell = False
 elif sys.platform == "win32": enableShell = True
