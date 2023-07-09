@@ -98,11 +98,129 @@
                     "type": "file"
                 },
                 {
+                    "name": "compatible",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": ".gitlab-ci.yml",
+                            "type": "file"
+                        },
+                        {
+                            "name": "about.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "credit.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "gallery.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "google0d0804a11aec577f.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "home.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "index.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "style.css",
+                            "type": "file"
+                        },
+                        {
+                            "name": "website",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "image",
+                                    "type": "directory",
+                                    "children": [
+                                        {
+                                            "name": "1.png",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "2.png",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "3.png",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "4.png",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "5.png",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "6.png",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "7.png",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "8.png",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "9.png",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "Untitled1.png",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "background.png",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "github.png",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "gitlab.png",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "plannet_minecraft.png",
+                                            "type": "file"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
                     "name": "console.html",
                     "type": "file"
                 },
                 {
+                    "name": "dir_listing.html",
+                    "type": "file"
+                },
+                {
+                    "name": "gtpl.py",
+                    "type": "file"
+                },
+                {
                     "name": "numberguessgame.html",
+                    "type": "file"
+                },
+                {
+                    "name": "old_commit_table.html",
                     "type": "file"
                 },
                 {
@@ -137,14 +255,6 @@
         },
         {
             "name": "index.pug",
-            "type": "file"
-        },
-        {
-            "name": "info.html",
-            "type": "file"
-        },
-        {
-            "name": "info.pug",
             "type": "file"
         },
         {
@@ -268,121 +378,7 @@
                     "type": "file"
                 },
                 {
-                    "name": "compatible",
-                    "type": "directory",
-                    "children": [
-                        {
-                            "name": ".gitlab-ci.yml",
-                            "type": "file"
-                        },
-                        {
-                            "name": "about.html",
-                            "type": "file"
-                        },
-                        {
-                            "name": "credit.html",
-                            "type": "file"
-                        },
-                        {
-                            "name": "gallery.html",
-                            "type": "file"
-                        },
-                        {
-                            "name": "google0d0804a11aec577f.html",
-                            "type": "file"
-                        },
-                        {
-                            "name": "home.html",
-                            "type": "file"
-                        },
-                        {
-                            "name": "index.html",
-                            "type": "file"
-                        },
-                        {
-                            "name": "style.css",
-                            "type": "file"
-                        },
-                        {
-                            "name": "website",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "image",
-                                    "type": "directory",
-                                    "children": [
-                                        {
-                                            "name": "1.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "2.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "3.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "4.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "5.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "6.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "7.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "8.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "9.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "Untitled1.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "background.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "github.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "gitlab.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "plannet_minecraft.png",
-                                            "type": "file"
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": "dir_listing.html",
-                    "type": "file"
-                },
-                {
                     "name": "discord_tag.html",
-                    "type": "file"
-                },
-                {
-                    "name": "gtpl.py",
                     "type": "file"
                 },
                 {
@@ -706,10 +702,6 @@
                         {
                             "name": "directory_listing.json",
                             "type": "file"
-                        },
-                        {
-                            "name": "website_data.json",
-                            "type": "file"
                         }
                     ]
                 },
@@ -767,24 +759,6 @@
                                 },
                                 {
                                     "name": "index.ts",
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "info_page",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "info.js",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "info.js.map",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "info.ts",
                                     "type": "file"
                                 }
                             ]
@@ -901,24 +875,6 @@
                                 },
                                 {
                                     "name": "index.scss",
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "info_page",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "info.css",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "info.css.map",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "info.scss",
                                     "type": "file"
                                 }
                             ]

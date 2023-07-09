@@ -68,34 +68,34 @@ How to setup the website for local development:
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\*\* | 100.0% | 0 files | 291,304,496 bytes
-\* | 0.01% | 12 files | 22,299 bytes
-\*.css | 0.01% | 8 files | 21,326 bytes
+\*\* | 100.0% | 0 files | 291,353,847 bytes
+\* | 0.01% | 12 files | 21,504 bytes
+\*.css | 0.01% | 7 files | 20,675 bytes
 \*.gif | 0.16% | 2 files | 477,306 bytes
-\*.html | 0.17% | 30 files | 485,710 bytes
+\*.html | 0.17% | 30 files | 481,895 bytes
 \*.ico | 0.04% | 2 files | 112,342 bytes
-\*.idx | 0.11% | 1 files | 309,968 bytes
+\*.idx | 0.11% | 1 files | 310,500 bytes
 \*.jpg | 0.0% | 1 files | 5,529 bytes
-\*.js | 0.01% | 9 files | 37,537 bytes
-\*.json | 0.14% | 8 files | 418,704 bytes
-\*.map | 0.01% | 16 files | 36,541 bytes
+\*.js | 0.01% | 8 files | 36,386 bytes
+\*.json | 0.16% | 7 files | 477,354 bytes
+\*.map | 0.01% | 14 files | 34,793 bytes
 \*.md | 0.0% | 2 files | 6,654 bytes
 \*.mp3 | 0.0% | 1 files | 9,069 bytes
 \*.old | 0.19% | 2 files | 553,570 bytes
-\*.pack | 96.55% | 1 files | 281,259,394 bytes
+\*.pack | 96.54% | 1 files | 281,263,187 bytes
 \*.png | 0.64% | 23 files | 1,860,617 bytes
-\*.pug | 0.01% | 12 files | 40,195 bytes
-\*.py | 0.01% | 3 files | 33,182 bytes
-\*.rev | 0.02% | 1 files | 44,180 bytes
+\*.pug | 0.01% | 11 files | 36,076 bytes
+\*.py | 0.01% | 3 files | 33,266 bytes
+\*.rev | 0.02% | 1 files | 44,256 bytes
 \*.sample | 0.01% | 14 files | 25,821 bytes
-\*.scss | 0.01% | 8 files | 20,914 bytes
+\*.scss | 0.01% | 7 files | 20,689 bytes
 \*.svg | 0.05% | 29 files | 153,598 bytes
-\*.ts | 0.01% | 9 files | 36,443 bytes
+\*.ts | 0.01% | 8 files | 35,163 bytes
 \*.ttf | 0.35% | 5 files | 1,011,420 bytes
 \*.xcf | 1.48% | 4 files | 4,314,841 bytes
 \*.xml | 0.0% | 1 files | 835 bytes
 \*.yml | 0.0% | 5 files | 6,400 bytes
-> Last updated on: 2023-07-07
+> Last updated on: 2023-07-09
 <!--python_data_stop-->
 
 > **Details about the website's creation**
