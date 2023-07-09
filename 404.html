@@ -1,57 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 Not Found</title>
-    <style>
-        #content {
-            max-width: 60%;
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-            overflow-wrap: break-word;
-            overflow-x: hidden;
-        }
-        a { color: white; }
-        body {
-            font-family: 'Courier New', Courier, monospace;
-            color: white;
-            background-color: rgb(16, 16, 16);
-        }
-        h1 { margin: 12px 0; }
-        p { margin: 8px 0; }
-        svg {
-            max-width: 100%;
-            height: auto;
-        }
-        img#image {
-            width: 100%;
-            height: auto;
-            image-rendering: optimizeSpeed;
-            image-rendering: -moz-crisp-edges;
-            image-rendering: -o-crisp-edges;
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: optimize-contrast;
-            -ms-interpolation-mode: nearest-neighbor;
-        }
-        @media (min-width: 320px) { body { font-size: 0.75rem; } div#content { max-width: 100%; } }
-        @media (min-width: 482px) { body { font-size: 0.75rem; } div#content { max-width: 100%; } }
-        @media (min-width: 640px) { body { font-size: 0.81rem; } div#content { max-width: 80%; } }
-        @media (min-width: 1100px) { body { font-size: 1rem; } div#content { max-width: 60%; } }
-    </style>
-</head>
-<body>
-    <div id="content">
-        <h1>404 Not Found.</h1>
-        <p>You have requested: <code id="requestedURL">[the_address_on_the_url]</code> which does not exist or may have been removed.</p>
-        <p>If you feel like you're lost, then <a href="/">[Click Here]</a> to start your journey.</p>
-        <p>BUT If you saw this message when you were redirected from a links in my website, please make an Issues on GitHub because it's probally an unintentional mistake.</p>
-        <h1><img style="float: left" src="/website/image/logo/logo.svg" alt="The website's logo" width="36px">&nbsp;-&nbsp;sudoker0</h1>
-    </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Uncaught TypeError</title>
+        <style>
+            @font-face {
+                font-family: "Noto Sans Mono";
+                src: url("/website/fonts/NotoSansMono.ttf");
+            }
+
+            body {
+                font-family: "Noto Sans Mono", monospace;
+                color: white;
+                background-color: black;
+                display: block;
+                margin: 0 auto;
+                max-width: 1000px;
+            }
+
+            a {
+                color: white;
+                transition: all 0.2s;
+            }
+
+            a:hover, a:focus {
+                background-color: white;
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>404 Not Found</h1>
+        <p>You've tried to GET `$_if_you_see_this_then_it_is_the_URL_on_the_bar_up_there`, but either your connection got dropped into a black hole, or it doesn't exist anymore.</p>
+        <p>But either way, <a href="/">let's start over</a>.</p>
+        <p>Although if you were redirected from a link in my website, either I forgot to recompile stuff, or it's a bug. In any cases, it's the best thing to <a href="">report the bug on GitHub</a>.</p>
+        <h1><img style="float: left" src="/website/image/logo/logo.svg" alt="The website's logo" width="48px">&nbsp;-&nbsp;sudoker0</h1>
+    </body>
     <script>
-        document.getElementById("requestedURL").innerText = window.location.pathname;
+        HTMLElement.prototype.replace = function (data, prefix = "$_") {
+            const alternate_prefix = "id_dlr_";
+            const _this = () => this;
+            for (const i in data) {
+                const old = _this().innerHTML;
+                const span = () =>
+                    _this().querySelector(`span.reactive#${alternate_prefix}${i}`)
+                if (span() == null) _this().innerHTML =
+                    old.replace(`${prefix}${i}`, `<span class="reactive" id="${alternate_prefix}${i}"></span>`)
+                span().innerText = data[i]
+            }
+        }
+
+        document.body.replace({
+            "if_you_see_this_then_it_is_the_URL_on_the_bar_up_there": location.pathname
+        })
     </script>
-</body>
 </html>
