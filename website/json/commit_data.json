@@ -3,6 +3,18 @@
     "last_update_on": "2023-07-09",
     "data": [
         {
+            "hash": "71aaf05fd774ffe01731ac91b0c3bc64779f56ad",
+            "committer": "QuanMCPC",
+            "commit_date": 1688899904,
+            "message": "damn it"
+        },
+        {
+            "hash": "79b849bc7291657ac00ee86a7cb8b7f9b32e2c19",
+            "committer": "sudoker0",
+            "commit_date": 1688899220,
+            "message": "Update website's information"
+        },
+        {
             "hash": "840694a88863d0feae8facb48606d5e12e9c0158",
             "committer": "QuanMCPC",
             "commit_date": 1688899188,
