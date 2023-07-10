@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2023-07-09",
+    "last_update_on": "2023-07-10",
     "data": [
+        {
+            "hash": "93db118bfc82d2d6a171afecfa2101f40ae71b68",
+            "committer": "QuanMCPC",
+            "commit_date": 1688955659,
+            "message": "code update"
+        },
+        {
+            "hash": "370e6d79d3a2a2e2d338594283c4b1d8faf76549",
+            "committer": "sudoker0",
+            "commit_date": 1688903066,
+            "message": "Update website's information"
+        },
         {
             "hash": "9acbb88b0a1fd9d5c1908b3e2368dea849d12f00",
             "committer": "QuanMCPC",
