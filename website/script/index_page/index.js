@@ -38,11 +38,15 @@ function postTyping() {
         document.querySelector("p#running").classList.remove("hidden");
         yield delay(750);
         document.querySelector("a#redirect").classList.remove("hidden");
+        yield delay(100);
     });
 }
+var scrollToBottom = null;
 function typeWriter(text) {
     return __awaiter(this, void 0, void 0, function* () {
         const elm = document.querySelector("pre#codeblock code");
+        const cursor = document.querySelector("#cursor");
+        cursor.classList.add("no_animation");
         for (var i = 0; i < text.length; i++) {
             var char = text.charAt(i);
             var nextChar = i < text.length - 1 ? text.charAt(i + 1) : "";
@@ -67,14 +71,23 @@ function typeWriter(text) {
             yield delay(typingDelay + extraDelay);
             extraDelay = 0;
         }
+        cursor.classList.remove("no_animation");
     });
+}
+function notice() {
+    setTimeout(() => {
+        alert("You know there's a button at the bottom of this whole Editor and Console thing right? Just sayin'");
+    }, 10000);
 }
 onload = () => __awaiter(this, void 0, void 0, function* () {
     document.querySelectorAll(".label").forEach(v => {
         v.classList.add("nohide");
     });
     yield delay(700);
+    scrollToBottom = setInterval(() => scrollTo(0, document.body.scrollHeight), 0);
     yield typeWriter(content);
     yield postTyping();
+    clearInterval(scrollToBottom);
+    notice();
 });
 //# sourceMappingURL=index.js.map

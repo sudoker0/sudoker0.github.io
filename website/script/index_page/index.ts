@@ -30,10 +30,16 @@ async function postTyping() {
     document.querySelector("p#running").classList.remove("hidden")
     await delay(750)
     document.querySelector("a#redirect").classList.remove("hidden")
+    await delay(100)
 }
+
+var scrollToBottom = null
 
 async function typeWriter(text: string) {
     const elm = document.querySelector("pre#codeblock code")
+    const cursor = document.querySelector("#cursor")
+
+    cursor.classList.add("no_animation")
     for (var i = 0; i < text.length; i++) {
         var char = text.charAt(i)
         var nextChar = i < text.length - 1 ? text.charAt(i + 1) : ""
@@ -60,6 +66,13 @@ async function typeWriter(text: string) {
         await delay(typingDelay + extraDelay)
         extraDelay = 0
     }
+    cursor.classList.remove("no_animation")
+}
+
+function notice() {
+    setTimeout(() => {
+        alert("You know there's a button at the bottom of this whole Editor and Console thing right? Just sayin'")
+    }, 10000)
 }
 
 onload = async () => {
@@ -67,6 +80,9 @@ onload = async () => {
         v.classList.add("nohide")
     })
     await delay(700)
+    scrollToBottom = setInterval(() => scrollTo(0, document.body.scrollHeight), 0)
     await typeWriter(content)
     await postTyping()
+    clearInterval(scrollToBottom)
+    notice()
 }

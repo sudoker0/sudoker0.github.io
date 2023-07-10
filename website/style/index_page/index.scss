@@ -54,8 +54,12 @@ pre#codeblock {
     padding-top: 0;
 }
 
-span.cursor {
+span#cursor {
     animation: blinking 1s step-end infinite;
+
+    &.no_animation {
+        animation: none;
+    }
 }
 
 a {
@@ -68,11 +72,17 @@ a {
     padding: 8px 12px;
     transition: all 0.2s;
     text-decoration: none;
+    box-shadow: 12px 12px 0 0 gray;
 
-    &:hover {
+    &:hover, &:focus {
         cursor: pointer;
         background-color: var(--color-fg);
         color: var(--color-bg);
+        box-shadow: 6px 6px 0 0 gray;
+    }
+
+    &:active {
+        box-shadow: 0 0 0 0 gray;
     }
 }
 
