@@ -3,11 +3,11 @@ HTMLElement.prototype.replace = function (data, prefix = "$_") {
     const _this = () => this;
     for (const i in data) {
         const old = _this().innerHTML;
-        const span = () => _this().querySelector(`span.reactive#${alternate_prefix}${i}`);
+        const span = () => _this().querySelector(`span.reactive#${alternate_prefix}${encodeURIComponent(i)}`);
         if (span() == null)
             _this().innerHTML =
                 old.replace(`${prefix}${i}`, `
-                <span class="reactive" id="${alternate_prefix}${i}"></span>`);
+                <span class="reactive" id="${alternate_prefix}${encodeURIComponent(i)}"></span>`);
         span().innerText = data[i];
     }
 };
