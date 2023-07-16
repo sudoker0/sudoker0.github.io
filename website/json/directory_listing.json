@@ -630,6 +630,22 @@
                             "type": "directory",
                             "children": [
                                 {
+                                    "name": "3_years_of_service.svg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "3_years_of_service_optimized.svg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "certified_preschooler.svg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "certified_preschooler_optimized.svg",
+                                    "type": "file"
+                                },
+                                {
                                     "name": "source_on_github.svg",
                                     "type": "file"
                                 },
