@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2023-07-16",
+    "last_update_on": "2023-08-09",
     "data": [
+        {
+            "hash": "e79ab4291bcf808b0e49da8916271e1ff9c975b3",
+            "committer": "QuanMCPC",
+            "commit_date": 1691600132,
+            "message": "changes to sso stuff"
+        },
+        {
+            "hash": "e49fc7a91e818befb5cf3d717d95974a0cfce975",
+            "committer": "sudoker0",
+            "commit_date": 1689489438,
+            "message": "Update website's information"
+        },
         {
             "hash": "1192ec851e83300ddd39fabdaee52d1bcf6b7f57",
             "committer": "QuanMCPC",

@@ -238,10 +238,6 @@
             "type": "file"
         },
         {
-            "name": "google0d0804a11aec577f.html",
-            "type": "file"
-        },
-        {
             "name": "home.html",
             "type": "file"
         },
@@ -474,6 +470,10 @@
                     "type": "file"
                 }
             ]
+        },
+        {
+            "name": "robots.txt",
+            "type": "file"
         },
         {
             "name": "template",
