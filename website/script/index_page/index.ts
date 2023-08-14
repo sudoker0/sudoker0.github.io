@@ -1,6 +1,6 @@
 const content = `// very cool intro:)
 
-^002$
+^005$
 import { buttonStyle } from "./style.js"
 
 ^002$
@@ -19,7 +19,7 @@ this.append(a_tag)
 ^0001$
 //#console run
 `
-const typingDelay = 15
+const typingDelay = 5
 
 function delay(ms: number): Promise<void> {
     return new Promise(resolve => setTimeout(_ => resolve(), ms))
@@ -28,9 +28,9 @@ function delay(ms: number): Promise<void> {
 async function postTyping() {
     await delay(1000)
     document.querySelector("p#running").classList.remove("hidden")
-    await delay(750)
+    await delay(250)
     document.querySelector("a#redirect").classList.remove("hidden")
-    await delay(100)
+    await delay(200)
 }
 
 var scrollToBottom = null
@@ -69,12 +69,6 @@ async function typeWriter(text: string) {
     cursor.classList.remove("no_animation")
 }
 
-function notice() {
-    setTimeout(() => {
-        alert("You know there's a button at the bottom of this whole Editor and Console thing right? Just sayin'")
-    }, 10000)
-}
-
 onload = async () => {
     document.querySelectorAll(".label").forEach(v => {
         v.classList.add("nohide")
@@ -84,5 +78,4 @@ onload = async () => {
     await typeWriter(content)
     await postTyping()
     clearInterval(scrollToBottom)
-    notice()
 }

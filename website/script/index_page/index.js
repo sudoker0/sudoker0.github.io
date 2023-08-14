@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const content = `// very cool intro:)
 
-^002$
+^005$
 import { buttonStyle } from "./style.js"
 
 ^002$
@@ -28,7 +28,7 @@ this.append(a_tag)
 ^0001$
 //#console run
 `;
-const typingDelay = 15;
+const typingDelay = 5;
 function delay(ms) {
     return new Promise(resolve => setTimeout(_ => resolve(), ms));
 }
@@ -36,9 +36,9 @@ function postTyping() {
     return __awaiter(this, void 0, void 0, function* () {
         yield delay(1000);
         document.querySelector("p#running").classList.remove("hidden");
-        yield delay(750);
+        yield delay(250);
         document.querySelector("a#redirect").classList.remove("hidden");
-        yield delay(100);
+        yield delay(200);
     });
 }
 var scrollToBottom = null;
@@ -74,11 +74,6 @@ function typeWriter(text) {
         cursor.classList.remove("no_animation");
     });
 }
-function notice() {
-    setTimeout(() => {
-        alert("You know there's a button at the bottom of this whole Editor and Console thing right? Just sayin'");
-    }, 10000);
-}
 onload = () => __awaiter(this, void 0, void 0, function* () {
     document.querySelectorAll(".label").forEach(v => {
         v.classList.add("nohide");
@@ -88,6 +83,5 @@ onload = () => __awaiter(this, void 0, void 0, function* () {
     yield typeWriter(content);
     yield postTyping();
     clearInterval(scrollToBottom);
-    notice();
 });
 //# sourceMappingURL=index.js.map
