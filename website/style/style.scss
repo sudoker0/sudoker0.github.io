@@ -51,6 +51,26 @@ span {
     }
 }
 
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+p, summary {
+    font-size: 1.2rem;
+}
+
+label.collapsible span, table {
+    font-size: 1rem;
+}
+
+h1, h2, p {
+    margin: 0px;
+}
+
 figcaption {
     margin-block-start: 12px;
     padding: 12px;
@@ -106,19 +126,6 @@ section {
         max-width: 80%;
         margin-left: auto;
         margin-right: auto;
-
-        h1 {
-            font-size: 2rem;
-        }
-        h2 {
-            font-size: 1.5rem;
-        }
-        p {
-            font-size: 1.25rem;
-        }
-        h1, h2, p {
-            margin: 0px;
-        }
     }
 }
 
@@ -346,7 +353,6 @@ div.collapsiblecontent {
 
     p {
         display: block;
-        font-size: 1rem;
     }
 }
 
@@ -512,31 +518,35 @@ div.label-container {
     transform: rotate(180deg);
 }
 
-@media (max-width: 1300px) {
-    section > div {
-        h1 {
-            font-size: 1.7rem;
-        }
-        h2 {
-            font-size: 1.35rem;
-        }
-        p, label.collapsible, table *, div.collapsiblecontent * {
-            font-size: 1rem;
-        }
+@media (max-width: 1400px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    p, summary {
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 1100px) {
-    section > div {
-        h1 {
-            font-size: 1.5rem;
-        }
-        h2 {
-            font-size: 1.15rem;
-        }
-        p, label.collapsible, table *, div.collapsiblecontent * {
-            font-size: 0.8rem;
-        }
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    table {
+        font-size: 0.85rem;
+    }
+
+    p, summary {
+        font-size: 0.85rem;
     }
 }
 
@@ -545,12 +555,6 @@ div.label-container {
         > div {
             grid-template-areas: "left" "right";
             grid-template-columns: 100%;
-        }
-    }
-
-    section > div {
-        p, label.collapsible, table *, div.collapsiblecontent * {
-            font-size: 1rem;
         }
     }
 
@@ -590,23 +594,13 @@ div.label-container {
 }
 
 @media (max-width: 450px) {
-    section > div {
-        h1 {
-            font-size: 1.4rem;
-        }
-        h2 {
-            font-size: 1rem;
-        }
+    label.collapsible span, table {
+        font-size: 0.85rem;
     }
+
     div.textwithtag > div {
         margin-left: 0px;
         gap: 12px;
-    }
-
-    section > div {
-        p, label.collapsible, table *, div.collapsiblecontent * {
-            font-size: 0.8rem;
-        }
     }
 }
 
