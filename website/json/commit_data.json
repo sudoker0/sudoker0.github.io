@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2023-08-14",
+    "last_update_on": "2023-08-20",
     "data": [
+        {
+            "hash": "4522481e32e9c658305b10925ba067669cc2d659",
+            "committer": "QuanMCPC",
+            "commit_date": 1692524146,
+            "message": "add new project and change link for the gtpl project"
+        },
+        {
+            "hash": "9be7b644e6592e9baaf2d3a718dd83b6931f2a00",
+            "committer": "sudoker0",
+            "commit_date": 1692032359,
+            "message": "Update website's information"
+        },
         {
             "hash": "977530e50e2a8ecd1c1d4eca84fc21aeb0517cf3",
             "committer": "QuanMCPC",
