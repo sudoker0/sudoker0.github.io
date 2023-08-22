@@ -1,7 +1,19 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2023-08-21",
+    "last_update_on": "2023-08-22",
     "data": [
+        {
+            "hash": "370e8858df726e892d7f8255a53605ae9e3f94c5",
+            "committer": "QuanMCPC",
+            "commit_date": 1692686187,
+            "message": "major redo of the contacts page (now social_link)"
+        },
+        {
+            "hash": "500469a19cc55e17f995a5b1545364303dbfa601",
+            "committer": "sudoker0",
+            "commit_date": 1692594913,
+            "message": "Update website's information"
+        },
         {
             "hash": "a9cfd472eb40e118080debea44fe004f891fcc13",
             "committer": "QuanMCPC",

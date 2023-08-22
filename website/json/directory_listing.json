@@ -230,14 +230,6 @@
             ]
         },
         {
-            "name": "contacts.html",
-            "type": "file"
-        },
-        {
-            "name": "contacts.pug",
-            "type": "file"
-        },
-        {
             "name": "home.html",
             "type": "file"
         },
@@ -476,6 +468,14 @@
             "type": "file"
         },
         {
+            "name": "social_link.html",
+            "type": "file"
+        },
+        {
+            "name": "social_link.pug",
+            "type": "file"
+        },
+        {
             "name": "template",
             "type": "directory",
             "children": [
@@ -574,7 +574,11 @@
                                     "type": "file"
                                 },
                                 {
-                                    "name": "itchio.svg",
+                                    "name": "gitlab_old.svg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "itch.io.svg",
                                     "type": "file"
                                 },
                                 {
@@ -582,7 +586,19 @@
                                     "type": "file"
                                 },
                                 {
+                                    "name": "old_planet_minecraft.svg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "pgp_key.svg",
+                                    "type": "file"
+                                },
+                                {
                                     "name": "planet_minecraft.svg",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "revolt.chat.svg",
                                     "type": "file"
                                 },
                                 {
@@ -726,24 +742,6 @@
                     "type": "directory",
                     "children": [
                         {
-                            "name": "contacts_page",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "contacts.js",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "contacts.js.map",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "contacts.ts",
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        {
                             "name": "home_page",
                             "type": "directory",
                             "children": [
@@ -820,6 +818,24 @@
                         {
                             "name": "script.ts",
                             "type": "file"
+                        },
+                        {
+                            "name": "social_link_page",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "social_link.js",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "social_link.js.map",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "social_link.ts",
+                                    "type": "file"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -840,24 +856,6 @@
                         {
                             "name": "_variables.scss",
                             "type": "file"
-                        },
-                        {
-                            "name": "contacts_page",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "contacts.css",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "contacts.css.map",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "contacts.scss",
-                                    "type": "file"
-                                }
-                            ]
                         },
                         {
                             "name": "home_page",
@@ -909,6 +907,24 @@
                                 },
                                 {
                                     "name": "project.scss",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "social_link_page",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "social_link.css",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "social_link.css.map",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "social_link.scss",
                                     "type": "file"
                                 }
                             ]
