@@ -1,0 +1,59 @@
+html(lang="en")
+    head
+        include template/_pmod_head_metadata.pug
+        +og_generator("sudoker0.social_link()", "Social link", "/social_link.html")
+
+        link(rel="stylesheet", href="/website/style/social_link_page/social_link.css")
+        script(src="/website/script/social_link_page/social_link.js" defer)
+
+    body(data-js="false")
+        include template/_pmod_preload.pug
+        include template/_pmod_mixins.pug
+        include template/_pmod_header.pug
+        mixin social_link_item(social_website, link, account_name)
+            a.social_link_item(target="_blank" href=link)
+                .social_item_image
+                    img(src="/website/image/contact_page/" + social_website + ".svg", alt=social_website)
+                .social_item_text
+                    span.social_item_explain="[" + social_website + "]"
+                    br
+                    span=account_name
+
+        main
+            include template/_pmod_noscript.pug
+
+            section#social_link.nost: +textwithtag("social_link")
+                h1 Social Link
+                hr
+                .social_link_grid
+                    +social_link_item("discord", "https://discord.com/users/763377551963717653", "sudoker0")
+                    +social_link_item("revolt.chat", "#", "sudoker0#3948")
+                    +social_link_item("github", "https://github.com/sudoker0", "sudoker0")
+                    +social_link_item("gitlab", "https://gitlab.com/sudoker0", "sudoker0")
+                    +social_link_item("steam", "https://steamcommunity.com/id/sudoker0/", "sudoker0")
+                    +social_link_item("itch.io", "https://sudoker0.itch.io", "sudoker0.itch.io")
+                    +social_link_item("mastodon", "https://mastodon.world/@quanmcpc", "@QuanMCPC")
+                    +social_link_item("planet_minecraft", "https://www.planetminecraft.com/member/sudoker0/", "sudoker0")
+                    +social_link_item("twitter", "https://twitter.com/QuanMCPC", "@QuanMCPC")
+
+            section#email.nost: +textwithtag("email")
+                h1 Email
+                hr
+                p My email address: #[a(href="mailto:aF58lh@gmail.com") aF58lh@gmail.com]
+                p PGP key for the email address (ed25549):
+                textarea(rows="10", style="width: 100%; resize: vertical;", readonly)
+                    | -----BEGIN PGP PUBLIC KEY BLOCK-----
+                    |
+                    | mDMEY3I2/xYJKwYBBAHaRw8BAQdAphGJyma0APeInDauKfWI7VUHMbMhnZ5goAHa
+                    | OFFP+E+0JEthenlteXIgRGFueWxlbmtvIDxhRjU4bGhAZ21haWwuY29tPoiTBBMW
+                    | CgA7FiEEtm8aOVhXLNeYL2Xvol5m8iXGEAkFAmNyNv8CGwMFCwkIBwICIgIGFQoJ
+                    | CAsCBBYCAwECHgcCF4AACgkQol5m8iXGEAkJ5QEA1sMgGki2oa/HgWPPp8CTjpKT
+                    | 173fHieW13ThGiVdFmwBAO4eis5QhrYGyfEEXmWe8H0KG5AmfVrVgvmKjZ/s5J0L
+                    | uDgEY3I2/xIKKwYBBAGXVQEFAQEHQO7pzHcy02nA/+Z+q6acNjDrT/97xWiiXCot
+                    | ILDbrKsrAwEIB4h4BBgWCgAgFiEEtm8aOVhXLNeYL2Xvol5m8iXGEAkFAmNyNv8C
+                    | GwwACgkQol5m8iXGEAkUSwEAzl2plE9SA2neSEh5ORRN8XDTdkYiVzDkMf88AVUC
+                    | lb0BAOXGeuGIjtVbGu0HiQ1isI8X7XYAh3XWKvglI8NtjLAM
+                    | =SCby
+                    | -----END PGP PUBLIC KEY BLOCK-----
+
+        include template/_pmod_footer.pug
