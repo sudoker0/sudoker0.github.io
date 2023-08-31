@@ -1,25 +1,25 @@
 const content = `// very cool intro:)
 
-^005$
+^006$
 import { buttonStyle } from "./style.js"
 
-^002$
+^053$
 const website = new sudoker0.website()
 const home_page = website.home
 
-^002$
+^053$
 const a_tag = document.createElement("a")
 a_tag.innerText = "Home"
 a_tag.href = home_page.url
 a_tag.style = buttonStyle
 
-^002$
+^053$
 this.append(a_tag)
 
-^0001$
+^0521$
 //#console run
 `
-const typingDelay = 5
+const typingDelay = 10
 
 function delay(ms: number): Promise<void> {
     return new Promise(resolve => setTimeout(_ => resolve(), ms))
@@ -28,9 +28,9 @@ function delay(ms: number): Promise<void> {
 async function postTyping() {
     await delay(1000)
     document.querySelector("p#running").classList.remove("hidden")
-    await delay(250)
+    await delay(500)
     document.querySelector("a#redirect").classList.remove("hidden")
-    await delay(200)
+    await delay(500)
 }
 
 var scrollToBottom = null

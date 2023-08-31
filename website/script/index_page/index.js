@@ -9,26 +9,26 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const content = `// very cool intro:)
 
-^005$
+^006$
 import { buttonStyle } from "./style.js"
 
-^002$
+^053$
 const website = new sudoker0.website()
 const home_page = website.home
 
-^002$
+^053$
 const a_tag = document.createElement("a")
 a_tag.innerText = "Home"
 a_tag.href = home_page.url
 a_tag.style = buttonStyle
 
-^002$
+^053$
 this.append(a_tag)
 
-^0001$
+^0521$
 //#console run
 `;
-const typingDelay = 5;
+const typingDelay = 10;
 function delay(ms) {
     return new Promise(resolve => setTimeout(_ => resolve(), ms));
 }
@@ -36,9 +36,9 @@ function postTyping() {
     return __awaiter(this, void 0, void 0, function* () {
         yield delay(1000);
         document.querySelector("p#running").classList.remove("hidden");
-        yield delay(250);
+        yield delay(500);
         document.querySelector("a#redirect").classList.remove("hidden");
-        yield delay(200);
+        yield delay(500);
     });
 }
 var scrollToBottom = null;
