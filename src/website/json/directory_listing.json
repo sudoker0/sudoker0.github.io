@@ -20,23 +20,11 @@
                             "type": "file"
                         },
                         {
-                            "name": "begin.yml.ignored",
-                            "type": "file"
-                        },
-                        {
                             "name": "codeql-analysis.yml",
                             "type": "file"
                         },
                         {
                             "name": "main.yml",
-                            "type": "file"
-                        },
-                        {
-                            "name": "pages.yml.ignored",
-                            "type": "file"
-                        },
-                        {
-                            "name": "update_site_info.yml.ignored",
                             "type": "file"
                         }
                     ]
