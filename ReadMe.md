@@ -12,7 +12,7 @@
 [![pages-build-deployment](https://github.com/sudoker0/sudoker0.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/sudoker0/sudoker0.github.io/actions/workflows/pages/pages-build-deployment)
 
 ## Info
-Hello! This is a personal website which is also one of my earliest repository on my account. The main purpose of this website is to show information about me, project I've created and other relevant information.
+Hello! This is my personal website which is also one of my earliest repository on my account. The main purpose of this website is to show information about me, project I've created and other relevant information.
 
 Feel free to create an issue or pull request to fix bugs or grammatical error on my website. Although if you wish to make a pull requests, refer to the [Setting up](#setting-up) section for information on how to set up the website for local development.
 
@@ -37,28 +37,14 @@ How to setup the website for local development:
 2. Install the dependencies:
     ```bash
     cd sudoker0.github.io/ # in case you haven't change directory to the root of the website
-    npm install
+    npm install # very important!
     ```
-3. Running the build program:
-    - For VSCode users:
-        - Open the project folders (`File -> Open Folder` or `File -> Add Folder to Workspace` (if you have an existing workspace))
-        - Open the build tasks (`Ctrl + Shift + B` or `Ctrl + Shift + P (to open the command palette) -> "Tasks: Run Build Task"`)
-        - Run the build tasks by running the `build and watch all` tasks
-    - For non-VSCode users:
-        - To build Pug files:
-        ```bash
-        node tools/compilePug.js -p "../" --watch
-        ```
-        - To build SCSS files:
-        ```bash
-        npx sass . --style compressed --source-map --watch
-        ```
-        - To build TypeScript files:
-        ```
-        npx tsc --watch
-        ```
-        (All of the build command above will watch for changes and auto build them for you indefinitely. To only build once, remove the `--watch` arguments)
+3. Running the build script:
+    ```bash
+    node build.mjs
+    ```
 4. Host the website locally:
+    > Important notice: Compiled files will be put in the `dist` directory, so make sure to set the root of the server to the `dist` directory, either in the extension settings, or in the program you use to host the site.
     - For VSCode users: `Live Server` extension is recommended, although you can use other extensions to host the site.
     - For non-VSCode users: You can use any web server program available, as long as you can set it up.
 

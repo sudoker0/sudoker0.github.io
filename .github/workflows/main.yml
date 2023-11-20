@@ -1,0 +1,96 @@
+on:
+  workflow_dispatch:
+
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  update-site-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: action/checkout@v3
+        with:
+          ref: ${{ github.event.client_payload.sha }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Run script
+        run: python3 .github/workflows/FOR_GITHUB_ACTION_ONLY.py --verbose
+
+      - name: Setup credential for commit
+        run: |
+          git config --local user.name "sudoker0"
+          git config --local user.email "60545346+sudoker0@users.noreply.github.com"
+
+      - name: Staged file for commit
+        run: git add .
+
+      - name: Commit file
+        run: git commit -m "update website's information"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+
+  compile:
+    needs: update-site-info
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: action/checkout@v3
+        with:
+          ref: ${{ github.event.client_payload.sha }}
+
+      - name: Setup Node.JS
+        uses: action/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Compile code
+        run: node build.mjs
+
+      - name: Upload artifacts
+        uses: action/upload-artifact@v3
+        with:
+          name: compiled-files
+          path: dist/
+
+  deploy-site:
+    needs: compile
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: compiled-files-2
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+
+      - name: Upload pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1

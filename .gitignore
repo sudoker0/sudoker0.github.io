@@ -1,4 +1,3 @@
 dev_only/
 node_modules/
-o/
-403.html
+dist/

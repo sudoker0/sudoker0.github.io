@@ -20,7 +20,7 @@ on:
   schedule:
   - cron: '29 4 * * 0'
   repository_dispatch:
-    types: [trigger-workflow-2]
+    types: [codeql-analyze]
 
 jobs:
   analyze:
@@ -75,7 +75,7 @@ jobs:
       uses: github/codeql-action/analyze@v2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
+
   post_all_job:
     runs-on: ubuntu-latest
     if: ${{ always() }}

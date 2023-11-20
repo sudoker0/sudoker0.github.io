@@ -36,5 +36,6 @@
         "WTOS",
         "Слава",
         "Україні"
-    ]
+    ],
+    "liveServer.settings.root": "/dist",
 }
