@@ -46,7 +46,7 @@ os.chdir(os.getcwd())
 # # Variable Here
 # total_size = sizeOfFolder()
 # git_folder_size = sizeOfFolder("./.git")
-# assets_size = sizeOfFolder("./website")
+# assets_size = sizeOfFolder("./src/website")
 
 # # JSON data here
 # data = {
@@ -61,7 +61,7 @@ os.chdir(os.getcwd())
 # }
 
 # # Dump the JSON data to a file (with indent ofcourse)
-# with open("./website/json/website_data.json", "w") as outfile:
+# with open("./src/website/json/website_data.json", "w") as outfile:
 #     json.dump(data, outfile, indent=4)
 
 # ----------------------[find_size.py]---------------------- #
@@ -99,7 +99,7 @@ for items in output.decode("utf-8").split("\n"):
     json_data["data"].append({"hash": item[0], "committer": item[1], "commit_date": int(item[2]), "message": item[3]})
 
 # Export data to a file
-with open("./website/json/commit_data.json", "w") as outfile:
+with open("./src/website/json/commit_data.json", "w") as outfile:
     json.dump(json_data, outfile, indent=4)
 exit_code = process.wait()
 
@@ -199,7 +199,7 @@ def path_to_dict(path, recursion:bool = False):
         d['type'] = "file"
     return d
 
-with open("./website/json/directory_listing.json", "w") as outfile:
+with open("./src/website/json/directory_listing.json", "w") as outfile:
     json.dump(path_to_dict("."), outfile, indent=4)
 # ----------------------[make_tree.py]-----------------------#
 
