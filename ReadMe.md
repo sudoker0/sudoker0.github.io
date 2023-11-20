@@ -41,6 +41,7 @@ How to setup the website for local development:
 3. Running the build script:
     ```bash
     node build.mjs
+    # you can view the help page by typing `node build.mjs --help`
     ```
 4. Host the website locally:
     > Important notice: Compiled files will be put in the `dist` directory, so make sure to set the root of the server to the `dist` directory, either in the extension settings, or in the program you use to host the site.

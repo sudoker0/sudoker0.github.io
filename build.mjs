@@ -15,8 +15,42 @@ import {
     rmSync,
     rmdirSync
 } from "fs"
-import { extname, join, parse, sep as pathSeparator } from "path"
+import { dirname, extname, join, parse, sep as pathSeparator } from "path"
 import { emptyDirSync } from "fs-extra"
+import { ArgumentParser } from "argparse"
+import watch from "node-watch"
+
+const argParser = new ArgumentParser({
+    "description": "compiler for the website (pug, scss and ts file)"
+})
+
+argParser.add_argument("-w", "--watch", {
+    action: "store_true",
+    help: "watch for changes (warning: currently the script will re-compile the entire directory when detected a change, will work on this in the future)"
+})
+
+argParser.add_argument("--from", {
+    type: String,
+    nargs: 1,
+    default: "src/",
+    help: "the directory containing the source (this is also where the compiler will watch for changes)"
+})
+
+argParser.add_argument("--to", {
+    type: String,
+    nargs: 1,
+    default: "dist/",
+    help: "the directory containing the destination"
+})
+
+const args = argParser.parse_args()
+
+// /**
+//  * @param {string} string
+//  */
+// function escapeRegExp(string) {
+//     return string.replace(/[.*+?^${}()|[\]\\\/]/g, '\\$&');
+// }
 
 /**
  * @param  {...string} content
@@ -31,6 +65,19 @@ function errorReport(...content) {
 function logReport(...content) {
     console.log(chalk.bgCyan.white.bold('[LOG]'), chalk.cyanBright(content.join("\n")))
 }
+
+// /**
+//  * @param {string} src
+//  * @param {string} dest
+//  */
+// function copyFileWithDirectories(src, dest) {
+//     const destDir = dirname(dest)
+//     if (!existsSync(destDir)) {
+//         mkdirSync(destDir, { recursive: true })
+//     }
+
+//     copyFileSync(src, dest)
+// }
 
 /**
  * Recursive copy everything in a directory
@@ -232,7 +279,7 @@ function deleteEmptyDir(path) {
     }
 }
 
-async function main() {
+function main() {
     //? Remove all contents from `dist` (if there's any)
     try {
         logReport(`Compiled file detected, now deleting.`)
@@ -245,15 +292,15 @@ async function main() {
 
     //? Copy the content of `src` to `dist`
     try {
-        recursiveCopy("src", "dist")
+        recursiveCopy(args["from"], args["to"])
     } catch (e) {
-        errorReport("Unable to copy content from `src` to `dist`, details is attached below:", e)
+        errorReport(`Unable to copy content from "${args["from"]}" to "${args["to"]}", details is attached below:`, e)
     }
 
     logReport("--------------------")
 
     //? Compile Pug file to HTML file
-    const pugFiles = listFiles("dist", "pug")
+    const pugFiles = listFiles(args["to"], "pug")
     for (const i of pugFiles) {
         compilePugFile(i)
     }
@@ -261,7 +308,7 @@ async function main() {
     logReport("--------------------")
 
     //? Compile SCSS file to CSS file
-    const scssFile = listFiles("dist", "scss")
+    const scssFile = listFiles(args["to"], "scss")
     for (const i of scssFile) {
         compileSCSSFile(i)
     }
@@ -269,15 +316,52 @@ async function main() {
     logReport("--------------------")
 
     //? Compile TS file to JS file
-    const tsFile = listFiles("dist", "ts")
+    const tsFile = listFiles(args["to"], "ts")
     for (const i of tsFile) {
         compileTSFile(i, "tsconfig.json")
     }
 
     logReport("--------------------")
     //? Delete all source file and empty directory in the dist directory
-    deleteSourceFile("dist")
-    deleteEmptyDir("dist")
+    deleteSourceFile(args["to"])
+    deleteEmptyDir(args["to"])
 }
 
-await main()
+// /**
+//  * @param {string} path
+//  */
+// function updateChanges(path) {
+//     logReport(`Detected changes in: ${path}`)
+//     const trimmedFrom = args["from"].replace(/^(.*)(\/|\\)$/, "$1")
+//     const trimmedTo = args["to"].replace(/^(.*)(\/|\\)$/, "$1")
+//     const sep = escapeRegExp(pathSeparator)
+
+//     const toPath = path.replace(new RegExp(`^${trimmedFrom}${sep}(.*)$`), `${trimmedTo}${sep}$1`)
+//     copyFileWithDirectories(path, toPath)
+//     switch (extname(path)) {
+//         case ".pug":
+//             compilePugFile(toPath)
+//             break
+//         case ".scss":
+//             compileSCSSFile(toPath)
+//             break
+//         case ".ts":
+//             compileTSFile(toPath, "tsconfig.json")
+//             break
+//         default:
+//             break
+//     }
+//     rmSync(toPath)
+// }
+
+main()
+
+if (args["watch"]) {
+    logReport("--------------------")
+    logReport(`Now watching for changes...`)
+    watch(args["from"], {
+        recursive: true
+    }, (_ev, path) => {
+        main()
+    })
+}
