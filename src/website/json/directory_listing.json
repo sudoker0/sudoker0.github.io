@@ -20,7 +20,7 @@
                             "type": "file"
                         },
                         {
-                            "name": "begin.yml",
+                            "name": "begin.yml.ignored",
                             "type": "file"
                         },
                         {
@@ -28,11 +28,15 @@
                             "type": "file"
                         },
                         {
-                            "name": "pages.yml",
+                            "name": "main.yml",
                             "type": "file"
                         },
                         {
-                            "name": "update_site_info.yml",
+                            "name": "pages.yml.ignored",
+                            "type": "file"
+                        },
+                        {
+                            "name": "update_site_info.yml.ignored",
                             "type": "file"
                         }
                     ]
@@ -50,16 +54,8 @@
                 {
                     "name": "settings.json",
                     "type": "file"
-                },
-                {
-                    "name": "tasks.json",
-                    "type": "file"
                 }
             ]
-        },
-        {
-            "name": "404.html",
-            "type": "file"
         },
         {
             "name": "CREDITS.md",
@@ -74,272 +70,8 @@
             "type": "file"
         },
         {
-            "name": "classic-project",
-            "type": "directory",
-            "children": [
-                {
-                    "name": "MSDOS.html",
-                    "type": "file"
-                },
-                {
-                    "name": "Vigenere_Cipher.html",
-                    "type": "file"
-                },
-                {
-                    "name": "captcha.html",
-                    "type": "file"
-                },
-                {
-                    "name": "commit.html",
-                    "type": "file"
-                },
-                {
-                    "name": "commit_table.html",
-                    "type": "file"
-                },
-                {
-                    "name": "compatible",
-                    "type": "directory",
-                    "children": [
-                        {
-                            "name": ".gitlab-ci.yml",
-                            "type": "file"
-                        },
-                        {
-                            "name": "about.html",
-                            "type": "file"
-                        },
-                        {
-                            "name": "credit.html",
-                            "type": "file"
-                        },
-                        {
-                            "name": "gallery.html",
-                            "type": "file"
-                        },
-                        {
-                            "name": "google0d0804a11aec577f.html",
-                            "type": "file"
-                        },
-                        {
-                            "name": "home.html",
-                            "type": "file"
-                        },
-                        {
-                            "name": "index.html",
-                            "type": "file"
-                        },
-                        {
-                            "name": "style.css",
-                            "type": "file"
-                        },
-                        {
-                            "name": "website",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "image",
-                                    "type": "directory",
-                                    "children": [
-                                        {
-                                            "name": "1.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "2.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "3.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "4.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "5.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "6.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "7.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "8.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "9.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "Untitled1.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "background.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "github.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "gitlab.png",
-                                            "type": "file"
-                                        },
-                                        {
-                                            "name": "plannet_minecraft.png",
-                                            "type": "file"
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": "console.html",
-                    "type": "file"
-                },
-                {
-                    "name": "dir_listing.html",
-                    "type": "file"
-                },
-                {
-                    "name": "gtpl.py",
-                    "type": "file"
-                },
-                {
-                    "name": "numberguessgame.html",
-                    "type": "file"
-                },
-                {
-                    "name": "old_commit_table.html",
-                    "type": "file"
-                },
-                {
-                    "name": "soope.html",
-                    "type": "file"
-                }
-            ]
-        },
-        {
-            "name": "home.html",
+            "name": "build.mjs",
             "type": "file"
-        },
-        {
-            "name": "home.pug",
-            "type": "file"
-        },
-        {
-            "name": "index.html",
-            "type": "file"
-        },
-        {
-            "name": "index.pug",
-            "type": "file"
-        },
-        {
-            "name": "old",
-            "type": "directory",
-            "children": [
-                {
-                    "name": "Redstone.png",
-                    "type": "file"
-                },
-                {
-                    "name": "Redstone.svg",
-                    "type": "file"
-                },
-                {
-                    "name": "_manifest.json.old",
-                    "type": "file"
-                },
-                {
-                    "name": "arrow.svg",
-                    "type": "file"
-                },
-                {
-                    "name": "circuit_board.png",
-                    "type": "file"
-                },
-                {
-                    "name": "circuit_board.svg",
-                    "type": "file"
-                },
-                {
-                    "name": "circuit_board_modified.png",
-                    "type": "file"
-                },
-                {
-                    "name": "logo_long.svg",
-                    "type": "file"
-                },
-                {
-                    "name": "noice.jpg",
-                    "type": "file"
-                },
-                {
-                    "name": "old2_social_image.xcf",
-                    "type": "file"
-                },
-                {
-                    "name": "old2_social_preview.png",
-                    "type": "file"
-                },
-                {
-                    "name": "old_logo",
-                    "type": "directory",
-                    "children": [
-                        {
-                            "name": "favicon.ico",
-                            "type": "file"
-                        },
-                        {
-                            "name": "loading.gif",
-                            "type": "file"
-                        },
-                        {
-                            "name": "logo.png",
-                            "type": "file"
-                        },
-                        {
-                            "name": "logo.svg",
-                            "type": "file"
-                        },
-                        {
-                            "name": "logo_rotate.gif",
-                            "type": "file"
-                        },
-                        {
-                            "name": "logo_rotate.xcf",
-                            "type": "file"
-                        },
-                        {
-                            "name": "redstone_dust_icon.svg",
-                            "type": "file"
-                        }
-                    ]
-                },
-                {
-                    "name": "secret_.png",
-                    "type": "file"
-                },
-                {
-                    "name": "sitemap.xml",
-                    "type": "file"
-                },
-                {
-                    "name": "social_preview.png.old",
-                    "type": "file"
-                }
-            ]
         },
         {
             "name": "package-lock.json",
@@ -350,341 +82,239 @@
             "type": "file"
         },
         {
-            "name": "project.html",
+            "name": "robots.txt",
             "type": "file"
         },
         {
-            "name": "project.pug",
-            "type": "file"
-        },
-        {
-            "name": "random-project",
+            "name": "src",
             "type": "directory",
             "children": [
                 {
-                    "name": "coming_soon.html",
+                    "name": "404.html",
                     "type": "file"
                 },
                 {
-                    "name": "discord_tag.html",
-                    "type": "file"
-                },
-                {
-                    "name": "loop.html",
-                    "type": "file"
-                },
-                {
-                    "name": "message_en_de.html",
-                    "type": "file"
-                },
-                {
-                    "name": "text_to_the_periodic_table",
+                    "name": "classic-project",
                     "type": "directory",
                     "children": [
                         {
-                            "name": "fonts",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "Montserrat-Regular.ttf",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "SourceCodePro-Regular.ttf",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "UbuntuMono-Regular.ttf",
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "index.html",
+                            "name": "MSDOS.html",
                             "type": "file"
                         },
                         {
-                            "name": "index.pug",
+                            "name": "Vigenere_Cipher.html",
                             "type": "file"
                         },
                         {
-                            "name": "script",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "script.js",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "script.js.map",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "script.ts",
-                                    "type": "file"
-                                }
-                            ]
+                            "name": "captcha.html",
+                            "type": "file"
                         },
                         {
-                            "name": "style",
+                            "name": "commit.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "commit_table.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "compatible",
                             "type": "directory",
                             "children": [
+                                {
+                                    "name": ".gitlab-ci.yml",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "about.html",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "credit.html",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "gallery.html",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "google0d0804a11aec577f.html",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "home.html",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "index.html",
+                                    "type": "file"
+                                },
                                 {
                                     "name": "style.css",
                                     "type": "file"
                                 },
                                 {
-                                    "name": "style.css.map",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "style.scss",
-                                    "type": "file"
+                                    "name": "website",
+                                    "type": "directory",
+                                    "children": [
+                                        {
+                                            "name": "image",
+                                            "type": "directory",
+                                            "children": [
+                                                {
+                                                    "name": "1.png",
+                                                    "type": "file"
+                                                },
+                                                {
+                                                    "name": "2.png",
+                                                    "type": "file"
+                                                },
+                                                {
+                                                    "name": "3.png",
+                                                    "type": "file"
+                                                },
+                                                {
+                                                    "name": "4.png",
+                                                    "type": "file"
+                                                },
+                                                {
+                                                    "name": "5.png",
+                                                    "type": "file"
+                                                },
+                                                {
+                                                    "name": "6.png",
+                                                    "type": "file"
+                                                },
+                                                {
+                                                    "name": "7.png",
+                                                    "type": "file"
+                                                },
+                                                {
+                                                    "name": "8.png",
+                                                    "type": "file"
+                                                },
+                                                {
+                                                    "name": "9.png",
+                                                    "type": "file"
+                                                },
+                                                {
+                                                    "name": "Untitled1.png",
+                                                    "type": "file"
+                                                },
+                                                {
+                                                    "name": "background.png",
+                                                    "type": "file"
+                                                },
+                                                {
+                                                    "name": "github.png",
+                                                    "type": "file"
+                                                },
+                                                {
+                                                    "name": "gitlab.png",
+                                                    "type": "file"
+                                                },
+                                                {
+                                                    "name": "plannet_minecraft.png",
+                                                    "type": "file"
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 }
                             ]
-                        }
-                    ]
-                },
-                {
-                    "name": "texteditor_basic.html",
-                    "type": "file"
-                },
-                {
-                    "name": "texteditor_html.html",
-                    "type": "file"
-                },
-                {
-                    "name": "twofa.py",
-                    "type": "file"
-                },
-                {
-                    "name": "webdriver_torso.html",
-                    "type": "file"
-                }
-            ]
-        },
-        {
-            "name": "robots.txt",
-            "type": "file"
-        },
-        {
-            "name": "social_link.html",
-            "type": "file"
-        },
-        {
-            "name": "social_link.pug",
-            "type": "file"
-        },
-        {
-            "name": "template",
-            "type": "directory",
-            "children": [
-                {
-                    "name": "_pmod_footer.pug",
-                    "type": "file"
-                },
-                {
-                    "name": "_pmod_head_metadata.pug",
-                    "type": "file"
-                },
-                {
-                    "name": "_pmod_header.pug",
-                    "type": "file"
-                },
-                {
-                    "name": "_pmod_mixins.pug",
-                    "type": "file"
-                },
-                {
-                    "name": "_pmod_noscript.pug",
-                    "type": "file"
-                },
-                {
-                    "name": "_pmod_preload.pug",
-                    "type": "file"
-                }
-            ]
-        },
-        {
-            "name": "tools",
-            "type": "directory",
-            "children": [
-                {
-                    "name": "compilePug.js",
-                    "type": "file"
-                },
-                {
-                    "name": "compilePug.js.map",
-                    "type": "file"
-                },
-                {
-                    "name": "compilePug.ts",
-                    "type": "file"
-                }
-            ]
-        },
-        {
-            "name": "tsconfig.json",
-            "type": "file"
-        },
-        {
-            "name": "website",
-            "type": "directory",
-            "children": [
-                {
-                    "name": "fonts",
-                    "type": "directory",
-                    "children": [
+                        },
                         {
-                            "name": "NotoSansMono.ttf",
+                            "name": "console.html",
                             "type": "file"
                         },
                         {
-                            "name": "SourceCodePro.ttf",
+                            "name": "dir_listing.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "gtpl.py",
+                            "type": "file"
+                        },
+                        {
+                            "name": "numberguessgame.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "old_commit_table.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "soope.html",
                             "type": "file"
                         }
                     ]
                 },
                 {
-                    "name": "image",
+                    "name": "home.pug",
+                    "type": "file"
+                },
+                {
+                    "name": "index.pug",
+                    "type": "file"
+                },
+                {
+                    "name": "old",
                     "type": "directory",
                     "children": [
                         {
-                            "name": "contact_page",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "discord.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "discord_org.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "email.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "github.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "gitlab.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "gitlab_old.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "itch.io.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "mastodon.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "old_planet_minecraft.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "pgp_key.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "planet_minecraft.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "revolt.chat.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "steam.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "twitter.svg",
-                                    "type": "file"
-                                }
-                            ]
+                            "name": "Redstone.png",
+                            "type": "file"
                         },
                         {
-                            "name": "home_page",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "building_block_of_internet.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "building_block_of_my_website.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "gift.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "gift_100_bill.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "gift_flappy_bird.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "gift_sublime_text_license_key.svg",
-                                    "type": "file"
-                                }
-                            ]
+                            "name": "Redstone.svg",
+                            "type": "file"
                         },
                         {
-                            "name": "label",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "3_years_of_service.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "3_years_of_service_optimized.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "certified_preschooler.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "certified_preschooler_optimized.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "source_on_github.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "source_on_github_optimized.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "work_without_javascript.svg",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "work_without_javascript_optimized.svg",
-                                    "type": "file"
-                                }
-                            ]
+                            "name": "_manifest.json.old",
+                            "type": "file"
                         },
                         {
-                            "name": "logo",
+                            "name": "arrow.svg",
+                            "type": "file"
+                        },
+                        {
+                            "name": "circuit_board.png",
+                            "type": "file"
+                        },
+                        {
+                            "name": "circuit_board.svg",
+                            "type": "file"
+                        },
+                        {
+                            "name": "circuit_board_modified.png",
+                            "type": "file"
+                        },
+                        {
+                            "name": "logo_long.svg",
+                            "type": "file"
+                        },
+                        {
+                            "name": "noice.jpg",
+                            "type": "file"
+                        },
+                        {
+                            "name": "old2_social_image.xcf",
+                            "type": "file"
+                        },
+                        {
+                            "name": "old2_social_preview.png",
+                            "type": "file"
+                        },
+                        {
+                            "name": "old_logo",
                             "type": "directory",
                             "children": [
                                 {
                                     "name": "favicon.ico",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "loading.gif",
                                     "type": "file"
                                 },
                                 {
@@ -696,254 +326,516 @@
                                     "type": "file"
                                 },
                                 {
-                                    "name": "logo.xcf",
+                                    "name": "logo_rotate.gif",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "logo_rotate.xcf",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "redstone_dust_icon.svg",
                                     "type": "file"
                                 }
                             ]
                         },
                         {
-                            "name": "minus.svg",
+                            "name": "secret_.png",
                             "type": "file"
                         },
                         {
-                            "name": "plus.svg",
+                            "name": "sitemap.xml",
                             "type": "file"
                         },
                         {
-                            "name": "social_preview.png",
-                            "type": "file"
-                        },
-                        {
-                            "name": "social_preview.xcf",
-                            "type": "file"
-                        },
-                        {
-                            "name": "sus_.png",
+                            "name": "social_preview.png.old",
                             "type": "file"
                         }
                     ]
                 },
                 {
-                    "name": "json",
+                    "name": "project.pug",
+                    "type": "file"
+                },
+                {
+                    "name": "random-project",
                     "type": "directory",
                     "children": [
                         {
-                            "name": "commit_data.json",
+                            "name": "coming_soon.html",
                             "type": "file"
                         },
                         {
-                            "name": "directory_listing.json",
+                            "name": "discord_tag.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "loop.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "message_en_de.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "text_to_the_periodic_table",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "fonts",
+                                    "type": "directory",
+                                    "children": [
+                                        {
+                                            "name": "Montserrat-Regular.ttf",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "SourceCodePro-Regular.ttf",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "UbuntuMono-Regular.ttf",
+                                            "type": "file"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "index.html",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "index.pug",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "script",
+                                    "type": "directory",
+                                    "children": [
+                                        {
+                                            "name": "script.js",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "script.js.map",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "script.ts",
+                                            "type": "file"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "style",
+                                    "type": "directory",
+                                    "children": [
+                                        {
+                                            "name": "style.css",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "style.css.map",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "style.scss",
+                                            "type": "file"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "texteditor_basic.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "texteditor_html.html",
+                            "type": "file"
+                        },
+                        {
+                            "name": "twofa.py",
+                            "type": "file"
+                        },
+                        {
+                            "name": "webdriver_torso.html",
                             "type": "file"
                         }
                     ]
                 },
                 {
-                    "name": "script",
-                    "type": "directory",
-                    "children": [
-                        {
-                            "name": "home_page",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "home.js",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "home.js.map",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "home.ts",
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "index_page",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "index.js",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "index.js.map",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "index.ts",
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "preload.js",
-                            "type": "file"
-                        },
-                        {
-                            "name": "preload.js.map",
-                            "type": "file"
-                        },
-                        {
-                            "name": "preload.ts",
-                            "type": "file"
-                        },
-                        {
-                            "name": "project_page",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "project.js",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "project.js.map",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "project.ts",
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "script.js",
-                            "type": "file"
-                        },
-                        {
-                            "name": "script.js.map",
-                            "type": "file"
-                        },
-                        {
-                            "name": "script.ts",
-                            "type": "file"
-                        },
-                        {
-                            "name": "social_link_page",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "social_link.js",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "social_link.js.map",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "social_link.ts",
-                                    "type": "file"
-                                }
-                            ]
-                        }
-                    ]
+                    "name": "robots.txt",
+                    "type": "file"
                 },
                 {
-                    "name": "sound",
+                    "name": "social_link.pug",
+                    "type": "file"
+                },
+                {
+                    "name": "template",
                     "type": "directory",
                     "children": [
                         {
-                            "name": "fart.mp3",
+                            "name": "_pmod_footer.pug",
+                            "type": "file"
+                        },
+                        {
+                            "name": "_pmod_head_metadata.pug",
+                            "type": "file"
+                        },
+                        {
+                            "name": "_pmod_header.pug",
+                            "type": "file"
+                        },
+                        {
+                            "name": "_pmod_mixins.pug",
+                            "type": "file"
+                        },
+                        {
+                            "name": "_pmod_noscript.pug",
+                            "type": "file"
+                        },
+                        {
+                            "name": "_pmod_preload.pug",
                             "type": "file"
                         }
                     ]
                 },
                 {
-                    "name": "style",
+                    "name": "website",
                     "type": "directory",
                     "children": [
                         {
-                            "name": "_variables.scss",
-                            "type": "file"
-                        },
-                        {
-                            "name": "home_page",
+                            "name": "fonts",
                             "type": "directory",
                             "children": [
                                 {
-                                    "name": "home.css",
+                                    "name": "NotoSansMono.ttf",
                                     "type": "file"
                                 },
                                 {
-                                    "name": "home.css.map",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "home.scss",
+                                    "name": "SourceCodePro.ttf",
                                     "type": "file"
                                 }
                             ]
                         },
                         {
-                            "name": "index_page",
+                            "name": "image",
                             "type": "directory",
                             "children": [
                                 {
-                                    "name": "index.css",
+                                    "name": "contact_page",
+                                    "type": "directory",
+                                    "children": [
+                                        {
+                                            "name": "discord.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "discord_org.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "email.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "github.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "gitlab.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "gitlab_old.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "itch.io.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "mastodon.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "old_planet_minecraft.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "pgp_key.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "planet_minecraft.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "revolt.chat.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "steam.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "twitter.svg",
+                                            "type": "file"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "home_page",
+                                    "type": "directory",
+                                    "children": [
+                                        {
+                                            "name": "building_block_of_internet.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "building_block_of_my_website.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "gift.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "gift_100_bill.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "gift_flappy_bird.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "gift_sublime_text_license_key.svg",
+                                            "type": "file"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "label",
+                                    "type": "directory",
+                                    "children": [
+                                        {
+                                            "name": "3_years_of_service.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "3_years_of_service_optimized.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "certified_preschooler.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "certified_preschooler_optimized.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "source_on_github.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "source_on_github_optimized.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "work_without_javascript.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "work_without_javascript_optimized.svg",
+                                            "type": "file"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "logo",
+                                    "type": "directory",
+                                    "children": [
+                                        {
+                                            "name": "favicon.ico",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "logo.png",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "logo.svg",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "logo.xcf",
+                                            "type": "file"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "minus.svg",
                                     "type": "file"
                                 },
                                 {
-                                    "name": "index.css.map",
+                                    "name": "plus.svg",
                                     "type": "file"
                                 },
                                 {
-                                    "name": "index.scss",
+                                    "name": "social_preview.png",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "social_preview.xcf",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "sus_.png",
                                     "type": "file"
                                 }
                             ]
                         },
                         {
-                            "name": "project_page",
+                            "name": "json",
                             "type": "directory",
                             "children": [
                                 {
-                                    "name": "project.css",
+                                    "name": "commit_data.json",
                                     "type": "file"
                                 },
                                 {
-                                    "name": "project.css.map",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "project.scss",
+                                    "name": "directory_listing.json",
                                     "type": "file"
                                 }
                             ]
                         },
                         {
-                            "name": "social_link_page",
+                            "name": "script",
                             "type": "directory",
                             "children": [
                                 {
-                                    "name": "social_link.css",
+                                    "name": "home_page",
+                                    "type": "directory",
+                                    "children": [
+                                        {
+                                            "name": "home.ts",
+                                            "type": "file"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "index_page",
+                                    "type": "directory",
+                                    "children": [
+                                        {
+                                            "name": "index.ts",
+                                            "type": "file"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "preload.ts",
                                     "type": "file"
                                 },
                                 {
-                                    "name": "social_link.css.map",
+                                    "name": "project_page",
+                                    "type": "directory",
+                                    "children": [
+                                        {
+                                            "name": "project.ts",
+                                            "type": "file"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "script.ts",
                                     "type": "file"
                                 },
                                 {
-                                    "name": "social_link.scss",
+                                    "name": "social_link_page",
+                                    "type": "directory",
+                                    "children": [
+                                        {
+                                            "name": "social_link.ts",
+                                            "type": "file"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "sound",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "fart.mp3",
                                     "type": "file"
                                 }
                             ]
                         },
                         {
-                            "name": "style.css",
-                            "type": "file"
-                        },
-                        {
-                            "name": "style.css.map",
-                            "type": "file"
-                        },
-                        {
-                            "name": "style.scss",
-                            "type": "file"
+                            "name": "style",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "_variables.scss",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "home_page",
+                                    "type": "directory",
+                                    "children": [
+                                        {
+                                            "name": "home.scss",
+                                            "type": "file"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "index_page",
+                                    "type": "directory",
+                                    "children": [
+                                        {
+                                            "name": "index.scss",
+                                            "type": "file"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "project_page",
+                                    "type": "directory",
+                                    "children": [
+                                        {
+                                            "name": "project.scss",
+                                            "type": "file"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "social_link_page",
+                                    "type": "directory",
+                                    "children": [
+                                        {
+                                            "name": "social_link.scss",
+                                            "type": "file"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "style.scss",
+                                    "type": "file"
+                                }
+                            ]
                         }
                     ]
                 }
             ]
+        },
+        {
+            "name": "tsconfig.json",
+            "type": "file"
         }
     ]
 }

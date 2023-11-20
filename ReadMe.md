@@ -54,35 +54,37 @@ How to setup the website for local development:
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\*\* | 100.0% | 0 files | 291,781,348 bytes
-\* | 0.01% | 12 files | 22,446 bytes
-\*.css | 0.01% | 7 files | 20,889 bytes
-\*.gif | 0.16% | 2 files | 477,306 bytes
-\*.html | 0.17% | 29 files | 485,912 bytes
-\*.ico | 0.04% | 2 files | 112,342 bytes
-\*.idx | 0.11% | 1 files | 318,984 bytes
-\*.jpg | 0.0% | 1 files | 5,529 bytes
-\*.js | 0.01% | 8 files | 37,745 bytes
-\*.json | 0.17% | 7 files | 486,066 bytes
-\*.map | 0.01% | 14 files | 36,550 bytes
-\*.md | 0.0% | 2 files | 6,689 bytes
-\*.mp3 | 0.0% | 1 files | 9,069 bytes
-\*.old | 0.19% | 2 files | 553,570 bytes
-\*.pack | 96.51% | 1 files | 281,602,326 bytes
-\*.png | 0.64% | 23 files | 1,860,617 bytes
-\*.pug | 0.01% | 11 files | 39,032 bytes
-\*.py | 0.01% | 3 files | 33,266 bytes
-\*.rev | 0.02% | 1 files | 45,468 bytes
-\*.sample | 0.01% | 14 files | 25,821 bytes
-\*.scss | 0.01% | 7 files | 20,884 bytes
-\*.svg | 0.07% | 37 files | 210,679 bytes
-\*.ts | 0.01% | 8 files | 36,521 bytes
-\*.ttf | 0.35% | 5 files | 1,011,420 bytes
-\*.txt | 0.0% | 1 files | 40 bytes
-\*.xcf | 1.48% | 4 files | 4,314,841 bytes
-\*.xml | 0.0% | 1 files | 835 bytes
-\*.yml | 0.0% | 5 files | 6,400 bytes
-> Last updated on: 2023-11-03
+\*\* | 100.0% | 0 files | 14,348,794 bytes
+\* | 0.14% | 13 files | 20,677 bytes
+\*.css | 0.01% | 2 files | 1,315 bytes
+\*.gif | 3.33% | 2 files | 477,306 bytes
+\*.html | 3.01% | 25 files | 431,976 bytes
+\*.ico | 0.78% | 2 files | 112,342 bytes
+\*.idx | 0.04% | 1 files | 6,392 bytes
+\*.ignored | 0.02% | 3 files | 3,161 bytes
+\*.jpg | 0.04% | 1 files | 5,529 bytes
+\*.js | 0.14% | 1 files | 19,855 bytes
+\*.json | 0.65% | 6 files | 92,752 bytes
+\*.map | 0.11% | 2 files | 15,130 bytes
+\*.md | 0.04% | 2 files | 6,112 bytes
+\*.mjs | 0.05% | 1 files | 7,529 bytes
+\*.mp3 | 0.06% | 1 files | 9,069 bytes
+\*.old | 3.86% | 2 files | 553,570 bytes
+\*.pack | 35.05% | 1 files | 5,029,630 bytes
+\*.png | 12.97% | 23 files | 1,860,617 bytes
+\*.pug | 0.27% | 11 files | 39,032 bytes
+\*.py | 0.23% | 3 files | 33,282 bytes
+\*.rev | 0.01% | 1 files | 812 bytes
+\*.sample | 0.18% | 14 files | 25,821 bytes
+\*.scss | 0.15% | 7 files | 20,884 bytes
+\*.svg | 1.47% | 37 files | 210,679 bytes
+\*.ts | 0.23% | 7 files | 32,722 bytes
+\*.ttf | 7.05% | 5 files | 1,011,420 bytes
+\*.txt | 0.0% | 2 files | 80 bytes
+\*.xcf | 30.07% | 4 files | 4,314,841 bytes
+\*.xml | 0.01% | 1 files | 835 bytes
+\*.yml | 0.04% | 3 files | 5,329 bytes
+> Last updated on: 2023-11-20
 <!--python_data_stop-->
 
 > **Details about the website's creation**
