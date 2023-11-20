@@ -17,8 +17,6 @@ jobs:
     steps:
       - name: Checkout
         uses: action/checkout@v3
-        with:
-          ref: ${{ github.event.client_payload.sha }}
 
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -51,8 +49,6 @@ jobs:
     steps:
       - name: Checkout
         uses: action/checkout@v3
-        with:
-          ref: ${{ github.event.client_payload.sha }}
 
       - name: Setup Node.JS
         uses: action/setup-node@v4
