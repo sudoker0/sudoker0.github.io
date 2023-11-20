@@ -8,8 +8,7 @@
 [![forks - sudoker0.github.io](https://img.shields.io/github/forks/sudoker0/sudoker0.github.io?style=social)](https://github.com/sudoker0/sudoker0.github.io)
 
 [![CodeQL](https://github.com/sudoker0/sudoker0.github.io/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/sudoker0/sudoker0.github.io/actions/workflows/codeql-analysis.yml)
-[![Update Website Information](https://github.com/sudoker0/sudoker0.github.io/actions/workflows/update_site_info.yml/badge.svg)](https://github.com/sudoker0/sudoker0.github.io/actions/workflows/main.yml)
-[![pages-build-deployment](https://github.com/sudoker0/sudoker0.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/sudoker0/sudoker0.github.io/actions/workflows/pages/pages-build-deployment)
+[![Main](https://github.com/sudoker0/sudoker0.github.io/actions/workflows/main.yml/badge.svg)](https://github.com/sudoker0/sudoker0.github.io/actions/workflows/main.yml)
 
 ## Info
 Hello! This is my personal website which is also one of my earliest repository on my account. The main purpose of this website is to show information about me, project I've created and other relevant information.
