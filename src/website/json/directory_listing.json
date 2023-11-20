@@ -70,10 +70,6 @@
             "type": "file"
         },
         {
-            "name": "robots.txt",
-            "type": "file"
-        },
-        {
             "name": "src",
             "type": "directory",
             "children": [

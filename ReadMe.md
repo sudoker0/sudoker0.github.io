@@ -54,8 +54,8 @@ How to setup the website for local development:
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\*\* | 100.0% | 0 files | 14,269,367 bytes
-\* | 0.14% | 13 files | 20,353 bytes
+\*\* | 100.0% | 0 files | 14,272,277 bytes
+\* | 0.14% | 13 files | 20,273 bytes
 \*.css | 0.01% | 2 files | 1,315 bytes
 \*.gif | 3.34% | 2 files | 477,306 bytes
 \*.html | 3.03% | 25 files | 431,976 bytes
@@ -63,13 +63,13 @@ File Extensions | Percentages of Bytes | Number of files | File/Folder size (Byt
 \*.idx | 0.04% | 1 files | 6,308 bytes
 \*.jpg | 0.04% | 1 files | 5,529 bytes
 \*.js | 0.14% | 1 files | 19,855 bytes
-\*.json | 0.66% | 6 files | 94,037 bytes
+\*.json | 0.66% | 6 files | 93,980 bytes
 \*.map | 0.11% | 2 files | 15,130 bytes
-\*.md | 0.04% | 2 files | 5,885 bytes
-\*.mjs | 0.05% | 1 files | 7,529 bytes
+\*.md | 0.04% | 2 files | 5,952 bytes
+\*.mjs | 0.07% | 1 files | 9,837 bytes
 \*.mp3 | 0.06% | 1 files | 9,069 bytes
 \*.old | 3.88% | 2 files | 553,570 bytes
-\*.pack | 34.71% | 1 files | 4,953,210 bytes
+\*.pack | 34.71% | 1 files | 4,953,922 bytes
 \*.png | 13.04% | 23 files | 1,860,617 bytes
 \*.pug | 0.27% | 11 files | 39,032 bytes
 \*.py | 0.23% | 3 files | 33,282 bytes
@@ -79,8 +79,8 @@ File Extensions | Percentages of Bytes | Number of files | File/Folder size (Byt
 \*.svg | 1.48% | 37 files | 210,679 bytes
 \*.ts | 0.23% | 7 files | 32,722 bytes
 \*.ttf | 7.09% | 5 files | 1,011,420 bytes
-\*.txt | 0.0% | 2 files | 80 bytes
-\*.xcf | 30.24% | 4 files | 4,314,841 bytes
+\*.txt | 0.0% | 1 files | 40 bytes
+\*.xcf | 30.23% | 4 files | 4,314,841 bytes
 \*.xml | 0.01% | 1 files | 835 bytes
 \*.yml | 0.03% | 3 files | 4,845 bytes
 > Last updated on: 2023-11-20
