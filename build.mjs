@@ -150,7 +150,7 @@ function compilePugFile(path) {
             self: true,
             string: {
                 // Foundation for i18n
-            }
+            },
         })
         writeFileSync(
             `${p.dir}${p.dir == "" ? "" : pathSeparator}${p.base.replace(PUG_FILE, ".html")}`,
