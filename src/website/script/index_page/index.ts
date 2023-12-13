@@ -1,81 +1,25 @@
-const content = `// very cool intro:)
+const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+const textElm: HTMLElement = document.querySelector("#text_container p")
+const textContainerElm: HTMLElement = document.querySelector("#text_container")
 
-^006$
-import { buttonStyle } from "./style.js"
-
-^053$
-const website = new sudoker0.website()
-const home_page = website.home
-
-^053$
-const a_tag = document.createElement("a")
-a_tag.innerText = "Home"
-a_tag.href = home_page.url
-a_tag.style = buttonStyle
-
-^053$
-this.append(a_tag)
-
-^0521$
-//#console run
-`
-const typingDelay = 10
-
-function delay(ms: number): Promise<void> {
-    return new Promise(resolve => setTimeout(_ => resolve(), ms))
-}
-
-async function postTyping() {
-    await delay(1000)
-    document.querySelector("p#running").classList.remove("hidden")
-    await delay(500)
-    document.querySelector("a#redirect").classList.remove("hidden")
-    await delay(500)
-}
-
-var scrollToBottom = null
-
-async function typeWriter(text: string) {
-    const elm = document.querySelector("pre#codeblock code")
-    const cursor = document.querySelector("#cursor")
-
-    cursor.classList.add("no_animation")
-    for (var i = 0; i < text.length; i++) {
-        var char = text.charAt(i)
-        var nextChar = i < text.length - 1 ? text.charAt(i + 1) : ""
-        var extraDelay = 0
-
-        if (char == "\n" && nextChar == "^") {
-            var posNum = 0
-            i++
-            while (true) {
-                i++
-                const num = Number(text.charAt(i))
-                if (isNaN(num)) {
-                    i++
-                    break
-                }
-                extraDelay += 10 ** posNum * num
-                posNum++
-            }
-            char = text.charAt(i)
-            console.log(extraDelay)
-        }
-
-        elm.textContent += char
-        await delay(typingDelay + extraDelay)
-        extraDelay = 0
+function randomString(len: number) {
+    var output = ""
+    for (let i = 0; i < len; i++) {
+        output += alphabet[Math.floor(Math.random() * alphabet.length)]
     }
-    cursor.classList.remove("no_animation")
+    return output
 }
 
-onload = async () => {
-    document.querySelectorAll(".label").forEach(v => {
-        v.classList.add("nohide")
-    })
-    await delay(700)
-    scrollToBottom = setInterval(() => scrollTo(0, document.body.scrollHeight), 0)
-    await typeWriter(content)
-    await postTyping()
-    clearInterval(scrollToBottom)
+function handleOnMouseMove(e: MouseEvent | Touch) {
+    const rect = textContainerElm.getBoundingClientRect()
+    const x = e.clientX - rect.left,
+        y = e.clientY - rect.top
+
+    textElm.innerText = randomString(2000)
+    textElm.style.setProperty("--x", `${x + 20}px`)
+    textElm.style.setProperty("--y", `${y + 20}px`)
 }
+
+textContainerElm.addEventListener("mousemove", handleOnMouseMove)
+textContainerElm.addEventListener("touchmove", (e) => handleOnMouseMove(e.touches[0]))
+textContainerElm.addEventListener("click", () => location.href = "/home.html")

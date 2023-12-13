@@ -13,13 +13,12 @@ html(lang="en")
         include template/_pmod_preload.pug
         include template/_pmod_noscript.pug
 
-        pre#codeblock
-            p.label Editor
-            code.language-javascript
-            code.fallback
-                | //#fallback no-js
-            span#cursor _
-        div#console
-            p.label Console
-            p#running.hidden -&gt; Running...
-            a#redirect.hidden(href="home.html") Home
+        #text_container
+            p
+            #shadow
+            img(src="website/image/logo/logo_transparent.svg", alt="logo")
+            #noscript_fallback
+                a(href="/home.html") [redirect to main page]
+
+        #credit
+            p design heavily inspired from #[a(href="https://codepen.io/Hyperplexed/pen/VwqLQbo") this codepen]
