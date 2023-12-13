@@ -656,6 +656,10 @@
                                         {
                                             "name": "logo.xcf",
                                             "type": "file"
+                                        },
+                                        {
+                                            "name": "logo_transparent.svg",
+                                            "type": "file"
                                         }
                                     ]
                                 },
