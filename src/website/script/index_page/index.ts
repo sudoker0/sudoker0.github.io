@@ -22,4 +22,9 @@ function handleOnMouseMove(e: MouseEvent | Touch) {
 
 textContainerElm.addEventListener("mousemove", handleOnMouseMove)
 textContainerElm.addEventListener("touchmove", (e) => handleOnMouseMove(e.touches[0]))
-textContainerElm.addEventListener("click", () => location.href = "/home.html")
+
+const redirect = () => location.href = "/home.html"
+textContainerElm.addEventListener("click", redirect)
+textContainerElm.addEventListener("keyup", (e) => {
+    if (e.key == "Enter") redirect()
+})
