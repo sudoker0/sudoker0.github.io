@@ -1,12 +1,12 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2023-12-19",
+    "last_update_on": "2023-12-31",
     "data": [
         {
-            "hash": "fc7f5d3f3dc9e723b92db79a3dd1732fa38896e7",
-            "committer": "QuanMCPC",
-            "commit_date": 1702958339,
-            "message": "Merge branch 'master' of https://github.com/sudoku0/sudoku0.github.io"
+            "hash": "dad32df0b0cbdc689106cc9e198ed0541dc205f2",
+            "committer": "sudoker0",
+            "commit_date": 1702958353,
+            "message": "update website's information"
         }
     ]
 }
