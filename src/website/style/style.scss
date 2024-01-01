@@ -34,20 +34,12 @@ body {
 }
 
 span {
-    &.tc-red {
-        background-color: var(--color-tc-red);
-    }
-    &.tc-green {
-        background-color: var(--color-tc-green);
-    }
-    &.tc-blue {
-        background-color: var(--color-tc-blue);
-    }
-    &.tc-purple {
-        background-color: var(--color-tc-purple);
-    }
-    &.tc-cyan {
-        background-color: var(--color-tc-cyan);
+    $registeredColor: red, green, blue, purple, cyan, white;
+
+    @each $c in $registeredColor {
+        &.tc-#{"" + $c} {
+            background-color: var(--color-tc-#{"" + $c});
+        }
     }
 }
 
