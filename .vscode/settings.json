@@ -38,4 +38,5 @@
         "Україні"
     ],
     "liveServer.settings.root": "/dist",
+    "C_Cpp.default.compilerPath": "/usr/bin/g++",
 }
