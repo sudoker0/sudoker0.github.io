@@ -133,6 +133,7 @@ function updateWebsiteAge() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    scroll({top: 0})
     updateWebsiteAge()
     switch (gPBName("id")) {
         case "entropy":
@@ -165,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
         intersect = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 toggleSection(entry.target.id, entry.isIntersecting)
-                //if (entry.isIntersecting) intersect.unobserve(entry.target)
+                if (entry.isIntersecting) intersect.unobserve(entry.target)
             })
         }, {
             root: null,

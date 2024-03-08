@@ -10,7 +10,7 @@ function randomString(len: number) {
     return output
 }
 
-function handleOnMouseMove(e: MouseEvent | Touch) {
+function handleOnMouseMove(e: MouseEvent) {
     const rect = textContainerElm.getBoundingClientRect()
     const x = e.clientX - rect.left,
         y = e.clientY - rect.top
@@ -20,8 +20,7 @@ function handleOnMouseMove(e: MouseEvent | Touch) {
     textElm.style.setProperty("--y", `${y + 20}px`)
 }
 
-textContainerElm.addEventListener("mousemove", handleOnMouseMove)
-textContainerElm.addEventListener("touchmove", (e) => handleOnMouseMove(e.touches[0]))
+textContainerElm.addEventListener("pointermove", handleOnMouseMove)
 
 const redirect = () => location.href = "/home.html"
 textContainerElm.addEventListener("click", redirect)

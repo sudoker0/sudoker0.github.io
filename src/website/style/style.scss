@@ -203,7 +203,7 @@ body, pre, code, textarea {
 }
 
 section, footer {
-    max-width: 1800px;
+    max-width: var(--max-width);
     margin: 0 auto;
 }
 
@@ -350,6 +350,7 @@ div.collapsiblecontent {
 }
 
 nav.navbar {
+    max-width: var(--max-width);
     z-index: 10;
     position: sticky;
     top: 0;
@@ -359,6 +360,7 @@ nav.navbar {
     grid-template-columns: 64px auto;
     height: 64px;
     box-shadow: 0px 20px 30px 0px var(--color-bg);
+    margin: 0 auto;
 
     > a {
         width: fit-content;
