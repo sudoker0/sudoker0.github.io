@@ -6,6 +6,9 @@
     "type": "git",
     "url": "git+https://github.com/sudoker0/sudoker0.github.io.git"
   },
+  "scripts": {
+    "build": "node build.mjs && python update-site-data.py"
+  },
   "author": "sudoker0",
   "license": "MIT",
   "bugs": {

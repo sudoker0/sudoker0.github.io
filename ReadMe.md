@@ -40,7 +40,11 @@ How to setup the website for local development:
     ```
 3. Running the build script:
     ```bash
-    node build.mjs
+    npm run build # recommended
+    ```
+    OR
+    ```bash
+    node build.mjs # to only run the build script and not the `update-site-data.py` script
     # you can view the help page by typing `node build.mjs --help`
     ```
 4. Host the website locally:
@@ -54,36 +58,43 @@ How to setup the website for local development:
 <!--python_data_start-->
 File Extensions | Percentages of Bytes | Number of files | File/Folder size (Bytes)
 ----------------|--------------------- |-----------------|--------------------------
-\*\* | 100.0% | 0 files | 14,277,118 bytes
-\* | 0.14% | 13 files | 20,385 bytes
-\*.css | 0.01% | 2 files | 1,315 bytes
-\*.gif | 3.34% | 2 files | 477,306 bytes
-\*.html | 3.03% | 25 files | 431,976 bytes
-\*.ico | 0.79% | 2 files | 112,342 bytes
-\*.idx | 0.04% | 1 files | 6,336 bytes
-\*.jpg | 0.04% | 1 files | 5,529 bytes
-\*.js | 0.14% | 1 files | 19,855 bytes
-\*.json | 0.66% | 6 files | 94,114 bytes
-\*.map | 0.11% | 2 files | 15,130 bytes
-\*.md | 0.04% | 2 files | 5,745 bytes
-\*.mjs | 0.07% | 1 files | 9,838 bytes
-\*.mp3 | 0.06% | 1 files | 9,069 bytes
-\*.old | 3.88% | 2 files | 553,570 bytes
-\*.pack | 34.7% | 1 files | 4,954,073 bytes
-\*.png | 13.03% | 23 files | 1,860,617 bytes
-\*.pug | 0.28% | 11 files | 40,501 bytes
-\*.py | 0.23% | 3 files | 33,282 bytes
-\*.rev | 0.01% | 1 files | 804 bytes
-\*.sample | 0.18% | 14 files | 25,827 bytes
-\*.scss | 0.15% | 7 files | 21,588 bytes
-\*.svg | 1.5% | 38 files | 214,117 bytes
-\*.ts | 0.22% | 7 files | 31,723 bytes
-\*.ttf | 7.08% | 5 files | 1,011,420 bytes
-\*.txt | 0.0% | 1 files | 40 bytes
-\*.xcf | 30.22% | 4 files | 4,314,841 bytes
-\*.xml | 0.01% | 1 files | 835 bytes
-\*.yml | 0.03% | 3 files | 4,845 bytes
-> Last updated on: 2024-04-16
+\*\* | 100.0% | 0 files | 383,670,983 bytes
+\* | 1.41% | 1085 files | 5,404,861 bytes
+\*.cjs | 0.0% | 2 files | 346 bytes
+\*.cmd | 0.0% | 6 files | 1,950 bytes
+\*.coffee | 0.0% | 2 files | 1 bytes
+\*.css | 0.0% | 7 files | 18,898 bytes
+\*.flow | 0.06% | 2 files | 238,289 bytes
+\*.gif | 0.25% | 4 files | 954,612 bytes
+\*.html | 0.24% | 55 files | 918,013 bytes
+\*.ico | 0.06% | 6 files | 245,416 bytes
+\*.idx | 0.08% | 1 files | 299,160 bytes
+\*.jpg | 0.0% | 2 files | 11,058 bytes
+\*.js | 16.06% | 404 files | 61,604,619 bytes
+\*.json | 1.13% | 123 files | 4,336,902 bytes
+\*.lcl | 0.71% | 78 files | 2,707,600 bytes
+\*.map | 0.86% | 94 files | 3,288,968 bytes
+\*.markdown | 0.0% | 2 files | 12,669 bytes
+\*.md | 0.16% | 121 files | 595,225 bytes
+\*.mjs | 0.05% | 5 files | 206,932 bytes
+\*.mts | 0.0% | 1 files | 2,922 bytes
+\*.old | 0.29% | 4 files | 1,107,306 bytes
+\*.pack | 73.06% | 1 files | 280,324,231 bytes
+\*.png | 0.97% | 51 files | 3,735,631 bytes
+\*.ps1 | 0.0% | 6 files | 4,830 bytes
+\*.pug | 0.01% | 6 files | 31,971 bytes
+\*.py | 0.02% | 5 files | 58,075 bytes
+\*.rev | 0.01% | 1 files | 42,636 bytes
+\*.sample | 0.01% | 14 files | 25,821 bytes
+\*.scss | 0.0% | 3 files | 19,110 bytes
+\*.svg | 0.13% | 110 files | 506,956 bytes
+\*.ts | 1.6% | 188 files | 6,153,566 bytes
+\*.ttf | 0.53% | 10 files | 2,022,840 bytes
+\*.txt | 0.01% | 6 files | 48,958 bytes
+\*.xcf | 2.25% | 10 files | 8,633,342 bytes
+\*.xml | 0.0% | 2 files | 1,724 bytes
+\*.yml | 0.0% | 21 files | 16,108 bytes
+> Last updated on: 2024-04-26
 <!--python_data_stop-->
 
 > **Details about the website's creation**

@@ -1,2 +1,3 @@
 # Credit
-The creator of the website would like to say thank you to all the people who allowed us to use your work to help create the website:
+ - [Solar Bold Icons Collection](https://www.svgrepo.com/collection/solar-bold-icons/) (from svgrepo.com) for the icons that highlight each section of the website.
+ - [Simple Icons](https://simpleicons.org) for the icons in the `Programming Skills` section and the `Introduction` section of the website.

@@ -99,7 +99,7 @@ for items in output.decode("utf-8").split("\n"):
     json_data["data"].append({"hash": item[0], "committer": item[1], "commit_date": int(item[2]), "message": item[3]})
 
 # Export data to a file
-with open("./src/website/json/commit_data.json", "w") as outfile:
+with open("./dist/website/json/commit_data.json", "w") as outfile:
     json.dump(json_data, outfile, indent=4)
 exit_code = process.wait()
 
@@ -199,8 +199,8 @@ def path_to_dict(path, recursion:bool = False):
         d['type'] = "file"
     return d
 
-with open("./src/website/json/directory_listing.json", "w") as outfile:
-    json.dump(path_to_dict("."), outfile, indent=4)
+with open("./dist/website/json/directory_listing.json", "w") as outfile:
+    json.dump(path_to_dict("./dist"), outfile, indent=4)
 # ----------------------[make_tree.py]-----------------------#
 
 # ---------------------[commit_maybe.py]-------------------- #

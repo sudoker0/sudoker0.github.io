@@ -1,23 +1,302 @@
+mixin social_link_item(social_website, link, account_name)
+    a.social_link_item(target="_blank" href=link, title=social_website)
+        .social_item_image
+            img(src="/website/image/index_page/social_link_logo/" + social_website + ".svg", alt=social_website)
+        //- .social_item_text
+        //-     span.social_item_explain="[" + social_website + "]"
+        //-     br
+        //-     span=account_name
+
+doctype html
 html(lang="en")
     head
-        //- Слава Україні
-        //- credits: https://codepen.io/Hyperplexed/pen/VwqLQbo
         include template/_pmod_head_metadata.pug
-        +og_generator("sudoker0", "const website = new sudoker0.website()", "https://sudoker0.github.io/")
+        include template/_pmod_mixins.pug
+        +og_generator("sudoker0", "my website.", "/")
 
-        link(rel="stylesheet", href="/website/style/index_page/index.css")
-        script(src="/website/script/index_page/index.js" defer)
+        link(rel="stylesheet", href="/website/style/index.css")
+        script(src="/website/script/index.js" defer)
 
     body(data-js="false")
-        //- For verification
-        a.verification(rel="me" href="https://mastodon.world/@quanmcpc" aria-hidden="true")
-        include template/_pmod_preload.pug
+        script(src="/website/script/preload.js")
         include template/_pmod_noscript.pug
 
-        #text_container(tabindex="0")
-            p
-            #shadow
-            img(src="website/image/logo/logo_transparent.svg", alt="logo")
-            #noscript_fallback
-                a(href="/home.html") [redirect to main page]
-        p click the icon to begin
+        +section("intro", "fullscreen", "/Introduction")
+            h1 A student by day. #[span.inverse A programmer by night.]
+            p Hello 👋! I'm Quan, a self-taught #[span.highlight-green programmer] 💻 from 🇻🇳, and a professional #[span.highlight-cyan dumbass].
+            .social_links
+                +social_link_item("discord", "https://discord.com/users/763377551963717653", "sudoker0")
+                +social_link_item("revolt.chat", "#", "sudoker0#3948")
+                +social_link_item("github", "https://github.com/sudoker0", "sudoker0")
+                +social_link_item("gitlab", "https://gitlab.com/sudoker0", "sudoker0")
+                +social_link_item("steam", "https://steamcommunity.com/id/sudoker0/", "sudoker0")
+                +social_link_item("itch.io", "https://sudoker0.itch.io", "sudoker0.itch.io")
+                +social_link_item("mastodon", "https://mastodon.world/@quanmcpc", "@QuanMCPC")
+                +social_link_item("twitter", "https://twitter.com/sudoker0", "@sudoker0")
+                +social_link_item("planet_minecraft", "https://www.planetminecraft.com/member/sudoker0/", "sudoker0")
+
+        +section("about_me", "", "/About_Me", "")
+            .split_container.l
+                .left
+                    p I am a #[span.highlight-blue web developer] 🌐 with front-end and back-end skills. I have created many websites, APIs and browser apps during my #[span.highlight-red 5 years] 📅 of programming.
+                    p I also have knowledge in making #[span.highlight-blue games] 🎮 using Godot, #[span.highlight-green programs] using C++/C#, as well as #[span.highlight-cyan mobile app] 📱 using Flutter.
+                    p I have joined and won 🏆 many regional #[span.highlight-green programming competitions] in my country, and I am constantly learning 📚 to improve my programming skills and gain experience for future competitions.
+                .right
+                    .card.hover_effect
+                        #text_container(tabindex="0")
+                            p
+                            #shadow
+                            img(src="website/image/logo/logo_transparent.svg", alt="logo")
+
+        +section("skills", "", "/Programming_Skills")
+            p These are languages which I am most #[span.highlight-red skilled] 🤹‍♀️ in. While I have used a lot of different programming languages, these are the one that I can use without trouble.
+            .skills_container
+                .card.hover_effect(data-colorOverride="#3178C6")
+                    img(src="/website/image/index_page/programming_language_logo/typescript.svg", alt="TypeScript logo")
+                    p TypeScript
+                .card.hover_effect(data-colorOverride="#3776AB")
+                    img(src="/website/image/index_page/programming_language_logo/python.svg", alt="Python logo")
+                    p Python
+                .card.hover_effect(data-colorOverride="#00599C")
+                    img(src="/website/image/index_page/programming_language_logo/cplusplus.svg", alt="C++ logo")
+                    p C++
+                .card.hover_effect(data-colorOverride="#000000")
+                    img(src="/website/image/index_page/programming_language_logo/rust.svg", alt="Rust logo")
+                    p Rust
+                .card.hover_effect(data-colorOverride="#478CBF")
+                    img(src="/website/image/index_page/programming_language_logo/godotengine.svg", alt="Godot logo")
+                    p Godot
+
+        +section("websites", "", "/Websites")
+            p Here is a #[span.highlight-purple list of websites] that I've made. Some are currently #[span.highlight-red in development] 🔧, while others are #[span.highlight-red archived] 🗄 for historical purposes.
+            div
+                +collapsecontent("Code and Random Stuff Archive")
+                    p Here is the #[a(target="_blank" href="https://sudoker0.github.io/WebsiteArchive/") link to the website]
+                    p Description: This is where I put random stuff like random project, unused code, etc.
+                +collapsecontent("My Carrd's site")
+                    p Here is the #[a(target="_blank" href="https://sudoker0.carrd.co/") link to the website]
+                    p Description: A shortened version of my website.
+                +collapsecontent("My Blogsite")
+                    p Here is the #[a(target="_blank" href="https://sudoker0.github.io/Blogsite") link to the website]
+                    p Description: This is my personal blog where I will be posting about stuff.
+                +collapsecontent("\"First Commit\"")
+                    p Here is the #[a(target="_blank" href="https://quan215.github.io") link to the website]
+                    p Description: The first ever version of this website so you can see how much I've improved over the last 5 years.
+
+        +section("projects", "", "/Projects")
+            p Here's a #[span.highlight-purple list of projects] that I've created and released publicly on GitHub. There are some projects which may never be finished, so don't bug me with Issues about it.
+            div
+                +collapsecontent("Web")
+                    +collapsecontent("No Nutella November Tracker", "project", "s1")
+                        p Here is the #[a(target="_blank" href="/project.nnn-tracker/index.html") link to view the project]
+                        p Description: A progress tracker for the NNN Challenge
+                    +collapsecontent("DVD Screensaver", "project", "s2")
+                        p Here is the #[a(target="_blank" href="/project.dvd-screensaver/index.html") link to view the project]
+                        p Description: A web screensaver with an image that bounces around
+                    +collapsecontent("April Fools 2023: DPRK VPN", "project", "s3")
+                        p Here is the #[a(target="_blank" href="/project.dprk-vpn/index.html") link to view the project]
+                        p Description: A VPN which allow you to browse the best Internet created by the DPRK.
+                    +collapsecontent("Guess The GIF", "project", "s4")
+                        p Here is the #[a(target="_blank" href="/project.guess-the-gif/index.html") link to view the project]
+                        p Description: A game about guessing GIF (or JIF i guess)
+                    +collapsecontent("[DEPRECATED] No \"Nutella\" November Challenge Tracker", "project", "s5")
+                        p Here is the #[a(target="_blank" href="/project.anti-nutella-challange/index.html") link to view the project]
+                        p Description: A progress tracker for the "November" Challenge
+                    +collapsecontent("Flappy Bird Clone", "project", "s6")
+                        p Here is the #[a(target="_blank" href="/project.flappy-bird-clone/index.html") link to view the project]
+                        p Description: A basic prototype of the flappy bird clone that I made.
+                    +collapsecontent("INBOSH (It has No name But it's Online SHell)", "project", "s7")
+                        p Here is the #[a(target="_blank" href="/project.INBOSH/INBOSH.html") link to view the project]
+                        p Description: A working shell inside a browser, that can only run function and has some bug.
+                    +collapsecontent("Demo for a panorama background", "project", "s8")
+                        p Here is the #[a(target="_blank" href="/project.panorama-demo/index.html") link to view the project]
+                        p Description: A demo for a panorama background that is fully writ`ten in JS (no plugin used).
+                    +collapsecontent("SOOPE (Simple and Open-Source Online Picture Editor)", "project", "s9")
+                        p Here is the #[a(target="_blank" href="/classic-project/soope.html") link to view the project]
+                        p Description: A fully functional image editor inside browser (It even has dark mode too!).
+                    +collapsecontent("WCOS (Web Console OS)", "project", "s10")
+                        p Here is the #[a(target="_blank" href="/classic-project/MSDOS.html") link to view the project]
+                        p Description: My second attempt to create a shell (which is better then the previous attempt, but still, it's pretty bad).
+                    +collapsecontent("WTOS (Web Terminal OS; Also know as: Console)", "project", "s11")
+                        p Here is the #[a(target="_blank" href="/classic-project/console.html") link to view the project]
+                        p Description: My first attempt to create a shell (which is pretty bad).
+                    +collapsecontent("Guess The Number Game", "project", "s12")
+                        p Here is the #[a(target="_blank" href="/classic-project/numberguessgame.html") link to view the project]
+                        p Description: Pretty simple: Just Guess The Number.
+                    +collapsecontent("Simple Captcha", "project", "s13")
+                        p Here is the #[a(target="_blank" href="/classic-project/captcha.html") link to view the project]
+                        p Description: Something I make for something related to AI idk.
+                    +collapsecontent("Vigenère Encoder and Decoder", "project", "s14")
+                        p Here is the #[a(target="_blank" href="/classic-project/Vigenere_Cipher.html") link to view the project]
+                        p Description: A simple Vigenère Encoder and Decoder.
+
+                +collapsecontent("Game")
+                    +collapsecontent("InfiniMaze", "project")
+                        p Here is the #[a(target="_blank" href="https://github.com/sudoker0/InfiniMaze-Godot") link to the source code]
+                        p And here's the #[a(target="_blank" href="https://sudoker0.itch.io/infinimaze") link to the game]
+                        p Description: A game where the objective is to survive as long as possible in an infinitely generating maze (more info available in the game's itch.io page)
+                    +collapsecontent("Show The Flags!", "project")
+                        p Here is the #[a(target="_blank" href="/project.show-the-flags/") link to view the project]
+                        p Description: A game where you guess the flag of the countries (more info available in the game)
+                    +collapsecontent("Bouncy Beam", "project")
+                        p Here is the #[a(target="_blank" href="https://github.com/sudoker0/Bouncy-Beam") link to the source code]
+                        p And here's the #[a(target="_blank" href="https://sudoker0.itch.io/bouncy-beam") link to the game]
+                        p Description: My third game about laser where you need to place mirror to make sure the laser hit the target while avoiding obstruction.
+                    +collapsecontent("Guess The Number Game", "project")
+                        p Here is the #[a(target="_blank" href="https://github.com/sudoker0/NumberGuessingGame/") link to the source code]
+                        p Description: My second game written in C# where you guess a number with an Impossible Mode.
+                    +collapsecontent("MyFirstGame [dead, just like Unity]", "project")
+                        p Here is the #[a(target="_blank" href="https://github.com/sudoker0/MyFirstGame") link to the source code]
+                        p And here's the #[a(target="_blank" href="https://sudoker0.itch.io/myfirstgame") link to the game]
+                        p Description: My very first game created in #[strike Unity] where you eat chicken to get points and eat bomb to lose point and get shoot up to the sky.
+
+                +collapsecontent("Program")
+                    +collapsecontent("SSTV Encoder", "project")
+                        p Here is the #[a(target="_blank" href="https://gist.github.com/sudoker0/4ed01f9a8bcb303e0ef9671cab30166f") link to the encoder]
+                        p Description: A Python scripts which converts images to audio using #[a(target="_blank" href="https://en.wikipedia.org/wiki/Slow-scan_television") SSTV] encoding.
+                    +collapsecontent("SSTV Decoder", "project")
+                        p Here is the #[a(target="_blank" href="about:blank") link to the decoder (coming soon)]
+                        p Description: A Python scripts which converts #[a(target="_blank" href="https://en.wikipedia.org/wiki/Slow-scan_television") SSTV]-encoded audio to images.
+                    +collapsecontent("Discord Message Scraper", "project")
+                        p Here is the #[a(target="_blank" href="https://github.com/sudoker0/DiscordMessageScraper") link to the source code]
+                        p Description: A NodeJS program which allow you to download messages from channels in servers.
+                    +collapsecontent("Dead Chat Tracker (DCT) - A Discord Bot", "project notable")
+                        p Here is the #[a(target="_blank" href="https://github.com/sudoker0/project.discord-dead-chat-bot.bot") link to the source code]
+                        p Description: A Discord bot made for only one purpose, and that is to track how long the channels of a server has died.
+                    +collapsecontent("Better Tuxedo Keyboard Backlight Controller", "project")
+                        p Here is the #[a(target="_blank" href="https://github.com/sudoker0/TuxedoBacklightController") link to the source code]
+                        p Description: A program which allow user to change their keyboard backlight color, as long as they have the Tuxedo/Clevo compatible keyboard and appropriate #[a(target="_blank" href="https://github.com/tuxedocomputers/tuxedo-keyboard") kernal modules].
+                    +collapsecontent("[DEPRECATED] Get Discord Message as JSON", "project")
+                        p Here is the #[a(target="_blank" href="https://github.com/sudoker0/Get_Discord_MSG") link to the source code]
+                        p Description: A NodeJS project to get the chat message of any channels in any server/person as JSON data.
+                    +collapsecontent("GTPL (Guess The Programming Language)", "project")
+                        p Here is the #[a(target="_blank" href="https://gist.github.com/sudoker0/dab9fd0e0a7fe36b271baf7d98c751ff") link to the source code]
+                        p Description: A simple game written in Python and it's text-based where you have to guess the programming language of a piece of code.
+                    +collapsecontent("Windows Forms App 2.0 Unofficial", "project")
+                        p Here is the #[a(target="_blank" href="https://github.com/sudoker0/Windows-Forms-App-2.0-Unofficial") link to the source code]
+                        p Description: A template for a more modern build-in Windows Forms.
+                    +collapsecontent("EDIT (Edit Document In Terminal)", "project")
+                        p Here is the #[a(target="_blank" href="https://github.com/sudoker0/Edit") link to the source code]
+                        p Description: A really ~OK~ text editor made with Electron with features like Auto Update.
+
+                +collapsecontent("Minecraft Build")
+                    +collapsecontent("8-bit Decoder", "project")
+                        p Here is the #[a(target="_blank" href="https://www.planetminecraft.com/project/8-bit-decoder-in-minecraft/") link to the map on PM]
+                        p Description: Convert binary to character from A to Z, 0 to 9 in ASCII.
+                    +collapsecontent("Compact Calculator (1.15.2)", "project")
+                        p Here is the #[a(target="_blank" href="https://www.planetminecraft.com/project/compact-calculator-1-15-2/") link to the map on PM]
+                        p Description: A fully working calculator that can do basic calculation in Minecraft using command block.
+                    +collapsecontent("The Longest Useless Machine in Minecraft (v1.0)", "project")
+                        p Here is the #[a(target="_blank" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-0/") link to the map on PM]
+                        p Description: A redstone contraption that is pretty useless.
+                    +collapsecontent("The Longest Useless Machine in Minecraft (v1.2)", "project")
+                        p Here is the #[a(target="_blank" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-1/") link to the map on PM]
+                        p Description: An upgraded version of the 1.0 version.
+                    +collapsecontent("Printer 1.16", "project")
+                        p Here is the #[a(target="_blank" href="https://www.planetminecraft.com/project/printer-1-16/") link to the map on PM]
+                        p Description: A printer that can print stuff out using concrete instead of paper.
+                    +collapsecontent("Security Vault 2.0", "project")
+                        p Here is the #[a(target="_blank" href="https://www.planetminecraft.com/project/security-vault-2-0/") link to the map on PM]
+                        p Description: A very large vault to store and hide valuables.
+
+                +collapsecontent("Miscellaneous Project")
+                    +collapsecontent("NoHistory - A Firefox Extension", "project")
+                        p Here is the #[a(target="_blank" href="https://github.com/sudoker0/NoHistory/") link to the source code]
+                        p And here is the #[a(target="_blank" href="https://addons.mozilla.org/en-US/firefox/addon/nohistory/") link to the extension]
+                        p Description: An extension for Firefox to prevent web pages from getting saved from history without opening a private window.
+
+        +section("email", "", "/Email")
+            p Incase you don't use any of the social media above (lucky you), you can also contact me via #[span.highlight-red Email]. I don't have an email form for you though :(
+            p My email address: #[a(href="mailto:sudoker0@disroot.org") sudoker0@disroot.org]
+            p #[span.highlight-cyan GPG key] of the email address (for extra 👌 #[span.highlight-purple coolness]):
+            .card.textarea
+                | -----BEGIN PGP PUBLIC KEY BLOCK-----
+                |
+                | mQINBGTq+REBEACuOToJO1Asv1OkNE53Dk4M60rN9C6MoYS7jEowe2PgCdivwhVR
+                | 0LvEdWt0zQcVmSP/XiE1vBLvxbbNgLad1lcWQN92INfLpHCBg+48AFUMYARJ4DbM
+                | QBW+8wMQ/mlXveYmwo0LlxuWicF75+inRFjF5S02zXUx/JYgsfdD8vPAz1XVim2C
+                | R8tXUfNPIWlKgfT9DQCFjIe4BpYUmD+Bas9Qc+Qy/4V72KH4zD1HsTGrwi5VL5Ir
+                | /I65GZ6Ws7rt+jNtaoNomhuK5uyEY3XVeenoWR6WkZSpOjUt8Cbez3n5/SJKtzna
+                | ZTA5ge5aNoMexOD6vzIwhnbSZwmK12dUIC+S1M5m6LByyGgLgX6vWqtdt77QnCBM
+                | xGZpiT0gyyykrc8FmLceHe7TXwOUHCWf2mSrpvou2Zc9ssZH3yuJL8DAfgtAH1MC
+                | 8aieB71nynyy7H0IXhF2Rb7YWCkyFLzgWZ0j3qVfFwFSGvIVGPXPIsi+TN8M2TZJ
+                | ASjtD9yBfUunRCUfnbvv2v/xQcH8tUNATt3ZrEnDx3+fqhj4CcYlGo6klCoUH7xc
+                | 04X1XCXMertQrUJ0RNt+8Ck4aBl+GxX1Et75nWjIuyxFXB2TeVDLyjye8zFR18+T
+                | 6qgWvrYtnNIu+18ENdYvjArrSE2m8zfdF1FDAqEHZ/QDk2fjBYYkfAynyQARAQAB
+                | tCdzdWRva2VyMC1kaXNyb290IDxzdWRva2VyMEBkaXNyb290Lm9yZz6JAk4EEwEK
+                | ADgWIQQtiyZCVlYbRLCZvA5ma8pul4SsDgUCZOr5EQIbAwULCQgHAgYVCgkICwIE
+                | FgIDAQIeAQIXgAAKCRBma8pul4SsDnIgEACmDwKsZGnyiiMI/cxBTfKgzgkEvFnN
+                | xbF7LJS4Z2eZ1tp1H2y85V8iXzOLZPpnKdJpUxyxNrTMIhLhYh8/jnZ1xIhEH1/+
+                | 5gJSbk4vQB1Eq00YL2v9JTOu5tinavorhDUAhnR3uuMRiLBhPTYgCEhtZKTvNobH
+                | Pe2jVFOcUZFTw4A0oHWW5YBVo3/5Ud3G2QDU0emwSEu2RZbBTG1dota2uKMahLGQ
+                | xv1BsnnNwRljxV7mrSMk5widJPNMBp+LwMNgP5ny0abiAJuOjFP/RMkirdmwgqf8
+                | 1qyTAawGF3f4NVRw+wx8wxmlmtZ3HWLKpsYgt5Jla9Z46qw2paW4TP2FdOMoG3pH
+                | IGKFWEKESkcZOr7NaQSAShDbm7n5+/pWhMTetPovqi5evp0fvT/1N+2urmu3f9qK
+                | 7D7Vpd7vRGYAy7X8gty/Z7ZDdNRVORo1eZvJ2RDcGYr12gQzWNzry3pIifIEmCNV
+                | Rt8o7OOPDKlLvbpHosOsND6m4nrpqpGsMZ+SxDIEJc71z4cP+iTyBF0xnu5jKSJX
+                | uf59tmnEdPjIIiim4Sn7l1oa5mL4KcndzK0n9kxFsFU+l6RMebTaj3NzyhAe8QRP
+                | UcnbAlyY4md2tJQbGrzEDGwC8sDLGmkXlTb+2sWbmJnJLPpI7l7+Z6xx9cshnH7q
+                | QdsDy8d7JIBPHrkCDQRk6vkRARAAsqj0Po1SQe9TXqwZN1W5cX/duQ75B20wVuLY
+                | t/iYMk3CYwIzX3iWKWwiuDE7lP+JyY07+fADj1JmvkpH/pLMPHHu9zm1V+xf5PkM
+                | b+NefjDY4YKXanx9qTBvc17lROMHNMkTXa6hpHdEDGN4dMGmgmsgK+YvEe+Ehh5t
+                | GXzlUQ25guJAayUxoHUSmEVeKdiCShnFZoqmvci5GZiz9m+eA4NaxLl9nuDkrihP
+                | CubPXMRsD0n+1XDIE+JAy5fE7hbufpruenplHWmH7Qy8YBj8okvCkxlWDnA6RvPN
+                | ID6yX1mG2rwVaT7S1T1r2+hBah1z73OiAi+0jyrn+sD9h9x1Dk2zO2kPWh0BUQNk
+                | 4qHbqb5Wbxukk8W/2XOz/UVG0ZcFq0PLjNeU7fVblZsW2FHqf9Vmb7zh5kYjHVV3
+                | qPStnksr5arIX9IBl/ELM8NSP9U9KthDyjiBqdjM7IE33/EBvH53kjv4NBtjj9vh
+                | wIb4x2BZZNg9eq62UoZ3YSeRUkZmXzwCsQob4tBKuLCHIR5KleWlx5RMt/Q8T5wR
+                | 5hdwnzJH6WOnRU/nj1bg4GWaY3rIrP1dg61KZnfKEN8LfXSiPI1y92xzXzS3yK66
+                | UxYGx/vanlBsMNBEXQot12xri2nb8Br8gu5WygefXimGQsaCCDmX/n1ARX6SVPcr
+                | dfH+sxUAEQEAAYkCNgQYAQoAIBYhBC2LJkJWVhtEsJm8DmZrym6XhKwOBQJk6vkR
+                | AhsMAAoJEGZrym6XhKwOsMMP/j+PAJmja0JFttyUft/Jpsg7I4BoHk5nFf1F7sfI
+                | +0eTyL3L0XFnL7y1mKyOYvWQwD86kmG8rPwu4gPo7mql1gyC5dqcSWB4+RIazL+V
+                | P9p6f9pkH2CzPVY+AqZCJt1+w+hiKjqBztbq0z//O26dX4S3TgUo19XajvPRbyVA
+                | iaSmwWH3yGsOjlk/FTwUUXC0KpYMQKQQGonoFcwqcH5oMsQXitea0KU5rjAxLGR2
+                | I+6pqidIeOuHyh6WbZLjnPc5X8E4WN4HP9QllJLgyzTMznR+KThOIpmM3iLB0jya
+                | ugtN5IarRSdYJFzV7yK43lGtiNfy4RFqEyb/j+BvNy+Ondd2CHqG6zXBHB9NGMBO
+                | LPAJIap7KrwY14HQkeIbcwFXZ2dDqyqkny23YrAD7dIZCWIZOGa+05jGvIoiR0D6
+                | oKLNqh3HOx+P+iwjfvUbFvSKl2uAfKRgUfAyfj4zZHEluaLz/Nb4XqnY6WsFUoft
+                | jUhuzA4FTVsg9HHjsHCOGx1pxtoij4niRH6hUvB6E0vw5yD6DfnEJTw9+p3Zj+7T
+                | uFpjDJkX7GxK6XNYtyE7ampGSfqUoaqNZ7w2wPuotR21RRvd9X7g8YrW+ckI0VU4
+                | tnH0wBDcfCo/HZkmFmDCK6YvwQHg/lDp+OyHzAJ+OTP37wQS4ry56dyDwEyDdd/m
+                | z2mH
+                | =aWVQ
+                | -----END PGP PUBLIC KEY BLOCK-----
+
+        +section("gift", "", "/The_End")
+            .split_container.r
+                .left
+                    .fallback_no_js: p Sorry, but we can't give you the gift because it requires JavaScript to work, which you have turned off.
+                    .use_js
+                        #gift_flashbang
+                        #gift_display
+                            #gift_thatsmygift_dialog: p $_message
+                            p Congratulation! You got:
+                            .gift_item#gift_item_1
+                                img(src="/website/image/index_page/gift/gift_100_bill.svg", alt="$100 bill")
+                                p $100 bill
+                            .gift_item#gift_item_2
+                                img(src="/website/image/index_page/gift/gift_flappy_bird.svg", alt="Flapping bird")
+                                p A flapping bird
+                            .gift_item#gift_item_3
+                                img(src="/website/image/index_page/gift/gift_sublime_text_license_key.svg", alt="Sublime Text License Key")
+                                p Sublime Text License key
+                            .gift_item#gift_item_4
+                                p Nothing
+                        .card.hover_effect.no_blob#claim_gift_div
+                            button#claim_gift(aria-label="The Present")
+                                img(src="/website/image/index_page/gift/gift.svg", alt="The Present")
+                .right
+                    p And that's it! I don't know if you have visited everything on my website. But anyway, #[span.highlight-purple thanks for taking a look at my website]. To show my appreciation, here's #[span.highlight-green a gift] for you. I promise you won't #[span.highlight-red regret] it :)
+                    p Also, there are a few easter eggs in my website too. Try to find them all, if you want.
+                    p A bit of spoiler: #[span.highlight-white Try adding `?id=entropy` to the end of the URL.]
+
+        include template/_pmod_footer.pug
+        //-                         p '; website.secret = "superdupersecretkey"; website.dev_mode = false // IMPORTANT: remove the functionality to change this value in the URL (?dev_mode) or thing'
+        //- +section("dev_console", "", "/console")
+        //-     .card
+        //-         .input
+        //-             p >
+        //-             input#dev_console_command(type="text", placeholder="commands here...")
+        //-         .output
+        //-             p#dev_console_output $_output

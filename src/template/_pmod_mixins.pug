@@ -1,19 +1,22 @@
-mixin textwithtag(title)
-    - var endtag = title.split(" ")[0]
-    .textwithtag
-        span.otag(aria-hidden="true")=title
-        div
-            if block
-                block
-            else
-                p INTERNAL ERROR: Please contact developer
-        span.ctag(aria-hidden="true")=endtag
+mixin section(id_name, class_name="", command="", argv="", command2="", argv2="")
+    section(id=id_name, class=class_name)
+        div(data-section=id_name)
+            .card
+                if (command2 == "")
+                    h2 #[span.yellow ~] $ #[span.green=command] #[span=argv]
+                else
+                    h2 #[span.yellow ~] $ #[span.green=command] #[span=argv] | #[span.green=command2] #[span=argv2]
+            .content
+                if block
+                    block
+                else
+                    p INTERNAL ERROR: Please contact the developer.
 
 - var count_diff = 0
-mixin collapsecontent(header, classname = "")
+mixin collapsecontent(header, classname="", screenshot_id="")
     - count_diff++;
-    input.collapsible_cb(class=classname, id="cb" + count_diff, type="checkbox", name="cb" + count_diff)
-    label.collapsible(for="cb" + count_diff)
+    input.collapsible_cb(id="cb" + count_diff, type="checkbox", name="cb" + count_diff)
+    label.collapsible(class=classname, for="cb" + count_diff, data-screenshotId=screenshot_id)
         div.indicator(aria-hidden="true")
         span=header
     div.collapsiblecontent

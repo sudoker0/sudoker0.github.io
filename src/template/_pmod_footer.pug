@@ -1,23 +1,33 @@
-include _pmod_mixins.pug
-footer
-    +textwithtag("footer")
-        p #[span=(new Date()).getFullYear()] sudoker0 (QuanMCPC). Created on 07/16/2020, this website will live #[span.tc-red forever].
-        p.use_js This website has been operating for: $_day.
-        details
-            summary For licensing info
-            div
-                ul
-                    li: p Source code of the website is licensed under the #[span.tc-blue MIT license]
-                    li: p
-                        | Images in the website are licensed under 
-                        a(href='http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1', target='_blank', rel='license noopener noreferrer', style='display:inline-block;')
-                            span.tc-green CC BY-SA 4.0
-                    li: p Materials that are under different license will be listed in the #[span.tc-red CREDITS] file.
-        .label-container
-            a.label-link(target='_blank', href='https://github.com/sudoker0/sudoker0.github.io')
-                img.label(src='./website/image/label/source_on_github_optimized.svg', alt='Source on GitHub')
-            img.label(src='./website/image/label/work_without_javascript_optimized.svg', alt='Work without JavaScript')
-            img.label(src='./website/image/label/3_years_of_service_optimized.svg', alt='3 years of service')
-            img.label(src='./website/image/label/certified_preschooler_optimized.svg', alt='Certified Preschooler')
-
-script(src="/website/script/script.js")
++section("footer", "footer", "neofetch")
+    .card
+        .split_container.l
+            .left
+                img(src="/website/image/index_page/programming_language_logo/javascript.svg", alt="JavaScript")
+            .right
+                p #[span.highlight-cyan guest@sudoker0.xyz]
+                p ------------------
+                p #[span.highlight-red OS]: JavaScriptOS (JavaScript's in everything now smh)
+                p.fallback_no_js #[span.highlight-red ERROR]: JavaScript disabled. Cannot fetch user's information.
+                p.use_js #[span.highlight-red Uptime]: $_day
+                p.use_js #[span.highlight-red Shell]: $_reported_browser
+                p.use_js #[span.highlight-red Resolution]: $_reported_resolution
+                p.use_js #[span.highlight-red CPU]: either Intel/AMD/Qualcomm/6502
+                p.use_js #[span.highlight-red GPU]: either Intel/AMD/NVIDIA/ATX
+                p.use_js #[span.highlight-red Memory]: ¯\_(ツ)_/¯
+                p ------------------
+                p 2024 sudoker0 (QuanMCPC). Created on 07/16/2020, this website will live #[span.highlight-red forever].
+                .label-container
+                    a.label-link(target='_blank', href='https://github.com/sudoker0/sudoker0.github.io')
+                        img.label(src='./website/image/label/source_on_github_optimized.svg', alt='Source on GitHub')
+                    img.label(src='./website/image/label/work_without_javascript_optimized.svg', alt='Work without JavaScript')
+                    img.label(src='./website/image/label/3_years_of_service_optimized.svg', alt='3 years of service')
+                    img.label(src='./website/image/label/certified_preschooler_optimized.svg', alt='Certified Preschooler')
+                details
+                    summary For licensing info
+                    div
+                        ul
+                            li: p Source code of the website is licensed under the #[span.highlight-blue MIT license]
+                            li: p
+                                | Images in the website are licensed under 
+                                a(href='http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1', target='_blank', rel='license noopener noreferrer', style='display:inline-block;') CC BY-SA 4.0
+                            li: p Materials that are under different license will be listed in the #[span.highlight-red CREDITS.md] file.
