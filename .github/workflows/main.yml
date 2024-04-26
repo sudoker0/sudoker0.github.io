@@ -17,7 +17,6 @@ permissions:
 
 jobs:
   compile:
-    needs: update-site-info
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
