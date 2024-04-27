@@ -7,7 +7,7 @@
     "url": "git+https://github.com/sudoker0/sudoker0.github.io.git"
   },
   "scripts": {
-    "build": "node build.mjs && python update-site-data.py"
+    "build": "python update-site-data.py && node build.mjs"
   },
   "author": "sudoker0",
   "license": "MIT",
