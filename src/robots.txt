@@ -1,3 +1,7 @@
 User-agent: *
-Disallow: /
-Allow: /*.html
+User-agent: AdsBot-Google
+Disallow: /classic-project/
+Disallow: /old/
+Disallow: /random-project/
+Disallow: /website/
+Disallow: /404.html
