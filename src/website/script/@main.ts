@@ -283,6 +283,14 @@ document.addEventListener("DOMContentLoaded", () => {
             intersect.observe(v)
         })
 })
+
+document.addEventListener("scroll", () => {
+    const scroll = scrollY
+    const parallaxSpeed = 0.2
+
+    document.body.style.setProperty("--parallax-offset", `-${(scroll * parallaxSpeed) % innerHeight}px`)
+})
+
 // document.addEventListener("scroll", _ => {
 //     var scrollOffset = innerHeight / 2
 //     var offsets: {elm: HTMLElement, offset: number}[] = []

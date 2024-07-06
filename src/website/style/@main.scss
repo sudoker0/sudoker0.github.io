@@ -26,6 +26,8 @@
     --color-highlight-cyan: #00787c;
     --color-highlight-white: var(--mainColor);
     --color-link-hover: #9e9e9e;
+
+    --parallax-offset: 0px;
 }
 
 @font-face {
@@ -97,12 +99,22 @@ span {
 }
 
 body {
-    margin: 0 auto;
+    &:before {
+        content: "";
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 200%;
+        background-image: radial-gradient(var(--backgroundDot) 2px, transparent 2px);
+        background-size: 32px 32px;
+        background-color: var(--backgroundColor);
+        background-attachment: fixed;
+        z-index: -1;
+        transform: translateY(var(--parallax-offset));
+        will-change: transform;
+    }
 
-    background-image: radial-gradient(var(--backgroundDot) 2px, transparent 2px);
-    background-size: 32px 32px;
     background-color: var(--backgroundColor);
-    background-attachment: fixed;
+    margin: 0 auto;
 
     max-width: 1600px;
     position: relative;

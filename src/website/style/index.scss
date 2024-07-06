@@ -120,37 +120,22 @@ section {
     to { opacity: 1; visibility: visible; }
 }
 
+$sectionIcons: (
+    "intro": "/website/image/index_page/icon/home_icon.svg",
+    "about_me": "/website/image/index_page/icon/about_me_icon.svg",
+    "skills": "/website/image/index_page/icon/skills_icon.svg",
+    "websites": "/website/image/index_page/icon/website_icon.svg",
+    "projects": "/website/image/index_page/icon/project_icon.svg",
+    "email": "/website/image/index_page/icon/email_icon.svg",
+    "gift": "/website/image/index_page/icon/the_end_icon.svg",
+    "footer": "/website/image/index_page/icon/neofetch_icon.svg"
+);
+
 section {
-    > div[data-section=intro]::before {
-        background-image: url("/website/image/index_page/icon/home_icon.svg");
-    }
-
-    > div[data-section=about_me]::before {
-        background-image: url("/website/image/index_page/icon/about_me_icon.svg");
-    }
-
-    > div[data-section=skills]::before {
-        background-image: url("/website/image/index_page/icon/skills_icon.svg");
-    }
-
-    > div[data-section=websites]::before {
-        background-image: url("/website/image/index_page/icon/website_icon.svg");
-    }
-
-    > div[data-section=projects]::before {
-        background-image: url("/website/image/index_page/icon/project_icon.svg");
-    }
-
-    > div[data-section=email]::before {
-        background-image: url("/website/image/index_page/icon/email_icon.svg");
-    }
-
-    > div[data-section=gift]::before {
-        background-image: url("/website/image/index_page/icon/the_end_icon.svg");
-    }
-
-    > div[data-section=footer]::before {
-        background-image: url("/website/image/index_page/icon/neofetch_icon.svg");
+    @each $name, $icon in $sectionIcons {
+        > div[data-section=#{$name}]::before {
+            background-image: url($icon);
+        }
     }
 }
 
