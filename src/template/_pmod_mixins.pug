@@ -13,10 +13,10 @@ mixin section(id_name, class_name="", command="", argv="", command2="", argv2=""
                     p INTERNAL ERROR: Please contact the developer.
 
 - var count_diff = 0
-mixin collapsecontent(header, classname="", screenshot_id="")
+mixin collapsecontent(header, classname="")
     - count_diff++;
     input.collapsible_cb(id="cb" + count_diff, type="checkbox", name="cb" + count_diff)
-    label.collapsible(class=classname, for="cb" + count_diff, data-screenshotId=screenshot_id)
+    label.collapsible(class=classname, for="cb" + count_diff)
         div.indicator(aria-hidden="true")
         span=header
     div.collapsiblecontent
