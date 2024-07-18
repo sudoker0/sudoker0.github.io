@@ -464,16 +464,7 @@ div#noscript_wrapper {
 }
 
 .footer .card {
-    .left {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 2rem;
-        img {
-            max-width: 256px;
-        }
-    }
-    .right p {
+    p {
         margin: 8px 0;
     }
 }

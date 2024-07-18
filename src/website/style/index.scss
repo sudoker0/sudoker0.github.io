@@ -40,6 +40,19 @@ section {
             transform: scale(1.5);
         }
     }
+
+    a.social_link_item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        &:hover, &:active, &:focus {
+            color: var(--mainColor);
+            &, * {
+                background-color: var(--backgroundColor);
+            }
+        }
+    }
 }
 
 .skills_container {
