@@ -90,7 +90,7 @@ function handleOnMouseMove(e: MouseEvent) {
     textElm.style.setProperty("--y", `${y + 20}px`)
 }
 
-textContainerElm.addEventListener("pointermove", handleOnMouseMove)
+// textContainerElm.addEventListener("pointermove", handleOnMouseMove)
 
 // if (gPBName("dev_mode") == "true") {
 //     qSel("#dev_console").classList.add("show")
