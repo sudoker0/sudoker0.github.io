@@ -3,7 +3,7 @@
         .fallback_no_js: p #[span.highlight-cyan guest@unknown]
         p.use_js #[span.highlight-cyan guest @$_hostname]
         p ------------------
-        p #[span.highlight-red Version]: #[a(href="https://github.com/" + self.gh_repo + "/tree/" + self.gh_version) #{self.gh_version.substring(0, 8)}]
+        p #[span.highlight-red Version]: #[a(href="https://github.com/" + self.gh_repo + "/tree/" + self.gh_version) #{self.gh_version.substring(0, 8)}] (compiled on: #{self.updated_on})
         p #[span.highlight-red Hosted on]: #[a(href="https://github.com/" + self.gh_repo) #{self.gh_repo}]
         p #[span.highlight-red Workflow ID]: #[a(href="https://github.com/" + self.gh_repo + "/actions/runs/" + self.gh_workflow) #{self.gh_workflow}]
         p.use_js #[span.highlight-red Uptime]: $_day

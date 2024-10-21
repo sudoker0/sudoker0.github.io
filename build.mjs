@@ -19,6 +19,7 @@ import { dirname, extname, join, parse, sep as pathSeparator } from "path"
 import { emptyDirSync } from "fs-extra"
 import { ArgumentParser } from "argparse"
 import watch from "node-watch"
+import moment from "moment"
 
 const argParser = new ArgumentParser({
     "description": "compiler for the website (pug, scss and ts file)"
@@ -153,6 +154,7 @@ function compilePugFile(path) {
             `${p.dir}${p.dir == "" ? "" : pathSeparator}${p.base.replace(PUG_FILE, ".html")}`,
             content({
                 //? -- locals
+                updated_on: moment().format("MMM Do YYYY - HH:mm:ss (ZZ)"),
                 gh_version: process.env["GITHUB_COMMIT_SHA"] ?? "0000000000000000000000000000000000000000",
                 gh_repo: process.env["GITHUB_REPOSITORY"] ?? "none/none",
                 gh_workflow: process.env["GITHUB_WORKFLOW_ID"] ?? "0"
