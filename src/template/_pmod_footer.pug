@@ -1,13 +1,14 @@
 +section("footer", "footer", "fastfetch")
     .card
-        p #[span.highlight-cyan guest@sudoker0.xyz]
+        .fallback_no_js: p #[span.highlight-cyan guest@unknown]
+        p.use_js #[span.highlight-cyan guest @$_hostname]
         p ------------------
+        p #[span.highlight-red Version]: #[a(href="https://github.com/" + self.gh_repo + "/tree/" + self.gh_version) #{self.gh_version.substring(0, 8)}]
+        p #[span.highlight-red Hosted on]: #[a(href="https://github.com/" + self.gh_repo) #{self.gh_repo}]
+        p #[span.highlight-red Workflow ID]: #[a(href="https://github.com/" + self.gh_repo + "/actions/runs/" + self.gh_workflow) #{self.gh_workflow}]
         p.use_js #[span.highlight-red Uptime]: $_day
         p.use_js #[span.highlight-red Shell]: $_reported_browser
         p.use_js #[span.highlight-red Resolution]: $_reported_resolution
-        p.use_js #[span.highlight-red CPU]: either Intel/AMD/Qualcomm/6502
-        p.use_js #[span.highlight-red GPU]: either Intel/AMD/NVIDIA/ATX
-        p.use_js #[span.highlight-red Memory]: ¯\_(ツ)_/¯
         p.use_js ------------------
         p 2024 sudoker0 (QuanMCPC). Created on 07/16/2020, this website will live #[span.highlight-red forever].
         .label-container

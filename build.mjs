@@ -144,17 +144,19 @@ function compilePugFile(path) {
     }
 
     try {
-        const content = pug.renderFile(path, {
+        const content = pug.compileFile(path, {
             doctype: "html",
             pretty: false,
             self: true,
-            string: {
-                // Foundation for i18n
-            },
         })
         writeFileSync(
             `${p.dir}${p.dir == "" ? "" : pathSeparator}${p.base.replace(PUG_FILE, ".html")}`,
-            content,
+            content({
+                //? -- locals
+                gh_version: process.env["GITHUB_COMMIT_SHA"] ?? "0000000000000000000000000000000000000000",
+                gh_repo: process.env["GITHUB_REPOSITORY"] ?? "none/none",
+                gh_workflow: process.env["GITHUB_WORKFLOW_ID"] ?? "0"
+            }),
             { encoding: "utf-8", })
         logReport(`Compiled: "${path}"`)
     }

@@ -32,6 +32,10 @@ jobs:
 
       - name: Compile code
         run: node build.mjs
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_COMMIT_SHA: ${{ github.sha }}
+          GITHUB_WORKFLOW_ID: ${{ github.run_id }}
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4

@@ -232,7 +232,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     qSel<HTMLElement>(".footer").replace({
         reported_browser: detectBrowser(),
-        reported_resolution: detectResolution()
+        reported_resolution: detectResolution(),
+        hostname: location.hostname
     })
 
     updateWebsiteData()
