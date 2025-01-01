@@ -1,7 +1,115 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2024-04-27",
+    "last_update_on": "2024-11-05",
     "data": [
+        {
+            "hash": "fec4a09644d61d197dd09beaddc636fa18b7a626",
+            "committer": "D. Quan",
+            "commit_date": 1729517788,
+            "message": "a bit more"
+        },
+        {
+            "hash": "51b47392f32843fe4642f516a5868de2dde34efa",
+            "committer": "D. Quan",
+            "commit_date": 1729515908,
+            "message": "small update"
+        },
+        {
+            "hash": "2ed217dc03f3d014b32f6c19fdcd7411f23abd19",
+            "committer": "D. Quan",
+            "commit_date": 1724511713,
+            "message": "update footer label"
+        },
+        {
+            "hash": "e00ff85c03f740aa4bff2ef583416fe1714e241a",
+            "committer": "D. Quan",
+            "commit_date": 1724170933,
+            "message": "changes"
+        },
+        {
+            "hash": "cd3b5a2beba5b374fcbf1126ce725bb599be16d7",
+            "committer": "D. Quan",
+            "commit_date": 1724169327,
+            "message": "small fix"
+        },
+        {
+            "hash": "f12ff30f9b069dff4d64c566f5d3caa272b0d61a",
+            "committer": "D. Quan",
+            "commit_date": 1724168248,
+            "message": "added reddit has a social link"
+        },
+        {
+            "hash": "640f5bad6d6e63efbd3f915fea21014ae4330385",
+            "committer": "D. Quan",
+            "commit_date": 1724168053,
+            "message": "remove unused files"
+        },
+        {
+            "hash": "f70645cab0edd47c50d53a805ac0fc22db1594a1",
+            "committer": "D. Quan",
+            "commit_date": 1722823326,
+            "message": "changes"
+        },
+        {
+            "hash": "2f0a341eb23a5f69776d45f63ff4e825488255be",
+            "committer": "D. Quan",
+            "commit_date": 1721277569,
+            "message": "some update"
+        },
+        {
+            "hash": "71d4461d67ddc233afbe241d0dd77030c0d73bf1",
+            "committer": "D. Quan",
+            "commit_date": 1720768699,
+            "message": "new project yay"
+        },
+        {
+            "hash": "c0c34050e06a59ab4650ce52057af05425268659",
+            "committer": "D. Quan",
+            "commit_date": 1720244708,
+            "message": "added parallax effect to background"
+        },
+        {
+            "hash": "ab6eaa5744977716726848dd1ccd26ac4926e270",
+            "committer": "D. Quan",
+            "commit_date": 1719382906,
+            "message": "smol change"
+        },
+        {
+            "hash": "d1cb7483099f90621b6277081116479a14d16937",
+            "committer": "GitHub",
+            "commit_date": 1718770710,
+            "message": "Merge pull request #2 from sudoker0/dependabot/npm_and_yarn/pug-3.0.3"
+        },
+        {
+            "hash": "b0d235173357f315a10fa9dfaca6bb0548736c80",
+            "committer": "GitHub",
+            "commit_date": 1718770377,
+            "message": "Bump pug from 3.0.2 to 3.0.3"
+        },
+        {
+            "hash": "30cf71baf6b4daca06334ae51ed9ed4b88fc6e69",
+            "committer": "GitHub",
+            "commit_date": 1718770352,
+            "message": "Merge pull request #1 from sudoker0/dependabot/npm_and_yarn/braces-3.0.3"
+        },
+        {
+            "hash": "e1571a0c5711c17452c889919b410fadcded234b",
+            "committer": "GitHub",
+            "commit_date": 1718639547,
+            "message": "Bump braces from 3.0.2 to 3.0.3"
+        },
+        {
+            "hash": "e898f4ef723b8605a514d8bd75c5e9f90c4823e7",
+            "committer": "D. Quan",
+            "commit_date": 1714790931,
+            "message": "update"
+        },
+        {
+            "hash": "473e8a6679b0f4d4054cfc6ef2b0e491f9315e77",
+            "committer": "D. Quan",
+            "commit_date": 1714196055,
+            "message": "small update"
+        },
         {
             "hash": "7b9a4298ec6bb68821b68cb368b0540b09bfd3a3",
             "committer": "D. Quan",
