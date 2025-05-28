@@ -19,7 +19,7 @@ html(lang="en")
 
         +section("intro", "fullscreen", "/Introduction")
             h1 A student by day. #[span.inverse A programmer by night.]
-            p Hello 👋! I'm Quan, a self-taught #[span.highlight-green programmer] 💻 from 🇻🇳, and a professional #[span.highlight-cyan dumbass].
+            p Hello 👋! I'm Quan, a self-taught #[span.highlight-green programmer] from 🇻🇳, and a professional #[span.highlight-cyan dumbass].
             .social_links
                 +social_link_item("discord", "https://discord.com/users/763377551963717653", "sudoker0")
                 +social_link_item("github", "https://github.com/sudoker0", "sudoker0")
@@ -34,9 +34,9 @@ html(lang="en")
         +section("about_me", "", "/About_Me", "")
             .split_container.l
                 .left
-                    p I am a #[span.highlight-blue web developer] 🌐 with front-end and back-end skills. I have created many websites, APIs and browser apps during my #[span.highlight-red 5 years] 📅 of programming.
-                    p I also have knowledge in making #[span.highlight-blue games] 🎮 using Godot, #[span.highlight-green programs] using C++/C#, as well as #[span.highlight-cyan mobile app] 📱 using Flutter.
-                    p I have joined and won 🏆 many regional #[span.highlight-green programming competitions] in my country, and I am constantly learning 📚 to improve my programming skills and gain experience for future competitions.
+                    p I am a #[span.highlight-blue web developer] 🌐 with front-end and back-end skills. I have created many websites, APIs and browser apps during my #[span.highlight-red 7 years] 📅 of programming.
+                    p I've made #[span.highlight-blue games] 🎮 using Godot, #[span.highlight-green programs] using C++/C#, as well as #[span.highlight-cyan mobile app] 📱 using Flutter.
+                    p I've joined and won 🏆 many regional #[span.highlight-green programming competitions] in my country, and I am constantly learning 📚 to improve my programming skills and gain experience for future competitions too!
                 .right
                     .card.hover_effect
                         #text_container(tabindex="0")
@@ -45,7 +45,7 @@ html(lang="en")
                             img(src="website/image/logo/logo_transparent.svg", alt="logo")
 
         +section("skills", "", "/Programming_Skills")
-            p These are languages which I am most #[span.highlight-red skilled] 🤹‍♀️ in. While I have used a lot of different programming languages, these are the one that I can use without trouble.
+            p These are languages which I am most #[span.highlight-red skilled] 🤹‍♀️ in. While I have used a lot of different programming languages, these are the one that I can use without much difficulties.
             .skills_container
                 .card.hover_effect(data-colorOverride="#3178C6")
                     img(src="/website/image/index_page/programming_language_logo/typescript.svg", alt="TypeScript logo")
@@ -63,24 +63,8 @@ html(lang="en")
                     img(src="/website/image/index_page/programming_language_logo/godotengine.svg", alt="Godot logo")
                     p Godot
 
-        +section("websites", "", "/Websites")
-            p Here is a #[span.highlight-purple list of websites] that I've made. Some are currently #[span.highlight-red in development] 🔧, while others are #[span.highlight-red archived] 🗄 for historical purposes.
-            div
-                +collapsecontent("Code and Random Stuff Archive")
-                    p This is where I put random file that I don't need, but can't throw away.
-                    p Link: #[a(target="_blank" href="https://sudoker0.github.io/WebsiteArchive/") https://sudoker0.github.io/WebsiteArchive/]
-                +collapsecontent("My Carrd's site")
-                    p Something I made for fun.
-                    p Link: #[a(target="_blank" href="https://sudoker0.carrd.co/") https://sudoker0.carrd.co/]
-                +collapsecontent("My Blogsite")
-                    p A personal blog where I may write about programming or general problems.
-                    p Link: #[a(target="_blank" href="https://sudoker0.github.io/Blogsite") https://sudoker0.github.io/Blogsite]
-                +collapsecontent("\"First Commit\"")
-                    p The first ever version of my website, archived for... purposes.
-                    p Link: #[a(target="_blank" href="https://quan215.github.io") https://quan215.github.io]
-
         +section("projects", "", "/Projects")
-            p Here's a #[span.highlight-purple list of projects] that I've created and released publicly on GitHub. There are some projects which may never be finished, so don't bug me with Issues about it.
+            p A #[span.highlight-purple list of projects] that I've created and released publically in the past few years. My projects spans from web app to games and programs. Check them out below!
             div
                 +collapsecontent("Web")
                     +collapsecontent("Nonogram Maker", "project")
@@ -201,10 +185,27 @@ html(lang="en")
                         p Source code: #[a(target="_blank" href="https://github.com/sudoker0/NoHistory/") https://github.com/sudoker0/NoHistory]
                         p An extension for Firefox to prevent web pages from getting saved from history without opening a private window.
 
+
+        +section("websites", "", "/Websites")
+            p While I mainly focus on this website, I also have #[span.highlight-purple other websites] that I created during my time doing webdev. Some are currently #[span.highlight-red in development], while others are #[span.highlight-red archived] for historical purposes.
+            div
+                +collapsecontent("Code and Random Stuff Archive")
+                    p This is where I put random file that I don't need, but can't throw away.
+                    p Link: #[a(target="_blank" href="https://sudoker0.github.io/WebsiteArchive/") https://sudoker0.github.io/WebsiteArchive/]
+                +collapsecontent("My Carrd's site")
+                    p Something I made for fun.
+                    p Link: #[a(target="_blank" href="https://sudoker0.carrd.co/") https://sudoker0.carrd.co/]
+                +collapsecontent("My Blogsite")
+                    p A personal blog where I may write about programming or general problems.
+                    p Link: #[a(target="_blank" href="https://sudoker0.github.io/Blogsite") https://sudoker0.github.io/Blogsite]
+                +collapsecontent("\"First Commit\"")
+                    p The first ever version of my website, archived for... purposes.
+                    p Link: #[a(target="_blank" href="https://quan215.github.io") https://quan215.github.io]
+
         +section("email", "", "/Email")
-            p Incase you don't use any of the social media above (lucky you), you can also contact me via #[span.highlight-red Email]. I don't have an email form for you though :(
-            p My email address: #[a(href="mailto:sudoker0@disroot.org") sudoker0@disroot.org]
-            p #[span.highlight-cyan GPG key] of the email address (for extra 👌 #[span.highlight-purple coolness]):
+            p Incase you don't use any of the social media above (lucky you), you can also contact me via #[span.highlight-red email].
+            p My email address: #[span.highlight-green sudoker0 (AT) disroot (DOT) org]
+            p And below is the #[span.highlight-cyan GPG key] for the email address (in case you want to talk with me without getting spied on, for some reason lol?):
             .card.textarea
                 | -----BEGIN PGP PUBLIC KEY BLOCK-----
                 |
@@ -283,7 +284,7 @@ html(lang="en")
                             button#claim_gift(aria-label="The Present")
                                 img(src="/website/image/index_page/gift/gift.svg", alt="The Present")
                 .right
-                    p And that's it! I don't know if you have visited everything on my website. But anyway, #[span.highlight-purple thanks for taking a look at my website]. To show my appreciation, here's #[span.highlight-green a gift] for you. I promise you won't #[span.highlight-red regret] it :)
+                    p And that's all! I don't know if you have visited everything on my website. But anyway, #[span.highlight-purple thanks for taking a look at my website]. To show my appreciation, here's #[span.highlight-green a gift] for you. I promise you won't #[span.highlight-red regret] it :)
                     p Also, there are a few easter eggs in my website too. Try to find them all, if you want.
                     p A bit of spoiler: #[span.highlight-white Try adding `?id=entropy` to the end of the URL.]
 
