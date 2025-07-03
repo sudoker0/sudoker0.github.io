@@ -43,7 +43,7 @@
 }
 
 * {
-    font-weight: 700;
+    font-weight: 500;
     box-sizing: border-box;
     color: var(--mainColor);
     font-family: "Noto Sans Mono", monospace;
@@ -51,11 +51,13 @@
 
 h1 {
     font-size: 2.5rem;
+    font-weight: 700;
     width: fit-content;
 }
 
 h2 {
     font-size: 1.75rem;
+    font-weight: 700;
     width: fit-content;
 }
 
