@@ -35,7 +35,7 @@ html(lang="en")
             .split_container.l
                 .left
                     p I am a #[span.highlight-blue web developer] 🌐 with front-end and back-end skills. I have created many websites, APIs and browser apps during my #[span.highlight-red 7 years] 📅 of programming.
-                    p I've made #[span.highlight-blue games] 🎮 using Godot, #[span.highlight-green programs] using C++/C#, as well as #[span.highlight-cyan mobile app] 📱 using Flutter.
+                    p I've made #[span.highlight-blue games] 🎮 using Godot, #[span.highlight-green programs] using C++/C#, #[span.highlight-red websites] using libraries such as Svelte, as well as #[span.highlight-cyan mobile app] 📱 using Flutter.
                     p I've joined and won 🏆 many regional #[span.highlight-green programming competitions] in my country, and I am constantly learning 📚 to improve my programming skills and gain experience for future competitions too!
                 .right
                     .card.hover_effect
@@ -64,6 +64,26 @@ html(lang="en")
                     p Godot
 
         +section("projects", "", "/Projects")
+            p These are projects much larger than the person projects I usually made, which I've contributed a large part in. Check them out! (also, don't forget about my personal projects down below too)
+            .project_container
+                .card.hover_effect
+                    img(src="/website/image/index_page/project_logo/nikodex_logo.png", alt="Nikodex logo")
+                    p.highlight Nikodex (for the OneShot Discord Server)
+                    p A catalogue of custom Nikosonas that the community have made, based off the game OneShot (this is also the first project where I used Svelte).
+                    p GitHub: #[a(target="_blank" href="https://github.com/Niko-Dex/nikodex2-frontend") nikodex2-frontend]
+                    p Visit the Nikodex at #[a(target="_blank" href="https://nikodex.net") https://nikodex.net]
+                .card.hover_effect
+                    img(src="/website/image/index_page/project_logo/thh_website_logo.png", alt="The Heeler House's website logo")
+                    p.highlight The Heeler House's website (for the Heeler House Discord Server)
+                    p A website dedicated for the Heeler House community on Discord, a community for talking about Bluey.
+                    p GitHub: #[a(target="_blank" href="https://github.com/The-Heeler-House/website") https://github.com/The-Heeler-House/website]
+                    p Visit the Heeler House at #[a(target="_blank" href="https://heeler.house") https://heeler.house]
+                .card.hover_effect
+                    p.highlight Bot Bilby (for the Heeler House Discord Server)
+                    p A custom Bot for the Heeler House community.
+                    p GitHub: #[a(target="_blank" href="https://github.com/The-Heeler-House/bot-bilby") https://github.com/The-Heeler-House/bot-bilby]
+
+        +section("personal_projects", "", "/Personal_Projects")
             p A #[span.highlight-purple list of projects] that I've created and released publically in the past few years. My projects spans from web app to games and programs. Check them out below!
             div
                 +collapsecontent("Web")

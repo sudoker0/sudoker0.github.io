@@ -73,6 +73,38 @@ section {
     }
 }
 
+.project_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+
+    @media (max-width: 1000px) {
+        grid-template-columns: 1fr;
+    }
+    gap: 2rem;
+
+    .highlight {
+        color: var(--backgroundColor);
+        background-color: var(--mainColor);
+
+        padding: 2px 4px;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 24px;
+        img {
+            width: 100%;
+            max-width: 512px;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+}
+
 .image_display {
     padding: 16px;
     img {
