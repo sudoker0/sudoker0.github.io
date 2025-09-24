@@ -1,7 +1,43 @@
 {
     "NOTICE": "Do Not Manually Edit The File, This Will Get Regenerated Automatically",
-    "last_update_on": "2024-11-05",
+    "last_update_on": "2025-09-24",
     "data": [
+        {
+            "hash": "e3ca25aafdfed1bae04e29f2c6fa9a9a0a1918a9",
+            "committer": "D. Quan",
+            "commit_date": 1758674183,
+            "message": "small change"
+        },
+        {
+            "hash": "d53b102dd2b0560c1228e90c331c8e04de01aaf9",
+            "committer": "D. Quan",
+            "commit_date": 1755578294,
+            "message": "added project"
+        },
+        {
+            "hash": "edf8e27e807fb1b0db9d15662c08ccf7cb9630ba",
+            "committer": "D. Quan",
+            "commit_date": 1751547405,
+            "message": "change font weight for almost all texts"
+        },
+        {
+            "hash": "652df53ed96950e21e8b3516a1b5d624849e27d9",
+            "committer": "D. Quan",
+            "commit_date": 1748442386,
+            "message": "rephrase some sentences, along with moving projects section higher"
+        },
+        {
+            "hash": "d5bb35d115529d3ac27dbc05edb8855c8a9eca5f",
+            "committer": "D. Quan",
+            "commit_date": 1736084937,
+            "message": "small change to the footer"
+        },
+        {
+            "hash": "c2f6483f27f2063408ea0321311b6862f5ff8bdc",
+            "committer": "D. Quan",
+            "commit_date": 1735707760,
+            "message": "updated footer"
+        },
         {
             "hash": "fec4a09644d61d197dd09beaddc636fa18b7a626",
             "committer": "D. Quan",
