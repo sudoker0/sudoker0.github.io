@@ -1,4 +1,15 @@
 $lineColor: #108ba1, #20b920, #d66d0a, #ca3030, #b522da, #4a22da, #1f1cc4, #108ba1, #ffffff;
+$sectionIcons: (
+    "intro": "/website/image/index_page/icon/home_icon.svg",
+    "about_me": "/website/image/index_page/icon/about_me_icon.svg",
+    "skills": "/website/image/index_page/icon/skills_icon.svg",
+    "websites": "/website/image/index_page/icon/website_icon.svg",
+    "projects": "/website/image/index_page/icon/project_icon.svg",
+    "personal_projects": "/website/image/index_page/icon/project_icon.svg",
+    "email": "/website/image/index_page/icon/email_icon.svg",
+    "gift": "/website/image/index_page/icon/the_end_icon.svg",
+    "footer": "/website/image/index_page/icon/neofetch_icon.svg"
+);
 
 section {
     @for $i from 1 through length($lineColor) {
@@ -164,17 +175,6 @@ section {
     from { opacity: 0; visibility: hidden; }
     to { opacity: 1; visibility: visible; }
 }
-
-$sectionIcons: (
-    "intro": "/website/image/index_page/icon/home_icon.svg",
-    "about_me": "/website/image/index_page/icon/about_me_icon.svg",
-    "skills": "/website/image/index_page/icon/skills_icon.svg",
-    "websites": "/website/image/index_page/icon/website_icon.svg",
-    "projects": "/website/image/index_page/icon/project_icon.svg",
-    "email": "/website/image/index_page/icon/email_icon.svg",
-    "gift": "/website/image/index_page/icon/the_end_icon.svg",
-    "footer": "/website/image/index_page/icon/neofetch_icon.svg"
-);
 
 section {
     @each $name, $icon in $sectionIcons {
