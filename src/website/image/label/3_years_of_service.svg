@@ -7,7 +7,7 @@
    viewBox="0 0 42.333332 16.933333"
    version="1.1"
    id="svg292"
-   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
    sodipodi:docname="3_years_of_service.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -25,13 +25,13 @@
      inkscape:document-units="mm"
      showgrid="false"
      showguides="true"
-     inkscape:zoom="4.1776837"
-     inkscape:cx="79.350191"
-     inkscape:cy="11.13057"
+     inkscape:zoom="5.9081369"
+     inkscape:cx="52.046864"
+     inkscape:cy="49.846509"
      inkscape:window-width="1920"
-     inkscape:window-height="1027"
-     inkscape:window-x="-8"
-     inkscape:window-y="22"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1">
     <sodipodi:guide
@@ -91,9 +91,9 @@
        id="text4056"><tspan
          sodipodi:role="line"
          id="tspan4054"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Consolas;-inkscape-font-specification:Consolas;fill:#ffffff;stroke-width:1.12902"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#ffffff;stroke-width:1.12902"
          x="4.6727533"
-         y="12.789798">4</tspan></text>
+         y="12.789798">5</tspan></text>
     <g
        aria-label="Years of"
        id="text5668"
