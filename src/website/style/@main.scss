@@ -1,5 +1,5 @@
 :root {
-    --mainColor: white;
+    --mainColor: rgb(224, 244, 244);
     --backgroundColor: rgb(0, 13, 24);
     --backgroundDot: rgb(10, 33, 51);
 
@@ -13,6 +13,10 @@
     --card-backgroundColor: rgb(22, 27, 34);
     --card-borderColor: rgb(35, 40, 48);
     --card-shadowColor: rgba(15, 18, 24, 0.75);
+
+    --chip-backgroundColor: rgb(40, 45, 56);
+    --chip-borderColor: rgb(50, 56, 60);
+    --chip-shadowColor: rgba(15, 18, 24, 0.75);
 
     --card-blobColor: rgb(16, 139, 161);
     --card-blobSize: 400px;
@@ -61,25 +65,29 @@ h2 {
     width: fit-content;
 }
 
-p, summary, input {
+h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    width: fit-content;
+}
+
+p,
+summary,
+input {
     font-size: 1.25rem;
 }
 
 a {
     position: relative;
-    transition: color 0.2s, background-color 0.2s;
-    &:link, &:visited, & {
+    transition:
+        color 0.2s,
+        background-color 0.2s;
+    &:link,
+    &:visited,
+    & {
         color: var(--mainColor);
         // text-decoration: none;
         display: inline-block;
-    }
-
-    &:hover, &:active, &:focus {
-        color: var(--backgroundColor);
-        &, * {
-            background-color: var(--mainColor);
-        }
-        // color: var(--color-link-hover);
     }
 }
 
@@ -104,9 +112,14 @@ body {
     &:before {
         content: "";
         position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 200%;
-        background-image: radial-gradient(var(--backgroundDot) 2px, transparent 2px);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 200%;
+        background-image: radial-gradient(
+            var(--backgroundDot) 2px,
+            transparent 2px
+        );
         background-size: 32px 32px;
         background-color: var(--backgroundColor);
         background-attachment: fixed;
@@ -122,7 +135,7 @@ body {
     position: relative;
     min-height: 100vh;
 
-    &[data-js=true] {
+    &[data-js="true"] {
         div#noscript_wrapper {
             display: none;
         }
@@ -131,13 +144,14 @@ body {
         }
     }
 
-    &[data-js=false] {
+    &[data-js="false"] {
         .use_js {
             display: none !important;
         }
 
         section > div {
-            > .card, > .content {
+            > .card,
+            > .content {
                 opacity: 1;
                 transform: none;
             }
@@ -161,10 +175,13 @@ section {
     > div {
         position: relative;
 
-        > .card, > .content {
+        > .card,
+        > .content {
             opacity: 0;
             transform: translateX(-32px);
-            transition: opacity 0.4s, transform 0.4s;
+            transition:
+                opacity 0.4s,
+                transform 0.4s;
 
             &.show {
                 opacity: 1;
@@ -193,7 +210,9 @@ section {
         width: var(--line-item-size);
         height: var(--line-item-size);
         top: var(--line-item-offset-down);
-        left: calc(-32px - var(--line-item-size) / 2 + var(--line-thickness) / 2);
+        left: calc(
+            -32px - var(--line-item-size) / 2 + var(--line-thickness) / 2
+        );
         background-repeat: no-repeat;
         border-radius: 100%;
         background-size: calc(var(--line-item-size) / 1.4);
@@ -217,11 +236,14 @@ section {
 }
 
 .card {
-    &::before, &.hover::before {
+    &::before,
+    &.hover::before {
         transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    &.hover::before { opacity: 1; }
+    &.hover::before {
+        opacity: 1;
+    }
 
     background-color: var(--card-backgroundColor);
     border-radius: 16px;
@@ -232,7 +254,8 @@ section {
     padding: 4px 12px;
 
     &.hover_effect {
-        transform: perspective(700px) rotateX(var(--angleX)) rotateY(var(--angleY));
+        transform: perspective(700px) rotateX(var(--angleX))
+            rotateY(var(--angleY));
     }
 
     &.no_blob::before {
@@ -273,8 +296,12 @@ section {
         }
     }
 
-    .green { color: var(--color-green); }
-    .yellow { color: var(--color-yellow); }
+    .green {
+        color: var(--color-green);
+    }
+    .yellow {
+        color: var(--color-yellow);
+    }
 }
 
 .split_container {
@@ -307,12 +334,16 @@ input.collapsible_cb {
     opacity: 0;
     z-index: -100;
 
-    &:focus + label, &:hover + label {
+    &:focus + label,
+    &:hover + label {
         background-color: var(--color-link-hover);
-        svg { fill: var(--color-link-hover); }
+        svg {
+            fill: var(--color-link-hover);
+        }
     }
 
-    &:focus + label > *, &:hover + label > * {
+    &:focus + label > *,
+    &:hover + label > * {
         filter: invert(1);
     }
 
@@ -338,7 +369,10 @@ label.collapsible {
     cursor: pointer;
     margin-bottom: 10px;
     margin-right: 0 !important;
-    &, & > * { transition: all 0.2s ease; }
+    &,
+    & > * {
+        transition: all 0.2s ease;
+    }
 
     -webkit-user-select: none;
     -webkit-touch-callout: none;
@@ -386,7 +420,8 @@ div.collapsiblecontent {
         margin-right: 0;
     }
 
-    del, a {
+    del,
+    a {
         margin: 0;
     }
 
@@ -417,7 +452,8 @@ div.label-container {
 div#noscript_wrapper {
     position: fixed;
     z-index: 1000;
-    bottom: 1rem; right: 1rem;
+    bottom: 1rem;
+    right: 1rem;
     margin-left: 1rem;
     opacity: 0.75;
     pointer-events: none;
@@ -433,7 +469,8 @@ div#noscript_wrapper {
 
 @media (max-width: 1000px) {
     .split_container {
-        .left, .right {
+        .left,
+        .right {
             padding: 0rem;
         }
         &.l {
@@ -455,7 +492,8 @@ div#noscript_wrapper {
         font-size: 1.5rem;
     }
 
-    p, summary {
+    p,
+    summary {
         font-size: 1rem;
     }
 

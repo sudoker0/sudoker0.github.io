@@ -3,6 +3,13 @@ mixin social_link_item(social_website, link, account_name)
         .social_item_image
             img(src="/website/image/index_page/social_link_logo/" + social_website + ".svg", alt=social_website)
 
+mixin link_chip(name, link)
+    a.chip(target="_blank" href=link)
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+            <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+            <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+        </svg>
+        p=name
 doctype html
 html(lang="en")
     head
@@ -68,166 +75,290 @@ html(lang="en")
         +section("projects", "", "/Projects")
             p These are projects that are much larger than the usual projects I made, and which I've contributed in. Check them out! (also, don't forget about my personal projects down below too)
             .project_container
-                .card.hover_effect
+                .card
                     img(src="/website/image/index_page/project_logo/rpgpp_logo.png", alt="RPG++ logo")
-                    p.highlight RPG++ (also known as RPGPP)
+                    h3.highlight RPG++ (also known as RPGPP)
                     p An IDE and game engine for developing RPG games, written in C++ with raylib. Created by #[a(target="_blank" href="https://github.com/CDevv") nikodev/CDevv] over on GitHub.
                     p GitHub: #[a(target="_blank" href="https://github.com/CDevv/rpgpp") CDevv/rpgpp]
                     p Visit the RPG++ homepage at #[a(target="_blank" href="https://rpgpp.dev/") https://rpgpp.dev/]
-                .card.hover_effect
+                .card
                     img(src="/website/image/index_page/project_logo/nikodex_logo.png", alt="Nikodex logo")
-                    p.highlight Nikodex (for the OneShot Discord Server)
+                    h3.highlight Nikodex (for the OneShot Discord Server)
                     p A catalogue of custom Nikosonas that the community have made, based off the game OneShot (this is also the first project where I used Svelte).
                     p GitHub: #[a(target="_blank" href="https://github.com/Niko-Dex/nikodex2-frontend") Niko-Dex/nikodex2-frontend]
                     p Visit the Nikodex at #[a(target="_blank" href="https://nikodex.net") https://nikodex.net]
-                .card.hover_effect
-                    p.highlight The Heeler House's website (for the Heeler House Discord Server)
+                .card
+                    h3.highlight The Heeler House's website (for the Heeler House Discord Server)
                     p A website dedicated for the Heeler House community on Discord, a community for talking about Bluey.
                     p GitHub: #[a(target="_blank" href="https://github.com/The-Heeler-House/website") The-Heeler-House/website]
                     p Visit the Heeler House at #[a(target="_blank" href="https://heeler.house") https://heeler.house]
-                .card.hover_effect
-                    p.highlight Bot Bilby (for the Heeler House Discord Server)
+                .card
+                    h3.highlight Bot Bilby (for the Heeler House Discord Server)
                     p A custom Bot for the Heeler House community.
                     p GitHub: #[a(target="_blank" href="https://github.com/The-Heeler-House/bot-bilby") The-Heeler-House/bot-bilby]
 
         +section("personal_projects", "", "/Personal_Projects")
             p A #[span.highlight-purple list of projects] that I've created and released publically in the past few years. My projects spans from web app to games and programs. Check them out below!
-            div
-                +collapsecontent("Web")
-                    +collapsecontent("Nonogram Maker", "project")
-                        p A web utility to generate a #[a(target="_blank" href="https://en.wikipedia.org/wiki/Nonogram") nonogram] puzzle.
-                        p Project link: #[a(target="_blank" href="/project.nonogram-maker/index.html") /project.nonogram-maker]
-                    +collapsecontent("No Nutella November Tracker", "project")
-                        p A progress tracker for the NNN Challenge
-                        p Project link: #[a(target="_blank" href="/project.nnn-tracker/index.html") /project.nnn-tracker]
-                    +collapsecontent("DVD Screensaver", "project")
-                        p A web screensaver with an image that bounces around
-                        p Project link: #[a(target="_blank" href="/project.dvd-screensaver/index.html") /project.dvd-screensaver]
-                    +collapsecontent("April Fools 2023: DPRK VPN", "project")
-                        p A VPN which allow you to browse the best Internet created by the DPRK.
-                        p Project link: #[a(target="_blank" href="/project.dprk-vpn/index.html") /project.dprk-vpn]
-                    +collapsecontent("Guess The GIF", "project")
-                        p A game about guessing GIF (or JIF i guess)
-                        p Project link: #[a(target="_blank" href="/project.guess-the-gif/index.html") /project.guess-the-gif]
-                    +collapsecontent("[DEPRECATED] No \"Nutella\" November Challenge Tracker", "project")
-                        p A progress tracker for the "November" Challenge
-                        p Project link: #[a(target="_blank" href="/project.anti-nutella-challange/index.html") /project.anti-nutella-challenge]
-                    +collapsecontent("Flappy Bird Clone", "project")
-                        p A basic prototype of the flappy bird clone that I made.
-                        p Project link: #[a(target="_blank" href="/project.flappy-bird-clone/index.html") /project.flappy-bird-clone]
-                    +collapsecontent("INBOSH (It has No name But it's Online SHell)", "project")
-                        p A working shell inside a browser, that can only run function and has some bug.
-                        p Project link: #[a(target="_blank" href="/project.INBOSH/INBOSH.html") /project.INBOSH]
-                    +collapsecontent("Demo for a panorama background", "project")
-                        p A demo for a panorama background that is fully written in JS (no plugin used).
-                        p Project link: #[a(target="_blank" href="/project.panorama-demo/index.html") /project.panorama-demo]
-                    +collapsecontent("SOOPE (Simple and Open-Source Online Picture Editor)", "project")
-                        p A fully functional image editor inside browser (It even has dark mode too!).
-                        p Project link: #[a(target="_blank" href="/classic-project/soope.html") /classic-project/soope.html]
-                    +collapsecontent("WCOS (Web Console OS)", "project")
-                        p My second attempt to create a shell (which is better then the previous attempt, but still, it's pretty bad).
-                        p Project link: #[a(target="_blank" href="/classic-project/MSDOS.html") /classic-project/MSDOS.html]
-                    +collapsecontent("WTOS (Web Terminal OS; Also know as: Console)", "project")
-                        p My first attempt to create a shell (which is pretty bad).
-                        p Project link: #[a(target="_blank" href="/classic-project/console.html") /classic-project/console.html]
-                    +collapsecontent("Guess The Number Game", "project")
-                        p Pretty simple: Just Guess The Number.
-                        p Project link: #[a(target="_blank" href="/classic-project/numberguessgame.html") /classic-project/numberguessgame.html]
-                    +collapsecontent("Simple Captcha", "project")
-                        p Something I make for something related to AI idk.
-                        p Project link: #[a(target="_blank" href="/classic-project/captcha.html") /classic-project/captcha.html]
-                    +collapsecontent("Vigenère Encoder and Decoder", "project")
-                        p A simple Vigenère Encoder and Decoder.
-                        p Project link: #[a(target="_blank" href="/classic-project/Vigenere_Cipher.html") /classic-project/Vigenere_Cipher.html]
+            h2 2026
+            .project_container.short
+                .card <!-- 2026-05-26T08:35:10Z -->
+                    h3.highlight Sortipedia
+                    p A clone of the Sound of Sorting program back in 2013, now written with modern web technologies.
+                    .chip_container
+                        +link_chip("Website", "/project.sortipedia/index.html")
+                        +link_chip("GitHub", "https://github.com/sudoker0/project.sortipedia")
 
-                +collapsecontent("Game")
-                    +collapsecontent("InfiniMaze", "project")
-                        p A game where the objective is to survive as long as possible in an infinitely generating maze (more info available in the game's itch.io page)
-                        p Project link: #[a(target="_blank" href="https://sudoker0.itch.io/infinimaze") https://sudoker0.itch.io/infinimaze]
-                        p Source code: #[a(target="_blank" href="https://github.com/sudoker0/InfiniMaze-Godot") https://github.com/sudoker0/InfiniMaze-Godot]
-                    +collapsecontent("Show The Flags!", "project")
-                        p A game where you guess the flag of the countries (more info available in the game)
-                        p Project link: #[a(target="_blank" href="/project.show-the-flags/") /project.show-the-flags]
-                    +collapsecontent("Bouncy Beam", "project")
-                        p My third game about laser where you need to place mirror to make sure the laser hit the target while avoiding obstruction.
-                        p Project link: #[a(target="_blank" href="https://sudoker0.itch.io/bouncy-beam") https://sudoker0.itch.io/bouncy-beam]
-                        p Source code: #[a(target="_blank" href="https://github.com/sudoker0/Bouncy-Beam") https://github.com/sudoker0/Bouncy-Beam]
-                    +collapsecontent("Guess The Number Game", "project")
-                        p My second game written in C# where you guess a number with an Impossible Mode.
-                        p Source code: #[a(target="_blank" href="https://github.com/sudoker0/NumberGuessingGame/") https://github.com/sudoker0/NumberGuessingGame/]
-                    +collapsecontent("MyFirstGame [dead, just like Unity]", "project")
-                        p My very first game created in #[strike Unity] where you eat chicken to get points and eat bomb to lose point and get shoot up to the sky.
-                        p Project link: #[a(target="_blank" href="https://sudoker0.itch.io/myfirstgame") https://sudoker0.itch.io/myfirstgame]
-                        p Source code: #[a(target="_blank" href="https://github.com/sudoker0/MyFirstGame") https://github.com/sudoker0/MyFirstGame]
+            h2 2024
+            .project_container.short
+                .card <!-- 2024-07-11T08:17:40Z -->
+                    h3.highlight SSTV Encoder
+                    p A Python scripts which converts images to audio using #[a(target="_blank" href="https://en.wikipedia.org/wiki/Slow-scan_television") SSTV] encoding.
+                    .chip_container
+                        +link_chip("GitHub", "https://gist.github.com/sudoker0/4ed01f9a8bcb303e0ef9671cab30166f")
 
-                +collapsecontent("Program")
-                    +collapsecontent("SSTV Encoder", "project")
-                        p A Python scripts which converts images to audio using #[a(target="_blank" href="https://en.wikipedia.org/wiki/Slow-scan_television") SSTV] encoding.
-                        p Project link: #[a(target="_blank" href="https://gist.github.com/sudoker0/4ed01f9a8bcb303e0ef9671cab30166f") https://gist.github.com/sudoker0/4ed01f9a8bcb303e0ef9671cab30166f]
-                    +collapsecontent("Discord Message Scraper", "project")
-                        p A NodeJS program which allow you to download messages from channels in servers.
-                        p Project link: #[a(target="_blank" href="https://github.com/sudoker0/DiscordMessageScraper") https://github.com/sudoker0/DiscordMessageScraper]
-                    +collapsecontent("Dead Chat Tracker (DCT) - A Discord Bot", "project notable")
-                        p A Discord bot made for only one purpose, and that is to track how long the channels of a server has died.
-                        p Project link: #[a(target="_blank" href="https://github.com/sudoker0/project.discord-dead-chat-bot.bot") https://github.com/sudoker0/project.discord-dead-chat-bot.bot]
-                    +collapsecontent("Better Tuxedo Keyboard Backlight Controller", "project")
-                        p A program which allow user to change their keyboard backlight color, as long as they have the Tuxedo/Clevo compatible keyboard and appropriate #[a(target="_blank" href="https://github.com/tuxedocomputers/tuxedo-keyboard") kernal modules].
-                        p Project link: #[a(target="_blank" href="https://github.com/sudoker0/TuxedoBacklightController") https://github.com/sudoker0/TuxedoBacklightController]
-                    +collapsecontent("[DEPRECATED] Get Discord Message as JSON", "project")
-                        p A NodeJS project to get the chat message of any channels in any server/person as JSON data.
-                        p Project link: #[a(target="_blank" href="https://github.com/sudoker0/Get_Discord_MSG") https://github.com/sudoker0/Get_Discord_MSG]
-                    +collapsecontent("GTPL (Guess The Programming Language)", "project")
-                        p A simple game written in Python and it's text-based where you have to guess the programming language of a piece of code.
-                        p Project link: #[a(target="_blank" href="https://gist.github.com/sudoker0/dab9fd0e0a7fe36b271baf7d98c751ff") https://gist.github.com/sudoker0/dab9fd0e0a7fe36b271baf7d98c751ff]
-                    +collapsecontent("Windows Forms App 2.0 Unofficial", "project")
-                        p A template for a more modern build-in Windows Forms.
-                        p Project link: #[a(target="_blank" href="https://github.com/sudoker0/Windows-Forms-App-2.0-Unofficial") https://github.com/sudoker0/Windows-Forms-App-2.0-Unofficial]
-                    +collapsecontent("EDIT (Edit Document In Terminal)", "project")
-                        p A really ~OK~ text editor made with Electron with features like Auto Update.
-                        p Project link: #[a(target="_blank" href="https://github.com/sudoker0/Edit") https://github.com/sudoker0/Edit]
+                .card <!-- 2024-07-11T08:17:40Z -->
+                    h3.highlight Nonogram Maker
+                    p A web utility to generate a #[a(target="_blank" href="https://en.wikipedia.org/wiki/Nonogram") nonogram] puzzle.
+                    .chip_container
+                        +link_chip("Website", "/project.nonogram-maker/index.html")
+                        +link_chip("GitHub", "https://github.com/sudoker0/project.nonogram-maker")
 
-                +collapsecontent("Minecraft Build")
-                    +collapsecontent("8-bit Decoder", "project")
-                        p Convert binary to character from A to Z, 0 to 9 in ASCII.
-                        p Project link: #[a(target="_blank" href="https://www.planetminecraft.com/project/8-bit-decoder-in-minecraft/") https://www.planetminecraft.com/project/8-bit-decoder-in-minecraft]
-                    +collapsecontent("Compact Calculator (1.15.2)", "project")
-                        p A fully working calculator that can do basic calculation in Minecraft using command block.
-                        p Project link: #[a(target="_blank" href="https://www.planetminecraft.com/project/compact-calculator-1-15-2/") https://www.planetminecraft.com/project/compact-calculator-1-15-2]
-                    +collapsecontent("The Longest Useless Machine in Minecraft (v1.0)", "project")
-                        p A redstone contraption that is pretty useless.
-                        p Project link: #[a(target="_blank" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-0/") https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-0]
-                    +collapsecontent("The Longest Useless Machine in Minecraft (v1.2)", "project")
-                        p An upgraded version of the 1.0 version.
-                        p Project link: #[a(target="_blank" href="https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-1/") https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-1]
-                    +collapsecontent("Printer 1.16", "project")
-                        p A printer that can print stuff out using concrete instead of paper.
-                        p Project link: #[a(target="_blank" href="https://www.planetminecraft.com/project/printer-1-16/") https://www.planetminecraft.com/project/printer-1-16]
-                    +collapsecontent("Security Vault 2.0", "project")
-                        p A very large vault to store and hide valuables.
-                        p Project link: #[a(target="_blank" href="https://www.planetminecraft.com/project/security-vault-2-0/") https://www.planetminecraft.com/project/security-vault-2-0]
+                .card <!-- 2024-01-11T07:29:52Z -->
+                    h3.highlight InfiniMaze
+                    p A game where the objective is to survive as long as possible in an infinitely generating maze (more info available in the game's itch.io page)
+                    .chip_container
+                        +link_chip("Website", "https://sudoker0.itch.io/infinimaze")
+                        +link_chip("GitHub", "https://github.com/sudoker0/InfiniMaze-Godot")
+            h2 2023
+            .project_container.short
+                .card <!-- 2023-11-02T05:43:45Z -->
+                    h3.highlight Show The Flags!
+                    p A game where you guess the flag of the countries (more info available in the game)
+                    .chip_container
+                        +link_chip("Website", "/project.show-the-flags/")
+                        +link_chip("GitHub", "https://github.com/sudoker0/project.show-the-flags")
 
-                +collapsecontent("Miscellaneous Project")
-                    +collapsecontent("NoHistory - A Firefox Extension", "project")
-                        p Project link: #[a(target="_blank" href="https://addons.mozilla.org/en-US/firefox/addon/nohistory/") https://addons.mozilla.org/en-US/firefox/addon/nohistory]
-                        p Source code: #[a(target="_blank" href="https://github.com/sudoker0/NoHistory/") https://github.com/sudoker0/NoHistory]
-                        p An extension for Firefox to prevent web pages from getting saved from history without opening a private window.
+                .card <!-- 2023-10-31T05:43:35Z -->
+                    h3.highlight No Nutella November Tracker
+                    p A progress tracker for the NNN Challenge
+                    .chip_container
+                        +link_chip("Website", "/project.nnn-tracker/index.html")
+                        +link_chip("GitHub", "https://github.com/sudoker0/project.nnn-tracker")
 
+                .card <!-- 2023-06-29T07:25:56Z -->
+                    h3.highlight DVD Screensaver
+                    p A web screensaver with an image that bounces around
+                    .chip_container
+                        +link_chip("Website", "/project.dvd-screensaver/index.html")
+                        +link_chip("GitHub", "https://github.com/sudoker0/project.dvd-screensaver")
+
+                .card <!-- 2023-06-25T07:54:31Z -->
+                    h3.highlight Discord Message Scraper
+                    p A NodeJS program which allow you to download messages from channels in servers.
+                    .chip_container
+                        +link_chip("GitHub", "https://github.com/sudoker0/DiscordMessageScraper")
+
+                .card <!-- 2023-05-17T11:58:47Z -->
+                    h3.highlight Dead Chat Tracker (DCT) - A Discord Bot
+                    p A Discord bot made for only one purpose, and that is to track how long the channels of a server has died.
+                    .chip_container
+                        +link_chip("GitHub", "https://github.com/sudoker0/project.discord-dead-chat-bot.bot")
+
+                .card <!-- 2023-03-25T13:44:48Z -->
+                    h3.highlight April Fools 2023: DPRK VPN
+                    p A VPN which allow you to browse the best Internet created by the DPRK.
+                    .chip_container
+                        +link_chip("Website", "/project.dprk-vpn/index.html")
+                        +link_chip("GitHub", "https://github.com/sudoker0/project.dprk-vpn")
+
+                .card <!-- 2023-03-25T13:33:02Z -->
+                    h3.highlight Guess The GIF
+                    p A game about guessing GIF (or JIF i guess)
+                    .chip_container
+                        +link_chip("Website", "/project.guess-the-gif/index.html")
+                        +link_chip("GitHub", "https://github.com/sudoker0/project.guess-the-gif")
+
+                .card <!-- 2023-03-25T13:24:56Z -->
+                    h3.highlight NNN Challenge Tracker
+                    p A progress tracker for the "November" Challenge
+                    .chip_container
+                        +link_chip("Website", "/project.anti-nutella-challange/index.html")
+                        +link_chip("GitHub", "https://github.com/sudoker0/project.anti-nutella-challange")
+
+                .card <!-- 2023-03-25T13:39:16Z -->
+                    h3.highlight Flappy Bird Clone
+                    p A basic prototype of the flappy bird clone that I made.
+                    .chip_container
+                        +link_chip("Website", "/project.flappy-bird-clone/index.html")
+                        +link_chip("GitHub", "https://github.com/sudoker0/project.flappy-bird-clone")
+
+                .card <!-- 2023-03-25T13:45:18Z -->
+                    h3.highlight INBOSH (It has No name But it's Online SHell)
+                    p A working shell inside a browser, that can only run function and has some bug.
+                    .chip_container
+                        +link_chip("Website", "/project.INBOSH/INBOSH.html")
+                        +link_chip("GitHub", "https://github.com/sudoker0/project.INBOSH")
+
+                .card <!-- 2023-03-25T13:48:41Z -->
+                    h3.highlight Demo for a panorama background
+                    p A demo for a panorama background that is fully written in JS (no plugin used).
+                    .chip_container
+                        +link_chip("Website", "/project.panorama-demo/index.html")
+                        +link_chip("GitHub", "https://github.com/sudoker0/project.panorama-demo")
+
+                .card <!-- 2023-03-11T14:38:00Z -->
+                    h3.highlight Better Tuxedo Keyboard Backlight Controller
+                    p A program which allow user to change their keyboard backlight color, as long as they have the Tuxedo/Clevo compatible keyboard and appropriate #[a(target="_blank" href="https://github.com/tuxedocomputers/tuxedo-keyboard") kernal modules].
+                    .chip_container
+                        +link_chip("GitHub", "https://github.com/sudoker0/TuxedoBacklightController")
+            h2 2022
+            .project_container.short
+                .card <!-- 2022-03-04T04:57:45Z -->
+                    h3.highlight NoHistory - A Firefox Extension
+                    p An extension for Firefox to prevent web pages from getting saved from history when opening a private window.
+                    .chip_container
+                        +link_chip("Mozilla Add-ons", "https://addons.mozilla.org/en-US/firefox/addon/nohistory/")
+                        +link_chip("GitHub", "https://github.com/sudoker0/NoHistory/")
+
+                .card <!-- 2022-08-19T07:14:30Z -->
+                    h3.highlight Get Discord Message as JSON
+                    p A NodeJS project to get the chat message of any channels in any server/person as JSON data.
+                    .chip_container
+                        +link_chip("GitHub", "https://github.com/sudoker0/Get_Discord_MSG")
+
+                .card <!-- 2022-06-18T10:48:02Z -->
+                    h3.highlight Bouncy Beam
+                    p My third game about laser where you need to place mirror to make sure the laser hit the target while avoiding obstruction.
+                    .chip_container
+                        +link_chip("Website", "https://sudoker0.itch.io/bouncy-beam")
+                        +link_chip("GitHub", "https://github.com/sudoker0/Bouncy-Beam")
+
+                .card <!-- 2022-06-17T14:57:35Z -->
+                    h3.highlight MyFirstGame [dead, just like Unity]
+                    p My very first game created in #[strike Unity] where you eat chicken to get points and eat bomb to lose point and get shoot up to the sky.
+                    .chip_container
+                        +link_chip("Website", "https://sudoker0.itch.io/myfirstgame")
+                        +link_chip("GitHub", "https://github.com/sudoker0/MyFirstGame")
+
+                .card
+                    h3.highlight GTPL (Guess The Programming Language)
+                    p A simple game written in Python and it's text-based where you have to guess the programming language of a piece of code.
+                    .chip_container
+                        +link_chip("GitHub", "https://gist.github.com/sudoker0/dab9fd0e0a7fe36b271baf7d98c751ff")
+            h2 2021
+            .project_container.short
+                .card <!-- 2021-06-26T13:05:25Z -->
+                    h3.highlight Windows Forms App 2.0 Unofficial
+                    p A template for a more modern build-in Windows Forms.
+                    .chip_container
+                        +link_chip("GitHub", "https://github.com/sudoker0/Windows-Forms-App-2.0-Unofficial")
+
+                .card <!-- 2021-05-02T16:16:42Z -->
+                    h3.highlight Guess The Number Game
+                    p My second game written in C# where you guess a number with an Impossible Mode.
+                    .chip_container
+                        +link_chip("GitHub", "https://github.com/sudoker0/NumberGuessingGame/")
+
+                .card <!-- 2021-01-02T06:02:52Z -->
+                    h3.highlight EDIT (Edit Document In Terminal)
+                    p A really ~OK~ text editor made with Electron with features like Auto Update.
+                    .chip_container
+                        +link_chip("GitHub", "https://github.com/sudoker0/Edit")
+
+                .card
+                    h3.highlight SOOPE (Simple and Open-Source Online Picture Editor)
+                    p A fully functional image editor inside browser (It even has dark mode too!).
+                    .chip_container
+                        +link_chip("Website", "/classic-project/soope.html")
+                .card
+                    h3.highlight WCOS (Web Console OS)
+                    p My second attempt to create a shell (which is better then the previous attempt, but still, it's pretty bad).
+                    .chip_container
+                        +link_chip("Website", "/classic-project/MSDOS.html")
+
+                .card
+                    h3.highlight WTOS (Web Terminal OS; Also know as: Console)
+                    p My first attempt to create a shell (which is pretty bad).
+                    .chip_container
+                        +link_chip("Website", "/classic-project/console.html")
+
+                .card
+                    h3.highlight Guess The Number Game
+                    p Pretty simple: Just Guess The Number.
+                    .chip_container
+                        +link_chip("Website", "/classic-project/numberguessgame.html")
+
+                .card
+                    h3.highlight Simple Captcha
+                    p Something I make for something related to AI idk.
+                    .chip_container
+                        +link_chip("Website", "/classic-project/captcha.html")
+
+                .card
+                    h3.highlight Vigenère Encoder and Decoder
+                    p A simple Vigenère Encoder and Decoder.
+                    .chip_container
+                        +link_chip("Website", "/classic-project/Vigenere_Cipher.html")
+
+                .card
+                    h3.highlight 8-bit Decoder
+                    p Convert binary to character from A to Z, 0 to 9 in ASCII.
+                    .chip_container
+                        +link_chip("PlanetMinecraft", "https://www.planetminecraft.com/project/8-bit-decoder-in-minecraft/")
+
+                .card
+                    h3.highlight Compact Calculator (1.15.2)
+                    p A fully working calculator that can do basic calculation in Minecraft using command block.
+                    .chip_container
+                        +link_chip("PlanetMinecraft", "https://www.planetminecraft.com/project/compact-calculator-1-15-2/")
+
+                .card
+                    h3.highlight The Longest Useless Machine in Minecraft (v1.0)
+                    p A redstone contraption that is pretty useless.
+                    .chip_container
+                        +link_chip("PlanetMinecraft", "https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-0/")
+
+                .card
+                    h3.highlight The Longest Useless Machine in Minecraft (v1.2)
+                    p An upgraded version of the 1.0 version.
+                    .chip_container
+                        +link_chip("PlanetMinecraft", "https://www.planetminecraft.com/project/the-longest-useless-machine-in-minecraft-version-1-1/")
+
+                .card
+                    h3.highlight Printer 1.16
+                    p A printer that can print stuff out using concrete instead of paper.
+                    .chip_container
+                        +link_chip("PlanetMinecraft", "https://www.planetminecraft.com/project/printer-1-16/")
+
+                .card
+                    h3.highlight Security Vault 2.0
+                    p A very large vault to store and hide valuables.
+                    .chip_container
+                        +link_chip("PlanetMinecraft", "https://www.planetminecraft.com/project/security-vault-2-0/")
 
         +section("websites", "", "/Websites")
             p While I mainly focus on this website, I also have #[span.highlight-purple other websites] that I created during my time doing webdev. Some are currently #[span.highlight-red in development], while others are #[span.highlight-red archived] for historical purposes.
-            div
-                +collapsecontent("Code and Random Stuff Archive")
+            .project_container.short
+                .card
+                    h3.highlight Code and Random Stuff Archive
                     p This is where I put random file that I don't need, but can't throw away.
-                    p Link: #[a(target="_blank" href="https://sudoker0.github.io/WebsiteArchive/") https://sudoker0.github.io/WebsiteArchive/]
-                +collapsecontent("My Carrd's site")
+                    .chip_container
+                        +link_chip("Website", "https://sudoker0.github.io/WebsiteArchive")
+                .card
+                    h3.highlight My Carrd's site
                     p Something I made for fun.
-                    p Link: #[a(target="_blank" href="https://sudoker0.carrd.co/") https://sudoker0.carrd.co/]
-                +collapsecontent("My Blogsite")
+                    .chip_container
+                        +link_chip("Website", "https://sudoker0.carrd.co")
+                .card
+                    h3.highlight My Blogsite
                     p A personal blog where I may write about programming or general problems.
-                    p Link: #[a(target="_blank" href="https://sudoker0.github.io/Blogsite") https://sudoker0.github.io/Blogsite]
-                +collapsecontent("\"First Commit\"")
+                    .chip_container
+                        +link_chip("Website", "https://sudoker0.github.io/Blogsite")
+                .card
+                    h3.highlight "First Commit"
                     p The first ever version of my website, archived for... purposes.
-                    p Link: #[a(target="_blank" href="https://quan215.github.io") https://quan215.github.io]
+                    .chip_container
+                        +link_chip("Website", "https://quan215.github.io")
 
         +section("gift", "", "/The_End")
             .split_container.r
