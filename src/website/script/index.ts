@@ -1,12 +1,12 @@
 var claiming_gift = false;
 
 qSel<HTMLElement>("#claim_gift").onclick = async () => {
-    if (claiming_gift)
-        return;
+    if (claiming_gift) return;
 
     claiming_gift = true;
     qSel<HTMLElement>("#claim_gift").style.transformOrigin = "bottom";
-    qSel<HTMLElement>("#claim_gift").style.animation = "gift_opening_animation 3s";
+    qSel<HTMLElement>("#claim_gift").style.animation =
+        "gift_opening_animation 3s";
 
     await wait(2750);
 
@@ -23,27 +23,37 @@ qSel<HTMLElement>("#claim_gift").onclick = async () => {
     qSel<HTMLElement>("#claim_gift").style.animation = "none";
 
     await wait(1500);
-    var gift_svg = qSel<SVGElement>(`div#gift_item_${gift} img`)
-    var somestring = qSel("div#gift_thatsmygift_dialog p") as HTMLParagraphElement;
+    var gift_svg = qSel<SVGElement>(`div#gift_item_${gift} img`);
+    var somestring = qSel(
+        "div#gift_thatsmygift_dialog p",
+    ) as HTMLParagraphElement;
     qSel<HTMLElement>("#gift_thatsmygift_dialog").style.display = "block";
 
     switch (gift) {
         case 1:
-            somestring.replace({ "message": "Ooh, free money! That's mine now! Hahahaha!" })
+            somestring.replace({
+                message: "Ooh, free money! That's mine now! Hahahaha!",
+            });
             await wait(1000);
             gift_svg.style.transition = "all 0.65s linear";
             gift_svg.style.transform = "translateY(-100%)";
             gift_svg.style.opacity = "0";
             break;
         case 2:
-            somestring.replace({ "message": "Ooh, a bird! I like them, but, ew, it's flappy bird! Shoo!" })
+            somestring.replace({
+                message:
+                    "Ooh, a bird! I like them, but, ew, it's flappy bird! Shoo!",
+            });
             await wait(1500);
             gift_svg.style.transition = "all 0.4s linear";
             gift_svg.style.transform = "translate(100%, -100%)";
             gift_svg.style.opacity = "0";
             break;
         case 3:
-            somestring.replace({ "message": "Hey, that's my Sublime Text license key! Give it back!" })
+            somestring.replace({
+                message:
+                    "Hey, that's my Sublime Text license key! Give it back!",
+            });
             await wait(1500);
             gift_svg.style.transition = "all 0.2s linear";
             gift_svg.style.transform = "translate(100%)";
@@ -51,7 +61,7 @@ qSel<HTMLElement>("#claim_gift").onclick = async () => {
             break;
         case 4:
         case 5:
-            somestring.replace({ "message": "Hahaha, you got nothing!" })
+            somestring.replace({ message: "Hahaha, you got nothing!" });
             break;
         default:
             break;
@@ -68,29 +78,30 @@ qSel<HTMLElement>("#claim_gift").onclick = async () => {
     claiming_gift = false;
 };
 
-const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-const textElm: HTMLElement = document.querySelector("#text_container p")
-const textContainerElm: HTMLElement = document.querySelector("#text_container")
+const alphabet =
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+const textElm: HTMLElement = document.querySelector("#text_container p");
+const textContainerElm: HTMLElement = document.querySelector("#text_container");
 
 function randomString(len: number) {
-    var output = ""
+    var output = "";
     for (let i = 0; i < len; i++) {
-        output += alphabet[Math.floor(Math.random() * alphabet.length)]
+        output += alphabet[Math.floor(Math.random() * alphabet.length)];
     }
-    return output
+    return output;
 }
 
 function handleOnMouseMove(e: MouseEvent) {
-    const rect = textContainerElm.getBoundingClientRect()
+    const rect = textContainerElm.getBoundingClientRect();
     const x = e.clientX - rect.left,
-        y = e.clientY - rect.top
+        y = e.clientY - rect.top;
 
-    textElm.innerText = randomString(2000)
-    textElm.style.setProperty("--x", `${x + 20}px`)
-    textElm.style.setProperty("--y", `${y + 20}px`)
+    textElm.innerText = randomString(2000);
+    textElm.style.setProperty("--x", `${x + 20}px`);
+    textElm.style.setProperty("--y", `${y + 20}px`);
 }
 
-textContainerElm.addEventListener("pointermove", handleOnMouseMove)
+textContainerElm.addEventListener("pointermove", handleOnMouseMove);
 
 // if (gPBName("dev_mode") == "true") {
 //     qSel("#dev_console").classList.add("show")

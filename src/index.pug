@@ -26,26 +26,24 @@ html(lang="en")
 
         +section("intro", "fullscreen", "/Introduction")
             h1 A student by day. #[span.inverse A programmer by night.]
-            p Hello 👋! I'm Quan, a self-taught #[span.highlight-green programmer] from 🇻🇳, and a professional #[span.highlight-cyan dumbass].
+            p Hello! I'm Quan, a self-taught #[span.highlight-green programmer] from 🇻🇳, and currently a first year university student.
             .social_links
                 +social_link_item("discord", "https://discord.com/users/763377551963717653", "sudoker0")
                 +social_link_item("github", "https://github.com/sudoker0", "sudoker0")
-                //- +social_link_item("gitlab", "https://gitlab.com/sudoker0", "sudoker0")
                 +social_link_item("steam", "https://steamcommunity.com/id/sudoker0/", "sudoker0")
                 +social_link_item("reddit", "https://old.reddit.com/user/Quan_MCPC", "Quan_MCPC")
                 +social_link_item("itch.io", "https://sudoker0.itch.io", "sudoker0.itch.io")
                 +social_link_item("mastodon", "https://mastodon.world/@quanmcpc", "@QuanMCPC")
                 +social_link_item("bsky", "https://bsky.app/profile/sudoker0.xyz")
-                // +social_link_item("twitter", "https://twitter.com/sudoker0", "@sudoker0")
                 +social_link_item("bandcamp", " https://bandcamp.com/sudoker0", "sudoker0")
                 +social_link_item("planet_minecraft", "https://www.planetminecraft.com/member/sudoker0/", "sudoker0")
 
         +section("about_me", "", "/About_Me", "")
             .split_container.l
                 .left
-                    p I am a #[span.highlight-blue web developer] 🌐 with front-end and back-end skills. I have created many websites, APIs and browser apps during my #[span.highlight-red 7 years] 📅 of programming.
-                    p I've made #[span.highlight-blue games] 🎮 using Godot, #[span.highlight-green programs] using C++/C#, #[span.highlight-red websites] using libraries such as Svelte, as well as #[span.highlight-cyan mobile app] 📱 using Flutter.
-                    p I've joined and won 🏆 many regional #[span.highlight-green programming competitions] in my country, and I am constantly learning 📚 to improve my programming skills and gain experience for future competitions too!
+                    p I am a #[span.highlight-blue web developer] with skills in front-end and back-end development. I have created many websites, APIs and browser apps during my #[span.highlight-red 8 years] of programming.
+                    p I have made #[span.highlight-blue games] using Godot, #[span.highlight-green programs] using C++/C#, #[span.highlight-red websites] using frameworks such as Svelte or Express, as well as #[span.highlight-cyan mobile app] using Flutter.
+                    p I have won many regional #[span.highlight-green programming competitions] in my country, and I am constantly learning to improve my programming skills and gain experience for future competitions.
                 .right
                     .card.hover_effect
                         #text_container(tabindex="0")
@@ -54,7 +52,7 @@ html(lang="en")
                             img(src="website/image/logo/logo_transparent.png", alt="logo")
 
         +section("skills", "", "/Programming_Skills")
-            p These are languages which I am most #[span.highlight-red skilled] 🤹‍♀️ in. While I have used a lot of different programming languages, these are the one that I can use without much difficulties.
+            p These are languages which I am #[span.highlight-red skilled] in. While I have used numerous different programming languages before, these are the one that I can use with ease.
             .skills_container
                 .card.hover_effect(data-colorOverride="#3178C6")
                     img(src="/website/image/index_page/programming_language_logo/typescript.svg", alt="TypeScript logo")
@@ -65,15 +63,12 @@ html(lang="en")
                 .card.hover_effect(data-colorOverride="#659ad2")
                     img(src="/website/image/index_page/programming_language_logo/cplusplus.svg", alt="C++ logo")
                     p C++
-                // .card.hover_effect(data-colorOverride="#000000")
-                //     img(src="/website/image/index_page/programming_language_logo/rust.svg", alt="Rust logo")
-                //     p Rust
                 .card.hover_effect(data-colorOverride="#478CBF")
                     img(src="/website/image/index_page/programming_language_logo/godotengine.svg", alt="Godot logo")
                     p Godot
 
         +section("projects", "", "/Projects")
-            p These are projects that are much larger than the usual projects I made, and which I've contributed in. Check them out! (also, don't forget about my personal projects down below too)
+            p These are projects that are much larger than the usual projects I made and which I've contributed in. Check them out! (don't forget about my personal projects down below too)
             .project_container
                 .card
                     img(src="/website/image/index_page/project_logo/rpgpp_logo.png", alt="RPG++ logo")
@@ -98,7 +93,7 @@ html(lang="en")
                     p GitHub: #[a(target="_blank" href="https://github.com/The-Heeler-House/bot-bilby") The-Heeler-House/bot-bilby]
 
         +section("personal_projects", "", "/Personal_Projects")
-            p A #[span.highlight-purple list of projects] that I've created and released publically in the past few years. My projects spans from web app to games and programs. Check them out below!
+            p A #[span.highlight-purple list of projects] that I've created and released publically in the past few years. My projects spans from web app to games and programs.
             h2 2026
             .project_container.short
                 .card <!-- 2026-05-26T08:35:10Z -->
@@ -337,18 +332,8 @@ html(lang="en")
                         +link_chip("PlanetMinecraft", "https://www.planetminecraft.com/project/security-vault-2-0/")
 
         +section("websites", "", "/Websites")
-            p While I mainly focus on this website, I also have #[span.highlight-purple other websites] that I created during my time doing webdev. Some are currently #[span.highlight-red in development], while others are #[span.highlight-red archived] for historical purposes.
+            p While I mainly focus on this website, I also have #[span.highlight-purple other websites] that I created during my time doing web development. Some are currently #[span.highlight-red in development], while others are #[span.highlight-red archived] for historical purposes.
             .project_container.short
-                .card
-                    h3.highlight Code and Random Stuff Archive
-                    p This is where I put random file that I don't need, but can't throw away.
-                    .chip_container
-                        +link_chip("Website", "https://sudoker0.github.io/WebsiteArchive")
-                .card
-                    h3.highlight My Carrd's site
-                    p Something I made for fun.
-                    .chip_container
-                        +link_chip("Website", "https://sudoker0.carrd.co")
                 .card
                     h3.highlight My Blogsite
                     p A personal blog where I may write about programming or general problems.
@@ -359,6 +344,16 @@ html(lang="en")
                     p The first ever version of my website, archived for... purposes.
                     .chip_container
                         +link_chip("Website", "https://quan215.github.io")
+                .card
+                    h3.highlight Code and Random Stuff Archive
+                    p This is where I put random file that I don't need, but can't throw away.
+                    .chip_container
+                        +link_chip("Website", "https://sudoker0.github.io/WebsiteArchive")
+                .card
+                    h3.highlight My Carrd's site
+                    p Something I made for fun.
+                    .chip_container
+                        +link_chip("Website", "https://sudoker0.carrd.co")
 
         +section("gift", "", "/The_End")
             .split_container.r
@@ -384,9 +379,9 @@ html(lang="en")
                             button#claim_gift(aria-label="The Present")
                                 img(src="/website/image/index_page/gift/gift.svg", alt="The Present")
                 .right
-                    p And that's all! I don't know if you have visited everything on my website. But anyway, #[span.highlight-purple thanks for taking a look at my website]. To show my appreciation, here's #[span.highlight-green a gift] for you. I promise you won't #[span.highlight-red regret] it :)
+                    p And that's all I got to show for now! I don't know if you have visited everything on my website. But anyway, #[span.highlight-purple thanks for taking a look around]! To show my appreciation, here's #[span.highlight-green a gift] for you :3
                     p Also, there are a few easter eggs in my website too. Try to find them all, if you want.
-                    p A bit of spoiler: #[span.highlight-white Try adding `?id=entropy` to the end of the URL.]
+                    // p A bit of spoiler: #[span.highlight-white Try adding `?id=entropy` to the end of the URL.]
 
         include template/_pmod_footer.pug
         //-                         p '; website.secret = "superdupersecretkey"; website.dev_mode = false // IMPORTANT: remove the functionality to change this value in the URL (?dev_mode) or thing'

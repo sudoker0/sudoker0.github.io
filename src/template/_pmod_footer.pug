@@ -1,14 +1,12 @@
 +section("footer", "footer", "fastfetch")
     .card
-        .fallback_no_js: p #[span.highlight-cyan guest@unknown]
-        p.use_js #[span.highlight-cyan guest @$_hostname]
+        .fallback_no_js: p guest@unknown
+        p.use_js guest@$_hostname
         p ------------------
-        p #[span.highlight-red Version]: #[a(href="https://github.com/" + self.gh_repo + "/tree/" + self.gh_version) #{self.gh_version.substring(0, 8)}] (compiled on: #{self.updated_on})
-        p #[span.highlight-red Hosted on]: #[a(href="https://github.com/" + self.gh_repo) #{self.gh_repo}]
-        p #[span.highlight-red Workflow ID]: #[a(href="https://github.com/" + self.gh_repo + "/actions/runs/" + self.gh_workflow) #{self.gh_workflow}]
-        p.use_js #[span.highlight-red Uptime]: $_day
-        p.use_js #[span.highlight-red Shell]: $_reported_browser
-        p.use_js #[span.highlight-red Resolution]: $_reported_resolution
+        p Version: #[a(href="https://github.com/" + self.gh_repo + "/tree/" + self.gh_version) #{self.gh_version.substring(0, 8)}] (compiled on: #{self.updated_on})
+        p Hosted on: #[a(href="https://github.com/" + self.gh_repo) #{self.gh_repo}]
+        p Workflow ID: #[a(href="https://github.com/" + self.gh_repo + "/actions/runs/" + self.gh_workflow) #{self.gh_workflow}]
+        p.use_js Uptime: $_day
         p.use_js ------------------
         p (c) 2020 - 2026 sudoker0 (QuanMCPC). Created on 07/16/2020, this website will live #[span.highlight-red forever].
         .label-container
