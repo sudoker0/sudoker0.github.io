@@ -20,8 +20,7 @@ HTMLElement.prototype.replace = function (
         if (span() == null)
             _this().innerHTML = old.replace(
                 `${prefix}${i}`,
-                `
-                <span class="reactive" id="${alternate_prefix}${encodeURIComponent(i)}"></span>`,
+                `<span class="reactive" id="${alternate_prefix}${encodeURIComponent(i)}"></span>`,
             );
         span().innerText = data[i];
     }
